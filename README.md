@@ -142,6 +142,28 @@ checkpoints/early-experience-scienceworld/il/
 checkpoints/early-experience-webshop/il/
 ```
 
+### Qwen 基座模型
+
+下载 `Qwen/Qwen3.8-27B` 和 `Qwen/Qwen2.5-7B-Instruct`：
+
+```bash
+bash scripts/download_hf_models_curl.sh \
+  Qwen/Qwen3.8-27B Qwen3.8-27B \
+  Qwen/Qwen2.5-7B-Instruct Qwen2.5-7B-Instruct
+```
+
+该脚本先通过 Hugging Face API 获取每个仓库的完整文件清单，再使用 `curl` 逐文件下载。大文件写入 `.part` 后原子移动到正式路径，重跑同一命令即可续传。默认使用 `https://hf-mirror.com`，并对每个文件自动重试。
+
+后台运行和查看日志：
+
+```bash
+setsid -f bash scripts/download_hf_models_curl.sh \
+  Qwen/Qwen3.8-27B Qwen3.8-27B \
+  Qwen/Qwen2.5-7B-Instruct Qwen2.5-7B-Instruct \
+  > outputs/download_qwen_models.log 2>&1 < /dev/null
+tail -f outputs/download_qwen_models.log
+```
+
 如果 Hugging Face 需要认证，先运行：
 
 ```bash
@@ -235,5 +257,7 @@ outputs/alfworld_il_eval/eval.log
 - SR checkpoint: https://huggingface.co/osunlp/early-experience-alfworld/tree/main/sr
 - ScienceWorld IL checkpoint: https://huggingface.co/osunlp/early-experience-scienceworld/tree/main/il
 - WebShop IL checkpoint: https://huggingface.co/osunlp/early-experience-webshop/tree/main/il
+- Qwen3.8-27B: https://huggingface.co/Qwen/Qwen3.8-27B
+- Qwen2.5-7B-Instruct: https://huggingface.co/Qwen/Qwen2.5-7B-Instruct
 - `verl-agent` README: https://github.com/langfengQ/verl-agent
 - `verl-agent` ALFWorld example: https://github.com/langfengQ/verl-agent/blob/master/examples/grpo_trainer/run_alfworld.sh
