@@ -1,0 +1,25 @@
+external/
+checkpoints/
+data/
+outputs/
+*.log
+
+# Local backups and editor files
+*.before-*
+*~
+.DS_Store
+.idea/
+.vscode/
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Local credentials and experiment tracking
+.env
+.env.*
+!.env.example
+wandb/
