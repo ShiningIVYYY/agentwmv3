@@ -23,6 +23,8 @@
 ├── checkpoints/early-experience-alfworld/il/
 ├── checkpoints/early-experience-alfworld/iwm/
 ├── checkpoints/early-experience-alfworld/sr/
+├── checkpoints/early-experience-scienceworld/il/
+├── checkpoints/early-experience-webshop/il/
 ├── data/verl-agent/text/
 ├── outputs/alfworld_il_eval/
 └── scripts/
@@ -109,6 +111,36 @@ checkpoints/early-experience-alfworld/sr/
 ```
 
 当前 `lab` 服务器状态（2026-09-27）：`il`、`iwm` 和 `sr` 已全部下载，每套约 15 GB。`iwm` 和 `sr` 均已通过离线 config/tokenizer 加载和 safetensors 头部校验，各包含 4 个权重分片、339 个张量，且没有残留 `.incomplete` 文件。
+
+### ScienceWorld 和 WebShop IL checkpoint
+
+下载这两个仓库的 `il/` 目录：
+
+```bash
+bash scripts/download_additional_il_checkpoints.sh
+```
+
+脚本默认使用 `https://hf-mirror.com`，通过 `curl` 逐文件下载，并对 `.part` 文件断点续传。这可规避 Hugging Face Python 客户端连接 Xet CDN 时偶发的 SSL EOF。可替换参数：
+
+- `CHECKPOINT_ROOT`：下载根目录，默认 `checkpoints`
+- `HF_ENDPOINT`：下载端点，默认 `https://hf-mirror.com`
+- `MAX_FILE_ATTEMPTS`：每个文件最多尝试次数，默认 `50`
+- `RETRY_DELAY_SECONDS`：外层重试间隔，默认 `10`
+
+后台运行和查看日志：
+
+```bash
+setsid -f bash scripts/download_additional_il_checkpoints.sh \
+  > outputs/download_additional_il_checkpoints.log 2>&1 < /dev/null
+tail -f outputs/download_additional_il_checkpoints.log
+```
+
+下载路径：
+
+```text
+checkpoints/early-experience-scienceworld/il/
+checkpoints/early-experience-webshop/il/
+```
 
 如果 Hugging Face 需要认证，先运行：
 
@@ -201,5 +233,7 @@ outputs/alfworld_il_eval/eval.log
 - IL checkpoint: https://huggingface.co/osunlp/early-experience-alfworld/tree/main/il
 - IWM checkpoint: https://huggingface.co/osunlp/early-experience-alfworld/tree/main/iwm
 - SR checkpoint: https://huggingface.co/osunlp/early-experience-alfworld/tree/main/sr
+- ScienceWorld IL checkpoint: https://huggingface.co/osunlp/early-experience-scienceworld/tree/main/il
+- WebShop IL checkpoint: https://huggingface.co/osunlp/early-experience-webshop/tree/main/il
 - `verl-agent` README: https://github.com/langfengQ/verl-agent
 - `verl-agent` ALFWorld example: https://github.com/langfengQ/verl-agent/blob/master/examples/grpo_trainer/run_alfworld.sh
