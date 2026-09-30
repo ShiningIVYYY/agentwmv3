@@ -46,29 +46,69 @@
 - `ACTOR_PARAM_OFFLOAD`：actor 参数 CPU offload，默认 `True`
 - `ACTOR_MICRO_BATCH_SIZE_PER_GPU`、`ROLLOUT_LOG_PROB_MICRO_BATCH_SIZE_PER_GPU`、`REF_LOG_PROB_MICRO_BATCH_SIZE_PER_GPU`、`CRITIC_MICRO_BATCH_SIZE_PER_GPU`：兼容当前 `verl-agent` 配置校验，默认均为 `1`
 
-## 安装环境
+## 环境安装（论文三环境，已在 `lab` 验证）
 
-先准备 conda，然后执行：
-
-```bash
-bash scripts/setup_verl_agent_alfworld.sh
-```
-
-如果要换目录或环境名：
+论文的环境实现来自 `langfengQ/verl-agent`（ALFWorld、WebShop）和 AgentGym（ScienceWorld）。在项目根目录执行：
 
 ```bash
-VERL_AGENT_DIR=external/verl-agent \
-CONDA_ENV_NAME=early-exp-alfworld \
-bash scripts/setup_verl_agent_alfworld.sh
+git clone https://github.com/langfengQ/verl-agent.git external/verl-agent
+git clone --recurse-submodules https://github.com/WooooDyy/AgentGym.git external/AgentGym
+
+conda create -n ee-alfworld python=3.12 -y
+conda create -n ee-scienceworld python=3.8 -y
+conda create -n ee-webshop python=3.10 -y
 ```
 
-脚本会执行以下操作：
+所有运行命令均加 `PYTHONNOUSERSITE=1`，防止服务器既有用户级 Python 包污染新环境。
 
-1. clone `https://github.com/langfengQ/verl-agent.git` 到 `VERL_AGENT_DIR`。
-2. 创建并使用 Python 3.12 的 conda 环境。
-3. 安装 `vllm==0.11.0`、`flash-attn==2.7.4.post1` 和 `verl-agent`。
-4. 安装 ALFWorld 相关包：`gymnasium==0.29.1`、`stable-baselines3==2.6.0`、`alfworld`。
-5. 执行 `alfworld-download -f` 下载 ALFWorld PDDL、game files 和 detector 资源。
+### ALFWorld
+
+```bash
+conda run -n ee-alfworld pip install --index-url https://download.pytorch.org/whl/cpu torch==2.6.0
+conda run -n ee-alfworld pip install gymnasium==0.29.1 stable-baselines3==2.6.0 alfworld pyyaml
+conda run -n ee-alfworld alfworld-download
+```
+
+`alfworld-download -f` 会无条件重拉约 2.4 GB 资源；已有完整 `~/.cache/alfworld` 时不要加 `-f`。验证：
+
+```bash
+cd ~/.cache/alfworld/alfworld
+ALFWORLD_DATA=~/.cache/alfworld PYTHONNOUSERSITE=1 conda run -n ee-alfworld python -c \
+'import yaml; from alfworld.agents.environment.alfred_tw_env import AlfredTWEnv; c=yaml.safe_load(open("configs/base_config.yaml")); c["dataset"]["num_eval_games"]=1; e=AlfredTWEnv(c,"eval_in_distribution"); g=e.init_env(1); print(g.reset()[0][0][:80]); g.close()'
+```
+
+### ScienceWorld
+
+需要 Java 8+。安装 AgentGym 的独立服务包，并增加论文仓库要求的 `/admissible_actions` 路由：该路由返回原生 `get_valid_action_object_combinations()`。
+
+```bash
+cd external/AgentGym/agentenv-sciworld
+PYTHONNOUSERSITE=1 conda run -n ee-scienceworld pip install --ignore-installed scienceworld==1.2.3
+PYTHONNOUSERSITE=1 conda run -n ee-scienceworld pip install -e .
+PYTHONNOUSERSITE=1 conda run -n ee-scienceworld sciworld --host 0.0.0.0 --port 36001
+```
+
+本次在 `external/AgentGym` clean checkout 中已应用该端点补丁。验证方法：`POST /create`、`POST /reset`，再请求 `GET /admissible_actions?id=<id>`。
+
+### WebShop
+
+```bash
+cd external/verl-agent/agent_system/environments/env_package/webshop/webshop
+CONDA_ALWAYS_YES=true PYTHONNOUSERSITE=1 PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple \
+  conda run -n ee-webshop bash ./setup.sh -d all
+```
+
+官方脚本会经 Google Drive 下载商品数据、下载 spaCy 模型并构建索引。若 lab 无法连 Google Drive，可从 Hugging Face 的 [`YWZBrandon/webshop-data`](https://huggingface.co/datasets/YWZBrandon/webshop-data/tree/main) 获取 `items_shuffle.json` 和 `items_ins_v2.json`；索引可复用本机已有兼容 WebShop cache，或重新构建。为兼容 `numpy==1.26.4`，本次验证固定了：`scipy==1.10.1`、`accelerate==0.34.2`，并从 HF 安装 `en_core_web_sm==3.7.1`。
+
+```bash
+PYTHONNOUSERSITE=1 PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple \
+  conda run -n ee-webshop pip install --force-reinstall --no-deps scipy==1.10.1 accelerate==0.34.2
+curl -fL -o /tmp/en_core_web_sm-3.7.1-py3-none-any.whl \
+  https://hf-mirror.com/spacy/en_core_web_sm/resolve/main/en_core_web_sm-any-py3-none-any.whl
+PYTHONNOUSERSITE=1 conda run -n ee-webshop pip install /tmp/en_core_web_sm-3.7.1-py3-none-any.whl
+```
+
+已验证 `WebAgentTextEnv(observation_mode="text", num_products=100)` 可 reset，并能执行 `search[laptop]`。
 
 ## 下载 checkpoint
 
