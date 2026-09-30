@@ -1,6 +1,6 @@
-# Early Experience ALFWorld IL Checkpoint Reproduction
+# Early Experience：ALFWorld / ScienceWorld / WebShop 测评
 
-本文档记录如何直接使用官方发布的 `osunlp/early-experience-alfworld/il` checkpoint，在 ALFWorld 上复现实验结果。这里不从零训练 IL 模型，只做 checkpoint 下载和评测。
+本仓库在 `ssh lab` 的 `/data1/shn/agentwmv2` 中运行 Qwen2.5-7B-Instruct、Qwen3.8-27B 和各 benchmark 对应的 EarlyExperience IL checkpoint。这里只下载和评测，不从零训练。当前推荐入口是下方“九组后台测评”；历史 ALFWorld 混合引擎入口仅保留作参考。
 
 ## 复现口径
 
@@ -212,7 +212,115 @@ tail -f outputs/download_qwen_models.log
 huggingface-cli login
 ```
 
-## 运行评测
+## 九组后台测评（audited-v1，已发现问题，待修正）
+
+### 2026-09-30 诊断：当前结果不能作为论文复现成绩
+
+以下为只读检查所得；本次版本记录保留当前代码和实验现场，尚未实施修正或停止后台任务。下方启动命令是当前实现的记录，修正前不建议据此开启新的正式测评。
+
+- **WebShop 已确认商品库与搜索索引不匹配。** 当前 runner 加载 `items_shuffle_1000.json` 的 1000 件商品，但 `num_products=None` 会选择 `search_engine/indexes`，本机该索引有 1,181,370 个文档。`get_top_n_product_from_keywords` 将不在当前商品库中的搜索命中过滤掉。EE-IL 的 500 个任务中，379 个全程没有搜到商品；用 `webshop_000` 的真实查询词读取索引，当前索引的前 50 个结果过滤后为 0，匹配的 `indexes_1k` 前 50 个结果全部在商品库中。三个模型的 WebShop 结果均受该配置影响，待统一商品库/索引后另建输出目录重跑；不能直接覆盖旧结果。
+- **ScienceWorld 的历史上下文与 one-shot 尚未严格对齐。** 当前代码固定最多保留最近两轮，即使 token 预算充足也丢弃更早历史；已读取的作者公开训练样本包含 54 条连续 messages，而本次示范只截取其首个动作轮次，不能认定等同作者的 inference one-shot。EE-IL 中 145/200 个任务达到 100 步上限，轨迹可见重复拿起/聚焦/放下物体。历史截断是强疑点，尚需对照实验验证，不宣称它是全部差距的唯一原因。
+- **区分论文和公开仓库的成绩，以及成功率和原始平均分。** 论文 v3 表 1 的 Qwen2.5-7B IL 成功率为 ScienceWorld 53.9%、WebShop 51.6%；当前 EE-IL 为 3.5% 和 16.6%。论文 WebShop 表 5 另列平均 score 62.1。当前运行无基础设施 errors 不代表评测协议或环境配置正确；通过现有 11 项离线回归测试也不能排除上述索引与 prompt 问题。
+
+参考论文 [Agent Learning via Early Experience v3](https://arxiv.org/html/2510.08558v3) 附录 C.1/C.2/C.6、作者 [ScienceWorld 说明](https://github.com/OSU-NLP-Group/EarlyExperience/blob/main/envs/scienceworld/README.md)、[AgentGym](https://github.com/WooooDyy/AgentGym) 和本地引用的 Verl-Agent 源码。
+
+本次是**按公开论文设置对齐的完整留出集测评，不是严格复现论文表格**。作者未公开全部 inference prompt、验证采样 task IDs、ScienceWorld horizon 和原始框架 revision；Qwen3.8-27B 也是用户新增 baseline，不是论文评测模型。不得将本次完整集合的成绩直接说成复现出论文数值，或把训练参数误当评测参数。
+
+| 环境 | 固定集合 | prompt / response token 上限 | temperature | step 上限 | 指标 |
+|---|---|---|---|---|---|
+| ALFWorld | TextWorld `eval_in_distribution` / `valid_seen`，140 个可解任务，各一次 | 4096 / 1024 | 0.4 | 50，引用 Verl 配置 | `won` 成功率 |
+| ScienceWorld | AgentGym 官方 AgentEval `sciworld_test.json`，200 个唯一 task IDs | 4096 / 1024 | 0.4 | 100，SDK 默认值；**论文未给出** | SDK 原始平均 score，另列 `done && score == 100` 完全成功率 |
+| WebShop | 引用的 Verl wrapper 测试池 `range(500)`，seed 1000，固定 500 个 goal | 4096 / 512 | 0.4 | 15 | `done && reward == 1.0` 成功率，另存平均 reward |
+
+WebShop 的 512 response / 15 steps 来自引用的 Verl example，不是论文 WebShop 段落明确给出的数字。产品文件显式使用 wrapper 默认 `items_shuffle_1000.json` / `items_ins_v2_1000.json`，synthetic goals、`human_goals=False`，与引用版本的小目录配置一致。`num_products=None` 不等于全量百万商品：默认文件本身只有 1000 件。不使用其他项目的 WebShop task JSON，也不把 AgentGym 的另一套 WebShop 划分混入 Verl 协议。
+
+ScienceWorld 200 条来自 [AgentGym/AgentEval](https://huggingface.co/datasets/AgentGym/AgentEval)，revision `1f090d52ef01a83a889da02699e34a500e35a274`；本地保存 `data/paper_eval/sciworld_test.json`，清单固定 SDK 中的 taskName / variationIdx，reset 时逐项校验。不是 ScienceWorld SDK 自己枚举的 1171 个 test variations，也不是 200 个 task 类型。
+
+ScienceWorld 进度分数通常为 0–100，但 SDK 在某些失败终止时返回 **-100**，本机正式运行已观察到。原始平均 score 按 AgentGym `BaseAgentEnvController.evaluate` 的 `rewards.mean()` 口径直接平均，**不裁剪负分或用部分得分冒充成功**；所以实时表的 score 可能为负。完整成功率是单独的百分比，两者不是同一个指标；不能将这个均值直接解释为论文成功率。
+
+论文说 ScienceWorld 使用 one-shot，但未给出完整可直接运行的 inference conversation。本次固定采用作者已发布 `expert_sft.jsonl` 的**训练集第一条对话的首个示范轮次**，使用其原始 action-template introduction、assistant acknowledgement、示范 user/assistant，输出 `Thought:` / `Action:`。来源片段保存在 `data/paper_eval/sources/science_expert_sample.jsonl`。它是公开训练示范，不是从当前 test task 挑答案；但不能声称与作者实际 inference one-shot 逐字相同。保留任务目标，使用最近两轮历史；保留 connect/disconnect 模板和全部环境动作，不再删除电路动作类别。完整 admissible list 存在轨迹中，不作为超长扁平列表塞入 prompt。
+
+ALFWorld / WebShop 从本地 Verl prompts 和 projection 文件运行加载，复用首步 no-history / 后续 history 模板、最近两步 pre-action observation 和记忆编号、原生动作提取；不再对 `[action]` 输出做额外猜测修复。WebShop 复用 observation 格式化和 >13000 字符时的 no-history 回退。所有请求由实际 checkpoint tokenizer 的 chat template 精确计数，整个 prompt 不得超过 4096 tokens；超长时逐步减少历史，不删除任务或 admissible actions，仍超限则记 infrastructure error，不假装任务失败。
+
+本次通用固定设置：`temperature=0.4`、`top_p=1.0`、禁用 top-k（vLLM `-1` / Transformers `0`）、`repetition_penalty=1.0`、generation seed 0、environment seed 1000。27B Transformers API 不接受顶层 `top_k` / `repetition_penalty`，需在支持的 `generation_config` **JSON 字符串**中覆盖这两个值及 `do_sample=True`，保留 checkpoint 的 EOS / PAD 配置；该写法已真实请求验证，不能把 checkpoint 默认 top-k 20 悄悄混入正式设置。Qwen3.8 请求额外带 `chat_template_kwargs={"enable_thinking": false}`，防止输出只有隐藏推理而无可执行 action；这是新增 baseline 的明确选择。7B 使用 vLLM，27B 使用 Transformers 多卡 device-map 后端，因此推理后端不完全等同作者实现。
+
+### GPU / Python 环境
+
+| GPU | 服务 | 端口 |
+|---|---|---|
+| 0 | Qwen2.5-7B-Instruct，三个任务共享 | 8100 |
+| 1 | EE ALFWorld IL | 8101 |
+| 2 | EE ScienceWorld IL | 8103 |
+| 3 | EE WebShop IL | 8104 |
+| 4–7 | Qwen3.8-27B，三个任务共享 | 8102 |
+
+环境 CPU runner 分别用 `ee-alfworld` / `ee-scienceworld` / `ee-webshop`，模型服务用 `verl-agent` / `ee-qwen38-direct`，均禁用用户 site-packages。7B 独立 inference 单卡可用，旧文档的“两卡”要求只针对同时加载 FSDP actor 和 rollout 的混合引擎，不是 ALFWorld 任务本身需要两卡。
+
+27B 使用 torch 2.8.0+cu128 / Transformers 5.17.0。服务器有 `/usr/local/cuda-12.8/bin/nvcc`；加速依赖安装后需要重新加载模型：
+
+```bash
+ssh lab
+cd /data1/shn/agentwmv2
+CUDA_HOME=/usr/local/cuda-12.8 \
+PATH=/usr/local/cuda-12.8/bin:/home/shn/miniconda3/envs/ee-qwen38-direct/bin:/usr/bin:/bin \
+MAX_JOBS=4 CAUSAL_CONV1D_FORCE_BUILD=TRUE \
+/home/shn/miniconda3/envs/ee-qwen38-direct/bin/pip install \
+  --no-build-isolation --index-url https://pypi.tuna.tsinghua.edu.cn/simple \
+  causal-conv1d==1.7.0 flash-linear-attention==0.5.2
+```
+
+当前安装已通过，保留日志 `outputs/paper_eval/logs/qwen38_kernels_install.log`。ScienceWorld HTTP 环境服务需监听 `127.0.0.1:36001`；接口已按安装步骤提供 `/admissible_actions`。未运行时，用其专属环境启动：
+
+```bash
+nohup env PYTHONNOUSERSITE=1 \
+  /home/shn/miniconda3/envs/ee-scienceworld/bin/sciworld \
+  --host 127.0.0.1 --port 36001 \
+  > outputs/paper_eval/logs/scienceworld_service.log 2>&1 < /dev/null &
+```
+
+### 启动、恢复与查看结果
+
+服务脚本只在对应端口空闲时启动服务，不 kill 其他进程；已有 7B 服务必须通过模型名和权重路径检查。27B 已有服务需核对其启动日志路径。后台 supervisor 就绪检查通过后生成固定任务清单，同时运行九组 jobs；27B 三个客户端使用共享锁逐请求轮流使用模型，以避免其非批处理后端并发冲突。
+
+```bash
+ssh lab
+cd /data1/shn/agentwmv2
+bash scripts/start_paper_eval_services.sh
+PYTHONNOUSERSITE=1 /home/shn/miniconda3/envs/ee-alfworld/bin/python \
+  scripts/test_paper_eval_protocol.py
+
+# 九组各执行一个真实任务的一步，仅验证接口，不用于正式成绩。
+mkdir -p outputs/paper_eval/audited_smoke
+nohup bash scripts/run_overnight_paper_benchmarks.sh \
+  --output /data1/shn/agentwmv2/outputs/paper_eval/audited_smoke \
+  --limit 1 --smoke-steps 1 \
+  > outputs/paper_eval/audited_smoke/supervisor.log 2>&1 < /dev/null &
+
+# 冒烟九组均 completed、errors=0 后，启动完整正式集合。
+mkdir -p outputs/paper_eval/audited
+nohup bash scripts/run_overnight_paper_benchmarks.sh \
+  > outputs/paper_eval/audited/supervisor.log 2>&1 < /dev/null &
+
+cat outputs/paper_eval/audited/RESULTS.md
+tail -40 outputs/paper_eval/audited/supervisor.log
+```
+
+同一输出目录由锁防止重复启动；完整 config 一致时跳过已完成任务，未完成/异常任务可恢复。runner 对基础设施异常重试最多三次，supervisor 对崩溃 runner 额外重启最多三次，不无限等待日志行数。表每 15 秒更新，明确 `completed/total`、errors 和运行状态。基础设施 errors 不充当成功或任务失败，不完整集合只能是部分结果；只有分母完成且没有 errors 才能报告正式完整成绩。
+
+输出：
+
+- `outputs/paper_eval/audited/RESULTS.md`：三个模型 × 三个环境实时表。
+- `summary.json`：机器可读进度、平均 score、成功率、errors、PID。
+- `audit.json`：论文版本、配置、九组命令、源码/data SHA256、源仓库 commit、无法逐项复现的限制。
+- `{benchmark}_{model}/config.json` / `tasks/*.json` / `steps.jsonl`：固定配置、每任务结果、逐步实际 prompt/output/action/raw score。
+- `data/paper_eval/audited/{alfworld,scienceworld,webshop}.json`：固定任务与内容哈希。
+- `data/paper_eval/sources/2510.08558v3.pdf` / `paper.txt`：核对使用的论文快照。
+
+旧 `outputs/paper_eval/formal` 中的运行使用不同提示词、动作修复、ScienceWorld 成功阈值和 WebShop 奖励阈值，**不能作为本次正式成绩**。保留旧文件供审计，但新汇总完全排除它们。旧 `run_paper_agent_eval.py` / `summarize_paper_eval.py` 不是当前推荐入口；checkpoint 轮换脚本已替换成新 supervisor 入口。
+
+正式启动时的 27B 顶层参数兼容错误与临时默认采样请求保存在 `outputs/paper_eval/audited_pre_sampling_fix/`，不混入正式三个 27B 输出。其他六组配置未改变，继续运行。
+
+## 历史 ALFWorld 混合引擎评测（仅参考）
 
 ### 当前服务器上的环境与显存结论
 
