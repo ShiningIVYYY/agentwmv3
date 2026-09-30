@@ -18,6 +18,25 @@ import requests
 ROOT = Path(__file__).resolve().parents[1]
 VERL = ROOT / 'external/verl-agent/agent_system'
 PROTOCOL = 'audited-v1'
+WEB_PROTOCOL = 'webshop-index-v2'
+
+
+def protocol_for_env(env):
+    return WEB_PROTOCOL if env == 'webshop' else PROTOCOL
+
+
+def validate_web_index(searcher, catalog_ids):
+    """Fail closed when the Lucene index and loaded catalog do not match."""
+    catalog_ids = set(catalog_ids)
+    if searcher.num_docs != len(catalog_ids):
+        raise RuntimeError('WebShop index/catalog size mismatch: %d vs %d' %
+                           (searcher.num_docs, len(catalog_ids)))
+    indexed_ids = []
+    for i in range(searcher.num_docs):
+        indexed_ids.append(json.loads(searcher.doc(i).raw())['id'])
+    if len(set(indexed_ids)) != len(indexed_ids) or set(indexed_ids) != catalog_ids:
+        raise RuntimeError('WebShop index/catalog ASIN mismatch')
+    return hashlib.sha256('\n'.join(sorted(indexed_ids)).encode()).hexdigest()
 
 
 def atomic(path, value):
@@ -277,9 +296,16 @@ class Web:
         from web_agent_site.envs.web_agent_text_env import WebAgentTextEnv
         from web_agent_site.utils import DEFAULT_FILE_PATH, DEFAULT_ATTR_PATH
         self.env = WebAgentTextEnv(observation_mode='text', file_path=DEFAULT_FILE_PATH,
-                                  attr_path=DEFAULT_ATTR_PATH, num_products=None,
+                                  attr_path=DEFAULT_ATTR_PATH, num_products=1000,
                                   human_goals=False, seed=1000)
-        self.data = dict(items=digest(DEFAULT_FILE_PATH), attributes=digest(DEFAULT_ATTR_PATH))
+        index = Path(DEFAULT_FILE_PATH).resolve().parents[1] / 'search_engine/indexes_1k'
+        index_ids = validate_web_index(self.env.server.search_engine,
+                                      self.env.server.product_item_dict)
+        self.data = dict(items=digest(DEFAULT_FILE_PATH), attributes=digest(DEFAULT_ATTR_PATH),
+                         num_products=1000, index_path=str(index.relative_to(ROOT)),
+                         index_asins_sha256=index_ids,
+                         index_files={p.name: digest(p) for p in sorted(index.iterdir())
+                                      if p.is_file() and p.name != 'write.lock'})
 
     def tasks(self):
         return [dict(task_id='webshop_%03d' % i, index=i,
@@ -336,16 +362,16 @@ def main():
     args = p.parse_args()
     backend = {'alfworld': Alf, 'scienceworld': Science, 'webshop': Web}[args.env](args)
     if args.prepare:
-        atomic(args.manifest, dict(protocol=PROTOCOL, env=args.env, tasks=backend.tasks()))
+        atomic(args.manifest, dict(protocol=protocol_for_env(args.env), env=args.env, tasks=backend.tasks()))
         print('Prepared', args.manifest, flush=True)
         return
     manifest = json.loads(Path(args.manifest).read_text())
-    assert manifest['protocol'] == PROTOCOL and manifest['env'] == args.env
+    assert manifest['protocol'] == protocol_for_env(args.env) and manifest['env'] == args.env, 'Manifest protocol mismatch; do not reuse pre-fix WebShop results'
     out = Path(args.output)
     out.mkdir(parents=True, exist_ok=True)
     with open(out / '.runner.lock', 'a') as runner_lock:
         fcntl.flock(runner_lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        config = dict(vars(args), protocol=PROTOCOL, manifest_sha256=digest(args.manifest))
+        config = dict(vars(args), protocol=protocol_for_env(args.env), manifest_sha256=digest(args.manifest))
         config_file = out / 'config.json'
         if config_file.exists():
             assert json.loads(config_file.read_text()) == config, 'Cannot mix changed experiment configurations'

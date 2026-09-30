@@ -4,12 +4,16 @@ import importlib.util
 from pathlib import Path
 from types import SimpleNamespace
 import unittest
+import tempfile
 from unittest.mock import patch
 
 path = Path(__file__).resolve().with_name('run_audited_paper_eval.py')
 spec = importlib.util.spec_from_file_location('evaluator', path)
 ev = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(ev)
+super_spec = importlib.util.spec_from_file_location('supervisor', path.with_name('supervise_paper_eval.py'))
+supervisor = importlib.util.module_from_spec(super_spec)
+super_spec.loader.exec_module(supervisor)
 
 
 class FakeAgent:
@@ -28,6 +32,55 @@ class FakeAgent:
 
 
 class ProtocolTests(unittest.TestCase):
+    def test_supervisor_web_manifest_is_isolated(self):
+        self.assertEqual(supervisor.manifest_path(Path('/data'), 'webshop'),
+                         Path('/data/webshop_index_v2.json'))
+        self.assertEqual(supervisor.manifest_path(Path('/data'), 'alfworld'),
+                         Path('/data/alfworld.json'))
+
+    def test_web_only_summary_and_read_only_combined_table(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp) / 'new'
+            reference = Path(tmp) / 'old'
+            out.mkdir()
+            reference.mkdir()
+            jobs = {'webshop_' + m: {'expected': 500} for m in ('qwen25', 'qwen38', 'ee_il')}
+            supervisor.update(out, jobs, {})
+            self.assertIn('| Model | WebShop success (index-v2) |', (out / 'RESULTS.md').read_text())
+            old_stats = {b + '_' + m: dict(status='running', completed=1, total=200,
+                successes=0, errors=0, success_rate=0.0, average_native_score=0.0)
+                for b in ('alfworld', 'scienceworld') for m in ('qwen25', 'qwen38', 'ee_il')}
+            original = ev.json.dumps({'results': old_stats})
+            (reference / 'summary.json').write_text(original)
+            supervisor.update(out, jobs, {}, reference)
+            self.assertIn('ALFWorld success', (out / 'RESULTS.md').read_text())
+            self.assertEqual((reference / 'summary.json').read_text(), original)
+            self.assertEqual(set(ev.json.loads((out / 'summary.json').read_text())['results']), set(jobs))
+
+    def index(self, ids):
+        return SimpleNamespace(num_docs=len(ids), doc=lambda i:
+            SimpleNamespace(raw=lambda: ev.json.dumps({'id': ids[i]})))
+
+    def test_web_index_accepts_exact_catalog(self):
+        self.assertEqual(ev.validate_web_index(self.index(['b', 'a']), ['a', 'b']),
+                         ev.hashlib.sha256(b'a\nb').hexdigest())
+
+    def test_web_index_rejects_wrong_size(self):
+        with self.assertRaisesRegex(RuntimeError, 'size mismatch'):
+            ev.validate_web_index(self.index(['a', 'b', 'c']), ['a', 'b'])
+
+    def test_web_index_rejects_wrong_ids(self):
+        with self.assertRaisesRegex(RuntimeError, 'ASIN mismatch'):
+            ev.validate_web_index(self.index(['a', 'c']), ['a', 'b'])
+
+    def test_web_index_rejects_duplicate_ids(self):
+        with self.assertRaisesRegex(RuntimeError, 'ASIN mismatch'):
+            ev.validate_web_index(self.index(['a', 'a']), ['a', 'b'])
+
+    def test_web_protocol_is_separate_from_old_results(self):
+        self.assertEqual(ev.protocol_for_env('webshop'), 'webshop-index-v2')
+        self.assertEqual(ev.protocol_for_env('scienceworld'), 'audited-v1')
+
     def test_native_alf_initial_template(self):
         actual = ev.native_prompt('alfworld', 'goal', 'Your task is to: goal', ['look', 'help'], [])
         namespace = ev.runpy.run_path(str(ev.VERL / 'environments/prompts/alfworld.py'))

@@ -1,6 +1,6 @@
 # Early Experience：ALFWorld / ScienceWorld / WebShop 测评
 
-本仓库在 `ssh lab` 的 `/data1/shn/agentwmv2` 中运行 Qwen2.5-7B-Instruct、Qwen3.8-27B 和各 benchmark 对应的 EarlyExperience IL checkpoint。这里只下载和评测，不从零训练。当前推荐入口是下方“九组后台测评”；历史 ALFWorld 混合引擎入口仅保留作参考。
+本仓库在 `ssh lab` 的 `/data1/shn/agentwmv2` 中运行 Qwen2.5-7B-Instruct、Qwen3.8-27B 和各 benchmark 对应的 EarlyExperience IL checkpoint。这里只下载和评测，不从零训练。WebShop 使用下方 `webshop-index-v2` 修正流程；ScienceWorld 仍有待验证的上下文问题，历史 ALFWorld 混合引擎入口仅保留作参考。
 
 ## 复现口径
 
@@ -212,11 +212,48 @@ tail -f outputs/download_qwen_models.log
 huggingface-cli login
 ```
 
-## 九组后台测评（audited-v1，已发现问题，待修正）
+## WebShop 索引修复与三个模型重跑（webshop-index-v2）
+
+2026-09-30 修正 `scripts/run_audited_paper_eval.py`：显式设置 `num_products=1000`，选择与 1000 件商品库匹配的 `search_engine/indexes_1k`，不再用百万商品索引。启动时逐条读取 1000 个索引文档，要求商品 ID 集合与商品库完全相同、无重复；数量或 ID 不一致直接报基础设施错误，不运行测评。商品/属性文件、索引文件 SHA256 和索引商品 ID SHA256 一并记录在清单中。
+
+只改变搜索索引选择及校验，保持原先 seed 1000、500 个 goal 的顺序与内容、prompt、动作解析、temperature 0.4、4096 / 512 token 和 15 步上限不变。新版固定清单为 `data/paper_eval/audited/webshop_index_v2.json`，使用独立 protocol `webshop-index-v2`；旧版清单会被拒绝，不复用旧 WebShop 任务结果。该修复不代表已完全复现论文设置或保证达到论文分数。
+
+验证包括：18 项离线回归；索引 1000 个 ID 全量一致；500 个 goal 与旧清单逐项哈希相等；20 个原先空结果的真实模型查询现在均返回商品；3 个测试任务完整购买后 `done=True, reward=1.0`。购买测试使用目标已知的测试夹具，只校验环境链路，**不是模型成绩，不进入测评结果**。三个模型的两任务、每任务两步冒烟均完成且无基础设施错误；EE-IL 和 Qwen3.8 已能搜索并点击真实商品。Qwen2.5 仍会输出不符合原生动作语法的内容，这是模型输出行为，不是本次索引故障；维持原有统一 prompt/解析，不做额外猜测修复。两步冒烟不评估任务成功率，正式重跑仍用完整 15 步。
+
+```bash
+ssh lab
+cd /data1/shn/agentwmv2
+PYTHONNOUSERSITE=1 /home/shn/miniconda3/envs/ee-alfworld/bin/python \
+  scripts/test_paper_eval_protocol.py
+PYTHONNOUSERSITE=1 CUDA_VISIBLE_DEVICES= \
+  /home/shn/miniconda3/envs/ee-webshop/bin/python scripts/validate_webshop_index.py
+
+# 每模型 2 个任务、每任务 2 步：仅检查真实请求/搜索，不算正式成绩。
+mkdir -p outputs/paper_eval/webshop_index_v2_smoke
+nohup bash scripts/run_overnight_paper_benchmarks.sh \
+  --benchmarks webshop --limit 2 --smoke-steps 2 \
+  --output /data1/shn/agentwmv2/outputs/paper_eval/webshop_index_v2_smoke \
+  > outputs/paper_eval/webshop_index_v2_smoke/supervisor.log 2>&1 < /dev/null &
+
+# 仅在冒烟三组均完成且 errors=0 后运行；不能与旧 WebShop runner 重复启动。
+mkdir -p outputs/paper_eval/webshop_index_v2
+nohup bash scripts/run_overnight_paper_benchmarks.sh \
+  --benchmarks webshop \
+  --output /data1/shn/agentwmv2/outputs/paper_eval/webshop_index_v2 \
+  --reference-output /data1/shn/agentwmv2/outputs/paper_eval/audited \
+  > outputs/paper_eval/webshop_index_v2/supervisor.log 2>&1 < /dev/null &
+cat outputs/paper_eval/webshop_index_v2/RESULTS.md
+```
+
+新输出目录 `outputs/paper_eval/webshop_index_v2/` 存三组独立新结果、`summary.json`、`audit.json` 和 `preflight.log`。其 `RESULTS.md` 将新 WebShop 结果与 `audited/summary.json` 中的 ALFWorld / ScienceWorld 状态合并展示；ScienceWorld 的已知上下文限制依然存在。旧 WebShop 数据保留在 `outputs/paper_eval/audited/webshop_*`，**均因错误索引无效，不再用于当前表**。
+
+切换时只终止旧 supervisor 和已核实的旧 WebShop Qwen3.8 runner；未中断 ALFWorld / ScienceWorld 的在跑任务。新 supervisor 用 `--benchmarks alfworld scienceworld --adopt-pids outputs/paper_eval/audited/adopt_other_benchmarks.json` 核验原 runner 的 `--env/--output/--manifest/--model` 后接管；记录 `pre_webshop_index_v2_migration.json` 快照，继续更新 `audited/summary.json`。`--adopt-pids` 是迁移选项，不应盲目复用过期 PID 文件；日常恢复只需同配置重启，runner 会跳过已完成任务。
+
+## 原九组后台测评（audited-v1，WebShop 已被新版取代）
 
 ### 2026-09-30 诊断：当前结果不能作为论文复现成绩
 
-以下为只读检查所得；本次版本记录保留当前代码和实验现场，尚未实施修正或停止后台任务。下方启动命令是当前实现的记录，修正前不建议据此开启新的正式测评。
+以下为修正前的诊断记录；旧实验现场已保留。WebShop 已按上方 `webshop-index-v2` 修正，ScienceWorld 尚未修改。下方九组启动命令仅作历史实现记录，不应原样用于当前重跑。
 
 - **WebShop 已确认商品库与搜索索引不匹配。** 当前 runner 加载 `items_shuffle_1000.json` 的 1000 件商品，但 `num_products=None` 会选择 `search_engine/indexes`，本机该索引有 1,181,370 个文档。`get_top_n_product_from_keywords` 将不在当前商品库中的搜索命中过滤掉。EE-IL 的 500 个任务中，379 个全程没有搜到商品；用 `webshop_000` 的真实查询词读取索引，当前索引的前 50 个结果过滤后为 0，匹配的 `indexes_1k` 前 50 个结果全部在商品库中。三个模型的 WebShop 结果均受该配置影响，待统一商品库/索引后另建输出目录重跑；不能直接覆盖旧结果。
 - **ScienceWorld 的历史上下文与 one-shot 尚未严格对齐。** 当前代码固定最多保留最近两轮，即使 token 预算充足也丢弃更早历史；已读取的作者公开训练样本包含 54 条连续 messages，而本次示范只截取其首个动作轮次，不能认定等同作者的 inference one-shot。EE-IL 中 145/200 个任务达到 100 步上限，轨迹可见重复拿起/聚焦/放下物体。历史截断是强疑点，尚需对照实验验证，不宣称它是全部差距的唯一原因。

@@ -23,6 +23,27 @@ SPEC = {
 IL_PORTS = {'alfworld': 8101, 'scienceworld': 8103, 'webshop': 8104}
 
 
+def manifest_path(data, benchmark):
+    return data / ('webshop_index_v2.json' if benchmark == 'webshop' else benchmark + '.json')
+
+
+class ExistingRunner:
+    """Monitor a verified existing process without interrupting its task."""
+    def __init__(self, pid, command):
+        self.pid = int(pid)
+        actual = Path('/proc', str(self.pid), 'cmdline').read_bytes().decode().split('\0')
+        for flag in ('--env', '--output', '--manifest', '--model'):
+            if actual[actual.index(flag) + 1] != command[command.index(flag) + 1]:
+                raise RuntimeError('Refusing to adopt mismatched runner %d: %s' % (self.pid, flag))
+        self.returncode = None
+
+    def poll(self):
+        status = Path('/proc', str(self.pid), 'stat')
+        if not status.exists() or status.read_text().split(') ', 1)[1].split()[0] == 'Z':
+            self.returncode = 0
+        return self.returncode
+
+
 def save(path, obj):
     path = Path(path)
     tmp = path.with_suffix(path.suffix + '.tmp')
@@ -45,7 +66,7 @@ def ready(port, model=None):
         return False
 
 
-def update(out, jobs, children):
+def update(out, jobs, children, reference=None):
     stats = {}
     for key, job in jobs.items():
         files = list((out / key / 'tasks').glob('*.json'))
@@ -63,14 +84,20 @@ def update(out, jobs, children):
             average_native_score=sum(r['score'] for r in good)/len(good) if good else None,
             pid=proc.pid if proc and proc.poll() is None else None, progress=progress)
     save(out / 'summary.json', dict(updated=time.time(), results=stats))
+    display = dict(stats)
+    if reference and (reference / 'summary.json').exists():
+        display = {**json.loads((reference / 'summary.json').read_text())['results'], **display}
+    benchmarks = [b for b in SPEC if b + '_qwen25' in display]
+    labels = {'alfworld': 'ALFWorld success', 'scienceworld': 'ScienceWorld score / full success',
+              'webshop': 'WebShop success (index-v2)'}
     lines = ['# Audited evaluation — live results', '',
         'Partial rows are not final benchmark scores. ScienceWorld = mean raw SDK score (failed tasks may return -100); full success is reported separately.', '',
-        '| Model | ALFWorld success | ScienceWorld score / full success | WebShop success |',
-        '|---|---|---|---|']
+        '| Model | ' + ' | '.join(labels[b] for b in benchmarks) + ' |',
+        '|---|' + '---|' * len(benchmarks)]
     for model in ('qwen25', 'qwen38', 'ee_il'):
         cells = []
-        for benchmark in SPEC:
-            s = stats[benchmark + '_' + model]
+        for benchmark in benchmarks:
+            s = display[benchmark + '_' + model]
             if s['success_rate'] is None:
                 cell = '%s; 0/%d' % (s['status'], s['total'])
             else:
@@ -94,7 +121,13 @@ def main():
     parser.add_argument('--limit', type=int, help='Smoke only, in a separate output directory')
     parser.add_argument('--smoke-steps', type=int, help='Shortened horizon for smoke only')
     parser.add_argument('--refresh-audit-only', action='store_true', help='Refresh metadata without launching duplicate jobs')
+    parser.add_argument('--benchmarks', nargs='+', choices=list(SPEC), default=list(SPEC))
+    parser.add_argument('--adopt-pids', help='JSON file mapping job keys to verified existing runner PIDs')
+    parser.add_argument('--reference-output', help='Read-only other-benchmark summary for the combined Markdown table')
     args = parser.parse_args()
+    selected = {b: SPEC[b] for b in SPEC if b in args.benchmarks}
+    adopted = json.loads(Path(args.adopt_pids).read_text()) if args.adopt_pids else {}
+    reference = Path(args.reference_output) if args.reference_output else None
     if args.smoke_steps and not args.limit:
         parser.error('--smoke-steps requires --limit and a separate output directory')
     out = Path(args.output)
@@ -111,8 +144,9 @@ def main():
             str(ROOT / 'scripts/paper_eval_tokenizers.py')], cwd=ROOT, env=child_env(),
             stdout=open(logs / 'tokenizers.log', 'a'), stderr=subprocess.STDOUT)
     deadline = time.time() + 600
-    for port, model in [(8105, None), (8100, 'qwen25'), (8101, 'ee-alfworld-il'),
-                        (8103, 'ee-scienceworld-il'), (8104, 'ee-webshop-il'), (8102, None)]:
+    services = [(8105, None), (8100, 'qwen25'), (8102, None)] + [
+        (IL_PORTS[b], 'ee-' + b + '-il') for b in selected]
+    for port, model in services:
         while not ready(port, model):
             if time.time() > deadline:
                 raise RuntimeError('Model/tokenizer service not ready on port %d' % port)
@@ -120,8 +154,8 @@ def main():
         print('Ready:', port, model, flush=True)
     data = ROOT / 'data/paper_eval/audited'
     data.mkdir(exist_ok=True)
-    for benchmark, (environment, horizon, max_tokens, _) in SPEC.items():
-        manifest = data / (benchmark + '.json')
+    for benchmark, (environment, horizon, max_tokens, _) in selected.items():
+        manifest = manifest_path(data, benchmark)
         if not manifest.exists():
             subprocess.run([str(CONDA / environment / 'bin/python'),
                 str(ROOT / 'scripts/run_audited_paper_eval.py'), '--env', benchmark,
@@ -129,7 +163,7 @@ def main():
                 '--max-tokens', str(max_tokens)], cwd=ROOT, env=child_env(), check=True,
                 stdout=open(logs / ('prepare_' + benchmark + '.log'), 'a'), stderr=subprocess.STDOUT)
     jobs = {}
-    for benchmark, (environment, horizon, max_tokens, expected) in SPEC.items():
+    for benchmark, (environment, horizon, max_tokens, expected) in selected.items():
         if args.smoke_steps:
             horizon = args.smoke_steps
         for model in ('qwen25', 'qwen38', 'ee_il'):
@@ -143,7 +177,7 @@ def main():
             key = benchmark + '_' + model
             command = [str(CONDA / environment / 'bin/python'),
                 str(ROOT / 'scripts/run_audited_paper_eval.py'), '--env', benchmark,
-                '--manifest', str(data / (benchmark + '.json')), '--url', 'http://127.0.0.1:%d' % port,
+                '--manifest', str(manifest_path(data, benchmark)), '--url', 'http://127.0.0.1:%d' % port,
                 '--model', served, '--tokenizer-path', str(weights), '--output', str(out / key),
                 '--max-steps', str(horizon), '--max-tokens', str(max_tokens)]
             if model == 'qwen38':
@@ -152,15 +186,18 @@ def main():
                 command += ['--limit', str(args.limit)]
             jobs[key] = dict(command=command, expected=min(args.limit, expected) if args.limit else expected,
                              benchmark=benchmark, model=model, weights=str(weights))
-    audit = dict(protocol='audited-v1', paper='https://arxiv.org/html/2510.08558v3',
+    audit = dict(protocol='webshop-index-v2' if 'webshop' in selected else 'audited-v1',
+        benchmarks=list(selected), adopted_pids=adopted, reference_output=str(reference) if reference else None,
+        paper='https://arxiv.org/html/2510.08558v3',
         AgentGym_commit=subprocess.check_output(['git','-C','external/AgentGym','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
         verl_agent_commit=subprocess.check_output(['git','-C','external/verl-agent','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
         AgentEval_revision='1f090d52ef01a83a889da02699e34a500e35a274',
         AgentEval_sciworld_sha256=hashlib.sha256((ROOT/'data/paper_eval/sciworld_test.json').read_bytes()).hexdigest(),
-        manifests={e:hashlib.sha256((data/(e+'.json')).read_bytes()).hexdigest() for e in SPEC},
+        manifests={e:hashlib.sha256(manifest_path(data,e).read_bytes()).hexdigest() for e in selected},
         sources={str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
                  for p in [ROOT/'scripts/run_audited_paper_eval.py', ROOT/'scripts/paper_eval_tokenizers.py',
-                           ROOT/'scripts/supervise_paper_eval.py', ROOT/'data/paper_eval/sources/2510.08558v3.pdf',
+                           ROOT/'scripts/supervise_paper_eval.py', ROOT/'scripts/validate_webshop_index.py',
+                           ROOT/'scripts/test_paper_eval_protocol.py', ROOT/'data/paper_eval/sources/2510.08558v3.pdf',
                            ROOT/'data/paper_eval/sources/science_expert_sample.jsonl']},
         temperature=.4, top_p=1.0, top_k={'vllm':-1, 'qwen38':0},
         repetition_penalty=1.0,
@@ -171,6 +208,7 @@ def main():
             'Full heldout pools: ALFWorld valid_seen 140, AgentEval ScienceWorld 200, Verl WebShop goal indices 0:500. Paper exact val sampling IDs are unpublished; not necessarily its sampled 128-row validation denominator.',
             'ScienceWorld exact inference one-shot and horizon are unpublished. Use authors released expert TRAIN conversation first turn as fixed one-shot, Thought/Action grammar, SDK default horizon 100, recent 2 turns plus permanent task. No circuit action category removed.',
             'WebShop response limit 512 and horizon 15 come from referenced Verl example, not an explicit numeric WebShop paragraph in the paper. Small 1000-product catalog/synthetic goals match current referenced wrapper config.',
+            'WebShop index-v2 explicitly uses num_products=1000 and indexes_1k. Startup validates all index ASINs against the catalog, and manifests record index file hashes. Pre-fix num_products=None results are invalid and never resumed.',
             'Qwen3.8-27B is a user-added baseline, not a model evaluated in the paper; hidden reasoning disabled. Transformers multi-GPU backend differs from 7B vLLM serving.',
             'Qwen3.8 top_k=0 and repetition_penalty=1.0 are sent through the supported generation_config JSON-string field, not unsupported top-level vLLM extensions.',
             '4096-token overflow drops oldest history; no task/action truncation. Unsupported oversized states become infrastructure errors, not benchmark failures.',
@@ -182,19 +220,25 @@ def main():
         return
     children, restarts = {}, {k:0 for k in jobs}
     for key, job in jobs.items():
-        children[key] = subprocess.Popen(job['command'], cwd=ROOT, env=child_env(),
-            stdout=open(logs / (key + '.log'), 'a'), stderr=subprocess.STDOUT)
-        print('Started', key, children[key].pid, flush=True)
+        if key in adopted:
+            children[key] = ExistingRunner(adopted[key], job['command'])
+            print('Adopted', key, children[key].pid, flush=True)
+        else:
+            children[key] = subprocess.Popen(job['command'], cwd=ROOT, env=child_env(),
+                stdout=open(logs / (key + '.log'), 'a'), stderr=subprocess.STDOUT)
+            print('Started', key, children[key].pid, flush=True)
     while True:
-        stats = update(out, jobs, children)
+        stats = update(out, jobs, children, reference)
         for key, process in list(children.items()):
-            if process.poll() not in (None, 0) and restarts[key] < 3:
+            exited = process.poll()
+            needs_resume = isinstance(process, ExistingRunner) and exited is not None and stats[key]['completed'] < jobs[key]['expected']
+            if (exited not in (None, 0) or needs_resume) and restarts[key] < 3:
                 restarts[key] += 1
                 print('Restarting failed runner', key, 'exit=', process.returncode, flush=True)
                 children[key] = subprocess.Popen(jobs[key]['command'], cwd=ROOT, env=child_env(),
                     stdout=open(logs / (key + '.log'), 'a'), stderr=subprocess.STDOUT)
         if all(p.poll() is not None for p in children.values()):
-            update(out, jobs, children)
+            update(out, jobs, children, reference)
             print('All runners exited; inspect summary for errors/missing tasks.', flush=True)
             return
         time.sleep(15)
