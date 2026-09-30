@@ -164,6 +164,8 @@ setsid -f bash scripts/download_hf_models_curl.sh \
 tail -f outputs/download_qwen_models.log
 ```
 
+当前 `lab` 服务器状态：`Qwen3.8-27B` 已下载完整 18 个权重分片（约 52 GB），`Qwen2.5-7B-Instruct` 已下载完整 4 个权重分片（约 15 GB）。两者均已通过离线 config 解析和 safetensors 头部校验，且没有残留 `.part` 文件。
+
 如果 Hugging Face 需要认证，先运行：
 
 ```bash
