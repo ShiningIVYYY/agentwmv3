@@ -24,7 +24,8 @@ IL_PORTS = {'alfworld': 8101, 'scienceworld': 8103, 'webshop': 8104}
 
 
 def manifest_path(data, benchmark):
-    return data / ('webshop_index_v2.json' if benchmark == 'webshop' else benchmark + '.json')
+    return data / ({'webshop':'webshop_index_v2.json',
+                    'scienceworld':'scienceworld_context_v2.json'}.get(benchmark, benchmark + '.json'))
 
 
 class ExistingRunner:
@@ -85,8 +86,10 @@ def update(out, jobs, children, reference=None):
             pid=proc.pid if proc and proc.poll() is None else None, progress=progress)
     save(out / 'summary.json', dict(updated=time.time(), results=stats))
     display = dict(stats)
-    if reference and (reference / 'summary.json').exists():
-        display = {**json.loads((reference / 'summary.json').read_text())['results'], **display}
+    references = reference if isinstance(reference, list) else ([reference] if reference else [])
+    for ref in references:
+        if (ref / 'summary.json').exists():
+            display = {**json.loads((ref / 'summary.json').read_text())['results'], **display}
     benchmarks = [b for b in SPEC if b + '_qwen25' in display]
     labels = {'alfworld': 'ALFWorld success', 'scienceworld': 'ScienceWorld score / full success',
               'webshop': 'WebShop success (index-v2)'}
@@ -123,11 +126,11 @@ def main():
     parser.add_argument('--refresh-audit-only', action='store_true', help='Refresh metadata without launching duplicate jobs')
     parser.add_argument('--benchmarks', nargs='+', choices=list(SPEC), default=list(SPEC))
     parser.add_argument('--adopt-pids', help='JSON file mapping job keys to verified existing runner PIDs')
-    parser.add_argument('--reference-output', help='Read-only other-benchmark summary for the combined Markdown table')
+    parser.add_argument('--reference-output', action='append', help='Read-only other-benchmark summary; repeat for multiple directories')
     args = parser.parse_args()
     selected = {b: SPEC[b] for b in SPEC if b in args.benchmarks}
     adopted = json.loads(Path(args.adopt_pids).read_text()) if args.adopt_pids else {}
-    reference = Path(args.reference_output) if args.reference_output else None
+    reference = [Path(p) for p in args.reference_output] if args.reference_output else None
     if args.smoke_steps and not args.limit:
         parser.error('--smoke-steps requires --limit and a separate output directory')
     out = Path(args.output)
@@ -157,6 +160,8 @@ def main():
     for benchmark, (environment, horizon, max_tokens, _) in selected.items():
         manifest = manifest_path(data, benchmark)
         if not manifest.exists():
+            if benchmark == 'scienceworld':
+                raise RuntimeError('Run validate_scienceworld_protocol.py before starting ScienceWorld context-v2')
             subprocess.run([str(CONDA / environment / 'bin/python'),
                 str(ROOT / 'scripts/run_audited_paper_eval.py'), '--env', benchmark,
                 '--manifest', str(manifest), '--prepare', '--max-steps', str(horizon),
@@ -186,8 +191,15 @@ def main():
                 command += ['--limit', str(args.limit)]
             jobs[key] = dict(command=command, expected=min(args.limit, expected) if args.limit else expected,
                              benchmark=benchmark, model=model, weights=str(weights))
-    audit = dict(protocol='webshop-index-v2' if 'webshop' in selected else 'audited-v1',
-        benchmarks=list(selected), adopted_pids=adopted, reference_output=str(reference) if reference else None,
+    protocols = {b: {'webshop':'webshop-index-v2', 'scienceworld':'scienceworld-context-v2'}.get(b, 'audited-v1') for b in selected}
+    science_preflight = None
+    if 'scienceworld' in selected:
+        science_preflight = json.loads((ROOT / 'outputs/paper_eval/scienceworld_context_v2/preflight.json').read_text())
+        assert science_preflight['passed'] and science_preflight['manifest_sha256'] == hashlib.sha256(manifest_path(data,'scienceworld').read_bytes()).hexdigest(), 'ScienceWorld preflight missing or stale'
+    audit = dict(protocol=next(iter(protocols.values())) if len(protocols) == 1 else 'mixed-versioned',
+        scienceworld_preflight=science_preflight,
+        protocols=protocols, benchmarks=list(selected), adopted_pids=adopted,
+        reference_output=[str(p) for p in reference] if reference else None,
         paper='https://arxiv.org/html/2510.08558v3',
         AgentGym_commit=subprocess.check_output(['git','-C','external/AgentGym','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
         verl_agent_commit=subprocess.check_output(['git','-C','external/verl-agent','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
@@ -197,6 +209,7 @@ def main():
         sources={str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
                  for p in [ROOT/'scripts/run_audited_paper_eval.py', ROOT/'scripts/paper_eval_tokenizers.py',
                            ROOT/'scripts/supervise_paper_eval.py', ROOT/'scripts/validate_webshop_index.py',
+                           ROOT/'scripts/validate_scienceworld_protocol.py',
                            ROOT/'scripts/test_paper_eval_protocol.py', ROOT/'data/paper_eval/sources/2510.08558v3.pdf',
                            ROOT/'data/paper_eval/sources/science_expert_sample.jsonl']},
         temperature=.4, top_p=1.0, top_k={'vllm':-1, 'qwen38':0},
@@ -206,12 +219,12 @@ def main():
         science_score_convention='Mean raw terminal SDK score, matching AgentGym rewards.mean(); failures may be -100. Full success = done and score == 100, reported separately.',
         limitations=[
             'Full heldout pools: ALFWorld valid_seen 140, AgentEval ScienceWorld 200, Verl WebShop goal indices 0:500. Paper exact val sampling IDs are unpublished; not necessarily its sampled 128-row validation denominator.',
-            'ScienceWorld exact inference one-shot and horizon are unpublished. Use authors released expert TRAIN conversation first turn as fixed one-shot, Thought/Action grammar, SDK default horizon 100, recent 2 turns plus permanent task. No circuit action category removed.',
+            'ScienceWorld context-v2 uses the complete first released expert TRAIN dialogue as a fixed one-shot (not a verified terminal-winning demo or the unpublished author exact prompt). Native goal-once dialogue, full history within exact 4096-token budget; drop oldest complete pairs only on overflow. SDK 1.2.3 default horizon 100, Thought/Action grammar; no circuit actions removed. AgentEval 200 ordered IDs and flattened task mapping are unchanged, and goal SHA256 is checked on reset.',
             'WebShop response limit 512 and horizon 15 come from referenced Verl example, not an explicit numeric WebShop paragraph in the paper. Small 1000-product catalog/synthetic goals match current referenced wrapper config.',
             'WebShop index-v2 explicitly uses num_products=1000 and indexes_1k. Startup validates all index ASINs against the catalog, and manifests record index file hashes. Pre-fix num_products=None results are invalid and never resumed.',
             'Qwen3.8-27B is a user-added baseline, not a model evaluated in the paper; hidden reasoning disabled. Transformers multi-GPU backend differs from 7B vLLM serving.',
             'Qwen3.8 top_k=0 and repetition_penalty=1.0 are sent through the supported generation_config JSON-string field, not unsupported top-level vLLM extensions.',
-            '4096-token overflow drops oldest history; no task/action truncation. Unsupported oversized states become infrastructure errors, not benchmark failures.',
+            '4096-token overflow drops oldest complete ScienceWorld turns (ALFWorld/WebShop keep original recent-2 policies); no goal/action truncation. Unsupported oversized states become infrastructure errors, not benchmark failures.',
             'Full reproduction cannot be claimed without author inference prompt, horizon, validation IDs, and original framework revision.'
         ], jobs=jobs)
     save(out / 'audit.json', audit)

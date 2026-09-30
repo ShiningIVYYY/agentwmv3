@@ -1,6 +1,6 @@
 # Early Experience：ALFWorld / ScienceWorld / WebShop 测评
 
-本仓库在 `ssh lab` 的 `/data1/shn/agentwmv2` 中运行 Qwen2.5-7B-Instruct、Qwen3.8-27B 和各 benchmark 对应的 EarlyExperience IL checkpoint。这里只下载和评测，不从零训练。WebShop 使用下方 `webshop-index-v2` 修正流程；ScienceWorld 仍有待验证的上下文问题，历史 ALFWorld 混合引擎入口仅保留作参考。
+本仓库在 `ssh lab` 的 `/data1/shn/agentwmv2` 中运行 Qwen2.5-7B-Instruct、Qwen3.8-27B 和各 benchmark 对应的 EarlyExperience IL checkpoint。这里只下载和评测，不从零训练。WebShop 使用 `webshop-index-v2`；ScienceWorld 使用下方 `scienceworld-context-v2` 修正流程。历史 ALFWorld 混合引擎入口仅保留作参考。
 
 ## 复现口径
 
@@ -245,15 +245,59 @@ nohup bash scripts/run_overnight_paper_benchmarks.sh \
 cat outputs/paper_eval/webshop_index_v2/RESULTS.md
 ```
 
-新输出目录 `outputs/paper_eval/webshop_index_v2/` 存三组独立新结果、`summary.json`、`audit.json` 和 `preflight.log`。其 `RESULTS.md` 将新 WebShop 结果与 `audited/summary.json` 中的 ALFWorld / ScienceWorld 状态合并展示；ScienceWorld 的已知上下文限制依然存在。旧 WebShop 数据保留在 `outputs/paper_eval/audited/webshop_*`，**均因错误索引无效，不再用于当前表**。
+新输出目录 `outputs/paper_eval/webshop_index_v2/` 存三组独立新结果、`summary.json`、`audit.json` 和 `preflight.log`。该目录最初的 `RESULTS.md` 合并过旧 ScienceWorld 状态；SciWorld 迁移后，当前三环境完整表改看下方 `scienceworld_context_v2/RESULTS.md`。旧 WebShop 数据保留在 `outputs/paper_eval/audited/webshop_*`，**均因错误索引无效，不再用于当前表**。
 
 切换时只终止旧 supervisor 和已核实的旧 WebShop Qwen3.8 runner；未中断 ALFWorld / ScienceWorld 的在跑任务。新 supervisor 用 `--benchmarks alfworld scienceworld --adopt-pids outputs/paper_eval/audited/adopt_other_benchmarks.json` 核验原 runner 的 `--env/--output/--manifest/--model` 后接管；记录 `pre_webshop_index_v2_migration.json` 快照，继续更新 `audited/summary.json`。`--adopt-pids` 是迁移选项，不应盲目复用过期 PID 文件；日常恢复只需同配置重启，runner 会跳过已完成任务。
 
-## 原九组后台测评（audited-v1，WebShop 已被新版取代）
+## ScienceWorld 输入修正与三个模型重跑（scienceworld-context-v2）
+
+修正旧评测器中已确认的三处输入差异：固定最近两轮历史、每一步重复拼接任务目标、将训练示范截成单个动作。新版统一用于三个模型：
+
+- 使用同一条作者公开 `scienceworld/expert_sft.jsonl` 训练对话的全部 54 条 messages，包含 introduction、acknowledgement 和全部示范轮次；不从测试任务选示范，不使用 SDK gold path 或测试答案。该公开对话不被认定为终止成功的轨迹，也不是作者未公开的精确 inference one-shot。
+- 采用 AgentGym 式交替 user/assistant 对话，任务目标只在当前任务第一条 user 中出现。完整历史能放入 4096 tokens 时全部保留；超预算时仅丢弃最早的完整 observation/assistant 轮次，并把目标保留在剩余对话第一条 user 中。示范、当前 observation、目标不做截字。仍超预算则报 infrastructure error。
+- 不改 ScienceWorld 1.2.3、环境动作/物理/奖励、200 个任务及顺序、100 步上限、temperature 0.4、response 1024、采样参数及三个 checkpoint。100 步是 SDK 默认选择，非论文明确数字。不做动作猜测修复或根据成绩挑 prompt。
+
+启动前运行 `validate_scienceworld_protocol.py`：从 HF 镜像读取官方 AgentEval revision `1f090d52ef01a83a889da02699e34a500e35a274`，逐项核对 200 个唯一 ID 及顺序；重新枚举 stock AgentGym 的排除集合/SDK flattened map，与旧清单逐项比较 taskName / variationIdx；用独立 HTTP 环境 ID reset 全部 200 个任务，对比运行服务与 SDK 的任务/变体/目标，以及旧 EE-IL 的目标文本。每个目标 SHA256 固定到新清单，runner 每次 reset 校验。也核对示范与发布训练文件第一条完全相同，记录训练数据 revision、SDK/JAR 哈希和 Java 版本。
+
+本次核验已通过：200 个官方 ID/顺序、200 个实际 HTTP task/variation/goal、200 条旧 EE-IL 目标全部一致。178 个任务初始分为 0，22 个任务有原生非零部分进度；校验 SDK 初始分，不强制为零，不改奖励。模型 runner 启动时另校验 SDK 版本、JAR、官方任务文件和示范文件的 SHA256。当前 SDK 1.2.3、系统 Java 1.8.0_452；作者生成 65.4% 时的精确 SDK/JVM 未公开。25 项离线回归通过；三个真实 tokenizer 的长历史样例也通过：10 轮可全部保留，超预算样例保留 14–18 轮，均不超过 4096 tokens，目标只出现一次。验证报告为 `preflight.json` 和 `runtime_prompt_checks.json`。此前六个失败任务在独立 SDK 中使用环境自带标准解均能达 100 分，仅作为环境诊断，不是模型成绩，标准解不进入 prompt。
+
+三个模型冒烟均已完成（每模型 2 个任务、每任务 4 步），共 24 次实际模型调用：`errors=0`，Thought/Action 格式均有效，服务 usage 与实际 tokenizer 计数一致；示范完整、当前任务目标只出现一次，四步中的第三轮历史正常保留。冒烟只检查链路，不用它估算成功率；正式重跑每模型 200 个任务、每任务最多 100 步，不复用冒烟结果。启动后的进度以新目录 `summary.json` 为准。
+
+```bash
+ssh lab
+cd /data1/shn/agentwmv2
+PYTHONNOUSERSITE=1 /home/shn/miniconda3/envs/ee-alfworld/bin/python \
+  scripts/test_paper_eval_protocol.py
+PYTHONNOUSERSITE=1 /home/shn/miniconda3/envs/ee-scienceworld/bin/python \
+  scripts/validate_scienceworld_protocol.py
+
+# 三模型各 2 个任务、每任务 4 步，仅检查接口和对话，不计正式成绩。
+mkdir -p outputs/paper_eval/scienceworld_context_v2_smoke
+nohup bash scripts/run_overnight_paper_benchmarks.sh \
+  --benchmarks scienceworld --limit 2 --smoke-steps 4 \
+  --output /data1/shn/agentwmv2/outputs/paper_eval/scienceworld_context_v2_smoke \
+  > outputs/paper_eval/scienceworld_context_v2_smoke/supervisor.log 2>&1 < /dev/null &
+
+# 先确认旧 SciWorld runner/supervisor 已迁移，冒烟三组 completed 且 errors=0。
+mkdir -p outputs/paper_eval/scienceworld_context_v2
+nohup bash scripts/run_overnight_paper_benchmarks.sh \
+  --benchmarks scienceworld \
+  --output /data1/shn/agentwmv2/outputs/paper_eval/scienceworld_context_v2 \
+  --reference-output /data1/shn/agentwmv2/outputs/paper_eval/audited \
+  --reference-output /data1/shn/agentwmv2/outputs/paper_eval/webshop_index_v2 \
+  > outputs/paper_eval/scienceworld_context_v2/supervisor.log 2>&1 < /dev/null &
+cat outputs/paper_eval/scienceworld_context_v2/RESULTS.md
+```
+
+新清单 `data/paper_eval/audited/scienceworld_context_v2.json`，新结果 `outputs/paper_eval/scienceworld_context_v2/`，旧结果 `outputs/paper_eval/audited/scienceworld_*` 保留但不续跑、不混入新成绩。新目录 `RESULTS.md` 合并新版 SciWorld、新版 WebShop、既有 ALFWorld 状态；`summary.json` 只含新版 SciWorld 三组。协议不同会拒绝旧清单，恢复还校验示范哈希和完整 config。此次迁移只停止已核实的旧 SciWorld runner 与监管它的 supervisor；ALFWorld runner 通过 `--benchmarks alfworld --adopt-pids` 接管继续跑，WebShop 不受影响。迁移前 audit/summary/PID 信息另存旧目录 migration 子目录。不要复用过期 PID 文件。
+
+任务集核对能证明与上述公开 AgentEval 的一致性，不能证明等同作者未公开的全部原始评测设置。官方 release 的 SciWorld IL 65.4% 是对照目标，不保证此次修正恢复该成绩。原始终态平均 score 和 `done && score==100` 成功率仍分别报告，不把部分得分、负分裁剪或最大中间分伪装成成功率。
+
+## 原九组后台测评（audited-v1，SciWorld / WebShop 已被新版取代）
 
 ### 2026-09-30 诊断：当前结果不能作为论文复现成绩
 
-以下为修正前的诊断记录；旧实验现场已保留。WebShop 已按上方 `webshop-index-v2` 修正，ScienceWorld 尚未修改。下方九组启动命令仅作历史实现记录，不应原样用于当前重跑。
+以下为修正前的历史诊断记录；旧实验现场已保留。WebShop 已按上方 `webshop-index-v2` 修正，ScienceWorld 已按 `scienceworld-context-v2` 修正。下方旧 prompt 描述及九组启动命令仅作历史记录，不应原样用于当前重跑。
 
 - **WebShop 已确认商品库与搜索索引不匹配。** 当前 runner 加载 `items_shuffle_1000.json` 的 1000 件商品，但 `num_products=None` 会选择 `search_engine/indexes`，本机该索引有 1,181,370 个文档。`get_top_n_product_from_keywords` 将不在当前商品库中的搜索命中过滤掉。EE-IL 的 500 个任务中，379 个全程没有搜到商品；用 `webshop_000` 的真实查询词读取索引，当前索引的前 50 个结果过滤后为 0，匹配的 `indexes_1k` 前 50 个结果全部在商品库中。三个模型的 WebShop 结果均受该配置影响，待统一商品库/索引后另建输出目录重跑；不能直接覆盖旧结果。
 - **ScienceWorld 的历史上下文与 one-shot 尚未严格对齐。** 当前代码固定最多保留最近两轮，即使 token 预算充足也丢弃更早历史；已读取的作者公开训练样本包含 54 条连续 messages，而本次示范只截取其首个动作轮次，不能认定等同作者的 inference one-shot。EE-IL 中 145/200 个任务达到 100 步上限，轨迹可见重复拿起/聚焦/放下物体。历史截断是强疑点，尚需对照实验验证，不宣称它是全部差距的唯一原因。

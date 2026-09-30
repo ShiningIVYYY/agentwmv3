@@ -19,10 +19,51 @@ ROOT = Path(__file__).resolve().parents[1]
 VERL = ROOT / 'external/verl-agent/agent_system'
 PROTOCOL = 'audited-v1'
 WEB_PROTOCOL = 'webshop-index-v2'
+SCIENCE_PROTOCOL = 'scienceworld-context-v2'
 
 
 def protocol_for_env(env):
-    return WEB_PROTOCOL if env == 'webshop' else PROTOCOL
+    return {'webshop': WEB_PROTOCOL, 'scienceworld': SCIENCE_PROTOCOL}.get(env, PROTOCOL)
+
+
+def validate_science_tasks(rows, games, frozen=None):
+    """Validate the official 200 ordered IDs against the native flattened map."""
+    if len(rows) != 200 or len({r['item_id'] for r in rows}) != 200:
+        raise RuntimeError('ScienceWorld requires exactly 200 unique official test IDs')
+    tasks = []
+    for r in rows:
+        if not re.fullmatch(r'sciworld_\d+', r['item_id']):
+            raise RuntimeError('Invalid ScienceWorld task ID')
+        index = int(r['item_id'].rsplit('_', 1)[1])
+        if not 0 <= index < len(games):
+            raise RuntimeError('ScienceWorld task index out of range')
+        tasks.append(dict(task_id=r['item_id'], index=index, **games[index]))
+    if frozen is not None:
+        fields = ('task_id', 'index', 'taskName', 'variationIdx')
+        if [{k:r[k] for k in fields} for r in tasks] != [{k:r[k] for k in fields} for r in frozen]:
+            raise RuntimeError('ScienceWorld task mapping changed')
+    return tasks
+
+
+def science_messages(prelude, task, observation, steps, keep):
+    """Native alternating dialogue; put the goal only in its first user turn."""
+    recent = steps[-keep:] if keep else []
+    messages = list(prelude)
+    for i, s in enumerate(recent):
+        messages += [dict(role='user', content=(task + '\n' if i == 0 else '') + s['observation']),
+                     dict(role='assistant', content=s['output'])]
+    messages.append(dict(role='user', content=('' if recent else task + '\n') + observation))
+    return messages
+
+
+def bounded_science(agent, prelude, task, observation, steps):
+    # Full history first. Drop whole oldest observation/assistant pairs only
+    # when the exact model tokenizer says the prompt exceeds the paper budget.
+    for keep in range(len(steps), -1, -1):
+        messages = science_messages(prelude, task, observation, steps, keep)
+        if agent.count(messages) <= 4096:
+            return messages, keep
+    raise RuntimeError('ScienceWorld one-shot/current observation exceed 4096 tokens')
 
 
 def validate_web_index(searcher, catalog_ids):
@@ -220,23 +261,36 @@ class Science:
         self.args = args
         self.url = args.science_url
         source = ROOT / 'data/paper_eval/sources/science_expert_sample.jsonl'
-        # One training-only turn from the authors' released expert data. The
-        # paper does not publish a complete, exact inference one-shot prompt.
+        # Complete first published TRAIN dialogue, fixed before testing.
+        # This is not the unpublished author inference one-shot, nor a
+        # claim that this released dialogue reaches a terminal winning state.
         with source.open() as f:
-            self.prelude = json.loads(f.readline())['messages'][:4]
-        assert [m['role'] for m in self.prelude] == ['user', 'assistant', 'user', 'assistant']
+            self.prelude = json.loads(f.readline())['messages']
+        assert len(self.prelude) % 2 == 0 and len(self.prelude) > 4
+        assert [m['role'] for m in self.prelude] == ['user', 'assistant'] * (len(self.prelude) // 2)
         assert 'Action:' in self.prelude[-1]['content']
 
     def tasks(self):
         rows = json.loads((ROOT / 'data/paper_eval/sciworld_test.json').read_text())
-        assert len(rows) == 200
-        tasks = [dict(task_id=r['item_id'], index=int(r['item_id'].rsplit('_', 1)[1])) for r in rows]
-        assert len({r['task_id'] for r in tasks}) == 200
-        # Freeze the exact AgentGym flattened index -> SDK task/variation map.
-        sys.path.insert(0, str(ROOT / 'external/AgentGym/agentenv-sciworld'))
-        from agentenv_sciworld.environment import server
-        for row in tasks:
-            row.update(server.games[row['index']])
+        from scienceworld import ScienceWorldEnv
+        env = ScienceWorldEnv()
+        try:
+            exceptions = {'5-1', '5-2', '9-1', '9-2', '9-3', '10-1', '10-2'}
+            games = [dict(taskName=value, variationIdx=i)
+                     for key, value in env.tasks.items() if key not in exceptions
+                     for i in range(env.getMaxVariations(value))]
+            old = json.loads((ROOT / 'data/paper_eval/audited/scienceworld.json').read_text())['tasks']
+            tasks = validate_science_tasks(rows, games, old)
+            for i, row in enumerate(tasks):
+                env.load(row['taskName'], row['variationIdx'], simplificationStr='')
+                row['task_description_sha256'] = hashlib.sha256(env.getTaskDescription().encode()).hexdigest()
+                _, _, initial_done, initial_info = env.step('look around')
+                assert not initial_done, 'Task already terminal at reset'
+                row['initial_score'] = initial_info['score']
+                if (i + 1) % 20 == 0:
+                    print('Verified ScienceWorld goals:', i + 1, '/ 200', flush=True)
+        finally:
+            env.close()
         return tasks
 
     def run(self, row, agent):
@@ -246,6 +300,9 @@ class Science:
             rst = http('POST', self.url + '/reset', json=dict(id=eid, data_idx=row['index']))
             assert rst['task_name'] == row['taskName'] and rst['var_num'] == row['variationIdx'], rst
             task = rst['task_description']
+            if 'task_description_sha256' in row:
+                assert hashlib.sha256(task.encode()).hexdigest() == row['task_description_sha256'], 'ScienceWorld goal changed'
+                assert rst['score'] == row['initial_score'], 'ScienceWorld initial score changed'
             for t in range(self.args.max_steps):
                 if rst['done']:
                     break
@@ -253,17 +310,7 @@ class Science:
                 # Use the released expert-data interface: action templates (including
                 # connect/disconnect) are in the permanent introduction. No action
                 # category is forbidden or removed, unlike the superseded evaluator.
-                current = {'role': 'user', 'content': task + '\n' + rst['observation']}
-                messages = self.prelude + [current]
-                for h in (2, 1, 0):
-                    recent = steps[-h:] if h else []
-                    conversation = []
-                    for s in recent:
-                        conversation += [dict(role='user', content=s['observation']),
-                                         dict(role='assistant', content=s['output'])]
-                    messages = self.prelude + conversation + [current]
-                    if agent.count(messages) <= 4096:
-                        break
+                messages, h = bounded_science(agent, self.prelude, task, rst['observation'], steps)
                 text, metadata = agent.generate(messages, row['task_id'], t + 1)
                 # Match the AgentGym ScienceWorld response grammar, not ALFWorld tags.
                 # BaseAdapter.parse_react uses the entire tail of the last
@@ -276,7 +323,7 @@ class Science:
                              valid_format=bool(len(parts) == 2 and 'Thought:' in parts[0]), admissible=act in acts,
                              admissible_actions=acts, observation=prior,
                              next_observation=rst['observation'], score=rst['score'],
-                             history_length=h, **metadata))
+                             history_length=h, history_dropped=len(steps)-h, **metadata))
                 agent.trace(row['task_id'], steps[-1])
             score = float(rst['score'])
             return dict(success=bool(rst['done'] and score == 100.0), score=score,
@@ -366,12 +413,23 @@ def main():
         print('Prepared', args.manifest, flush=True)
         return
     manifest = json.loads(Path(args.manifest).read_text())
-    assert manifest['protocol'] == protocol_for_env(args.env) and manifest['env'] == args.env, 'Manifest protocol mismatch; do not reuse pre-fix WebShop results'
+    assert manifest['protocol'] == protocol_for_env(args.env) and manifest['env'] == args.env, 'Manifest protocol mismatch; do not reuse pre-fix results'
+    if args.env == 'scienceworld':
+        import importlib.metadata
+        from scienceworld.constants import JAR_PATH
+        assert manifest['test_sha256'] == digest(ROOT / 'data/paper_eval/sciworld_test.json'), 'Official task file changed'
+        assert manifest['demo_sha256'] == digest(ROOT / 'data/paper_eval/sources/science_expert_sample.jsonl'), 'ScienceWorld demo changed'
+        assert manifest['scienceworld_version'] == importlib.metadata.version('scienceworld'), 'ScienceWorld version changed'
+        assert manifest['simulator_jar_sha256'] == digest(JAR_PATH), 'ScienceWorld simulator changed'
     out = Path(args.output)
     out.mkdir(parents=True, exist_ok=True)
     with open(out / '.runner.lock', 'a') as runner_lock:
         fcntl.flock(runner_lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         config = dict(vars(args), protocol=protocol_for_env(args.env), manifest_sha256=digest(args.manifest))
+        if args.env == 'scienceworld':
+            config.update(science_prompt='full-train-dialogue-one-shot/native-goal-once/token-bounded-full-history',
+                          science_demo_sha256=digest(ROOT / 'data/paper_eval/sources/science_expert_sample.jsonl'),
+                          science_demo_messages=len(backend.prelude))
         config_file = out / 'config.json'
         if config_file.exists():
             assert json.loads(config_file.read_text()) == config, 'Cannot mix changed experiment configurations'

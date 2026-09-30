@@ -37,6 +37,8 @@ class ProtocolTests(unittest.TestCase):
                          Path('/data/webshop_index_v2.json'))
         self.assertEqual(supervisor.manifest_path(Path('/data'), 'alfworld'),
                          Path('/data/alfworld.json'))
+        self.assertEqual(supervisor.manifest_path(Path('/data'), 'scienceworld'),
+                         Path('/data/scienceworld_context_v2.json'))
 
     def test_web_only_summary_and_read_only_combined_table(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -79,7 +81,7 @@ class ProtocolTests(unittest.TestCase):
 
     def test_web_protocol_is_separate_from_old_results(self):
         self.assertEqual(ev.protocol_for_env('webshop'), 'webshop-index-v2')
-        self.assertEqual(ev.protocol_for_env('scienceworld'), 'audited-v1')
+        self.assertEqual(ev.protocol_for_env('scienceworld'), 'scienceworld-context-v2')
 
     def test_native_alf_initial_template(self):
         actual = ev.native_prompt('alfworld', 'goal', 'Your task is to: goal', ['look', 'help'], [])
@@ -172,9 +174,84 @@ class ProtocolTests(unittest.TestCase):
 
     def test_science_goal_preserved_on_later_steps_and_circuit_actions_allowed(self):
         result, agent = self.science(10.0, False)
-        self.assertIn('PERMANENT GOAL', agent.messages[1][-1]['content'])
+        actual = agent.messages[1]
+        self.assertEqual(sum('PERMANENT GOAL' in m['content'] for m in actual), 1)
+        self.assertEqual(actual[-1]['content'], 'later lab observation')
         self.assertIn('connect', agent.messages[1][0]['content'])
         self.assertIn('connect battery to wire', result['steps'][1]['admissible_actions'])
+
+    def test_science_demo_is_full_released_training_dialogue(self):
+        backend = ev.Science(SimpleNamespace(science_url='http://fake'))
+        self.assertGreater(len(backend.prelude), 4)
+        self.assertIn('activate stove', '\n'.join(m['content'] for m in backend.prelude))
+
+    def test_science_retains_all_history_when_it_fits(self):
+        steps = [dict(observation='obs%d' % i, output='Thought: reason\nAction: action%d' % i) for i in range(8)]
+        messages, keep = ev.bounded_science(FakeAgent(), [], 'GOAL', 'current', steps)
+        self.assertEqual(keep, 8)
+        self.assertEqual(len(messages), 17)
+        self.assertEqual(messages[0]['content'], 'GOAL\nobs0')
+        self.assertEqual(messages[-1]['content'], 'current')
+        self.assertEqual(sum('GOAL' in m['content'] for m in messages), 1)
+        self.assertEqual([m['role'] for m in messages], ['user','assistant'] * 8 + ['user'])
+
+    def test_science_overflow_drops_whole_oldest_turns_only(self):
+        steps = [dict(observation='obs%d' % i, output='action%d' % i) for i in range(8)]
+        agent = FakeAgent()
+        agent.count = lambda messages: len(messages) * 500
+        messages, keep = ev.bounded_science(agent, [], 'GOAL', 'current', steps)
+        self.assertEqual(keep, 3)
+        self.assertEqual(messages[0]['content'], 'GOAL\nobs5')
+        self.assertNotIn('obs4', str(messages))
+        self.assertEqual(messages[-1]['content'], 'current')
+
+    def test_science_oversized_current_state_is_infrastructure_error(self):
+        agent = FakeAgent(); agent.count = lambda messages: 4097
+        with self.assertRaisesRegex(RuntimeError, '4096'):
+            ev.bounded_science(agent, [], 'GOAL', 'current', [])
+
+    def test_science_official_task_validation(self):
+        rows = [dict(item_id='sciworld_%d' % i) for i in range(200)]
+        games = [dict(taskName='boil', variationIdx=i) for i in range(200)]
+        frozen = ev.validate_science_tasks(rows, games)
+        self.assertEqual(len(frozen), 200)
+        self.assertEqual(ev.validate_science_tasks(rows, games, frozen), frozen)
+        with self.assertRaisesRegex(RuntimeError, 'unique'):
+            ev.validate_science_tasks(rows[:199] + rows[:1], games)
+        with self.assertRaisesRegex(RuntimeError, 'out of range'):
+            ev.validate_science_tasks(rows, games[:199])
+        frozen[0]['variationIdx'] = 1
+        with self.assertRaisesRegex(RuntimeError, 'mapping changed'):
+            ev.validate_science_tasks(rows, games, frozen)
+
+    def test_science_checks_goal_hash_before_inference(self):
+        backend = ev.Science(SimpleNamespace(science_url='http://fake', max_steps=2))
+        def api(method, url, **kwargs):
+            if url.endswith('/create'): return {'id': 1}
+            if url.endswith('/reset'): return dict(task_name='boil', var_num=1, task_description='changed')
+            return True
+        agent = FakeAgent()
+        with patch.object(ev, 'http', api), self.assertRaisesRegex(AssertionError, 'goal changed'):
+            backend.run(dict(task_id='sciworld_0', index=0, taskName='boil', variationIdx=1,
+                             task_description_sha256='wrong'), agent)
+        self.assertEqual(agent.messages, [])
+
+    def test_multiple_reference_summaries_do_not_replace_current_science(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp) / 'science'; old = Path(tmp) / 'old'; web = Path(tmp) / 'web'
+            for p in (out,old,web): p.mkdir()
+            def stat(total):
+                return dict(status='completed',completed=total,total=total,successes=0,errors=0,
+                            success_rate=0.,average_native_score=0.)
+            ev.atomic(old/'summary.json',dict(results={b+'_'+m:stat(140 if b=='alfworld' else 200)
+                for b in ('alfworld','scienceworld') for m in ('qwen25','qwen38','ee_il')}))
+            ev.atomic(web/'summary.json',dict(results={'webshop_'+m:stat(500) for m in ('qwen25','qwen38','ee_il')}))
+            jobs = {'scienceworld_'+m:dict(expected=200) for m in ('qwen25','qwen38','ee_il')}
+            stats = supervisor.update(out,jobs,{},[old,web])
+            self.assertEqual(stats['scienceworld_ee_il']['completed'],0)
+            table = (out/'RESULTS.md').read_text()
+            self.assertIn('ALFWorld success',table); self.assertIn('WebShop success',table)
+            self.assertIn('waiting; 0/200',table)
 
 
 if __name__ == '__main__':
