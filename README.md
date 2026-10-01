@@ -148,7 +148,7 @@ bash scripts/start_wm_experiment_matrix.sh
 ```
 
 统一入口为 `scripts/run_wm_experiment_matrix.py`，当前默认选择 Qwen2.5 和 EE-IL，输出 `outputs/wm_reflection/full_7b_v1/`。
-它从以下原始 `config.json/audit.json` 冻结九个 baseline 的参数和任务 ID：
+它从以下原始 `config.json/audit.json` 冻结所选 baseline 的参数和任务 ID：
 ALFWorld 的 `outputs/paper_eval/audited/`、ScienceWorld 的 `scienceworld_context_v2/`、WebShop 的 `webshop_index_v2/`。
 当前实验为 Qwen2.5、三个环境对应的 EE-IL checkpoint × 三环境 × 两后端，共 12 组、3360 个任务实例。
 全量任务数/最大真实步数/Agent 输出预算保持 140/50/1024、200/100/1024、500/15/512；
