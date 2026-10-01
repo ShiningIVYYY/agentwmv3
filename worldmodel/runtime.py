@@ -103,6 +103,8 @@ def audit_settings(args, root):
         history_policy='commit-real-observations-only', sources={str(p.relative_to(root)):
             hashlib.sha256(p.read_bytes()).hexdigest() for p in files})
     feature['science_ambiguity_policy'] = 'stable-label-order-with-native-number-translation'
+    if args.env == 'scienceworld' and args.wm_backend == 'oracle':
+        feature['science_exit_comparison'] = 'unordered-full-door-descriptions/native-agent-text-preserved'
     if args.wm_backend == 'word2world':
         path = args.wm_config or str(root / 'configs/worldmodel' / (args.env + '.json'))
         feature['world_model'] = load_config(path, root, args.env)

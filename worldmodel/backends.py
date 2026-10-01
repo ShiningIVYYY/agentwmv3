@@ -3,6 +3,7 @@ import hashlib
 import json
 from pathlib import Path
 import random
+import re
 import sys
 import time
 import requests
@@ -30,13 +31,46 @@ class RandomIsolation:
             self.torch.set_rng_state(self.tstate)
 
 
-def same_transition(expected, actual):
-    # Compare the actual response, including native raw text and reward, not a
-    # forgiving text comparison that could hide a divergent reconstruction.
-    # ScienceWorld's view maps losslessly sorted choice labels back to each
-    # JVM's native numbers; original menus remain in native_observation.
+def science_observation_key(text):
+    """Ignore only the order of ScienceWorld's explicit room exit list.
+
+    Separate JVMs enumerate these exits in different orders. Keep every full
+    door description, including duplicates and its open/closed state, and keep
+    the rest of the room response byte-for-byte. Unsupported layouts stay strict.
+    This key is for Oracle validation only; Agent and checkpoint text stays native.
+    """
+    if not isinstance(text, str) or not text.startswith('Inside the '):
+        return text
+    head, separator, exits = text.rpartition('\n\n You also see: ')
+    if not separator or not exits.endswith('.'):
+        return text
+    doors = exits[:-1].split(', ')
+    if not all(re.fullmatch(r'A door to [^,\n]+ \(that is (?:open|closed)\)', door)
+               for door in doors):
+        return text
+    return head + separator + ', '.join(sorted(doors)) + '.'
+
+
+def transition_differences(expected, actual):
+    expected = expected or {}
+    science = 'native_observation' in expected and 'native_observation' in actual
     fields = ('observation', 'raw_observation', 'done', 'success', 'score', 'reward')
-    return all(expected.get(k) == actual.get(k) for k in fields)
+    differences = {}
+    for key in fields:
+        predicted, real = expected.get(key), actual.get(key)
+        if science and key in ('observation', 'raw_observation'):
+            equal = science_observation_key(predicted) == science_observation_key(real)
+        else:
+            equal = predicted == real
+        if not equal:
+            differences[key] = dict(predicted=predicted, actual=real)
+    return differences
+
+
+def same_transition(expected, actual):
+    # Room exit enumeration is unordered; all contents and numeric feedback
+    # remain strict. Stable ambiguity menus retain native-number translation.
+    return not transition_differences(expected, actual)
 
 
 class OracleWorldModel:
@@ -71,9 +105,7 @@ class OracleWorldModel:
     def commit(self, action, actual):
         expected = self.predictions.get(action)
         if expected is None or not same_transition(expected, actual):
-            fields = ('observation', 'raw_observation', 'done', 'success', 'score', 'reward')
-            diff = {k:dict(predicted=(expected or {}).get(k), actual=actual.get(k))
-                    for k in fields if (expected or {}).get(k) != actual.get(k)}
+            diff = transition_differences(expected, actual)
             raise PredictionError('Oracle candidate prediction differs from its actual committed transition: ' +
                                   json.dumps(diff, ensure_ascii=False))
         self.history.append((action, copy.deepcopy(actual)))

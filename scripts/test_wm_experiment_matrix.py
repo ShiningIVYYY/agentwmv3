@@ -128,15 +128,35 @@ class MatrixTests(unittest.TestCase):
         key = 'oracle/alfworld_qwen25'
         self.actual_config(key, True)
         path = Path(self.matrix['jobs'][key]['preflight']) / 'tasks/task-0.json'
-        reflection = dict(rounds=3, final_action='look', predictions=[dict(action='inventory')], prediction_exact_match=True)
+        reflection = dict(rounds=3, final_action='look', predictions=[dict(action='inventory', observation='room')],
+                          prediction_exact_match=True, actual=dict(observation='room'))
         save(path, dict(task_id='task-0', steps=[dict(action='look', reflection=reflection)]))
         with self.assertRaises(RuntimeError):
             self.scheduler.validate_smoke(key)
-        reflection['predictions'] = [dict(action='look')] * 4
+        reflection['predictions'] = [dict(action='look', observation='room')] * 4
         save(path, dict(task_id='task-0', steps=[dict(action='look', reflection=reflection)]))
         self.scheduler.validate_smoke(key)
         reflection['rounds'] = 4
         save(path, dict(task_id='task-0', steps=[dict(action='look', reflection=reflection)]))
+        with self.assertRaises(RuntimeError):
+            self.scheduler.validate_smoke(key)
+
+    def test_science_oracle_smoke_accepts_exit_order_but_rejects_door_state(self):
+        key = 'oracle/scienceworld_qwen25'
+        path = Path(self.matrix['jobs'][key]['preflight']) / 'tasks/task-0.json'
+        head = 'Inside the hallway is: \n\tthe agent\n\n You also see: '
+        a, b = 'A door to the bedroom (that is open)', 'A door to the kitchen (that is closed)'
+        def state(text):
+            return dict(observation=text, raw_observation=text, native_observation=text,
+                        score=0, reward=0, done=False, success=False)
+        prediction = dict(state(head + b + ', ' + a + '.'), action='look around')
+        reflection = dict(rounds=1, final_action='look around', predictions=[prediction],
+                          prediction_exact_match=False, actual=state(head + a + ', ' + b + '.'))
+        row = dict(task_id='task-0', steps=[dict(action='look around', reflection=reflection)])
+        save(path, row)
+        self.scheduler.validate_smoke(key)
+        reflection['actual'] = state(head + a + ', ' + b.replace('closed', 'open') + '.')
+        save(path, row)
         with self.assertRaises(RuntimeError):
             self.scheduler.validate_smoke(key)
 

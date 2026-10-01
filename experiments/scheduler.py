@@ -9,6 +9,7 @@ import time
 import requests
 
 from .matrix import ENVS, BACKENDS, ARGUMENTS, command, read, save, sha, statistics, task_rows, verify
+from worldmodel.backends import same_transition
 
 
 def process_identity(pid, proc=Path('/proc')):
@@ -279,8 +280,9 @@ class MatrixScheduler:
                 raise RuntimeError('Preflight exceeded reflection/prediction budgets')
             if reflection['predictions'][-1]['action'] != step['action'] or reflection['final_action'] != step['action']:
                 raise RuntimeError('Preflight committed a different action than predicted')
-            if job['backend'] == 'oracle' and not reflection['prediction_exact_match']:
-                raise RuntimeError('Preflight oracle observation did not match commit')
+            if job['backend'] == 'oracle' and ('actual' not in reflection or not same_transition(
+                    reflection['predictions'][-1], reflection['actual'])):
+                raise RuntimeError('Preflight oracle transition did not match commit')
 
     def drive_unit(self, model, env, smoke):
         jobs = self.jobs_for(model, env)
@@ -361,6 +363,7 @@ class MatrixScheduler:
         lines += ['', 'Frozen original configs, sampling, task IDs, and source hashes: `experiment.json`.',
             'Preflight results: `preflight/`. Live stage: `summary.json`. Paired comparisons: `comparison.json`.',
             'ScienceWorld ambiguity menus use a lossless stable label order with native-number translation. '
+            'Oracle room exit lists compare unordered full door descriptions; native Agent text is preserved. '
             'Checkpoint predictions reaching 512 tokens are marked partial. Oracle divergence is an infrastructure error.']
         path = self.out / 'RESULTS.md'
         tmp = path.with_suffix('.md.tmp')

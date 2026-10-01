@@ -11,7 +11,8 @@ from unittest.mock import patch
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from reflection.controller import ReflectionController, parse_review, valid_replacement
-from worldmodel.backends import OracleWorldModel, Word2WorldModel, PredictionError, RandomIsolation
+from worldmodel.backends import (OracleWorldModel, Word2WorldModel, PredictionError,
+                                 RandomIsolation, same_transition, science_observation_key)
 from worldmodel.contexts import alf_action, checkpoint_observation, initial_context, ScienceActionView
 from worldmodel import runtime
 
@@ -134,6 +135,65 @@ class ReflectionTests(unittest.TestCase):
         self.assertTrue(valid_replacement('webshop', 'click[next >]', ['click[next >]']))
         self.assertTrue(valid_replacement('scienceworld', 'connect wire to battery', []))
         self.assertFalse(valid_replacement('scienceworld', 'Action: teleport moon', []))
+
+
+class ScienceExitTests(unittest.TestCase):
+    HEAD = 'Inside the hallway is: \n\tthe agent\n\ta substance called air\n\ta painting\n'
+    DOORS = ['A door to the bedroom (that is open)',
+             'A door to the kitchen (that is closed)',
+             'A door to the workshop (that is closed)']
+
+    def room(self, doors=None):
+        return self.HEAD + '\n You also see: ' + ', '.join(self.DOORS if doors is None else doors) + '.'
+
+    def state(self, text):
+        return dict(observation=text, raw_observation=text, native_observation=text,
+                    score=0, reward=0, done=False, success=False, wm_observation=text)
+
+    def test_all_exit_permutations_are_equivalent(self):
+        from itertools import permutations
+        expected = self.state(self.room())
+        for doors in permutations(self.DOORS):
+            self.assertTrue(same_transition(expected, self.state(self.room(doors))))
+
+    def test_real_door_changes_and_multiplicity_still_fail(self):
+        expected = self.state(self.room())
+        variants = [self.DOORS[:-1], self.DOORS + [self.DOORS[0]],
+                    [d.replace('open', 'closed') for d in self.DOORS],
+                    [d.replace('kitchen', 'art studio') for d in self.DOORS]]
+        for doors in variants:
+            with self.subTest(doors=doors):
+                self.assertFalse(same_transition(expected, self.state(self.room(doors))))
+
+    def test_room_contents_and_numeric_feedback_still_fail(self):
+        expected = self.state(self.room())
+        self.assertFalse(same_transition(expected, self.state(self.room().replace('painting', 'book'))))
+        for key, value in [('score', 1), ('reward', 1), ('done', True), ('success', True)]:
+            actual = self.state(self.room(list(reversed(self.DOORS))))
+            actual[key] = value
+            self.assertFalse(same_transition(expected, actual))
+
+    def test_unsupported_layouts_and_other_environments_stay_strict(self):
+        a = self.state(self.room())
+        b = self.state(self.room(list(reversed(self.DOORS))))
+        a.pop('native_observation')
+        b.pop('native_observation')
+        self.assertFalse(same_transition(a, b))
+        for text in ['You also see: ' + self.room(),
+                     self.room().replace('A door to the kitchen', 'An exit to the kitchen'),
+                     self.room() + '\n', self.room()[:-1]]:
+            self.assertEqual(science_observation_key(text), text)
+
+    def test_oracle_commit_and_replay_preserve_native_text(self):
+        native = self.room()
+        reordered = self.room(list(reversed(self.DOORS)))
+        factory = lambda: (lambda action: self.state(reordered), lambda: None, self.state(reordered))
+        wm = OracleWorldModel(factory, self.state(native))
+        prediction = wm.predict('look around')
+        self.assertEqual(prediction['observation'], reordered)
+        wm.commit('look around', self.state(native))
+        self.assertEqual(wm.history[0][1]['observation'], native)
+        self.assertEqual(wm.predict('look around')['verified_prefix_steps'], 1)
 
 
 class OracleTests(unittest.TestCase):

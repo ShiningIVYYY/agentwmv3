@@ -121,6 +121,7 @@ def prepare(root, out, models=MODELS):
             preflight='all available-model combinations must pass before full runs',
             qwen38_dependency='all three original qwen38 baselines complete and their runners exited' if 'qwen38' in models else 'not selected',
             science_ambiguity='stable-label-order-with-native-number-translation',
+            science_oracle_exits='unordered-full-door-descriptions/native-agent-text-preserved',
             history='commit-real-feedback-only'))
     save(target, matrix)
     return matrix

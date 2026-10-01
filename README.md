@@ -18,6 +18,9 @@
   ScienceWorld 的歧义菜单按完整标签稳定排序，并将 Agent 选择编号映射回每个实例的原始编号。
   两后端使用同一观察表示；`native_observation/native_action` 保留原始返回与实际执行命令。
   校验比较这个无损观察表示及原生分数/终止状态，不忽略真正的状态分歧；重复标签无法映射时明确报错。
+  独立 JVM 的房间出口列表可能按不同顺序枚举同一组门。Oracle 校验仅对标准房间出口列表
+  按完整门描述排序后比较，保留门名、开关状态和重复项，其他文本及 reward/score/done 仍严格核对。
+  此规则只用于校验，Agent 和 checkpoint 接收的房间文本保持原始顺序。
   重放开销随已执行历史增长，长任务有额外 CPU/JVM 成本。
 - `word2world`：使用 X1AOX1A 的三个官方 `WorldModel-{Alfworld,Sciworld,Webshop}-Qwen2.5-7B` checkpoint。
   在线采样固定 `temperature=0, top_p=1, max_tokens=512`，复用作者初始化环境描述和 action/observation 对话协议。
@@ -147,7 +150,11 @@ bash scripts/run_overnight_paper_benchmarks.sh \
 bash scripts/start_wm_experiment_matrix.sh
 ```
 
-统一入口为 `scripts/run_wm_experiment_matrix.py`，当前默认选择 Qwen2.5 和 EE-IL，输出 `outputs/wm_reflection/full_7b_v1/`。
+统一入口为 `scripts/run_wm_experiment_matrix.py`，当前默认选择 Qwen2.5 和 EE-IL，输出 `outputs/wm_reflection/full_7b_v2/`。
+`full_7b_v1` 已因 ScienceWorld Oracle 出口排列校验修复而归档。迁移记录位于 v2 的
+`migration.json`：ScienceWorld Oracle 全量任务重新运行；其他组仅继承已完成且行为未受修复影响的任务，
+文件保持原样，原始 config 和源码来源见各组 `inherited_tasks.json`。两组 ScienceWorld Oracle
+预检重新运行，其余十组预检保留原始审计记录后重新核验。Agent prompt、采样、步数和 checkpoint 不变。
 它从以下原始 `config.json/audit.json` 冻结所选 baseline 的参数和任务 ID：
 ALFWorld 的 `outputs/paper_eval/audited/`、ScienceWorld 的 `scienceworld_context_v2/`、WebShop 的 `webshop_index_v2/`。
 当前实验为 Qwen2.5、三个环境对应的 EE-IL checkpoint × 三环境 × 两后端，共 12 组、3360 个任务实例。
