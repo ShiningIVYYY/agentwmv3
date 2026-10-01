@@ -141,6 +141,44 @@ bash scripts/run_overnight_paper_benchmarks.sh \
 
 改成 `--wm-backend oracle` 并使用新的输出目录即可运行真实环境 oracle 对照。
 
+### 三个 Agent 的完整 WM 实验矩阵
+
+```bash
+bash scripts/start_wm_experiment_matrix.sh
+```
+
+统一入口为 `scripts/run_wm_experiment_matrix.py`，默认输出 `outputs/wm_reflection/full_v1/`。
+它从以下原始 `config.json/audit.json` 冻结九个 baseline 的参数和任务 ID：
+ALFWorld 的 `outputs/paper_eval/audited/`、ScienceWorld 的 `scienceworld_context_v2/`、WebShop 的 `webshop_index_v2/`。
+实验为 Qwen2.5、Qwen3.8、三个环境对应的 EE-IL checkpoint × 三环境 × 两后端，共 18 组、5040 个任务实例。
+全量任务数/最大真实步数/Agent 输出预算保持 140/50/1024、200/100/1024、500/15/512；
+保留原 prompt、checkpoint、采样、环境种子、Qwen3.8 thinking 设置和共享生成锁。只添加 WM 和最多三轮反思。
+
+Qwen2.5 和 EE-IL 的 12 个组合先在 `preflight/` 用一个任务、两步验证，然后开始全量。
+GPU 0 按环境切换 EE-IL，GPU 1–3 保留三个 WM，前四张卡上的任务完成后恢复 Qwen2.5 服务。
+Qwen3.8 独立等待原来三个 baseline 全部完成且其 runner 退出，再验证六个组合并启动全量；等待不阻塞其他 Agent。
+执行期间不会停止 GPU 4–7 上的已有服务。GPU 0 切换前校验服务路径、模型名、端口、GPU 和活跃 runner，使用正常 SIGTERM。
+
+每个 runner 最多启动三次；runner 内保留原有每任务三次尝试。已完成的任务恢复时跳过。
+即使 runner 返回 0，缺失或错误任务也不会被判为完成；预检失败会阻止对应模型的全量运行。
+每次启动和运行过程中核对冻结的源码、配置、任务文件及模型 provenance，配置改变时使用新实验目录。
+再次运行启动脚本会复用活跃 manager；manager 异常退出后重跑相同命令会恢复其已记录的任务。
+
+`experiment.json` 保存完整基线配置、18 组矩阵和哈希；`runstate.json/events.jsonl/manager.log` 保存调度状态。
+`summary.json` 显示每组进度、错误和 Qwen3.8 依赖；`comparison.json` 保存与 baseline 相同任务的配对差值；
+`RESULTS.md` 显示三个模型 × 三环境的 baseline/oracle/checkpoint 对照。
+未完成的结果明确标为暂定，错误任务单独显示，不能把部分完成率当成最终 benchmark 分数。
+
+```bash
+# 只生成并校验矩阵，不启动模型或评测任务。
+PYTHONNOUSERSITE=1 /home/shn/miniconda3/envs/ee-qwen38-direct/bin/python \
+  scripts/run_wm_experiment_matrix.py --prepare-only
+
+# 调度器行为检查。
+PYTHONNOUSERSITE=1 /home/shn/miniconda3/envs/ee-qwen38-direct/bin/python \
+  scripts/test_wm_experiment_matrix.py
+```
+
 每个任务保存完整 `steps` 和 `reflection_metrics`；逐步 `steps.jsonl` 包含候选、每轮预测/反思、最终动作和实际反馈。
 `reflection_events.jsonl` 还保存中途失败前的请求/输出，方便诊断。
 `summary.json` 汇总轮数、替换数、无效输出、预测匹配率、oracle 校验、调用数、token 和耗时；`RESULTS.md` 保留真实环境任务成绩。
