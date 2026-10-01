@@ -69,10 +69,16 @@ class MatrixScheduler:
         if self.state['matrix_sha256'] != sha(self.out / 'experiment.json'):
             raise RuntimeError('Experiment matrix changed after execution started')
         self.children = {}
-        self.units = [('qwen25', None, True)]
-        self.units += [('ee_il', env, True) for env in ENVS]
-        self.units += [('qwen25', None, False)]
-        self.units += [('ee_il', env, False) for env in ENVS]
+        self.models = matrix.get('models', ['qwen25', 'qwen38', 'ee_il'])
+        self.units = [('qwen25', None, True)] if 'qwen25' in self.models else []
+        if 'ee_il' in self.models:
+            self.units += [('ee_il', env, True) for env in ENVS]
+        if 'qwen25' in self.models:
+            self.units += [('qwen25', None, False)]
+        if 'ee_il' in self.models:
+            self.units += [('ee_il', env, False) for env in ENVS]
+        if 'qwen38' not in self.models:
+            self.state['qwen38_stage'] = 'not_selected'
         self.services_checked = False
 
     def persist(self):
@@ -336,7 +342,7 @@ class MatrixScheduler:
             dependencies=self.state.get('dependencies'), front_index=self.state['front_index'],
             qwen38_stage=self.state['qwen38_stage'], manager_pid=os.getpid()))
         save(self.out / 'comparison.json', dict(updated=time.time(), complete=complete, rows=comparison))
-        lines = ['# Three agents × three benchmarks × two world models', '',
+        lines = ['# %d agents × three benchmarks × two world models' % len(self.models), '',
             'Partial results are provisional. Infrastructure errors are excluded and shown separately. '
             'ScienceWorld reports mean SDK score and full success; ALFWorld/WebShop report success.', '',
             '| Benchmark | Agent | Pure agent | Oracle + reflection | Word2World + reflection |',
@@ -348,7 +354,7 @@ class MatrixScheduler:
             return '%s (%d/%d, %s, errors=%d)' % (value, stats['completed'], stats['expected'],
                 stats.get('status', 'complete' if stats['complete'] else 'pending'), stats['errors'])
         for env in ENVS:
-            for model in ('qwen25', 'qwen38', 'ee_il'):
+            for model in self.models:
                 item = comparison[env + '_' + model]
                 lines.append('| %s | %s | %s | %s | %s |' % (env, model, cell(item['baseline'], env),
                     cell(item['treatments']['oracle'], env), cell(item['treatments']['word2world'], env)))
@@ -369,7 +375,7 @@ class MatrixScheduler:
             self.state.pop('manager_error', None)
             save(self.out / 'manager.json', dict(pid=os.getpid(), **process_identity(os.getpid())))
             self.ensure_shared_services()
-            self.event('matrix_started', experiments=18, task_instances=5040)
+            self.event('matrix_started', experiments=self.matrix['experiment_count'], task_instances=self.matrix['task_instances'])
             while True:
                 verify(self.matrix)
                 if self.state['front_index'] < len(self.units):
@@ -378,7 +384,8 @@ class MatrixScheduler:
                         self.event('front_unit_finished', model=unit[0], env=unit[1], smoke=unit[2])
                         self.state['front_index'] += 1
                 elif not self.state['restored']:
-                    self.ensure_front_agent('qwen25')
+                    if 'qwen25' in self.models:
+                        self.ensure_front_agent('qwen25')
                     self.state['restored'] = True
                 stage = self.state['qwen38_stage']
                 if stage == 'dependency' and self.qwen38_dependencies():
@@ -390,7 +397,7 @@ class MatrixScheduler:
                     self.state['qwen38_stage'] = 'done'
                 self.persist()
                 complete = self.refresh()
-                if self.state['front_index'] == len(self.units) and self.state['qwen38_stage'] == 'done' and self.state['restored']:
+                if self.state['front_index'] == len(self.units) and self.state['qwen38_stage'] in ('done', 'not_selected') and self.state['restored']:
                     self.event('matrix_finished', complete=complete)
                     return 0 if complete else 2
                 time.sleep(15)

@@ -9,7 +9,7 @@ from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from experiments.matrix import ENVS, MODELS, BACKENDS, SPEC, ARGUMENTS, command, save, sha, statistics, verify
+from experiments.matrix import ENVS, MODELS, BACKENDS, SPEC, ARGUMENTS, command, save, sha, statistics, verify, prepare
 from experiments.scheduler import MatrixScheduler, process_identity, matches_process
 
 
@@ -18,7 +18,7 @@ class MatrixTests(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
-        self.matrix = dict(root=str(self.root), output=str(self.root / 'out'), profiles={}, jobs={},
+        self.matrix = dict(root=str(self.root), output=str(self.root / 'out'), models=list(MODELS), profiles={}, jobs={},
                            reflection_max_rounds=3, hashes={}, policy=dict(smoke_steps=2, smoke_limit=1, max_runner_launches=3))
         for env in ENVS:
             for model in MODELS:
@@ -158,6 +158,21 @@ class MatrixTests(unittest.TestCase):
         self.assertEqual(self.scheduler.units[:4], [('qwen25',None,True),
             ('ee_il','alfworld',True), ('ee_il','scienceworld',True), ('ee_il','webshop',True)])
         self.assertTrue(all(not unit[2] for unit in self.scheduler.units[4:]))
+
+    def test_two_agent_scope_has_no_qwen38_jobs_or_dependency(self):
+        matrix = copy.deepcopy(self.matrix)
+        matrix['models'] = ['qwen25','ee_il']
+        matrix['profiles'] = {k:v for k,v in matrix['profiles'].items() if v['model'] != 'qwen38'}
+        matrix['jobs'] = {k:v for k,v in matrix['jobs'].items() if v['profile'] in matrix['profiles']}
+        scheduler = MatrixScheduler(matrix)
+        self.assertEqual(len(matrix['jobs']), 12)
+        self.assertEqual(sum(SPEC[env][1] for env in ENVS) * 4, 3360)
+        self.assertEqual(scheduler.state['qwen38_stage'], 'not_selected')
+        self.assertFalse(scheduler.jobs_for('qwen38'))
+
+    def test_changed_model_selection_cannot_resume_a_different_matrix(self):
+        with self.assertRaisesRegex(RuntimeError, 'Selected models changed'):
+            prepare(self.root, self.root / 'out', ['qwen25','ee_il'])
 
 
 if __name__ == '__main__':

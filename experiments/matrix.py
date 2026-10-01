@@ -47,13 +47,18 @@ def source_files(root):
     return sorted(set(files))
 
 
-def prepare(root, out):
+def prepare(root, out, models=MODELS):
     root, out = Path(root).resolve(), Path(out).resolve()
+    if not models or not set(models) <= set(MODELS):
+        raise ValueError('Select known Agent models')
+    models = tuple(model for model in MODELS if model in models)
     target = out / 'experiment.json'
     if target.exists():
         matrix = read(target)
         if matrix['root'] != str(root) or matrix['output'] != str(out):
             raise RuntimeError('Experiment root/output changed')
+        if matrix['models'] != list(models):
+            raise RuntimeError('Selected models changed; use a new experiment directory')
         verify(matrix)
         return matrix
     protected = root / 'outputs/paper_eval'
@@ -78,7 +83,7 @@ def prepare(root, out):
         for p in (Path(wm['checkpoint']) / 'provenance.json',
                   Path(wm['source_dir']) / 'REVISION', Path(wm['source_dir']) / 'SHA256.json'):
             hashes[str(p)] = sha(p)
-        for model in MODELS:
+        for model in models:
             key = env + '_' + model
             directory = baseline_directory(root, env, model)
             path = directory / 'config.json'
@@ -108,13 +113,13 @@ def prepare(root, out):
     matrix = dict(protocol='wm-full-matrix-v1', root=str(root), output=str(out),
         created=time.time(), commit_at_prepare=subprocess.check_output(
             ['git', '-C', str(root), 'rev-parse', 'HEAD'], text=True).strip(),
-        models=list(MODELS), benchmarks=list(ENVS), backends=list(BACKENDS),
+        models=list(models), benchmarks=list(ENVS), backends=list(BACKENDS),
         experiment_count=len(jobs), task_instances=sum(j['expected'] for j in jobs.values()),
         sampling=sampling, reflection_max_rounds=3, profiles=profiles, jobs=jobs, hashes=hashes,
         policy=dict(smoke_limit=1, smoke_steps=2, max_runner_launches=3,
             front_gpu=0, wm_gpus=[1,2,3], qwen38_gpus=[4,5,6,7],
             preflight='all available-model combinations must pass before full runs',
-            qwen38_dependency='all three original qwen38 baselines complete and their runners exited',
+            qwen38_dependency='all three original qwen38 baselines complete and their runners exited' if 'qwen38' in models else 'not selected',
             science_ambiguity='stable-label-order-with-native-number-translation',
             history='commit-real-feedback-only'))
     save(target, matrix)
