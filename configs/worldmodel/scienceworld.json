@@ -1,0 +1,16 @@
+{
+  "env": "scienceworld",
+  "repo_id": "X1AOX1A/WorldModel-Sciworld-Qwen2.5-7B",
+  "checkpoint": "checkpoints/word2world/scienceworld",
+  "served_model_name": "word2world-scienceworld",
+  "url": "http://127.0.0.1:8112",
+  "source_dir": "external/Word2World",
+  "source_revision": "e8dc240269fb222de3c242b09c70bfbf0b4ac1c9",
+  "temperature": 0,
+  "top_p": 1,
+  "max_tokens": 512,
+  "max_model_len": 32768,
+  "gpu": 2,
+  "gpu_memory_utilization": 0.9,
+  "timeout": 180
+}

@@ -2,6 +2,150 @@
 
 本仓库在 `ssh lab` 的 `/data1/shn/agentwmv2` 中运行 Qwen2.5-7B-Instruct、Qwen3.8-27B 和各 benchmark 对应的 EarlyExperience IL checkpoint。这里只下载和评测，不从零训练。WebShop 使用 `webshop-index-v2`；ScienceWorld 使用下方 `scienceworld-context-v2` 修正流程。历史 ALFWorld 混合引擎入口仅保留作参考。
 
+## World model 与三轮动作反思（wm-reflection-v1）
+
+支持 ALFWorld、ScienceWorld、WebShop，支持现有 Qwen2.5、Qwen3.8 和 EE-IL Agent。
+每个真实环境步先生成候选动作，再预测其后果，让同一个 Agent 选择保留或替换。
+最多反思 3 轮；保留时提前结束；第三轮替换后再预测最终动作一次，然后执行。
+每步最多 4 次 Agent 请求（首次动作 + 3 次反思）和 4 次 WM 请求，只有最终动作计入原步数上限。
+
+### 两种后端
+
+- `oracle`：在独立真实环境实例中 reset 同一任务、重放已经执行的动作，再试执行候选动作。
+  每次重建均校验初始及逐步 observation、reward/score、done；正式提交时再次逐字段核对预测。
+  被拒绝的候选动作不会改变正式环境。重放或提交不一致会成为基础设施错误，不伪装成 100% 准确结果。
+  该实现使用真实模拟器的反馈；确定性任务一致时是准确的 oracle，随机转移或无法重建的任务不能保证准确。
+  ScienceWorld 的歧义菜单按完整标签稳定排序，并将 Agent 选择编号映射回每个实例的原始编号。
+  两后端使用同一观察表示；`native_observation/native_action` 保留原始返回与实际执行命令。
+  校验比较这个无损观察表示及原生分数/终止状态，不忽略真正的状态分歧；重复标签无法映射时明确报错。
+  重放开销随已执行历史增长，长任务有额外 CPU/JVM 成本。
+- `word2world`：使用 X1AOX1A 的三个官方 `WorldModel-{Alfworld,Sciworld,Webshop}-Qwen2.5-7B` checkpoint。
+  在线采样固定 `temperature=0, top_p=1, max_tokens=512`，复用作者初始化环境描述和 action/observation 对话协议。
+  达到官方输出上限时保留部分预测，prompt 明确标注预测不完整；日志及汇总记录截断次数。
+  部署上下文上限为 32768 tokens，这是本地部署选择；输入和输出合计超限报错，不静默截掉 WM 历史。
+  每次预测从相同的已执行历史分支，正式执行后只加入真实反馈（teacher forcing）。
+
+反思 Agent 两种后端均只看到预测的下一观察，oracle 的额外 reward、score、隐藏环境信息不加入反思 prompt。
+checkpoint 的私有初始化信息只进入 WM。ALFWorld 适配官方 `put`→`move` 动作前缀及 AVAILABLE ACTIONS 后缀。
+ScienceWorld 的房间信息采集和 oracle 分支使用独立 SDK 实例，正式执行沿用 HTTP 服务。
+WebShop 的 oracle 隔离 session/browser 以及终止自动 reset。
+这是一套接入现有评测环境的实验协议，不能直接称为 Word2World 论文完整复现。
+
+### 准备 checkpoint 与源码
+
+```bash
+cd /data1/shn/agentwmv2
+PYTHONNOUSERSITE=1 /home/shn/miniconda3/envs/verl-agent/bin/python scripts/download_word2world.py
+PYTHONNOUSERSITE=1 /home/shn/miniconda3/envs/ee-alfworld/bin/python \
+  scripts/setup_word2world_source.py --source-repo /data1/shn/Word2World
+```
+
+权重目录为 `checkpoints/word2world/{alfworld,scienceworld,webshop}`。
+下载固定模型 revision、校验发布的 LFS SHA256，并保存 `download_manifest.json` 和 `provenance.json`；重跑可续传。
+`--workers` 控制每个环境的并行文件数，默认 4；三个环境并行下载。
+初始化源码固定 commit `e8dc240269fb222de3c242b09c70bfbf0b4ac1c9`，并保存文件哈希。
+源码安装器不会执行作者会删除共享 ALFWorld cache 的下载脚本。
+ScienceWorld 的作者 collector 还需要 `tqdm==4.67.1`（已安装在 lab 的 `ee-scienceworld` 环境）。
+
+### 启动 WM 服务
+
+先选择有足够空闲显存的 GPU；启动器不会停止已有服务。按环境顺序运行可减少同时加载的模型数。
+
+```bash
+PYTHONNOUSERSITE=1 /home/shn/miniconda3/envs/verl-agent/bin/python \
+  scripts/start_worldmodel_service.py --env alfworld --gpu 1
+```
+
+配置在 `configs/worldmodel/*.json`，默认端口 ALFWorld 8111、ScienceWorld 8112、WebShop 8113。
+`--gpu` 可覆盖建议 GPU；vLLM 使用 TP=1、PP=1 和 prefix caching，显存预算 0.90 是本地部署选择。
+日志和启动参数位于 `outputs/wm_reflection_setup/`。
+使用 EE-IL Agent 时还需要对应 Agent 服务；根据空闲显卡按环境调度，避免与 WM 服务争用显存。
+
+### Agent + WM + 反思
+
+先保证所选 Agent、tokenizer（8105）和环境服务已经就绪。
+ScienceWorld 使用现有 `127.0.0.1:36001` 服务。
+
+```bash
+# 三环境 oracle 冒烟，每环境一个任务、每任务两步。
+bash scripts/run_overnight_paper_benchmarks.sh \
+  --benchmarks alfworld scienceworld webshop --models qwen25 \
+  --wm-backend oracle --reflection-max-rounds 3 --limit 1 --smoke-steps 2 \
+  --output /data1/shn/agentwmv2/outputs/wm_reflection/oracle_smoke
+
+# ALFWorld checkpoint 冒烟，需要先启动 ALFWorld WM 服务。
+bash scripts/run_overnight_paper_benchmarks.sh \
+  --benchmarks alfworld --models qwen25 \
+  --wm-backend word2world --reflection-max-rounds 3 --limit 1 --smoke-steps 2 \
+  --output /data1/shn/agentwmv2/outputs/wm_reflection/word2world_smoke
+```
+
+移除 `--limit` 和 `--smoke-steps` 可运行完整任务集，正式实验应使用独立目录。
+`--models` 可选 `qwen25 qwen38 ee_il`；`--benchmarks` 可选三个环境。
+`--wm-backend none` 或省略该参数沿用 baseline；已有 baseline 配置可以恢复。
+反思模式默认输出目录为 `outputs/wm_reflection/<backend>`，不混入原有成绩。
+需要不同配置时通过 `--wm-config-dir` 指定配置目录，直接 runner 则使用 `--wm-config`。
+反思上限允许 1–3，默认 3，不能设为更大值。
+
+反思输出必须包含 JSON `decision/action/reason`，prompt 见 `reflection/prompt.txt`。
+无效模型输出消耗一轮，下一轮给出校验错误；达到上限时保留当前候选动作，不猜测动作、不额外增加轮数。
+服务错误、输入上下文超限、空预测和 oracle 不一致记录为基础设施错误；实际模型失败仍按环境结果计分。
+
+### 单独预测和轨迹重放
+
+```bash
+PYTHONNOUSERSITE=1 /home/shn/miniconda3/envs/ee-alfworld/bin/python \
+  scripts/predict_next_observation.py --env alfworld --wm-backend oracle \
+  --task-index 0 --action 'look' --compare
+```
+
+替换为 `--wm-backend word2world` 使用对应 checkpoint。
+`--prefix-actions actions.json` 接受已执行动作的 JSON 列表，重建该历史之后再预测；支持 `--output result.json`。
+`--compare` 只在隔离环境中执行动作，不改变正在运行的评测任务。
+
+### 验证与结果
+
+```bash
+PYTHONNOUSERSITE=1 /home/shn/miniconda3/envs/ee-alfworld/bin/python scripts/test_paper_eval_protocol.py
+PYTHONNOUSERSITE=1 /home/shn/miniconda3/envs/ee-alfworld/bin/python scripts/test_wm_reflection.py
+PYTHONNOUSERSITE=1 /home/shn/miniconda3/envs/ee-scienceworld/bin/python \
+  scripts/validate_wm_oracles.py --env scienceworld
+PYTHONNOUSERSITE=1 /home/shn/miniconda3/envs/ee-alfworld/bin/python \
+  scripts/validate_word2world.py --env alfworld --samples 2
+```
+
+oracle 验证需要使用对应 `ee-alfworld`、`ee-scienceworld`、`ee-webshop` 环境。
+官方单步夹具验证使用作者公开数据和 `max_tokens=2000`，与在线 512 配置分开记录。
+夹具、购买测试和短冒烟都不是正式 benchmark 成绩。
+
+本次实现已验证：
+
+- 原有 25 项协议检查、新增 25 项行为检查全部通过；新增检查在 Python 3.8/3.10/3.12 环境均通过。
+- `oracle_smoke_final`、`word2world_smoke_final`：两后端各三个环境、每任务两步，共 12 个真实步，全部完成且基础设施错误为 0。
+- oracle 的 6 个正式提交步均通过观察、分数和终止状态核对；ScienceWorld 另通过歧义菜单和编号选择的四步重放验证。
+- checkpoint 冒烟最终预测观察完全匹配 5/6；WebShop 有 3 次部分预测，已明确标注，不能据此推断完整数据集准确率。
+- 官方单步样本各 2 条：ALFWorld 2/2、ScienceWorld 2/2、WebShop 0/2 完全匹配，详情在 `outputs/wm_reflection_setup/*_official_fixtures.json`。
+
+当前 lab 部署：GPU 0 为 Qwen2.5 Agent（8100），GPU 1/2/3 为三个 WM（8111/8112/8113）。
+为此释放了已完成评测的 EE-IL 服务；GPU 4–7 的既有 Qwen3.8 任务持续运行。
+ScienceWorld HTTP 服务的文件句柄软上限由 1024 调整为 16384，未重启服务；oracle 新分支使用独立 SDK，避免累积共享服务会话。
+
+运行完整 Qwen2.5 + checkpoint 实验：
+
+```bash
+bash scripts/run_overnight_paper_benchmarks.sh \
+  --benchmarks alfworld scienceworld webshop --models qwen25 \
+  --wm-backend word2world --reflection-max-rounds 3 \
+  --output /data1/shn/agentwmv2/outputs/wm_reflection/word2world_qwen25
+```
+
+改成 `--wm-backend oracle` 并使用新的输出目录即可运行真实环境 oracle 对照。
+
+每个任务保存完整 `steps` 和 `reflection_metrics`；逐步 `steps.jsonl` 包含候选、每轮预测/反思、最终动作和实际反馈。
+`reflection_events.jsonl` 还保存中途失败前的请求/输出，方便诊断。
+`summary.json` 汇总轮数、替换数、无效输出、预测匹配率、oracle 校验、调用数、token 和耗时；`RESULTS.md` 保留真实环境任务成绩。
+`config.json` 固定完整功能设置、源码和模型 provenance；改动配置/源码后需要新目录，不能混用旧结果。
+
 ## 复现口径
 
 - 论文/项目：Agent Learning via Early Experience, arXiv:2510.08558

@@ -12,6 +12,7 @@ import time
 import requests
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 CONDA = Path('/home/shn/miniconda3/envs')
 SPEC = {
     'alfworld': ('ee-alfworld', 50, 1024, 140),
@@ -33,7 +34,11 @@ class ExistingRunner:
     def __init__(self, pid, command):
         self.pid = int(pid)
         actual = Path('/proc', str(self.pid), 'cmdline').read_bytes().decode().split('\0')
-        for flag in ('--env', '--output', '--manifest', '--model'):
+        flags = ['--env', '--output', '--manifest', '--model']
+        flags += [f for f in ('--wm-backend', '--reflection-max-rounds', '--wm-config') if f in command]
+        for flag in flags:
+            if flag not in actual:
+                raise RuntimeError('Refusing to adopt runner without requested flag ' + flag)
             if actual[actual.index(flag) + 1] != command[command.index(flag) + 1]:
                 raise RuntimeError('Refusing to adopt mismatched runner %d: %s' % (self.pid, flag))
         self.returncode = None
@@ -84,13 +89,20 @@ def update(out, jobs, children, reference=None):
             success_rate=100 * sum(r['success'] for r in good) / len(good) if good else None,
             average_native_score=sum(r['score'] for r in good)/len(good) if good else None,
             pid=proc.pid if proc and proc.poll() is None else None, progress=progress)
+        reflected = [r['reflection_metrics'] for r in good if 'reflection_metrics' in r]
+        if reflected:
+            totals = {k:sum(r[k] for r in reflected) for k in reflected[0] if k != 'mean_rounds'}
+            totals['mean_rounds'] = totals['reflection_calls'] / totals['steps']
+            totals['changed_step_rate'] = totals['changed_step_count'] / totals['steps']
+            totals['prediction_exact_match_rate'] = totals['prediction_exact_matches'] / totals['steps']
+            stats[key]['reflection'] = totals
     save(out / 'summary.json', dict(updated=time.time(), results=stats))
     display = dict(stats)
     references = reference if isinstance(reference, list) else ([reference] if reference else [])
     for ref in references:
         if (ref / 'summary.json').exists():
             display = {**json.loads((ref / 'summary.json').read_text())['results'], **display}
-    benchmarks = [b for b in SPEC if b + '_qwen25' in display]
+    benchmarks = [b for b in SPEC if any(b + '_' + m in display for m in ('qwen25', 'qwen38', 'ee_il'))]
     labels = {'alfworld': 'ALFWorld success', 'scienceworld': 'ScienceWorld score / full success',
               'webshop': 'WebShop success (index-v2)'}
     lines = ['# Audited evaluation — live results', '',
@@ -100,7 +112,10 @@ def update(out, jobs, children, reference=None):
     for model in ('qwen25', 'qwen38', 'ee_il'):
         cells = []
         for benchmark in benchmarks:
-            s = display[benchmark + '_' + model]
+            s = display.get(benchmark + '_' + model)
+            if s is None:
+                cells.append('not selected')
+                continue
             if s['success_rate'] is None:
                 cell = '%s; 0/%d' % (s['status'], s['total'])
             else:
@@ -120,14 +135,24 @@ def update(out, jobs, children, reference=None):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--output', default=str(ROOT / 'outputs/paper_eval/audited'))
+    parser.add_argument('--output')
     parser.add_argument('--limit', type=int, help='Smoke only, in a separate output directory')
     parser.add_argument('--smoke-steps', type=int, help='Shortened horizon for smoke only')
     parser.add_argument('--refresh-audit-only', action='store_true', help='Refresh metadata without launching duplicate jobs')
     parser.add_argument('--benchmarks', nargs='+', choices=list(SPEC), default=list(SPEC))
+    parser.add_argument('--models', nargs='+', choices=['qwen25', 'qwen38', 'ee_il'],
+                        default=['qwen25', 'qwen38', 'ee_il'])
+    parser.add_argument('--wm-backend', choices=['none', 'oracle', 'word2world'], default='none')
+    parser.add_argument('--wm-config-dir', default=str(ROOT / 'configs/worldmodel'))
+    parser.add_argument('--reflection-max-rounds', type=int, choices=[1, 2, 3], default=3)
     parser.add_argument('--adopt-pids', help='JSON file mapping job keys to verified existing runner PIDs')
     parser.add_argument('--reference-output', action='append', help='Read-only other-benchmark summary; repeat for multiple directories')
     args = parser.parse_args()
+    if args.output is None:
+        args.output = str(ROOT / ('outputs/paper_eval/audited' if args.wm_backend == 'none'
+                                 else 'outputs/wm_reflection/' + args.wm_backend))
+    if args.wm_backend != 'none' and args.reference_output:
+        parser.error('Reflection results must not merge baseline reference summaries')
     selected = {b: SPEC[b] for b in SPEC if b in args.benchmarks}
     adopted = json.loads(Path(args.adopt_pids).read_text()) if args.adopt_pids else {}
     reference = [Path(p) for p in args.reference_output] if args.reference_output else None
@@ -147,8 +172,18 @@ def main():
             str(ROOT / 'scripts/paper_eval_tokenizers.py')], cwd=ROOT, env=child_env(),
             stdout=open(logs / 'tokenizers.log', 'a'), stderr=subprocess.STDOUT)
     deadline = time.time() + 600
-    services = [(8105, None), (8100, 'qwen25'), (8102, None)] + [
-        (IL_PORTS[b], 'ee-' + b + '-il') for b in selected]
+    services = [(8105, None)]
+    if 'qwen25' in args.models:
+        services.append((8100, 'qwen25'))
+    if 'qwen38' in args.models:
+        services.append((8102, None))
+    if 'ee_il' in args.models:
+        services += [(IL_PORTS[b], 'ee-' + b + '-il') for b in selected]
+    if args.wm_backend == 'word2world':
+        from urllib.parse import urlparse
+        for b in selected:
+            c = json.loads((Path(args.wm_config_dir) / (b + '.json')).read_text())
+            services.append((urlparse(c['url']).port, c['served_model_name']))
     for port, model in services:
         while not ready(port, model):
             if time.time() > deadline:
@@ -171,7 +206,7 @@ def main():
     for benchmark, (environment, horizon, max_tokens, expected) in selected.items():
         if args.smoke_steps:
             horizon = args.smoke_steps
-        for model in ('qwen25', 'qwen38', 'ee_il'):
+        for model in args.models:
             if model == 'qwen25':
                 port, served, weights = 8100, 'qwen25', ROOT / 'checkpoints/Qwen2.5-7B-Instruct'
             elif model == 'qwen38':
@@ -189,9 +224,15 @@ def main():
                 command += ['--disable-thinking', '--generation-lock', str(ROOT / 'outputs/paper_eval/qwen38_generation.lock')]
             if args.limit:
                 command += ['--limit', str(args.limit)]
+            if args.wm_backend != 'none':
+                command += ['--wm-backend', args.wm_backend, '--reflection-max-rounds', str(args.reflection_max_rounds)]
+                if args.wm_backend == 'word2world':
+                    command += ['--wm-config', str(Path(args.wm_config_dir) / (benchmark + '.json'))]
             jobs[key] = dict(command=command, expected=min(args.limit, expected) if args.limit else expected,
                              benchmark=benchmark, model=model, weights=str(weights))
     protocols = {b: {'webshop':'webshop-index-v2', 'scienceworld':'scienceworld-context-v2'}.get(b, 'audited-v1') for b in selected}
+    if args.wm_backend != 'none':
+        protocols = {b:p + '/wm-reflection-v1/' + args.wm_backend for b,p in protocols.items()}
     science_preflight = None
     if 'scienceworld' in selected:
         science_preflight = json.loads((ROOT / 'outputs/paper_eval/scienceworld_context_v2/preflight.json').read_text())
@@ -227,6 +268,12 @@ def main():
             '4096-token overflow drops oldest complete ScienceWorld turns (ALFWorld/WebShop keep original recent-2 policies); no goal/action truncation. Unsupported oversized states become infrastructure errors, not benchmark failures.',
             'Full reproduction cannot be claimed without author inference prompt, horizon, validation IDs, and original framework revision.'
         ], jobs=jobs)
+    if args.wm_backend != 'none':
+        audit['reflection'] = dict(backend=args.wm_backend, max_rounds=args.reflection_max_rounds,
+            models=args.models, final_round_policy='predict-final-replacement-and-execute')
+        audit['sources'].update({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()
+            for directory in ('worldmodel', 'reflection', 'configs/worldmodel')
+            for p in (ROOT / directory).glob('*') if p.is_file()})
     save(out / 'audit.json', audit)
     if args.refresh_audit_only:
         print('Audit metadata refreshed; no jobs launched', flush=True)

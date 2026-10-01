@@ -16,6 +16,9 @@ import traceback
 import requests
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from worldmodel import runtime as wm_runtime
+from worldmodel.contexts import alf_wm_observation, web_wm_observation, ScienceActionView
 VERL = ROOT / 'external/verl-agent/agent_system'
 PROTOCOL = 'audited-v1'
 WEB_PROTOCOL = 'webshop-index-v2'
@@ -225,6 +228,30 @@ class Alf:
         return [dict(task_id='alfworld_%03d' % i, game_file=f, sha256=digest(f))
                 for i, f in enumerate(self.files)]
 
+    @staticmethod
+    def transition(obs, info, done=False):
+        won = bool(info.get('won', [False])[0])
+        return dict(observation=obs[0], raw_observation=obs[0], done=bool(done),
+                    success=won, score=100.0 * won,
+                    wm_observation=alf_wm_observation(obs[0], info['admissible_commands'][0]))
+
+    def branch(self, row):
+        other = Alf(self.args)
+        other.base.game_files = [row['game_file']]
+        other.base.num_games = 1
+        env = other.base.init_env(1)
+        try:
+            env.seed(1000)
+            obs, info = env.reset()
+            initial = self.transition(obs, info)
+        except Exception:
+            env.close()
+            raise
+        def step(action):
+            obs, _, done, info = env.step([action])
+            return self.transition(obs, info, done[0])
+        return step, env.close, initial
+
     def run(self, row, agent):
         assert digest(row['game_file']) == row['sha256'], 'ALFWorld data changed'
         self.base.game_files = [row['game_file']]
@@ -236,22 +263,29 @@ class Alf:
         task = obs[0].split('Your task is to: ', 1)[1].strip()
         steps, won, done = [], False, [False]
         try:
+            controller = wm_runtime.make_controller(self.args, 'alfworld', row, task,
+                self.transition(obs, info), lambda: self.branch(row), agent, ROOT) if getattr(self.args, 'wm_backend', 'none') != 'none' else None
             for t in range(self.args.max_steps):
                 acts = info['admissible_commands'][0]
                 messages, h = agent.bounded_native('alfworld', task, obs[0], acts, steps)
                 text, metadata = agent.generate(messages, row['task_id'], t + 1)
                 act, valid = project('alfworld', text, acts)
+                initial_act = act
+                act, text, reflection = wm_runtime.select(controller, act, text, obs[0], steps, acts, t + 1)
+                valid = True if act != initial_act else valid
                 prior = obs[0]
                 obs, _, done, info = self.env.step([act])
+                if controller:
+                    wm_runtime.commit(controller, act, self.transition(obs, info, done[0]), reflection)
                 won = bool(info['won'][0])
                 steps.append(dict(messages=messages, output=text, action=act,
                              valid_format=valid, admissible=act in acts, observation=prior,
-                             next_observation=obs[0], history_length=h, **metadata))
+                             next_observation=obs[0], history_length=h, **metadata, **reflection))
                 agent.trace(row['task_id'], steps[-1])
                 if done[0]:
                     break
             return dict(success=won, score=100.0 * won, done=bool(done[0]),
-                        task_description=task, steps=steps)
+                        task_description=task, steps=steps, **wm_runtime.metrics(steps))
         finally:
             self.env.close()
 
@@ -293,6 +327,34 @@ class Science:
             env.close()
         return tasks
 
+    @staticmethod
+    def transition(rst):
+        score = float(rst['score'])
+        return dict(observation=rst['observation'], raw_observation=rst['observation'],
+            done=bool(rst['done']), success=bool(rst['done'] and score == 100), score=score,
+            reward=rst['reward'], wm_observation=rst['observation'],
+            native_observation=rst.get('native_observation', rst['observation']))
+
+    def branch(self, row):
+        # Candidate branches do not create sessions in the long-lived HTTP
+        # server: AgentGym retains closed SDK objects, leaking gateway sockets.
+        from scienceworld import ScienceWorldEnv
+        env = ScienceWorldEnv()
+        view = ScienceActionView()
+        def close():
+            env.close()
+        try:
+            env.load(row['taskName'], row['variationIdx'])
+            observation, reward, done, info = env.step('look around')
+            rst = view.observe(dict(observation=observation, reward=reward, done=done, score=info['score']))
+        except Exception:
+            close()
+            raise
+        def step(action):
+            observation, reward, done, info = env.step(view.action(action))
+            return self.transition(view.observe(dict(observation=observation, reward=reward, done=done, score=info['score'])))
+        return step, close, self.transition(rst)
+
     def run(self, row, agent):
         eid = http('POST', self.url + '/create')['id']
         steps = []
@@ -300,13 +362,20 @@ class Science:
             rst = http('POST', self.url + '/reset', json=dict(id=eid, data_idx=row['index']))
             assert rst['task_name'] == row['taskName'] and rst['var_num'] == row['variationIdx'], rst
             task = rst['task_description']
+            view = ScienceActionView() if getattr(self.args, 'wm_backend', 'none') != 'none' else None
+            if view:
+                rst = view.observe(rst)
             if 'task_description_sha256' in row:
                 assert hashlib.sha256(task.encode()).hexdigest() == row['task_description_sha256'], 'ScienceWorld goal changed'
                 assert rst['score'] == row['initial_score'], 'ScienceWorld initial score changed'
+            controller = wm_runtime.make_controller(self.args, 'scienceworld', row, task,
+                self.transition(rst), lambda: self.branch(row), agent, ROOT) if getattr(self.args, 'wm_backend', 'none') != 'none' else None
             for t in range(self.args.max_steps):
                 if rst['done']:
                     break
                 acts = http('GET', self.url + '/admissible_actions', params=dict(id=eid))['admissible_actions']
+                if view:
+                    acts = list(acts) + list(view.mapping)
                 # Use the released expert-data interface: action templates (including
                 # connect/disconnect) are in the permanent introduction. No action
                 # category is forbidden or removed, unlike the superseded evaluator.
@@ -317,17 +386,25 @@ class Science:
                 # Action: separator, without first-line cleanup or fuzzy repair.
                 parts = text.rsplit('Action:', 1)
                 act = parts[-1].strip() if len(parts) == 2 else ''
+                initial_act = act
+                act, text, reflection = wm_runtime.select(controller, act, text, rst['observation'], steps, acts, t + 1)
                 prior = rst['observation']
-                rst = http('POST', self.url + '/step', json=dict(id=eid, action=act))
+                native_action = view.action(act) if view else act
+                rst = http('POST', self.url + '/step', json=dict(id=eid, action=native_action))
+                if view:
+                    rst = view.observe(rst)
+                    reflection['native_action'] = native_action
+                if controller:
+                    wm_runtime.commit(controller, act, self.transition(rst), reflection)
                 steps.append(dict(messages=messages, output=text, action=act,
-                             valid_format=bool(len(parts) == 2 and 'Thought:' in parts[0]), admissible=act in acts,
+                             valid_format=bool(act != initial_act or (len(parts) == 2 and 'Thought:' in parts[0])), admissible=act in acts,
                              admissible_actions=acts, observation=prior,
                              next_observation=rst['observation'], score=rst['score'],
-                             history_length=h, history_dropped=len(steps)-h, **metadata))
+                             history_length=h, history_dropped=len(steps)-h, **metadata, **reflection))
                 agent.trace(row['task_id'], steps[-1])
             score = float(rst['score'])
             return dict(success=bool(rst['done'] and score == 100.0), score=score,
-                        done=rst['done'], task_description=task, steps=steps)
+                        done=rst['done'], task_description=task, steps=steps, **wm_runtime.metrics(steps))
         finally:
             http('POST', self.url + '/close', json=dict(id=eid))
 
@@ -360,6 +437,36 @@ class Web:
                         sort_keys=True).encode()).hexdigest(), data_sha256=self.data)
                 for i in range(500)]
 
+    @staticmethod
+    def actions(env):
+        avail = env.get_available_actions()
+        return (['search[<your query>]'] if avail['has_search_bar'] else []) + [
+            'click[' + c + ']' for c in avail['clickables']]
+
+    def transition(self, env, raw, task, reward=0.0, done=False):
+        # step() automatically resets a terminal WebShop session. Never query
+        # that NEW session's actions as if they belonged to the terminal page.
+        actions = [] if done else self.actions(env)
+        return dict(observation=web_observation(raw, task), raw_observation=raw,
+            done=bool(done), success=bool(done and reward == 1.0), score=float(reward) * 100,
+            reward=float(reward), wm_observation=web_wm_observation(raw, actions))
+
+    def branch(self, row, task):
+        import copy
+        # Share immutable catalog/index only. All mutable session/browser state
+        # lives in a separate server instance, including terminal auto-resets.
+        server = copy.copy(self.env.server)
+        server.user_sessions = {}
+        env = type(self.env)(observation_mode='text', server=server, num_products=1000,
+                             human_goals=False, seed=1000)
+        raw, _ = env.reset(session=row['index'])
+        assert env.instruction_text == task, 'Oracle WebShop goal changed'
+        initial = self.transition(env, raw, task)
+        def step(action):
+            raw, reward, done, _ = env.step(action)
+            return self.transition(env, raw, task, reward, done)
+        return step, env.close, initial
+
     def run(self, row, agent):
         assert row['data_sha256'] == self.data, 'WebShop catalog changed'
         goal_hash = hashlib.sha256(json.dumps(self.env.server.goals[row['index']], sort_keys=True).encode()).hexdigest()
@@ -368,6 +475,8 @@ class Web:
         task = self.env.instruction_text
         obs = web_observation(raw, task)
         steps, reward, done = [], 0.0, False
+        controller = wm_runtime.make_controller(self.args, 'webshop', row, task,
+            self.transition(self.env, raw, task), lambda: self.branch(row, task), agent, ROOT) if getattr(self.args, 'wm_backend', 'none') != 'none' else None
         for t in range(self.args.max_steps):
             avail = self.env.get_available_actions()
             acts = (['search[<your query>]'] if avail['has_search_bar'] else []) + [
@@ -375,19 +484,24 @@ class Web:
             messages, h = agent.bounded_native('webshop', task, obs, acts, steps)
             text, metadata = agent.generate(messages, row['task_id'], t + 1)
             act, valid = project('webshop', text, acts)
+            initial_act = act
+            act, text, reflection = wm_runtime.select(controller, act, text, obs, steps, acts, t + 1)
+            valid = True if act != initial_act else valid
             admissible = act in [a.lower() for a in acts] or bool(
                 avail['has_search_bar'] and re.fullmatch(r'search\[.+\]', act))
             prior = obs
             state, reward, done, _ = self.env.step(act)
+            if controller:
+                wm_runtime.commit(controller, act, self.transition(self.env, state, task, reward, done), reflection)
             obs = web_observation(state, task)
             steps.append(dict(messages=messages, output=text, action=act,
                          valid_format=valid, admissible=admissible, observation=prior,
-                         next_observation=obs, reward=reward, history_length=h, **metadata))
+                         next_observation=obs, reward=reward, history_length=h, **metadata, **reflection))
             agent.trace(row['task_id'], steps[-1])
             if done:
                 break
         return dict(success=bool(done and reward == 1.0), score=float(reward) * 100,
-                    reward=float(reward), done=bool(done), task_description=task, steps=steps)
+                    reward=float(reward), done=bool(done), task_description=task, steps=steps, **wm_runtime.metrics(steps))
 
 
 def main():
@@ -406,6 +520,9 @@ def main():
     p.add_argument('--disable-thinking', action='store_true')
     p.add_argument('--generation-lock')
     p.add_argument('--limit', type=int)
+    p.add_argument('--wm-backend', choices=['none', 'oracle', 'word2world'], default='none')
+    p.add_argument('--wm-config', help='Word2World JSON config; defaults to configs/worldmodel/<env>.json')
+    p.add_argument('--reflection-max-rounds', type=int, choices=[1, 2, 3], default=3)
     args = p.parse_args()
     backend = {'alfworld': Alf, 'scienceworld': Science, 'webshop': Web}[args.env](args)
     if args.prepare:
@@ -425,7 +542,13 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     with open(out / '.runner.lock', 'a') as runner_lock:
         fcntl.flock(runner_lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        config = dict(vars(args), protocol=protocol_for_env(args.env), manifest_sha256=digest(args.manifest))
+        saved_args = dict(vars(args))
+        if args.wm_backend == 'none':
+            # Preserve exact pre-feature config files for baseline resume.
+            for key in ('wm_backend', 'wm_config', 'reflection_max_rounds'):
+                saved_args.pop(key)
+        config = dict(saved_args, protocol=protocol_for_env(args.env), manifest_sha256=digest(args.manifest),
+                      **wm_runtime.audit_settings(args, ROOT))
         if args.env == 'scienceworld':
             config.update(science_prompt='full-train-dialogue-one-shot/native-goal-once/token-bounded-full-history',
                           science_demo_sha256=digest(ROOT / 'data/paper_eval/sources/science_expert_sample.jsonl'),
