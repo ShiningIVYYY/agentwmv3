@@ -212,6 +212,9 @@ class Agent:
 
 class Alf:
     def __init__(self, args):
+        if getattr(args, 'wm_backend', 'none') != 'none':
+            from worldmodel.resources import install_pddl_cleanup
+            install_pddl_cleanup()
         import yaml
         sys.path.insert(0, str(VERL / 'environments/env_package/alfworld'))
         from alfworld.agents.environment.alfred_tw_env import AlfredTWEnv
@@ -356,24 +359,39 @@ class Science:
         return step, close, self.transition(rst)
 
     def run(self, row, agent):
-        eid = http('POST', self.url + '/create')['id']
+        snapshot_mode = getattr(self.args, 'wm_backend', 'none') == 'oracle'
+        eid = None
+        sdk = oracle = None
         steps = []
         try:
-            rst = http('POST', self.url + '/reset', json=dict(id=eid, data_idx=row['index']))
+            if snapshot_mode:
+                from scienceworld import ScienceWorldEnv
+                from worldmodel.science_snapshot import ScienceSnapshotOracle
+                sdk = ScienceWorldEnv()
+                sdk.load(row['taskName'], row['variationIdx'])
+                observation, reward, done, info = sdk.step('look around')
+                rst = dict(observation=observation, reward=reward, done=done, score=info['score'],
+                    task_name=row['taskName'], var_num=row['variationIdx'], task_description=sdk.getTaskDescription())
+            else:
+                eid = http('POST', self.url + '/create')['id']
+                rst = http('POST', self.url + '/reset', json=dict(id=eid, data_idx=row['index']))
             assert rst['task_name'] == row['taskName'] and rst['var_num'] == row['variationIdx'], rst
             task = rst['task_description']
             view = ScienceActionView() if getattr(self.args, 'wm_backend', 'none') != 'none' else None
             if view:
                 rst = view.observe(rst)
+            if snapshot_mode:
+                oracle = ScienceSnapshotOracle(sdk, view, self.transition, ROOT)
             if 'task_description_sha256' in row:
                 assert hashlib.sha256(task.encode()).hexdigest() == row['task_description_sha256'], 'ScienceWorld goal changed'
                 assert rst['score'] == row['initial_score'], 'ScienceWorld initial score changed'
             controller = wm_runtime.make_controller(self.args, 'scienceworld', row, task,
-                self.transition(rst), lambda: self.branch(row), agent, ROOT) if getattr(self.args, 'wm_backend', 'none') != 'none' else None
+                self.transition(rst), lambda: self.branch(row), agent, ROOT, oracle=oracle) if getattr(self.args, 'wm_backend', 'none') != 'none' else None
             for t in range(self.args.max_steps):
                 if rst['done']:
                     break
-                acts = http('GET', self.url + '/admissible_actions', params=dict(id=eid))['admissible_actions']
+                acts = list(sdk.get_valid_action_object_combinations()) if snapshot_mode else http(
+                    'GET', self.url + '/admissible_actions', params=dict(id=eid))['admissible_actions']
                 if view:
                     acts = list(acts) + list(view.mapping)
                 # Use the released expert-data interface: action templates (including
@@ -390,9 +408,11 @@ class Science:
                 act, text, reflection = wm_runtime.select(controller, act, text, rst['observation'], steps, acts, t + 1)
                 prior = rst['observation']
                 native_action = view.action(act) if view else act
-                rst = http('POST', self.url + '/step', json=dict(id=eid, action=native_action))
-                if view:
+                rst = oracle.execute(act) if snapshot_mode else http(
+                    'POST', self.url + '/step', json=dict(id=eid, action=native_action))
+                if view and not snapshot_mode:
                     rst = view.observe(rst)
+                if view:
                     reflection['native_action'] = native_action
                 if controller:
                     wm_runtime.commit(controller, act, self.transition(rst), reflection)
@@ -406,7 +426,12 @@ class Science:
             return dict(success=bool(rst['done'] and score == 100.0), score=score,
                         done=rst['done'], task_description=task, steps=steps, **wm_runtime.metrics(steps))
         finally:
-            http('POST', self.url + '/close', json=dict(id=eid))
+            if oracle is not None:
+                oracle.close()
+            if sdk is not None:
+                sdk.close()
+            if eid is not None:
+                http('POST', self.url + '/close', json=dict(id=eid))
 
 
 class Web:
@@ -524,6 +549,10 @@ def main():
     p.add_argument('--wm-config', help='Word2World JSON config; defaults to configs/worldmodel/<env>.json')
     p.add_argument('--reflection-max-rounds', type=int, choices=[1, 2, 3], default=3)
     args = p.parse_args()
+    temporary = None
+    if not args.prepare and args.wm_backend != 'none':
+        from worldmodel.resources import configure_temporary_directory
+        temporary = configure_temporary_directory(args.output)
     backend = {'alfworld': Alf, 'scienceworld': Science, 'webshop': Web}[args.env](args)
     if args.prepare:
         atomic(args.manifest, dict(protocol=protocol_for_env(args.env), env=args.env, tasks=backend.tasks()))

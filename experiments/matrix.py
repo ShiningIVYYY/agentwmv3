@@ -44,6 +44,9 @@ def source_files(root):
         files.extend(p for p in (root / folder).glob('*') if p.is_file())
     files.extend([root / 'data/paper_eval/sources/science_expert_sample.jsonl',
                   root / 'outputs/paper_eval/scienceworld_context_v2/preflight.json'])
+    snapshot = root / 'outputs/wm_reflection_setup/science_snapshot'
+    files.append(snapshot / 'provenance.json')
+    files.extend((snapshot / 'classes').rglob('*.class'))
     return sorted(set(files))
 
 
@@ -122,6 +125,10 @@ def prepare(root, out, models=MODELS):
             qwen38_dependency='all three original qwen38 baselines complete and their runners exited' if 'qwen38' in models else 'not selected',
             science_ambiguity='stable-label-order-with-native-number-translation',
             science_oracle_exits='unordered-full-door-descriptions/native-agent-text-preserved',
+            science_oracle_state='live-jvm-heap-checkpoint/rollback-rejected/adopt-final-state-once',
+            alfworld_native_resources='close-and-dlclose-each-owned-PDDL-library',
+            temporary_directory='owned-worker-directory-on-experiment-volume',
+            empty_prediction='explicit-missing-evidence/reflect-with-current-state',
             history='commit-real-feedback-only'))
     save(target, matrix)
     return matrix
@@ -186,7 +193,8 @@ def statistics(directory, ids):
         average_score=sum(r['score'] for r in completed.values()) / count if count else None)
     metrics = [r['reflection_metrics'] for r in completed.values() if r.get('reflection_metrics')]
     if metrics:
-        totals = {k:sum(r[k] for r in metrics) for k in metrics[0] if k != 'mean_rounds'}
+        keys = set().union(*(r.keys() for r in metrics)) - {'mean_rounds'}
+        totals = {k:sum(r.get(k, 0) for r in metrics) for k in keys}
         totals['mean_rounds'] = totals['reflection_calls'] / totals['steps'] if totals['steps'] else 0
         result['reflection'] = totals
     return result

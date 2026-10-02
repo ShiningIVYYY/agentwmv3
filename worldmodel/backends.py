@@ -141,8 +141,18 @@ class Word2WorldModel:
         result = response.json()
         choice = result['choices'][0]
         raw = choice['message'].get('content')
-        if not isinstance(raw, str) or not raw.strip():
-            raise PredictionError('Empty world model prediction')
+        if raw is None and choice.get('finish_reason') == 'stop':
+            raw = ''
+        if not isinstance(raw, str):
+            raise PredictionError('World model prediction content must be text')
+        if not raw.strip():
+            # Immediate EOS on an unfamiliar/invalid action is a model output,
+            # not a failed simulator task. Preserve the missing evidence rather
+            # than inventing an observation or retrying a deterministic response.
+            return dict(backend=self.backend, raw_output=raw, observation='',
+                prediction_available=False, observation_complete=False, empty_output=True,
+                finish_reason=choice.get('finish_reason'), prompt_tokens=count,
+                usage=result.get('usage'), seconds=time.monotonic()-started)
         success = ' [SUCCESS]' in raw
         observation = raw.split(' [SUCCESS]', 1)[0]
         return dict(backend=self.backend, raw_output=raw,

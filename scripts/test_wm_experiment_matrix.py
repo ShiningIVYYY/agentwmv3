@@ -108,6 +108,16 @@ class MatrixTests(unittest.TestCase):
         with self.assertRaises(RuntimeError):
             statistics(self.root, ['task-0'])
 
+    def test_inherited_metrics_without_empty_count_merge_with_new_results(self):
+        save(self.root / 'tasks/task-0.json', dict(task_id='task-0', status='completed', success=False,
+            score=0, reflection_metrics=dict(steps=2, reflection_calls=3, mean_rounds=1.5)))
+        save(self.root / 'tasks/task-1.json', dict(task_id='task-1', status='completed', success=False,
+            score=0, reflection_metrics=dict(steps=1, reflection_calls=2, mean_rounds=2,
+                wm_empty_predictions=1)))
+        metrics = statistics(self.root, ['task-0','task-1'])['reflection']
+        self.assertEqual(metrics['wm_empty_predictions'], 1)
+        self.assertEqual(metrics['mean_rounds'], 5 / 3)
+
     def test_preflight_failure_blocks_entire_model_wave_full_runs(self):
         key = 'oracle/alfworld_qwen25'
         self.scheduler.state['jobs'][self.scheduler.key(key, True)] = dict(status='failed')

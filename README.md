@@ -11,10 +11,10 @@
 
 ### 两种后端
 
-- `oracle`：在独立真实环境实例中 reset 同一任务、重放已经执行的动作，再试执行候选动作。
+- `oracle`：ALFWorld/WebShop 在独立环境中重放历史、试执行候选动作；ScienceWorld 采用下述实时 JVM 检查点。
   每次重建均校验初始及逐步 observation、reward/score、done；正式提交时再次逐字段核对预测。
   被拒绝的候选动作不会改变正式环境。重放或提交不一致会成为基础设施错误，不伪装成 100% 准确结果。
-  该实现使用真实模拟器的反馈；确定性任务一致时是准确的 oracle，随机转移或无法重建的任务不能保证准确。
+  该实现使用真实模拟器的反馈；重放任务出现真实随机转移或无法重建时明确报错；ScienceWorld 的实时检查点支持随机转移。
   ScienceWorld 的歧义菜单按完整标签稳定排序，并将 Agent 选择编号映射回每个实例的原始编号。
   两后端使用同一观察表示；`native_observation/native_action` 保留原始返回与实际执行命令。
   校验比较这个无损观察表示及原生分数/终止状态，不忽略真正的状态分歧；重复标签无法映射时明确报错。
@@ -30,7 +30,12 @@
 
 反思 Agent 两种后端均只看到预测的下一观察，oracle 的额外 reward、score、隐藏环境信息不加入反思 prompt。
 checkpoint 的私有初始化信息只进入 WM。ALFWorld 适配官方 `put`→`move` 动作前缀及 AVAILABLE ACTIONS 后缀。
-ScienceWorld 的房间信息采集和 oracle 分支使用独立 SDK 实例，正式执行沿用 HTTP 服务。
+ScienceWorld 的 checkpoint 和 baseline 正式执行沿用 HTTP 服务；Oracle 使用专属 SDK JVM。
+Oracle 保存实际 JVM 堆、Python SDK、歧义映射、随机数和对象编号，试执行后完整回滚。
+最终动作采用真实模拟器已产生的状态，只推进一次；提交时验证完整检查点。
+这样避免跨 JVM 对象列表顺序和随机生物活动导致的重放不一致。
+ALFWorld 的 WM runner 对每个 PDDL 动态库调用 cleanup/dlclose，并在实验卷使用独立临时目录。
+glibc 可能保留首个 C++ 库；后续预测分支关闭后不再累积库映射。
 WebShop 的 oracle 隔离 session/browser 以及终止自动 reset。
 这是一套接入现有评测环境的实验协议，不能直接称为 Word2World 论文完整复现。
 
@@ -41,6 +46,7 @@ cd /data1/shn/agentwmv2
 PYTHONNOUSERSITE=1 /home/shn/miniconda3/envs/verl-agent/bin/python scripts/download_word2world.py
 PYTHONNOUSERSITE=1 /home/shn/miniconda3/envs/ee-alfworld/bin/python \
   scripts/setup_word2world_source.py --source-repo /data1/shn/Word2World
+PYTHONNOUSERSITE=1 /home/shn/miniconda3/envs/ee-scienceworld/bin/python scripts/build_science_snapshot.py
 ```
 
 权重目录为 `checkpoints/word2world/{alfworld,scienceworld,webshop}`。
@@ -92,7 +98,9 @@ bash scripts/run_overnight_paper_benchmarks.sh \
 
 反思输出必须包含 JSON `decision/action/reason`，prompt 见 `reflection/prompt.txt`。
 无效模型输出消耗一轮，下一轮给出校验错误；达到上限时保留当前候选动作，不猜测动作、不额外增加轮数。
-服务错误、输入上下文超限、空预测和 oracle 不一致记录为基础设施错误；实际模型失败仍按环境结果计分。
+服务错误、输入上下文超限和 oracle 不一致记录为基础设施错误；实际模型失败仍按环境结果计分。
+checkpoint 正常结束但输出为空时，明确标注下一观察未知，用当前状态和历史进行至多三轮反思；
+不编造下一观察、不改采样配置，日志和汇总记录 wm_empty_predictions。
 
 ### 单独预测和轨迹重放
 
@@ -150,11 +158,12 @@ bash scripts/run_overnight_paper_benchmarks.sh \
 bash scripts/start_wm_experiment_matrix.sh
 ```
 
-统一入口为 `scripts/run_wm_experiment_matrix.py`，当前默认选择 Qwen2.5 和 EE-IL，输出 `outputs/wm_reflection/full_7b_v2/`。
-`full_7b_v1` 已因 ScienceWorld Oracle 出口排列校验修复而归档。迁移记录位于 v2 的
-`migration.json`：ScienceWorld Oracle 全量任务重新运行；其他组仅继承已完成且行为未受修复影响的任务，
-文件保持原样，原始 config 和源码来源见各组 `inherited_tasks.json`。两组 ScienceWorld Oracle
-预检重新运行，其余十组预检保留原始审计记录后重新核验。Agent prompt、采样、步数和 checkpoint 不变。
+统一入口为 `scripts/run_wm_experiment_matrix.py`，当前默认选择 Qwen2.5 和 EE-IL，输出 `outputs/wm_reflection/full_7b_v3/`。
+`full_7b_v1` 和 `full_7b_v2` 保留为历史记录。v3 修复 ScienceWorld 实时检查点、
+ALFWorld 动态库释放和 checkpoint 空预测处理。`migration.json` 记录来源：
+ScienceWorld Oracle 全量重新运行；其他组仅继承已完成且行为未受修复影响的任务，
+文件保持原样，原始配置和源码来源见各组 `inherited_tasks.json`。十二组预检重新运行。
+Agent 原始动作 prompt、采样、步数和 checkpoint 不变。
 它从以下原始 `config.json/audit.json` 冻结所选 baseline 的参数和任务 ID：
 ALFWorld 的 `outputs/paper_eval/audited/`、ScienceWorld 的 `scienceworld_context_v2/`、WebShop 的 `webshop_index_v2/`。
 当前实验为 Qwen2.5、三个环境对应的 EE-IL checkpoint × 三环境 × 两后端，共 12 组、3360 个任务实例。

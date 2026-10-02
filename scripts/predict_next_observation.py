@@ -37,19 +37,44 @@ def main():
         parser.error('--task-index is outside the frozen task manifest')
     row = rows[args.task_index]
     backend = {'alfworld':ev.Alf,'scienceworld':ev.Science,'webshop':ev.Web}[args.env](args)
-    if args.env == 'webshop':
+    snapshot = None
+    if args.env == 'scienceworld' and args.wm_backend == 'oracle':
+        from scienceworld import ScienceWorldEnv
+        from worldmodel.contexts import ScienceActionView
+        from worldmodel.science_snapshot import ScienceSnapshotOracle
+        sdk = ScienceWorldEnv()
+        try:
+            sdk.load(row['taskName'], row['variationIdx'])
+            observation, reward, done, info = sdk.step('look around')
+            view = ScienceActionView()
+            initial = backend.transition(view.observe(dict(observation=observation,
+                reward=reward, done=done, score=info['score'])))
+            task = sdk.getTaskDescription()
+            snapshot = ScienceSnapshotOracle(sdk, view, backend.transition, ROOT)
+        except Exception:
+            sdk.close()
+            raise
+        factory = None
+        step = snapshot.execute
+        def close():
+            try:
+                snapshot.close()
+            finally:
+                sdk.close()
+    elif args.env == 'webshop':
         raw, _ = backend.env.reset(session=row['index'])
         task = backend.env.instruction_text
         factory = lambda: backend.branch(row, task)
     else:
         task = ''
         factory = lambda: backend.branch(row)
-    with RandomIsolation():
-        step, close, initial = factory()
+    if snapshot is None:
+        with RandomIsolation():
+            step, close, initial = factory()
     try:
         if args.env == 'alfworld':
             task = initial['observation'].split('Your task is to: ',1)[1].strip()
-        elif args.env == 'scienceworld':
+        elif args.env == 'scienceworld' and snapshot is None:
             # The frozen goal is already embedded in the initial user context by
             # the server; obtain the exact text from a separate reset, not a test answer.
             eid = ev.http('POST', args.science_url + '/create')['id']
@@ -57,7 +82,7 @@ def main():
                 task = ev.http('POST', args.science_url + '/reset', json=dict(id=eid,data_idx=row['index']))['task_description']
             finally:
                 ev.http('POST', args.science_url + '/close', json=dict(id=eid))
-        controller = make_controller(args, args.env, row, task, initial, factory, None, ROOT)
+        controller = make_controller(args, args.env, row, task, initial, factory, None, ROOT, oracle=snapshot)
         prefix = json.loads(args.prefix_actions.read_text()) if args.prefix_actions else []
         if not isinstance(prefix, list) or not all(isinstance(a, str) for a in prefix):
             raise ValueError('Prefix must be a JSON list of actions')

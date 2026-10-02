@@ -101,6 +101,20 @@ class ReflectionTests(unittest.TestCase):
         self.assertEqual(log['replacements'], 0)
         self.assertIn('invalid', agent.messages[-1][0]['content'])
 
+    def test_empty_checkpoint_is_unknown_evidence_and_can_be_reflected(self):
+        wm = MemoryWM()
+        wm.predict = lambda _: dict(observation='', prediction_available=False,
+            observation_complete=False, empty_output=True, seconds=0)
+        c, _, agent = self.controller([decision('replace', 'inventory'), decision('keep', 'inventory')], wm)
+        chosen, log = c.select('bad tagged action', 'CURRENT REAL STATE', [], ['inventory'], 1)
+        self.assertEqual(chosen, 'inventory')
+        self.assertEqual(log['rounds'], 2)
+        content = agent.messages[0][0]['content']
+        self.assertIn('UNKNOWN', content)
+        self.assertIn('CURRENT REAL STATE', content)
+        self.assertNotIn('prediction hit its token limit', content)
+        self.assertNotIn('hypothetical', content)
+
     def test_required_fields_overflow_is_error(self):
         c, wm, agent = self.controller([])
         agent.count = lambda _: 4097
@@ -336,13 +350,17 @@ class CheckpointTests(unittest.TestCase):
         self.assertFalse(prediction['observation_complete'])
         self.assertEqual(prediction['finish_reason'], 'length')
 
-    def test_empty_prediction_is_error(self):
+    def test_empty_prediction_is_explicit_missing_evidence(self):
         class Response:
             def raise_for_status(self): pass
             def json(self):
                 return dict(choices=[dict(message=dict(content=''), finish_reason='stop')])
-        with patch('worldmodel.backends.requests.post', return_value=Response()), self.assertRaises(PredictionError):
-            self.wm.predict('A')
+        with patch('worldmodel.backends.requests.post', return_value=Response()):
+            prediction = self.wm.predict('A')
+        self.assertEqual(prediction['observation'], '')
+        self.assertFalse(prediction['prediction_available'])
+        self.assertTrue(prediction['empty_output'])
+        self.assertEqual(len(self.wm.history), 1)
 
     def test_alf_action_adapter_only_changes_placement_prefix(self):
         self.assertEqual(alf_action('put mug 1 in/on table 1'), 'move mug 1 in/on table 1')

@@ -76,7 +76,18 @@ class ReflectionController:
                     predicted_observation_complete=prediction.get('observation_complete', True),
                     previous_reviews=[dict(candidate=r['candidate'], **r['decision']) for r in reviews],
                     round=number, max_rounds=self.max_rounds)
-                messages = [dict(role='user', content=PROMPT + '\n\nINPUT DATA:\n' +
+                prompt = PROMPT
+                if prediction.get('prediction_available') is False:
+                    data['prediction_available'] = False
+                    prompt = prompt.replace('Use the hypothetical next observation as evidence.',
+                        'Use the actual current observation and executed history as evidence.')
+                    prompt = prompt.replace(
+                        'If predicted_observation_complete is false, the prediction hit its token limit.\n'
+                        'Treat it as partial evidence; do not assume omitted objects or outcomes are absent.',
+                        'The world model returned no usable next observation for this candidate.\n'
+                        'The next state is UNKNOWN. Do not infer that nothing happens.\n'
+                        'Use the actual current state, executed history and action information to review it.')
+                messages = [dict(role='user', content=prompt + '\n\nINPUT DATA:\n' +
                                  json.dumps(data, ensure_ascii=False))]
                 if self.agent.count(messages) <= 4096:
                     break

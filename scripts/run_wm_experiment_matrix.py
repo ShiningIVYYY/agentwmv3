@@ -44,7 +44,7 @@ def launch(matrix):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--output', type=Path, default=ROOT / 'outputs/wm_reflection/full_7b_v2')
+    parser.add_argument('--output', type=Path, default=ROOT / 'outputs/wm_reflection/full_7b_v3')
     parser.add_argument('--models', nargs='+', choices=MODELS, default=['qwen25','ee_il'])
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument('--prepare-only', action='store_true')

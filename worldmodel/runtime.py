@@ -7,12 +7,12 @@ from .backends import OracleWorldModel, Word2WorldModel, load_config, Prediction
 from .contexts import initial_context, alf_action, checkpoint_observation
 
 
-def make_controller(args, env, row, task, initial, factory, agent, root):
+def make_controller(args, env, row, task, initial, factory, agent, root, oracle=None):
     backend = getattr(args, 'wm_backend', 'none')
     if backend == 'none':
         return None
     if backend == 'oracle':
-        wm = OracleWorldModel(factory, initial)
+        wm = oracle if oracle is not None else OracleWorldModel(factory, initial)
     else:
         path = args.wm_config or str(root / 'configs/worldmodel' / (env + '.json'))
         config = load_config(path, root, env)
@@ -76,7 +76,8 @@ def metrics(steps):
     wm_usage = [p.get('usage') or {} for p in preds]
     return dict(reflection_metrics=dict(steps=len(records), reflection_calls=rounds,
         wm_calls=len(preds), mean_rounds=rounds / len(records),
-        wm_truncated_predictions=sum(p.get('observation_complete', True) is False for p in preds),
+        wm_truncated_predictions=sum(p.get('observation_complete', True) is False and not p.get('empty_output', False) for p in preds),
+        wm_empty_predictions=sum(p.get('empty_output', False) for p in preds),
         replacement_count=sum(r['replacements'] for r in records),
         invalid_reviews=sum(r['invalid_reviews'] for r in records),
         changed_step_count=sum(r['initial_action'] != r['final_action'] for r in records),
@@ -105,7 +106,14 @@ def audit_settings(args, root):
     feature['science_ambiguity_policy'] = 'stable-label-order-with-native-number-translation'
     if args.env == 'scienceworld' and args.wm_backend == 'oracle':
         feature['science_exit_comparison'] = 'unordered-full-door-descriptions/native-agent-text-preserved'
+        feature['oracle_policy'] = 'live-jvm-heap-checkpoint/rollback-rejected/adopt-final-state-once'
+        feature['snapshot_helper'] = json.loads((root / 'outputs/wm_reflection_setup/science_snapshot/provenance.json').read_text())
+        feature['sources']['worldmodel/HeapSnapshot.java'] = hashlib.sha256((root / 'worldmodel/HeapSnapshot.java').read_bytes()).hexdigest()
+    feature['temporary_directory_policy'] = 'owned-per-worker/on-experiment-volume'
+    if args.env == 'alfworld':
+        feature['pddl_resource_policy'] = 'cleanup-and-dlclose-each-owned-library-on-close'
     if args.wm_backend == 'word2world':
+        feature['empty_prediction_policy'] = 'explicit-missing-evidence/reflect-with-actual-current-state'
         path = args.wm_config or str(root / 'configs/worldmodel' / (args.env + '.json'))
         feature['world_model'] = load_config(path, root, args.env)
         feature['config_sha256'] = hashlib.sha256(Path(path).read_bytes()).hexdigest()
