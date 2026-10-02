@@ -71,6 +71,7 @@ def science():
 
 
 def alf():
+    import gc
     from worldmodel.resources import configure_temporary_directory
     from worldmodel.backends import OracleWorldModel
     output = ROOT / 'outputs/wm_reflection_setup/runtime_repairs/alf_temp'
@@ -88,20 +89,51 @@ def alf():
         wm = OracleWorldModel(factory,initial)
         baseline = mappings()
         sizes = []
-        for _ in range(20):
+        for _ in range(80):
             prediction = wm.predict('look')
             assert prediction['observation']
             sizes.append(mappings())
-            assert sizes[-1] == baseline, 'Closed PDDL branch retained a native library mapping'
+            # Pool lazily allocates one live engine and one preview engine.
+            assert sizes[-1] <= 10, 'PDDL libraries grew beyond the two-engine pool'
+            gc.collect()
         wm.commit('look',step('look'))
     finally:
         close()
         after_close = mappings()
-        owned.cleanup()
-    # glibc may retain the first C++ DSO for GNU-unique symbols even after
-    # dlclose. All subsequent branch DSOs must leave the count bounded.
-    assert after_close <= baseline, 'Closing the live PDDL environment retained extra mappings'
-    return dict(env='alfworld', passed=True, fixture_only=True, branches=20,
+    replay_checks = []
+    trace = Path('/data1/shn/agentwmv2/outputs/wm_reflection/full_7b_v3/oracle/alfworld_qwen25/steps.jsonl')
+    recorded = []
+    if trace.exists():
+        with trace.open() as handle:
+            for line in handle:
+                value = json.loads(line)
+                if value['task_id'] == 'alfworld_115':
+                    recorded.append(value['action'])
+                    if len(recorded) == 15:
+                        break
+    for index in (112,115,0):
+        branch = lambda row=rows[index]: backend.branch(row)
+        live_step, live_close, initial = branch()
+        oracle = OracleWorldModel(branch, initial)
+        actions = recorded if index == 115 and recorded else ['look','inventory'] * 8
+        try:
+            for action in actions:
+                prediction = oracle.predict(action)
+                oracle.commit(action,live_step(action))
+                gc.collect()
+                assert mappings() <= 10, 'Native engine pool grew during prefix replay'
+            replay_checks.append(dict(task_id=rows[index]['task_id'], verified_steps=len(actions)))
+        finally:
+            live_close()
+    owned.cleanup()
+    from textworld.envs.pddl.pddl import PddlEnv
+    pool = PddlEnv.close._agentwm_pool
+    assert len(pool.loaded) == 2 and not pool.active and len(pool.idle) == 2
+    assert after_close <= 10, 'Pool exceeded two retained native engines'
+    assert len(set(sizes)) == 1, 'Native library mappings grew across repeated previews'
+    return dict(env='alfworld', passed=True, fixture_only=True, branches=80,
+        pooled_libraries=len(pool.loaded), idle_libraries=len(pool.idle),
+        prefix_replay_checks=replay_checks,
         stable_native_library_mappings=sizes, mappings_after_close=after_close,
         temporary_directory=str(output), private_temporary_directory_cleaned=not Path(owned.name).exists())
 

@@ -34,8 +34,9 @@ ScienceWorld 的 checkpoint 和 baseline 正式执行沿用 HTTP 服务；Oracle
 Oracle 保存实际 JVM 堆、Python SDK、歧义映射、随机数和对象编号，试执行后完整回滚。
 最终动作采用真实模拟器已产生的状态，只推进一次；提交时验证完整检查点。
 这样避免跨 JVM 对象列表顺序和随机生物活动导致的重放不一致。
-ALFWorld 的 WM runner 对每个 PDDL 动态库调用 cleanup/dlclose，并在实验卷使用独立临时目录。
-glibc 可能保留首个 C++ 库；后续预测分支关闭后不再累积库映射。
+ALFWorld 的 WM runner 复用两份独占的原生引擎：正式环境与串行候选分支各一份。
+关闭时 cleanup 并归还引擎，不提前 dlclose；库在进程生命周期内保持映射，避免原生回调指向已卸载代码。
+最多保留两份库映射，在实验卷使用独立临时目录；每次复用仍重新载入同一任务并校验重放。
 WebShop 的 oracle 隔离 session/browser 以及终止自动 reset。
 这是一套接入现有评测环境的实验协议，不能直接称为 Word2World 论文完整复现。
 
@@ -158,11 +159,11 @@ bash scripts/run_overnight_paper_benchmarks.sh \
 bash scripts/start_wm_experiment_matrix.sh
 ```
 
-统一入口为 `scripts/run_wm_experiment_matrix.py`，当前默认选择 Qwen2.5 和 EE-IL，输出 `outputs/wm_reflection/full_7b_v3/`。
-`full_7b_v1` 和 `full_7b_v2` 保留为历史记录。v3 修复 ScienceWorld 实时检查点、
-ALFWorld 动态库释放和 checkpoint 空预测处理。`migration.json` 记录来源：
-ScienceWorld Oracle 全量重新运行；其他组仅继承已完成且行为未受修复影响的任务，
-文件保持原样，原始配置和源码来源见各组 `inherited_tasks.json`。十二组预检重新运行。
+统一入口为 `scripts/run_wm_experiment_matrix.py`，当前默认选择 Qwen2.5 和 EE-IL，输出 `outputs/wm_reflection/full_7b_v4/`。
+`full_7b_v1`、`full_7b_v2`、`full_7b_v3` 保留为历史记录。v4 修复 PDDL 动态库提前卸载造成的
+原生进程崩溃，复用两份独占的原生引擎；新增退出码和 runner_failures 监控。
+`migration.json` 记录来源；仅继承已完成的任务，文件保持原样，原始配置和源码来源见
+各组 `inherited_tasks.json`。十二组预检重新运行，必须正常退出，不能仅凭任务 JSON 已写入判为通过。
 Agent 原始动作 prompt、采样、步数和 checkpoint 不变。
 它从以下原始 `config.json/audit.json` 冻结所选 baseline 的参数和任务 ID：
 ALFWorld 的 `outputs/paper_eval/audited/`、ScienceWorld 的 `scienceworld_context_v2/`、WebShop 的 `webshop_index_v2/`。
@@ -184,6 +185,8 @@ GPU 0 按环境切换 EE-IL，GPU 1–3 保留三个 WM，前四张卡上的任�
 `experiment.json` 保存完整基线配置、所选模型矩阵和哈希；`runstate.json/events.jsonl/manager.log` 保存调度状态。
 `summary.json` 显示每组进度、错误和已选中的模型依赖；`comparison.json` 保存与 baseline 相同任务的配对差值；
 `RESULTS.md` 显示所选模型 × 三环境的 baseline/oracle/checkpoint 对照。
+百分比是已完成任务的成功率，括号内为完成数量/总数；当前任务步数和状态见 progress.json。
+errors 是任务异常数，runner_failures 是进程非零退出次数（包括 SIGSEGV），两者分别显示。
 未完成的结果明确标为暂定，错误任务单独显示，不能把部分完成率当成最终 benchmark 分数。
 
 ```bash

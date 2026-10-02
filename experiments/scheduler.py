@@ -208,12 +208,26 @@ class MatrixScheduler:
             return record['status']
         process = self.children.get(key)
         if process is not None:
-            process.poll()  # Reap finished children before reading /proc.
+            code = process.poll()  # Reap finished children before reading /proc.
+            if code is not None:
+                self.children.pop(key)
+                exit_record = dict(pid=process.pid, returncode=code, updated=time.time())
+                record.setdefault('runner_exits', []).append(exit_record)
+                record['last_exit'] = exit_record
+                record['exit_failed'] = code != 0
+                if code != 0:
+                    record['runner_failures'] = record.get('runner_failures', 0) + 1
+                    if smoke and (directory / 'tasks').exists():
+                        archive = directory / 'failed_attempts' / ('launch_%d' % record['launches'])
+                        archive.mkdir(parents=True, exist_ok=True)
+                        (directory / 'tasks').rename(archive / 'tasks')
+                        exit_record['failed_tasks_archive'] = str(archive / 'tasks')
+                self.event('runner_exited', job=job_key, smoke=smoke, pid=process.pid, returncode=code)
         if matches_process(record):
             record['status'] = 'running'
             return 'running'
         stats = statistics(directory, ids)
-        if stats['complete']:
+        if stats['complete'] and not record.get('exit_failed', False):
             try:
                 self.validate_config(job_key, smoke)
                 if smoke:
@@ -242,7 +256,7 @@ class MatrixScheduler:
             process = subprocess.Popen(argv, cwd=self.root, stdin=subprocess.DEVNULL, stdout=stream,
                 stderr=subprocess.STDOUT, start_new_session=True,
                 env=dict(os.environ, CUDA_VISIBLE_DEVICES='', PYTHONNOUSERSITE='1', HF_HUB_OFFLINE='1',
-                         TOKENIZERS_PARALLELISM='false', PYTHONUNBUFFERED='1'))
+                         TOKENIZERS_PARALLELISM='false', PYTHONUNBUFFERED='1', PYTHONFAULTHANDLER='1'))
         identity = process_identity(process.pid)
         if identity is None:
             identity = dict(start_ticks=None, command=argv)
@@ -323,7 +337,8 @@ class MatrixScheduler:
             record = self.state['jobs'].get(self.key(key, False), {})
             preflight = self.state['jobs'].get(self.key(key, True), {})
             stats.update(status=record.get('status', 'queued'), preflight=preflight.get('status', 'queued'),
-                pid=record.get('pid') if matches_process(record) else None, launches=record.get('launches', 0))
+                pid=record.get('pid') if matches_process(record) else None, launches=record.get('launches', 0),
+                runner_failures=record.get('runner_failures', 0), last_runner_exit=record.get('last_exit'))
             progress = Path(job['output']) / 'progress.json'
             stats['progress'] = read(progress) if progress.exists() else {}
             results[key] = stats
@@ -353,8 +368,9 @@ class MatrixScheduler:
             value = '%.2f%%' % stats['success_rate'] if stats['success_rate'] is not None else '—'
             if env == 'scienceworld' and stats['average_score'] is not None:
                 value = 'score %.2f; success %s' % (stats['average_score'], value)
-            return '%s (%d/%d, %s, errors=%d)' % (value, stats['completed'], stats['expected'],
-                stats.get('status', 'complete' if stats['complete'] else 'pending'), stats['errors'])
+            return '%s (%d/%d, %s, errors=%d, runner_failures=%d)' % (value, stats['completed'], stats['expected'],
+                stats.get('status', 'complete' if stats['complete'] else 'pending'), stats['errors'],
+                stats.get('runner_failures', 0))
         for env in ENVS:
             for model in self.models:
                 item = comparison[env + '_' + model]

@@ -5,7 +5,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -133,6 +133,36 @@ class MatrixTests(unittest.TestCase):
         self.scheduler.state['jobs'][self.scheduler.key(key, False)] = dict(status='running', launches=3)
         with patch('experiments.scheduler.active_runners', return_value=[]), patch('experiments.scheduler.matches_process', return_value=False):
             self.assertEqual(self.scheduler.drive_job(key, False), 'failed')
+
+    def test_native_crash_after_writing_results_cannot_pass_preflight(self):
+        key = 'oracle/alfworld_qwen25'
+        record_key = self.scheduler.key(key, True)
+        record = dict(status='running', launches=3)
+        self.scheduler.state['jobs'][record_key] = record
+        self.scheduler.children[record_key] = Mock(pid=123,poll=Mock(return_value=-11))
+        directory = Path(self.matrix['jobs'][key]['preflight'])
+        save(directory/'tasks/task-0.json',dict(task_id='task-0',status='completed',success=False,score=0))
+        with patch('experiments.scheduler.active_runners',return_value=[]), patch(
+                'experiments.scheduler.matches_process',return_value=False):
+            self.assertEqual(self.scheduler.drive_job(key,True),'failed')
+        self.assertEqual(record['runner_failures'],1)
+        self.assertEqual(record['last_exit']['returncode'],-11)
+        self.assertNotIn(record_key,self.scheduler.children)
+        self.assertFalse((directory/'tasks/task-0.json').exists())
+        self.assertTrue((directory/'failed_attempts/launch_3/tasks/task-0.json').exists())
+
+    def test_clean_exit_and_valid_results_can_complete(self):
+        key = 'oracle/alfworld_qwen25'
+        record_key = self.scheduler.key(key,True)
+        self.scheduler.state['jobs'][record_key] = dict(status='running',launches=1,exit_failed=True)
+        self.scheduler.children[record_key] = Mock(pid=123,poll=Mock(return_value=0))
+        save(Path(self.matrix['jobs'][key]['preflight'])/'tasks/task-0.json',
+            dict(task_id='task-0',status='completed',success=False,score=0))
+        self.actual_config(key,True)
+        with patch('experiments.scheduler.matches_process',return_value=False), patch.object(
+                self.scheduler,'validate_smoke'):
+            self.assertEqual(self.scheduler.drive_job(key,True),'completed')
+        self.assertFalse(self.scheduler.state['jobs'][record_key]['exit_failed'])
 
     def test_smoke_prediction_must_match_committed_action(self):
         key = 'oracle/alfworld_qwen25'

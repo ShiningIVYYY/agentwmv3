@@ -39,6 +39,13 @@ def make_controller(args, env, row, task, initial, factory, agent, root, oracle=
     def record(stage, step, data):
         if agent is not None and hasattr(agent, 'out'):
             import time
+            if stage == 'predict_start':
+                progress = agent.out / 'progress.json'
+                temporary = progress.with_suffix('.json.tmp')
+                temporary.write_text(json.dumps(dict(task_id=row['task_id'], step=step,
+                    state='waiting_for_world_model', round=data['round'],
+                    candidate=data['candidate'], updated=time.time())))
+                temporary.replace(progress)
             with open(agent.out / 'reflection_events.jsonl', 'a') as f:
                 f.write(json.dumps(dict(task_id=row['task_id'], step=step, stage=stage,
                     updated=time.time(), **data), ensure_ascii=False) + '\n')
@@ -111,7 +118,7 @@ def audit_settings(args, root):
         feature['sources']['worldmodel/HeapSnapshot.java'] = hashlib.sha256((root / 'worldmodel/HeapSnapshot.java').read_bytes()).hexdigest()
     feature['temporary_directory_policy'] = 'owned-per-worker/on-experiment-volume'
     if args.env == 'alfworld':
-        feature['pddl_resource_policy'] = 'cleanup-and-dlclose-each-owned-library-on-close'
+        feature['pddl_resource_policy'] = 'two-exclusively-owned-native-engines/cleanup-and-reuse/no-early-dlclose'
     if args.wm_backend == 'word2world':
         feature['empty_prediction_policy'] = 'explicit-missing-evidence/reflect-with-actual-current-state'
         path = args.wm_config or str(root / 'configs/worldmodel' / (args.env + '.json'))
