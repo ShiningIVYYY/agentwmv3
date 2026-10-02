@@ -209,6 +209,11 @@ class MatrixScheduler:
         process = self.children.get(key)
         if process is not None:
             code = process.poll()  # Reap finished children before reading /proc.
+            if code is None:
+                # A result can be written just before native teardown. Even if
+                # /proc changes between reads, wait for an observed exit code.
+                record['status'] = 'running'
+                return 'running'
             if code is not None:
                 self.children.pop(key)
                 exit_record = dict(pid=process.pid, returncode=code, updated=time.time())

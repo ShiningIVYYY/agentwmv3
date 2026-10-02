@@ -164,6 +164,17 @@ class MatrixTests(unittest.TestCase):
             self.assertEqual(self.scheduler.drive_job(key,True),'completed')
         self.assertFalse(self.scheduler.state['jobs'][record_key]['exit_failed'])
 
+    def test_written_results_wait_for_native_teardown_to_finish(self):
+        key = 'oracle/alfworld_qwen25'
+        record_key = self.scheduler.key(key,True)
+        self.scheduler.state['jobs'][record_key] = dict(status='running',launches=1)
+        self.scheduler.children[record_key] = Mock(pid=123,poll=Mock(return_value=None))
+        save(Path(self.matrix['jobs'][key]['preflight'])/'tasks/task-0.json',
+            dict(task_id='task-0',status='completed',success=False,score=0))
+        with patch('experiments.scheduler.matches_process',return_value=False):
+            self.assertEqual(self.scheduler.drive_job(key,True),'running')
+        self.assertNotIn('last_exit',self.scheduler.state['jobs'][record_key])
+
     def test_smoke_prediction_must_match_committed_action(self):
         key = 'oracle/alfworld_qwen25'
         self.actual_config(key, True)

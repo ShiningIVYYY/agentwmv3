@@ -159,11 +159,12 @@ bash scripts/run_overnight_paper_benchmarks.sh \
 bash scripts/start_wm_experiment_matrix.sh
 ```
 
-统一入口为 `scripts/run_wm_experiment_matrix.py`，当前默认选择 Qwen2.5 和 EE-IL，输出 `outputs/wm_reflection/full_7b_v4/`。
-`full_7b_v1`、`full_7b_v2`、`full_7b_v3` 保留为历史记录。v4 修复 PDDL 动态库提前卸载造成的
+统一入口为 `scripts/run_wm_experiment_matrix.py`，当前默认选择 Qwen2.5 和 EE-IL，输出 `outputs/wm_reflection/full_7b_v5/`。
+`full_7b_v1` 至 `full_7b_v4` 保留为历史记录。v5 修复 PDDL 动态库提前卸载造成的
 原生进程崩溃，复用两份独占的原生引擎；新增退出码和 runner_failures 监控。
 `migration.json` 记录来源；仅继承已完成的任务，文件保持原样，原始配置和源码来源见
-各组 `inherited_tasks.json`。十二组预检重新运行，必须正常退出，不能仅凭任务 JSON 已写入判为通过。
+各组 `inherited_tasks.json`。十二组预检必须记录退出码 0；保留已确认正常退出的预检，缺少退出码的组合重新验证。
+调度器等进程实际退出后才检查完成结果，覆盖结果写入与原生清理之间的竞态。
 Agent 原始动作 prompt、采样、步数和 checkpoint 不变。
 它从以下原始 `config.json/audit.json` 冻结所选 baseline 的参数和任务 ID：
 ALFWorld 的 `outputs/paper_eval/audited/`、ScienceWorld 的 `scienceworld_context_v2/`、WebShop 的 `webshop_index_v2/`。
