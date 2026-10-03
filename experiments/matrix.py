@@ -123,6 +123,7 @@ def prepare(root, out, models=MODELS, ee_workers=1):
         sampling=sampling, reflection_max_rounds=3, profiles=profiles, jobs=jobs, hashes=hashes,
         policy=dict(smoke_limit=1, smoke_steps=2, max_runner_launches=3,
             ee_workers=ee_workers, parallel_smoke_limit=ee_workers,
+            ee_reflection_protocol='ee-native-action-v1',
             front_gpu=0, wm_gpus=[1,2,3], qwen38_gpus=[4,5,6,7],
             preflight='all available-model combinations must pass before full runs',
             qwen38_dependency='all three original qwen38 baselines complete and their runners exited' if 'qwen38' in models else 'not selected',

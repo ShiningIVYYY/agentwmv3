@@ -3,6 +3,7 @@ from pathlib import Path
 import re
 
 from worldmodel.backends import PredictionError
+from .native import native_messages, parse_native_review
 
 PROMPT = (Path(__file__).with_name('prompt.txt')).read_text()
 
@@ -43,12 +44,15 @@ def valid_replacement(env, action, actions):
 
 
 class ReflectionController:
-    def __init__(self, wm, agent, env, task, task_id, max_rounds=3, recorder=None):
+    def __init__(self, wm, agent, env, task, task_id, max_rounds=3, recorder=None, review_protocol='json'):
         if max_rounds not in (1, 2, 3):
             raise ValueError('Reflection rounds must be between 1 and 3')
         self.wm, self.agent, self.env = wm, agent, env
         self.task, self.task_id, self.max_rounds = task, task_id, max_rounds
         self.recorder = recorder or (lambda *args: None)
+        if review_protocol not in ('json', 'ee-native-action-v1'):
+            raise ValueError('Unknown reflection review protocol')
+        self.review_protocol = review_protocol
 
     def select(self, candidate, observation, steps, actions, step_number):
         initial = candidate
@@ -87,8 +91,12 @@ class ReflectionController:
                         'The world model returned no usable next observation for this candidate.\n'
                         'The next state is UNKNOWN. Do not infer that nothing happens.\n'
                         'Use the actual current state, executed history and action information to review it.')
-                messages = [dict(role='user', content=prompt + '\n\nINPUT DATA:\n' +
-                                 json.dumps(data, ensure_ascii=False))]
+                if self.review_protocol == 'ee-native-action-v1':
+                    context = self.agent.reflection_context(self.env,self.task,observation,steps,actions,keep)
+                    messages = native_messages(context,data,self.env)
+                else:
+                    messages = [dict(role='user', content=prompt + '\n\nINPUT DATA:\n' +
+                                     json.dumps(data, ensure_ascii=False))]
                 if self.agent.count(messages) <= 4096:
                     break
             else:
@@ -96,8 +104,10 @@ class ReflectionController:
             output, metadata = self.agent.generate(messages, self.task_id, step_number)
             self.recorder('review_output', step_number, dict(round=number, candidate=candidate,
                 messages=messages, output=output, generation=metadata))
+            error_kind = 'invalid_format'
             try:
-                decision = parse_review(output, candidate)
+                decision = parse_native_review(output,candidate,self.env) if self.review_protocol == 'ee-native-action-v1' else parse_review(output, candidate)
+                error_kind = 'invalid_action'
                 if decision['decision'] == 'replace' and not valid_replacement(self.env, decision['action'], actions):
                     raise PredictionError('Reflection proposed an invalid replacement action')
             except PredictionError as error:
@@ -106,7 +116,8 @@ class ReflectionController:
                 # show the validation error on the next bounded review.
                 decision = dict(decision='invalid', action=candidate, reason=str(error))
             reviews.append(dict(round=number, candidate=candidate, messages=messages, output=output,
-                                decision=decision, history_length=keep, generation=metadata))
+                                decision=decision, history_length=keep, generation=metadata,
+                                error_kind=error_kind if decision['decision']=='invalid' else None))
             if decision['decision'] == 'keep':
                 break
             if decision['decision'] == 'invalid':
@@ -116,7 +127,7 @@ class ReflectionController:
             # A replacement on round three is predicted once, but no fourth Agent review.
             predictions.append(dict(action=candidate, **self.wm.predict(candidate)))
             self.recorder('final_prediction', step_number, predictions[-1])
-        return candidate, dict(backend=self.wm.backend, initial_action=initial, final_action=candidate,
+        return candidate, dict(backend=self.wm.backend, review_protocol=self.review_protocol, initial_action=initial, final_action=candidate,
             reviews=reviews, predictions=predictions, rounds=len(reviews),
             replacements=sum(r['decision']['decision'] == 'replace' for r in reviews),
             invalid_reviews=sum(r['decision']['decision'] == 'invalid' for r in reviews),

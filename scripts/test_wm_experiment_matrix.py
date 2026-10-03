@@ -14,6 +14,22 @@ from experiments.scheduler import MatrixScheduler, process_identity, matches_pro
 
 
 class MatrixTests(unittest.TestCase):
+    def test_native_preflight_must_produce_valid_decision(self):
+        key = 'word2world/alfworld_ee_il'
+        self.matrix['policy']['ee_reflection_protocol'] = 'ee-native-action-v1'
+        directory = Path(self.matrix['jobs'][key]['preflight'])
+        reflection = dict(rounds=1,predictions=[dict(action='look')],final_action='look',
+            review_protocol='ee-native-action-v1',reviews=[dict(decision=dict(decision='invalid'))])
+        row = dict(task_id='task-0',status='completed',success=False,score=0,
+            steps=[dict(action='look',reflection=reflection)])
+        save(directory/'tasks/task-0.json',row)
+        with self.assertRaisesRegex(RuntimeError,'no valid reflection'):
+            self.scheduler.validate_smoke(key)
+        reflection['reviews'][0]['decision']['decision']='keep'
+        save(directory/'tasks/task-0.json',row)
+        self.scheduler.validate_smoke(key)
+        self.assertTrue(json.loads((directory/'reflection_validation.json').read_text())['passed'])
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)

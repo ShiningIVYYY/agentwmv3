@@ -12,6 +12,12 @@ from .matrix import ENVS, BACKENDS, ARGUMENTS, command, read, save, sha, statist
 from worldmodel.backends import same_transition
 
 
+def native_reflection_required(matrix, job_key):
+    profile = matrix['profiles'][matrix['jobs'][job_key]['profile']]
+    return (profile['model'] == 'ee_il' and
+            matrix['policy'].get('ee_reflection_protocol') == 'ee-native-action-v1')
+
+
 def process_identity(pid, proc=Path('/proc')):
     try:
         directory = proc / str(pid)
@@ -286,6 +292,9 @@ class MatrixScheduler:
             raise RuntimeError('Derived WM/reflection configuration differs')
         if actual.get('limit') != (smoke_limit(self.matrix, job_key) if smoke else baseline.get('limit')):
             raise RuntimeError('Derived task limit differs')
+        if native_reflection_required(self.matrix, job_key):
+            if actual.get('wm_reflection', {}).get('reflection_review_protocol') != 'ee-native-action-v1':
+                raise RuntimeError('EE-IL reflection protocol differs')
         if worker_count(self.matrix, job_key) > 1:
             if actual.get('execution', {}).get('workers') != worker_count(self.matrix, job_key):
                 raise RuntimeError('Parallel worker configuration differs')
@@ -295,6 +304,20 @@ class MatrixScheduler:
         profile = self.matrix['profiles'][job['profile']]
         for task_id in profile['task_ids'][:smoke_limit(self.matrix, job_key)]:
             self.validate_smoke_task(job_key, task_id)
+        if native_reflection_required(self.matrix, job_key):
+            reviews = []
+            for task_id in profile['task_ids'][:smoke_limit(self.matrix, job_key)]:
+                row = read(Path(job['preflight']) / 'tasks' / (task_id + '.json'))
+                for step in row['steps']:
+                    reflection = step['reflection']
+                    if reflection.get('review_protocol') != 'ee-native-action-v1':
+                        raise RuntimeError('EE-IL preflight used the wrong reflection protocol')
+                    reviews.extend(reflection['reviews'])
+            valid = sum(r['decision']['decision'] in ('keep', 'replace') for r in reviews)
+            if not valid:
+                raise RuntimeError('EE-IL preflight produced no valid reflection decisions')
+            save(Path(job['preflight']) / 'reflection_validation.json', dict(
+                protocol='ee-native-action-v1', total_reviews=len(reviews), valid_reviews=valid, passed=True))
 
     def validate_smoke_task(self, job_key, task_id):
         job = self.matrix['jobs'][job_key]
@@ -360,6 +383,12 @@ class MatrixScheduler:
             parallel = Path(job['output']) / 'parallel_state.json'
             parallel_state = read(parallel) if parallel.exists() else {}
             stats['worker_failures'] = parallel_state.get('worker_failures', 0)
+            reflection = stats.get('reflection', {})
+            total = reflection.get('reflection_calls', 0)
+            valid = total - reflection.get('invalid_reviews', 0)
+            stats['reflection_health'] = dict(total_reviews=total, valid_reviews=valid,
+                format_errors=reflection.get('review_format_errors'),
+                status='pending' if not total else ('has_valid_reviews' if valid else 'no_valid_reviews'))
             results[key] = stats
         for key, profile in self.matrix['profiles'].items():
             ids = profile['task_ids']

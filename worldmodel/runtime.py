@@ -49,7 +49,8 @@ def make_controller(args, env, row, task, initial, factory, agent, root, oracle=
             with open(agent.out / 'reflection_events.jsonl', 'a') as f:
                 f.write(json.dumps(dict(task_id=row['task_id'], step=step, stage=stage,
                     updated=time.time(), **data), ensure_ascii=False) + '\n')
-    return ReflectionController(wm, agent, env, task, row['task_id'], args.reflection_max_rounds, record)
+    protocol = 'ee-native-action-v1' if getattr(args,'model','').startswith('ee-') else 'json'
+    return ReflectionController(wm, agent, env, task, row['task_id'], args.reflection_max_rounds, record, protocol)
 
 
 def select(controller, candidate, output, observation, steps, actions, step_number):
@@ -87,6 +88,9 @@ def metrics(steps):
         wm_empty_predictions=sum(p.get('empty_output', False) for p in preds),
         replacement_count=sum(r['replacements'] for r in records),
         invalid_reviews=sum(r['invalid_reviews'] for r in records),
+        valid_review_calls=sum(v['decision']['decision']!='invalid' for r in records for v in r['reviews']),
+        review_format_errors=sum(v.get('error_kind')=='invalid_format' for r in records for v in r['reviews']),
+        invalid_replacement_reviews=sum(v.get('error_kind')=='invalid_action' for r in records for v in r['reviews']),
         changed_step_count=sum(r['initial_action'] != r['final_action'] for r in records),
         round_limit_count=sum(r['hit_round_limit'] for r in records),
         prediction_exact_matches=sum(r['prediction_exact_match'] for r in records),
@@ -111,6 +115,7 @@ def audit_settings(args, root):
         history_policy='commit-real-observations-only', sources={str(p.relative_to(root)):
             hashlib.sha256(p.read_bytes()).hexdigest() for p in files})
     feature['science_ambiguity_policy'] = 'stable-label-order-with-native-number-translation'
+    feature['reflection_review_protocol'] = 'ee-native-action-v1' if getattr(args,'model','').startswith('ee-') else 'json'
     if args.env == 'scienceworld' and args.wm_backend == 'oracle':
         feature['science_exit_comparison'] = 'unordered-full-door-descriptions/native-agent-text-preserved'
         feature['oracle_policy'] = 'live-jvm-heap-checkpoint/rollback-rejected/adopt-final-state-once'

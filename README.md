@@ -159,7 +159,7 @@ bash scripts/run_overnight_paper_benchmarks.sh \
 bash scripts/start_wm_experiment_matrix.sh
 ```
 
-统一入口为 `scripts/run_wm_experiment_matrix.py`，当前默认选择 Qwen2.5 和 EE-IL，输出 `outputs/wm_reflection/full_7b_v6/`。
+统一入口为 `scripts/run_wm_experiment_matrix.py`，当前默认选择 Qwen2.5 和 EE-IL，输出 `outputs/wm_reflection/full_7b_v7/`。
 v6 从 EE-IL 开始采用进程任务队列：Oracle 和 Word2World 每组各 4 个独立 worker，
 共享 GPU 0 上的 Agent 和对应 checkpoint WM。Qwen2.5 保持串行；已完成结果带原始配置和源码哈希继承。
 每个 worker 独立持有环境、ScienceWorld JVM、ALFWorld 原生引擎、临时目录和日志。
@@ -706,3 +706,9 @@ outputs/alfworld_il_eval/eval.log
 - Qwen2.5-7B-Instruct: https://huggingface.co/Qwen/Qwen2.5-7B-Instruct
 - `verl-agent` README: https://github.com/langfengQ/verl-agent
 - `verl-agent` ALFWorld example: https://github.com/langfengQ/verl-agent/blob/master/examples/grpo_trainer/run_alfworld.sh
+
+EE-IL 反思使用训练时的原生动作格式：ALFWorld/WebShop 的 `<think>` 与 `<action>`，ScienceWorld 的 `Thought:` 与 `Action:`。相同动作表示保留，不同动作经当前状态动作校验后表示替换。Qwen2.5 保持原 JSON 反思。初始 Agent 提示、采样、步数和 checkpoint 沿用基线；最多反思三轮。预检必须产生有效反思决定，不能仅凭环境执行和退出码通过。v7 保留已完成 Qwen2.5 结果，EE-IL 全部重新运行；v6 EE-IL 结果仅用于故障诊断。
+
+发布的 WebShop IL 模型也会输出仅有 `<action>` 的完整原生动作块；此输出同样参与保留/替换判断，缺失的解释原样记为空，不补造反思文本。多个动作、截断动作、JSON/XML 混合和额外尾部文本均拒绝。
+
+WebShop 反思先给出候选动作与 WM 预测，再以真实当前状态、目标、已执行历史和当前可选动作结束提示，避免该 IL checkpoint 机械复述末尾的候选动作。另有真实模型与真实 Oracle 的偏离目标搜索检查，验证它确实能返回替换动作。

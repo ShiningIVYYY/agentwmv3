@@ -160,6 +160,17 @@ class Agent:
             'path': self.args.tokenizer_path, 'messages': messages,
             'disable_thinking': self.args.disable_thinking})['count']
 
+    def reflection_context(self, env, task, observation, steps, actions, history):
+        if env != 'scienceworld':
+            return native_prompt(env,task,observation,actions,steps,history)
+        # Reflection is a separate prompt. The initial actor retains the full
+        # 54-message training demonstration; the reviewer uses native ReAct
+        # turns with the real goal/history and the WM evidence within 4096 tokens.
+        messages = science_messages([],task,observation,steps,history)
+        messages[0]['content'] = ('You are an expert agent operating in ScienceWorld. '
+            'Reason about the task using Thought: and choose one concrete Action:.\n' + messages[0]['content'])
+        return messages
+
     def generate(self, messages, task_id, step):
         count = self.count(messages)
         if count > 4096:
