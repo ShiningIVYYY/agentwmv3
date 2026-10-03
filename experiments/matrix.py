@@ -50,7 +50,7 @@ def source_files(root):
     return sorted(set(files))
 
 
-def prepare(root, out, models=MODELS):
+def prepare(root, out, models=MODELS, ee_workers=1):
     root, out = Path(root).resolve(), Path(out).resolve()
     if not models or not set(models) <= set(MODELS):
         raise ValueError('Select known Agent models')
@@ -62,6 +62,8 @@ def prepare(root, out, models=MODELS):
             raise RuntimeError('Experiment root/output changed')
         if matrix['models'] != list(models):
             raise RuntimeError('Selected models changed; use a new experiment directory')
+        if matrix['policy'].get('ee_workers', 1) != ee_workers:
+            raise RuntimeError('Worker count changed; use a new experiment directory')
         verify(matrix)
         return matrix
     protected = root / 'outputs/paper_eval'
@@ -120,6 +122,7 @@ def prepare(root, out, models=MODELS):
         experiment_count=len(jobs), task_instances=sum(j['expected'] for j in jobs.values()),
         sampling=sampling, reflection_max_rounds=3, profiles=profiles, jobs=jobs, hashes=hashes,
         policy=dict(smoke_limit=1, smoke_steps=2, max_runner_launches=3,
+            ee_workers=ee_workers, parallel_smoke_limit=ee_workers,
             front_gpu=0, wm_gpus=[1,2,3], qwen38_gpus=[4,5,6,7],
             preflight='all available-model combinations must pass before full runs',
             qwen38_dependency='all three original qwen38 baselines complete and their runners exited' if 'qwen38' in models else 'not selected',
@@ -138,6 +141,16 @@ def verify(matrix):
     for path, expected in matrix['hashes'].items():
         if not Path(path).is_file() or sha(path) != expected:
             raise RuntimeError('Frozen experiment input changed: ' + path)
+
+
+def worker_count(matrix, job_key):
+    profile = matrix['profiles'][matrix['jobs'][job_key]['profile']]
+    return matrix['policy'].get('ee_workers', 1) if profile['model'] == 'ee_il' else 1
+
+
+def smoke_limit(matrix, job_key):
+    workers = worker_count(matrix, job_key)
+    return matrix['policy'].get('parallel_smoke_limit', workers) if workers > 1 else matrix['policy']['smoke_limit']
 
 
 def command(matrix, job_key, smoke=False):
@@ -160,7 +173,10 @@ def command(matrix, job_key, smoke=False):
     if job['backend'] == 'word2world':
         argv += ['--wm-config', profile['wm_config']]
     if smoke:
-        argv += ['--limit', str(matrix['policy']['smoke_limit'])]
+        argv += ['--limit', str(smoke_limit(matrix, job_key))]
+    workers = worker_count(matrix, job_key)
+    if workers > 1:
+        argv += ['--workers', str(workers)]
     return argv
 
 

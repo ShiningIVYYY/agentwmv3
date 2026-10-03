@@ -450,8 +450,10 @@ class Web:
         index = Path(DEFAULT_FILE_PATH).resolve().parents[1] / 'search_engine/indexes_1k'
         index_ids = validate_web_index(self.env.server.search_engine,
                                       self.env.server.product_item_dict)
+        # Resolve the dependency root as well as the index: staged/worktree
+        # evaluators can share this immutable catalog through an external symlink.
         self.data = dict(items=digest(DEFAULT_FILE_PATH), attributes=digest(DEFAULT_ATTR_PATH),
-                         num_products=1000, index_path=str(index.relative_to(ROOT)),
+                         num_products=1000, index_path=str(index.relative_to(VERL.resolve().parents[2])),
                          index_asins_sha256=index_ids,
                          index_files={p.name: digest(p) for p in sorted(index.iterdir())
                                       if p.is_file() and p.name != 'write.lock'})
@@ -548,7 +550,18 @@ def main():
     p.add_argument('--wm-backend', choices=['none', 'oracle', 'word2world'], default='none')
     p.add_argument('--wm-config', help='Word2World JSON config; defaults to configs/worldmodel/<env>.json')
     p.add_argument('--reflection-max-rounds', type=int, choices=[1, 2, 3], default=3)
+    p.add_argument('--workers', type=int, choices=range(1, 9), default=1)
+    p.add_argument('--task-queue', help=argparse.SUPPRESS)
+    p.add_argument('--queue-run', help=argparse.SUPPRESS)
+    p.add_argument('--queue-workers', type=int, help=argparse.SUPPRESS)
     args = p.parse_args()
+    if args.workers > 1:
+        if args.prepare:
+            p.error('--workers requires evaluation mode')
+        from experiments.parallel import run_parallel
+        return run_parallel(args, ROOT)
+    if bool(args.task_queue) != bool(args.queue_run) or bool(args.task_queue) != bool(args.queue_workers):
+        p.error('Incomplete task queue worker configuration')
     temporary = None
     if not args.prepare and args.wm_backend != 'none':
         from worldmodel.resources import configure_temporary_directory
@@ -572,6 +585,8 @@ def main():
     with open(out / '.runner.lock', 'a') as runner_lock:
         fcntl.flock(runner_lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         saved_args = dict(vars(args))
+        for key in ('workers', 'task_queue', 'queue_run', 'queue_workers'):
+            saved_args.pop(key)
         if args.wm_backend == 'none':
             # Preserve exact pre-feature config files for baseline resume.
             for key in ('wm_backend', 'wm_config', 'reflection_max_rounds'):
@@ -587,15 +602,21 @@ def main():
             assert json.loads(config_file.read_text()) == config, 'Cannot mix changed experiment configurations'
         else:
             atomic(config_file, config)
+        tasks = manifest['tasks'][:args.limit] if args.limit else manifest['tasks']
+        queue = None
+        if args.task_queue:
+            from experiments.task_queue import TaskQueue
+            queue = TaskQueue(args.task_queue, args.manifest, tasks, args.queue_run, args.queue_workers)
+            queue.publish_config(config)
+            queue.ready(out.name)
         agent = Agent(args, out)
         def trace(task_id, step):
             with open(out / 'steps.jsonl', 'a') as f:
                 f.write(json.dumps(dict(task_id=task_id, **step), ensure_ascii=False) + '\n')
                 f.flush()
         agent.trace = trace
-        tasks = manifest['tasks'][:args.limit] if args.limit else manifest['tasks']
-        for row in tasks:
-            result_file = out / 'tasks' / (row['task_id'] + '.json')
+        for row in queue.claims() if queue else tasks:
+            result_file = queue.result_file(row['task_id']) if queue else out / 'tasks' / (row['task_id'] + '.json')
             if result_file.exists() and json.loads(result_file.read_text()).get('status') == 'completed':
                 continue
             for attempt in range(3):
@@ -616,4 +637,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main())

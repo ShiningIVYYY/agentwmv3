@@ -245,6 +245,43 @@ class MatrixTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, 'Selected models changed'):
             prepare(self.root, self.root / 'out', ['qwen25','ee_il'])
 
+    def test_concurrent_ee_commands_do_not_change_qwen_or_agent_parameters(self):
+        self.matrix['policy'].update(ee_workers=4, parallel_smoke_limit=4)
+        for key, job in self.matrix['jobs'].items():
+            profile = self.matrix['profiles'][job['profile']]
+            argv = command(self.matrix, key)
+            self.assertEqual('--workers' in argv, profile['model'] == 'ee_il')
+            if profile['model'] == 'ee_il':
+                self.assertEqual(argv[argv.index('--workers') + 1], '4')
+            for field in ARGUMENTS:
+                if profile['config'][field] is not None:
+                    self.assertEqual(argv[argv.index('--' + field.replace('_', '-')) + 1], str(profile['config'][field]))
+            smoke = command(self.matrix, key, True)
+            self.assertEqual(smoke[smoke.index('--limit') + 1], '4' if profile['model'] == 'ee_il' else '1')
+
+    def test_parallel_configuration_and_smoke_require_all_four_task_results(self):
+        self.matrix['policy'].update(ee_workers=4, parallel_smoke_limit=4)
+        key = 'word2world/alfworld_ee_il'
+        profile = self.matrix['profiles'][self.matrix['jobs'][key]['profile']]
+        profile['task_ids'] = ['task-%d' % i for i in range(4)]
+        self.actual_config(key, True)
+        directory = Path(self.matrix['jobs'][key]['preflight'])
+        config = json.loads((directory/'config.json').read_text())
+        config.update(limit=4, execution=dict(workers=4))
+        save(directory/'config.json', config)
+        self.scheduler.validate_config(key, True)
+        reflection = dict(rounds=1,final_action='look',predictions=[dict(action='look')])
+        for task_id in profile['task_ids'][:3]:
+            save(directory/'tasks'/(task_id+'.json'),dict(task_id=task_id,steps=[dict(action='look',reflection=reflection)]))
+        with self.assertRaises(FileNotFoundError):
+            self.scheduler.validate_smoke(key)
+        save(directory/'tasks/task-3.json',dict(task_id='task-3',steps=[dict(action='look',reflection=reflection)]))
+        self.scheduler.validate_smoke(key)
+        config['execution']['workers'] = 2
+        save(directory/'config.json',config)
+        with self.assertRaises(RuntimeError):
+            self.scheduler.validate_config(key, True)
+
 
 if __name__ == '__main__':
     unittest.main()

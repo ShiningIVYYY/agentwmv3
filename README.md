@@ -159,7 +159,15 @@ bash scripts/run_overnight_paper_benchmarks.sh \
 bash scripts/start_wm_experiment_matrix.sh
 ```
 
-统一入口为 `scripts/run_wm_experiment_matrix.py`，当前默认选择 Qwen2.5 和 EE-IL，输出 `outputs/wm_reflection/full_7b_v5/`。
+统一入口为 `scripts/run_wm_experiment_matrix.py`，当前默认选择 Qwen2.5 和 EE-IL，输出 `outputs/wm_reflection/full_7b_v6/`。
+v6 从 EE-IL 开始采用进程任务队列：Oracle 和 Word2World 每组各 4 个独立 worker，
+共享 GPU 0 上的 Agent 和对应 checkpoint WM。Qwen2.5 保持串行；已完成结果带原始配置和源码哈希继承。
+每个 worker 独立持有环境、ScienceWorld JVM、ALFWorld 原生引擎、临时目录和日志。
+任务锁覆盖完整任务、重试和结果发布，完成后领取下一个任务；退出或崩溃后锁由内核释放，
+已完成任务不会重复执行。worker 最多重启三次；每次非零退出记录在 `parallel_state.json` 的
+`worker_failures` 和退出码中。只有所有结果齐全且所有 worker 最终正常退出，组实验才完成。
+并发设置在 `experiment.json` 和每组 `config.json.execution` 中记录；采样参数和 seed 保持原样，
+不同批处理条件下的模型输出不保证与串行逐字一致。可以通过 `--ee-workers 1` 使用新的串行实验目录。
 `full_7b_v1` 至 `full_7b_v4` 保留为历史记录。v5 修复 PDDL 动态库提前卸载造成的
 原生进程崩溃，复用两份独占的原生引擎；新增退出码和 runner_failures 监控。
 `migration.json` 记录来源；仅继承已完成的任务，文件保持原样，原始配置和源码来源见
@@ -172,7 +180,8 @@ ALFWorld 的 `outputs/paper_eval/audited/`、ScienceWorld 的 `scienceworld_cont
 全量任务数/最大真实步数/Agent 输出预算保持 140/50/1024、200/100/1024、500/15/512；
 保留原 prompt、checkpoint、采样、环境种子、Qwen3.8 thinking 设置和共享生成锁。只添加 WM 和最多三轮反思。
 
-Qwen2.5 和 EE-IL 的 12 个组合先在 `preflight/` 用一个任务、两步验证，然后开始全量。
+Qwen2.5 和 EE-IL 的 12 个组合先在 `preflight/` 验证，然后开始全量：Qwen2.5 每组一个任务、两步，
+并发 EE-IL 每组四个任务、每任务两步，检查所有任务的预测/提交和所有 worker 的真实退出码。
 GPU 0 按环境切换 EE-IL，GPU 1–3 保留三个 WM，前四张卡上的任务完成后恢复 Qwen2.5 服务。
 当前不调度 Qwen3.8，也不等待它的 baseline。以后显式使用 `--models qwen25 qwen38 ee_il` 和新的输出目录可生成 18 组、5040 个任务实例；
 只有选中 Qwen3.8 时才等待其三个 baseline 全部完成且其 runner 退出，再验证六个组合并启动全量。
@@ -187,7 +196,9 @@ GPU 0 按环境切换 EE-IL，GPU 1–3 保留三个 WM，前四张卡上的任�
 `summary.json` 显示每组进度、错误和已选中的模型依赖；`comparison.json` 保存与 baseline 相同任务的配对差值；
 `RESULTS.md` 显示所选模型 × 三环境的 baseline/oracle/checkpoint 对照。
 百分比是已完成任务的成功率，括号内为完成数量/总数；当前任务步数和状态见 progress.json。
-errors 是任务异常数，runner_failures 是进程非零退出次数（包括 SIGSEGV），两者分别显示。
+errors 是任务异常数，runner_failures 是组 runner 非零退出次数，worker_failures 是其子 worker 非零退出次数
+（包括 SIGSEGV）。并发组的 progress.json 列出每个 worker 的当前任务、步数和等待状态；
+独立日志位于各组 workers/run_*/worker_*/ 下。
 未完成的结果明确标为暂定，错误任务单独显示，不能把部分完成率当成最终 benchmark 分数。
 
 ```bash

@@ -24,7 +24,8 @@ def launch(matrix):
             except BlockingIOError:
                 print('Matrix manager already running:', out)
                 return 0
-        argv = [sys.executable, str(ROOT / 'scripts/run_wm_experiment_matrix.py'), '--output', str(out), '--models'] + matrix['models']
+        argv = [sys.executable, str(ROOT / 'scripts/run_wm_experiment_matrix.py'), '--output', str(out),
+                '--ee-workers', str(matrix['policy'].get('ee_workers', 1)), '--models'] + matrix['models']
         with open(out / 'manager.log', 'a') as log:
             child = subprocess.Popen(argv, cwd=ROOT, stdin=subprocess.DEVNULL, stdout=log,
                 stderr=subprocess.STDOUT, start_new_session=True,
@@ -44,14 +45,15 @@ def launch(matrix):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--output', type=Path, default=ROOT / 'outputs/wm_reflection/full_7b_v5')
+    parser.add_argument('--output', type=Path, default=ROOT / 'outputs/wm_reflection/full_7b_v6')
     parser.add_argument('--models', nargs='+', choices=MODELS, default=['qwen25','ee_il'])
+    parser.add_argument('--ee-workers', type=int, choices=range(1, 9), default=4)
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument('--prepare-only', action='store_true')
     mode.add_argument('--refresh-only', action='store_true')
     mode.add_argument('--launch', action='store_true', help='Launch or reuse the detached matrix manager')
     args = parser.parse_args()
-    matrix = prepare(ROOT, args.output, args.models)
+    matrix = prepare(ROOT, args.output, args.models, ee_workers=args.ee_workers)
     if args.launch:
         return launch(matrix)
     scheduler = MatrixScheduler(matrix)

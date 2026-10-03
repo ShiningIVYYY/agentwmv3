@@ -8,7 +8,7 @@ import time
 
 import requests
 
-from .matrix import ENVS, BACKENDS, ARGUMENTS, command, read, save, sha, statistics, task_rows, verify
+from .matrix import ENVS, BACKENDS, ARGUMENTS, command, read, save, sha, statistics, task_rows, verify, worker_count, smoke_limit
 from worldmodel.backends import same_transition
 
 
@@ -202,7 +202,7 @@ class MatrixScheduler:
         job = self.matrix['jobs'][job_key]
         profile = self.matrix['profiles'][job['profile']]
         directory = Path(job['preflight'] if smoke else job['output'])
-        ids = profile['task_ids'][:1] if smoke else profile['task_ids']
+        ids = profile['task_ids'][:smoke_limit(self.matrix, job_key)] if smoke else profile['task_ids']
         record = self.state['jobs'].setdefault(key, dict(launches=0, status='queued'))
         if record['status'] in ('completed', 'failed', 'blocked_preflight'):
             return record['status']
@@ -284,13 +284,21 @@ class MatrixScheduler:
                 raise RuntimeError('Derived agent config differs from baseline: ' + key)
         if actual['wm_backend'] != job['backend'] or actual['reflection_max_rounds'] != 3:
             raise RuntimeError('Derived WM/reflection configuration differs')
-        if actual.get('limit') != (1 if smoke else baseline.get('limit')):
+        if actual.get('limit') != (smoke_limit(self.matrix, job_key) if smoke else baseline.get('limit')):
             raise RuntimeError('Derived task limit differs')
+        if worker_count(self.matrix, job_key) > 1:
+            if actual.get('execution', {}).get('workers') != worker_count(self.matrix, job_key):
+                raise RuntimeError('Parallel worker configuration differs')
 
     def validate_smoke(self, job_key):
         job = self.matrix['jobs'][job_key]
         profile = self.matrix['profiles'][job['profile']]
-        row = read(Path(job['preflight']) / 'tasks' / (profile['task_ids'][0] + '.json'))
+        for task_id in profile['task_ids'][:smoke_limit(self.matrix, job_key)]:
+            self.validate_smoke_task(job_key, task_id)
+
+    def validate_smoke_task(self, job_key, task_id):
+        job = self.matrix['jobs'][job_key]
+        row = read(Path(job['preflight']) / 'tasks' / (task_id + '.json'))
         if not row['steps']:
             raise RuntimeError('Preflight did not execute a real environment step')
         for step in row['steps']:
@@ -314,6 +322,8 @@ class MatrixScheduler:
                 return True
             if not all(s == 'completed' for s in prerequisites):
                 return False
+        if all(self.state['jobs'].get(self.key(key, smoke), {}).get('status') == 'completed' for key in jobs):
+            return True
         if model != 'qwen38':
             self.ensure_front_agent(model, env)
         else:
@@ -346,6 +356,10 @@ class MatrixScheduler:
                 runner_failures=record.get('runner_failures', 0), last_runner_exit=record.get('last_exit'))
             progress = Path(job['output']) / 'progress.json'
             stats['progress'] = read(progress) if progress.exists() else {}
+            stats['worker_count'] = worker_count(self.matrix, key)
+            parallel = Path(job['output']) / 'parallel_state.json'
+            parallel_state = read(parallel) if parallel.exists() else {}
+            stats['worker_failures'] = parallel_state.get('worker_failures', 0)
             results[key] = stats
         for key, profile in self.matrix['profiles'].items():
             ids = profile['task_ids']
@@ -373,15 +387,17 @@ class MatrixScheduler:
             value = '%.2f%%' % stats['success_rate'] if stats['success_rate'] is not None else '—'
             if env == 'scienceworld' and stats['average_score'] is not None:
                 value = 'score %.2f; success %s' % (stats['average_score'], value)
-            return '%s (%d/%d, %s, errors=%d, runner_failures=%d)' % (value, stats['completed'], stats['expected'],
+            return '%s (%d/%d, %s, errors=%d, runner_failures=%d, worker_failures=%d)' % (value, stats['completed'], stats['expected'],
                 stats.get('status', 'complete' if stats['complete'] else 'pending'), stats['errors'],
-                stats.get('runner_failures', 0))
+                stats.get('runner_failures', 0), stats.get('worker_failures', 0))
         for env in ENVS:
             for model in self.models:
                 item = comparison[env + '_' + model]
                 lines.append('| %s | %s | %s | %s | %s |' % (env, model, cell(item['baseline'], env),
                     cell(item['treatments']['oracle'], env), cell(item['treatments']['word2world'], env)))
         lines += ['', 'Frozen original configs, sampling, task IDs, and source hashes: `experiment.json`.',
+            'EE-IL uses %d independent workers per WM group; Qwen2.5 remains serial. '
+            'Concurrent batches preserve sampling settings but need not reproduce serial text exactly.' % self.matrix['policy'].get('ee_workers', 1),
             'Preflight results: `preflight/`. Live stage: `summary.json`. Paired comparisons: `comparison.json`.',
             'ScienceWorld ambiguity menus use a lossless stable label order with native-number translation. '
             'Oracle room exit lists compare unordered full door descriptions; native Agent text is preserved. '
