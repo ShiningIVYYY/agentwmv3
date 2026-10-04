@@ -169,7 +169,9 @@ class Agent:
                 self.science_reflection_prelude = json.loads(stream.readline())['messages']
         return science_messages(self.science_reflection_prelude, task, observation, steps, history)
 
-    def generate(self, messages, task_id, step, response_schema=None):
+    def generate(self, messages, task_id, step, response_schema=None, response_regex=None):
+        if response_schema is not None and response_regex is not None:
+            raise ValueError('Only one response format constraint may be supplied')
         count = self.count(messages)
         if count > 4096:
             raise RuntimeError('Prompt exceeds published 4096-token limit: %d' % count)
@@ -178,6 +180,8 @@ class Agent:
         if response_schema is not None:
             payload['response_format'] = dict(type='json_schema', json_schema=dict(
                 name='agentwm_review', strict=True, schema=response_schema))
+        if response_regex is not None:
+            payload['structured_outputs'] = dict(regex=response_regex)
         if self.args.disable_thinking:
             payload['chat_template_kwargs'] = {'enable_thinking': False}
             payload['generation_config'] = json.dumps(self.generation_config)
@@ -213,6 +217,8 @@ class Agent:
         metadata = dict(prompt_tokens=count, usage=result.get('usage'), finish_reason=choice.get('finish_reason'))
         if response_schema is not None:
             metadata['response_format'] = payload['response_format']
+        if response_regex is not None:
+            metadata['structured_outputs'] = payload['structured_outputs']
         return output, metadata
 
     def bounded_native(self, env, task, obs, acts, steps):

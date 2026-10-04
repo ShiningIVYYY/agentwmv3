@@ -65,6 +65,18 @@ class MatrixTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError,'without evidence'):
             self.scheduler.validate_smoke_task(key,'task-0')
 
+    def test_copied_science_preflight_rejects_acknowledgment_only_replan(self):
+        key='word2world/scienceworld_ee_il'
+        reflection=dict(rounds=1,review_protocol='agentwm-copied-v1',
+            selection_policy='agentwm-direct/science-critique-guarded-replan-v1',
+            initial_action='look around',final_action='look around',
+            reviews=[dict(decision=dict(decision='invalid'),replan=dict(output='OK, I will try.',generation={}))],
+            predictions=[dict(action='look around',observation='room')])
+        save(Path(self.matrix['jobs'][key]['preflight'])/'tasks/task-0.json',
+            dict(steps=[dict(action='look around',reflection=reflection)]))
+        with self.assertRaisesRegex(RuntimeError,'requested action format'):
+            self.scheduler.validate_smoke_task(key,'task-0')
+
     def test_conservative_cached_fallback_is_not_a_fifth_wm_call(self):
         key='word2world/alfworld_ee_il'
         predictions=[dict(action=a,observation='Nothing happens.') for a in ('look','open cabinet 1','open cabinet 2','open cabinet 3')]

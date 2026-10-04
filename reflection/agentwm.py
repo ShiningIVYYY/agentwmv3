@@ -18,6 +18,7 @@ from .native import parse_native_review
 
 PROTOCOL = 'agentwm-copied-v1'
 POLICY = 'agentwm-direct/science-critique-guarded-replan-v1'
+SCIENCE_REPLAN_REGEX = r'<think>[^<>\r\n]{0,256}</think>\n<action>[^<>\r\n]{1,160}</action>'
 
 
 def brief_text(limit):
@@ -283,7 +284,9 @@ def select(controller, original, observation, steps, actions, step_number):
                         record['guard'] = 'replan_budget_skip'
                         budget_skip, stop = True, True
                     else:
-                        replan_output, replan_generation = controller.agent.generate(replan_messages, controller.task_id, step_number)
+                        replan_output, replan_generation = controller.agent.generate(
+                            replan_messages, controller.task_id, step_number,
+                            response_regex=SCIENCE_REPLAN_REGEX)
                         record['replan'] = dict(messages=replan_messages, output=replan_output,
                             generation=replan_generation, history_length=replan_keep, preview_clipped=replan_clipped)
                         controller.recorder('replan_output', step_number, dict(round=number,

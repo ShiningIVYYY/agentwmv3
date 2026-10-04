@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from reflection.controller import ReflectionController
 from reflection.agentwm import (PROTOCOL, POLICY, extract_object, parse_direct,
     parse_critique, parse_replan, feedback, reject_replan, REVIEW_SCHEMAS, review_schema,
-    science_action_information)
+    science_action_information, SCIENCE_REPLAN_REGEX)
 from worldmodel.backends import PredictionError
 from worldmodel.runtime import metrics, select as runtime_select, review_protocol
 from test_native_reflection import Agent, xml
@@ -24,8 +24,10 @@ class ReviewAgent(Agent):
     def __init__(self, outputs):
         super().__init__(outputs)
         self.schemas=[]
-    def generate(self,messages,*args,response_schema=None):
+        self.regexes=[]
+    def generate(self,messages,*args,response_schema=None,response_regex=None):
         self.schemas.append(response_schema)
+        self.regexes.append(response_regex)
         return super().generate(messages,*args)
 
 
@@ -118,6 +120,15 @@ class AgentWMTests(unittest.TestCase):
         self.assertIn('Generate a replacement action for the current real environment state',agent.messages[1][-1]['content'])
         self.assertEqual(text,'Thought: The preview supports this choice.\nAction: go to hallway')
         self.assertEqual(meta['reflection']['reviews'][0]['replan']['output'],xml('go to hallway'))
+        self.assertEqual(agent.regexes, [None, SCIENCE_REPLAN_REGEX])
+
+    def test_replan_regex_requires_real_action_and_excludes_acknowledgment(self):
+        self.assertIsNotNone(re.fullmatch(SCIENCE_REPLAN_REGEX,
+            '<think>Choose a route from the current room.</think>\n<action>go to hallway</action>'))
+        for text in ("OK. I'll follow your instructions and try my best to solve the task.",
+                     '<think>review</think>\n<action></action>',
+                     '<think>review</think>\n<action>look around</action>\n<action>wait</action>'):
+            self.assertIsNone(re.fullmatch(SCIENCE_REPLAN_REGEX, text))
 
     def test_science_native_checkpoint_replan_output_is_supported(self):
         d=parse_replan('Thought: move through current door\nAction: go to hallway','look around')
@@ -250,6 +261,24 @@ class AgentWMTests(unittest.TestCase):
                 self.assertEqual(payload['response_format']['json_schema']['schema'],REVIEW_SCHEMAS['alfworld'])
                 self.assertEqual(payload['messages'][0]['content'],'UNCHANGED')
                 self.assertEqual(meta['response_format'],payload['response_format'])
+
+    def test_real_replan_client_requires_action_format_without_fixing_action(self):
+        import run_audited_paper_eval as ev
+        args=SimpleNamespace(model='ee-scienceworld-il',max_tokens=1024,disable_thinking=False,
+                             generation_lock=None,url='http://test')
+        with tempfile.TemporaryDirectory() as d:
+            agent=ev.Agent(args,Path(d));agent.count=lambda messages:100
+            with patch.object(ev,'http',return_value=dict(choices=[dict(message=dict(content=xml('go to hallway')),finish_reason='stop')],usage={})) as client:
+                raw,meta=agent.generate([dict(role='user',content='COPIED_REPLAN')],'task',1,response_regex=SCIENCE_REPLAN_REGEX)
+                payload=client.call_args.kwargs['json']
+                self.assertEqual(payload['structured_outputs'],dict(regex=SCIENCE_REPLAN_REGEX))
+                self.assertNotIn('response_format',payload)
+                self.assertEqual(meta['structured_outputs'],payload['structured_outputs'])
+                self.assertEqual((payload['temperature'],payload['top_p'],payload['seed'],payload['max_tokens']),(.4,1.,0,1024))
+                self.assertEqual(payload['messages'][0]['content'],'COPIED_REPLAN')
+                with self.assertRaises(ValueError):
+                    agent.generate([], 'task', 1, response_regex=SCIENCE_REPLAN_REGEX,
+                                   response_schema=REVIEW_SCHEMAS['scienceworld'])
 
 
 if __name__=='__main__':

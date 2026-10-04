@@ -153,6 +153,7 @@ def audit_settings(args, root):
             science_review_action_information='AgentWM-native-SDK-action-templates-and-current-objects',
             science_replan='copied-guarded-replan-template/separate-agent-call/current-real-state/WM-guard',
             review_output_format='JSON-schema-constrained-ALFWorld-and-ScienceWorld-review-only',
+            science_replan_output_format='finite-think/action-regex/model-generated-values',
             alfworld_review_action_grounding='current-admissible-command-enum-plus-original-proposal',
             original_actor_context='unchanged/full-science-training-dialogue',
             final_round_policy='direct-final-prediction/science-verified-replan-or-cached-original')

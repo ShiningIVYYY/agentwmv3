@@ -344,6 +344,15 @@ class MatrixScheduler:
                 if self.matrix['profiles'][job['profile']]['env'] == 'scienceworld':
                     if sum('replan' in r for r in reflection['reviews']) > 3:
                         raise RuntimeError('Preflight exceeded ScienceWorld replanning budget')
+                    from reflection.agentwm import SCIENCE_REPLAN_REGEX
+                    import re
+                    for review in reflection['reviews']:
+                        if 'replan' not in review:
+                            continue
+                        replan = review['replan']
+                        if (replan.get('generation', {}).get('structured_outputs') != dict(regex=SCIENCE_REPLAN_REGEX)
+                                or re.fullmatch(SCIENCE_REPLAN_REGEX, replan['output']) is None):
+                            raise RuntimeError('ScienceWorld preflight replan did not produce the requested action format')
                     if reflection['final_action'] != reflection['initial_action']:
                         accepted = [r for r in reflection['reviews'] if r['decision']['decision'] == 'replace']
                         if not accepted or not accepted[-1].get('replan') or not accepted[-1]['critique']['needs_replan']:

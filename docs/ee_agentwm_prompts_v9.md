@@ -22,8 +22,12 @@ ALFWorld JSON reviews and ScienceWorld JSON critiques use schema-constrained
 decoding because the EE-IL checkpoints otherwise terminate incomplete JSON with
 their learned action tags. The schema enforces the exact fields requested by the
 copied template; it does not choose any decision/action value. Prompt text and
-temperature/top-p/seed/token limits are unchanged. Ordinary actor calls,
-ScienceWorld replan calls and WebShop reviews retain unconstrained generation.
+temperature/top-p/seed/token limits are unchanged. Ordinary actor calls and
+WebShop reviews retain unconstrained generation. ScienceWorld's separate replan
+call uses a finite regex for the copied template's think/action output format,
+because an unconstrained standalone call only acknowledges the instructions.
+Reason and action values remain model-generated; no suggestion is inserted as
+an answer. The actual regex is retained in generation metadata.
 The failed unconstrained preflight is retained separately; no full tasks ran in
 that attempt. Exact response schemas are recorded in each generation log.
 Brief JSON assessment/reason strings are bounded to 256 plain-text characters;
