@@ -169,12 +169,15 @@ class Agent:
                 self.science_reflection_prelude = json.loads(stream.readline())['messages']
         return science_messages(self.science_reflection_prelude, task, observation, steps, history)
 
-    def generate(self, messages, task_id, step):
+    def generate(self, messages, task_id, step, response_schema=None):
         count = self.count(messages)
         if count > 4096:
             raise RuntimeError('Prompt exceeds published 4096-token limit: %d' % count)
         payload = dict(model=self.args.model, messages=messages, temperature=.4,
                        max_tokens=self.args.max_tokens, top_p=1.0, seed=0)
+        if response_schema is not None:
+            payload['response_format'] = dict(type='json_schema', json_schema=dict(
+                name='agentwm_review', strict=True, schema=response_schema))
         if self.args.disable_thinking:
             payload['chat_template_kwargs'] = {'enable_thinking': False}
             payload['generation_config'] = json.dumps(self.generation_config)
@@ -207,8 +210,10 @@ class Agent:
         if not output:
             raise RuntimeError('Empty assistant content: hidden reasoning cannot be parsed as an action')
         self.total_calls += 1
-        return output, dict(prompt_tokens=count, usage=result.get('usage'),
-                            finish_reason=choice.get('finish_reason'))
+        metadata = dict(prompt_tokens=count, usage=result.get('usage'), finish_reason=choice.get('finish_reason'))
+        if response_schema is not None:
+            metadata['response_format'] = payload['response_format']
+        return output, metadata
 
     def bounded_native(self, env, task, obs, acts, steps):
         for h in (2, 1, 0):

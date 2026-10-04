@@ -17,6 +17,16 @@ from .native import parse_native_review
 
 PROTOCOL = 'agentwm-copied-v1'
 POLICY = 'agentwm-direct/science-critique-guarded-replan-v1'
+REVIEW_SCHEMAS = {
+    'alfworld': dict(type='object', additionalProperties=False,
+        properties=dict(assessment=dict(type='string'), action=dict(type='string'),
+                        change=dict(type='boolean'), reason=dict(type='string')),
+        required=['assessment', 'action', 'change', 'reason']),
+    'scienceworld': dict(type='object', additionalProperties=False,
+        properties=dict(assessment=dict(type='string'), execute_proposed=dict(type='boolean'),
+            needs_replan=dict(type='boolean'), suggested_action=dict(type='string'), reason=dict(type='string')),
+        required=['assessment', 'execute_proposed', 'needs_replan', 'suggested_action', 'reason']),
+}
 SCIENCE_SCHEMA = ('activate OBJ; close OBJ; connect OBJ to OBJ; deactivate OBJ; '
     'disconnect OBJ; drop OBJ; dunk OBJ in OBJ; eat OBJ; flush OBJ; focus on OBJ; '
     'go OBJ; inventory; look around; look at OBJ; look in OBJ; mix OBJ; move OBJ to OBJ; '
@@ -221,7 +231,8 @@ def select(controller, original, observation, steps, actions, step_number):
         if messages is None:
             budget_skip = True
             break
-        output, generation = controller.agent.generate(messages, controller.task_id, step_number)
+        output, generation = controller.agent.generate(messages, controller.task_id, step_number,
+            response_schema=REVIEW_SCHEMAS.get(controller.env))
         controller.recorder('review_output', step_number, dict(round=number, candidate=candidate,
             messages=messages, output=output, generation=generation))
         record = dict(round=number, candidate=candidate, messages=messages, output=output,

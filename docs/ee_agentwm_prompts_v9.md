@@ -18,6 +18,15 @@ Templates are byte-for-byte copies into `reflection/agentwm_*_prompts.py`.
 SHA-256. Neither evaluator nor scheduler imports or reads the AgentWM repository.
 The copied sources and the adapter are frozen in `experiment.json`.
 
+ALFWorld JSON reviews and ScienceWorld JSON critiques use schema-constrained
+decoding because the EE-IL checkpoints otherwise terminate incomplete JSON with
+their learned action tags. The schema enforces the exact fields requested by the
+copied template; it does not choose any decision/action value. Prompt text and
+temperature/top-p/seed/token limits are unchanged. Ordinary actor calls,
+ScienceWorld replan calls and WebShop reviews retain unconstrained generation.
+The failed unconstrained preflight is retained separately; no full tasks ran in
+that attempt. Exact response schemas are recorded in each generation log.
+
 - ALFWorld uses `build_reflection_messages` with its original four-key JSON
   response: assessment/action/change/reason. Setting change=false keeps the
   original action, matching AgentWM. JSON must actually occur in the completion;

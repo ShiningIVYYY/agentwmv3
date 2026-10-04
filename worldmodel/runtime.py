@@ -151,6 +151,7 @@ def audit_settings(args, root):
             unknown_numeric_feedback='None/no-real-environment-label-lookup',
             science_review_context='copied-critique-template/recent-five-real-steps',
             science_replan='copied-guarded-replan-template/separate-agent-call/current-real-state/WM-guard',
+            review_output_format='JSON-schema-constrained-ALFWorld-and-ScienceWorld-review-only',
             original_actor_context='unchanged/full-science-training-dialogue',
             final_round_policy='direct-final-prediction/science-verified-replan-or-cached-original')
     if args.env == 'scienceworld' and args.wm_backend == 'oracle':

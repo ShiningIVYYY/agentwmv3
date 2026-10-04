@@ -9,11 +9,22 @@ import unittest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from reflection.controller import ReflectionController
 from reflection.agentwm import (PROTOCOL, POLICY, extract_object, parse_direct,
-    parse_critique, parse_replan, feedback, reject_replan)
+    parse_critique, parse_replan, feedback, reject_replan, REVIEW_SCHEMAS)
 from worldmodel.backends import PredictionError
 from worldmodel.runtime import metrics, select as runtime_select, review_protocol
 from test_native_reflection import Agent, xml
 from types import SimpleNamespace
+from unittest.mock import patch
+import tempfile
+
+
+class ReviewAgent(Agent):
+    def __init__(self, outputs):
+        super().__init__(outputs)
+        self.schemas=[]
+    def generate(self,messages,*args,response_schema=None):
+        self.schemas.append(response_schema)
+        return super().generate(messages,*args)
 
 
 class WM:
@@ -38,7 +49,7 @@ def critique(replan=True, suggestion='go to kitchen'):
 
 class AgentWMTests(unittest.TestCase):
     def controller(self, forecasts, outputs, env='alfworld', backend='oracle'):
-        wm, agent = WM(forecasts, backend), Agent(outputs)
+        wm, agent = WM(forecasts, backend), ReviewAgent(outputs)
         return ReflectionController(wm, agent, env, 'GOAL', 'task', review_protocol=PROTOCOL), wm, agent
 
     def test_exact_copies_match_frozen_origin_hashes(self):
@@ -189,6 +200,26 @@ class AgentWMTests(unittest.TestCase):
         self.assertEqual(review_protocol(SimpleNamespace(model='ee-alfworld')),'ee-conservative-v2')
         self.assertEqual(review_protocol(SimpleNamespace(model='qwen25')),'json')
         self.assertEqual(review_protocol(SimpleNamespace(model='ee-alfworld',reflection_review_protocol=PROTOCOL)),PROTOCOL)
+
+    def test_structured_decoding_is_for_review_only_not_replanning(self):
+        c,wm,agent=self.controller({'go to kitchen':'No known action matches that input.',
+                                    'go to hallway':'hallway'},[critique(),xml('go to hallway')],'scienceworld')
+        c.select('go to kitchen','CURRENT',[],['go to hallway'],1)
+        self.assertEqual(agent.schemas,[REVIEW_SCHEMAS['scienceworld'],None])
+
+    def test_real_client_schema_payload_does_not_change_sampling(self):
+        import run_audited_paper_eval as ev
+        args=SimpleNamespace(model='ee-alfworld-il',max_tokens=1024,disable_thinking=False,
+                             generation_lock=None,url='http://test')
+        with tempfile.TemporaryDirectory() as d:
+            agent=ev.Agent(args,Path(d));agent.count=lambda messages:100
+            with patch.object(ev,'http',return_value=dict(choices=[dict(message=dict(content=direct('look',False)),finish_reason='stop')],usage={})) as client:
+                raw,meta=agent.generate([dict(role='user',content='UNCHANGED')],'task',1,response_schema=REVIEW_SCHEMAS['alfworld'])
+                payload=client.call_args.kwargs['json']
+                self.assertEqual((payload['temperature'],payload['top_p'],payload['seed'],payload['max_tokens']),(.4,1.,0,1024))
+                self.assertEqual(payload['response_format']['json_schema']['schema'],REVIEW_SCHEMAS['alfworld'])
+                self.assertEqual(payload['messages'][0]['content'],'UNCHANGED')
+                self.assertEqual(meta['response_format'],payload['response_format'])
 
 
 if __name__=='__main__':
