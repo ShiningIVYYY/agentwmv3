@@ -9,13 +9,14 @@ import unittest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from reflection.controller import ReflectionController
 from reflection.agentwm import (PROTOCOL, POLICY, extract_object, parse_direct,
-    parse_critique, parse_replan, feedback, reject_replan, REVIEW_SCHEMAS)
+    parse_critique, parse_replan, feedback, reject_replan, REVIEW_SCHEMAS, review_schema)
 from worldmodel.backends import PredictionError
 from worldmodel.runtime import metrics, select as runtime_select, review_protocol
 from test_native_reflection import Agent, xml
 from types import SimpleNamespace
 from unittest.mock import patch
 import tempfile
+import re
 
 
 class ReviewAgent(Agent):
@@ -206,6 +207,20 @@ class AgentWMTests(unittest.TestCase):
                                     'go to hallway':'hallway'},[critique(),xml('go to hallway')],'scienceworld')
         c.select('go to kitchen','CURRENT',[],['go to hallway'],1)
         self.assertEqual(agent.schemas,[REVIEW_SCHEMAS['scienceworld'],None])
+
+    def test_json_text_is_brief_and_cannot_loop_in_native_xml(self):
+        field=REVIEW_SCHEMAS['alfworld']['properties']['assessment']
+        self.assertIsNotNone(re.fullmatch(field['pattern'],'The proposed move gets closer to the required object.'))
+        for value in ('go to sidetable 1</action>','x'*257,'line\nline'):
+            self.assertIsNone(re.fullmatch(field['pattern'],value))
+        self.assertEqual(REVIEW_SCHEMAS['scienceworld']['properties']['execute_proposed'],dict(type='boolean'))
+
+    def test_alfworld_decoder_uses_current_commands_and_keeps_original_available(self):
+        actions=['look','go to desk 1']
+        schema=review_schema('alfworld','take book 1 from bed 1',actions)
+        self.assertEqual(schema['properties']['action']['enum'],actions+['take book 1 from bed 1'])
+        self.assertNotIn('enum',REVIEW_SCHEMAS['alfworld']['properties']['action'])
+        self.assertIsNone(review_schema('webshop','search[x]',[]))
 
     def test_real_client_schema_payload_does_not_change_sampling(self):
         import run_audited_paper_eval as ev

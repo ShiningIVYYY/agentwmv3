@@ -5,6 +5,7 @@ Only Oracle predictions provide simulator reward/done/success/score metadata.
 """
 import json
 import re
+import copy
 
 from worldmodel.backends import PredictionError
 from .agentwm_alfworld_prompts import build_reflection_messages
@@ -17,16 +18,35 @@ from .native import parse_native_review
 
 PROTOCOL = 'agentwm-copied-v1'
 POLICY = 'agentwm-direct/science-critique-guarded-replan-v1'
+
+
+def brief_text(limit):
+    # EE-IL otherwise loops through learned XML tags inside an unterminated
+    # JSON string. A finite plain-text regex bounds only the requested brief
+    # explanation, never the review decision or the selected action value.
+    return dict(type='string', pattern='^[^"<>\\r\\n]{0,%d}$' % limit)
+
+
 REVIEW_SCHEMAS = {
     'alfworld': dict(type='object', additionalProperties=False,
-        properties=dict(assessment=dict(type='string'), action=dict(type='string'),
-                        change=dict(type='boolean'), reason=dict(type='string')),
+        properties=dict(assessment=brief_text(256), action=brief_text(160),
+                        change=dict(type='boolean'), reason=brief_text(256)),
         required=['assessment', 'action', 'change', 'reason']),
     'scienceworld': dict(type='object', additionalProperties=False,
-        properties=dict(assessment=dict(type='string'), execute_proposed=dict(type='boolean'),
-            needs_replan=dict(type='boolean'), suggested_action=dict(type='string'), reason=dict(type='string')),
+        properties=dict(assessment=brief_text(256), execute_proposed=dict(type='boolean'),
+            needs_replan=dict(type='boolean'), suggested_action=brief_text(160), reason=brief_text(256)),
         required=['assessment', 'execute_proposed', 'needs_replan', 'suggested_action', 'reason']),
 }
+
+
+def review_schema(env, candidate, actions):
+    schema = copy.deepcopy(REVIEW_SCHEMAS.get(env))
+    if env == 'alfworld':
+        # The copied prompt explicitly requests one admissible command. Include
+        # the proposal so change=false can also faithfully preserve an invalid
+        # original actor output. No command is chosen by the adapter.
+        schema['properties']['action'] = dict(type='string', enum=list(dict.fromkeys(list(actions) + [candidate])))
+    return schema
 SCIENCE_SCHEMA = ('activate OBJ; close OBJ; connect OBJ to OBJ; deactivate OBJ; '
     'disconnect OBJ; drop OBJ; dunk OBJ in OBJ; eat OBJ; flush OBJ; focus on OBJ; '
     'go OBJ; inventory; look around; look at OBJ; look in OBJ; mix OBJ; move OBJ to OBJ; '
@@ -232,7 +252,7 @@ def select(controller, original, observation, steps, actions, step_number):
             budget_skip = True
             break
         output, generation = controller.agent.generate(messages, controller.task_id, step_number,
-            response_schema=REVIEW_SCHEMAS.get(controller.env))
+            response_schema=review_schema(controller.env, candidate, actions))
         controller.recorder('review_output', step_number, dict(round=number, candidate=candidate,
             messages=messages, output=output, generation=generation))
         record = dict(round=number, candidate=candidate, messages=messages, output=output,

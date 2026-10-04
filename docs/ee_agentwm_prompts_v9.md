@@ -26,6 +26,16 @@ temperature/top-p/seed/token limits are unchanged. Ordinary actor calls,
 ScienceWorld replan calls and WebShop reviews retain unconstrained generation.
 The failed unconstrained preflight is retained separately; no full tasks ran in
 that attempt. Exact response schemas are recorded in each generation log.
+Brief JSON assessment/reason strings are bounded to 256 plain-text characters;
+action/suggestion strings are bounded to 160. This prevents the fine-tuned policy
+from repeatedly emitting native XML tags inside a JSON string until the token
+limit. Decision booleans and action content remain model-generated.
+For ALFWorld, the action field is constrained to the prompt's actual admissible
+commands plus the original proposal, which remains available for a keep
+decision. The model chooses among these commands; the adapter never supplies
+an answer. ScienceWorld's non-exhaustive SDK combinations are not enumerated
+as a decoder whitelist. Each actual schema, including ALFWorld's current command
+set, is retained in the review generation metadata.
 
 - ALFWorld uses `build_reflection_messages` with its original four-key JSON
   response: assessment/action/change/reason. Setting change=false keeps the
