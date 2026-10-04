@@ -163,13 +163,11 @@ class Agent:
     def reflection_context(self, env, task, observation, steps, actions, history):
         if env != 'scienceworld':
             return native_prompt(env,task,observation,actions,steps,history)
-        # Reflection is a separate prompt. The initial actor retains the full
-        # 54-message training demonstration; the reviewer uses native ReAct
-        # turns with the real goal/history and the WM evidence within 4096 tokens.
-        messages = science_messages([],task,observation,steps,history)
-        messages[0]['content'] = ('You are an expert agent operating in ScienceWorld. '
-            'Reason about the task using Thought: and choose one concrete Action:.\n' + messages[0]['content'])
-        return messages
+        if not hasattr(self, 'science_reflection_prelude'):
+            source = ROOT / 'data/paper_eval/sources/science_expert_sample.jsonl'
+            with source.open() as stream:
+                self.science_reflection_prelude = json.loads(stream.readline())['messages']
+        return science_messages(self.science_reflection_prelude, task, observation, steps, history)
 
     def generate(self, messages, task_id, step):
         count = self.count(messages)

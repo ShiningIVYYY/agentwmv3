@@ -159,7 +159,7 @@ bash scripts/run_overnight_paper_benchmarks.sh \
 bash scripts/start_wm_experiment_matrix.sh
 ```
 
-统一入口为 `scripts/run_wm_experiment_matrix.py`，当前默认选择 Qwen2.5 和 EE-IL，输出 `outputs/wm_reflection/full_7b_v7/`。
+统一入口为 `scripts/run_wm_experiment_matrix.py`，当前默认选择 Qwen2.5 和 EE-IL，输出 `outputs/wm_reflection/full_7b_v8/`。
 v6 从 EE-IL 开始采用进程任务队列：Oracle 和 Word2World 每组各 4 个独立 worker，
 共享 GPU 0 上的 Agent 和对应 checkpoint WM。Qwen2.5 保持串行；已完成结果带原始配置和源码哈希继承。
 每个 worker 独立持有环境、ScienceWorld JVM、ALFWorld 原生引擎、临时目录和日志。
@@ -712,3 +712,10 @@ EE-IL 反思使用训练时的原生动作格式：ALFWorld/WebShop 的 `<think>
 发布的 WebShop IL 模型也会输出仅有 `<action>` 的完整原生动作块；此输出同样参与保留/替换判断，缺失的解释原样记为空，不补造反思文本。多个动作、截断动作、JSON/XML 混合和额外尾部文本均拒绝。
 
 WebShop 反思先给出候选动作与 WM 预测，再以真实当前状态、目标、已执行历史和当前可选动作结束提示，避免该 IL checkpoint 机械复述末尾的候选动作。另有真实模型与真实 Oracle 的偏离目标搜索检查，验证它确实能返回替换动作。
+
+
+EE-IL v8 uses `ee-conservative-v2` and `evidence-gated-repair-v1`. Reviews retain the original actor action unless current action availability, complete explicit failure feedback, or three consecutive executed repetitions with identical feedback establish a defect. Waiting and information actions are exempt from the repetition trigger. Proposals are predicted from the same committed real prefix and must yield complete nonfailure feedback different from the defective original before execution. One verified repair ends review; repeated rejected proposals stop without oscillating; at most three actual reviews and four actual WM calls occur. Fallback reuses the verified original prediction (logged as cached, excluded from WM call/token/time totals).
+
+All environments end the reviewer turn with the actual current state and executed history; hypothetical previews precede that section. ScienceWorld retains the exact full 54-message baseline TRAIN dialogue, trimming only real history. If necessary only the displayed hypothetical preview is clipped and marked partial; if mandatory context still exceeds 4096 tokens the original action is retained with an explicit budget-skip log, without fabricating a reviewer call. Original actor output is byte-preserved on keep; accepted repairs use the actual native model completion rather than synthetic reviewer thoughts. SDK-native action aliases such as `drop` and combinations in the current SDK list are accepted.
+
+Qwen2.5 completed results retain their audited legacy JSON review policy and are inherited as such; the changed EE-IL treatment is explicitly versioned and restarted from zero. Old v7 EE-IL results are archived for diagnosis.

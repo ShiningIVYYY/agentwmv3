@@ -49,7 +49,7 @@ def make_controller(args, env, row, task, initial, factory, agent, root, oracle=
             with open(agent.out / 'reflection_events.jsonl', 'a') as f:
                 f.write(json.dumps(dict(task_id=row['task_id'], step=step, stage=stage,
                     updated=time.time(), **data), ensure_ascii=False) + '\n')
-    protocol = 'ee-native-action-v1' if getattr(args,'model','').startswith('ee-') else 'json'
+    protocol = 'ee-conservative-v2' if getattr(args,'model','').startswith('ee-') else 'json'
     return ReflectionController(wm, agent, env, task, row['task_id'], args.reflection_max_rounds, record, protocol)
 
 
@@ -62,7 +62,9 @@ def select(controller, candidate, output, observation, steps, actions, step_numb
         chosen_reviews = [r for r in log['reviews'] if r['decision']['decision'] == 'replace' and
                           r['decision']['action'] == chosen]
         reason = chosen_reviews[-1]['decision']['reason']
-        if controller.env == 'scienceworld':
+        if getattr(controller, 'review_protocol', 'json') == 'ee-conservative-v2':
+            effective = chosen_reviews[-1]['output']
+        elif controller.env == 'scienceworld':
             effective = 'Thought: ' + reason + '\nAction: ' + chosen
         else:
             effective = '<think>' + reason + '</think>\n<action>' + chosen + '</action>'
@@ -79,7 +81,7 @@ def metrics(steps):
     if not records:
         return {}
     rounds = sum(r['rounds'] for r in records)
-    preds = [p for r in records for p in r['predictions']]
+    preds = [p for r in records for p in r['predictions'] if not p.get('cached', False)]
     usage = [v['generation'].get('usage') or {} for r in records for v in r['reviews']]
     wm_usage = [p.get('usage') or {} for p in preds]
     return dict(reflection_metrics=dict(steps=len(records), reflection_calls=rounds,
@@ -91,6 +93,9 @@ def metrics(steps):
         valid_review_calls=sum(v['decision']['decision']!='invalid' for r in records for v in r['reviews']),
         review_format_errors=sum(v.get('error_kind')=='invalid_format' for r in records for v in r['reviews']),
         invalid_replacement_reviews=sum(v.get('error_kind')=='invalid_action' for r in records for v in r['reviews']),
+        guard_blocked_replacements=sum(r.get('guard_blocked_replacements', 0) for r in records),
+        original_defects_detected=sum(bool(r.get('original_defect')) for r in records),
+        review_budget_skips=sum(r.get('budget_skip', False) for r in records),
         changed_step_count=sum(r['initial_action'] != r['final_action'] for r in records),
         round_limit_count=sum(r['hit_round_limit'] for r in records),
         prediction_exact_matches=sum(r['prediction_exact_match'] for r in records),
@@ -115,7 +120,12 @@ def audit_settings(args, root):
         history_policy='commit-real-observations-only', sources={str(p.relative_to(root)):
             hashlib.sha256(p.read_bytes()).hexdigest() for p in files})
     feature['science_ambiguity_policy'] = 'stable-label-order-with-native-number-translation'
-    feature['reflection_review_protocol'] = 'ee-native-action-v1' if getattr(args,'model','').startswith('ee-') else 'json'
+    feature['reflection_review_protocol'] = 'ee-conservative-v2' if getattr(args,'model','').startswith('ee-') else 'json'
+    feature['selection_policy'] = 'evidence-gated-repair-v1' if getattr(args,'model','').startswith('ee-') else 'legacy-json'
+    if getattr(args,'model','').startswith('ee-'):
+        feature['repair_evidence'] = 'explicit-failure/current-action-unavailable/three-identical-feedback-repeats'
+        feature['repair_prediction'] = 'same-real-prefix/complete-available/nonfailure/different-feedback'
+        feature['science_review_context'] = 'complete-baseline-training-dialogue/trim-real-history-only'
     if args.env == 'scienceworld' and args.wm_backend == 'oracle':
         feature['science_exit_comparison'] = 'unordered-full-door-descriptions/native-agent-text-preserved'
         feature['oracle_policy'] = 'live-jvm-heap-checkpoint/rollback-rejected/adopt-final-state-once'

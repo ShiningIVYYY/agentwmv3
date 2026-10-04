@@ -14,6 +14,28 @@ from experiments.scheduler import MatrixScheduler, process_identity, matches_pro
 
 
 class MatrixTests(unittest.TestCase):
+    def test_conservative_preflight_rejects_unjustified_replacement(self):
+        key='word2world/alfworld_ee_il'
+        reflection=dict(rounds=1,review_protocol='ee-conservative-v2',selection_policy='evidence-gated-repair-v1',
+            initial_action='look',final_action='inventory',original_defect=None,
+            reviews=[dict(guard='verified_repair',decision=dict(decision='replace'))],
+            predictions=[dict(action='look',observation='current'),dict(action='inventory',observation='inventory')])
+        row=dict(steps=[dict(action='inventory',reflection=reflection)])
+        directory=Path(self.matrix['jobs'][key]['preflight'])
+        save(directory/'tasks/task-0.json',row)
+        with self.assertRaisesRegex(RuntimeError,'without evidence'):
+            self.scheduler.validate_smoke_task(key,'task-0')
+
+    def test_conservative_cached_fallback_is_not_a_fifth_wm_call(self):
+        key='word2world/alfworld_ee_il'
+        predictions=[dict(action=a,observation='Nothing happens.') for a in ('look','open cabinet 1','open cabinet 2','open cabinet 3')]
+        predictions.append(dict(predictions[0],cached=True))
+        reflection=dict(rounds=3,review_protocol='ee-conservative-v2',selection_policy='evidence-gated-repair-v1',
+            initial_action='look',final_action='look',reviews=[],predictions=predictions)
+        directory=Path(self.matrix['jobs'][key]['preflight'])
+        save(directory/'tasks/task-0.json',dict(steps=[dict(action='look',reflection=reflection)]))
+        self.scheduler.validate_smoke_task(key,'task-0')
+
     def test_native_preflight_must_produce_valid_decision(self):
         key = 'word2world/alfworld_ee_il'
         self.matrix['policy']['ee_reflection_protocol'] = 'ee-native-action-v1'

@@ -15,7 +15,7 @@ from worldmodel.backends import same_transition
 def native_reflection_required(matrix, job_key):
     profile = matrix['profiles'][matrix['jobs'][job_key]['profile']]
     return (profile['model'] == 'ee_il' and
-            matrix['policy'].get('ee_reflection_protocol') == 'ee-native-action-v1')
+            matrix['policy'].get('ee_reflection_protocol') in ('ee-native-action-v1', 'ee-conservative-v2'))
 
 
 def process_identity(pid, proc=Path('/proc')):
@@ -293,8 +293,10 @@ class MatrixScheduler:
         if actual.get('limit') != (smoke_limit(self.matrix, job_key) if smoke else baseline.get('limit')):
             raise RuntimeError('Derived task limit differs')
         if native_reflection_required(self.matrix, job_key):
-            if actual.get('wm_reflection', {}).get('reflection_review_protocol') != 'ee-native-action-v1':
+            if actual.get('wm_reflection', {}).get('reflection_review_protocol') != self.matrix['policy']['ee_reflection_protocol']:
                 raise RuntimeError('EE-IL reflection protocol differs')
+            if self.matrix['policy'].get('ee_selection_policy') and actual['wm_reflection'].get('selection_policy') != self.matrix['policy']['ee_selection_policy']:
+                raise RuntimeError('EE-IL selection policy differs')
         if worker_count(self.matrix, job_key) > 1:
             if actual.get('execution', {}).get('workers') != worker_count(self.matrix, job_key):
                 raise RuntimeError('Parallel worker configuration differs')
@@ -310,14 +312,14 @@ class MatrixScheduler:
                 row = read(Path(job['preflight']) / 'tasks' / (task_id + '.json'))
                 for step in row['steps']:
                     reflection = step['reflection']
-                    if reflection.get('review_protocol') != 'ee-native-action-v1':
+                    if reflection.get('review_protocol') != self.matrix['policy']['ee_reflection_protocol']:
                         raise RuntimeError('EE-IL preflight used the wrong reflection protocol')
                     reviews.extend(reflection['reviews'])
             valid = sum(r['decision']['decision'] in ('keep', 'replace') for r in reviews)
             if not valid:
                 raise RuntimeError('EE-IL preflight produced no valid reflection decisions')
             save(Path(job['preflight']) / 'reflection_validation.json', dict(
-                protocol='ee-native-action-v1', total_reviews=len(reviews), valid_reviews=valid, passed=True))
+                protocol=self.matrix['policy']['ee_reflection_protocol'], total_reviews=len(reviews), valid_reviews=valid, passed=True))
 
     def validate_smoke_task(self, job_key, task_id):
         job = self.matrix['jobs'][job_key]
@@ -326,8 +328,21 @@ class MatrixScheduler:
             raise RuntimeError('Preflight did not execute a real environment step')
         for step in row['steps']:
             reflection = step['reflection']
-            if not (1 <= reflection['rounds'] <= 3 and 1 <= len(reflection['predictions']) <= 4):
+            conservative = reflection.get('review_protocol') == 'ee-conservative-v2'
+            rounds_ok = 1 <= reflection['rounds'] <= 3 or (conservative and reflection['rounds'] == 0 and reflection.get('budget_skip'))
+            physical_calls = sum(not p.get('cached', False) for p in reflection['predictions'])
+            if not (rounds_ok and 1 <= physical_calls <= 4 and len(reflection['predictions']) <= (5 if conservative else 4)):
                 raise RuntimeError('Preflight exceeded reflection/prediction budgets')
+            if conservative:
+                from reflection.conservative import POLICY, usable, failure_feedback
+                if reflection.get('selection_policy') != POLICY:
+                    raise RuntimeError('Preflight conservative policy missing')
+                if reflection['final_action'] != reflection['initial_action']:
+                    if not (reflection.get('original_defect') and reflection['reviews'][-1].get('guard') == 'verified_repair'):
+                        raise RuntimeError('Preflight changed action without evidence for repair')
+                    last = reflection['predictions'][-1]
+                    if not usable(last) or failure_feedback(last, self.matrix['profiles'][job['profile']]['env']):
+                        raise RuntimeError('Preflight committed a failed or unknown repair')
             if reflection['predictions'][-1]['action'] != step['action'] or reflection['final_action'] != step['action']:
                 raise RuntimeError('Preflight committed a different action than predicted')
             if job['backend'] == 'oracle' and ('actual' not in reflection or not same_transition(

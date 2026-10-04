@@ -34,11 +34,13 @@ def valid_replacement(env, action, actions):
             any(a.startswith('search[') for a in actions) and re.fullmatch(r'search\[[^\[\]]+\]', action))
     if env == 'alfworld':
         return action in actions
+    if action in actions:
+        return True
     if action.isdigit():
-        return action in actions
+        return False
     # The SDK list is not an exhaustive grammar: retain the published templates,
     # including connect/disconnect, without a new whitelist of object combinations.
-    return bool(re.fullmatch(r'(?:activate|close|connect|deactivate|disconnect|dunk|eat|flush|focus on|go|'
+    return bool(re.fullmatch(r'(?:activate|close|connect|deactivate|disconnect|drop|dunk|eat|flush|focus on|go|'
                              r'look at|look in|mix|move|open|pick up|pour|put down|read|teleport|use) .+|'
                              r'inventory|look around|reset task|task|wait|wait1', action))
 
@@ -50,11 +52,14 @@ class ReflectionController:
         self.wm, self.agent, self.env = wm, agent, env
         self.task, self.task_id, self.max_rounds = task, task_id, max_rounds
         self.recorder = recorder or (lambda *args: None)
-        if review_protocol not in ('json', 'ee-native-action-v1'):
+        if review_protocol not in ('json', 'ee-native-action-v1', 'ee-conservative-v2'):
             raise ValueError('Unknown reflection review protocol')
         self.review_protocol = review_protocol
 
     def select(self, candidate, observation, steps, actions, step_number):
+        if self.review_protocol == 'ee-conservative-v2':
+            from .conservative import select
+            return select(self, candidate, observation, steps, actions, step_number)
         initial = candidate
         reviews = []
         predictions = []
