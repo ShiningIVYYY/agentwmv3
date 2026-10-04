@@ -559,6 +559,7 @@ def main():
     p.add_argument('--wm-backend', choices=['none', 'oracle', 'word2world'], default='none')
     p.add_argument('--wm-config', help='Word2World JSON config; defaults to configs/worldmodel/<env>.json')
     p.add_argument('--reflection-max-rounds', type=int, choices=[1, 2, 3], default=3)
+    p.add_argument('--reflection-review-protocol', choices=['auto', 'json', 'ee-native-action-v1', 'ee-conservative-v2', 'agentwm-copied-v1'], default='auto')
     p.add_argument('--workers', type=int, choices=range(1, 9), default=1)
     p.add_argument('--task-queue', help=argparse.SUPPRESS)
     p.add_argument('--queue-run', help=argparse.SUPPRESS)
@@ -596,6 +597,8 @@ def main():
         saved_args = dict(vars(args))
         for key in ('workers', 'task_queue', 'queue_run', 'queue_workers'):
             saved_args.pop(key)
+        if args.reflection_review_protocol == 'auto':
+            saved_args.pop('reflection_review_protocol')
         if args.wm_backend == 'none':
             # Preserve exact pre-feature config files for baseline resume.
             for key in ('wm_backend', 'wm_config', 'reflection_max_rounds'):

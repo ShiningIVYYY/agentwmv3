@@ -15,7 +15,7 @@ from worldmodel.backends import same_transition
 def native_reflection_required(matrix, job_key):
     profile = matrix['profiles'][matrix['jobs'][job_key]['profile']]
     return (profile['model'] == 'ee_il' and
-            matrix['policy'].get('ee_reflection_protocol') in ('ee-native-action-v1', 'ee-conservative-v2'))
+            matrix['policy'].get('ee_reflection_protocol') in ('ee-native-action-v1', 'ee-conservative-v2', 'agentwm-copied-v1'))
 
 
 def process_identity(pid, proc=Path('/proc')):
@@ -119,7 +119,7 @@ class MatrixScheduler:
         response = requests.get('http://127.0.0.1:36001/docs', timeout=5)
         response.raise_for_status()
         for env in ENVS:
-            wm = self.matrix['profiles'][env + '_qwen25']['wm']
+            wm = next(p['wm'] for p in self.matrix['profiles'].values() if p['env'] == env)
             if not model_ready(wm['url'], wm['served_model_name'], wm['checkpoint'], wm['max_model_len'], self.root):
                 subprocess.run(['/home/shn/miniconda3/envs/verl-agent/bin/python',
                     str(self.root / 'scripts/start_worldmodel_service.py'), '--env', env,
@@ -128,13 +128,16 @@ class MatrixScheduler:
         self.services_checked = True
 
     def ensure_front_agent(self, model, env=None):
-        profile = self.matrix['profiles'][(env or 'alfworld') + '_' + model]
-        config = profile['config']
+        profile = self.matrix['profiles'].get((env or 'alfworld') + '_' + model)
+        config = profile['config'] if profile else self.matrix['front_restore_profile']
         if model_ready(config['url'], config['model'], config['tokenizer_path'], 5120, self.root):
             return
         # Only an agent service in GPU 0 owned by this repository may be switched.
         approved = {Path(p['config']['tokenizer_path']).resolve():p['config']
                     for p in self.matrix['profiles'].values() if p['model'] != 'qwen38'}
+        restore = self.matrix.get('front_restore_profile')
+        if restore:
+            approved[Path(restore['tokenizer_path']).resolve()] = restore
         for entry in Path('/proc').iterdir():
             if not entry.name.isdigit():
                 continue
@@ -329,10 +332,24 @@ class MatrixScheduler:
         for step in row['steps']:
             reflection = step['reflection']
             conservative = reflection.get('review_protocol') == 'ee-conservative-v2'
-            rounds_ok = 1 <= reflection['rounds'] <= 3 or (conservative and reflection['rounds'] == 0 and reflection.get('budget_skip'))
+            copied = reflection.get('review_protocol') == 'agentwm-copied-v1'
+            rounds_ok = 1 <= reflection['rounds'] <= 3 or ((conservative or copied) and reflection['rounds'] == 0 and reflection.get('budget_skip'))
             physical_calls = sum(not p.get('cached', False) for p in reflection['predictions'])
-            if not (rounds_ok and 1 <= physical_calls <= 4 and len(reflection['predictions']) <= (5 if conservative else 4)):
+            if not (rounds_ok and 1 <= physical_calls <= 4 and len(reflection['predictions']) <= (5 if conservative or copied else 4)):
                 raise RuntimeError('Preflight exceeded reflection/prediction budgets')
+            if copied:
+                from reflection.agentwm import POLICY, reject_replan
+                if reflection.get('selection_policy') != POLICY:
+                    raise RuntimeError('Preflight copied AgentWM policy missing')
+                if self.matrix['profiles'][job['profile']]['env'] == 'scienceworld':
+                    if sum('replan' in r for r in reflection['reviews']) > 3:
+                        raise RuntimeError('Preflight exceeded ScienceWorld replanning budget')
+                    if reflection['final_action'] != reflection['initial_action']:
+                        accepted = [r for r in reflection['reviews'] if r['decision']['decision'] == 'replace']
+                        if not accepted or not accepted[-1].get('replan') or not accepted[-1]['critique']['needs_replan']:
+                            raise RuntimeError('ScienceWorld changed action without a separate replan')
+                        if reject_replan(reflection['final_action'], reflection['predictions'][-1], job['backend']):
+                            raise RuntimeError('ScienceWorld committed a rejected replan')
             if conservative:
                 from reflection.conservative import POLICY, usable, failure_feedback
                 if reflection.get('selection_policy') != POLICY:
@@ -468,7 +485,7 @@ class MatrixScheduler:
                         self.event('front_unit_finished', model=unit[0], env=unit[1], smoke=unit[2])
                         self.state['front_index'] += 1
                 elif not self.state['restored']:
-                    if 'qwen25' in self.models:
+                    if 'qwen25' in self.models or self.matrix.get('front_restore_profile'):
                         self.ensure_front_agent('qwen25')
                     self.state['restored'] = True
                 stage = self.state['qwen38_stage']

@@ -719,3 +719,9 @@ EE-IL v8 uses `ee-conservative-v2` and `evidence-gated-repair-v1`. Reviews retai
 All environments end the reviewer turn with the actual current state and executed history; hypothetical previews precede that section. ScienceWorld retains the exact full 54-message baseline TRAIN dialogue, trimming only real history. If necessary only the displayed hypothetical preview is clipped and marked partial; if mandatory context still exceeds 4096 tokens the original action is retained with an explicit budget-skip log, without fabricating a reviewer call. Original actor output is byte-preserved on keep; accepted repairs use the actual native model completion rather than synthetic reviewer thoughts. SDK-native action aliases such as `drop` and combinations in the current SDK list are accepted.
 
 Qwen2.5 completed results retain their audited legacy JSON review policy and are inherited as such; the changed EE-IL treatment is explicitly versioned and restarted from zero. Old v7 EE-IL results are archived for diagnosis.
+# EE-IL rerun with copied AgentWM prompts
+
+The new `agentwm-copied-v1` suite copies all templates into this repository.
+ALFWorld uses AgentWM's JSON review, WebShop uses its conservative review, and
+ScienceWorld uses critique followed by a separate guarded replan. See
+[the v9 protocol and launch command](docs/ee_agentwm_prompts_v9.md).

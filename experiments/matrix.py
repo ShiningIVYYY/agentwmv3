@@ -50,11 +50,13 @@ def source_files(root):
     return sorted(set(files))
 
 
-def prepare(root, out, models=MODELS, ee_workers=1):
+def prepare(root, out, models=MODELS, ee_workers=1, ee_reflection_protocol='ee-conservative-v2'):
     root, out = Path(root).resolve(), Path(out).resolve()
     if not models or not set(models) <= set(MODELS):
         raise ValueError('Select known Agent models')
     models = tuple(model for model in MODELS if model in models)
+    if ee_reflection_protocol not in ('ee-conservative-v2', 'agentwm-copied-v1'):
+        raise ValueError('Unknown EE reflection protocol')
     target = out / 'experiment.json'
     if target.exists():
         matrix = read(target)
@@ -64,6 +66,8 @@ def prepare(root, out, models=MODELS, ee_workers=1):
             raise RuntimeError('Selected models changed; use a new experiment directory')
         if matrix['policy'].get('ee_workers', 1) != ee_workers:
             raise RuntimeError('Worker count changed; use a new experiment directory')
+        if matrix['policy'].get('ee_reflection_protocol', 'ee-conservative-v2') != ee_reflection_protocol:
+            raise RuntimeError('Reflection protocol changed; use a new experiment directory')
         verify(matrix)
         return matrix
     protected = root / 'outputs/paper_eval'
@@ -123,8 +127,8 @@ def prepare(root, out, models=MODELS, ee_workers=1):
         sampling=sampling, reflection_max_rounds=3, profiles=profiles, jobs=jobs, hashes=hashes,
         policy=dict(smoke_limit=1, smoke_steps=2, max_runner_launches=3,
             ee_workers=ee_workers, parallel_smoke_limit=ee_workers,
-            ee_reflection_protocol='ee-conservative-v2',
-            ee_selection_policy='evidence-gated-repair-v1',
+            ee_reflection_protocol=ee_reflection_protocol,
+            ee_selection_policy='agentwm-direct/science-critique-guarded-replan-v1' if ee_reflection_protocol == 'agentwm-copied-v1' else 'evidence-gated-repair-v1',
             front_gpu=0, wm_gpus=[1,2,3], qwen38_gpus=[4,5,6,7],
             preflight='all available-model combinations must pass before full runs',
             qwen38_dependency='all three original qwen38 baselines complete and their runners exited' if 'qwen38' in models else 'not selected',
@@ -135,6 +139,11 @@ def prepare(root, out, models=MODELS, ee_workers=1):
             temporary_directory='owned-worker-directory-on-experiment-volume',
             empty_prediction='explicit-missing-evidence/reflect-with-current-state',
             history='commit-real-feedback-only'))
+    if 'qwen25' not in models:
+        # A restore profile is service metadata only; no Qwen tasks are selected.
+        restore_path = baseline_directory(root, 'alfworld', 'qwen25') / 'config.json'
+        matrix['front_restore_profile'] = read(restore_path)
+        matrix['hashes'][str(restore_path)] = sha(restore_path)
     save(target, matrix)
     return matrix
 
@@ -172,6 +181,8 @@ def command(matrix, job_key, smoke=False):
         argv.append('--disable-thinking')
     argv += ['--output', job['preflight'] if smoke else job['output'],
              '--wm-backend', job['backend'], '--reflection-max-rounds', str(matrix['reflection_max_rounds'])]
+    if profile['model'] == 'ee_il' and matrix['policy'].get('ee_reflection_protocol') == 'agentwm-copied-v1':
+        argv += ['--reflection-review-protocol', 'agentwm-copied-v1']
     if job['backend'] == 'word2world':
         argv += ['--wm-config', profile['wm_config']]
     if smoke:

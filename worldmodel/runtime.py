@@ -7,6 +7,13 @@ from .backends import OracleWorldModel, Word2WorldModel, load_config, Prediction
 from .contexts import initial_context, alf_action, checkpoint_observation
 
 
+def review_protocol(args):
+    selected = getattr(args, 'reflection_review_protocol', 'auto')
+    if selected != 'auto':
+        return selected
+    return 'ee-conservative-v2' if getattr(args, 'model', '').startswith('ee-') else 'json'
+
+
 def make_controller(args, env, row, task, initial, factory, agent, root, oracle=None):
     backend = getattr(args, 'wm_backend', 'none')
     if backend == 'none':
@@ -49,7 +56,7 @@ def make_controller(args, env, row, task, initial, factory, agent, root, oracle=
             with open(agent.out / 'reflection_events.jsonl', 'a') as f:
                 f.write(json.dumps(dict(task_id=row['task_id'], step=step, stage=stage,
                     updated=time.time(), **data), ensure_ascii=False) + '\n')
-    protocol = 'ee-conservative-v2' if getattr(args,'model','').startswith('ee-') else 'json'
+    protocol = review_protocol(args)
     return ReflectionController(wm, agent, env, task, row['task_id'], args.reflection_max_rounds, record, protocol)
 
 
@@ -62,7 +69,11 @@ def select(controller, candidate, output, observation, steps, actions, step_numb
         chosen_reviews = [r for r in log['reviews'] if r['decision']['decision'] == 'replace' and
                           r['decision']['action'] == chosen]
         reason = chosen_reviews[-1]['decision']['reason']
-        if getattr(controller, 'review_protocol', 'json') == 'ee-conservative-v2':
+        if getattr(controller, 'review_protocol', 'json') == 'agentwm-copied-v1' and controller.env == 'scienceworld':
+            effective = chosen_reviews[-1]['execution_output']
+        elif getattr(controller, 'review_protocol', 'json') in ('ee-conservative-v2', 'agentwm-copied-v1') and controller.env != 'alfworld':
+            effective = chosen_reviews[-1]['output']
+        elif getattr(controller, 'review_protocol', 'json') == 'ee-conservative-v2':
             effective = chosen_reviews[-1]['output']
         elif controller.env == 'scienceworld':
             effective = 'Thought: ' + reason + '\nAction: ' + chosen
@@ -83,6 +94,8 @@ def metrics(steps):
     rounds = sum(r['rounds'] for r in records)
     preds = [p for r in records for p in r['predictions'] if not p.get('cached', False)]
     usage = [v['generation'].get('usage') or {} for r in records for v in r['reviews']]
+    replans = [v['replan'] for r in records for v in r['reviews'] if 'replan' in v]
+    replan_usage = [v['generation'].get('usage') or {} for v in replans]
     wm_usage = [p.get('usage') or {} for p in preds]
     return dict(reflection_metrics=dict(steps=len(records), reflection_calls=rounds,
         wm_calls=len(preds), mean_rounds=rounds / len(records),
@@ -102,6 +115,8 @@ def metrics(steps):
         oracle_commit_verified=sum(r['backend'] == 'oracle' for r in records),
         wm_seconds=sum(p['seconds'] for p in preds),
         reflection_tokens=sum(u.get('total_tokens', 0) for u in usage),
+        replan_calls=len(replans), replan_tokens=sum(u.get('total_tokens', 0) for u in replan_usage),
+        review_replan_tokens=sum(u.get('total_tokens', 0) for u in usage + replan_usage),
         wm_tokens=sum(u.get('total_tokens', 0) for u in wm_usage)))
 
 
@@ -120,12 +135,24 @@ def audit_settings(args, root):
         history_policy='commit-real-observations-only', sources={str(p.relative_to(root)):
             hashlib.sha256(p.read_bytes()).hexdigest() for p in files})
     feature['science_ambiguity_policy'] = 'stable-label-order-with-native-number-translation'
-    feature['reflection_review_protocol'] = 'ee-conservative-v2' if getattr(args,'model','').startswith('ee-') else 'json'
+    feature['reflection_review_protocol'] = review_protocol(args)
     feature['selection_policy'] = 'evidence-gated-repair-v1' if getattr(args,'model','').startswith('ee-') else 'legacy-json'
     if getattr(args,'model','').startswith('ee-'):
         feature['repair_evidence'] = 'explicit-failure/current-action-unavailable/three-identical-feedback-repeats'
         feature['repair_prediction'] = 'same-real-prefix/complete-available/nonfailure/different-feedback'
         feature['science_review_context'] = 'complete-baseline-training-dialogue/trim-real-history-only'
+    if review_protocol(args) == 'agentwm-copied-v1':
+        from reflection.agentwm import POLICY
+        for key in ('repair_evidence', 'repair_prediction', 'science_review_context'):
+            feature.pop(key, None)
+        feature.update(selection_policy=POLICY, prompt_source='local-copied-AgentWM-templates',
+            prompt_provenance=json.loads((root / 'reflection/agentwm_prompt_provenance.json').read_text()),
+            feedback_fields=['observation', 'reward', 'done', 'success', 'score'] if args.wm_backend == 'oracle' else ['observation', 'predicted_success'],
+            unknown_numeric_feedback='None/no-real-environment-label-lookup',
+            science_review_context='copied-critique-template/recent-five-real-steps',
+            science_replan='copied-guarded-replan-template/separate-agent-call/current-real-state/WM-guard',
+            original_actor_context='unchanged/full-science-training-dialogue',
+            final_round_policy='direct-final-prediction/science-verified-replan-or-cached-original')
     if args.env == 'scienceworld' and args.wm_backend == 'oracle':
         feature['science_exit_comparison'] = 'unordered-full-door-descriptions/native-agent-text-preserved'
         feature['oracle_policy'] = 'live-jvm-heap-checkpoint/rollback-rejected/adopt-final-state-once'

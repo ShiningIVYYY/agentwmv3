@@ -1,0 +1,26 @@
+{
+  "origin_project": "AgentWM",
+  "runtime_dependency": "none/local-copies-only",
+  "files": [
+    {
+      "local_file": "agentwm_alfworld_prompts.py",
+      "origin_file": "agents/prompts.py",
+      "sha256": "3697a8a042b21022ec562fe9db6ae07eb7e05332e60ccd05324ab3b9612e0573",
+      "copy": "byte-for-byte"
+    },
+    {
+      "local_file": "agentwm_webshop_prompts.py",
+      "origin_file": "benchmark/webshop/prompts.py",
+      "sha256": "7475768bc5593fd3ef031745d8d9b2afc384fceda4bb51d67c90db20b9bf2534",
+      "copy": "byte-for-byte"
+    },
+    {
+      "local_file": "agentwm_scienceworld_prompts.py",
+      "origin_file": "benchmark/scienceworld/rlvmr_prompts.py",
+      "sha256": "7f6a3d03e74b17ca19beb62b4a424b4dc5910db3cb13a256ffdcafcaf8240bb3",
+      "copy": "byte-for-byte"
+    }
+  ],
+  "science_review": "SCIWORLD_REFLECTION_TEMPLATE_CRITIQUE_REPLAN_V1",
+  "science_replan": "SCIWORLD_GUARDED_REPLAN_TEMPLATE_V1"
+}

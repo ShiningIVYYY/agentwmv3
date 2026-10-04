@@ -14,6 +14,45 @@ from experiments.scheduler import MatrixScheduler, process_identity, matches_pro
 
 
 class MatrixTests(unittest.TestCase):
+    def test_copied_prompt_commands_only_change_selected_ee_review_protocol(self):
+        self.matrix['policy'].update(ee_reflection_protocol='agentwm-copied-v1')
+        for key,job in self.matrix['jobs'].items():
+            argv=command(self.matrix,key)
+            selected=self.matrix['profiles'][job['profile']]['model']=='ee_il'
+            self.assertEqual('--reflection-review-protocol' in argv,selected)
+            if selected:
+                self.assertEqual(argv[argv.index('--reflection-review-protocol')+1],'agentwm-copied-v1')
+
+    def test_new_prompt_cannot_resume_an_old_frozen_experiment(self):
+        with self.assertRaisesRegex(RuntimeError,'Reflection protocol changed'):
+            prepare(self.root,self.root/'out',MODELS,ee_reflection_protocol='agentwm-copied-v1')
+
+    def test_ee_only_shared_services_do_not_require_qwen_profiles(self):
+        matrix=copy.deepcopy(self.matrix)
+        matrix['models']=['ee_il']
+        matrix['profiles']={k:v for k,v in matrix['profiles'].items() if v['model']=='ee_il'}
+        matrix['jobs']={k:v for k,v in matrix['jobs'].items() if v['profile'] in matrix['profiles']}
+        for profile in matrix['profiles'].values():
+            profile['wm']=dict(url='http://wm',served_model_name='wm',checkpoint='/wm',max_model_len=32768)
+        scheduler=MatrixScheduler(matrix)
+        with patch('experiments.scheduler.requests.get'),patch('experiments.scheduler.model_ready',return_value=True):
+            scheduler.ensure_shared_services()
+        self.assertTrue(scheduler.services_checked)
+        self.assertEqual(len(scheduler.units),6)
+        self.assertEqual(scheduler.state['qwen38_stage'],'not_selected')
+
+    def test_copied_science_preflight_rejects_direct_suggestion_execution(self):
+        key='word2world/scienceworld_ee_il'
+        reflection=dict(rounds=1,review_protocol='agentwm-copied-v1',
+            selection_policy='agentwm-direct/science-critique-guarded-replan-v1',
+            initial_action='look around',final_action='go to hallway',
+            reviews=[dict(decision=dict(decision='replace'))],
+            predictions=[dict(action='look around',observation='room'),dict(action='go to hallway',observation='hallway')])
+        save(Path(self.matrix['jobs'][key]['preflight'])/'tasks/task-0.json',
+            dict(steps=[dict(action='go to hallway',reflection=reflection)]))
+        with self.assertRaisesRegex(RuntimeError,'without a separate replan'):
+            self.scheduler.validate_smoke_task(key,'task-0')
+
     def test_conservative_preflight_rejects_unjustified_replacement(self):
         key='word2world/alfworld_ee_il'
         reflection=dict(rounds=1,review_protocol='ee-conservative-v2',selection_policy='evidence-gated-repair-v1',
