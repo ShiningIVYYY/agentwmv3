@@ -62,6 +62,11 @@ replan guard. Original actor output is preserved on keep/fallback. Baseline
 ScienceWorld actor calls still retain the full 54-message training dialogue;
 review/replan calls use the copied AgentWM standalone templates and recent five
 real steps, as that project does.
+ScienceWorld's action-information field uses the original project's compact SDK
+action templates and current object list. The Oracle SDK getters and the HTTP
+environment's `/action_hint` endpoint provide the same two fields. Expanded
+action/object combinations remain available for action validation but are not
+inserted into the reviewer prompt. Current ambiguity choice labels are preserved.
 
 Unlike v8, the copied templates use transition metadata. Oracle supplies its
 predicted reward/done/success/score where applicable. Word2World supplies its

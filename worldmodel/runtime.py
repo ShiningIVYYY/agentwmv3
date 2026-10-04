@@ -150,6 +150,7 @@ def audit_settings(args, root):
             feedback_fields=['observation', 'reward', 'done', 'success', 'score'] if args.wm_backend == 'oracle' else ['observation', 'predicted_success'],
             unknown_numeric_feedback='None/no-real-environment-label-lookup',
             science_review_context='copied-critique-template/recent-five-real-steps',
+            science_review_action_information='AgentWM-native-SDK-action-templates-and-current-objects',
             science_replan='copied-guarded-replan-template/separate-agent-call/current-real-state/WM-guard',
             review_output_format='JSON-schema-constrained-ALFWorld-and-ScienceWorld-review-only',
             alfworld_review_action_grounding='current-admissible-command-enum-plus-original-proposal',

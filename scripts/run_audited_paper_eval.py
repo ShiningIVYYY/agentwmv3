@@ -408,6 +408,13 @@ class Science:
                     'GET', self.url + '/admissible_actions', params=dict(id=eid))['admissible_actions']
                 if view:
                     acts = list(acts) + list(view.mapping)
+                if controller is not None and controller.review_protocol == 'agentwm-copied-v1':
+                    from reflection.agentwm import science_action_information
+                    hint = dict(possible_actions=list(sdk.get_possible_actions()),
+                                possible_objects=list(sdk.get_possible_objects())) if snapshot_mode else http(
+                        'GET', self.url + '/action_hint', params=dict(id=eid))
+                    controller.action_information = science_action_information(
+                        hint['possible_actions'], hint['possible_objects'], list(view.mapping) if view else [])
                 # Use the released expert-data interface: action templates (including
                 # connect/disconnect) are in the permanent introduction. No action
                 # category is forbidden or removed, unlike the superseded evaluator.

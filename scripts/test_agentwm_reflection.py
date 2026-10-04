@@ -9,7 +9,8 @@ import unittest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from reflection.controller import ReflectionController
 from reflection.agentwm import (PROTOCOL, POLICY, extract_object, parse_direct,
-    parse_critique, parse_replan, feedback, reject_replan, REVIEW_SCHEMAS, review_schema)
+    parse_critique, parse_replan, feedback, reject_replan, REVIEW_SCHEMAS, review_schema,
+    science_action_information)
 from worldmodel.backends import PredictionError
 from worldmodel.runtime import metrics, select as runtime_select, review_protocol
 from test_native_reflection import Agent, xml
@@ -221,6 +222,20 @@ class AgentWMTests(unittest.TestCase):
         self.assertEqual(schema['properties']['action']['enum'],actions+['take book 1 from bed 1'])
         self.assertNotIn('enum',REVIEW_SCHEMAS['alfworld']['properties']['action'])
         self.assertIsNone(review_schema('webshop','search[x]',[]))
+
+    def test_science_action_hint_matches_original_source_format(self):
+        text=science_action_information(['go OBJ','look around'],['hallway','door'])
+        self.assertEqual(text,"Valid_actions: ['go OBJ', 'look around'], OBJ needs to be replaced with one of the following objects: ['hallway', 'door']\n example: <action>focus on door</action>")
+
+    def test_science_review_preserves_choice_labels_without_expanded_combinations(self):
+        c,wm,agent=self.controller({'look around':'preview'},[critique(False)],'scienceworld')
+        c.action_information=science_action_information(['go OBJ'],['hallway'],['0','1'])
+        c.select('look around','CURRENT',[],['go HUGE_OBJECT'+str(i) for i in range(1000)],1)
+        content=agent.messages[0][-1]['content']
+        self.assertIn("['hallway']",content)
+        self.assertIn('Current numbered ambiguity choices: 0, 1',content)
+        self.assertNotIn('HUGE_OBJECT',content)
+
 
     def test_real_client_schema_payload_does_not_change_sampling(self):
         import run_audited_paper_eval as ev

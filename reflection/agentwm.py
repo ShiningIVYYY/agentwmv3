@@ -47,6 +47,16 @@ def review_schema(env, candidate, actions):
         # original actor output. No command is chosen by the adapter.
         schema['properties']['action'] = dict(type='string', enum=list(dict.fromkeys(list(actions) + [candidate])))
     return schema
+
+
+def science_action_information(possible_actions, possible_objects, choices=()):
+    # AgentWM.rlvmr_baseline.build_available_actions uses these two SDK getters,
+    # not the potentially quadratic list of action/object combinations.
+    text = ('Valid_actions: %s, OBJ needs to be replaced with one of the following objects: %s\n'
+            ' example: <action>focus on door</action>') % (list(possible_actions), list(possible_objects))
+    if choices:
+        text += '\nCurrent numbered ambiguity choices: ' + ', '.join(choices)
+    return text
 SCIENCE_SCHEMA = ('activate OBJ; close OBJ; connect OBJ to OBJ; deactivate OBJ; '
     'disconnect OBJ; drop OBJ; dunk OBJ in OBJ; eat OBJ; flush OBJ; focus on OBJ; '
     'go OBJ; inventory; look around; look at OBJ; look in OBJ; mix OBJ; move OBJ to OBJ; '
@@ -175,7 +185,7 @@ def build_messages(controller, candidate, prediction, observation, steps, action
             values.update(recent_history=history, available_actions='\n'.join(repr(a) + ',' for a in actions))
             text = WEBSHOP_REFLECTION_TEMPLATE.format(**values)
         else:
-            values.update(action_history=history, available_actions=(
+            values.update(action_history=history, available_actions=getattr(controller, 'action_information',
                 'ScienceWorld action templates: ' + SCIENCE_SCHEMA + '\n'
                 'Current available grounded actions and ambiguity choices:\n' + '\n'.join(actions)))
             if critique is None:
