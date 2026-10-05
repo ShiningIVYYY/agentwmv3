@@ -74,6 +74,18 @@ def prepare(root, out, models=MODELS, ee_workers=1, ee_reflection_protocol='ee-c
     if out == protected or protected in out.parents:
         raise RuntimeError('Matrix outputs must be separate from baseline results')
     hashes = {str(p): sha(p) for p in source_files(root)}
+    continuation = out / 'resume_provenance.json'
+    if continuation.exists():
+        provenance = read(continuation)
+        if provenance.get('protocol') != 'decoder-repair-continuation-v1':
+            raise RuntimeError('Unknown continuation provenance')
+        hashes[str(continuation)] = sha(continuation)
+        for key, group in provenance['groups'].items():
+            for task_id, record in group['tasks'].items():
+                path = out / key / 'tasks' / (task_id + '.json')
+                if sha(path) != record['sha256'] or read(path).get('status') != 'completed':
+                    raise RuntimeError('Inherited completed result changed: ' + str(path))
+                hashes[str(path)] = record['sha256']
     profiles, jobs = {}, {}
     sampling = dict(temperature=.4, top_p=1.0, repetition_penalty=1.0,
                     generation_seed=0, environment_seed=1000, prompt_limit=4096,
@@ -139,6 +151,12 @@ def prepare(root, out, models=MODELS, ee_workers=1, ee_reflection_protocol='ee-c
             temporary_directory='owned-worker-directory-on-experiment-volume',
             empty_prediction='explicit-missing-evidence/reflect-with-current-state',
             history='commit-real-feedback-only'))
+    if 'ee_il' in models and ee_reflection_protocol == 'agentwm-copied-v1':
+        matrix['policy']['ee_structured_outputs_config'] = dict(
+            backend='xgrammar', disable_any_whitespace=True)
+    if continuation.exists():
+        matrix['policy']['continuation_provenance'] = str(continuation)
+        matrix['policy']['result_cohorts'] = 'retained-before-repair-and-generated-after-repair/reported-separately'
     if 'qwen25' not in models:
         # A restore profile is service metadata only; no Qwen tasks are selected.
         restore_path = baseline_directory(root, 'alfworld', 'qwen25') / 'config.json'
@@ -212,13 +230,20 @@ def task_rows(directory, ids):
     return rows
 
 
-def statistics(directory, ids):
+def statistics(directory, ids, cohort_ids=None):
     rows = task_rows(directory, ids)
+    expected = len(ids)
+    if cohort_ids is not None:
+        selected = set(cohort_ids)
+        if not selected <= set(ids):
+            raise RuntimeError('Cohort contains unknown task IDs')
+        rows = {key:row for key,row in rows.items() if key in selected}
+        expected = len(selected)
     completed = {k:r for k,r in rows.items() if r['status'] == 'completed'}
     errors = {k:r for k,r in rows.items() if r['status'] == 'error'}
     count = len(completed)
-    result = dict(completed=count, expected=len(ids), errors=len(errors),
-        complete=count == len(ids), success_rate=100 * sum(r['success'] for r in completed.values()) / count if count else None,
+    result = dict(completed=count, expected=expected, errors=len(errors),
+        complete=count == expected, success_rate=100 * sum(r['success'] for r in completed.values()) / count if count else None,
         average_score=sum(r['score'] for r in completed.values()) / count if count else None)
     metrics = [r['reflection_metrics'] for r in completed.values() if r.get('reflection_metrics')]
     if metrics:

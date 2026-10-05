@@ -47,6 +47,40 @@ def active_runners():
     return rows
 
 
+def decode_config_matches(argv, expected):
+    if expected is None:
+        return True
+    try:
+        actual = json.loads(argv[argv.index('--structured-outputs-config') + 1])
+    except (ValueError, IndexError, TypeError):
+        return False
+    if not isinstance(actual, dict):
+        return False
+    return all(actual.get(key) == value for key, value in expected.items())
+
+
+def front_decode_ready(root, config, expected, proc=Path('/proc')):
+    if expected is None:
+        return True
+    for entry in proc.iterdir():
+        if not entry.name.isdigit():
+            continue
+        identity = process_identity(int(entry.name), proc)
+        if not identity:
+            continue
+        argv = identity['command']
+        try:
+            if ('serve' in argv and (entry / 'cwd').resolve() == Path(root).resolve()
+                    and b'CUDA_VISIBLE_DEVICES=0' in (entry / 'environ').read_bytes().split(b'\0')
+                    and argv[argv.index('--served-model-name') + 1] == config['model']
+                    and config['url'] == 'http://127.0.0.1:' + argv[argv.index('--port') + 1]
+                    and decode_config_matches(argv, expected)):
+                return True
+        except (OSError, ValueError, IndexError):
+            continue
+    return False
+
+
 def model_ready(url, name, weights=None, context=None, root=None):
     try:
         response = requests.get(url.rstrip('/') + '/v1/models', timeout=3)
@@ -130,7 +164,9 @@ class MatrixScheduler:
     def ensure_front_agent(self, model, env=None):
         profile = self.matrix['profiles'].get((env or 'alfworld') + '_' + model)
         config = profile['config'] if profile else self.matrix['front_restore_profile']
-        if model_ready(config['url'], config['model'], config['tokenizer_path'], 5120, self.root):
+        decode = self.matrix['policy'].get('ee_structured_outputs_config') if model == 'ee_il' else None
+        if (model_ready(config['url'], config['model'], config['tokenizer_path'], 5120, self.root)
+                and front_decode_ready(self.root, config, decode)):
             return
         # Only an agent service in GPU 0 owned by this repository may be switched.
         approved = {Path(p['config']['tokenizer_path']).resolve():p['config']
@@ -194,6 +230,8 @@ class MatrixScheduler:
         argv = ['/home/shn/miniconda3/envs/verl-agent/bin/vllm', 'serve', config['tokenizer_path'],
             '--served-model-name', config['model'], '--tensor-parallel-size', '1', '--max-model-len', '5120',
             '--max-num-seqs', '8', '--gpu-memory-utilization', '.90', '--host', '127.0.0.1', '--port', port]
+        if decode is not None:
+            argv += ['--structured-outputs-config', json.dumps(decode, sort_keys=True)]
         log = self.out / 'services' / (config['model'] + '.log')
         log.parent.mkdir(exist_ok=True)
         with open(log, 'a') as stream:
@@ -205,6 +243,8 @@ class MatrixScheduler:
         self.persist()
         self.event(**record)
         self.wait_ready(config['url'], config['model'], config['tokenizer_path'], 5120)
+        if not front_decode_ready(self.root, config, decode):
+            raise RuntimeError('Agent JSON whitespace constraints were not applied')
 
     def drive_job(self, job_key, smoke):
         key = self.key(job_key, smoke)
@@ -410,6 +450,8 @@ class MatrixScheduler:
 
     def refresh(self):
         results, comparison = {}, {}
+        continuation_path = self.matrix['policy'].get('continuation_provenance')
+        continuation = read(continuation_path) if continuation_path else {}
         for key, job in self.matrix['jobs'].items():
             profile = self.matrix['profiles'][job['profile']]
             stats = statistics(job['output'], profile['task_ids'])
@@ -430,6 +472,12 @@ class MatrixScheduler:
             stats['reflection_health'] = dict(total_reviews=total, valid_reviews=valid,
                 format_errors=reflection.get('review_format_errors'),
                 status='pending' if not total else ('has_valid_reviews' if valid else 'no_valid_reviews'))
+            if continuation:
+                retained = set(continuation['groups'].get(key, {}).get('tasks', {}))
+                stats['decoder_cohorts'] = {
+                    'before_whitespace_fix': statistics(job['output'], profile['task_ids'], retained),
+                    'after_whitespace_fix': statistics(job['output'], profile['task_ids'], set(profile['task_ids']) - retained),
+                }
             results[key] = stats
         for key, profile in self.matrix['profiles'].items():
             ids = profile['task_ids']
@@ -442,6 +490,16 @@ class MatrixScheduler:
                 item['treatments'][backend] = dict(results[backend + '/' + key], matched_tasks=len(paired),
                     paired_success_change_pp=100 * sum(treatment[i]['success']-base_rows[i]['success'] for i in paired)/len(paired) if paired else None,
                     paired_score_change=sum(treatment[i]['score']-base_rows[i]['score'] for i in paired)/len(paired) if paired else None)
+                if continuation:
+                    retained = set(continuation['groups'].get(backend + '/' + key, {}).get('tasks', {}))
+                    for name, selected in (('before_whitespace_fix', retained),
+                                           ('after_whitespace_fix', set(ids) - retained)):
+                        matched = [i for i in paired if i in selected]
+                        cohort = item['treatments'][backend]['decoder_cohorts'][name]
+                        cohort.update(matched_tasks=len(matched),
+                            improved=sum(treatment[i]['success'] and not base_rows[i]['success'] for i in matched),
+                            degraded=sum(not treatment[i]['success'] and base_rows[i]['success'] for i in matched),
+                            paired_success_change_pp=100 * sum(treatment[i]['success']-base_rows[i]['success'] for i in matched)/len(matched) if matched else None)
             comparison[key] = item
         complete = all(v['complete'] and v['status'] == 'completed' for v in results.values())
         save(self.out / 'summary.json', dict(updated=time.time(), complete=complete, results=results,
@@ -453,6 +511,11 @@ class MatrixScheduler:
             'ScienceWorld reports mean SDK score and full success; ALFWorld/WebShop report success.', '',
             '| Benchmark | Agent | Pure agent | Oracle + reflection | Word2World + reflection |',
             '|---|---|---|---|---|']
+        if continuation:
+            lines[2:2] = ['Decoder-repair continuation: aggregate results combine retained pre-fix tasks '
+                'and tasks generated after the JSON whitespace repair. These are separate cohorts; '
+                'see `decoder_cohorts` in `comparison.json` and the immutable copies recorded in '
+                '`resume_provenance.json`.', '']
         def cell(stats, env):
             value = '%.2f%%' % stats['success_rate'] if stats['success_rate'] is not None else '—'
             if env == 'scienceworld' and stats['average_score'] is not None:

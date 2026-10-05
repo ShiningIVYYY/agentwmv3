@@ -10,10 +10,65 @@ from unittest.mock import patch, Mock
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from experiments.matrix import ENVS, MODELS, BACKENDS, SPEC, ARGUMENTS, command, save, sha, statistics, verify, prepare
-from experiments.scheduler import MatrixScheduler, process_identity, matches_process
+from experiments.scheduler import MatrixScheduler, process_identity, matches_process, decode_config_matches, front_decode_ready
 
 
 class MatrixTests(unittest.TestCase):
+    def test_json_whitespace_repair_requires_engine_configuration(self):
+        required=dict(backend='xgrammar', disable_any_whitespace=True)
+        self.assertFalse(decode_config_matches(['vllm','serve','checkpoint'],required))
+        self.assertFalse(decode_config_matches(['vllm','--structured-outputs-config','{}'],required))
+        self.assertFalse(decode_config_matches(['vllm','--structured-outputs-config','bad-json'],required))
+        self.assertFalse(decode_config_matches(['vllm','--structured-outputs-config','[]'],required))
+        self.assertTrue(decode_config_matches(['vllm','--structured-outputs-config',json.dumps(required)],required))
+        self.assertTrue(decode_config_matches([],None))
+
+    def test_ready_service_with_unbounded_whitespace_does_not_pass_reuse_check(self):
+        proc=self.root/'proc';entry=proc/'123';entry.mkdir(parents=True)
+        (entry/'cwd').symlink_to(self.root,target_is_directory=True)
+        (entry/'environ').write_bytes(b'CUDA_VISIBLE_DEVICES=0\0')
+        config=dict(model='ee-alfworld-il',url='http://127.0.0.1:8101')
+        required=dict(backend='xgrammar',disable_any_whitespace=True)
+        argv=['python','vllm','serve','checkpoint','--served-model-name',config['model'],'--port','8101']
+        (entry/'cmdline').write_bytes(('\0'.join(argv)+'\0').encode())
+        with patch('experiments.scheduler.process_identity',return_value=dict(command=argv)):
+            self.assertFalse(front_decode_ready(self.root,config,required,proc))
+        argv+=['--structured-outputs-config',json.dumps(required)]
+        with patch('experiments.scheduler.process_identity',return_value=dict(command=argv)):
+            self.assertTrue(front_decode_ready(self.root,config,required,proc))
+            (entry/'environ').write_bytes(b'CUDA_VISIBLE_DEVICES=4\0')
+            self.assertFalse(front_decode_ready(self.root,config,required,proc))
+
+    def test_cohort_statistics_separate_old_and_new_decoder_results(self):
+        d=self.root/'cohorts'
+        save(d/'tasks/task-0.json',dict(task_id='task-0',status='completed',success=True,score=100))
+        save(d/'tasks/task-1.json',dict(task_id='task-1',status='completed',success=False,score=0))
+        all_ids=['task-0','task-1','task-2']
+        self.assertEqual(statistics(d,all_ids,['task-0'])['success_rate'],100)
+        after=statistics(d,all_ids,['task-1','task-2'])
+        self.assertEqual((after['completed'],after['expected'],after['success_rate']),(1,2,0))
+        with self.assertRaisesRegex(RuntimeError,'unknown task'):
+            statistics(d,all_ids,['unexpected'])
+
+    def test_continuation_report_keeps_decoder_cohorts_and_paired_changes_separate(self):
+        key='oracle/alfworld_ee_il'
+        profile=self.matrix['profiles']['alfworld_ee_il']
+        profile['task_ids']=['task-0','task-1']
+        for task,success in [('task-0',False),('task-1',True)]:
+            save(Path(profile['baseline'])/'tasks'/(task+'.json'),
+                 dict(task_id=task,status='completed',success=success,score=100*success))
+            save(Path(self.matrix['jobs'][key]['output'])/'tasks'/(task+'.json'),
+                 dict(task_id=task,status='completed',success=not success,score=100*(not success)))
+        provenance=self.root/'out/resume_provenance.json'
+        save(provenance,dict(groups={key:dict(tasks={'task-0':dict()})}))
+        self.matrix['policy']['continuation_provenance']=str(provenance)
+        self.scheduler.refresh()
+        report=json.loads((self.root/'out/comparison.json').read_text())
+        cohorts=report['rows']['alfworld_ee_il']['treatments']['oracle']['decoder_cohorts']
+        self.assertEqual((cohorts['before_whitespace_fix']['improved'],cohorts['before_whitespace_fix']['degraded']),(1,0))
+        self.assertEqual((cohorts['after_whitespace_fix']['improved'],cohorts['after_whitespace_fix']['degraded']),(0,1))
+        self.assertIn('aggregate results combine retained pre-fix tasks',(self.root/'out/RESULTS.md').read_text())
+
     def test_copied_prompt_commands_only_change_selected_ee_review_protocol(self):
         self.matrix['policy'].update(ee_reflection_protocol='agentwm-copied-v1')
         for key,job in self.matrix['jobs'].items():
