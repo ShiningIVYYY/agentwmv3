@@ -26,8 +26,8 @@ def worker_command(argv, output, run, index, workers):
 def run_parallel(args, root, argv=None):
     if args.task_queue or args.queue_run or args.queue_workers:
         raise RuntimeError('A worker cannot start a nested supervisor')
-    if args.wm_backend == 'none' or args.generation_lock:
-        raise RuntimeError('Parallel mode requires a WM and a concurrent model endpoint')
+    if args.generation_lock:
+        raise RuntimeError('Parallel mode requires a concurrent model endpoint')
     out = Path(args.output)
     out.mkdir(parents=True, exist_ok=True)
     tasks = read(args.manifest)['tasks']

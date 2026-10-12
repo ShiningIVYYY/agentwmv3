@@ -151,8 +151,8 @@ save(out/'progress.json',dict(state='finished'))
 '''.replace('ROOT', repr(str(ROOT))).replace('FAILURE', repr(failure)))
         return path
 
-    def supervise(self, failure):
-        args = SimpleNamespace(task_queue=None,queue_run=None,queue_workers=None,wm_backend='oracle',
+    def supervise(self, failure, backend='oracle'):
+        args = SimpleNamespace(task_queue=None,queue_run=None,queue_workers=None,wm_backend=backend,
             generation_lock=None,output=str(self.output),manifest=str(self.manifest),limit=None,workers=2)
         script = self.fake_runner(failure)
         argv = [str(script),'--output',str(self.output),'--workers','2','--manifest',str(self.manifest)]
@@ -165,6 +165,11 @@ save(out/'progress.json',dict(state='finished'))
         self.assertEqual(state['worker_failures'], 0)
         self.assertTrue(all(r['exits'][-1]['returncode'] == 0 for r in state['children'].values()))
         self.assertEqual(read(self.output / 'progress.json')['active_workers'], 0)
+
+    def test_pure_agent_uses_same_task_queue_and_clean_exit_checks(self):
+        self.assertEqual(self.supervise(None, backend='none'), 0)
+        self.assertTrue(statistics(self.output, [r['task_id'] for r in self.rows])['complete'])
+        self.assertEqual(read(self.output / 'parallel_state.json')['worker_failures'], 0)
 
     def test_crash_after_results_is_observed_and_retried(self):
         self.assertEqual(self.supervise('once'), 0)
