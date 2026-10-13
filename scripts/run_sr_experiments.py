@@ -247,7 +247,7 @@ class Scheduler:
                         raise RuntimeError('SR service exited: GPU '+str(service['gpu']))
                     waiting.append(service['port'])
             if not waiting:
-                self.event('all_eight_gpu_services_ready')
+                self.event('all_model_services_ready', sr_services=len(self.matrix['services']), wm_services=3)
                 return
             if time.time()>deadline:
                 raise RuntimeError('SR service startup timed out: '+str(waiting))
@@ -286,7 +286,7 @@ class Scheduler:
                 validator.validate_smoke_task(key, task)
             for step in row['steps']:
                 steps += 1
-                valid_actor += bool(step.get('valid_format'))
+                valid_actor += bool(step.get('valid_format') or step.get('admissible'))
                 if job['backend'] == 'none' and step.get('reflection'):
                     raise RuntimeError('Pure SR unexpectedly used reflection')
                 if job['backend'] != 'none':
@@ -312,6 +312,11 @@ class Scheduler:
         directory = Path(job['preflight'] if smoke else job['output'])
         ids = self.matrix['profiles'][job['profile']]['task_ids']
         ids = ids[:self.matrix['policy']['smoke_limit']] if smoke else ids
+        if not record.get('pid') and record.get('exit_code') == 0 and statistics(directory, ids)['complete']:
+            self.validate(key, smoke)
+            record['status'] = 'completed'
+            self.persist()
+            return True
         if record.get('pid'):
             child = self.children.get(phase)
             code = child.poll() if child else None
