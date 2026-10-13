@@ -22,7 +22,8 @@ DECODE = dict(backend='xgrammar', disable_any_whitespace=True)
 VLLM = '/home/shn/miniconda3/envs/verl-agent/bin/vllm'
 
 
-def prepare(root, out):
+def prepare(root, out, compact=False):
+    layout = [('alfworld', 0, 8201), ('scienceworld', 6, 8202), ('webshop', 5, 8203)] if compact else LAYOUT
     target = out / 'experiment.json'
     if target.exists():
         matrix = read(target)
@@ -54,7 +55,7 @@ def prepare(root, out):
         config = dict(source['config'])
         for key in ('protocol', 'manifest_sha256', 'science_prompt', 'science_demo_sha256', 'science_demo_messages'):
             config.pop(key, None)
-        primary = next(port for e, gpu, port in LAYOUT if e == env)
+        primary = next(port for e, gpu, port in layout if e == env)
         config.update(model='ee-' + env + '-sr', tokenizer_path=str(checkpoint),
                       url='http://127.0.0.1:' + str(primary), generation_lock=None,
                       output=str(out / 'none' / (env + '_ee_sr')))
@@ -69,12 +70,12 @@ def prepare(root, out):
         for backend in GROUPS:
             jobkey = backend + '/' + key
             c = dict(config)
-            if backend == 'word2world' and env != 'webshop':
-                port = next(port for e, gpu, port in LAYOUT if e == env and gpu in (6, 7))
+            if backend == 'word2world' and sum(e == env for e, gpu, port in layout) > 1:
+                port = next(port for e, gpu, port in layout if e == env and gpu in (6, 7))
                 c['url'] = 'http://127.0.0.1:' + str(port)
             jobs[jobkey] = dict(profile=key, backend=backend, config=c, expected=source['expected'],
                 output=str(out / jobkey), preflight=str(out / 'preflight' / jobkey))
-    for env, gpu, port in LAYOUT:
+    for env, gpu, port in layout:
         profile = profiles[env + '_ee_sr']
         services.append(dict(env=env, gpu=gpu, port=port, model=profile['config']['model'],
             checkpoint=profile['config']['tokenizer_path'], url='http://127.0.0.1:' + str(port)))
@@ -86,7 +87,7 @@ def prepare(root, out):
         services=services, hashes=hashes, policy=dict(workers=4, smoke_limit=4, smoke_steps=3,
             max_runner_launches=3, reflection_protocol='agentwm-copied-v1', structured_outputs=DECODE,
             schedule='all-nine-preflights-then-three-environments-in-parallel/baseline-before-WM-per-environment',
-            gpu_layout=LAYOUT, wm_gpus=[1, 2, 3], history='commit-real-feedback-only'))
+            gpu_layout=layout, wm_gpus=[1, 2, 3], history='commit-real-feedback-only'))
     save(target, matrix)
     return matrix
 
@@ -186,7 +187,7 @@ class Scheduler:
                     if time.time()>deadline:
                         raise RuntimeError('Owned service did not stop')
                     time.sleep(2)
-            except (FileNotFoundError, ProcessLookupError):
+            except (FileNotFoundError, PermissionError, ProcessLookupError):
                 continue
 
     def services(self):
@@ -417,6 +418,7 @@ def main():
     parser.add_argument('--prepare-only', action='store_true')
     parser.add_argument('--wait-for-checkpoints', action='store_true')
     parser.add_argument('--status', action='store_true')
+    parser.add_argument('--compact-gpus', action='store_true')
     args = parser.parse_args()
     out = args.output.resolve()
     out.mkdir(parents=True, exist_ok=True)
@@ -445,7 +447,7 @@ def main():
                 if not identity or not any(Path(a).name == 'download_sr_checkpoints.py' for a in identity['command']):
                     raise RuntimeError('SR downloader stopped before verification completed: '+str(pending))
                 time.sleep(10)
-    matrix = prepare(ROOT, out)
+    matrix = prepare(ROOT, out, args.compact_gpus)
     if not args.prepare_only:
         Scheduler(matrix).run()
 
