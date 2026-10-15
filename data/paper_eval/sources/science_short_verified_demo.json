@@ -1,0 +1,91 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "You are an agent for science world. Every round I will give you an observation, you have to respond an action based on the observation to finish the given task. Here are the actions you may take: [{\"action\": \"open/close OBJ\", \"description\": \"open/close a container\"}, {\"action\": \"de/activate OBJ\", \"description\": \"activate/deactivate a device\"}, {\"action\": \"connect OBJ to OBJ\", \"description\": \"connect electrical components\"}, {\"action\": \"disconnect OBJ\", \"description\": \"disconnect electrical components\"}, {\"action\": \"use OBJ [on OBJ]\", \"description\": \"use a device/item\"}, {\"action\": \"look around\", \"description\": \"describe the current room\"}, {\"action\": \"look at OBJ\", \"description\": \"describe an object in detail\"}, {\"action\": \"look in OBJ\", \"description\": \"describe a container's contents\"}, {\"action\": \"read OBJ\", \"description\": \"read a note or book\"}, {\"action\": \"move OBJ to OBJ\", \"description\": \"move an object to a container\"}, {\"action\": \"pick up OBJ\", \"description\": \"move an object to the inventory\"}, {\"action\": \"put down OBJ\", \"description\": \"drop an inventory item\"}, {\"action\": \"pour OBJ into OBJ\", \"description\": \"pour a liquid into a container\"}, {\"action\": \"dunk OBJ into OBJ\", \"description\": \"dunk a container into a liquid\"}, {\"action\": \"mix OBJ\", \"description\": \"chemically mix a container\"}, {\"action\": \"go to LOC\", \"description\": \"move to a new location\"}, {\"action\": \"eat OBJ\", \"description\": \"eat a food\"}, {\"action\": \"flush OBJ\", \"description\": \"flush a toilet\"}, {\"action\": \"focus on OBJ\", \"description\": \"signal intent on a task object\"}, {\"action\": \"wait\", \"description\": \"take no action for 10 iterations\"}, {\"action\": \"wait1\", \"description\": \"take no action for 1 iteration\"}, {\"action\":\"examine OBJ\",\"description\":\"provides a description of the objects present on or in a receptacle.\"}, {\"action\": \"task\", \"description\": \"describe current task\"}, {\"action\": \"inventory\", \"description\": \"list your inventory\"}]\nYour response should use the following format:\nThought:\nyour thoughts.\n\nAction:\nyour next action"
+    },
+    {
+      "role": "assistant",
+      "content": "OK. I'll follow your instructions and try my best to solve the task."
+    },
+    {
+      "role": "user",
+      "content": "Your task is to find the animal with the longest life span, then the shortest life span. First, focus on the animal with the longest life span.  Then, focus on the animal with the shortest life span. The animals are in the 'outside' location.\nThis room is called the greenhouse. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bee hive. The bee hive door is closed. \n\ta jug (containing nothing)\n\ta shovel\n\ta sink, which is turned off. In the sink is: nothing.\nYou also see:\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)"
+    },
+    {
+      "role": "assistant",
+      "content": "Thought:\nI chose to open the door to the outside because the animals I need to observe for the task are located in the 'outside' area.\n\nAction:\nopen door to outside"
+    },
+    {
+      "role": "user",
+      "content": "The door is now open."
+    },
+    {
+      "role": "assistant",
+      "content": "Thought:\nI decided to go outside to find and observe the animals, as they are located in the 'outside' location.\n\nAction:\ngo to outside"
+    },
+    {
+      "role": "user",
+      "content": "You move to the outside."
+    },
+    {
+      "role": "assistant",
+      "content": "Thought:\nI focus on the crocodile to determine if it might be the animal with the longest life span.\n\nAction:\nfocus on crocodile"
+    },
+    {
+      "role": "user",
+      "content": "You focus on the crocodile egg."
+    },
+    {
+      "role": "assistant",
+      "content": "Thought:\nI chose to focus on the chameleon next because I need to identify which animal present has the longest lifespan for the task.\n\nAction:\nfocus on chameleon"
+    }
+  ],
+  "provenance": {
+    "candidate": {
+      "row": 1914,
+      "ids": [
+        "sciworld_4509"
+      ],
+      "messages": 10,
+      "chars": 3922,
+      "actions": [
+        "open door to outside",
+        "go to outside",
+        "focus on crocodile",
+        "focus on chameleon"
+      ]
+    },
+    "task_id": "sciworld_4509",
+    "game": {
+      "taskName": "lifespan-longest-lived-then-shortest-lived",
+      "variationIdx": 19
+    },
+    "goal": "Your task is to find the animal with the longest life span, then the shortest life span. First, focus on the animal with the longest life span.  Then, focus on the animal with the shortest life span. The animals are in the 'outside' location.",
+    "goal_matches": true,
+    "done": true,
+    "score": 100,
+    "events": [
+      {
+        "action": "open door to outside",
+        "observation": "The door is now open.",
+        "score": 0
+      },
+      {
+        "action": "go to outside",
+        "observation": "You move to the outside.",
+        "score": 33
+      },
+      {
+        "action": "focus on crocodile",
+        "observation": "You focus on the crocodile egg.",
+        "score": 83
+      },
+      {
+        "action": "focus on chameleon",
+        "observation": "You focus on the chameleon egg.",
+        "score": 100
+      }
+    ]
+  }
+}

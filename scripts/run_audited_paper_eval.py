@@ -59,11 +59,31 @@ def science_messages(prelude, task, observation, steps, keep):
     return messages
 
 
+def anchored_science_messages(prelude, task, observation, steps, keep):
+    """Separate the training example and keep the real goal next to this state."""
+    recent = steps[-keep:] if keep else []
+    messages = list(prelude)
+    boundary = ('The example episode above is complete. Start a separate task. '
+                'Use the observations from this task to choose actions.\n\n')
+    for i, record in enumerate(recent):
+        content = record['observation']
+        if i == 0:
+            content = boundary + task + '\n' + content
+        messages += [dict(role='user', content=content),
+                     dict(role='assistant', content=record['output'])]
+    content = 'Current task:\n' + task + '\n\nCurrent observation:\n' + observation
+    if not recent:
+        content = boundary + content
+    messages.append(dict(role='user', content=content))
+    return messages
+
+
 def bounded_science(agent, prelude, task, observation, steps):
     # Full history first. Drop whole oldest observation/assistant pairs only
     # when the exact model tokenizer says the prompt exceeds the paper budget.
     for keep in range(len(steps), -1, -1):
-        messages = science_messages(prelude, task, observation, steps, keep)
+        builder = anchored_science_messages if getattr(getattr(agent, 'args', None), 'science_context', None) == 'task-anchored-v1' else science_messages
+        messages = builder(prelude, task, observation, steps, keep)
         if agent.count(messages) <= 4096:
             return messages, keep
     raise RuntimeError('ScienceWorld one-shot/current observation exceed 4096 tokens')
@@ -164,10 +184,11 @@ class Agent:
         if env != 'scienceworld':
             return native_prompt(env,task,observation,actions,steps,history)
         if not hasattr(self, 'science_reflection_prelude'):
-            source = ROOT / 'data/paper_eval/sources/science_expert_sample.jsonl'
+            source = Path(getattr(self.args, 'science_demo', None) or ROOT / 'data/paper_eval/sources/science_expert_sample.jsonl')
             with source.open() as stream:
-                self.science_reflection_prelude = json.loads(stream.readline())['messages']
-        return science_messages(self.science_reflection_prelude, task, observation, steps, history)
+                self.science_reflection_prelude = json.loads(stream.read() if getattr(self.args, 'science_demo', None) else stream.readline())['messages']
+        builder = anchored_science_messages if getattr(self.args, 'science_context', None) == 'task-anchored-v1' else science_messages
+        return builder(self.science_reflection_prelude, task, observation, steps, history)
 
     def generate(self, messages, task_id, step, response_schema=None, response_regex=None):
         if response_schema is not None and response_regex is not None:
@@ -317,12 +338,13 @@ class Science:
     def __init__(self, args):
         self.args = args
         self.url = args.science_url
-        source = ROOT / 'data/paper_eval/sources/science_expert_sample.jsonl'
-        # Complete first published TRAIN dialogue, fixed before testing.
-        # This is not the unpublished author inference one-shot, nor a
-        # claim that this released dialogue reaches a terminal winning state.
+        source = Path(getattr(args, 'science_demo', None) or ROOT / 'data/paper_eval/sources/science_expert_sample.jsonl')
+        self.demo_path = source
+        # Preserve the legacy full dialogue by default. The optional training-
+        # only demo is pinned and replay-verified before a new cohort begins;
+        # neither option claims to be the unpublished author inference one-shot.
         with source.open() as f:
-            self.prelude = json.loads(f.readline())['messages']
+            self.prelude = json.loads(f.read() if getattr(args, 'science_demo', None) else f.readline())['messages']
         assert len(self.prelude) % 2 == 0 and len(self.prelude) > 4
         assert [m['role'] for m in self.prelude] == ['user', 'assistant'] * (len(self.prelude) // 2)
         assert 'Action:' in self.prelude[-1]['content']
@@ -582,7 +604,13 @@ def main():
     p.add_argument('--task-queue', help=argparse.SUPPRESS)
     p.add_argument('--queue-run', help=argparse.SUPPRESS)
     p.add_argument('--queue-workers', type=int, help=argparse.SUPPRESS)
+    p.add_argument('--science-context', choices=['task-anchored-v1'])
+    p.add_argument('--science-demo', help='Pinned training-only one-shot JSON/JSONL file')
     args = p.parse_args()
+    if bool(args.science_context) != bool(args.science_demo):
+        p.error('--science-context and --science-demo must be specified together')
+    if args.science_context and args.env != 'scienceworld':
+        p.error('--science-context requires ScienceWorld')
     if args.workers > 1:
         if args.prepare:
             p.error('--workers requires evaluation mode')
@@ -613,6 +641,9 @@ def main():
     with open(out / '.runner.lock', 'a') as runner_lock:
         fcntl.flock(runner_lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         saved_args = dict(vars(args))
+        for key in ('science_context', 'science_demo'):
+            if saved_args[key] is None:
+                saved_args.pop(key)
         for key in ('workers', 'task_queue', 'queue_run', 'queue_workers'):
             saved_args.pop(key)
         if args.reflection_review_protocol == 'auto':
@@ -627,6 +658,10 @@ def main():
             config.update(science_prompt='full-train-dialogue-one-shot/native-goal-once/token-bounded-full-history',
                           science_demo_sha256=digest(ROOT / 'data/paper_eval/sources/science_expert_sample.jsonl'),
                           science_demo_messages=len(backend.prelude))
+            if args.science_context:
+                config.update(protocol='scienceworld-task-anchored-v1',
+                    science_prompt='verified-short-train-one-shot/episode-boundary/current-goal/token-bounded-history',
+                    science_demo_sha256=digest(backend.demo_path))
         config_file = out / 'config.json'
         if config_file.exists():
             assert json.loads(config_file.read_text()) == config, 'Cannot mix changed experiment configurations'
