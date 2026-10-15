@@ -95,7 +95,7 @@ def prepare(root, out, compact=False):
 def command(matrix, jobkey, smoke=False):
     job = matrix['jobs'][jobkey]
     profile = matrix['profiles'][job['profile']]
-    c = job['config']
+    c = job.get('preflight_config', job['config']) if smoke else job['config']
     python = '/home/shn/miniconda3/envs/' + SPEC[profile['env']][0] + '/bin/python'
     args = [python, str(Path(matrix['root']) / 'scripts/run_audited_paper_eval.py')]
     for key in ARGUMENTS:
@@ -103,7 +103,7 @@ def command(matrix, jobkey, smoke=False):
         if value is not None:
             args += ['--' + key.replace('_', '-'), str(value)]
     args += ['--output', job['preflight'] if smoke else job['output'], '--wm-backend', job['backend'],
-             '--workers', str(matrix['policy']['workers'])]
+             '--workers', str(matrix['policy']['workers'] if smoke else job.get('workers', matrix['policy']['workers']))]
     if job['backend'] != 'none':
         args += ['--reflection-max-rounds', '3', '--reflection-review-protocol', 'agentwm-copied-v1']
     if job['backend'] == 'word2world':
@@ -194,7 +194,10 @@ class Scheduler:
         import requests
         for url in ('http://127.0.0.1:8105/', 'http://127.0.0.1:36001/docs'):
             requests.get(url, timeout=10).raise_for_status()
-        for p in self.matrix['profiles'].values():
+        required_wm = [p for key, p in self.matrix['profiles'].items()
+            if not all(self.state['jobs'].get('full/'+backend+'/'+key, {}).get('status') == 'completed'
+                       for backend in GROUPS)]
+        for p in required_wm:
             wm = p['wm']
             if not model_ready(wm['url'], wm['served_model_name'], wm['checkpoint'], wm['max_model_len'], self.root):
                 raise RuntimeError('Existing Word2World service unavailable: '+wm['url'])
@@ -247,26 +250,63 @@ class Scheduler:
                         raise RuntimeError('SR service exited: GPU '+str(service['gpu']))
                     waiting.append(service['port'])
             if not waiting:
-                self.event('all_model_services_ready', sr_services=len(self.matrix['services']), wm_services=3)
+                self.event('all_model_services_ready', sr_services=len(self.matrix['services']), wm_services=len(required_wm))
                 return
             if time.time()>deadline:
                 raise RuntimeError('SR service startup timed out: '+str(waiting))
             time.sleep(5)
+
+    def ensure_router(self):
+        router = self.matrix.get('inference_router')
+        if not router:
+            return
+        import requests
+        path = self.out/'services'/'science_router.json'
+        record = read(path) if path.exists() else None
+        if record and matches_process(record):
+            response = requests.get(router['url']+'/router_status', timeout=10)
+            response.raise_for_status()
+            if [r['url'] for r in response.json()['replicas']] != router['upstreams']:
+                raise RuntimeError('Router replica configuration differs')
+            return
+        argv = [sys.executable, '-u', str(self.root/'scripts/sr_inference_router.py'),
+                '--port', str(router['port'])]
+        for upstream in router['upstreams']:
+            argv += ['--upstream', upstream]
+        with (self.out/'services'/'science_router.log').open('a') as stream:
+            child = subprocess.Popen(argv, cwd=self.root, stdin=subprocess.DEVNULL,
+                stdout=stream, stderr=subprocess.STDOUT, start_new_session=True)
+        record = dict(pid=child.pid, **process_identity(child.pid))
+        save(path, record)
+        self.event('router_started', pid=child.pid, **router)
+        deadline = time.time()+30
+        while time.time()<deadline:
+            if not matches_process(record):
+                raise RuntimeError('Inference router exited')
+            try:
+                response = requests.get(router['url']+'/router_status', timeout=5)
+                if response.status_code == 200:
+                    return
+            except requests.RequestException:
+                pass
+            time.sleep(.5)
+        raise RuntimeError('Inference router not ready')
 
     def validate(self, key, smoke):
         job = self.matrix['jobs'][key]
         profile = self.matrix['profiles'][job['profile']]
         path = Path(job['preflight'] if smoke else job['output'])
         actual = read(path/'config.json')
+        config = job.get('preflight_config', job['config']) if smoke else job['config']
         for name in ARGUMENTS + ('disable_thinking',):
-            expected = self.matrix['policy']['smoke_steps'] if smoke and name == 'max_steps' else job['config'].get(name)
+            expected = self.matrix['policy']['smoke_steps'] if smoke and name == 'max_steps' else config.get(name)
             if actual.get(name) != expected:
                 raise RuntimeError('Job configuration differs: '+key+'/'+name)
         if actual['manifest_sha256'] != sha(job['config']['manifest']):
             raise RuntimeError('Manifest changed')
         if actual.get('wm_backend', 'none') != job['backend']:
             raise RuntimeError('Wrong WM backend')
-        if actual.get('execution', {}).get('workers') != self.matrix['policy']['workers']:
+        if actual.get('execution', {}).get('workers') != (self.matrix['policy']['workers'] if smoke else job.get('workers', self.matrix['policy']['workers'])):
             raise RuntimeError('Wrong worker count')
         if job['backend'] != 'none':
             if actual['reflection_max_rounds'] != 3 or actual['reflection_review_protocol'] != 'agentwm-copied-v1':
@@ -333,7 +373,7 @@ class Scheduler:
                 return True
             record['status'] = 'failed'
             self.event('job_failed', job=key, smoke=smoke, exit_code=code)
-        limit = 1 if smoke else self.matrix['policy']['max_runner_launches']
+        limit = 1 if smoke else (self.matrix['policy']['max_runner_launches'] + record.get('maintenance_restarts', 0) + record.get('startup_validation_failures', 0))
         if record['launches'] >= limit:
             raise RuntimeError('Runner exhausted retries: '+phase)
         verify(self.matrix)
@@ -389,6 +429,7 @@ class Scheduler:
                 self.persist()
                 self.refresh()
                 self.services()
+                self.ensure_router()
                 self.state['phase'] = 'preflight'
                 while True:
                     done = [self.drive(key, True) for key in self.matrix['jobs']]
@@ -399,6 +440,7 @@ class Scheduler:
                 self.state['phase'] = 'full'
                 self.event('all_nine_preflights_passed')
                 while True:
+                    self.ensure_router()
                     for key in eligible_jobs(self.state):
                         self.drive(key, False)
                     self.persist()
