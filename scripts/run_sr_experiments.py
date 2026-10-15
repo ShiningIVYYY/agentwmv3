@@ -136,6 +136,16 @@ def eligible_jobs(state):
     return jobs
 
 
+def router_status_ready(router, status):
+    replicas = status.get('replicas', [])
+    by_url = {r['url']: r for r in replicas}
+    active = set(router['upstreams'])
+    retired = set(router.get('retired_upstreams', []))
+    return (len(by_url) == len(replicas) and active <= set(by_url) <= active | retired
+            and all(by_url[u].get('healthy') for u in active)
+            and all(not by_url.get(u, {}).get('healthy', False) for u in retired))
+
+
 class Scheduler:
     def __init__(self, matrix):
         self.matrix = matrix
@@ -201,7 +211,8 @@ class Scheduler:
             wm = p['wm']
             if not model_ready(wm['url'], wm['served_model_name'], wm['checkpoint'], wm['max_model_len'], self.root):
                 raise RuntimeError('Existing Word2World service unavailable: '+wm['url'])
-        self.stop_old_gpu0()
+        if any(service['gpu'] == 0 for service in self.matrix['services']):
+            self.stop_old_gpu0()
         for service in self.matrix['services']:
             key = str(service['port'])
             ready = model_ready(service['url'], service['model'], service['checkpoint'], 5120, self.root)
@@ -265,9 +276,8 @@ class Scheduler:
         record = read(path) if path.exists() else None
         if record and matches_process(record):
             response = requests.get(router['url']+'/router_status', timeout=10)
-            response.raise_for_status()
-            if [r['url'] for r in response.json()['replicas']] != router['upstreams']:
-                raise RuntimeError('Router replica configuration differs')
+            if not router_status_ready(router, response.json()):
+                raise RuntimeError('Router active replicas unavailable or configuration differs')
             return
         argv = [sys.executable, '-u', str(self.root/'scripts/sr_inference_router.py'),
                 '--port', str(router['port'])]

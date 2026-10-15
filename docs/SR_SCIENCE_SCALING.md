@@ -13,17 +13,36 @@ Current layout:
 
 | GPU | Service | Port |
 |---|---|---|
-| 0 | ALFWorld SR | 8201 |
-| 1 | ALFWorld Word2World | 8111 |
+| 0 | Released for other users | — |
+| 1 | Released for other users | — |
 | 2 | ScienceWorld Word2World | 8112 |
 | 3 | ScienceWorld SR | 8232 |
 | 4 | ScienceWorld SR | 8242 |
 | 5 | ScienceWorld SR | 8252 |
 | 6 | ScienceWorld SR | 8202 |
-| 7 | ScienceWorld SR | 8272 |
+| 7 | Released for other users | — |
+
+GPUs 0, 1 and 7 were released on user request after ALFWorld completed.
+Four ScienceWorld replicas remain on GPUs 3..6, with 32 model generation slots.
+The 40 existing environment workers are retained to avoid interrupting tasks;
+requests beyond those slots queue at the model servers.
+
+The existing router drains GPU7 through its health checks. Its status still
+includes the retired URL until its next restart, so the legacy aggregate ready
+field is false. The coordinator explicitly checks that the four active replicas
+are healthy and that the retired replica is unhealthy. A CPU-only endpoint
+reserves retired port 8272 and returns 503, preventing accidental routing to a
+different model at that address. Future router starts use only the four active
+URLs. Released GPUs are removed from service scheduling, and GPU0 cleanup is
+skipped when GPU0 is outside the active layout.
+
+The release audit is outputs/wm_reflection_setup/release_gpu_0_1_7. It records
+owned service identities, source/configuration snapshots and retained result
+hashes. Model shutdown exited the GPU7 engine before closing its API connections;
+the leftover API was cleaned up after confirming its GPU memory was released.
 
 Oracle and Word2World ScienceWorld groups each have 20 independent environment
-workers (40 total). ALFWorld retains four workers per group (8 total).
+workers (40 total). ALFWorld has completed all three arms and has no active workers.
 Every model replica retains max_num_seqs=8 and the private small-batch grammar
 mask overlay. The two WebShop services on GPUs 3/5 were stopped only after all
 three WebShop arms completed. Resume no longer requires WM services for an

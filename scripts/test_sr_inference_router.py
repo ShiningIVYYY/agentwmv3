@@ -6,6 +6,7 @@ import unittest
 from aiohttp import web
 from aiohttp.test_utils import TestClient, TestServer
 from sr_inference_router import create_app
+from run_sr_experiments import router_status_ready
 
 
 class RouterTests(unittest.IsolatedAsyncioTestCase):
@@ -54,6 +55,11 @@ class RouterTests(unittest.IsolatedAsyncioTestCase):
             await servers[0].close()
             await asyncio.sleep(5.2)
             self.assertFalse(router['replicas'][0]['healthy'])
+            status = await (await client.get('/router_status')).json()
+            urls = [r['url'] for r in router['replicas']]
+            self.assertTrue(router_status_ready(
+                dict(upstreams=urls[1:], retired_upstreams=urls[:1]), status))
+            self.assertFalse(router_status_ready(dict(upstreams=urls), status))
             response = await client.post('/v1/chat/completions', data=body)
             self.assertEqual(response.status, 200)
             self.assertEqual(await response.text(), body)
