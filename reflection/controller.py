@@ -52,11 +52,17 @@ class ReflectionController:
         self.wm, self.agent, self.env = wm, agent, env
         self.task, self.task_id, self.max_rounds = task, task_id, max_rounds
         self.recorder = recorder or (lambda *args: None)
-        if review_protocol not in ('json', 'ee-native-action-v1', 'ee-conservative-v2', 'agentwm-copied-v1'):
+        from .science_evidence import PROTOCOLS
+        if review_protocol not in ('json', 'ee-native-action-v1', 'ee-conservative-v2', 'agentwm-copied-v1') + PROTOCOLS:
             raise ValueError('Unknown reflection review protocol')
+        if review_protocol in PROTOCOLS and env != 'scienceworld':
+            raise ValueError('ScienceWorld evidence protocols require ScienceWorld')
         self.review_protocol = review_protocol
 
     def select(self, candidate, observation, steps, actions, step_number):
+        if self.review_protocol.startswith('science-evidence-'):
+            from .science_evidence import select
+            return select(self, candidate, observation, steps, actions, step_number)
         if self.review_protocol == 'agentwm-copied-v1':
             from .agentwm import select
             return select(self, candidate, observation, steps, actions, step_number)

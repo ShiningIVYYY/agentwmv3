@@ -436,7 +436,7 @@ class Science:
                     'GET', self.url + '/admissible_actions', params=dict(id=eid))['admissible_actions']
                 if view:
                     acts = list(acts) + list(view.mapping)
-                if controller is not None and controller.review_protocol == 'agentwm-copied-v1':
+                if controller is not None and (controller.review_protocol == 'agentwm-copied-v1' or controller.review_protocol.startswith('science-evidence-')):
                     from reflection.agentwm import science_action_information
                     hint = dict(possible_actions=list(sdk.get_possible_actions()),
                                 possible_objects=list(sdk.get_possible_objects())) if snapshot_mode else http(
@@ -599,7 +599,8 @@ def main():
     p.add_argument('--wm-backend', choices=['none', 'oracle', 'word2world'], default='none')
     p.add_argument('--wm-config', help='Word2World JSON config; defaults to configs/worldmodel/<env>.json')
     p.add_argument('--reflection-max-rounds', type=int, choices=[1, 2, 3], default=3)
-    p.add_argument('--reflection-review-protocol', choices=['auto', 'json', 'ee-native-action-v1', 'ee-conservative-v2', 'agentwm-copied-v1'], default='auto')
+    from reflection.science_evidence import PROTOCOLS as SCIENCE_EVIDENCE_PROTOCOLS
+    p.add_argument('--reflection-review-protocol', choices=['auto', 'json', 'ee-native-action-v1', 'ee-conservative-v2', 'agentwm-copied-v1'] + list(SCIENCE_EVIDENCE_PROTOCOLS), default='auto')
     p.add_argument('--workers', type=int, choices=range(1, 33), default=1)
     p.add_argument('--task-queue', help=argparse.SUPPRESS)
     p.add_argument('--queue-run', help=argparse.SUPPRESS)

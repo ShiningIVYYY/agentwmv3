@@ -97,7 +97,7 @@ def metrics(steps):
     replans = [v['replan'] for r in records for v in r['reviews'] if 'replan' in v]
     replan_usage = [v['generation'].get('usage') or {} for v in replans]
     wm_usage = [p.get('usage') or {} for p in preds]
-    return dict(reflection_metrics=dict(steps=len(records), reflection_calls=rounds,
+    result = dict(reflection_metrics=dict(steps=len(records), reflection_calls=rounds,
         wm_calls=len(preds), mean_rounds=rounds / len(records),
         wm_truncated_predictions=sum(p.get('observation_complete', True) is False and not p.get('empty_output', False) for p in preds),
         wm_empty_predictions=sum(p.get('empty_output', False) for p in preds),
@@ -118,6 +118,17 @@ def metrics(steps):
         replan_calls=len(replans), replan_tokens=sum(u.get('total_tokens', 0) for u in replan_usage),
         review_replan_tokens=sum(u.get('total_tokens', 0) for u in usage + replan_usage),
         wm_tokens=sum(u.get('total_tokens', 0) for u in wm_usage)))
+    if any(r.get('review_protocol','').startswith('science-evidence-') for r in records):
+        comparisons=[v['comparison'] for r in records for v in r['reviews'] if 'comparison' in v]
+        comparison_tokens=sum((v['generation'].get('usage') or {}).get('total_tokens',0) for v in comparisons)
+        result['reflection_metrics'].update(
+            review_model_calls=sum(bool(v.get('generation')) for r in records for v in r['reviews']),
+            comparison_calls=len(comparisons),comparison_tokens=comparison_tokens,
+            oracle_success_preserved=sum('oracle_success_preserved' in r.get('policy_events',[]) for r in records),
+            learned_success_prediction_preserved=sum('learned_success_prediction_preserved' in r.get('policy_events',[]) for r in records),
+            safe_terminal_failure_fallbacks=sum('safe_fallback_from_verified_terminal_failure' in r.get('policy_events',[]) for r in records),
+            review_replan_tokens=result['reflection_metrics']['review_replan_tokens']+comparison_tokens)
+    return result
 
 
 def audit_settings(args, root):
@@ -157,6 +168,21 @@ def audit_settings(args, root):
             alfworld_review_action_grounding='current-admissible-command-enum-plus-original-proposal',
             original_actor_context='unchanged/full-science-training-dialogue',
             final_round_policy='direct-final-prediction/science-verified-replan-or-cached-original')
+    if review_protocol(args).startswith('science-evidence-'):
+        from reflection.science_evidence import options
+        opt=options(review_protocol(args))
+        for key in ('repair_evidence','repair_prediction','science_review_context'):
+            feature.pop(key,None)
+        feature.update(selection_policy=review_protocol(args),
+            feedback_fields=['observation','reward','done','success','score'] if args.wm_backend=='oracle' and opt['metadata'] else ['observation','predicted_success'] if args.wm_backend=='word2world' and opt['metadata'] else ['observation'],
+            transition_metadata_visible=opt['metadata'],
+            success_protection='trusted-oracle-terminal-100/learned-prediction-kept-as-uncertain-forecast' if opt['metadata'] else 'no-privileged-success-labels',
+            alternative_comparison=opt['compare'],
+            historical_evidence='source-labelled-committed-observation-excerpts' if opt['memory'] else 'recent-five-real-steps',
+            critic='finite-JSON/typed-defect/verbatim-grounded-evidence',
+            original_actor_context='unchanged/task-anchored-training-one-shot',
+            final_round_policy='keep-original-on-uncertainty/verified-safe-fallback-from-terminal-failure',
+            maximum_distinct_forecasts=5)
     if args.env == 'scienceworld' and args.wm_backend == 'oracle':
         feature['science_exit_comparison'] = 'unordered-full-door-descriptions/native-agent-text-preserved'
         feature['oracle_policy'] = 'live-jvm-heap-checkpoint/rollback-rejected/adopt-final-state-once'
