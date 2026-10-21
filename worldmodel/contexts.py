@@ -68,8 +68,16 @@ def science_menu(text):
         if not match:
             raise PredictionError('Unsupported ScienceWorld ambiguity menu layout')
         choices.append((match[2], match[1]))
-    if not choices or len({label for label, _ in choices}) != len(choices):
-        raise PredictionError('ScienceWorld ambiguity choices lack unique labels')
+    if not choices:
+        raise PredictionError('ScienceWorld ambiguity menu has no choices')
+    if len({label for label, _ in choices}) != len(choices):
+        # Different simulator objects can have exactly the same printed action.
+        # Their labels cannot define a canonical ordering. Preserve the entire
+        # native menu and every native choice number instead of rejecting it,
+        # collapsing objects or inventing distinguishing object information.
+        if len({native for _, native in choices}) != len(choices):
+            raise PredictionError('ScienceWorld ambiguity menu repeats a choice number')
+        return text, {native: native for _, native in choices}
     choices.sort()
     mapping = {str(i): native for i, (_, native) in enumerate(choices)}
     return header + ''.join('%d:\t%s\n' % (i, label) for i, (label, _) in enumerate(choices)), mapping

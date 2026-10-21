@@ -145,7 +145,7 @@ def audit_settings(args, root):
         feedback_fields=['observation'], oracle_policy='isolated-reset-verified-prefix-replay',
         history_policy='commit-real-observations-only', sources={str(p.relative_to(root)):
             hashlib.sha256(p.read_bytes()).hexdigest() for p in files})
-    feature['science_ambiguity_policy'] = 'stable-label-order-with-native-number-translation'
+    feature['science_ambiguity_policy'] = 'unique-label-stable-order/duplicate-label-native-menu-lossless'
     feature['reflection_review_protocol'] = review_protocol(args)
     feature['selection_policy'] = 'evidence-gated-repair-v1' if getattr(args,'model','').startswith('ee-') else 'legacy-json'
     if getattr(args,'model','').startswith('ee-'):

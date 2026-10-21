@@ -78,3 +78,18 @@ Report both successes-to-failures and failures-to-successes, action replacements
 protected successes, rejected interventions, comparison calls/tokens and total
 model cost. A partial run is not a final success-rate estimate. These checks do not
 guarantee a better final success rate; they make the proposed corrections testable.
+
+## Native duplicate-label repair
+
+ScienceWorld can return distinct numbered options with identical printed labels.
+Unique-label menus retain the existing canonical sorting and number translation.
+Duplicate-label menus now preserve the full native observation and native numbers;
+objects are not collapsed and distinguishing information is never invented.
+
+The stage-1 Oracle `sciworld_581` hit this adapter exception on three runner
+launches. The manager correctly withheld stage 2 while one task was unresolved.
+An explicit maintenance transition archives the old source/configs and hashes all
+399 completed task results. These results remain byte-identical. One additional
+launch is recorded for the failed task; the original retry count is retained.
+The Oracle stage-1 aggregate includes the retained original cohort and the one
+adapter-repair continuation task, identified in `maintenance_transitions`.

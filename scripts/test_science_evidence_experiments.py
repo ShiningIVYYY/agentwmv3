@@ -44,6 +44,15 @@ class SchedulingTests(unittest.TestCase):
         for _,_,backends in run.STAGES[:3]:self.assertEqual(backends,('oracle','word2world'))
         self.assertEqual(run.STAGES[-1][1],'science-evidence-v3-obs')
 
+    def test_maintenance_launch_preserves_original_attempt_count(self):
+        matrix=dict(policy=dict(max_runner_launches=3))
+        record=dict(launches=3)
+        self.assertEqual(run.launch_limit(matrix,record,False),3)
+        record['maintenance_restarts']=1
+        self.assertEqual(run.launch_limit(matrix,record,False),4)
+        self.assertEqual(record['launches'],3)
+        self.assertEqual(run.launch_limit(matrix,record,True),1)
+
     def test_dev_selection_is_training_only_deterministic_and_excludes_demo(self):
         games=[dict(taskName=t,variationIdx=i) for t in TYPES for i in range(2)]
         training=[dict(item_id='sciworld_'+str(i)) for i in reversed(range(len(games)))]

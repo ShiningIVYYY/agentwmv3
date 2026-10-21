@@ -279,10 +279,28 @@ class RuntimeTests(unittest.TestCase):
         first.observe(dict(observation='You focus on apple.'))
         self.assertEqual(first.action('0'), '0')
 
-    def test_science_menu_rejects_indistinguishable_choice_labels(self):
+    def test_science_menu_preserves_indistinguishable_choices_and_native_numbers(self):
+        header = 'Ambiguous request: Please enter the number for the action you intended (or blank to cancel):\n'
+        native=header+'7:\tfocus on book\n3:\tfocus on book\n9:\tfocus on wood\n'
+        view=ScienceActionView()
+        observed=view.observe(dict(observation=native))
+        self.assertEqual(observed['observation'],native)
+        self.assertEqual(observed['native_observation'],native)
+        self.assertEqual(view.mapping,{'7':'7','3':'3','9':'9'})
+        self.assertEqual(view.action('7'),'7')
+        self.assertEqual(view.action('3'),'3')
+
+    def test_science_menu_still_rejects_duplicate_native_numbers(self):
         header = 'Ambiguous request: Please enter the number for the action you intended (or blank to cancel):\n'
         with self.assertRaises(PredictionError):
-            ScienceActionView().observe(dict(observation=header + '0:\tfocus on book\n1:\tfocus on book\n'))
+            ScienceActionView().observe(dict(observation=header+'0:\tfocus on book\n0:\tfocus on book\n'))
+
+    def test_science_duplicate_menu_mapping_resets_on_next_observation(self):
+        header = 'Ambiguous request: Please enter the number for the action you intended (or blank to cancel):\n'
+        view=ScienceActionView()
+        view.observe(dict(observation=header+'0:\tfocus on book\n1:\tfocus on book\n'))
+        view.observe(dict(observation='You focus on the book.'))
+        self.assertEqual(view.mapping,{})
 
     def test_committed_action_reason_survives_later_invalid_reviews(self):
         from types import SimpleNamespace

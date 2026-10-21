@@ -102,6 +102,12 @@ def command(matrix,key,smoke=False):
     return argv
 
 
+def launch_limit(matrix,record,smoke):
+    # Extra launches require a recorded infrastructure repair; never reset the
+    # original failure count or silently expand retry budgets.
+    return 1 if smoke else matrix['policy'].get('max_runner_launches',3)+record.get('maintenance_restarts',0)
+
+
 class Scheduler(sr.Scheduler):
     def __init__(self,matrix):
         self.matrix=matrix;self.root=Path(matrix['root']);self.out=Path(matrix['output'])
@@ -195,7 +201,7 @@ class Scheduler(sr.Scheduler):
                 self.validate(key,smoke);r['status']='completed';self.persist()
                 self.event('job_completed',job=key,smoke=smoke);return True
             r['status']='failed';self.event('job_failed',job=key,smoke=smoke,exit_code=code)
-        if r['launches'] >= (1 if smoke else 3):raise RuntimeError('Runner exhausted retries: '+phase)
+        if r['launches'] >= launch_limit(self.matrix,r,smoke):raise RuntimeError('Runner exhausted retries: '+phase)
         verify(self.matrix);path.mkdir(parents=True,exist_ok=True);argv=command(self.matrix,key,smoke)
         with (path/'runner.log').open('a') as stream:
             child=subprocess.Popen(argv,cwd=self.root,stdin=subprocess.DEVNULL,stdout=stream,stderr=subprocess.STDOUT,
@@ -220,6 +226,8 @@ class Scheduler(sr.Scheduler):
             'Fixed pure SR baseline: 123/200 (61.5%). Stages are fixed in advance; no stage selection by test success.',
             '', '| Group | Completed | Success rate | Mean score | Errors | Status |',
             '|---|---:|---:|---:|---:|---|']
+        if self.matrix.get('maintenance_transitions'):
+            lines[2]+=' Infrastructure repair cohorts are recorded in maintenance_transitions; completed task files are retained byte-for-byte.'
         for key,v in results.items():
             rate='-' if v['success_rate'] is None else '%.2f%%'%v['success_rate']
             score='-' if v['average_score'] is None else '%.2f'%v['average_score']
