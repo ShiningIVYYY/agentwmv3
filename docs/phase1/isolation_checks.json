@@ -1,0 +1,7 @@
+{
+  "paper_protocol_unchanged": true,
+  "legacy_runtime_unchanged": true,
+  "v2_status": "",
+  "official_source_status": "",
+  "venv_configuration": "home = /home/shn/miniconda3/envs/verl-agent/bin\ninclude-system-site-packages = false\nversion = 3.12.0\nexecutable = /home/shn/miniconda3/envs/verl-agent/bin/python3.12\ncommand = /home/shn/miniconda3/envs/verl-agent/bin/python -m venv /data1/shn/agentwmv3/.venv-spanuq\n"
+}

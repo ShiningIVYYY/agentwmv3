@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/data1/shn/agentwmv3/.audit-spanuq/scripts/inference.py", line 535, in <module>
+    main()
+  File "/data1/shn/agentwmv3/.audit-spanuq/scripts/inference.py", line 458, in main
+    probe, probe_config, temperature = load_spanuq_probe(args.checkpoint_dir, device)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data1/shn/agentwmv3/.audit-spanuq/scripts/inference.py", line 86, in load_spanuq_probe
+    config = SpanUQConfig(**{k: v for k, v in config_dict.items() if not k.startswith("_")})
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: SpanUQConfig.__init__() got an unexpected keyword argument 'mob_k'

@@ -1,0 +1,150 @@
+{
+  "history": [
+    {
+      "id": "97ca9c820ac3561259956ec21cbdd984c3132d37",
+      "title": "Update README.md",
+      "date": "2026-09-25T20:15:14.000Z"
+    },
+    {
+      "id": "fe42602631d584e2371d780541e6672c7d1565f9",
+      "title": "Update README.md",
+      "date": "2026-09-25T20:14:04.000Z"
+    },
+    {
+      "id": "04c93d7e99a9a73b438c495fe053fa7690b7e8e0",
+      "title": "Update citation to published format",
+      "date": "2026-07-10T19:36:10.000Z"
+    },
+    {
+      "id": "fe1f665b4e600ff16d0caa292e107f3a6aa5615d",
+      "title": "Update README.md",
+      "date": "2026-07-08T02:04:44.000Z"
+    },
+    {
+      "id": "a541c11d1d535ef47522c7d269c84bcafd472641",
+      "title": "Update README.md",
+      "date": "2026-07-08T02:04:22.000Z"
+    },
+    {
+      "id": "4561fd750e1925871c9fb6f277d92bd40c2f0497",
+      "title": "Update citation with arXiv ID and full author list; add Related Resources",
+      "date": "2026-07-08T02:02:47.000Z"
+    },
+    {
+      "id": "68053f75e53843b70015473c981e5cca7d14869f",
+      "title": "Add SpanUQ probe checkpoints for 5 backbone models",
+      "date": "2026-07-07T03:53:25.000Z"
+    },
+    {
+      "id": "c14f8050152580acf16ca2be6f9b2be996533bc7",
+      "title": "initial commit",
+      "date": "2026-07-07T03:51:27.000Z"
+    }
+  ],
+  "probe_files": {
+    "original": [
+      {
+        "path": "Qwen3-4B/best_model.pt",
+        "oid": "ea8a6a1de9913360395a7cd2f9cee9c51dffc9e9",
+        "size": 102307771,
+        "lfs": {
+          "oid": "78a203415037cb6645385d27b14d4207d184d522cc2c33af07098f2f2254fb12",
+          "size": 102307771,
+          "pointerSize": 134
+        },
+        "lastCommit": {
+          "id": "68053f75e53843b70015473c981e5cca7d14869f",
+          "title": "Add SpanUQ probe checkpoints for 5 backbone models",
+          "date": "2026-07-07T03:53:25.000Z"
+        }
+      },
+      {
+        "path": "Qwen3-4B/model_config.json",
+        "oid": "d5c808bb0a6ddf418462343b74d602c4cff1da41",
+        "size": 654,
+        "lfs": null,
+        "lastCommit": {
+          "id": "68053f75e53843b70015473c981e5cca7d14869f",
+          "title": "Add SpanUQ probe checkpoints for 5 backbone models",
+          "date": "2026-07-07T03:53:25.000Z"
+        }
+      },
+      {
+        "path": "Qwen3-4B/temperature.json",
+        "oid": "a823447bf3a6099586269c8ae206d25b9806a018",
+        "size": 29,
+        "lfs": null,
+        "lastCommit": {
+          "id": "68053f75e53843b70015473c981e5cca7d14869f",
+          "title": "Add SpanUQ probe checkpoints for 5 backbone models",
+          "date": "2026-07-07T03:53:25.000Z"
+        }
+      },
+      {
+        "path": "Qwen3-4B/training_config.json",
+        "oid": "e94c46a681069c06ae78f7dad0154bc0d63ad620",
+        "size": 177,
+        "lfs": null,
+        "lastCommit": {
+          "id": "68053f75e53843b70015473c981e5cca7d14869f",
+          "title": "Add SpanUQ probe checkpoints for 5 backbone models",
+          "date": "2026-07-07T03:53:25.000Z"
+        }
+      }
+    ],
+    "current": [
+      {
+        "path": "Qwen3-4B/best_model.pt",
+        "oid": "ea8a6a1de9913360395a7cd2f9cee9c51dffc9e9",
+        "size": 102307771,
+        "lfs": {
+          "oid": "78a203415037cb6645385d27b14d4207d184d522cc2c33af07098f2f2254fb12",
+          "size": 102307771,
+          "pointerSize": 134
+        },
+        "lastCommit": {
+          "id": "68053f75e53843b70015473c981e5cca7d14869f",
+          "title": "Add SpanUQ probe checkpoints for 5 backbone models",
+          "date": "2026-07-07T03:53:25.000Z"
+        }
+      },
+      {
+        "path": "Qwen3-4B/model_config.json",
+        "oid": "d5c808bb0a6ddf418462343b74d602c4cff1da41",
+        "size": 654,
+        "lfs": null,
+        "lastCommit": {
+          "id": "68053f75e53843b70015473c981e5cca7d14869f",
+          "title": "Add SpanUQ probe checkpoints for 5 backbone models",
+          "date": "2026-07-07T03:53:25.000Z"
+        }
+      },
+      {
+        "path": "Qwen3-4B/temperature.json",
+        "oid": "a823447bf3a6099586269c8ae206d25b9806a018",
+        "size": 29,
+        "lfs": null,
+        "lastCommit": {
+          "id": "68053f75e53843b70015473c981e5cca7d14869f",
+          "title": "Add SpanUQ probe checkpoints for 5 backbone models",
+          "date": "2026-07-07T03:53:25.000Z"
+        }
+      },
+      {
+        "path": "Qwen3-4B/training_config.json",
+        "oid": "e94c46a681069c06ae78f7dad0154bc0d63ad620",
+        "size": 177,
+        "lfs": null,
+        "lastCommit": {
+          "id": "68053f75e53843b70015473c981e5cca7d14869f",
+          "title": "Add SpanUQ probe checkpoints for 5 backbone models",
+          "date": "2026-07-07T03:53:25.000Z"
+        }
+      }
+    ]
+  },
+  "discussion_1": {
+    "title": "Update pipeline tag and add project page link",
+    "scope": "README metadata only"
+  }
+}

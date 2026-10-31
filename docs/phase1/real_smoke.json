@@ -1,0 +1,1445 @@
+{
+  "acceptance_passed": false,
+  "source_git_commit": "2e6356ed1a34239d9a0db8921066f3e728b6e12c",
+  "cuda_visible_devices": "1",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "versions": {
+    "torch": "2.8.0",
+    "transformers": "4.57.3",
+    "accelerate": "1.14.0",
+    "tokenizers": "0.22.2",
+    "huggingface-hub": "0.36.2"
+  },
+  "cuda_runtime": "12.8",
+  "queries": [
+    {
+      "query": "In two short sentences, explain why ice melts when heated.",
+      "messages": [
+        {
+          "role": "user",
+          "content": "In two short sentences, explain why ice melts when heated."
+        }
+      ],
+      "response": "Ice melts when heated because heating provides the energy needed to break the bonds holding the water molecules in a solid structure. As the temperature rises, the molecules gain kinetic energy and move more freely, transitioning from a solid to a liquid state.",
+      "generated_token_ids_including_eos": [
+        51330,
+        98091,
+        979,
+        31713,
+        1576,
+        23579,
+        5707,
+        279,
+        4802,
+        4362,
+        311,
+        1438,
+        279,
+        26363,
+        9963,
+        279,
+        3015,
+        34615,
+        304,
+        264,
+        6437,
+        5944,
+        13,
+        1634,
+        279,
+        9315,
+        37168,
+        11,
+        279,
+        34615,
+        8722,
+        70323,
+        4802,
+        323,
+        3271,
+        803,
+        25580,
+        11,
+        72094,
+        504,
+        264,
+        6437,
+        311,
+        264,
+        14473,
+        1584,
+        13,
+        151645
+      ],
+      "prompt_token_ids": [
+        151644,
+        872,
+        198,
+        641,
+        1378,
+        2805,
+        22870,
+        11,
+        10339,
+        3170,
+        9853,
+        98091,
+        979,
+        31713,
+        13,
+        151645,
+        198,
+        151644,
+        77091,
+        198,
+        151667,
+        271,
+        151668,
+        271
+      ],
+      "response_token_ids": [
+        51330,
+        98091,
+        979,
+        31713,
+        1576,
+        23579,
+        5707,
+        279,
+        4802,
+        4362,
+        311,
+        1438,
+        279,
+        26363,
+        9963,
+        279,
+        3015,
+        34615,
+        304,
+        264,
+        6437,
+        5944,
+        13,
+        1634,
+        279,
+        9315,
+        37168,
+        11,
+        279,
+        34615,
+        8722,
+        70323,
+        4802,
+        323,
+        3271,
+        803,
+        25580,
+        11,
+        72094,
+        504,
+        264,
+        6437,
+        311,
+        264,
+        14473,
+        1584,
+        13
+      ],
+      "response_offsets": [
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          14
+        ],
+        [
+          14,
+          21
+        ],
+        [
+          21,
+          29
+        ],
+        [
+          29,
+          37
+        ],
+        [
+          37,
+          46
+        ],
+        [
+          46,
+          50
+        ],
+        [
+          50,
+          57
+        ],
+        [
+          57,
+          64
+        ],
+        [
+          64,
+          67
+        ],
+        [
+          67,
+          73
+        ],
+        [
+          73,
+          77
+        ],
+        [
+          77,
+          83
+        ],
+        [
+          83,
+          91
+        ],
+        [
+          91,
+          95
+        ],
+        [
+          95,
+          101
+        ],
+        [
+          101,
+          111
+        ],
+        [
+          111,
+          114
+        ],
+        [
+          114,
+          116
+        ],
+        [
+          116,
+          122
+        ],
+        [
+          122,
+          132
+        ],
+        [
+          132,
+          133
+        ],
+        [
+          133,
+          136
+        ],
+        [
+          136,
+          140
+        ],
+        [
+          140,
+          152
+        ],
+        [
+          152,
+          158
+        ],
+        [
+          158,
+          159
+        ],
+        [
+          159,
+          163
+        ],
+        [
+          163,
+          173
+        ],
+        [
+          173,
+          178
+        ],
+        [
+          178,
+          186
+        ],
+        [
+          186,
+          193
+        ],
+        [
+          193,
+          197
+        ],
+        [
+          197,
+          202
+        ],
+        [
+          202,
+          207
+        ],
+        [
+          207,
+          214
+        ],
+        [
+          214,
+          215
+        ],
+        [
+          215,
+          229
+        ],
+        [
+          229,
+          234
+        ],
+        [
+          234,
+          236
+        ],
+        [
+          236,
+          242
+        ],
+        [
+          242,
+          245
+        ],
+        [
+          245,
+          247
+        ],
+        [
+          247,
+          254
+        ],
+        [
+          254,
+          260
+        ],
+        [
+          260,
+          261
+        ]
+      ],
+      "enable_thinking": false,
+      "generation": {
+        "do_sample": false,
+        "max_new_tokens": 96,
+        "seed": 0,
+        "purpose": "official-style minimal inference; not benchmark evaluation"
+      },
+      "generation_seconds": 2.150707459077239,
+      "decoder_blocks": [
+        21,
+        22,
+        23
+      ],
+      "hf_hidden_state_indices": [
+        22,
+        23,
+        24
+      ],
+      "layer_convention": "zero_based_decoder_block_output",
+      "shapes": [
+        [
+          1,
+          47,
+          2560
+        ],
+        [
+          1,
+          47,
+          2560
+        ],
+        [
+          1,
+          47,
+          2560
+        ]
+      ],
+      "finite": true,
+      "prompt_tokens": 24,
+      "response_tokens": 47,
+      "decoder_forward_seconds": 0.038380663841962814,
+      "extraction_seconds": 0.04444821551442146,
+      "backbone_forward_passes": 1,
+      "layer_mapping_checks": {
+        "21": {
+          "hf_index": 22,
+          "max_absolute_error": 0.0
+        },
+        "22": {
+          "hf_index": 23,
+          "max_absolute_error": 0.0
+        },
+        "23": {
+          "hf_index": 24,
+          "max_absolute_error": 0.0
+        }
+      },
+      "input_fingerprint": "698b42af030b545970c1996c179835f5966fb551e4a69656e6221994fe36223f",
+      "cache_hit": false,
+      "cache_enabled": false,
+      "repeat_hidden_state_max_absolute_error": 0.0,
+      "validation_backbone_forward_passes": 2,
+      "peak_allocated_bytes": 8128950784,
+      "peak_reserved_bytes": 8141144064,
+      "spanuq_status": "not_run_checkpoint_architecture_incompatible",
+      "detected_spans": null,
+      "uncertainty_score": null
+    },
+    {
+      "query": "In two short sentences, explain the roles of roots and leaves in a plant.",
+      "messages": [
+        {
+          "role": "user",
+          "content": "In two short sentences, explain the roles of roots and leaves in a plant."
+        }
+      ],
+      "response": "Roots absorb water and nutrients from the soil, while leaves perform photosynthesis to produce food for the plant.",
+      "generated_token_ids_including_eos": [
+        8439,
+        82,
+        34306,
+        3015,
+        323,
+        36393,
+        504,
+        279,
+        17171,
+        11,
+        1393,
+        10901,
+        2736,
+        7249,
+        73667,
+        311,
+        8193,
+        3607,
+        369,
+        279,
+        6008,
+        13,
+        151645
+      ],
+      "prompt_token_ids": [
+        151644,
+        872,
+        198,
+        641,
+        1378,
+        2805,
+        22870,
+        11,
+        10339,
+        279,
+        12783,
+        315,
+        19703,
+        323,
+        10901,
+        304,
+        264,
+        6008,
+        13,
+        151645,
+        198,
+        151644,
+        77091,
+        198,
+        151667,
+        271,
+        151668,
+        271
+      ],
+      "response_token_ids": [
+        8439,
+        82,
+        34306,
+        3015,
+        323,
+        36393,
+        504,
+        279,
+        17171,
+        11,
+        1393,
+        10901,
+        2736,
+        7249,
+        73667,
+        311,
+        8193,
+        3607,
+        369,
+        279,
+        6008,
+        13
+      ],
+      "response_offsets": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          12
+        ],
+        [
+          12,
+          18
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          22,
+          32
+        ],
+        [
+          32,
+          37
+        ],
+        [
+          37,
+          41
+        ],
+        [
+          41,
+          46
+        ],
+        [
+          46,
+          47
+        ],
+        [
+          47,
+          53
+        ],
+        [
+          53,
+          60
+        ],
+        [
+          60,
+          68
+        ],
+        [
+          68,
+          75
+        ],
+        [
+          75,
+          83
+        ],
+        [
+          83,
+          86
+        ],
+        [
+          86,
+          94
+        ],
+        [
+          94,
+          99
+        ],
+        [
+          99,
+          103
+        ],
+        [
+          103,
+          107
+        ],
+        [
+          107,
+          113
+        ],
+        [
+          113,
+          114
+        ]
+      ],
+      "enable_thinking": false,
+      "generation": {
+        "do_sample": false,
+        "max_new_tokens": 96,
+        "seed": 0,
+        "purpose": "official-style minimal inference; not benchmark evaluation"
+      },
+      "generation_seconds": 0.7782496176660061,
+      "decoder_blocks": [
+        21,
+        22,
+        23
+      ],
+      "hf_hidden_state_indices": [
+        22,
+        23,
+        24
+      ],
+      "layer_convention": "zero_based_decoder_block_output",
+      "shapes": [
+        [
+          1,
+          22,
+          2560
+        ],
+        [
+          1,
+          22,
+          2560
+        ],
+        [
+          1,
+          22,
+          2560
+        ]
+      ],
+      "finite": true,
+      "prompt_tokens": 28,
+      "response_tokens": 22,
+      "decoder_forward_seconds": 0.03430427983403206,
+      "extraction_seconds": 0.03648054786026478,
+      "backbone_forward_passes": 1,
+      "layer_mapping_checks": {
+        "21": {
+          "hf_index": 22,
+          "max_absolute_error": 0.0
+        },
+        "22": {
+          "hf_index": 23,
+          "max_absolute_error": 0.0
+        },
+        "23": {
+          "hf_index": 24,
+          "max_absolute_error": 0.0
+        }
+      },
+      "input_fingerprint": "05d876412b3a66ce510f75c5d3cecf0e85a0be0f0a2d06e4d35bdca4ea0be38c",
+      "cache_hit": false,
+      "cache_enabled": false,
+      "repeat_hidden_state_max_absolute_error": 0.0,
+      "validation_backbone_forward_passes": 2,
+      "peak_allocated_bytes": 8123241984,
+      "peak_reserved_bytes": 8141144064,
+      "spanuq_status": "not_run_checkpoint_architecture_incompatible",
+      "detected_spans": null,
+      "uncertainty_score": null
+    },
+    {
+      "query": "Who wrote Pride and Prejudice, and in which year was it first published? Answer briefly.",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Who wrote Pride and Prejudice, and in which year was it first published? Answer briefly."
+        }
+      ],
+      "response": "Pride and Prejudice was written by Jane Austen and was first published in 1813.",
+      "generated_token_ids_including_eos": [
+        47,
+        1399,
+        323,
+        4968,
+        18138,
+        558,
+        572,
+        5326,
+        553,
+        21475,
+        12926,
+        268,
+        323,
+        572,
+        1156,
+        4652,
+        304,
+        220,
+        16,
+        23,
+        16,
+        18,
+        13,
+        151645
+      ],
+      "prompt_token_ids": [
+        151644,
+        872,
+        198,
+        15191,
+        6139,
+        42146,
+        323,
+        4968,
+        18138,
+        558,
+        11,
+        323,
+        304,
+        892,
+        1042,
+        572,
+        432,
+        1156,
+        4652,
+        30,
+        21806,
+        26753,
+        13,
+        151645,
+        198,
+        151644,
+        77091,
+        198,
+        151667,
+        271,
+        151668,
+        271
+      ],
+      "response_token_ids": [
+        47,
+        1399,
+        323,
+        4968,
+        18138,
+        558,
+        572,
+        5326,
+        553,
+        21475,
+        12926,
+        268,
+        323,
+        572,
+        1156,
+        4652,
+        304,
+        220,
+        16,
+        23,
+        16,
+        18,
+        13
+      ],
+      "response_offsets": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          13,
+          16
+        ],
+        [
+          16,
+          19
+        ],
+        [
+          19,
+          23
+        ],
+        [
+          23,
+          31
+        ],
+        [
+          31,
+          34
+        ],
+        [
+          34,
+          39
+        ],
+        [
+          39,
+          44
+        ],
+        [
+          44,
+          46
+        ],
+        [
+          46,
+          50
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          54,
+          60
+        ],
+        [
+          60,
+          70
+        ],
+        [
+          70,
+          73
+        ],
+        [
+          73,
+          74
+        ],
+        [
+          74,
+          75
+        ],
+        [
+          75,
+          76
+        ],
+        [
+          76,
+          77
+        ],
+        [
+          77,
+          78
+        ],
+        [
+          78,
+          79
+        ]
+      ],
+      "enable_thinking": false,
+      "generation": {
+        "do_sample": false,
+        "max_new_tokens": 96,
+        "seed": 0,
+        "purpose": "official-style minimal inference; not benchmark evaluation"
+      },
+      "generation_seconds": 0.8042659871280193,
+      "decoder_blocks": [
+        21,
+        22,
+        23
+      ],
+      "hf_hidden_state_indices": [
+        22,
+        23,
+        24
+      ],
+      "layer_convention": "zero_based_decoder_block_output",
+      "shapes": [
+        [
+          1,
+          23,
+          2560
+        ],
+        [
+          1,
+          23,
+          2560
+        ],
+        [
+          1,
+          23,
+          2560
+        ]
+      ],
+      "finite": true,
+      "prompt_tokens": 32,
+      "response_tokens": 23,
+      "decoder_forward_seconds": 0.03761924058198929,
+      "extraction_seconds": 0.03928248956799507,
+      "backbone_forward_passes": 1,
+      "layer_mapping_checks": {
+        "21": {
+          "hf_index": 22,
+          "max_absolute_error": 0.0
+        },
+        "22": {
+          "hf_index": 23,
+          "max_absolute_error": 0.0
+        },
+        "23": {
+          "hf_index": 24,
+          "max_absolute_error": 0.0
+        }
+      },
+      "input_fingerprint": "bcc526b2021cc6d340a712fd95ec7efd796b9eafe8b55543d237aa4ea19e14e9",
+      "cache_hit": false,
+      "cache_enabled": false,
+      "repeat_hidden_state_max_absolute_error": 0.0,
+      "validation_backbone_forward_passes": 2,
+      "peak_allocated_bytes": 8124525056,
+      "peak_reserved_bytes": 8141144064,
+      "spanuq_status": "not_run_checkpoint_architecture_incompatible",
+      "detected_spans": null,
+      "uncertainty_score": null
+    }
+  ],
+  "phase2_started": false,
+  "code_sha256": {
+    "/data1/shn/agentwmv3/scripts/spanuq_smoke.py": "33f5af2e640977053044c95468f6ee8767e997513bc371990504362a84346f1e",
+    "internal_signals/hidden_states.py": "d55f649650643743145b182aa8684ed12b6387730b4418eed1cc5365e0954536",
+    "internal_signals/spanuq_adapter.py": "0346dc8f95c629cbc05d201cae1646533847e53957261e91956529ba6659eb25"
+  },
+  "revisions": {
+    "backbone_id": "Qwen/Qwen3-4B",
+    "backbone_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+    "probe_id": "DamonDemon/SpanUQ",
+    "probe_revision": "97ca9c820ac3561259956ec21cbdd984c3132d37",
+    "probe_subfolder": "Qwen3-4B",
+    "source_url": "https://github.com/damon-demon/SpanUQ",
+    "source_commit": "778b1c1e3eeeda66233fe6b426f9303f4c7f76a3",
+    "layer_convention": "zero_based_decoder_block_output",
+    "decoder_blocks": [
+      21,
+      22,
+      23
+    ],
+    "hf_hidden_state_indices": [
+      22,
+      23,
+      24
+    ],
+    "hidden_size": 2560,
+    "max_response_tokens": 2048,
+    "max_total_tokens": 4096,
+    "dtype": "bfloat16",
+    "enable_thinking": false,
+    "checkpoint_status": "incompatible_with_published_source_do_not_score"
+  },
+  "probe_strict_loading": {
+    "error": "Published SpanUQ architecture cannot strictly load this checkpoint",
+    "source_commit": "778b1c1e3eeeda66233fe6b426f9303f4c7f76a3",
+    "checkpoint_sha256": "78a203415037cb6645385d27b14d4207d184d522cc2c33af07098f2f2254fb12",
+    "unmodified_config_error": "SpanUQConfig.__init__() got an unexpected keyword argument 'mob_k'",
+    "explicit_config_translation": {
+      "mob_k": {
+        "canonical_field": "mob_n_components",
+        "value": 3
+      },
+      "seq_agg_mode": {
+        "canonical_field": "seq_aggregation",
+        "value": "importance"
+      },
+      "max_seq_len": {
+        "adapter_response_token_cap": 2048
+      }
+    },
+    "missing_keys": [],
+    "unexpected_keys": [
+      "u_conditioner.cond_mlp.0.bias",
+      "u_conditioner.cond_mlp.0.weight",
+      "u_conditioner.cond_mlp.2.bias",
+      "u_conditioner.cond_mlp.2.weight"
+    ],
+    "shape_mismatches": [
+      {
+        "key": "token_encoder.pos_enc.pe",
+        "source_shape": [
+          1,
+          4096,
+          512
+        ],
+        "checkpoint_shape": [
+          1,
+          16384,
+          512
+        ]
+      }
+    ],
+    "tensor_count": 134,
+    "tensor_shapes": {
+      "input_proj.proj.weight": [
+        512,
+        2560
+      ],
+      "input_proj.proj.bias": [
+        512
+      ],
+      "input_proj.norm.weight": [
+        512
+      ],
+      "input_proj.norm.bias": [
+        512
+      ],
+      "token_encoder.pos_enc.pe": [
+        1,
+        16384,
+        512
+      ],
+      "token_encoder.encoder.layers.0.self_attn.in_proj_weight": [
+        1536,
+        512
+      ],
+      "token_encoder.encoder.layers.0.self_attn.in_proj_bias": [
+        1536
+      ],
+      "token_encoder.encoder.layers.0.self_attn.out_proj.weight": [
+        512,
+        512
+      ],
+      "token_encoder.encoder.layers.0.self_attn.out_proj.bias": [
+        512
+      ],
+      "token_encoder.encoder.layers.0.linear1.weight": [
+        1024,
+        512
+      ],
+      "token_encoder.encoder.layers.0.linear1.bias": [
+        1024
+      ],
+      "token_encoder.encoder.layers.0.linear2.weight": [
+        512,
+        1024
+      ],
+      "token_encoder.encoder.layers.0.linear2.bias": [
+        512
+      ],
+      "token_encoder.encoder.layers.0.norm1.weight": [
+        512
+      ],
+      "token_encoder.encoder.layers.0.norm1.bias": [
+        512
+      ],
+      "token_encoder.encoder.layers.0.norm2.weight": [
+        512
+      ],
+      "token_encoder.encoder.layers.0.norm2.bias": [
+        512
+      ],
+      "token_encoder.encoder.layers.1.self_attn.in_proj_weight": [
+        1536,
+        512
+      ],
+      "token_encoder.encoder.layers.1.self_attn.in_proj_bias": [
+        1536
+      ],
+      "token_encoder.encoder.layers.1.self_attn.out_proj.weight": [
+        512,
+        512
+      ],
+      "token_encoder.encoder.layers.1.self_attn.out_proj.bias": [
+        512
+      ],
+      "token_encoder.encoder.layers.1.linear1.weight": [
+        1024,
+        512
+      ],
+      "token_encoder.encoder.layers.1.linear1.bias": [
+        1024
+      ],
+      "token_encoder.encoder.layers.1.linear2.weight": [
+        512,
+        1024
+      ],
+      "token_encoder.encoder.layers.1.linear2.bias": [
+        512
+      ],
+      "token_encoder.encoder.layers.1.norm1.weight": [
+        512
+      ],
+      "token_encoder.encoder.layers.1.norm1.bias": [
+        512
+      ],
+      "token_encoder.encoder.layers.1.norm2.weight": [
+        512
+      ],
+      "token_encoder.encoder.layers.1.norm2.bias": [
+        512
+      ],
+      "token_encoder.norm.weight": [
+        512
+      ],
+      "token_encoder.norm.bias": [
+        512
+      ],
+      "decoder.query_embed.weight": [
+        32,
+        512
+      ],
+      "decoder.layers.0.self_attn.in_proj_weight": [
+        1536,
+        512
+      ],
+      "decoder.layers.0.self_attn.in_proj_bias": [
+        1536
+      ],
+      "decoder.layers.0.self_attn.out_proj.weight": [
+        512,
+        512
+      ],
+      "decoder.layers.0.self_attn.out_proj.bias": [
+        512
+      ],
+      "decoder.layers.0.multihead_attn.in_proj_weight": [
+        1536,
+        512
+      ],
+      "decoder.layers.0.multihead_attn.in_proj_bias": [
+        1536
+      ],
+      "decoder.layers.0.multihead_attn.out_proj.weight": [
+        512,
+        512
+      ],
+      "decoder.layers.0.multihead_attn.out_proj.bias": [
+        512
+      ],
+      "decoder.layers.0.linear1.weight": [
+        1024,
+        512
+      ],
+      "decoder.layers.0.linear1.bias": [
+        1024
+      ],
+      "decoder.layers.0.linear2.weight": [
+        512,
+        1024
+      ],
+      "decoder.layers.0.linear2.bias": [
+        512
+      ],
+      "decoder.layers.0.norm1.weight": [
+        512
+      ],
+      "decoder.layers.0.norm1.bias": [
+        512
+      ],
+      "decoder.layers.0.norm2.weight": [
+        512
+      ],
+      "decoder.layers.0.norm2.bias": [
+        512
+      ],
+      "decoder.layers.0.norm3.weight": [
+        512
+      ],
+      "decoder.layers.0.norm3.bias": [
+        512
+      ],
+      "decoder.layers.1.self_attn.in_proj_weight": [
+        1536,
+        512
+      ],
+      "decoder.layers.1.self_attn.in_proj_bias": [
+        1536
+      ],
+      "decoder.layers.1.self_attn.out_proj.weight": [
+        512,
+        512
+      ],
+      "decoder.layers.1.self_attn.out_proj.bias": [
+        512
+      ],
+      "decoder.layers.1.multihead_attn.in_proj_weight": [
+        1536,
+        512
+      ],
+      "decoder.layers.1.multihead_attn.in_proj_bias": [
+        1536
+      ],
+      "decoder.layers.1.multihead_attn.out_proj.weight": [
+        512,
+        512
+      ],
+      "decoder.layers.1.multihead_attn.out_proj.bias": [
+        512
+      ],
+      "decoder.layers.1.linear1.weight": [
+        1024,
+        512
+      ],
+      "decoder.layers.1.linear1.bias": [
+        1024
+      ],
+      "decoder.layers.1.linear2.weight": [
+        512,
+        1024
+      ],
+      "decoder.layers.1.linear2.bias": [
+        512
+      ],
+      "decoder.layers.1.norm1.weight": [
+        512
+      ],
+      "decoder.layers.1.norm1.bias": [
+        512
+      ],
+      "decoder.layers.1.norm2.weight": [
+        512
+      ],
+      "decoder.layers.1.norm2.bias": [
+        512
+      ],
+      "decoder.layers.1.norm3.weight": [
+        512
+      ],
+      "decoder.layers.1.norm3.bias": [
+        512
+      ],
+      "decoder.layers.2.self_attn.in_proj_weight": [
+        1536,
+        512
+      ],
+      "decoder.layers.2.self_attn.in_proj_bias": [
+        1536
+      ],
+      "decoder.layers.2.self_attn.out_proj.weight": [
+        512,
+        512
+      ],
+      "decoder.layers.2.self_attn.out_proj.bias": [
+        512
+      ],
+      "decoder.layers.2.multihead_attn.in_proj_weight": [
+        1536,
+        512
+      ],
+      "decoder.layers.2.multihead_attn.in_proj_bias": [
+        1536
+      ],
+      "decoder.layers.2.multihead_attn.out_proj.weight": [
+        512,
+        512
+      ],
+      "decoder.layers.2.multihead_attn.out_proj.bias": [
+        512
+      ],
+      "decoder.layers.2.linear1.weight": [
+        1024,
+        512
+      ],
+      "decoder.layers.2.linear1.bias": [
+        1024
+      ],
+      "decoder.layers.2.linear2.weight": [
+        512,
+        1024
+      ],
+      "decoder.layers.2.linear2.bias": [
+        512
+      ],
+      "decoder.layers.2.norm1.weight": [
+        512
+      ],
+      "decoder.layers.2.norm1.bias": [
+        512
+      ],
+      "decoder.layers.2.norm2.weight": [
+        512
+      ],
+      "decoder.layers.2.norm2.bias": [
+        512
+      ],
+      "decoder.layers.2.norm3.weight": [
+        512
+      ],
+      "decoder.layers.2.norm3.bias": [
+        512
+      ],
+      "decoder.norm.weight": [
+        512
+      ],
+      "decoder.norm.bias": [
+        512
+      ],
+      "heads.start_proj.weight": [
+        512,
+        512
+      ],
+      "heads.start_proj.bias": [
+        512
+      ],
+      "heads.end_proj.weight": [
+        512,
+        512
+      ],
+      "heads.end_proj.bias": [
+        512
+      ],
+      "heads.valid_head.0.weight": [
+        256,
+        512
+      ],
+      "heads.valid_head.0.bias": [
+        256
+      ],
+      "heads.valid_head.2.weight": [
+        1,
+        256
+      ],
+      "heads.valid_head.2.bias": [
+        1
+      ],
+      "heads.uncertainty_head.0.weight": [
+        256,
+        512
+      ],
+      "heads.uncertainty_head.0.bias": [
+        256
+      ],
+      "heads.uncertainty_head.1.weight": [
+        256
+      ],
+      "heads.uncertainty_head.1.bias": [
+        256
+      ],
+      "heads.uncertainty_head.4.weight": [
+        256,
+        256
+      ],
+      "heads.uncertainty_head.4.bias": [
+        256
+      ],
+      "heads.uncertainty_head.5.weight": [
+        256
+      ],
+      "heads.uncertainty_head.5.bias": [
+        256
+      ],
+      "heads.uncertainty_head.8.weight": [
+        9,
+        256
+      ],
+      "heads.uncertainty_head.8.bias": [
+        9
+      ],
+      "heads.importance.weight": [
+        1,
+        512
+      ],
+      "heads.importance.bias": [
+        1
+      ],
+      "regression_head.mlp.0.weight": [
+        256,
+        512
+      ],
+      "regression_head.mlp.0.bias": [
+        256
+      ],
+      "regression_head.mlp.2.weight": [
+        256,
+        256
+      ],
+      "regression_head.mlp.2.bias": [
+        256
+      ],
+      "regression_head.mlp.4.weight": [
+        2,
+        256
+      ],
+      "regression_head.mlp.4.bias": [
+        2
+      ],
+      "span_pool.attn_query.weight": [
+        512,
+        512
+      ],
+      "span_pool.attn_query.bias": [
+        512
+      ],
+      "span_pool.attn_key.weight": [
+        512,
+        512
+      ],
+      "span_pool.attn_key.bias": [
+        512
+      ],
+      "enriched_uncertainty_head.gate.0.weight": [
+        512,
+        512
+      ],
+      "enriched_uncertainty_head.gate.0.bias": [
+        512
+      ],
+      "enriched_uncertainty_head.mlp.0.weight": [
+        256,
+        512
+      ],
+      "enriched_uncertainty_head.mlp.0.bias": [
+        256
+      ],
+      "enriched_uncertainty_head.mlp.1.weight": [
+        256
+      ],
+      "enriched_uncertainty_head.mlp.1.bias": [
+        256
+      ],
+      "enriched_uncertainty_head.mlp.4.weight": [
+        256,
+        256
+      ],
+      "enriched_uncertainty_head.mlp.4.bias": [
+        256
+      ],
+      "enriched_uncertainty_head.mlp.5.weight": [
+        256
+      ],
+      "enriched_uncertainty_head.mlp.5.bias": [
+        256
+      ],
+      "enriched_uncertainty_head.mlp.8.weight": [
+        9,
+        256
+      ],
+      "enriched_uncertainty_head.mlp.8.bias": [
+        9
+      ],
+      "u_conditioner.cond_mlp.0.weight": [
+        256,
+        3
+      ],
+      "u_conditioner.cond_mlp.0.bias": [
+        256
+      ],
+      "u_conditioner.cond_mlp.2.weight": [
+        512,
+        256
+      ],
+      "u_conditioner.cond_mlp.2.bias": [
+        512
+      ]
+    },
+    "strict_load_passed": false,
+    "strict_error": "Error(s) in loading state_dict for SpanUQ_DETR:\n\tUnexpected key(s) in state_dict: \"u_conditioner.cond_mlp.0.weight\", \"u_conditioner.cond_mlp.0.bias\", \"u_conditioner.cond_mlp.2.weight\", \"u_conditioner.cond_mlp.2.bias\". \n\tsize mismatch for token_encoder.pos_enc.pe: copying a param with shape torch.Size([1, 16384, 512]) from checkpoint, the shape in current model is torch.Size([1, 4096, 512])."
+  },
+  "backbone_loading_seconds": 3.2488567531108856,
+  "backbone_load_peak_allocated_bytes": 8101709312,
+  "backbone_load_peak_reserved_bytes": 8103395328,
+  "backbone_config": {
+    "model_type": "qwen3",
+    "layers": 36,
+    "hidden_size": 2560
+  },
+  "backbone_hidden_state_checks_passed": true
+}

@@ -2,7 +2,7 @@
 
 ## Phase control
 
-Current phase: 0. Phases 1–7 are NOT authorized yet. Each phase requires implementation, appropriate tests, an A–G report and explicit user confirmation before the next phase. See PROGRESS.md for restart state. Hypotheses 1 and 2 remain unverified. No Actor/WM/probe/router/judge training or task-specific parameter updates are permitted.
+Current phase: 1, explicitly authorized and partially executed. Acceptance is blocked by published source/checkpoint incompatibility. Phases 2–7 are NOT authorized. Each phase requires implementation, appropriate tests, an A–G report and explicit user confirmation before the next phase. See PROGRESS.md for restart state. Hypotheses 1 and 2 remain unverified. No Actor/WM/probe/router/judge training or task-specific parameter updates are permitted.
 
 Read REPOSITORY_AUDIT.md and SPANUQ_AUDIT.md before modifying code. Existing components: audited Agent/benchmark loops, WM backends, reflection protocols, snapshot/replay, scheduler and task logs. Missing components: validated SpanUQ integration, structured decision/signals, provenance-controlled cross-episode memory, pre-WM Gate, complete system-cost accounting and reproducible isolated environment.
 
@@ -37,6 +37,8 @@ Read REPOSITORY_AUDIT.md and SPANUQ_AUDIT.md before modifying code. Existing com
 Paths above are proposed, NOT present/implemented modules. Create directories only when their phase needs them. Phase 0 changes only docs, an inherited-README notice and ignore rules. External source patches, split manifests and setup provenance must be reconstructed independently inside v3; do not reuse writable v2 symlinks or modify v2's conda environments.
 
 ## Phase 1 — isolated Qwen3-4B / SpanUQ
+
+Execution status: partial, not accepted. See [PHASE1_REPORT.md](PHASE1_REPORT.md). Independent environment and three real Qwen3 hidden-state samples passed; strict probe load fails with 4 unexpected u_conditioner keys and positional-buffer mismatch. All official code commits have the same model blob. Producer block convention [21,22,23] was verified against HF indices [22,23,24]. Do not enter Phase 2 or treat guarded scoring code as a usable probe.
 
 1. Resolve official config/API/checkpoint version mismatch, layer indexing and training tokenizer provenance first. Inspect compatible upstream history; if necessary document a minimal compatibility patch without reimplementing SpanUQ. Unknown/missing head weights cause failure, not strict=False acceptance.
 2. Create a new Python >=3.9 environment on the data volume (candidate Python 3.10/3.12, torch/transformers versions selected from validated compatibility; Qwen3 requires Transformers >=4.51). Exact versions locked only after validation. Keep ScienceWorld 3.8 and old vLLM untouched.

@@ -29,3 +29,7 @@ wandb/
 *.safetensors
 *.pt
 *.bin
+
+.venv-spanuq/
+
+.cache/

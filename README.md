@@ -1,6 +1,6 @@
 # agentwmv3
 
-Current status: Phase 0 audit only. See [implementation plan](docs/IMPLEMENTATION_PLAN.md), [progress](docs/PROGRESS.md), [repository audit](docs/REPOSITORY_AUDIT.md), and [SpanUQ compatibility audit](docs/SPANUQ_AUDIT.md). Await user approval before Phase 1.
+Current status: Phase 1 partially executed; strict SpanUQ loading is blocked. See [Phase 1 report](docs/PHASE1_REPORT.md). See [implementation plan](docs/IMPLEMENTATION_PLAN.md), [progress](docs/PROGRESS.md), [repository audit](docs/REPOSITORY_AUDIT.md), and [SpanUQ compatibility audit](docs/SPANUQ_AUDIT.md). Phase 1 is not accepted; do not proceed to Phase 2.
 
 The documentation below is inherited from agentwmv2 and describes historical deployments and results. It is not a verified agentwmv3 setup guide. Ignored runtime assets and weights have not been copied.
 

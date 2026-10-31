@@ -1,0 +1,26 @@
+{
+  "backbone_id": "Qwen/Qwen3-4B",
+  "backbone_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+  "probe_id": "DamonDemon/SpanUQ",
+  "probe_revision": "97ca9c820ac3561259956ec21cbdd984c3132d37",
+  "probe_subfolder": "Qwen3-4B",
+  "source_url": "https://github.com/damon-demon/SpanUQ",
+  "source_commit": "778b1c1e3eeeda66233fe6b426f9303f4c7f76a3",
+  "layer_convention": "zero_based_decoder_block_output",
+  "decoder_blocks": [
+    21,
+    22,
+    23
+  ],
+  "hf_hidden_state_indices": [
+    22,
+    23,
+    24
+  ],
+  "hidden_size": 2560,
+  "max_response_tokens": 2048,
+  "max_total_tokens": 4096,
+  "dtype": "bfloat16",
+  "enable_thinking": false,
+  "checkpoint_status": "incompatible_with_published_source_do_not_score"
+}
