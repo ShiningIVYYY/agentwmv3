@@ -1,0 +1,2 @@
+forward signature (self, hidden_states: 'torch.Tensor | list[torch.Tensor]', attention_mask: 'torch.Tensor') -> 'SpanUQ_DETR_Output'
+TypeError SpanUQConfig.__init__() got an unexpected keyword argument 'mob_k'

@@ -1,0 +1,26 @@
+{
+  "vllm": {
+    "exit_code": 0,
+    "output": "3.10.19 (main, Oct 21 2025, 16:43:05) [GCC 11.2.0]\ntorch 2.5.1\ntransformers 4.57.3\nvllm 0.6.6.post1\nscienceworld absent\naccelerate 1.14.0\nscipy 1.15.3\n"
+  },
+  "vllm-cu128": {
+    "exit_code": 0,
+    "output": "3.12.13 | packaged by Anaconda, Inc. | (main, Mar 19 2026, 20:20:58) [GCC 14.3.0]\ntorch 2.11.0+cu128\ntransformers 5.13.0\nvllm 0.24.0\nscienceworld absent\naccelerate absent\nscipy absent\n"
+  },
+  "vllm-qwen3": {
+    "exit_code": 0,
+    "output": "3.12.13 | packaged by Anaconda, Inc. | (main, Mar 19 2026, 20:20:58) [GCC 14.3.0]\ntorch absent\ntransformers absent\nvllm absent\nscienceworld absent\naccelerate absent\nscipy absent\n"
+  },
+  "verl-agent": {
+    "exit_code": 0,
+    "output": "3.12.0 | packaged by Anaconda, Inc. | (main, Oct  2 2023, 17:29:18) [GCC 11.2.0]\ntorch 2.8.0\ntransformers 4.57.3\nvllm 0.11.0\nscienceworld absent\naccelerate 1.14.0\nscipy 1.18.0\n"
+  },
+  "ee-scienceworld": {
+    "exit_code": 0,
+    "output": "3.8.20 (default, Oct  3 2024, 15:24:27) \n[GCC 11.2.0]\ntorch absent\ntransformers absent\nvllm absent\nscienceworld 1.2.3\naccelerate absent\nscipy absent\n"
+  },
+  "ee-qwen38-direct": {
+    "exit_code": 0,
+    "output": "3.12.0 | packaged by Anaconda, Inc. | (main, Oct  2 2023, 17:29:18) [GCC 11.2.0]\ntorch 2.8.0\ntransformers 5.17.0\nvllm 0.11.0\nscienceworld absent\naccelerate 1.14.0\nscipy 1.18.0\n"
+  }
+}

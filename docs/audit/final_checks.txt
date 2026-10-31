@@ -1,0 +1,82 @@
+{
+  "timestamp_utc": "2026-10-31T18:36:25.752897+00:00",
+  "v2_status": {
+    "command": [
+      "git",
+      "-C",
+      "/data1/shn/agentwmv2",
+      "status",
+      "--porcelain"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "v2_head": {
+    "command": [
+      "git",
+      "-C",
+      "/data1/shn/agentwmv2",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "stdout": "b55bf320062c01c38d84e60fd8604ee2f1ed9d84\n",
+    "stderr": ""
+  },
+  "core_diff": {
+    "command": [
+      "git",
+      "diff",
+      "b55bf32",
+      "--",
+      "reflection",
+      "worldmodel",
+      "scripts",
+      "configs",
+      "experiments"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "diff_check": {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "git_fsck": {
+    "command": [
+      "git",
+      "fsck",
+      "--no-dangling"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "remote": {
+    "command": [
+      "git",
+      "ls-remote",
+      "origin"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "evidence_rerun": {
+    "command": [
+      "/home/shn/miniconda3/envs/verl-agent/bin/python",
+      "scripts/test_science_evidence.py"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "..................\n----------------------------------------------------------------------\nRan 18 tests in 0.003s\n\nOK\n"
+  }
+}

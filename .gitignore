@@ -23,3 +23,9 @@ venv/
 .env.*
 !.env.example
 wandb/
+
+# Phase 0 upstream source inspection (metadata tracked under docs/audit)
+.audit-spanuq/
+*.safetensors
+*.pt
+*.bin

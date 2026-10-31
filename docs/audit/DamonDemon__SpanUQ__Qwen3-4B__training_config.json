@@ -1,0 +1,10 @@
+{
+  "lr": 0.0001,
+  "batch_size": 16,
+  "epochs": 40,
+  "warmup_steps": 200,
+  "weight_decay": 0.01,
+  "grad_clip": 1.0,
+  "scheduler": "cosine",
+  "backbone": "Qwen/Qwen3-4B"
+}

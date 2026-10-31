@@ -1,0 +1,28 @@
+# conda environments:
+#
+base                     /data1/shn/anaconda3
+torch128                 /data1/shn/anaconda3/envs/torch128
+                         /home/shn/miniconda3
+                         /home/shn/miniconda3/envs/agentwm-sciworld
+                         /home/shn/miniconda3/envs/alfworld
+                         /home/shn/miniconda3/envs/alfworld_env
+                         /home/shn/miniconda3/envs/cogs118a
+                         /home/shn/miniconda3/envs/ee-alfworld
+                         /home/shn/miniconda3/envs/ee-qwen38
+                         /home/shn/miniconda3/envs/ee-qwen38-direct
+                         /home/shn/miniconda3/envs/ee-scienceworld
+                         /home/shn/miniconda3/envs/ee-webshop
+                         /home/shn/miniconda3/envs/java11
+                         /home/shn/miniconda3/envs/rlvmr-sciworld
+                         /home/shn/miniconda3/envs/scienceworld
+                         /home/shn/miniconda3/envs/sciworld
+                         /home/shn/miniconda3/envs/stateact
+                         /home/shn/miniconda3/envs/tales
+                         /home/shn/miniconda3/envs/textcraft
+                         /home/shn/miniconda3/envs/verl-agent
+                         /home/shn/miniconda3/envs/verl-agent-webshop
+                         /home/shn/miniconda3/envs/vllm
+                         /home/shn/miniconda3/envs/vllm-cu128
+                         /home/shn/miniconda3/envs/vllm-qwen3
+                         /home/shn/miniconda3/envs/webshop
+

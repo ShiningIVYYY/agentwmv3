@@ -1,0 +1,70 @@
+{
+  "id": "DamonDemon/SpanUQ",
+  "sha": "97ca9c820ac3561259956ec21cbdd984c3132d37",
+  "lastModified": "2026-09-25T20:15:14.000Z",
+  "siblings": [
+    {
+      "rfilename": ".gitattributes"
+    },
+    {
+      "rfilename": "Mistral-7B/best_model.pt"
+    },
+    {
+      "rfilename": "Mistral-7B/model_config.json"
+    },
+    {
+      "rfilename": "Mistral-7B/training_config.json"
+    },
+    {
+      "rfilename": "Qwen3-14B/best_model.pt"
+    },
+    {
+      "rfilename": "Qwen3-14B/model_config.json"
+    },
+    {
+      "rfilename": "Qwen3-14B/temperature.json"
+    },
+    {
+      "rfilename": "Qwen3-14B/training_config.json"
+    },
+    {
+      "rfilename": "Qwen3-30B-A3B/best_model.pt"
+    },
+    {
+      "rfilename": "Qwen3-30B-A3B/model_config.json"
+    },
+    {
+      "rfilename": "Qwen3-30B-A3B/temperature.json"
+    },
+    {
+      "rfilename": "Qwen3-30B-A3B/training_config.json"
+    },
+    {
+      "rfilename": "Qwen3-4B/best_model.pt"
+    },
+    {
+      "rfilename": "Qwen3-4B/model_config.json"
+    },
+    {
+      "rfilename": "Qwen3-4B/temperature.json"
+    },
+    {
+      "rfilename": "Qwen3-4B/training_config.json"
+    },
+    {
+      "rfilename": "Qwen3-8B/best_model.pt"
+    },
+    {
+      "rfilename": "Qwen3-8B/model_config.json"
+    },
+    {
+      "rfilename": "Qwen3-8B/temperature.json"
+    },
+    {
+      "rfilename": "Qwen3-8B/training_config.json"
+    },
+    {
+      "rfilename": "README.md"
+    }
+  ]
+}

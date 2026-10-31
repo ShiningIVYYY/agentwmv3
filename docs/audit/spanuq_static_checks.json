@@ -1,0 +1,11 @@
+{
+  "timestamp_utc": "2026-10-31T18:28:32.020005+00:00",
+  "spanuq_commit": "778b1c1e3eeeda66233fe6b426f9303f4c7f76a3",
+  "unknown_checkpoint_config_fields": [
+    "max_seq_len",
+    "mob_k",
+    "seq_agg_mode"
+  ],
+  "checkpoint_mob_k": 3,
+  "source_mob_n_components_default": 1
+}

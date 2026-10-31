@@ -1,3 +1,11 @@
+# agentwmv3
+
+Current status: Phase 0 audit only. See [implementation plan](docs/IMPLEMENTATION_PLAN.md), [progress](docs/PROGRESS.md), [repository audit](docs/REPOSITORY_AUDIT.md), and [SpanUQ compatibility audit](docs/SPANUQ_AUDIT.md). Await user approval before Phase 1.
+
+The documentation below is inherited from agentwmv2 and describes historical deployments and results. It is not a verified agentwmv3 setup guide. Ignored runtime assets and weights have not been copied.
+
+---
+
 # Early Experience：ALFWorld / ScienceWorld / WebShop 测评
 
 本仓库在 `ssh lab` 的 `/data1/shn/agentwmv2` 中运行 Qwen2.5-7B-Instruct、Qwen3.8-27B 和各 benchmark 对应的 EarlyExperience IL checkpoint。这里只下载和评测，不从零训练。WebShop 使用 `webshop-index-v2`；ScienceWorld 使用下方 `scienceworld-context-v2` 修正流程。历史 ALFWorld 混合引擎入口仅保留作参考。

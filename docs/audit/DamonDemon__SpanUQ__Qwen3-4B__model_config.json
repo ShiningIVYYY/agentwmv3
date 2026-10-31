@@ -1,0 +1,33 @@
+{
+  "d_model": 2560,
+  "d_proj": 512,
+  "n_queries": 32,
+  "enc_n_layers": 2,
+  "enc_n_heads": 8,
+  "enc_d_ffn": 1024,
+  "dec_n_layers": 3,
+  "dec_n_heads": 8,
+  "dec_d_ffn": 1024,
+  "scorer_n_layers": 2,
+  "scorer_d_ffn": 256,
+  "scorer_dropout": 0.1,
+  "dropout": 0.1,
+  "multi_layer_mode": "mean",
+  "multi_layer_ids": [
+    21,
+    22,
+    23
+  ],
+  "return_intermediate": true,
+  "span_mode": "regression",
+  "reg_n_layers": 3,
+  "reg_d_ffn": 256,
+  "reg_l1_weight": 5.0,
+  "reg_giou_weight": 2.0,
+  "use_span_enrichment": true,
+  "enrichment_fusion": "gate",
+  "mob_k": 3,
+  "use_ucir": true,
+  "seq_agg_mode": "importance",
+  "max_seq_len": 2048
+}
