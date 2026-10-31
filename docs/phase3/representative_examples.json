@@ -1,0 +1,1563 @@
+[
+  {
+    "case_id": "phase3_dev_v1/sciworld_1466/step-1",
+    "selection_purpose": "frozen_hash_rank_diagnostic",
+    "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the kitchen. First, focus on the aluminum foil. If it is electrically conductive, place it in the red box. If it is electrically nonconductive, place it in the green box.",
+    "observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta substance called air\n\tA aluminum foil\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called soap\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)",
+    "draft_decision": "Premise: The aluminum foil is in the kitchen.  \nExpected Consequence: The aluminum foil will be placed in the red box if it is conductive.  \nAction: focus on aluminum foil.",
+    "internal_signals": {
+      "premise_uncertainty": 0.05845164096814415,
+      "consequence_uncertainty": 0.03079187407092121,
+      "local_uncertainty": 0.05845164096814415,
+      "global_uncertainty": 0.02806494607647032,
+      "missing_span": false,
+      "token_count": 40,
+      "extraction_latency": 0.01380305178463459,
+      "backend": "hf_generation_raw_bf16_v1",
+      "dtype": "bfloat16",
+      "model_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+      "status": "ok",
+      "errors": [],
+      "details": {
+        "schema_version": 1,
+        "method": "fixed_field_mean_token_nll_v1",
+        "unit": "nats_per_token",
+        "score_range": "[0,infinity)",
+        "calibrated_error_probability": false,
+        "local_uncertainty": 0.05845164096814415,
+        "global_uncertainty": 0.02806494607647032,
+        "premise_uncertainty": 0.05845164096814415,
+        "consequence_uncertainty": 0.03079187407092121,
+        "field_spans": [
+          {
+            "field": "premise",
+            "char_start": 9,
+            "char_end": 45,
+            "text": "The aluminum foil is in the kitchen.",
+            "token_indices": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "token_count": 8,
+            "boundary_overhang_tokens": [
+              3
+            ],
+            "uncertainty": 0.05845164096814415
+          },
+          {
+            "field": "consequence",
+            "char_start": 70,
+            "char_end": 138,
+            "text": "The aluminum foil will be placed in the red box if it is conductive.",
+            "token_indices": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "token_count": 16,
+            "boundary_overhang_tokens": [
+              16
+            ],
+            "uncertainty": 0.03079187407092121
+          }
+        ],
+        "missing_span": false,
+        "missing_fields": [],
+        "format_valid": true,
+        "missing_reason": null,
+        "boundary_policy": "include_whole_token_if_character_interval_intersects_field_value",
+        "global_token_policy": "all_response_tokens_including_labels_and_action_excluding_eos_prompt_padding",
+        "response_tokens": 40,
+        "offsets": [
+          [
+            0,
+            4
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            8,
+            12
+          ],
+          [
+            12,
+            21
+          ],
+          [
+            21,
+            26
+          ],
+          [
+            26,
+            29
+          ],
+          [
+            29,
+            32
+          ],
+          [
+            32,
+            36
+          ],
+          [
+            36,
+            44
+          ],
+          [
+            44,
+            45
+          ],
+          [
+            45,
+            48
+          ],
+          [
+            48,
+            56
+          ],
+          [
+            56,
+            60
+          ],
+          [
+            60,
+            68
+          ],
+          [
+            68,
+            69
+          ],
+          [
+            69,
+            73
+          ],
+          [
+            73,
+            82
+          ],
+          [
+            82,
+            87
+          ],
+          [
+            87,
+            92
+          ],
+          [
+            92,
+            95
+          ],
+          [
+            95,
+            102
+          ],
+          [
+            102,
+            105
+          ],
+          [
+            105,
+            109
+          ],
+          [
+            109,
+            113
+          ],
+          [
+            113,
+            117
+          ],
+          [
+            117,
+            120
+          ],
+          [
+            120,
+            123
+          ],
+          [
+            123,
+            126
+          ],
+          [
+            126,
+            134
+          ],
+          [
+            134,
+            137
+          ],
+          [
+            137,
+            138
+          ],
+          [
+            138,
+            141
+          ],
+          [
+            141,
+            147
+          ],
+          [
+            147,
+            148
+          ],
+          [
+            148,
+            154
+          ],
+          [
+            154,
+            157
+          ],
+          [
+            157,
+            166
+          ],
+          [
+            166,
+            171
+          ],
+          [
+            171,
+            172
+          ]
+        ],
+        "fallback_policy": "global_only",
+        "fallback_uncertainty": null,
+        "fallback_applied": false,
+        "effective_uncertainty": 0.05845164096814415,
+        "score_unit": "nats_per_token",
+        "prompt_tokens": 492,
+        "generation_tokens_including_eos": 41,
+        "scoring_path": "raw_generation_logits_before_temperature",
+        "additional_backbone_forward_passes": 0,
+        "raw_logit_reduction_seconds": 0.009866315871477127
+      }
+    },
+    "external_signals": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00043971091508865356,
+      "judge_latency": 4.686787724494934e-05,
+      "retrieval_cpu_seconds": 0.00043383299999888436,
+      "judge_cpu_seconds": 4.773000000213301e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_6af512c385caf54a11ede606",
+      "query_input_sha256": "8afc18c35b41e17680bb41b2466f71c54c9fd1494e336fb35bca37a7e930334a",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.7923210534471403,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.6805857906322246,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 101212,
+      "query_at_ns": 1793483198621404211,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "environment_feedback_after_execution": "No known action matches that input.",
+    "feedback_not_in_query": true
+  },
+  {
+    "case_id": "phase3_dev_v1/sciworld_146/step-2",
+    "selection_purpose": "frozen_hash_rank_diagnostic",
+    "goal": "Your task is to measure the temperature of unknown substance B, which is located around the living room. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above 100.0 degrees celsius, place it in the yellow box. If the unknown substance B temperature is below 100.0 degrees celsius, place it in the purple box. The boxes are located around the bathroom.",
+    "observation": "No known action matches that input.",
+    "draft_decision": "Premise: The thermometer is not in the current field of view.\nExpected Consequence: The agent will need to locate and focus on the thermometer.\nAction: look around",
+    "internal_signals": {
+      "premise_uncertainty": 0.018933830986348064,
+      "consequence_uncertainty": 0.0017831887920986371,
+      "local_uncertainty": 0.018933830986348064,
+      "global_uncertainty": 0.0067551521977072615,
+      "missing_span": false,
+      "token_count": 34,
+      "extraction_latency": 0.004289399832487106,
+      "backend": "hf_generation_raw_bf16_v1",
+      "dtype": "bfloat16",
+      "model_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+      "status": "ok",
+      "errors": [],
+      "details": {
+        "schema_version": 1,
+        "method": "fixed_field_mean_token_nll_v1",
+        "unit": "nats_per_token",
+        "score_range": "[0,infinity)",
+        "calibrated_error_probability": false,
+        "local_uncertainty": 0.018933830986348064,
+        "global_uncertainty": 0.0067551521977072615,
+        "premise_uncertainty": 0.018933830986348064,
+        "consequence_uncertainty": 0.0017831887920986371,
+        "field_spans": [
+          {
+            "field": "premise",
+            "char_start": 9,
+            "char_end": 61,
+            "text": "The thermometer is not in the current field of view.",
+            "token_indices": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13
+            ],
+            "token_count": 11,
+            "boundary_overhang_tokens": [
+              3,
+              13
+            ],
+            "uncertainty": 0.018933830986348064
+          },
+          {
+            "field": "consequence",
+            "char_start": 84,
+            "char_end": 143,
+            "text": "The agent will need to locate and focus on the thermometer.",
+            "token_indices": [
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29
+            ],
+            "token_count": 12,
+            "boundary_overhang_tokens": [
+              18,
+              29
+            ],
+            "uncertainty": 0.0017831887920986371
+          }
+        ],
+        "missing_span": false,
+        "missing_fields": [],
+        "format_valid": true,
+        "missing_reason": null,
+        "boundary_policy": "include_whole_token_if_character_interval_intersects_field_value",
+        "global_token_policy": "all_response_tokens_including_labels_and_action_excluding_eos_prompt_padding",
+        "response_tokens": 34,
+        "offsets": [
+          [
+            0,
+            4
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            8,
+            12
+          ],
+          [
+            12,
+            24
+          ],
+          [
+            24,
+            27
+          ],
+          [
+            27,
+            31
+          ],
+          [
+            31,
+            34
+          ],
+          [
+            34,
+            38
+          ],
+          [
+            38,
+            46
+          ],
+          [
+            46,
+            52
+          ],
+          [
+            52,
+            55
+          ],
+          [
+            55,
+            60
+          ],
+          [
+            60,
+            62
+          ],
+          [
+            62,
+            70
+          ],
+          [
+            70,
+            74
+          ],
+          [
+            74,
+            82
+          ],
+          [
+            82,
+            83
+          ],
+          [
+            83,
+            87
+          ],
+          [
+            87,
+            93
+          ],
+          [
+            93,
+            98
+          ],
+          [
+            98,
+            103
+          ],
+          [
+            103,
+            106
+          ],
+          [
+            106,
+            113
+          ],
+          [
+            113,
+            117
+          ],
+          [
+            117,
+            123
+          ],
+          [
+            123,
+            126
+          ],
+          [
+            126,
+            130
+          ],
+          [
+            130,
+            142
+          ],
+          [
+            142,
+            144
+          ],
+          [
+            144,
+            150
+          ],
+          [
+            150,
+            151
+          ],
+          [
+            151,
+            156
+          ],
+          [
+            156,
+            163
+          ]
+        ],
+        "fallback_policy": "global_only",
+        "fallback_uncertainty": null,
+        "fallback_applied": false,
+        "effective_uncertainty": 0.018933830986348064,
+        "score_unit": "nats_per_token",
+        "prompt_tokens": 380,
+        "generation_tokens_including_eos": 35,
+        "scoring_path": "raw_generation_logits_before_temperature",
+        "additional_backbone_forward_passes": 0,
+        "raw_logit_reduction_seconds": 0.0004918389022350311
+      }
+    },
+    "external_signals": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0003666132688522339,
+      "judge_latency": 3.6677345633506775e-05,
+      "retrieval_cpu_seconds": 0.00036366200000159665,
+      "judge_cpu_seconds": 3.7410000000903665e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_6af512c385caf54a11ede606",
+      "query_input_sha256": "924247b551db2bf40466472ab9bd661ac4098d5b3e01411159a2062f3eb1bc6e",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 0.8999577058716273,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 0.8580678431549693,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 101212,
+      "query_at_ns": 1793483209596581637,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "environment_feedback_after_execution": "This room is called the foundry. In it, you see: \n\tthe agent\n\ta substance called air\n\ta blast furnace, which is turned off. The blast furnace door is closed. \n\ta sink, which is turned off. In the sink is: nothing.\n\ta table. On the table is: nothing.\nYou also see:\n\tA door to the outside (that is closed)",
+    "feedback_not_in_query": true
+  },
+  {
+    "case_id": "phase3_targeted_dev_v1/sciworld_1709/step-1",
+    "selection_purpose": "targeted_previously_exposed_development",
+    "goal": "Your task is to determine if glass jar is electrically conductive. The glass jar is located around the kitchen. First, focus on the glass jar. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box.",
+    "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+    "draft_decision": "Premise: The glass jar is not in the bathroom.  \nExpected Consequence: The agent will need to go to the kitchen to find the glass jar.  \nAction: go kitchen",
+    "internal_signals": {
+      "premise_uncertainty": 0.029114132310711385,
+      "consequence_uncertainty": 0.018509129865554523,
+      "local_uncertainty": 0.029114132310711385,
+      "global_uncertainty": 0.01468148684790741,
+      "missing_span": false,
+      "token_count": 37,
+      "extraction_latency": 0.013116113841533661,
+      "backend": "hf_generation_raw_bf16_v1",
+      "dtype": "bfloat16",
+      "model_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+      "status": "ok",
+      "errors": [],
+      "details": {
+        "schema_version": 1,
+        "method": "fixed_field_mean_token_nll_v1",
+        "unit": "nats_per_token",
+        "score_range": "[0,infinity)",
+        "calibrated_error_probability": false,
+        "local_uncertainty": 0.029114132310711385,
+        "global_uncertainty": 0.01468148684790741,
+        "premise_uncertainty": 0.029114132310711385,
+        "consequence_uncertainty": 0.018509129865554523,
+        "field_spans": [
+          {
+            "field": "premise",
+            "char_start": 9,
+            "char_end": 46,
+            "text": "The glass jar is not in the bathroom.",
+            "token_indices": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "token_count": 9,
+            "boundary_overhang_tokens": [
+              3
+            ],
+            "uncertainty": 0.029114132310711385
+          },
+          {
+            "field": "consequence",
+            "char_start": 71,
+            "char_end": 134,
+            "text": "The agent will need to go to the kitchen to find the glass jar.",
+            "token_indices": [
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "token_count": 15,
+            "boundary_overhang_tokens": [
+              17
+            ],
+            "uncertainty": 0.018509129865554523
+          }
+        ],
+        "missing_span": false,
+        "missing_fields": [],
+        "format_valid": true,
+        "missing_reason": null,
+        "boundary_policy": "include_whole_token_if_character_interval_intersects_field_value",
+        "global_token_policy": "all_response_tokens_including_labels_and_action_excluding_eos_prompt_padding",
+        "response_tokens": 37,
+        "offsets": [
+          [
+            0,
+            4
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            8,
+            12
+          ],
+          [
+            12,
+            18
+          ],
+          [
+            18,
+            22
+          ],
+          [
+            22,
+            25
+          ],
+          [
+            25,
+            29
+          ],
+          [
+            29,
+            32
+          ],
+          [
+            32,
+            36
+          ],
+          [
+            36,
+            45
+          ],
+          [
+            45,
+            46
+          ],
+          [
+            46,
+            49
+          ],
+          [
+            49,
+            57
+          ],
+          [
+            57,
+            61
+          ],
+          [
+            61,
+            69
+          ],
+          [
+            69,
+            70
+          ],
+          [
+            70,
+            74
+          ],
+          [
+            74,
+            80
+          ],
+          [
+            80,
+            85
+          ],
+          [
+            85,
+            90
+          ],
+          [
+            90,
+            93
+          ],
+          [
+            93,
+            96
+          ],
+          [
+            96,
+            99
+          ],
+          [
+            99,
+            103
+          ],
+          [
+            103,
+            111
+          ],
+          [
+            111,
+            114
+          ],
+          [
+            114,
+            119
+          ],
+          [
+            119,
+            123
+          ],
+          [
+            123,
+            129
+          ],
+          [
+            129,
+            133
+          ],
+          [
+            133,
+            134
+          ],
+          [
+            134,
+            137
+          ],
+          [
+            137,
+            143
+          ],
+          [
+            143,
+            144
+          ],
+          [
+            144,
+            147
+          ],
+          [
+            147,
+            155
+          ]
+        ],
+        "fallback_policy": "global_only",
+        "fallback_uncertainty": null,
+        "fallback_applied": false,
+        "effective_uncertainty": 0.029114132310711385,
+        "score_unit": "nats_per_token",
+        "prompt_tokens": 353,
+        "generation_tokens_including_eos": 38,
+        "scoring_path": "raw_generation_logits_before_temperature",
+        "additional_backbone_forward_passes": 0,
+        "raw_logit_reduction_seconds": 0.010205788537859917
+      }
+    },
+    "external_signals": {
+      "schema": "external-signals-v1",
+      "coverage": "true",
+      "conflict": "true",
+      "sufficiency": "false",
+      "reliability": "supported",
+      "matched_experience_ids": [
+        "exp_b5e8e19f18820e2efed9"
+      ],
+      "supporting_evidence_ids": [
+        "phase3_rule_probes_v1/sciworld_1545/step-1",
+        "phase3_rule_probes_v1/sciworld_1667/step-1",
+        "phase3_train_v2/sciworld_3044/step-3",
+        "phase3_train_v2/sciworld_325/step-4"
+      ],
+      "reason": "Draft movement contradicts supported closed-route precondition; action remains unchanged and unresolved.",
+      "retrieval_latency": 0.00039615854620933533,
+      "judge_latency": 3.427639603614807e-05,
+      "retrieval_cpu_seconds": 0.00039113400000090337,
+      "judge_cpu_seconds": 3.4834999997457317e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_6af512c385caf54a11ede606",
+      "query_input_sha256": "92ae906de5df69efd12bbe7f00c6104e1dd62c4d5dbba20a7ac64518df301760",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 2.8270336269882854,
+          "applicable": true,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 2.101340641233504,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 101212,
+      "query_at_ns": 1793483322588055546,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "environment_feedback_after_execution": "The door is not open.",
+    "feedback_not_in_query": true
+  },
+  {
+    "case_id": "phase3_targeted_dev_v1/sciworld_1709/step-2",
+    "selection_purpose": "targeted_previously_exposed_development",
+    "goal": "Your task is to determine if glass jar is electrically conductive. The glass jar is located around the kitchen. First, focus on the glass jar. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box.",
+    "observation": "The door is not open.",
+    "draft_decision": "Premise: The door to the kitchen is closed.  \nExpected Consequence: The agent can open the door to enter the kitchen.  \nAction: open door to the kitchen",
+    "internal_signals": {
+      "premise_uncertainty": 0.07361226901355078,
+      "consequence_uncertainty": 0.004600081703578305,
+      "local_uncertainty": 0.07361226901355078,
+      "global_uncertainty": 0.022931656214710675,
+      "missing_span": false,
+      "token_count": 35,
+      "extraction_latency": 0.0037638507783412933,
+      "backend": "hf_generation_raw_bf16_v1",
+      "dtype": "bfloat16",
+      "model_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+      "status": "ok",
+      "errors": [],
+      "details": {
+        "schema_version": 1,
+        "method": "fixed_field_mean_token_nll_v1",
+        "unit": "nats_per_token",
+        "score_range": "[0,infinity)",
+        "calibrated_error_probability": false,
+        "local_uncertainty": 0.07361226901355078,
+        "global_uncertainty": 0.022931656214710675,
+        "premise_uncertainty": 0.07361226901355078,
+        "consequence_uncertainty": 0.004600081703578305,
+        "field_spans": [
+          {
+            "field": "premise",
+            "char_start": 9,
+            "char_end": 43,
+            "text": "The door to the kitchen is closed.",
+            "token_indices": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "token_count": 8,
+            "boundary_overhang_tokens": [
+              3
+            ],
+            "uncertainty": 0.07361226901355078
+          },
+          {
+            "field": "consequence",
+            "char_start": 68,
+            "char_end": 117,
+            "text": "The agent can open the door to enter the kitchen.",
+            "token_indices": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26
+            ],
+            "token_count": 11,
+            "boundary_overhang_tokens": [
+              16
+            ],
+            "uncertainty": 0.004600081703578305
+          }
+        ],
+        "missing_span": false,
+        "missing_fields": [],
+        "format_valid": true,
+        "missing_reason": null,
+        "boundary_policy": "include_whole_token_if_character_interval_intersects_field_value",
+        "global_token_policy": "all_response_tokens_including_labels_and_action_excluding_eos_prompt_padding",
+        "response_tokens": 35,
+        "offsets": [
+          [
+            0,
+            4
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            8,
+            12
+          ],
+          [
+            12,
+            17
+          ],
+          [
+            17,
+            20
+          ],
+          [
+            20,
+            24
+          ],
+          [
+            24,
+            32
+          ],
+          [
+            32,
+            35
+          ],
+          [
+            35,
+            42
+          ],
+          [
+            42,
+            43
+          ],
+          [
+            43,
+            46
+          ],
+          [
+            46,
+            54
+          ],
+          [
+            54,
+            58
+          ],
+          [
+            58,
+            66
+          ],
+          [
+            66,
+            67
+          ],
+          [
+            67,
+            71
+          ],
+          [
+            71,
+            77
+          ],
+          [
+            77,
+            81
+          ],
+          [
+            81,
+            86
+          ],
+          [
+            86,
+            90
+          ],
+          [
+            90,
+            95
+          ],
+          [
+            95,
+            98
+          ],
+          [
+            98,
+            104
+          ],
+          [
+            104,
+            108
+          ],
+          [
+            108,
+            116
+          ],
+          [
+            116,
+            117
+          ],
+          [
+            117,
+            120
+          ],
+          [
+            120,
+            126
+          ],
+          [
+            126,
+            127
+          ],
+          [
+            127,
+            132
+          ],
+          [
+            132,
+            137
+          ],
+          [
+            137,
+            140
+          ],
+          [
+            140,
+            144
+          ],
+          [
+            144,
+            152
+          ]
+        ],
+        "fallback_policy": "global_only",
+        "fallback_uncertainty": null,
+        "fallback_applied": false,
+        "effective_uncertainty": 0.07361226901355078,
+        "score_unit": "nats_per_token",
+        "prompt_tokens": 364,
+        "generation_tokens_including_eos": 36,
+        "scoring_path": "raw_generation_logits_before_temperature",
+        "additional_backbone_forward_passes": 0,
+        "raw_logit_reduction_seconds": 0.0004432518035173416
+      }
+    },
+    "external_signals": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0002540219575166702,
+      "judge_latency": 1.7533078789711e-05,
+      "retrieval_cpu_seconds": 0.0002502699999986646,
+      "judge_cpu_seconds": 1.8034000000000106e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_6af512c385caf54a11ede606",
+      "query_input_sha256": "e80f1ccea5e05000cd7e6f8b5df6782da7ce9460f8afcb1eb3ecac8a03af4672",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 2.0069252890942533,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.5773036710195154,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 101212,
+      "query_at_ns": 1793483324056128274,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "environment_feedback_after_execution": "The door is now open.",
+    "feedback_not_in_query": true
+  },
+  {
+    "case_id": "phase3_targeted_dev_v1/sciworld_349/step-5",
+    "selection_purpose": "targeted_previously_exposed_development",
+    "goal": "Your task is to measure the temperature of unknown substance B, which is located around the bedroom. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above 0.0 degrees celsius, place it in the orange box. If the unknown substance B temperature is below 0.0 degrees celsius, place it in the yellow box. The boxes are located around the bathroom.",
+    "observation": "This room is called the greenhouse. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bee hive. The bee hive door is closed. \n\ta jug (containing nothing)\n\ta shovel\n\ta sink, which is turned off. In the sink is: nothing.\nYou also see:\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)",
+    "draft_decision": "Premise: The unknown substance B is located around the bedroom, but the current room is the greenhouse.\nExpected Consequence: The agent will need to navigate to the bedroom to find substance B.\nAction: go hallway",
+    "internal_signals": {
+      "premise_uncertainty": 0.029543023194027757,
+      "consequence_uncertainty": 0.026046010527263012,
+      "local_uncertainty": 0.029543023194027757,
+      "global_uncertainty": 0.021541750728081635,
+      "missing_span": false,
+      "token_count": 43,
+      "extraction_latency": 0.006388658657670021,
+      "backend": "hf_generation_raw_bf16_v1",
+      "dtype": "bfloat16",
+      "model_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+      "status": "ok",
+      "errors": [],
+      "details": {
+        "schema_version": 1,
+        "method": "fixed_field_mean_token_nll_v1",
+        "unit": "nats_per_token",
+        "score_range": "[0,infinity)",
+        "calibrated_error_probability": false,
+        "local_uncertainty": 0.029543023194027757,
+        "global_uncertainty": 0.021541750728081635,
+        "premise_uncertainty": 0.029543023194027757,
+        "consequence_uncertainty": 0.026046010527263012,
+        "field_spans": [
+          {
+            "field": "premise",
+            "char_start": 9,
+            "char_end": 103,
+            "text": "The unknown substance B is located around the bedroom, but the current room is the greenhouse.",
+            "token_indices": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20
+            ],
+            "token_count": 18,
+            "boundary_overhang_tokens": [
+              3,
+              20
+            ],
+            "uncertainty": 0.029543023194027757
+          },
+          {
+            "field": "consequence",
+            "char_start": 126,
+            "char_end": 193,
+            "text": "The agent will need to navigate to the bedroom to find substance B.",
+            "token_indices": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38
+            ],
+            "token_count": 14,
+            "boundary_overhang_tokens": [
+              25,
+              38
+            ],
+            "uncertainty": 0.026046010527263012
+          }
+        ],
+        "missing_span": false,
+        "missing_fields": [],
+        "format_valid": true,
+        "missing_reason": null,
+        "boundary_policy": "include_whole_token_if_character_interval_intersects_field_value",
+        "global_token_policy": "all_response_tokens_including_labels_and_action_excluding_eos_prompt_padding",
+        "response_tokens": 43,
+        "offsets": [
+          [
+            0,
+            4
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            8,
+            12
+          ],
+          [
+            12,
+            20
+          ],
+          [
+            20,
+            30
+          ],
+          [
+            30,
+            32
+          ],
+          [
+            32,
+            35
+          ],
+          [
+            35,
+            43
+          ],
+          [
+            43,
+            50
+          ],
+          [
+            50,
+            54
+          ],
+          [
+            54,
+            62
+          ],
+          [
+            62,
+            63
+          ],
+          [
+            63,
+            67
+          ],
+          [
+            67,
+            71
+          ],
+          [
+            71,
+            79
+          ],
+          [
+            79,
+            84
+          ],
+          [
+            84,
+            87
+          ],
+          [
+            87,
+            91
+          ],
+          [
+            91,
+            102
+          ],
+          [
+            102,
+            104
+          ],
+          [
+            104,
+            112
+          ],
+          [
+            112,
+            116
+          ],
+          [
+            116,
+            124
+          ],
+          [
+            124,
+            125
+          ],
+          [
+            125,
+            129
+          ],
+          [
+            129,
+            135
+          ],
+          [
+            135,
+            140
+          ],
+          [
+            140,
+            145
+          ],
+          [
+            145,
+            148
+          ],
+          [
+            148,
+            157
+          ],
+          [
+            157,
+            160
+          ],
+          [
+            160,
+            164
+          ],
+          [
+            164,
+            172
+          ],
+          [
+            172,
+            175
+          ],
+          [
+            175,
+            180
+          ],
+          [
+            180,
+            190
+          ],
+          [
+            190,
+            192
+          ],
+          [
+            192,
+            194
+          ],
+          [
+            194,
+            200
+          ],
+          [
+            200,
+            201
+          ],
+          [
+            201,
+            204
+          ],
+          [
+            204,
+            212
+          ]
+        ],
+        "fallback_policy": "global_only",
+        "fallback_uncertainty": null,
+        "fallback_applied": false,
+        "effective_uncertainty": 0.029543023194027757,
+        "score_unit": "nats_per_token",
+        "prompt_tokens": 545,
+        "generation_tokens_including_eos": 44,
+        "scoring_path": "raw_generation_logits_before_temperature",
+        "additional_backbone_forward_passes": 0,
+        "raw_logit_reduction_seconds": 0.0014692731201648712
+      }
+    },
+    "external_signals": {
+      "schema": "external-signals-v1",
+      "coverage": "true",
+      "conflict": "true",
+      "sufficiency": "false",
+      "reliability": "supported",
+      "matched_experience_ids": [
+        "exp_b5e8e19f18820e2efed9"
+      ],
+      "supporting_evidence_ids": [
+        "phase3_rule_probes_v1/sciworld_1545/step-1",
+        "phase3_rule_probes_v1/sciworld_1667/step-1",
+        "phase3_train_v2/sciworld_3044/step-3",
+        "phase3_train_v2/sciworld_325/step-4"
+      ],
+      "reason": "Draft movement contradicts supported closed-route precondition; action remains unchanged and unresolved.",
+      "retrieval_latency": 0.00033828988671302795,
+      "judge_latency": 4.582852125167847e-05,
+      "retrieval_cpu_seconds": 0.0003345370000005232,
+      "judge_cpu_seconds": 4.6316999998907704e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_6af512c385caf54a11ede606",
+      "query_input_sha256": "2b455787139b1f2c42a0db6bedd15511f9046f693a8940513284502a6c04849b",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 2.6500224067999802,
+          "applicable": true,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.7923210534471403,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 101212,
+      "query_at_ns": 1793483336255965398,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "environment_feedback_after_execution": "The door is not open.",
+    "feedback_not_in_query": true
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "episodes": 2,
+  "real_environment_steps": 6,
+  "model_calls": 0,
+  "tokens": 0,
+  "environment_step_seconds": 0.716336781,
+  "purpose": "controlled_environment_facts_only_not_natural_conflict_or_benchmark_performance"
+}

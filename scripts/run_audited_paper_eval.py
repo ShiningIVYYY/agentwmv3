@@ -467,6 +467,18 @@ class Science:
                 # category is forbidden or removed, unlike the superseded evaluator.
                 messages, h = bounded_science(agent, self.prelude, task, rst['observation'], steps)
                 text, metadata = agent.generate(messages, row['task_id'], t + 1)
+                # Optional read-only memory hook: current decision only, before step.
+                if getattr(agent, 'external_signal_provider', None) is not None:
+                    from experience.collection import fields
+                    from experience.schema import ExternalQuery
+                    premise, consequence, draft = fields(text)
+                    query = ExternalQuery(
+                        benchmark='scienceworld', task_id=row['task_id'],
+                        episode_id=agent.external_episode_prefix + '/' + row['task_id'],
+                        step_index=t + 1, available_at_ns=time.time_ns(), goal=task,
+                        observation=rst['observation'], draft_action=draft,
+                        premise=premise, expected_consequence=consequence)
+                    metadata['external_signals'] = agent.external_signal_provider.evaluate(query)
                 # Match the AgentGym ScienceWorld response grammar, not ALFWorld tags.
                 # BaseAdapter.parse_react uses the entire tail of the last
                 # Action: separator, without first-line cleanup or fuzzy repair.

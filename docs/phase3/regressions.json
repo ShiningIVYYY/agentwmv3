@@ -1,0 +1,62 @@
+[
+  {
+    "suite": "test_experience_memory",
+    "exit_code": 0,
+    "seconds": 0.07430240511894226,
+    "final_exit_code": 0,
+    "final_cases": 37,
+    "cases": 37,
+    "initial_cases": 35
+  },
+  {
+    "suite": "test_internal_signals",
+    "exit_code": 0,
+    "seconds": 4.24530429020524,
+    "final_exit_code": 0,
+    "cases": 14
+  },
+  {
+    "suite": "test_token_nll",
+    "exit_code": 0,
+    "seconds": 1.720948301255703,
+    "final_exit_code": 0,
+    "cases": 10
+  },
+  {
+    "suite": "test_spanuq_integration",
+    "exit_code": 0,
+    "seconds": 4.726303873583674,
+    "final_exit_code": 0,
+    "cases": 11
+  },
+  {
+    "suite": "test_wm_reflection",
+    "exit_code": 0,
+    "seconds": 0.15517091006040573,
+    "final_exit_code": 0,
+    "cases": 33
+  },
+  {
+    "suite": "test_agentwm_reflection",
+    "exit_code": 0,
+    "seconds": 0.16124305129051208,
+    "final_exit_code": 0,
+    "cases": 28
+  },
+  {
+    "suite": "test_science_evidence",
+    "exit_code": 1,
+    "seconds": 0.04989774897694588,
+    "final_exit_code": 0,
+    "retry_command": "CUDA_VISIBLE_DEVICES= PYTHONNOUSERSITE=1 PYTHONPATH=. .venv-spanuq/bin/python scripts/test_science_evidence.py",
+    "retry_log": "test_science_evidence_retry.log",
+    "cases": 18
+  },
+  {
+    "suite": "test_scienceworld_sr_context",
+    "exit_code": 0,
+    "seconds": 0.13723483122885227,
+    "final_exit_code": 0,
+    "cases": 3
+  }
+]

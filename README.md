@@ -1,6 +1,6 @@
 # agentwmv3
 
-Current status: Phase 2 Internal Signals implemented for frozen Qwen3-4B Token NLL. See [internal module](docs/INTERNAL_SIGNALS.md), [Phase 2 report](docs/PHASE2_REPORT.md), and [progress](docs/PROGRESS.md). SpanUQ is shelved with strict guards intact. Await confirmation before Phase 3.
+Current status: Phase 3 Training-Free Experience Memory completed. See [memory contract and commands](docs/EXPERIENCE_MEMORY.md), [Phase 3 report](docs/PHASE3_REPORT.md), [real evidence](docs/phase3/representative_examples.json) and [progress](docs/PROGRESS.md). Two narrow evidence rules, BM25 and tri-state external signals are connected read-only; no Gate or action correction. The accepted [Internal Signals](docs/INTERNAL_SIGNALS.md) provider and [paper-aligned protocol](docs/PAPER_ALIGNED_EVAL.md) remain unchanged. Await confirmation before Phase 4.
 
 The documentation below is inherited from agentwmv2 and describes historical deployments and results. It is not a verified agentwmv3 setup guide. Legacy benchmark runtime assets/results have not been copied. The selected Qwen3-4B/probe assets were prepared separately in Phase 1 and remain ignored by Git.
 

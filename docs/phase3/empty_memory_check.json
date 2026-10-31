@@ -1,0 +1,33 @@
+{
+  "purpose": "offline_no_evidence_check_on_real_recorded_preaction_input_not_new_rollout",
+  "source_case_id": "phase3_dev_v1/sciworld_1466/step-1",
+  "signals": {
+    "schema": "external-signals-v1",
+    "coverage": "unknown",
+    "conflict": "unknown",
+    "sufficiency": "unknown",
+    "reliability": "unknown",
+    "matched_experience_ids": [],
+    "supporting_evidence_ids": [],
+    "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+    "retrieval_latency": 7.1320682764053345e-06,
+    "judge_latency": 5.891546607017517e-06,
+    "retrieval_cpu_seconds": 4.118000000011279e-06,
+    "judge_cpu_seconds": 6.250999999998785e-06,
+    "additional_tokens": 0,
+    "retrieval_calls": 1,
+    "judge_model_calls": 0,
+    "extra_forward_passes": 0,
+    "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+    "judge_method": "conservative-observed-door-v1",
+    "snapshot_id": "memory_6a09917b7eb7f1a7303773a8",
+    "query_input_sha256": "45bde0c33e67f2892b8fdd0b91df32438106c22039703eec7ab13e217e09c1c2",
+    "retrieved_cards": [],
+    "memory_serialized_bytes": 461,
+    "query_at_ns": 1793483640122088020,
+    "source_scope": "training_only_frozen_snapshot",
+    "wm_utility": "unknown",
+    "action_modified": false,
+    "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+  }
+}

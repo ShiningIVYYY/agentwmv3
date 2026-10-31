@@ -1,0 +1,44 @@
+{
+  "purpose": "functional_only_no_gate_or_threshold_selection",
+  "steps": 15,
+  "episodes": 3,
+  "actor_calls": 15,
+  "memory_snapshot": "memory_6af512c385caf54a11ede606",
+  "internal_backend": "hf_generation_raw_bf16_v1",
+  "internal_config_sha256": "adce5d6dcb8d9ec0d76797f41dab348a0db429b6aeff10d1c4e66bf99b0b63fb",
+  "missing_span_count": 0,
+  "all_drafts_unchanged": true,
+  "max_peak_allocated_bytes": 8294572544,
+  "generation_seconds": 17.892113467678428,
+  "internal_extraction_seconds": 0.07042514905333519,
+  "generated_tokens_including_eos": 511,
+  "retrieval_seconds": 0.005065681412816048,
+  "retrieval_cpu_seconds": 0.00501029700000899,
+  "judge_cpu_seconds": 0.0005668849999871384,
+  "snapshot_validation_load_seconds": 0.00984875112771988,
+  "judge_seconds": 0.0005573946982622147,
+  "judge_model_calls": 0,
+  "additional_tokens": 0,
+  "external_signal_counts": {
+    "coverage": {
+      "true": 0,
+      "false": 0,
+      "unknown": 15
+    },
+    "conflict": {
+      "true": 0,
+      "false": 0,
+      "unknown": 15
+    },
+    "sufficiency": {
+      "true": 0,
+      "false": 0,
+      "unknown": 15
+    }
+  },
+  "environment_step_seconds": 1.845713927,
+  "extra_model_forward_passes": 0,
+  "wm_calls": 0,
+  "oracle_calls": 0,
+  "memory_correction_calls": 0
+}

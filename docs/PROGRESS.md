@@ -1,6 +1,15 @@
 # Current status
 
-Phase2 COMPLETE for user-selected route B. Phase3 NOT STARTED; await explicit confirmation. See PHASE2_REPORT.md and INTERNAL_SIGNALS.md. Earlier entries below are historical; SpanUQ remains shelved/unavailable.
+Phase3 COMPLETE for the narrow training-free evidence module; awaiting explicit confirmation before Phase4. Phase2 accepted by user. Read PHASE3_REPORT.md, EXPERIENCE_MEMORY.md, IMPLEMENTATION_PLAN.md and PAPER_ALIGNED_EVAL.md when resuming. Earlier entries below are historical, not current authorization.
+
+- Frozen split:1292 train/197 dev/200 test, with all200 native test identity/goal fingerprints checked and whole normalized goal groups isolated. Template/layout overlap and semantic-duplicate limits disclosed.
+- Fresh memory:48 Qwen training steps +6 separately labelled real environment probes ->54 Cases/two evidence Cards; no old v2 test/train feedback used for synthesis. Snapshot memory_6af512c385caf54a11ede606.
+- BM25 + explicit applicability + tri-state Coverage/Conflict/Sufficiency. Unknown remains Unknown; no action correction, no WM utility assertion, no Gate.
+- Dev diagnostics:15 fixed-hash steps all Unknown;10 separately labelled previously exposed targeted steps include2 naturally blocked-door conflicts. No natural Sufficiency=true observed. No performance/effectiveness claim.
+- 37 new +117 existing unit cases pass;25/25 dev native receipt/query-time/input-hash/prompt/signal replay checks pass. Import-path retry and failed initial goal-mismatch run are fully disclosed.
+- Phase2 hf_generation_raw_bf16_v1, Internal Signals and paper protocol unchanged. v2 clean; old envs/services unchanged. GPU1 released.
+- Final code includes a CPU-tested post-run receipt-persistence improvement; executed originals/source differences are archived in docs/phase3. Full logs retained only in outputs on lab.
+- STOP before Phase4. User must confirm; next work is conservative deterministic Gate semantics/unit tests, not a complete benchmark.
 
 # agentwmv3 progress
 

@@ -1,0 +1,70 @@
+{
+  "collector": "controlled-real-environment-door-probe-v1-not-actor",
+  "tasks": [
+    {
+      "task_id": "sciworld_1667",
+      "index": 1667,
+      "taskName": "test-conductivity",
+      "variationIdx": 231,
+      "category": "test_conductivity",
+      "goal_sha256": "3922dd31acc429629007f476b41e8cff60debd65f0e02b5c316f89bf24859ee2",
+      "goal_group": "25273ac2eada7bf5565dcc9237b07ce2b48cb50a1a33a18d294ad793b025d683",
+      "split": "train"
+    },
+    {
+      "task_id": "sciworld_1545",
+      "index": 1545,
+      "taskName": "test-conductivity",
+      "variationIdx": 109,
+      "category": "test_conductivity",
+      "goal_sha256": "b3f5049ce344736b9dc3acf9e19941d87391c0ac6ff39c72d7f8ec1735b8e661",
+      "goal_group": "c9ed39d83bdb09cfd789205e9a930385d107450c169d109edb861633fe769aff",
+      "split": "train"
+    },
+    {
+      "task_id": "sciworld_325",
+      "index": 325,
+      "taskName": "use-thermometer",
+      "variationIdx": 205,
+      "category": "measure",
+      "goal_sha256": "1e4acdc498d2f4a92ad542397ad3cb9a413b566e1cd4fbd594db8ebfa360e2f6",
+      "goal_group": "1f3967f949fdb32a7819f432929b2c9608b76b10d1b0d53dfdf803d3b13f18e0",
+      "split": "train"
+    },
+    {
+      "task_id": "sciworld_326",
+      "index": 326,
+      "taskName": "use-thermometer",
+      "variationIdx": 206,
+      "category": "measure",
+      "goal_sha256": "dacaed16f66fe95543a796f00ef4be23fd53f4e0d54317e823d079936cf49cf6",
+      "goal_group": "f1388cfd03ae38253d520e90e383a7a9541bf1a9ce9929c2b9981790c52b2241",
+      "split": "train"
+    },
+    {
+      "task_id": "sciworld_3035",
+      "index": 3035,
+      "taskName": "find-living-thing",
+      "variationIdx": 99,
+      "category": "find",
+      "goal_sha256": "297704f487b81039b7e164e6bc2a91155b8912d5305e6ba788d73ac41b99ecca",
+      "goal_group": "4561e362a0b2cd885fb4f99489846b3ae54df52ddfcc6a5cd349569c2e3636ba",
+      "split": "train"
+    },
+    {
+      "task_id": "sciworld_3044",
+      "index": 3044,
+      "taskName": "find-living-thing",
+      "variationIdx": 108,
+      "category": "find",
+      "goal_sha256": "630856f270ee9c68ad2a7edc814eb89190a6225db004e48f14351f8d75e0e650",
+      "goal_group": "52822f91122884e079549ee82cfcf993c9755e0d02a6e3c8125f2cef9d4495c7",
+      "split": "train"
+    }
+  ],
+  "split_sha256": "b40dca22e135b624acbb680de6d5abca93d0289cffcea3f3be30d911ba1275e4",
+  "script_sha256": "6fdea1461e36e47b609488f5946ec7a9bbd520474a968d46704b8e6d7498125d",
+  "purpose": "environment_rule_evidence_not_actor_performance",
+  "selection": "first two selected training instances with explicitly visible closed route",
+  "max_episodes": 2
+}

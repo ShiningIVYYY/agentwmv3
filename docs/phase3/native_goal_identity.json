@@ -1,0 +1,1265 @@
+{
+  "purpose": "identity_only_no_test_outcome_use",
+  "source_manifest_sha256": "e950e817482400cf2c566f4b9def04aaaaf3aad269f8f213daa06f2320054db5",
+  "records": [
+    {
+      "task_id": "sciworld_3491",
+      "task_name": "find-non-living-thing",
+      "variation_id": 255,
+      "goal": "Your task is to find a(n) non-living thing. First, focus on the thing. Then, move it to the orange box in the living room."
+    },
+    {
+      "task_id": "sciworld_4283",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 43,
+      "goal": "Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the animal with the longest life span."
+    },
+    {
+      "task_id": "sciworld_624",
+      "task_name": "use-thermometer",
+      "variation_id": 504,
+      "goal": "Your task is to measure the temperature of unknown substance B, which is located around the bathroom. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above 100.0 degrees celsius, place it in the green box. If the unknown substance B temperature is below 100.0 degrees celsius, place it in the blue box. The boxes are located around the bathroom."
+    },
+    {
+      "task_id": "sciworld_3789",
+      "task_name": "find-plant",
+      "variation_id": 253,
+      "goal": "Your task is to find a(n) plant. First, focus on the thing. Then, move it to the green box in the living room."
+    },
+    {
+      "task_id": "sciworld_2015",
+      "task_name": "test-conductivity",
+      "variation_id": 579,
+      "goal": "Your task is to determine if plastic fork is electrically conductive. The plastic fork is located around the living room. First, focus on the plastic fork. If it is electrically conductive, place it in the yellow box. If it is electrically nonconductive, place it in the purple box."
+    },
+    {
+      "task_id": "sciworld_606",
+      "task_name": "use-thermometer",
+      "variation_id": 486,
+      "goal": "Your task is to measure the temperature of unknown substance B, which is located around the bathroom. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above 100.0 degrees celsius, place it in the yellow box. If the unknown substance B temperature is below 100.0 degrees celsius, place it in the purple box. The boxes are located around the living room."
+    },
+    {
+      "task_id": "sciworld_2932",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 596,
+      "goal": "Your task is to determine if unknown substance Z is electrically conductive. The unknown substance Z is located around the workshop. First, focus on the unknown substance Z. If it is electrically conductive, place it in the green box. If it is electrically nonconductive, place it in the blue box."
+    },
+    {
+      "task_id": "sciworld_1135",
+      "task_name": "measure-melting-point-unknown-substance",
+      "variation_id": 39,
+      "goal": "Your task is to measure the melting point of liquid unknown substance E, which is located around the kitchen. First, focus on the thermometer. Next, focus on the liquid unknown substance E. If the melting point of liquid unknown substance E is above 10.0 degrees celsius, focus on the red box. If the melting point of liquid unknown substance E is below 10.0 degrees celsius, focus on the green box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_3490",
+      "task_name": "find-non-living-thing",
+      "variation_id": 254,
+      "goal": "Your task is to find a(n) non-living thing. First, focus on the thing. Then, move it to the blue box in the living room."
+    },
+    {
+      "task_id": "sciworld_616",
+      "task_name": "use-thermometer",
+      "variation_id": 496,
+      "goal": "Your task is to measure the temperature of wire, which is located around the bathroom. First, focus on the thermometer. Next, focus on the wire. If the wire temperature is above 50.0 degrees celsius, place it in the red box. If the wire temperature is below 50.0 degrees celsius, place it in the green box. The boxes are located around the bedroom."
+    },
+    {
+      "task_id": "sciworld_3464",
+      "task_name": "find-non-living-thing",
+      "variation_id": 228,
+      "goal": "Your task is to find a(n) non-living thing. First, focus on the thing. Then, move it to the red box in the bedroom."
+    },
+    {
+      "task_id": "sciworld_1093",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 433,
+      "goal": "Your task is to measure the melting point of water, which is located around the kitchen. First, focus on the thermometer. Next, focus on the water. If the melting point of water is above -10.0 degrees celsius, focus on the blue box. If the melting point of water is below -10.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_1131",
+      "task_name": "measure-melting-point-unknown-substance",
+      "variation_id": 35,
+      "goal": "Your task is to measure the melting point of solid unknown substance B, which is located around the kitchen. First, focus on the thermometer. Next, focus on the solid unknown substance B. If the melting point of solid unknown substance B is above 150.0 degrees celsius, focus on the blue box. If the melting point of solid unknown substance B is below 150.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_2497",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 161,
+      "goal": "Your task is to determine if unknown substance H is electrically conductive. The unknown substance H is located around the workshop. First, focus on the unknown substance H. If it is electrically conductive, place it in the green box. If it is electrically nonconductive, place it in the blue box."
+    },
+    {
+      "task_id": "sciworld_547",
+      "task_name": "use-thermometer",
+      "variation_id": 427,
+      "goal": "Your task is to measure the temperature of wood, which is located around the bathroom. First, focus on the thermometer. Next, focus on the wood. If the wood temperature is above 100.0 degrees celsius, place it in the orange box. If the wood temperature is below 100.0 degrees celsius, place it in the yellow box. The boxes are located around the bathroom."
+    },
+    {
+      "task_id": "sciworld_3519",
+      "task_name": "find-non-living-thing",
+      "variation_id": 283,
+      "goal": "Your task is to find a(n) non-living thing. First, focus on the thing. Then, move it to the green box in the living room."
+    },
+    {
+      "task_id": "sciworld_1816",
+      "task_name": "test-conductivity",
+      "variation_id": 380,
+      "goal": "Your task is to determine if metal pot is electrically conductive. The metal pot is located around the workshop. First, focus on the metal pot. If it is electrically conductive, place it in the red box. If it is electrically nonconductive, place it in the green box."
+    },
+    {
+      "task_id": "sciworld_2563",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 227,
+      "goal": "Your task is to determine if unknown substance L is electrically conductive. The unknown substance L is located around the workshop. First, focus on the unknown substance L. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box."
+    },
+    {
+      "task_id": "sciworld_1822",
+      "task_name": "test-conductivity",
+      "variation_id": 386,
+      "goal": "Your task is to determine if metal pot is electrically conductive. The metal pot is located around the workshop. First, focus on the metal pot. If it is electrically conductive, place it in the green box. If it is electrically nonconductive, place it in the blue box."
+    },
+    {
+      "task_id": "sciworld_1835",
+      "task_name": "test-conductivity",
+      "variation_id": 399,
+      "goal": "Your task is to determine if metal pot is electrically conductive. The metal pot is located around the workshop. First, focus on the metal pot. If it is electrically conductive, place it in the yellow box. If it is electrically nonconductive, place it in the purple box."
+    },
+    {
+      "task_id": "sciworld_4336",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 96,
+      "goal": "Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the animal with the longest life span."
+    },
+    {
+      "task_id": "sciworld_1914",
+      "task_name": "test-conductivity",
+      "variation_id": 478,
+      "goal": "Your task is to determine if paper clip is electrically conductive. The paper clip is located around the kitchen. First, focus on the paper clip. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box."
+    },
+    {
+      "task_id": "sciworld_4159",
+      "task_name": "chemistry-mix",
+      "variation_id": 23,
+      "goal": "Your task is to use chemistry to create the substance 'jam sandwich'. A recipe and some of the ingredients might be found near the workshop. When you are done, focus on the jam sandwich."
+    },
+    {
+      "task_id": "sciworld_4292",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 52,
+      "goal": "Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the animal with the longest life span."
+    },
+    {
+      "task_id": "sciworld_2866",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 530,
+      "goal": "Your task is to determine if unknown substance X is electrically conductive. The unknown substance X is located around the workshop. First, focus on the unknown substance X. If it is electrically conductive, place it in the red box. If it is electrically nonconductive, place it in the green box."
+    },
+    {
+      "task_id": "sciworld_3523",
+      "task_name": "find-non-living-thing",
+      "variation_id": 287,
+      "goal": "Your task is to find a(n) non-living thing. First, focus on the thing. Then, move it to the purple box in the living room."
+    },
+    {
+      "task_id": "sciworld_3813",
+      "task_name": "find-plant",
+      "variation_id": 277,
+      "goal": "Your task is to find a(n) plant. First, focus on the thing. Then, move it to the green box in the bathroom."
+    },
+    {
+      "task_id": "sciworld_1821",
+      "task_name": "test-conductivity",
+      "variation_id": 385,
+      "goal": "Your task is to determine if metal pot is electrically conductive. The metal pot is located around the workshop. First, focus on the metal pot. If it is electrically conductive, place it in the red box. If it is electrically nonconductive, place it in the green box."
+    },
+    {
+      "task_id": "sciworld_1940",
+      "task_name": "test-conductivity",
+      "variation_id": 504,
+      "goal": "Your task is to determine if paper clip is electrically conductive. The paper clip is located around the living room. First, focus on the paper clip. If it is electrically conductive, place it in the yellow box. If it is electrically nonconductive, place it in the purple box."
+    },
+    {
+      "task_id": "sciworld_1934",
+      "task_name": "test-conductivity",
+      "variation_id": 498,
+      "goal": "Your task is to determine if paper clip is electrically conductive. The paper clip is located around the kitchen. First, focus on the paper clip. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box."
+    },
+    {
+      "task_id": "sciworld_557",
+      "task_name": "use-thermometer",
+      "variation_id": 437,
+      "goal": "Your task is to measure the temperature of unknown substance B, which is located around the bathroom. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above 100.0 degrees celsius, place it in the orange box. If the unknown substance B temperature is below 100.0 degrees celsius, place it in the yellow box. The boxes are located around the bathroom."
+    },
+    {
+      "task_id": "sciworld_1088",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 428,
+      "goal": "Your task is to measure the melting point of tin, which is located around the kitchen. First, focus on the thermometer. Next, focus on the tin. If the melting point of tin is above 200.0 degrees celsius, focus on the yellow box. If the melting point of tin is below 200.0 degrees celsius, focus on the purple box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_1969",
+      "task_name": "test-conductivity",
+      "variation_id": 533,
+      "goal": "Your task is to determine if plastic fork is electrically conductive. The plastic fork is located around the workshop. First, focus on the plastic fork. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box."
+    },
+    {
+      "task_id": "sciworld_4335",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 95,
+      "goal": "Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the animal with the longest life span."
+    },
+    {
+      "task_id": "sciworld_1897",
+      "task_name": "test-conductivity",
+      "variation_id": 461,
+      "goal": "Your task is to determine if paper clip is electrically conductive. The paper clip is located around the workshop. First, focus on the paper clip. If it is electrically conductive, place it in the green box. If it is electrically nonconductive, place it in the blue box."
+    },
+    {
+      "task_id": "sciworld_581",
+      "task_name": "use-thermometer",
+      "variation_id": 461,
+      "goal": "Your task is to measure the temperature of wood, which is located around the bathroom. First, focus on the thermometer. Next, focus on the wood. If the wood temperature is above 100.0 degrees celsius, place it in the orange box. If the wood temperature is below 100.0 degrees celsius, place it in the yellow box. The boxes are located around the bedroom."
+    },
+    {
+      "task_id": "sciworld_3931",
+      "task_name": "find-animal",
+      "variation_id": 95,
+      "goal": "Your task is to find a(n) animal. First, focus on the thing. Then, move it to the purple box in the kitchen."
+    },
+    {
+      "task_id": "sciworld_1949",
+      "task_name": "test-conductivity",
+      "variation_id": 513,
+      "goal": "Your task is to determine if paper clip is electrically conductive. The paper clip is located around the living room. First, focus on the paper clip. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box."
+    },
+    {
+      "task_id": "sciworld_4312",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 72,
+      "goal": "Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the animal with the longest life span."
+    },
+    {
+      "task_id": "sciworld_1006",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 346,
+      "goal": "Your task is to measure the melting point of water, which is located around the kitchen. First, focus on the thermometer. Next, focus on the water. If the melting point of water is above -10.0 degrees celsius, focus on the red box. If the melting point of water is below -10.0 degrees celsius, focus on the green box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_2548",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 212,
+      "goal": "Your task is to determine if unknown substance K is electrically conductive. The unknown substance K is located around the workshop. First, focus on the unknown substance K. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box."
+    },
+    {
+      "task_id": "sciworld_4059",
+      "task_name": "find-animal",
+      "variation_id": 223,
+      "goal": "Your task is to find a(n) animal. First, focus on the thing. Then, move it to the green box in the living room."
+    },
+    {
+      "task_id": "sciworld_3197",
+      "task_name": "find-living-thing",
+      "variation_id": 261,
+      "goal": "Your task is to find a(n) living thing. First, focus on the thing. Then, move it to the orange box in the bedroom."
+    },
+    {
+      "task_id": "sciworld_1065",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 405,
+      "goal": "Your task is to measure the melting point of tin, which is located around the kitchen. First, focus on the thermometer. Next, focus on the tin. If the melting point of tin is above 200.0 degrees celsius, focus on the green box. If the melting point of tin is below 200.0 degrees celsius, focus on the blue box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_1912",
+      "task_name": "test-conductivity",
+      "variation_id": 476,
+      "goal": "Your task is to determine if paper clip is electrically conductive. The paper clip is located around the kitchen. First, focus on the paper clip. If it is electrically conductive, place it in the green box. If it is electrically nonconductive, place it in the blue box."
+    },
+    {
+      "task_id": "sciworld_3207",
+      "task_name": "find-living-thing",
+      "variation_id": 271,
+      "goal": "Your task is to find a(n) living thing. First, focus on the thing. Then, move it to the green box in the kitchen."
+    },
+    {
+      "task_id": "sciworld_1915",
+      "task_name": "test-conductivity",
+      "variation_id": 479,
+      "goal": "Your task is to determine if paper clip is electrically conductive. The paper clip is located around the kitchen. First, focus on the paper clip. If it is electrically conductive, place it in the yellow box. If it is electrically nonconductive, place it in the purple box."
+    },
+    {
+      "task_id": "sciworld_565",
+      "task_name": "use-thermometer",
+      "variation_id": 445,
+      "goal": "Your task is to measure the temperature of wood, which is located around the bedroom. First, focus on the thermometer. Next, focus on the wood. If the wood temperature is above 50.0 degrees celsius, place it in the orange box. If the wood temperature is below 50.0 degrees celsius, place it in the yellow box. The boxes are located around the bedroom."
+    },
+    {
+      "task_id": "sciworld_2577",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 241,
+      "goal": "Your task is to determine if unknown substance L is electrically conductive. The unknown substance L is located around the workshop. First, focus on the unknown substance L. If it is electrically conductive, place it in the green box. If it is electrically nonconductive, place it in the blue box."
+    },
+    {
+      "task_id": "sciworld_1068",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 408,
+      "goal": "Your task is to measure the melting point of water, which is located around the kitchen. First, focus on the thermometer. Next, focus on the water. If the melting point of water is above 10.0 degrees celsius, focus on the green box. If the melting point of water is below 10.0 degrees celsius, focus on the blue box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_4299",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 59,
+      "goal": "Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the animal with the longest life span."
+    },
+    {
+      "task_id": "sciworld_1112",
+      "task_name": "measure-melting-point-unknown-substance",
+      "variation_id": 16,
+      "goal": "Your task is to measure the melting point of liquid unknown substance D, which is located around the kitchen. First, focus on the thermometer. Next, focus on the liquid unknown substance D. If the melting point of liquid unknown substance D is above 10.0 degrees celsius, focus on the green box. If the melting point of liquid unknown substance D is below 10.0 degrees celsius, focus on the blue box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_1020",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 360,
+      "goal": "Your task is to measure the melting point of tin, which is located around the kitchen. First, focus on the thermometer. Next, focus on the tin. If the melting point of tin is above 50.0 degrees celsius, focus on the yellow box. If the melting point of tin is below 50.0 degrees celsius, focus on the purple box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_2531",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 195,
+      "goal": "Your task is to determine if unknown substance J is electrically conductive. The unknown substance J is located around the workshop. First, focus on the unknown substance J. If it is electrically conductive, place it in the red box. If it is electrically nonconductive, place it in the green box."
+    },
+    {
+      "task_id": "sciworld_3465",
+      "task_name": "find-non-living-thing",
+      "variation_id": 229,
+      "goal": "Your task is to find a(n) non-living thing. First, focus on the thing. Then, move it to the green box in the bedroom."
+    },
+    {
+      "task_id": "sciworld_4294",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 54,
+      "goal": "Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the animal with the longest life span."
+    },
+    {
+      "task_id": "sciworld_2887",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 551,
+      "goal": "Your task is to determine if unknown substance Y is electrically conductive. The unknown substance Y is located around the workshop. First, focus on the unknown substance Y. If it is electrically conductive, place it in the green box. If it is electrically nonconductive, place it in the blue box."
+    },
+    {
+      "task_id": "sciworld_2862",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 526,
+      "goal": "Your task is to determine if unknown substance X is electrically conductive. The unknown substance X is located around the workshop. First, focus on the unknown substance X. If it is electrically conductive, place it in the green box. If it is electrically nonconductive, place it in the blue box."
+    },
+    {
+      "task_id": "sciworld_1988",
+      "task_name": "test-conductivity",
+      "variation_id": 552,
+      "goal": "Your task is to determine if plastic fork is electrically conductive. The plastic fork is located around the kitchen. First, focus on the plastic fork. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box."
+    },
+    {
+      "task_id": "sciworld_1955",
+      "task_name": "test-conductivity",
+      "variation_id": 519,
+      "goal": "Your task is to determine if paper clip is electrically conductive. The paper clip is located around the living room. First, focus on the paper clip. If it is electrically conductive, place it in the yellow box. If it is electrically nonconductive, place it in the purple box."
+    },
+    {
+      "task_id": "sciworld_2621",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 285,
+      "goal": "Your task is to determine if unknown substance N is electrically conductive. The unknown substance N is located around the workshop. First, focus on the unknown substance N. If it is electrically conductive, place it in the red box. If it is electrically nonconductive, place it in the green box."
+    },
+    {
+      "task_id": "sciworld_1953",
+      "task_name": "test-conductivity",
+      "variation_id": 517,
+      "goal": "Your task is to determine if paper clip is electrically conductive. The paper clip is located around the living room. First, focus on the paper clip. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box."
+    },
+    {
+      "task_id": "sciworld_559",
+      "task_name": "use-thermometer",
+      "variation_id": 439,
+      "goal": "Your task is to measure the temperature of unknown substance B, which is located around the bathroom. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above 100.0 degrees celsius, place it in the orange box. If the unknown substance B temperature is below 100.0 degrees celsius, place it in the yellow box. The boxes are located around the living room."
+    },
+    {
+      "task_id": "sciworld_2899",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 563,
+      "goal": "Your task is to determine if unknown substance Y is electrically conductive. The unknown substance Y is located around the workshop. First, focus on the unknown substance Y. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box."
+    },
+    {
+      "task_id": "sciworld_2555",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 219,
+      "goal": "Your task is to determine if unknown substance K is electrically conductive. The unknown substance K is located around the workshop. First, focus on the unknown substance K. If it is electrically conductive, place it in the yellow box. If it is electrically nonconductive, place it in the purple box."
+    },
+    {
+      "task_id": "sciworld_635",
+      "task_name": "use-thermometer",
+      "variation_id": 515,
+      "goal": "Your task is to measure the temperature of unknown substance B, which is located around the bathroom. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above 0.0 degrees celsius, place it in the blue box. If the unknown substance B temperature is below 0.0 degrees celsius, place it in the orange box. The boxes are located around the bathroom."
+    },
+    {
+      "task_id": "sciworld_1994",
+      "task_name": "test-conductivity",
+      "variation_id": 558,
+      "goal": "Your task is to determine if plastic fork is electrically conductive. The plastic fork is located around the kitchen. First, focus on the plastic fork. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box."
+    },
+    {
+      "task_id": "sciworld_2893",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 557,
+      "goal": "Your task is to determine if unknown substance Y is electrically conductive. The unknown substance Y is located around the workshop. First, focus on the unknown substance Y. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box."
+    },
+    {
+      "task_id": "sciworld_3515",
+      "task_name": "find-non-living-thing",
+      "variation_id": 279,
+      "goal": "Your task is to find a(n) non-living thing. First, focus on the thing. Then, move it to the orange box in the bathroom."
+    },
+    {
+      "task_id": "sciworld_1033",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 373,
+      "goal": "Your task is to measure the melting point of water, which is located around the kitchen. First, focus on the thermometer. Next, focus on the water. If the melting point of water is above 200.0 degrees celsius, focus on the yellow box. If the melting point of water is below 200.0 degrees celsius, focus on the purple box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_2569",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 233,
+      "goal": "Your task is to determine if unknown substance L is electrically conductive. The unknown substance L is located around the workshop. First, focus on the unknown substance L. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box."
+    },
+    {
+      "task_id": "sciworld_3518",
+      "task_name": "find-non-living-thing",
+      "variation_id": 282,
+      "goal": "Your task is to find a(n) non-living thing. First, focus on the thing. Then, move it to the red box in the living room."
+    },
+    {
+      "task_id": "sciworld_2511",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 175,
+      "goal": "Your task is to determine if unknown substance J is electrically conductive. The unknown substance J is located around the workshop. First, focus on the unknown substance J. If it is electrically conductive, place it in the red box. If it is electrically nonconductive, place it in the green box."
+    },
+    {
+      "task_id": "sciworld_3782",
+      "task_name": "find-plant",
+      "variation_id": 246,
+      "goal": "Your task is to find a(n) plant. First, focus on the thing. Then, move it to the red box in the bathroom."
+    },
+    {
+      "task_id": "sciworld_1824",
+      "task_name": "test-conductivity",
+      "variation_id": 388,
+      "goal": "Your task is to determine if metal pot is electrically conductive. The metal pot is located around the workshop. First, focus on the metal pot. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box."
+    },
+    {
+      "task_id": "sciworld_573",
+      "task_name": "use-thermometer",
+      "variation_id": 453,
+      "goal": "Your task is to measure the temperature of unknown substance B, which is located around the bathroom. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above -50.0 degrees celsius, place it in the yellow box. If the unknown substance B temperature is below -50.0 degrees celsius, place it in the purple box. The boxes are located around the living room."
+    },
+    {
+      "task_id": "sciworld_2552",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 216,
+      "goal": "Your task is to determine if unknown substance K is electrically conductive. The unknown substance K is located around the workshop. First, focus on the unknown substance K. If it is electrically conductive, place it in the green box. If it is electrically nonconductive, place it in the blue box."
+    },
+    {
+      "task_id": "sciworld_4170",
+      "task_name": "chemistry-mix-paint-secondary-color",
+      "variation_id": 2,
+      "goal": "Your task is to use chemistry to create green paint. When you are done, focus on the green paint."
+    },
+    {
+      "task_id": "sciworld_4296",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 56,
+      "goal": "Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the animal with the longest life span."
+    },
+    {
+      "task_id": "sciworld_2625",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 289,
+      "goal": "Your task is to determine if unknown substance N is electrically conductive. The unknown substance N is located around the workshop. First, focus on the unknown substance N. If it is electrically conductive, place it in the yellow box. If it is electrically nonconductive, place it in the purple box."
+    },
+    {
+      "task_id": "sciworld_4327",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 87,
+      "goal": "Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the animal with the longest life span."
+    },
+    {
+      "task_id": "sciworld_1017",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 357,
+      "goal": "Your task is to measure the melting point of tin, which is located around the kitchen. First, focus on the thermometer. Next, focus on the tin. If the melting point of tin is above 50.0 degrees celsius, focus on the yellow box. If the melting point of tin is below 50.0 degrees celsius, focus on the purple box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_1003",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 343,
+      "goal": "Your task is to measure the melting point of tin, which is located around the kitchen. First, focus on the thermometer. Next, focus on the tin. If the melting point of tin is above 200.0 degrees celsius, focus on the red box. If the melting point of tin is below 200.0 degrees celsius, focus on the green box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_536",
+      "task_name": "use-thermometer",
+      "variation_id": 416,
+      "goal": "Your task is to measure the temperature of unknown substance B, which is located around the bathroom. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above 200.0 degrees celsius, place it in the green box. If the unknown substance B temperature is below 200.0 degrees celsius, place it in the blue box. The boxes are located around the living room."
+    },
+    {
+      "task_id": "sciworld_1029",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 369,
+      "goal": "Your task is to measure the melting point of tin, which is located around the kitchen. First, focus on the thermometer. Next, focus on the tin. If the melting point of tin is above 10.0 degrees celsius, focus on the orange box. If the melting point of tin is below 10.0 degrees celsius, focus on the yellow box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_2527",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 191,
+      "goal": "Your task is to determine if unknown substance J is electrically conductive. The unknown substance J is located around the workshop. First, focus on the unknown substance J. If it is electrically conductive, place it in the green box. If it is electrically nonconductive, place it in the blue box."
+    },
+    {
+      "task_id": "sciworld_2876",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 540,
+      "goal": "Your task is to determine if unknown substance X is electrically conductive. The unknown substance X is located around the workshop. First, focus on the unknown substance X. If it is electrically conductive, place it in the red box. If it is electrically nonconductive, place it in the green box."
+    },
+    {
+      "task_id": "sciworld_1026",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 366,
+      "goal": "Your task is to measure the melting point of tin, which is located around the kitchen. First, focus on the thermometer. Next, focus on the tin. If the melting point of tin is above 150.0 degrees celsius, focus on the red box. If the melting point of tin is below 150.0 degrees celsius, focus on the green box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_2631",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 295,
+      "goal": "Your task is to determine if unknown substance N is electrically conductive. The unknown substance N is located around the workshop. First, focus on the unknown substance N. If it is electrically conductive, place it in the red box. If it is electrically nonconductive, place it in the green box."
+    },
+    {
+      "task_id": "sciworld_4178",
+      "task_name": "chemistry-mix-paint-secondary-color",
+      "variation_id": 10,
+      "goal": "Your task is to use chemistry to create green paint. When you are done, focus on the green paint."
+    },
+    {
+      "task_id": "sciworld_2875",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 539,
+      "goal": "Your task is to determine if unknown substance X is electrically conductive. The unknown substance X is located around the workshop. First, focus on the unknown substance X. If it is electrically conductive, place it in the yellow box. If it is electrically nonconductive, place it in the purple box."
+    },
+    {
+      "task_id": "sciworld_2581",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 245,
+      "goal": "Your task is to determine if unknown substance L is electrically conductive. The unknown substance L is located around the workshop. First, focus on the unknown substance L. If it is electrically conductive, place it in the red box. If it is electrically nonconductive, place it in the green box."
+    },
+    {
+      "task_id": "sciworld_3231",
+      "task_name": "find-living-thing",
+      "variation_id": 295,
+      "goal": "Your task is to find a(n) living thing. First, focus on the thing. Then, move it to the green box in the workshop."
+    },
+    {
+      "task_id": "sciworld_1066",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 406,
+      "goal": "Your task is to measure the melting point of water, which is located around the kitchen. First, focus on the thermometer. Next, focus on the water. If the melting point of water is above -10.0 degrees celsius, focus on the green box. If the melting point of water is below -10.0 degrees celsius, focus on the blue box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_2912",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 576,
+      "goal": "Your task is to determine if unknown substance Z is electrically conductive. The unknown substance Z is located around the workshop. First, focus on the unknown substance Z. If it is electrically conductive, place it in the green box. If it is electrically nonconductive, place it in the blue box."
+    },
+    {
+      "task_id": "sciworld_3216",
+      "task_name": "find-living-thing",
+      "variation_id": 280,
+      "goal": "Your task is to find a(n) living thing. First, focus on the thing. Then, move it to the yellow box in the bathroom."
+    },
+    {
+      "task_id": "sciworld_3471",
+      "task_name": "find-non-living-thing",
+      "variation_id": 235,
+      "goal": "Your task is to find a(n) non-living thing. First, focus on the thing. Then, move it to the green box in the workshop."
+    },
+    {
+      "task_id": "sciworld_3867",
+      "task_name": "find-animal",
+      "variation_id": 31,
+      "goal": "Your task is to find a(n) animal. First, focus on the thing. Then, move it to the green box in the kitchen."
+    },
+    {
+      "task_id": "sciworld_2896",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 560,
+      "goal": "Your task is to determine if unknown substance Y is electrically conductive. The unknown substance Y is located around the workshop. First, focus on the unknown substance Y. If it is electrically conductive, place it in the red box. If it is electrically nonconductive, place it in the green box."
+    },
+    {
+      "task_id": "sciworld_3191",
+      "task_name": "find-living-thing",
+      "variation_id": 255,
+      "goal": "Your task is to find a(n) living thing. First, focus on the thing. Then, move it to the orange box in the living room."
+    },
+    {
+      "task_id": "sciworld_657",
+      "task_name": "use-thermometer",
+      "variation_id": 537,
+      "goal": "Your task is to measure the temperature of wire, which is located around the bathroom. First, focus on the thermometer. Next, focus on the wire. If the wire temperature is above 0.0 degrees celsius, place it in the orange box. If the wire temperature is below 0.0 degrees celsius, place it in the yellow box. The boxes are located around the bedroom."
+    },
+    {
+      "task_id": "sciworld_2500",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 164,
+      "goal": "Your task is to determine if unknown substance H is electrically conductive. The unknown substance H is located around the workshop. First, focus on the unknown substance H. If it is electrically conductive, place it in the yellow box. If it is electrically nonconductive, place it in the purple box."
+    },
+    {
+      "task_id": "sciworld_3794",
+      "task_name": "find-plant",
+      "variation_id": 258,
+      "goal": "Your task is to find a(n) plant. First, focus on the thing. Then, move it to the red box in the bedroom."
+    },
+    {
+      "task_id": "sciworld_4307",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 67,
+      "goal": "Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the animal with the longest life span."
+    },
+    {
+      "task_id": "sciworld_2582",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 246,
+      "goal": "Your task is to determine if unknown substance L is electrically conductive. The unknown substance L is located around the workshop. First, focus on the unknown substance L. If it is electrically conductive, place it in the green box. If it is electrically nonconductive, place it in the blue box."
+    },
+    {
+      "task_id": "sciworld_1134",
+      "task_name": "measure-melting-point-unknown-substance",
+      "variation_id": 38,
+      "goal": "Your task is to measure the melting point of solid unknown substance H, which is located around the kitchen. First, focus on the thermometer. Next, focus on the solid unknown substance H. If the melting point of solid unknown substance H is above 50.0 degrees celsius, focus on the blue box. If the melting point of solid unknown substance H is below 50.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_3494",
+      "task_name": "find-non-living-thing",
+      "variation_id": 258,
+      "goal": "Your task is to find a(n) non-living thing. First, focus on the thing. Then, move it to the red box in the bedroom."
+    },
+    {
+      "task_id": "sciworld_2589",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 253,
+      "goal": "Your task is to determine if unknown substance M is electrically conductive. The unknown substance M is located around the workshop. First, focus on the unknown substance M. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box."
+    },
+    {
+      "task_id": "sciworld_610",
+      "task_name": "use-thermometer",
+      "variation_id": 490,
+      "goal": "Your task is to measure the temperature of wire, which is located around the bedroom. First, focus on the thermometer. Next, focus on the wire. If the wire temperature is above 200.0 degrees celsius, place it in the yellow box. If the wire temperature is below 200.0 degrees celsius, place it in the purple box. The boxes are located around the living room."
+    },
+    {
+      "task_id": "sciworld_572",
+      "task_name": "use-thermometer",
+      "variation_id": 452,
+      "goal": "Your task is to measure the temperature of wood, which is located around the bedroom. First, focus on the thermometer. Next, focus on the wood. If the wood temperature is above 0.0 degrees celsius, place it in the yellow box. If the wood temperature is below 0.0 degrees celsius, place it in the purple box. The boxes are located around the bathroom."
+    },
+    {
+      "task_id": "sciworld_2864",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 528,
+      "goal": "Your task is to determine if unknown substance X is electrically conductive. The unknown substance X is located around the workshop. First, focus on the unknown substance X. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box."
+    },
+    {
+      "task_id": "sciworld_2008",
+      "task_name": "test-conductivity",
+      "variation_id": 572,
+      "goal": "Your task is to determine if plastic fork is electrically conductive. The plastic fork is located around the kitchen. First, focus on the plastic fork. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box."
+    },
+    {
+      "task_id": "sciworld_1931",
+      "task_name": "test-conductivity",
+      "variation_id": 495,
+      "goal": "Your task is to determine if paper clip is electrically conductive. The paper clip is located around the kitchen. First, focus on the paper clip. If it is electrically conductive, place it in the red box. If it is electrically nonconductive, place it in the green box."
+    },
+    {
+      "task_id": "sciworld_3200",
+      "task_name": "find-living-thing",
+      "variation_id": 264,
+      "goal": "Your task is to find a(n) living thing. First, focus on the thing. Then, move it to the red box in the workshop."
+    },
+    {
+      "task_id": "sciworld_1844",
+      "task_name": "test-conductivity",
+      "variation_id": 408,
+      "goal": "Your task is to determine if metal pot is electrically conductive. The metal pot is located around the kitchen. First, focus on the metal pot. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box."
+    },
+    {
+      "task_id": "sciworld_4175",
+      "task_name": "chemistry-mix-paint-secondary-color",
+      "variation_id": 7,
+      "goal": "Your task is to use chemistry to create green paint. When you are done, focus on the green paint."
+    },
+    {
+      "task_id": "sciworld_1873",
+      "task_name": "test-conductivity",
+      "variation_id": 437,
+      "goal": "Your task is to determine if metal pot is electrically conductive. The metal pot is located around the living room. First, focus on the metal pot. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box."
+    },
+    {
+      "task_id": "sciworld_3861",
+      "task_name": "find-animal",
+      "variation_id": 25,
+      "goal": "Your task is to find a(n) animal. First, focus on the thing. Then, move it to the green box in the workshop."
+    },
+    {
+      "task_id": "sciworld_4297",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 57,
+      "goal": "Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the animal with the longest life span."
+    },
+    {
+      "task_id": "sciworld_2910",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 574,
+      "goal": "Your task is to determine if unknown substance Y is electrically conductive. The unknown substance Y is located around the workshop. First, focus on the unknown substance Y. If it is electrically conductive, place it in the yellow box. If it is electrically nonconductive, place it in the purple box."
+    },
+    {
+      "task_id": "sciworld_620",
+      "task_name": "use-thermometer",
+      "variation_id": 500,
+      "goal": "Your task is to measure the temperature of unknown substance B, which is located around the bathroom. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above 100.0 degrees celsius, place it in the red box. If the unknown substance B temperature is below 100.0 degrees celsius, place it in the green box. The boxes are located around the living room."
+    },
+    {
+      "task_id": "sciworld_1831",
+      "task_name": "test-conductivity",
+      "variation_id": 395,
+      "goal": "Your task is to determine if metal pot is electrically conductive. The metal pot is located around the workshop. First, focus on the metal pot. If it is electrically conductive, place it in the red box. If it is electrically nonconductive, place it in the green box."
+    },
+    {
+      "task_id": "sciworld_2904",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 568,
+      "goal": "Your task is to determine if unknown substance Y is electrically conductive. The unknown substance Y is located around the workshop. First, focus on the unknown substance Y. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box."
+    },
+    {
+      "task_id": "sciworld_2619",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 283,
+      "goal": "Your task is to determine if unknown substance N is electrically conductive. The unknown substance N is located around the workshop. First, focus on the unknown substance N. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box."
+    },
+    {
+      "task_id": "sciworld_2888",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 552,
+      "goal": "Your task is to determine if unknown substance Y is electrically conductive. The unknown substance Y is located around the workshop. First, focus on the unknown substance Y. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box."
+    },
+    {
+      "task_id": "sciworld_4288",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 48,
+      "goal": "Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the animal with the longest life span."
+    },
+    {
+      "task_id": "sciworld_544",
+      "task_name": "use-thermometer",
+      "variation_id": 424,
+      "goal": "Your task is to measure the temperature of unknown substance B, which is located around the bathroom. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above 0.0 degrees celsius, place it in the red box. If the unknown substance B temperature is below 0.0 degrees celsius, place it in the green box. The boxes are located around the bedroom."
+    },
+    {
+      "task_id": "sciworld_2915",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 579,
+      "goal": "Your task is to determine if unknown substance Z is electrically conductive. The unknown substance Z is located around the workshop. First, focus on the unknown substance Z. If it is electrically conductive, place it in the yellow box. If it is electrically nonconductive, place it in the purple box."
+    },
+    {
+      "task_id": "sciworld_2506",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 170,
+      "goal": "Your task is to determine if unknown substance H is electrically conductive. The unknown substance H is located around the workshop. First, focus on the unknown substance H. If it is electrically conductive, place it in the red box. If it is electrically nonconductive, place it in the green box."
+    },
+    {
+      "task_id": "sciworld_1111",
+      "task_name": "measure-melting-point-unknown-substance",
+      "variation_id": 15,
+      "goal": "Your task is to measure the melting point of liquid unknown substance J, which is located around the kitchen. First, focus on the thermometer. Next, focus on the liquid unknown substance J. If the melting point of liquid unknown substance J is above 200.0 degrees celsius, focus on the green box. If the melting point of liquid unknown substance J is below 200.0 degrees celsius, focus on the blue box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_3895",
+      "task_name": "find-animal",
+      "variation_id": 59,
+      "goal": "Your task is to find a(n) animal. First, focus on the thing. Then, move it to the purple box in the workshop."
+    },
+    {
+      "task_id": "sciworld_1879",
+      "task_name": "test-conductivity",
+      "variation_id": 443,
+      "goal": "Your task is to determine if metal pot is electrically conductive. The metal pot is located around the living room. First, focus on the metal pot. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box."
+    },
+    {
+      "task_id": "sciworld_2513",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 177,
+      "goal": "Your task is to determine if unknown substance J is electrically conductive. The unknown substance J is located around the workshop. First, focus on the unknown substance J. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box."
+    },
+    {
+      "task_id": "sciworld_3195",
+      "task_name": "find-living-thing",
+      "variation_id": 259,
+      "goal": "Your task is to find a(n) living thing. First, focus on the thing. Then, move it to the green box in the bedroom."
+    },
+    {
+      "task_id": "sciworld_2901",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 565,
+      "goal": "Your task is to determine if unknown substance Y is electrically conductive. The unknown substance Y is located around the workshop. First, focus on the unknown substance Y. If it is electrically conductive, place it in the red box. If it is electrically nonconductive, place it in the green box."
+    },
+    {
+      "task_id": "sciworld_2924",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 588,
+      "goal": "Your task is to determine if unknown substance Z is electrically conductive. The unknown substance Z is located around the workshop. First, focus on the unknown substance Z. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box."
+    },
+    {
+      "task_id": "sciworld_641",
+      "task_name": "use-thermometer",
+      "variation_id": 521,
+      "goal": "Your task is to measure the temperature of wood, which is located around the bathroom. First, focus on the thermometer. Next, focus on the wood. If the wood temperature is above 100.0 degrees celsius, place it in the blue box. If the wood temperature is below 100.0 degrees celsius, place it in the orange box. The boxes are located around the bedroom."
+    },
+    {
+      "task_id": "sciworld_1938",
+      "task_name": "test-conductivity",
+      "variation_id": 502,
+      "goal": "Your task is to determine if paper clip is electrically conductive. The paper clip is located around the living room. First, focus on the paper clip. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box."
+    },
+    {
+      "task_id": "sciworld_2016",
+      "task_name": "test-conductivity",
+      "variation_id": 580,
+      "goal": "Your task is to determine if plastic fork is electrically conductive. The plastic fork is located around the living room. First, focus on the plastic fork. If it is electrically conductive, place it in the red box. If it is electrically nonconductive, place it in the green box."
+    },
+    {
+      "task_id": "sciworld_995",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 335,
+      "goal": "Your task is to measure the melting point of water, which is located around the kitchen. First, focus on the thermometer. Next, focus on the water. If the melting point of water is above 150.0 degrees celsius, focus on the red box. If the melting point of water is below 150.0 degrees celsius, focus on the green box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_4287",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 47,
+      "goal": "Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the animal with the longest life span."
+    },
+    {
+      "task_id": "sciworld_3814",
+      "task_name": "find-plant",
+      "variation_id": 278,
+      "goal": "Your task is to find a(n) plant. First, focus on the thing. Then, move it to the blue box in the bathroom."
+    },
+    {
+      "task_id": "sciworld_1954",
+      "task_name": "test-conductivity",
+      "variation_id": 518,
+      "goal": "Your task is to determine if paper clip is electrically conductive. The paper clip is located around the living room. First, focus on the paper clip. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box."
+    },
+    {
+      "task_id": "sciworld_2496",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 160,
+      "goal": "Your task is to determine if unknown substance H is electrically conductive. The unknown substance H is located around the workshop. First, focus on the unknown substance H. If it is electrically conductive, place it in the red box. If it is electrically nonconductive, place it in the green box."
+    },
+    {
+      "task_id": "sciworld_2573",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 237,
+      "goal": "Your task is to determine if unknown substance L is electrically conductive. The unknown substance L is located around the workshop. First, focus on the unknown substance L. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box."
+    },
+    {
+      "task_id": "sciworld_2487",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 151,
+      "goal": "Your task is to determine if unknown substance H is electrically conductive. The unknown substance H is located around the workshop. First, focus on the unknown substance H. If it is electrically conductive, place it in the green box. If it is electrically nonconductive, place it in the blue box."
+    },
+    {
+      "task_id": "sciworld_3223",
+      "task_name": "find-living-thing",
+      "variation_id": 287,
+      "goal": "Your task is to find a(n) living thing. First, focus on the thing. Then, move it to the purple box in the living room."
+    },
+    {
+      "task_id": "sciworld_3828",
+      "task_name": "find-plant",
+      "variation_id": 292,
+      "goal": "Your task is to find a(n) plant. First, focus on the thing. Then, move it to the yellow box in the bedroom."
+    },
+    {
+      "task_id": "sciworld_2546",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 210,
+      "goal": "Your task is to determine if unknown substance K is electrically conductive. The unknown substance K is located around the workshop. First, focus on the unknown substance K. If it is electrically conductive, place it in the red box. If it is electrically nonconductive, place it in the green box."
+    },
+    {
+      "task_id": "sciworld_2488",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 152,
+      "goal": "Your task is to determine if unknown substance H is electrically conductive. The unknown substance H is located around the workshop. First, focus on the unknown substance H. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box."
+    },
+    {
+      "task_id": "sciworld_2917",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 581,
+      "goal": "Your task is to determine if unknown substance Z is electrically conductive. The unknown substance Z is located around the workshop. First, focus on the unknown substance Z. If it is electrically conductive, place it in the green box. If it is electrically nonconductive, place it in the blue box."
+    },
+    {
+      "task_id": "sciworld_2503",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 167,
+      "goal": "Your task is to determine if unknown substance H is electrically conductive. The unknown substance H is located around the workshop. First, focus on the unknown substance H. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box."
+    },
+    {
+      "task_id": "sciworld_1032",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 372,
+      "goal": "Your task is to measure the melting point of tin, which is located around the kitchen. First, focus on the thermometer. Next, focus on the tin. If the melting point of tin is above 150.0 degrees celsius, focus on the yellow box. If the melting point of tin is below 150.0 degrees celsius, focus on the purple box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_4048",
+      "task_name": "find-animal",
+      "variation_id": 212,
+      "goal": "Your task is to find a(n) animal. First, focus on the thing. Then, move it to the blue box in the kitchen."
+    },
+    {
+      "task_id": "sciworld_3811",
+      "task_name": "find-plant",
+      "variation_id": 275,
+      "goal": "Your task is to find a(n) plant. First, focus on the thing. Then, move it to the purple box in the kitchen."
+    },
+    {
+      "task_id": "sciworld_3210",
+      "task_name": "find-living-thing",
+      "variation_id": 274,
+      "goal": "Your task is to find a(n) living thing. First, focus on the thing. Then, move it to the yellow box in the kitchen."
+    },
+    {
+      "task_id": "sciworld_2633",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 297,
+      "goal": "Your task is to determine if unknown substance N is electrically conductive. The unknown substance N is located around the workshop. First, focus on the unknown substance N. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box."
+    },
+    {
+      "task_id": "sciworld_3815",
+      "task_name": "find-plant",
+      "variation_id": 279,
+      "goal": "Your task is to find a(n) plant. First, focus on the thing. Then, move it to the orange box in the bathroom."
+    },
+    {
+      "task_id": "sciworld_584",
+      "task_name": "use-thermometer",
+      "variation_id": 464,
+      "goal": "Your task is to measure the temperature of wire, which is located around the bedroom. First, focus on the thermometer. Next, focus on the wire. If the wire temperature is above -50.0 degrees celsius, place it in the yellow box. If the wire temperature is below -50.0 degrees celsius, place it in the purple box. The boxes are located around the bathroom."
+    },
+    {
+      "task_id": "sciworld_2498",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 162,
+      "goal": "Your task is to determine if unknown substance H is electrically conductive. The unknown substance H is located around the workshop. First, focus on the unknown substance H. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box."
+    },
+    {
+      "task_id": "sciworld_1023",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 363,
+      "goal": "Your task is to measure the melting point of water, which is located around the kitchen. First, focus on the thermometer. Next, focus on the water. If the melting point of water is above 50.0 degrees celsius, focus on the red box. If the melting point of water is below 50.0 degrees celsius, focus on the green box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_3483",
+      "task_name": "find-non-living-thing",
+      "variation_id": 247,
+      "goal": "Your task is to find a(n) non-living thing. First, focus on the thing. Then, move it to the green box in the bathroom."
+    },
+    {
+      "task_id": "sciworld_1024",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 364,
+      "goal": "Your task is to measure the melting point of tin, which is located around the kitchen. First, focus on the thermometer. Next, focus on the tin. If the melting point of tin is above -10.0 degrees celsius, focus on the orange box. If the melting point of tin is below -10.0 degrees celsius, focus on the yellow box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_2521",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 185,
+      "goal": "Your task is to determine if unknown substance J is electrically conductive. The unknown substance J is located around the workshop. First, focus on the unknown substance J. If it is electrically conductive, place it in the red box. If it is electrically nonconductive, place it in the green box."
+    },
+    {
+      "task_id": "sciworld_538",
+      "task_name": "use-thermometer",
+      "variation_id": 418,
+      "goal": "Your task is to measure the temperature of unknown substance B, which is located around the bathroom. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above -50.0 degrees celsius, place it in the orange box. If the unknown substance B temperature is below -50.0 degrees celsius, place it in the yellow box. The boxes are located around the living room."
+    },
+    {
+      "task_id": "sciworld_3485",
+      "task_name": "find-non-living-thing",
+      "variation_id": 249,
+      "goal": "Your task is to find a(n) non-living thing. First, focus on the thing. Then, move it to the orange box in the bathroom."
+    },
+    {
+      "task_id": "sciworld_1838",
+      "task_name": "test-conductivity",
+      "variation_id": 402,
+      "goal": "Your task is to determine if metal pot is electrically conductive. The metal pot is located around the kitchen. First, focus on the metal pot. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box."
+    },
+    {
+      "task_id": "sciworld_569",
+      "task_name": "use-thermometer",
+      "variation_id": 449,
+      "goal": "Your task is to measure the temperature of wood, which is located around the bedroom. First, focus on the thermometer. Next, focus on the wood. If the wood temperature is above 0.0 degrees celsius, place it in the orange box. If the wood temperature is below 0.0 degrees celsius, place it in the yellow box. The boxes are located around the bedroom."
+    },
+    {
+      "task_id": "sciworld_1052",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 392,
+      "goal": "Your task is to measure the melting point of water, which is located around the kitchen. First, focus on the thermometer. Next, focus on the water. If the melting point of water is above 150.0 degrees celsius, focus on the green box. If the melting point of water is below 150.0 degrees celsius, focus on the blue box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_3496",
+      "task_name": "find-non-living-thing",
+      "variation_id": 260,
+      "goal": "Your task is to find a(n) non-living thing. First, focus on the thing. Then, move it to the blue box in the bedroom."
+    },
+    {
+      "task_id": "sciworld_3174",
+      "task_name": "find-living-thing",
+      "variation_id": 238,
+      "goal": "Your task is to find a(n) living thing. First, focus on the thing. Then, move it to the yellow box in the workshop."
+    },
+    {
+      "task_id": "sciworld_537",
+      "task_name": "use-thermometer",
+      "variation_id": 417,
+      "goal": "Your task is to measure the temperature of unknown substance B, which is located around the bathroom. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above 50.0 degrees celsius, place it in the yellow box. If the unknown substance B temperature is below 50.0 degrees celsius, place it in the purple box. The boxes are located around the bathroom."
+    },
+    {
+      "task_id": "sciworld_1028",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 368,
+      "goal": "Your task is to measure the melting point of water, which is located around the kitchen. First, focus on the thermometer. Next, focus on the water. If the melting point of water is above 150.0 degrees celsius, focus on the blue box. If the melting point of water is below 150.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_3524",
+      "task_name": "find-non-living-thing",
+      "variation_id": 288,
+      "goal": "Your task is to find a(n) non-living thing. First, focus on the thing. Then, move it to the red box in the bedroom."
+    },
+    {
+      "task_id": "sciworld_1882",
+      "task_name": "test-conductivity",
+      "variation_id": 446,
+      "goal": "Your task is to determine if metal pot is electrically conductive. The metal pot is located around the living room. First, focus on the metal pot. If it is electrically conductive, place it in the green box. If it is electrically nonconductive, place it in the blue box."
+    },
+    {
+      "task_id": "sciworld_4284",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 44,
+      "goal": "Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the animal with the longest life span."
+    },
+    {
+      "task_id": "sciworld_1095",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 435,
+      "goal": "Your task is to measure the melting point of tin, which is located around the kitchen. First, focus on the thermometer. Next, focus on the tin. If the melting point of tin is above 200.0 degrees celsius, focus on the orange box. If the melting point of tin is below 200.0 degrees celsius, focus on the yellow box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_3168",
+      "task_name": "find-living-thing",
+      "variation_id": 232,
+      "goal": "Your task is to find a(n) living thing. First, focus on the thing. Then, move it to the yellow box in the bedroom."
+    },
+    {
+      "task_id": "sciworld_4176",
+      "task_name": "chemistry-mix-paint-secondary-color",
+      "variation_id": 8,
+      "goal": "Your task is to use chemistry to create green paint. When you are done, focus on the green paint."
+    },
+    {
+      "task_id": "sciworld_609",
+      "task_name": "use-thermometer",
+      "variation_id": 489,
+      "goal": "Your task is to measure the temperature of unknown substance B, which is located around the bathroom. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above 50.0 degrees celsius, place it in the orange box. If the unknown substance B temperature is below 50.0 degrees celsius, place it in the yellow box. The boxes are located around the bathroom."
+    },
+    {
+      "task_id": "sciworld_2559",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 223,
+      "goal": "Your task is to determine if unknown substance K is electrically conductive. The unknown substance K is located around the workshop. First, focus on the unknown substance K. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box."
+    },
+    {
+      "task_id": "sciworld_543",
+      "task_name": "use-thermometer",
+      "variation_id": 423,
+      "goal": "Your task is to measure the temperature of unknown substance B, which is located around the bathroom. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above 0.0 degrees celsius, place it in the yellow box. If the unknown substance B temperature is below 0.0 degrees celsius, place it in the purple box. The boxes are located around the bathroom."
+    },
+    {
+      "task_id": "sciworld_3482",
+      "task_name": "find-non-living-thing",
+      "variation_id": 246,
+      "goal": "Your task is to find a(n) non-living thing. First, focus on the thing. Then, move it to the red box in the bathroom."
+    },
+    {
+      "task_id": "sciworld_2029",
+      "task_name": "test-conductivity",
+      "variation_id": 593,
+      "goal": "Your task is to determine if plastic fork is electrically conductive. The plastic fork is located around the living room. First, focus on the plastic fork. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box."
+    },
+    {
+      "task_id": "sciworld_1002",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 342,
+      "goal": "Your task is to measure the melting point of tin, which is located around the kitchen. First, focus on the thermometer. Next, focus on the tin. If the melting point of tin is above 200.0 degrees celsius, focus on the blue box. If the melting point of tin is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_2931",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 595,
+      "goal": "Your task is to determine if unknown substance Z is electrically conductive. The unknown substance Z is located around the workshop. First, focus on the unknown substance Z. If it is electrically conductive, place it in the red box. If it is electrically nonconductive, place it in the green box."
+    },
+    {
+      "task_id": "sciworld_2512",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 176,
+      "goal": "Your task is to determine if unknown substance J is electrically conductive. The unknown substance J is located around the workshop. First, focus on the unknown substance J. If it is electrically conductive, place it in the green box. If it is electrically nonconductive, place it in the blue box."
+    },
+    {
+      "task_id": "sciworld_2504",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 168,
+      "goal": "Your task is to determine if unknown substance H is electrically conductive. The unknown substance H is located around the workshop. First, focus on the unknown substance H. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box."
+    },
+    {
+      "task_id": "sciworld_4295",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 55,
+      "goal": "Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the animal with the longest life span."
+    },
+    {
+      "task_id": "sciworld_1074",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 414,
+      "goal": "Your task is to measure the melting point of water, which is located around the kitchen. First, focus on the thermometer. Next, focus on the water. If the melting point of water is above 200.0 degrees celsius, focus on the yellow box. If the melting point of water is below 200.0 degrees celsius, focus on the purple box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_1919",
+      "task_name": "test-conductivity",
+      "variation_id": 483,
+      "goal": "Your task is to determine if paper clip is electrically conductive. The paper clip is located around the kitchen. First, focus on the paper clip. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box."
+    },
+    {
+      "task_id": "sciworld_1055",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 395,
+      "goal": "Your task is to measure the melting point of tin, which is located around the kitchen. First, focus on the thermometer. Next, focus on the tin. If the melting point of tin is above 150.0 degrees celsius, focus on the yellow box. If the melting point of tin is below 150.0 degrees celsius, focus on the purple box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_3533",
+      "task_name": "find-non-living-thing",
+      "variation_id": 297,
+      "goal": "Your task is to find a(n) non-living thing. First, focus on the thing. Then, move it to the orange box in the workshop."
+    },
+    {
+      "task_id": "sciworld_3766",
+      "task_name": "find-plant",
+      "variation_id": 230,
+      "goal": "Your task is to find a(n) plant. First, focus on the thing. Then, move it to the blue box in the bedroom."
+    },
+    {
+      "task_id": "sciworld_3488",
+      "task_name": "find-non-living-thing",
+      "variation_id": 252,
+      "goal": "Your task is to find a(n) non-living thing. First, focus on the thing. Then, move it to the red box in the living room."
+    },
+    {
+      "task_id": "sciworld_2871",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 535,
+      "goal": "Your task is to determine if unknown substance X is electrically conductive. The unknown substance X is located around the workshop. First, focus on the unknown substance X. If it is electrically conductive, place it in the red box. If it is electrically nonconductive, place it in the green box."
+    },
+    {
+      "task_id": "sciworld_4050",
+      "task_name": "find-animal",
+      "variation_id": 214,
+      "goal": "Your task is to find a(n) animal. First, focus on the thing. Then, move it to the yellow box in the kitchen."
+    },
+    {
+      "task_id": "sciworld_631",
+      "task_name": "use-thermometer",
+      "variation_id": 511,
+      "goal": "Your task is to measure the temperature of unknown substance B, which is located around the bathroom. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above 0.0 degrees celsius, place it in the red box. If the unknown substance B temperature is below 0.0 degrees celsius, place it in the green box. The boxes are located around the living room."
+    },
+    {
+      "task_id": "sciworld_652",
+      "task_name": "use-thermometer",
+      "variation_id": 532,
+      "goal": "Your task is to measure the temperature of unknown substance B, which is located around the bathroom. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above 100.0 degrees celsius, place it in the red box. If the unknown substance B temperature is below 100.0 degrees celsius, place it in the green box. The boxes are located around the bathroom."
+    },
+    {
+      "task_id": "sciworld_1058",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 398,
+      "goal": "Your task is to measure the melting point of water, which is located around the kitchen. First, focus on the thermometer. Next, focus on the water. If the melting point of water is above -10.0 degrees celsius, focus on the green box. If the melting point of water is below -10.0 degrees celsius, focus on the blue box. The boxes are located around the kitchen."
+    },
+    {
+      "task_id": "sciworld_1667",
+      "task_name": "test-conductivity",
+      "variation_id": 231,
+      "goal": "Your task is to determine if glass jar is electrically conductive. The glass jar is located around the workshop. First, focus on the glass jar. If it is electrically conductive, place it in the green box. If it is electrically nonconductive, place it in the blue box."
+    },
+    {
+      "task_id": "sciworld_1545",
+      "task_name": "test-conductivity",
+      "variation_id": 109,
+      "goal": "Your task is to determine if apricot is electrically conductive. The apricot is located around the kitchen. First, focus on the apricot. If it is electrically conductive, place it in the yellow box. If it is electrically nonconductive, place it in the purple box."
+    },
+    {
+      "task_id": "sciworld_325",
+      "task_name": "use-thermometer",
+      "variation_id": 205,
+      "goal": "Your task is to measure the temperature of unknown substance B, which is located around the bedroom. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above 0.0 degrees celsius, place it in the green box. If the unknown substance B temperature is below 0.0 degrees celsius, place it in the blue box. The boxes are located around the living room."
+    },
+    {
+      "task_id": "sciworld_326",
+      "task_name": "use-thermometer",
+      "variation_id": 206,
+      "goal": "Your task is to measure the temperature of unknown substance B, which is located around the bedroom. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above -50.0 degrees celsius, place it in the orange box. If the unknown substance B temperature is below -50.0 degrees celsius, place it in the yellow box. The boxes are located around the bathroom."
+    },
+    {
+      "task_id": "sciworld_3035",
+      "task_name": "find-living-thing",
+      "variation_id": 99,
+      "goal": "Your task is to find a(n) living thing. First, focus on the thing. Then, move it to the orange box in the bathroom."
+    },
+    {
+      "task_id": "sciworld_3044",
+      "task_name": "find-living-thing",
+      "variation_id": 108,
+      "goal": "Your task is to find a(n) living thing. First, focus on the thing. Then, move it to the red box in the bedroom."
+    },
+    {
+      "task_id": "sciworld_1466",
+      "task_name": "test-conductivity",
+      "variation_id": 30,
+      "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the kitchen. First, focus on the aluminum foil. If it is electrically conductive, place it in the red box. If it is electrically nonconductive, place it in the green box."
+    },
+    {
+      "task_id": "sciworld_146",
+      "task_name": "use-thermometer",
+      "variation_id": 26,
+      "goal": "Your task is to measure the temperature of unknown substance B, which is located around the living room. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above 100.0 degrees celsius, place it in the yellow box. If the unknown substance B temperature is below 100.0 degrees celsius, place it in the purple box. The boxes are located around the bathroom."
+    },
+    {
+      "task_id": "sciworld_3055",
+      "task_name": "find-living-thing",
+      "variation_id": 119,
+      "goal": "Your task is to find a(n) living thing. First, focus on the thing. Then, move it to the purple box in the workshop."
+    }
+  ],
+  "complete": true,
+  "reset_calls": 209,
+  "seconds": 23.895907312631607,
+  "policy_actions": 0,
+  "model_calls": 0
+}

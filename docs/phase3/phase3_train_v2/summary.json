@@ -1,0 +1,41 @@
+{
+  "purpose": "functional_only_no_gate_or_threshold_selection",
+  "steps": 48,
+  "episodes": 6,
+  "actor_calls": 48,
+  "memory_snapshot": null,
+  "internal_backend": "hf_generation_raw_bf16_v1",
+  "internal_config_sha256": "adce5d6dcb8d9ec0d76797f41dab348a0db429b6aeff10d1c4e66bf99b0b63fb",
+  "missing_span_count": 0,
+  "all_drafts_unchanged": true,
+  "max_peak_allocated_bytes": 8298891264,
+  "generation_seconds": 59.25150499120355,
+  "internal_extraction_seconds": 0.18121634051203728,
+  "generated_tokens_including_eos": 1726,
+  "retrieval_seconds": 0,
+  "judge_seconds": 0,
+  "judge_model_calls": 0,
+  "additional_tokens": 0,
+  "external_signal_counts": {
+    "coverage": {
+      "true": 0,
+      "false": 0,
+      "unknown": 0
+    },
+    "conflict": {
+      "true": 0,
+      "false": 0,
+      "unknown": 0
+    },
+    "sufficiency": {
+      "true": 0,
+      "false": 0,
+      "unknown": 0
+    }
+  },
+  "environment_step_seconds": 4.388040257,
+  "extra_model_forward_passes": 0,
+  "wm_calls": 0,
+  "oracle_calls": 0,
+  "memory_correction_calls": 0
+}

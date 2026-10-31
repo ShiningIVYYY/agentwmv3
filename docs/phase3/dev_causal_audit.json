@@ -1,0 +1,19 @@
+{
+  "steps": 15,
+  "all_native_receipts_aligned": true,
+  "all_queries_before_environment_step": true,
+  "external_input_hashes_match_causal_fields": true,
+  "all_external_signals_replay_exactly": true,
+  "all_actor_prompts_match_phase2_builder": true,
+  "executed_source_hashes_match_current_or_archived": true,
+  "current_source_differences": [
+    "experience/collection.py",
+    "experience/memory.py",
+    "experience/splits.py",
+    "experience/synthesis.py",
+    "scripts/diagnose_experience_memory.py"
+  ],
+  "memory_train_only": true,
+  "actions_unchanged": true,
+  "test_trajectories_used": 0
+}

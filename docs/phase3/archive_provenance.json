@@ -1,0 +1,48 @@
+{
+  "phase3_train_v2": {
+    "original_steps_sha256": "6beaa7c1f6012e5e3790843954796397b3ad2377b68eee7b6149ad6c7bf566c3",
+    "compact_steps_sha256": "6740f081abdd17754dc13523482bf248fa4a6251fb4759686f0942e3dd0d38d9",
+    "original_size_bytes": 2628866,
+    "compact_size_bytes": 636318,
+    "executed_source_differences": [
+      "experience/collection.py",
+      "experience/memory.py",
+      "experience/splits.py",
+      "experience/synthesis.py",
+      "scripts/diagnose_experience_memory.py"
+    ]
+  },
+  "phase3_rule_probes_v1": {
+    "original_steps_sha256": "f3b445e7e5e0ca20246d7e84088f206d1450b279d0617fdd7c5ace38c5c0d0cc",
+    "compact_steps_sha256": "f3b445e7e5e0ca20246d7e84088f206d1450b279d0617fdd7c5ace38c5c0d0cc",
+    "original_size_bytes": 4283,
+    "compact_size_bytes": 4283,
+    "executed_source_differences": []
+  },
+  "phase3_dev_v1": {
+    "original_steps_sha256": "19f0692685460dc0633aee383bfa15a5669ce6e59d308e761f77bb9e88e153bd",
+    "compact_steps_sha256": "53f3402a7f4702c6142ade1f32023e95bcab65ecda4ccb9c57d32868b76609c4",
+    "original_size_bytes": 917878,
+    "compact_size_bytes": 233223,
+    "executed_source_differences": [
+      "experience/collection.py",
+      "experience/memory.py",
+      "experience/splits.py",
+      "experience/synthesis.py",
+      "scripts/diagnose_experience_memory.py"
+    ]
+  },
+  "phase3_targeted_dev_v1": {
+    "original_steps_sha256": "670653621a9b09e2d69dfd640b97c96082743f406555610fedfb4abd73369366",
+    "compact_steps_sha256": "370679e350f4c88e7e795f5dcf261ff38ebb906b418a12124ce07e119d1cf6b9",
+    "original_size_bytes": 372722,
+    "compact_size_bytes": 156553,
+    "executed_source_differences": [
+      "experience/collection.py",
+      "experience/memory.py",
+      "experience/splits.py",
+      "experience/synthesis.py",
+      "scripts/diagnose_experience_memory.py"
+    ]
+  }
+}

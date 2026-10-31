@@ -1,0 +1,55 @@
+{
+  "purpose": "functional_diagnostic_not_benchmark",
+  "split_sha256": "b40dca22e135b624acbb680de6d5abca93d0289cffcea3f3be30d911ba1275e4",
+  "split_manifest_file_sha256": "6c354103f931d9c398be6ceddd3cb33755372643d0beef9ca052c57feb661fce",
+  "tasks": [
+    {
+      "task_id": "sciworld_1709",
+      "index": 1709,
+      "taskName": "test-conductivity",
+      "variationIdx": 273,
+      "category": "test_conductivity",
+      "goal_sha256": "82e89837c30c7703c0af01944230b4e97cbdb8791715aab99c7743e5b2463574",
+      "goal_group": "f0d6157b238de7f5a025cd3a701ffd5f2de1e75fda47d98ff7491dadc3c2e373",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_349",
+      "index": 349,
+      "taskName": "use-thermometer",
+      "variationIdx": 229,
+      "category": "measure",
+      "goal_sha256": "15b80d67a2b7f5dc6f6958bab6cba5bb412d6edf279dcaef84e3cb4905fcd438",
+      "goal_group": "67ed92c15a47c96abf42bf231baced327158c2c90db0ef37a32bdf99b2ebbab3",
+      "split": "development"
+    }
+  ],
+  "runtime": {
+    "scienceworld": "1.2.3",
+    "jar_sha256": "f4e1fdce0cdabe1bab7128a7e78ea820210d9db3c28d7272bcbbc3f3a1c5f0d7"
+  },
+  "max_steps": 5,
+  "memory_snapshot": "memory_6af512c385caf54a11ede606",
+  "selection_purpose": "targeted_previously_exposed_development",
+  "source_hashes": {
+    "experience/__init__.py": "e3bd066f65b43c42a3efe67069d025306fe11e8985d0ab69910ce0db34182768",
+    "experience/collection.py": "a4cba8b0516d70395bc714338927c8bcc881042979087a3168b01dffaaeec244",
+    "experience/memory.py": "74b2703de9ba7b1ad52a282fb8874c0c7c1ad79f0c326eefe2efc3aa008a9cf3",
+    "experience/schema.py": "4705bebbb2e5bcd6be3c4c668b22299a07311b94a702e2d9a3ce19d5de890155",
+    "experience/splits.py": "4a39a428c5f0c4ddaea542ebf1f7f89a529d4603ea9c75beb65d3a3981bc062c",
+    "experience/synthesis.py": "0079f7fb4b5b4c5048dba1983798b139dd8b7679f92e3e81eeca688517e91e82",
+    "internal_signals/__init__.py": "df5e36553d247f1d3d09ac5c4cd4199b0d0a9c6406b06cda7c44200ca7798fa3",
+    "internal_signals/base.py": "90f6304d34f2003aa455491b7c83b0d3ab040681f9352307ff7bf70d238b2793",
+    "internal_signals/decision.py": "c6e1d0e7d95d9b8e21e38cc80eb8a2b8423e50b7d20c62bb84f80e92f083f6eb",
+    "internal_signals/hf_actor.py": "8a1572d36b362aef24965535716d5120445380f96814c865e871af851d274e53",
+    "internal_signals/hidden_states.py": "d55f649650643743145b182aa8684ed12b6387730b4418eed1cc5365e0954536",
+    "internal_signals/provider.py": "f73a5d0982aa1002c4b53f2d265adedc4c76796dcaf089140d1ed8c81125bb90",
+    "internal_signals/spanuq_adapter.py": "0346dc8f95c629cbc05d201cae1646533847e53957261e91956529ba6659eb25",
+    "internal_signals/token_nll.py": "69711504b838f2fcf4cb4bdb6ac49cb19c8a9424a509b5210a25826153ca01dd",
+    "scripts/diagnose_experience_memory.py": "9f948efe00731b346ce0694c757b304c3d557073c601c88131fae320f1338e03",
+    "scripts/run_audited_paper_eval.py": "e3156df4ad62b47ee4b801653b0a4a7cb29f34616b87652152545df8b098fc08",
+    "configs/internal_signals/scienceworld_token_nll_v1.json": "adce5d6dcb8d9ec0d76797f41dab348a0db429b6aeff10d1c4e66bf99b0b63fb",
+    "docs/PAPER_ALIGNED_EVAL.md": "5a411bcdf87eb3197fced9a7957bc1eb92081955ae2a133ffe17ea5ec9434d8b"
+  },
+  "git_base": "cb5a28dcdd2b7359a6dded40e8c5e59cb8c3a158"
+}
