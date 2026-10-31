@@ -1,3 +1,7 @@
+# Current status
+
+Phase2 COMPLETE for user-selected route B. Phase3 NOT STARTED; await explicit confirmation. See PHASE2_REPORT.md and INTERNAL_SIGNALS.md. Earlier entries below are historical; SpanUQ remains shelved/unavailable.
+
 # agentwmv3 progress
 
 - Phase 0: COMPLETE. Phase 1: explicitly authorized and PARTIALLY EXECUTED; acceptance BLOCKED by official source/checkpoint mismatch. Phases 2–7: NOT STARTED.
@@ -44,3 +48,12 @@
 - Standalone fixed-field NLL prototype only: three synthetic prompts with real Qwen3-4B; 10 CPU tests pass. BF16 raw-vs-rescore equivalence fails 0.1-nat tolerance (exit 2); FP32 diagnostic passes (exit 0). Scores are surprisal, not error probabilities.
 - Existing hidden pipeline, strict loader, v2, benchmark configuration and PAPER_ALIGNED_EVAL.md remain unchanged. No training or complete benchmark.
 - STOP: await user choice before Phase 2; do not silently enable fallback or reuse SpanUQ thresholds.
+
+## Phase 2 final handoff
+
+- Official provider hf_generation_raw_bf16_v1: frozen Qwen3-4B, BF16 generation/raw-logit FP32 reduction. No rescore/FP32 scores mixed.
+- Reused original Agent.count/generate and Science.run with default-off opt-in branches; baseline CLI/prompt unchanged.
+- Three disjoint source-train instances (sciworld_349/1709/2997), 15 real actions; missing/parse/alignment errors0, repeat NLL drift0. Native action failures and a confidently incorrect premise are retained.
+-117 passing unit cases, causal/arithmetic trace audit passes. Extra online forward0; mean extraction4.55ms, peak7.73GiB. Separate numerical validation: one extra generation/one teacher forward, re-forward max drift.4873, not used for signals.
+- New docs and compact traces under docs/phase2; full outputs/phase2_diagnostic_v1 retained. No thresholds, Memory, Gate or full benchmark.
+- STOP before Phase3. Preserve PAPER_ALIGNED_EVAL.md, v2 and old environments.

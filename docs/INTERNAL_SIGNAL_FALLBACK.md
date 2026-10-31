@@ -1,3 +1,7 @@
+# Current route update
+
+The user selected route B and Phase2 implemented the fixed raw-generation BF16 provider. See INTERNAL_SIGNALS.md and PHASE2_REPORT.md. The Phase1B design and its precision evidence below are preserved as historical context.
+
 # Training-Free Internal Signal Fallback — Phase 1B design and feasibility
 
 **Proposed route B: fixed-field token surprisal from frozen Qwen/Qwen3-4B.** This is a standalone prototype and design, not complete Phase 2 development. No Agent loop, benchmark configuration, external memory or Gate was integrated/changed. User route selection is still required.

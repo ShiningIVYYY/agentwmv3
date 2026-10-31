@@ -2,9 +2,9 @@
 
 ## Phase control
 
-Current phase: 1, explicitly authorized and partially executed. Acceptance is blocked by published source/checkpoint incompatibility. Phases 2–7 are NOT authorized. Each phase requires implementation, appropriate tests, an A–G report and explicit user confirmation before the next phase. See PROGRESS.md for restart state. Hypotheses 1 and 2 remain unverified. No Actor/WM/probe/router/judge training or task-specific parameter updates are permitted.
+Current phase: 2, explicitly authorized and completed using user-selected route B (Token NLL). Phase 1 SpanUQ remains shelved/unavailable; it no longer blocks this selected route. Phases 3–7 are NOT authorized. Each phase requires implementation, appropriate tests, an A–G report and explicit user confirmation before the next phase. See PROGRESS.md for restart state. Hypotheses 1 and 2 remain unverified. No Actor/WM/probe/router/judge training or task-specific parameter updates are permitted.
 
-Read REPOSITORY_AUDIT.md and SPANUQ_AUDIT.md before modifying code. Existing components: audited Agent/benchmark loops, WM backends, reflection protocols, snapshot/replay, scheduler and task logs. Missing components: validated SpanUQ integration, structured decision/signals, provenance-controlled cross-episode memory, pre-WM Gate, complete system-cost accounting and reproducible isolated environment.
+Read REPOSITORY_AUDIT.md and SPANUQ_AUDIT.md before modifying code. Existing components: audited Agent/benchmark loops, WM backends, reflection protocols, snapshot/replay, scheduler and task logs. Implemented additions: isolated Qwen3-4B inference, structured Science decisions and formal Token NLL signals. Still missing: validated optional SpanUQ integration, provenance-controlled cross-episode memory, pre-WM Gate and complete system-cost accounting/fresh-server validation.
 
 ## Proposed interfaces (design only)
 
@@ -48,6 +48,10 @@ Execution status: partial, not accepted. See [PHASE1_REPORT.md](PHASE1_REPORT.md
 Acceptance: real complete checkpoint load with checked keys/shapes; established layer convention; reproducible valid real spans; model versions and additional forward overhead recorded. If provenance cannot resolve layer convention or architecture, stop. No Agent integration before this acceptance.
 
 ## Phase 2 — decision uncertainty
+
+Executed and accepted engineering scope: user selected frozen Qwen3-4B raw-generation Token NLL, not SpanUQ. See INTERNAL_SIGNALS.md and PHASE2_REPORT.md. Formal provider hf_generation_raw_bf16_v1 uses Premise/Expected Consequence mean NLL, their maximum and whole-response mean; missing values remain null with explicit configurable fallback. Original Agent/Science.run is reused through opt-in branches. 15 real disjoint training decisions, 0 missing/parse/alignment errors, repeat NLL delta0 and117 passing unit cases. A separate BF16 re-forward differs materially and is prohibited as a mixed provider. No Memory/Gate/calibration implemented.
+
+Historical proposal below referring to SpanUQ is superseded for the current route; it remains relevant only to a future separately validated probe backend.
 
 Reuse prompts, add minimal Premise/Expected Consequence while retaining native Action; same draft format across all new baselines. Count extra tokens/latency. Review relevant spans by field, compute nullable local max and premise/consequence scores; use validated native sequence score or explicitly named deterministic fallback. Missing-span fallback proposal: if global is valid, use global with an explicit fallback flag; if both missing, request WM subject to budget and report missing-signal rate. Do not treat fallback as calibrated risk. Collect a small REAL development ScienceWorld decision set with no future feedback in extraction. Acceptance: audited span/text/boundary report, missing/unrelated rates, descriptive error association only. Stop if SpanUQ is unsuitable for Agent text.
 
@@ -99,3 +103,7 @@ Paper/source audit completed without changing inference integration or legacy ru
 ## Phase 1B compatibility investigation and fallback planning
 
 Authorized Phase 1B is complete. Conclusion B: official SpanUQ remains incompatible; strict loading is still rejected. See SPANUQ_COMPATIBILITY.md and the unposted SPANUQ_ISSUE_DRAFT.md. A standalone fixed-field frozen-Qwen token-NLL prototype/design is in INTERNAL_SIGNAL_FALLBACK.md; no Agent/Gate wiring or complete Phase 2 development occurred. BF16 generation/full-forward NLL equivalence failed the predeclared tolerance, while FP32 diagnostic passed; provider/dtype-specific scoring must be fixed before later calibration. User must select the route before Phase 2. The existing external memory, Gate and paper-aligned evaluation plan remain unchanged.
+
+## Phase 2 handoff
+
+Token NLL Internal Signals are implemented and real-development diagnosed. New source/data/cost provenance is under docs/phase2. Existing paper-aligned evaluation settings are not changed; this is a separate15-step diagnostic. Phase3 can build true training/development experience only after confirmation, reserving sciworld_349/1709/2997 from any untouched validation partition. Do not infer error calibration or WM utility from these NLL values.

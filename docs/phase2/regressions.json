@@ -1,0 +1,32 @@
+[
+  {
+    "command": "PYTHONPATH=. CUDA_VISIBLE_DEVICES= .venv-spanuq/bin/python scripts/test_token_nll.py",
+    "exit_code": 0,
+    "output": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.037s\n\nOK\n"
+  },
+  {
+    "command": "PYTHONPATH=. CUDA_VISIBLE_DEVICES= .venv-spanuq/bin/python scripts/test_spanuq_integration.py",
+    "exit_code": 0,
+    "output": "......../data1/shn/agentwmv3/.venv-spanuq/lib/python3.12/site-packages/torch/nn/modules/transformer.py:392: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True\n  warnings.warn(\n...\n----------------------------------------------------------------------\nRan 11 tests in 2.743s\n\nOK\n"
+  },
+  {
+    "command": "PYTHONPATH=. CUDA_VISIBLE_DEVICES= .venv-spanuq/bin/python scripts/test_wm_reflection.py",
+    "exit_code": 0,
+    "output": ".................................\n----------------------------------------------------------------------\nRan 33 tests in 0.007s\n\nOK\n"
+  },
+  {
+    "command": "PYTHONPATH=. CUDA_VISIBLE_DEVICES= .venv-spanuq/bin/python scripts/test_agentwm_reflection.py",
+    "exit_code": 0,
+    "output": "............................\n----------------------------------------------------------------------\nRan 28 tests in 0.008s\n\nOK\n"
+  },
+  {
+    "command": "PYTHONPATH=. CUDA_VISIBLE_DEVICES= .venv-spanuq/bin/python scripts/test_science_evidence.py",
+    "exit_code": 0,
+    "output": "..................\n----------------------------------------------------------------------\nRan 18 tests in 0.003s\n\nOK\n"
+  },
+  {
+    "command": "PYTHONPATH=. CUDA_VISIBLE_DEVICES= .venv-spanuq/bin/python scripts/test_scienceworld_sr_context.py",
+    "exit_code": 0,
+    "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nOK\n"
+  }
+]

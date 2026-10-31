@@ -79,6 +79,9 @@ def anchored_science_messages(prelude, task, observation, steps, keep):
 
 
 def bounded_science(agent, prelude, task, observation, steps):
+    if getattr(agent, "internal_actor", None) is not None:
+        from internal_signals.decision import bounded
+        return bounded(agent, task, observation, steps)
     # Full history first. Drop whole oldest observation/assistant pairs only
     # when the exact model tokenizer says the prompt exceeds the paper budget.
     for keep in range(len(steps), -1, -1):
@@ -171,11 +174,18 @@ class Agent:
         self.args, self.out = args, out
         self.total_calls = 0
         self.generation_config = None
+        self.internal_actor = None
+        if getattr(args, "internal_signals_config", None):
+            from internal_signals.hf_actor import HFInternalActor
+            self.internal_actor = HFInternalActor(args.internal_signals_config, args.tokenizer_path, args.internal_device)
+            return
         if args.disable_thinking:
             self.generation_config = json.loads((Path(args.tokenizer_path) / 'generation_config.json').read_text())
             self.generation_config.update(top_k=0, repetition_penalty=1.0, do_sample=True)
 
     def count(self, messages):
+        if getattr(self, "internal_actor", None) is not None:
+            return self.internal_actor.count(messages)
         return http('POST', self.args.tokenizer_url + '/count', json={
             'path': self.args.tokenizer_path, 'messages': messages,
             'disable_thinking': self.args.disable_thinking})['count']
@@ -191,6 +201,11 @@ class Agent:
         return builder(self.science_reflection_prelude, task, observation, steps, history)
 
     def generate(self, messages, task_id, step, response_schema=None, response_regex=None):
+        if getattr(self, "internal_actor", None) is not None:
+            atomic(self.out / "progress.json", dict(task_id=task_id, step=step, state="generating_internal_signals"))
+            result = self.internal_actor.generate(messages, task_id, step, response_schema, response_regex)
+            self.total_calls += 1
+            return result
         if response_schema is not None and response_regex is not None:
             raise ValueError('Only one response format constraint may be supplied')
         count = self.count(messages)
@@ -338,6 +353,10 @@ class Science:
     def __init__(self, args):
         self.args = args
         self.url = args.science_url
+        if getattr(args, "internal_signals_config", None):
+            self.demo_path = None
+            self.prelude = []
+            return
         source = Path(getattr(args, 'science_demo', None) or ROOT / 'data/paper_eval/sources/science_expert_sample.jsonl')
         self.demo_path = source
         # Preserve the legacy full dialogue by default. The optional training-
@@ -466,7 +485,7 @@ class Science:
                 if controller:
                     wm_runtime.commit(controller, act, self.transition(rst), reflection)
                 steps.append(dict(messages=messages, output=text, action=act,
-                             valid_format=bool(act != initial_act or (len(parts) == 2 and 'Thought:' in parts[0])), admissible=act in acts,
+                             valid_format=(metadata["decision_format_valid"] if getattr(self.args, "internal_signals_config", None) else bool(act != initial_act or (len(parts) == 2 and "Thought:" in parts[0]))), admissible=act in acts,
                              admissible_actions=acts, observation=prior,
                              next_observation=rst['observation'], score=rst['score'],
                              history_length=h, history_dropped=len(steps)-h, **metadata, **reflection))

@@ -1,0 +1,4 @@
+--- executed/scripts/diagnose_scienceworld_internal.py
++++ final/scripts/diagnose_scienceworld_internal.py
+@@ -180,0 +181 @@
++    atomic(out / "progress.json", {"state": "finished", "completed_steps": len(traces), "summary": "summary.json"})

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "backend": "hf_generation_raw_bf16_v1",
+  "dtype": "bfloat16",
+  "model_id": "Qwen/Qwen3-4B",
+  "model_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+  "transformers_version": "4.57.3",
+  "torch_version": "2.8.0",
+  "temperature": 0.4,
+  "top_p": 1,
+  "top_k": 0,
+  "repetition_penalty": 1,
+  "max_new_tokens": 512,
+  "max_prompt_tokens": 4096,
+  "history_length": 2,
+  "enable_thinking": false,
+  "missing_policy": "global_only",
+  "seed": 0,
+  "prompt_schema": "scienceworld-premise-consequence-action-v1",
+  "action_format": "last_Action_tail_native_ScienceWorld",
+  "purpose": "phase2_development_diagnostic_not_benchmark"
+}

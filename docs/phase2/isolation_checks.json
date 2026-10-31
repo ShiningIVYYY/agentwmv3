@@ -1,0 +1,11 @@
+{
+  "v2_clean": true,
+  "paper_protocol_unchanged": true,
+  "hidden_pipeline_and_spanuq_unchanged": true,
+  "worldmodel_reflection_experiments_unchanged": true,
+  "existing_environment_recipe_unchanged": true,
+  "run_source_hash_match_except_documented_progress_fix": true,
+  "executed_driver_sha256": "52ff6948ca8065eedb110ddc60c8605b07fe2d62623892520946462308268245",
+  "final_driver_sha256": "439a8c85a8da12dbc2a3ad0a5b32f6d889df4c186b3b430ceffa585cbfb35d1b",
+  "benchmark_parameters_not_modified": true
+}

@@ -1,0 +1,38 @@
+{
+  "tasks": [
+    {
+      "task_id": "sciworld_349",
+      "index": 349,
+      "taskName": "use-thermometer",
+      "variationIdx": 229,
+      "split": "diagnostic-development",
+      "category": "measure"
+    },
+    {
+      "task_id": "sciworld_1709",
+      "index": 1709,
+      "taskName": "test-conductivity",
+      "variationIdx": 273,
+      "split": "diagnostic-development",
+      "category": "test_conductivity"
+    },
+    {
+      "task_id": "sciworld_2997",
+      "index": 2997,
+      "taskName": "find-living-thing",
+      "variationIdx": 61,
+      "split": "diagnostic-development",
+      "category": "find"
+    }
+  ],
+  "source_revision": "99d0b7923bf126d9c6cdea5f362d2d41ccb5d493",
+  "source_repo": "AgentGym/AgentGym-RL-Data-ID",
+  "train_sha256": "9b7ce7f214c738de96d0048919e08e8241c5c2bca48843c53dae5098b938e28d",
+  "test_sha256": "78fbe5ed7ba545f1a2ee08397a5e740f622872b6a3ee70315d349c4287675c79",
+  "train_eval_overlap": 61,
+  "reference_commit": "35a44f5c5647b1785ad23ddf0ffbd196b695bf86",
+  "catalog_sha256": "f16f8cc9c57a8066e45e1be2c61201dd8a10ee90c6fc6164fcdb22375ac04e94",
+  "selection": "minimum SHA256(agentwmv3-phase2-diagnostic-v1|id) per named family",
+  "excluded_demo": "sciworld_4509",
+  "reserved_for_future": "development, never untouched validation"
+}

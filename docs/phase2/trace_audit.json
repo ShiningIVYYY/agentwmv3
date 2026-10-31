@@ -1,0 +1,8 @@
+{
+  "steps": 15,
+  "causal_prompt_construction": true,
+  "field_and_global_arithmetic": true,
+  "uniform_backend_and_dtype": true,
+  "field_bounds_and_token_indices": true,
+  "future_feedback_used_in_generation": false
+}

@@ -1,0 +1,58 @@
+{
+  "raw_generation_repeat": {
+    "task_id": "sciworld_349",
+    "step": 1,
+    "max_abs_nll": 0.0,
+    "response_ids_equal": true,
+    "validation_additional_actor_calls": 1,
+    "validation_generation_cost": {
+      "generation_seconds": 0.9743513278663158,
+      "extraction_seconds": 0.007147243246436119,
+      "additional_backbone_forward_passes": 0,
+      "retained_raw_logits_bytes": 17016832,
+      "output_tokens_including_eos": 28,
+      "action_value_tokens": 3,
+      "non_action_response_tokens_including_labels": 24,
+      "peak_allocated_bytes": 8231251456,
+      "peak_reserved_bytes": 8264876032
+    }
+  },
+  "teacher_forced_diagnostic": {
+    "task_id": "sciworld_349",
+    "max_abs_nll": 0.48732155561447144,
+    "mean_abs_nll": 0.024484767885001948,
+    "extra_forward_seconds": 0.04584168456494808,
+    "extra_backbone_forward_passes": 1,
+    "forward_tokens": 393,
+    "not_used_for_internal_signals": true,
+    "rescored_token_nll": [
+      1.1920928244535389e-07,
+      -0.0,
+      -0.0,
+      3.099436753473128e-06,
+      0.003756491933017969,
+      1.2993727978027891e-05,
+      -0.0,
+      1.5522462129592896,
+      0.31354841589927673,
+      0.38687101006507874,
+      0.00020466140995267779,
+      3.576278118089249e-07,
+      -0.0,
+      1.7881377516459906e-06,
+      -0.0,
+      0.004402943886816502,
+      1.3132686614990234,
+      0.004078523721545935,
+      0.006719493307173252,
+      0.010867340490221977,
+      0.018231084570288658,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      1.5497195136049413e-06
+    ]
+  }
+}
