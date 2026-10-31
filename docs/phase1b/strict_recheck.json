@@ -1,0 +1,497 @@
+{
+  "error": "Published SpanUQ architecture cannot strictly load this checkpoint",
+  "source_commit": "778b1c1e3eeeda66233fe6b426f9303f4c7f76a3",
+  "checkpoint_sha256": "78a203415037cb6645385d27b14d4207d184d522cc2c33af07098f2f2254fb12",
+  "unmodified_config_error": "SpanUQConfig.__init__() got an unexpected keyword argument 'mob_k'",
+  "explicit_config_translation": {
+    "mob_k": {
+      "canonical_field": "mob_n_components",
+      "value": 3
+    },
+    "seq_agg_mode": {
+      "canonical_field": "seq_aggregation",
+      "value": "importance"
+    },
+    "max_seq_len": {
+      "adapter_response_token_cap": 2048
+    }
+  },
+  "missing_keys": [],
+  "unexpected_keys": [
+    "u_conditioner.cond_mlp.0.bias",
+    "u_conditioner.cond_mlp.0.weight",
+    "u_conditioner.cond_mlp.2.bias",
+    "u_conditioner.cond_mlp.2.weight"
+  ],
+  "shape_mismatches": [
+    {
+      "key": "token_encoder.pos_enc.pe",
+      "source_shape": [
+        1,
+        4096,
+        512
+      ],
+      "checkpoint_shape": [
+        1,
+        16384,
+        512
+      ]
+    }
+  ],
+  "tensor_count": 134,
+  "tensor_shapes": {
+    "input_proj.proj.weight": [
+      512,
+      2560
+    ],
+    "input_proj.proj.bias": [
+      512
+    ],
+    "input_proj.norm.weight": [
+      512
+    ],
+    "input_proj.norm.bias": [
+      512
+    ],
+    "token_encoder.pos_enc.pe": [
+      1,
+      16384,
+      512
+    ],
+    "token_encoder.encoder.layers.0.self_attn.in_proj_weight": [
+      1536,
+      512
+    ],
+    "token_encoder.encoder.layers.0.self_attn.in_proj_bias": [
+      1536
+    ],
+    "token_encoder.encoder.layers.0.self_attn.out_proj.weight": [
+      512,
+      512
+    ],
+    "token_encoder.encoder.layers.0.self_attn.out_proj.bias": [
+      512
+    ],
+    "token_encoder.encoder.layers.0.linear1.weight": [
+      1024,
+      512
+    ],
+    "token_encoder.encoder.layers.0.linear1.bias": [
+      1024
+    ],
+    "token_encoder.encoder.layers.0.linear2.weight": [
+      512,
+      1024
+    ],
+    "token_encoder.encoder.layers.0.linear2.bias": [
+      512
+    ],
+    "token_encoder.encoder.layers.0.norm1.weight": [
+      512
+    ],
+    "token_encoder.encoder.layers.0.norm1.bias": [
+      512
+    ],
+    "token_encoder.encoder.layers.0.norm2.weight": [
+      512
+    ],
+    "token_encoder.encoder.layers.0.norm2.bias": [
+      512
+    ],
+    "token_encoder.encoder.layers.1.self_attn.in_proj_weight": [
+      1536,
+      512
+    ],
+    "token_encoder.encoder.layers.1.self_attn.in_proj_bias": [
+      1536
+    ],
+    "token_encoder.encoder.layers.1.self_attn.out_proj.weight": [
+      512,
+      512
+    ],
+    "token_encoder.encoder.layers.1.self_attn.out_proj.bias": [
+      512
+    ],
+    "token_encoder.encoder.layers.1.linear1.weight": [
+      1024,
+      512
+    ],
+    "token_encoder.encoder.layers.1.linear1.bias": [
+      1024
+    ],
+    "token_encoder.encoder.layers.1.linear2.weight": [
+      512,
+      1024
+    ],
+    "token_encoder.encoder.layers.1.linear2.bias": [
+      512
+    ],
+    "token_encoder.encoder.layers.1.norm1.weight": [
+      512
+    ],
+    "token_encoder.encoder.layers.1.norm1.bias": [
+      512
+    ],
+    "token_encoder.encoder.layers.1.norm2.weight": [
+      512
+    ],
+    "token_encoder.encoder.layers.1.norm2.bias": [
+      512
+    ],
+    "token_encoder.norm.weight": [
+      512
+    ],
+    "token_encoder.norm.bias": [
+      512
+    ],
+    "decoder.query_embed.weight": [
+      32,
+      512
+    ],
+    "decoder.layers.0.self_attn.in_proj_weight": [
+      1536,
+      512
+    ],
+    "decoder.layers.0.self_attn.in_proj_bias": [
+      1536
+    ],
+    "decoder.layers.0.self_attn.out_proj.weight": [
+      512,
+      512
+    ],
+    "decoder.layers.0.self_attn.out_proj.bias": [
+      512
+    ],
+    "decoder.layers.0.multihead_attn.in_proj_weight": [
+      1536,
+      512
+    ],
+    "decoder.layers.0.multihead_attn.in_proj_bias": [
+      1536
+    ],
+    "decoder.layers.0.multihead_attn.out_proj.weight": [
+      512,
+      512
+    ],
+    "decoder.layers.0.multihead_attn.out_proj.bias": [
+      512
+    ],
+    "decoder.layers.0.linear1.weight": [
+      1024,
+      512
+    ],
+    "decoder.layers.0.linear1.bias": [
+      1024
+    ],
+    "decoder.layers.0.linear2.weight": [
+      512,
+      1024
+    ],
+    "decoder.layers.0.linear2.bias": [
+      512
+    ],
+    "decoder.layers.0.norm1.weight": [
+      512
+    ],
+    "decoder.layers.0.norm1.bias": [
+      512
+    ],
+    "decoder.layers.0.norm2.weight": [
+      512
+    ],
+    "decoder.layers.0.norm2.bias": [
+      512
+    ],
+    "decoder.layers.0.norm3.weight": [
+      512
+    ],
+    "decoder.layers.0.norm3.bias": [
+      512
+    ],
+    "decoder.layers.1.self_attn.in_proj_weight": [
+      1536,
+      512
+    ],
+    "decoder.layers.1.self_attn.in_proj_bias": [
+      1536
+    ],
+    "decoder.layers.1.self_attn.out_proj.weight": [
+      512,
+      512
+    ],
+    "decoder.layers.1.self_attn.out_proj.bias": [
+      512
+    ],
+    "decoder.layers.1.multihead_attn.in_proj_weight": [
+      1536,
+      512
+    ],
+    "decoder.layers.1.multihead_attn.in_proj_bias": [
+      1536
+    ],
+    "decoder.layers.1.multihead_attn.out_proj.weight": [
+      512,
+      512
+    ],
+    "decoder.layers.1.multihead_attn.out_proj.bias": [
+      512
+    ],
+    "decoder.layers.1.linear1.weight": [
+      1024,
+      512
+    ],
+    "decoder.layers.1.linear1.bias": [
+      1024
+    ],
+    "decoder.layers.1.linear2.weight": [
+      512,
+      1024
+    ],
+    "decoder.layers.1.linear2.bias": [
+      512
+    ],
+    "decoder.layers.1.norm1.weight": [
+      512
+    ],
+    "decoder.layers.1.norm1.bias": [
+      512
+    ],
+    "decoder.layers.1.norm2.weight": [
+      512
+    ],
+    "decoder.layers.1.norm2.bias": [
+      512
+    ],
+    "decoder.layers.1.norm3.weight": [
+      512
+    ],
+    "decoder.layers.1.norm3.bias": [
+      512
+    ],
+    "decoder.layers.2.self_attn.in_proj_weight": [
+      1536,
+      512
+    ],
+    "decoder.layers.2.self_attn.in_proj_bias": [
+      1536
+    ],
+    "decoder.layers.2.self_attn.out_proj.weight": [
+      512,
+      512
+    ],
+    "decoder.layers.2.self_attn.out_proj.bias": [
+      512
+    ],
+    "decoder.layers.2.multihead_attn.in_proj_weight": [
+      1536,
+      512
+    ],
+    "decoder.layers.2.multihead_attn.in_proj_bias": [
+      1536
+    ],
+    "decoder.layers.2.multihead_attn.out_proj.weight": [
+      512,
+      512
+    ],
+    "decoder.layers.2.multihead_attn.out_proj.bias": [
+      512
+    ],
+    "decoder.layers.2.linear1.weight": [
+      1024,
+      512
+    ],
+    "decoder.layers.2.linear1.bias": [
+      1024
+    ],
+    "decoder.layers.2.linear2.weight": [
+      512,
+      1024
+    ],
+    "decoder.layers.2.linear2.bias": [
+      512
+    ],
+    "decoder.layers.2.norm1.weight": [
+      512
+    ],
+    "decoder.layers.2.norm1.bias": [
+      512
+    ],
+    "decoder.layers.2.norm2.weight": [
+      512
+    ],
+    "decoder.layers.2.norm2.bias": [
+      512
+    ],
+    "decoder.layers.2.norm3.weight": [
+      512
+    ],
+    "decoder.layers.2.norm3.bias": [
+      512
+    ],
+    "decoder.norm.weight": [
+      512
+    ],
+    "decoder.norm.bias": [
+      512
+    ],
+    "heads.start_proj.weight": [
+      512,
+      512
+    ],
+    "heads.start_proj.bias": [
+      512
+    ],
+    "heads.end_proj.weight": [
+      512,
+      512
+    ],
+    "heads.end_proj.bias": [
+      512
+    ],
+    "heads.valid_head.0.weight": [
+      256,
+      512
+    ],
+    "heads.valid_head.0.bias": [
+      256
+    ],
+    "heads.valid_head.2.weight": [
+      1,
+      256
+    ],
+    "heads.valid_head.2.bias": [
+      1
+    ],
+    "heads.uncertainty_head.0.weight": [
+      256,
+      512
+    ],
+    "heads.uncertainty_head.0.bias": [
+      256
+    ],
+    "heads.uncertainty_head.1.weight": [
+      256
+    ],
+    "heads.uncertainty_head.1.bias": [
+      256
+    ],
+    "heads.uncertainty_head.4.weight": [
+      256,
+      256
+    ],
+    "heads.uncertainty_head.4.bias": [
+      256
+    ],
+    "heads.uncertainty_head.5.weight": [
+      256
+    ],
+    "heads.uncertainty_head.5.bias": [
+      256
+    ],
+    "heads.uncertainty_head.8.weight": [
+      9,
+      256
+    ],
+    "heads.uncertainty_head.8.bias": [
+      9
+    ],
+    "heads.importance.weight": [
+      1,
+      512
+    ],
+    "heads.importance.bias": [
+      1
+    ],
+    "regression_head.mlp.0.weight": [
+      256,
+      512
+    ],
+    "regression_head.mlp.0.bias": [
+      256
+    ],
+    "regression_head.mlp.2.weight": [
+      256,
+      256
+    ],
+    "regression_head.mlp.2.bias": [
+      256
+    ],
+    "regression_head.mlp.4.weight": [
+      2,
+      256
+    ],
+    "regression_head.mlp.4.bias": [
+      2
+    ],
+    "span_pool.attn_query.weight": [
+      512,
+      512
+    ],
+    "span_pool.attn_query.bias": [
+      512
+    ],
+    "span_pool.attn_key.weight": [
+      512,
+      512
+    ],
+    "span_pool.attn_key.bias": [
+      512
+    ],
+    "enriched_uncertainty_head.gate.0.weight": [
+      512,
+      512
+    ],
+    "enriched_uncertainty_head.gate.0.bias": [
+      512
+    ],
+    "enriched_uncertainty_head.mlp.0.weight": [
+      256,
+      512
+    ],
+    "enriched_uncertainty_head.mlp.0.bias": [
+      256
+    ],
+    "enriched_uncertainty_head.mlp.1.weight": [
+      256
+    ],
+    "enriched_uncertainty_head.mlp.1.bias": [
+      256
+    ],
+    "enriched_uncertainty_head.mlp.4.weight": [
+      256,
+      256
+    ],
+    "enriched_uncertainty_head.mlp.4.bias": [
+      256
+    ],
+    "enriched_uncertainty_head.mlp.5.weight": [
+      256
+    ],
+    "enriched_uncertainty_head.mlp.5.bias": [
+      256
+    ],
+    "enriched_uncertainty_head.mlp.8.weight": [
+      9,
+      256
+    ],
+    "enriched_uncertainty_head.mlp.8.bias": [
+      9
+    ],
+    "u_conditioner.cond_mlp.0.weight": [
+      256,
+      3
+    ],
+    "u_conditioner.cond_mlp.0.bias": [
+      256
+    ],
+    "u_conditioner.cond_mlp.2.weight": [
+      512,
+      256
+    ],
+    "u_conditioner.cond_mlp.2.bias": [
+      512
+    ]
+  },
+  "strict_load_passed": false,
+  "strict_error": "Error(s) in loading state_dict for SpanUQ_DETR:\n\tUnexpected key(s) in state_dict: \"u_conditioner.cond_mlp.0.weight\", \"u_conditioner.cond_mlp.0.bias\", \"u_conditioner.cond_mlp.2.weight\", \"u_conditioner.cond_mlp.2.bias\". \n\tsize mismatch for token_encoder.pos_enc.pe: copying a param with shape torch.Size([1, 16384, 512]) from checkpoint, the shape in current model is torch.Size([1, 4096, 512])."
+}

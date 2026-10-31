@@ -1,0 +1,40 @@
+{
+  "checked_at_utc": "2026-10-31T19:36:12.461983+00:00",
+  "github_issues_all": {
+    "url": "https://api.github.com/repos/damon-demon/SpanUQ/issues?state=all&per_page=100",
+    "error": "HTTP Error 403: rate limit exceeded"
+  },
+  "github_branches": {
+    "url": "https://api.github.com/repos/damon-demon/SpanUQ/branches?per_page=100",
+    "error": "HTTP Error 403: rate limit exceeded"
+  },
+  "github_tags": {
+    "url": "https://api.github.com/repos/damon-demon/SpanUQ/tags?per_page=100",
+    "error": "HTTP Error 403: rate limit exceeded"
+  },
+  "github_issues_html": {
+    "url": "https://github.com/damon-demon/SpanUQ/issues?q=is%3Aissue",
+    "status": 200,
+    "bytes": 212343
+  },
+  "hf_model": {
+    "url": "https://huggingface.co/api/models/DamonDemon/SpanUQ",
+    "status": 200,
+    "bytes": 1798
+  },
+  "hf_history": {
+    "url": "https://huggingface.co/api/models/DamonDemon/SpanUQ/commits/main",
+    "status": 200,
+    "bytes": 1981
+  },
+  "hf_discussions": {
+    "url": "https://huggingface.co/api/models/DamonDemon/SpanUQ/discussions",
+    "status": 200,
+    "bytes": 741
+  },
+  "hf_tree": {
+    "url": "https://huggingface.co/api/models/DamonDemon/SpanUQ/tree/main/Qwen3-4B?expand=true",
+    "status": 200,
+    "bytes": 3891
+  }
+}

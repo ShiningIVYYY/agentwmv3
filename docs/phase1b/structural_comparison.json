@@ -1,0 +1,1644 @@
+{
+  "checkpoint_sha256_before": "78a203415037cb6645385d27b14d4207d184d522cc2c33af07098f2f2254fb12",
+  "checkpoint_sha256_after": "78a203415037cb6645385d27b14d4207d184d522cc2c33af07098f2f2254fb12",
+  "tensor_count": 134,
+  "source_tensor_count": 130,
+  "aliases": {
+    "mob_k": {
+      "canonical_field": "mob_n_components",
+      "value": 3
+    },
+    "seq_agg_mode": {
+      "canonical_field": "seq_aggregation",
+      "value": "importance"
+    },
+    "max_seq_len": {
+      "adapter_response_token_cap": 2048
+    }
+  },
+  "missing_keys": [],
+  "unexpected_keys": [
+    "u_conditioner.cond_mlp.0.bias",
+    "u_conditioner.cond_mlp.0.weight",
+    "u_conditioner.cond_mlp.2.bias",
+    "u_conditioner.cond_mlp.2.weight"
+  ],
+  "shape_mismatches": [
+    {
+      "key": "token_encoder.pos_enc.pe",
+      "source_shape": [
+        1,
+        4096,
+        512
+      ],
+      "checkpoint_shape": [
+        1,
+        16384,
+        512
+      ]
+    }
+  ],
+  "common_matching_shapes": 129,
+  "all_checkpoint_tensors_finite": true,
+  "complete_comparison": [
+    {
+      "key": "decoder.layers.0.linear1.bias",
+      "source_shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.0.linear1.weight",
+      "source_shape": [
+        1024,
+        512
+      ],
+      "checkpoint_shape": [
+        1024,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.0.linear2.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.0.linear2.weight",
+      "source_shape": [
+        512,
+        1024
+      ],
+      "checkpoint_shape": [
+        512,
+        1024
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.0.multihead_attn.in_proj_bias",
+      "source_shape": [
+        1536
+      ],
+      "checkpoint_shape": [
+        1536
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.0.multihead_attn.in_proj_weight",
+      "source_shape": [
+        1536,
+        512
+      ],
+      "checkpoint_shape": [
+        1536,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.0.multihead_attn.out_proj.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.0.multihead_attn.out_proj.weight",
+      "source_shape": [
+        512,
+        512
+      ],
+      "checkpoint_shape": [
+        512,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.0.norm1.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.0.norm1.weight",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.0.norm2.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.0.norm2.weight",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.0.norm3.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.0.norm3.weight",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.0.self_attn.in_proj_bias",
+      "source_shape": [
+        1536
+      ],
+      "checkpoint_shape": [
+        1536
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.0.self_attn.in_proj_weight",
+      "source_shape": [
+        1536,
+        512
+      ],
+      "checkpoint_shape": [
+        1536,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.0.self_attn.out_proj.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.0.self_attn.out_proj.weight",
+      "source_shape": [
+        512,
+        512
+      ],
+      "checkpoint_shape": [
+        512,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.1.linear1.bias",
+      "source_shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.1.linear1.weight",
+      "source_shape": [
+        1024,
+        512
+      ],
+      "checkpoint_shape": [
+        1024,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.1.linear2.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.1.linear2.weight",
+      "source_shape": [
+        512,
+        1024
+      ],
+      "checkpoint_shape": [
+        512,
+        1024
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.1.multihead_attn.in_proj_bias",
+      "source_shape": [
+        1536
+      ],
+      "checkpoint_shape": [
+        1536
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.1.multihead_attn.in_proj_weight",
+      "source_shape": [
+        1536,
+        512
+      ],
+      "checkpoint_shape": [
+        1536,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.1.multihead_attn.out_proj.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.1.multihead_attn.out_proj.weight",
+      "source_shape": [
+        512,
+        512
+      ],
+      "checkpoint_shape": [
+        512,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.1.norm1.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.1.norm1.weight",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.1.norm2.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.1.norm2.weight",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.1.norm3.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.1.norm3.weight",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.1.self_attn.in_proj_bias",
+      "source_shape": [
+        1536
+      ],
+      "checkpoint_shape": [
+        1536
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.1.self_attn.in_proj_weight",
+      "source_shape": [
+        1536,
+        512
+      ],
+      "checkpoint_shape": [
+        1536,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.1.self_attn.out_proj.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.1.self_attn.out_proj.weight",
+      "source_shape": [
+        512,
+        512
+      ],
+      "checkpoint_shape": [
+        512,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.2.linear1.bias",
+      "source_shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.2.linear1.weight",
+      "source_shape": [
+        1024,
+        512
+      ],
+      "checkpoint_shape": [
+        1024,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.2.linear2.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.2.linear2.weight",
+      "source_shape": [
+        512,
+        1024
+      ],
+      "checkpoint_shape": [
+        512,
+        1024
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.2.multihead_attn.in_proj_bias",
+      "source_shape": [
+        1536
+      ],
+      "checkpoint_shape": [
+        1536
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.2.multihead_attn.in_proj_weight",
+      "source_shape": [
+        1536,
+        512
+      ],
+      "checkpoint_shape": [
+        1536,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.2.multihead_attn.out_proj.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.2.multihead_attn.out_proj.weight",
+      "source_shape": [
+        512,
+        512
+      ],
+      "checkpoint_shape": [
+        512,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.2.norm1.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.2.norm1.weight",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.2.norm2.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.2.norm2.weight",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.2.norm3.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.2.norm3.weight",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.2.self_attn.in_proj_bias",
+      "source_shape": [
+        1536
+      ],
+      "checkpoint_shape": [
+        1536
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.2.self_attn.in_proj_weight",
+      "source_shape": [
+        1536,
+        512
+      ],
+      "checkpoint_shape": [
+        1536,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.2.self_attn.out_proj.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.layers.2.self_attn.out_proj.weight",
+      "source_shape": [
+        512,
+        512
+      ],
+      "checkpoint_shape": [
+        512,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.norm.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.norm.weight",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "decoder.query_embed.weight",
+      "source_shape": [
+        32,
+        512
+      ],
+      "checkpoint_shape": [
+        32,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "enriched_uncertainty_head.gate.0.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "enriched_uncertainty_head.gate.0.weight",
+      "source_shape": [
+        512,
+        512
+      ],
+      "checkpoint_shape": [
+        512,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "enriched_uncertainty_head.mlp.0.bias",
+      "source_shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "enriched_uncertainty_head.mlp.0.weight",
+      "source_shape": [
+        256,
+        512
+      ],
+      "checkpoint_shape": [
+        256,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "enriched_uncertainty_head.mlp.1.bias",
+      "source_shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "enriched_uncertainty_head.mlp.1.weight",
+      "source_shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "enriched_uncertainty_head.mlp.4.bias",
+      "source_shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "enriched_uncertainty_head.mlp.4.weight",
+      "source_shape": [
+        256,
+        256
+      ],
+      "checkpoint_shape": [
+        256,
+        256
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "enriched_uncertainty_head.mlp.5.bias",
+      "source_shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "enriched_uncertainty_head.mlp.5.weight",
+      "source_shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "enriched_uncertainty_head.mlp.8.bias",
+      "source_shape": [
+        9
+      ],
+      "checkpoint_shape": [
+        9
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "enriched_uncertainty_head.mlp.8.weight",
+      "source_shape": [
+        9,
+        256
+      ],
+      "checkpoint_shape": [
+        9,
+        256
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "heads.end_proj.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "heads.end_proj.weight",
+      "source_shape": [
+        512,
+        512
+      ],
+      "checkpoint_shape": [
+        512,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "heads.importance.bias",
+      "source_shape": [
+        1
+      ],
+      "checkpoint_shape": [
+        1
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "heads.importance.weight",
+      "source_shape": [
+        1,
+        512
+      ],
+      "checkpoint_shape": [
+        1,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "heads.start_proj.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "heads.start_proj.weight",
+      "source_shape": [
+        512,
+        512
+      ],
+      "checkpoint_shape": [
+        512,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "heads.uncertainty_head.0.bias",
+      "source_shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "heads.uncertainty_head.0.weight",
+      "source_shape": [
+        256,
+        512
+      ],
+      "checkpoint_shape": [
+        256,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "heads.uncertainty_head.1.bias",
+      "source_shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "heads.uncertainty_head.1.weight",
+      "source_shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "heads.uncertainty_head.4.bias",
+      "source_shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "heads.uncertainty_head.4.weight",
+      "source_shape": [
+        256,
+        256
+      ],
+      "checkpoint_shape": [
+        256,
+        256
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "heads.uncertainty_head.5.bias",
+      "source_shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "heads.uncertainty_head.5.weight",
+      "source_shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "heads.uncertainty_head.8.bias",
+      "source_shape": [
+        9
+      ],
+      "checkpoint_shape": [
+        9
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "heads.uncertainty_head.8.weight",
+      "source_shape": [
+        9,
+        256
+      ],
+      "checkpoint_shape": [
+        9,
+        256
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "heads.valid_head.0.bias",
+      "source_shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "heads.valid_head.0.weight",
+      "source_shape": [
+        256,
+        512
+      ],
+      "checkpoint_shape": [
+        256,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "heads.valid_head.2.bias",
+      "source_shape": [
+        1
+      ],
+      "checkpoint_shape": [
+        1
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "heads.valid_head.2.weight",
+      "source_shape": [
+        1,
+        256
+      ],
+      "checkpoint_shape": [
+        1,
+        256
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "input_proj.norm.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "input_proj.norm.weight",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "input_proj.proj.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "input_proj.proj.weight",
+      "source_shape": [
+        512,
+        2560
+      ],
+      "checkpoint_shape": [
+        512,
+        2560
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "regression_head.mlp.0.bias",
+      "source_shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "regression_head.mlp.0.weight",
+      "source_shape": [
+        256,
+        512
+      ],
+      "checkpoint_shape": [
+        256,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "regression_head.mlp.2.bias",
+      "source_shape": [
+        256
+      ],
+      "checkpoint_shape": [
+        256
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "regression_head.mlp.2.weight",
+      "source_shape": [
+        256,
+        256
+      ],
+      "checkpoint_shape": [
+        256,
+        256
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "regression_head.mlp.4.bias",
+      "source_shape": [
+        2
+      ],
+      "checkpoint_shape": [
+        2
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "regression_head.mlp.4.weight",
+      "source_shape": [
+        2,
+        256
+      ],
+      "checkpoint_shape": [
+        2,
+        256
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "span_pool.attn_key.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "span_pool.attn_key.weight",
+      "source_shape": [
+        512,
+        512
+      ],
+      "checkpoint_shape": [
+        512,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "span_pool.attn_query.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "span_pool.attn_query.weight",
+      "source_shape": [
+        512,
+        512
+      ],
+      "checkpoint_shape": [
+        512,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.0.linear1.bias",
+      "source_shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.0.linear1.weight",
+      "source_shape": [
+        1024,
+        512
+      ],
+      "checkpoint_shape": [
+        1024,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.0.linear2.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.0.linear2.weight",
+      "source_shape": [
+        512,
+        1024
+      ],
+      "checkpoint_shape": [
+        512,
+        1024
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.0.norm1.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.0.norm1.weight",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.0.norm2.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.0.norm2.weight",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.0.self_attn.in_proj_bias",
+      "source_shape": [
+        1536
+      ],
+      "checkpoint_shape": [
+        1536
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.0.self_attn.in_proj_weight",
+      "source_shape": [
+        1536,
+        512
+      ],
+      "checkpoint_shape": [
+        1536,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.0.self_attn.out_proj.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.0.self_attn.out_proj.weight",
+      "source_shape": [
+        512,
+        512
+      ],
+      "checkpoint_shape": [
+        512,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.1.linear1.bias",
+      "source_shape": [
+        1024
+      ],
+      "checkpoint_shape": [
+        1024
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.1.linear1.weight",
+      "source_shape": [
+        1024,
+        512
+      ],
+      "checkpoint_shape": [
+        1024,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.1.linear2.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.1.linear2.weight",
+      "source_shape": [
+        512,
+        1024
+      ],
+      "checkpoint_shape": [
+        512,
+        1024
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.1.norm1.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.1.norm1.weight",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.1.norm2.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.1.norm2.weight",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.1.self_attn.in_proj_bias",
+      "source_shape": [
+        1536
+      ],
+      "checkpoint_shape": [
+        1536
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.1.self_attn.in_proj_weight",
+      "source_shape": [
+        1536,
+        512
+      ],
+      "checkpoint_shape": [
+        1536,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.1.self_attn.out_proj.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.encoder.layers.1.self_attn.out_proj.weight",
+      "source_shape": [
+        512,
+        512
+      ],
+      "checkpoint_shape": [
+        512,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.norm.bias",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.norm.weight",
+      "source_shape": [
+        512
+      ],
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "token_encoder.pos_enc.pe",
+      "source_shape": [
+        1,
+        4096,
+        512
+      ],
+      "checkpoint_shape": [
+        1,
+        16384,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "u_conditioner.cond_mlp.0.bias",
+      "source_shape": null,
+      "checkpoint_shape": [
+        256
+      ],
+      "source_dtype": null,
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "u_conditioner.cond_mlp.0.weight",
+      "source_shape": null,
+      "checkpoint_shape": [
+        256,
+        3
+      ],
+      "source_dtype": null,
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "u_conditioner.cond_mlp.2.bias",
+      "source_shape": null,
+      "checkpoint_shape": [
+        512
+      ],
+      "source_dtype": null,
+      "checkpoint_dtype": "torch.float32"
+    },
+    {
+      "key": "u_conditioner.cond_mlp.2.weight",
+      "source_shape": null,
+      "checkpoint_shape": [
+        512,
+        256
+      ],
+      "source_dtype": null,
+      "checkpoint_dtype": "torch.float32"
+    }
+  ],
+  "pe_comparison": {
+    "max_absolute_error_full_16384": 0.0,
+    "max_absolute_error_source_prefix_4096": 0.0,
+    "unchanged_checkpoint": true
+  },
+  "conditioner_tensor_statistics": {
+    "u_conditioner.cond_mlp.0.weight": {
+      "shape": [
+        256,
+        3
+      ],
+      "finite": true,
+      "norm": 3.0346686840057373
+    },
+    "u_conditioner.cond_mlp.0.bias": {
+      "shape": [
+        256
+      ],
+      "finite": true,
+      "norm": 0.13234350085258484
+    },
+    "u_conditioner.cond_mlp.2.weight": {
+      "shape": [
+        512,
+        256
+      ],
+      "finite": true,
+      "norm": 20.770557403564453
+    },
+    "u_conditioner.cond_mlp.2.bias": {
+      "shape": [
+        512
+      ],
+      "finite": true,
+      "norm": 0.1540098935365677
+    }
+  }
+}

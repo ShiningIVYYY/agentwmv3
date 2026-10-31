@@ -1,0 +1,1805 @@
+{
+  "purpose": "standalone real-model feasibility on synthetic text inputs; no benchmark outcomes",
+  "backbone": "Qwen/Qwen3-4B",
+  "backbone_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+  "dtype": "bfloat16",
+  "enable_thinking": false,
+  "seed": 0,
+  "temperature": 0.4,
+  "top_p": 1.0,
+  "top_k": 0,
+  "max_new_tokens": 128,
+  "nll_source": "raw_pre_temperature_logits",
+  "equivalence_tolerance_nats": 0.1,
+  "torch": "2.8.0+cu128",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "code_sha256": {
+    "internal_signals/token_nll.py": "69711504b838f2fcf4cb4bdb6ac49cb19c8a9424a509b5210a25826153ca01dd",
+    "scripts/token_nll_feasibility.py": "c26af9febd71e67beb5da60537f264e30a3c795378186f7c4ea5feb1c2bfb9ed"
+  },
+  "cases": [
+    {
+      "synthetic_prompt": "Observation: A wooden door in front of you is closed and has an unlocked handle. Goal: Open the door.",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Choose one next action based only on the given observation and goal.\nOutput exactly three lines, with one short sentence per field and no extra text:\nPremise: <current observable condition the action depends on>\nExpected Consequence: <predicted immediate effect, not observed feedback>\nAction: <one short concrete action>\n\nObservation: A wooden door in front of you is closed and has an unlocked handle. Goal: Open the door."
+        }
+      ],
+      "response": "Premise: The door is closed but the handle is unlocked.  \nExpected Consequence: The door will open when the handle is pulled.  \nAction: Pull the handle to open the door.",
+      "prompt_token_ids": [
+        151644,
+        872,
+        198,
+        24051,
+        825,
+        1790,
+        1917,
+        3118,
+        1172,
+        389,
+        279,
+        2661,
+        21930,
+        323,
+        5795,
+        624,
+        5097,
+        6896,
+        2326,
+        5128,
+        11,
+        448,
+        825,
+        2805,
+        11652,
+        817,
+        2070,
+        323,
+        902,
+        4960,
+        1467,
+        510,
+        41462,
+        1064,
+        25,
+        366,
+        3231,
+        39535,
+        2971,
+        279,
+        1917,
+        13798,
+        389,
+        397,
+        18896,
+        1200,
+        15512,
+        25,
+        366,
+        94300,
+        13922,
+        2456,
+        11,
+        537,
+        13166,
+        11055,
+        397,
+        2512,
+        25,
+        366,
+        603,
+        2805,
+        14175,
+        1917,
+        1339,
+        37763,
+        367,
+        25,
+        362,
+        22360,
+        6006,
+        304,
+        4065,
+        315,
+        498,
+        374,
+        7877,
+        323,
+        702,
+        458,
+        35618,
+        3705,
+        13,
+        39947,
+        25,
+        5264,
+        279,
+        6006,
+        13,
+        151645,
+        198,
+        151644,
+        77091,
+        198,
+        151667,
+        271,
+        151668,
+        271
+      ],
+      "response_token_ids": [
+        41462,
+        1064,
+        25,
+        576,
+        6006,
+        374,
+        7877,
+        714,
+        279,
+        3705,
+        374,
+        35618,
+        13,
+        2303,
+        18896,
+        1200,
+        15512,
+        25,
+        576,
+        6006,
+        686,
+        1787,
+        979,
+        279,
+        3705,
+        374,
+        13238,
+        13,
+        2303,
+        2512,
+        25,
+        31828,
+        279,
+        3705,
+        311,
+        1787,
+        279,
+        6006,
+        13
+      ],
+      "offsets": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          8,
+          12
+        ],
+        [
+          12,
+          17
+        ],
+        [
+          17,
+          20
+        ],
+        [
+          20,
+          27
+        ],
+        [
+          27,
+          31
+        ],
+        [
+          31,
+          35
+        ],
+        [
+          35,
+          42
+        ],
+        [
+          42,
+          45
+        ],
+        [
+          45,
+          54
+        ],
+        [
+          54,
+          55
+        ],
+        [
+          55,
+          58
+        ],
+        [
+          58,
+          66
+        ],
+        [
+          66,
+          70
+        ],
+        [
+          70,
+          78
+        ],
+        [
+          78,
+          79
+        ],
+        [
+          79,
+          83
+        ],
+        [
+          83,
+          88
+        ],
+        [
+          88,
+          93
+        ],
+        [
+          93,
+          98
+        ],
+        [
+          98,
+          103
+        ],
+        [
+          103,
+          107
+        ],
+        [
+          107,
+          114
+        ],
+        [
+          114,
+          117
+        ],
+        [
+          117,
+          124
+        ],
+        [
+          124,
+          125
+        ],
+        [
+          125,
+          128
+        ],
+        [
+          128,
+          134
+        ],
+        [
+          134,
+          135
+        ],
+        [
+          135,
+          140
+        ],
+        [
+          140,
+          144
+        ],
+        [
+          144,
+          151
+        ],
+        [
+          151,
+          154
+        ],
+        [
+          154,
+          159
+        ],
+        [
+          159,
+          163
+        ],
+        [
+          163,
+          168
+        ],
+        [
+          168,
+          169
+        ]
+      ],
+      "raw_generation_token_nll": [
+        3.576278118089249e-07,
+        -0.0,
+        -0.0,
+        -0.0,
+        2.3841855067985307e-07,
+        0.023245446383953094,
+        7.152555099310121e-07,
+        1.4305104514278355e-06,
+        0.006715348921716213,
+        -0.0,
+        -0.0,
+        5.960462772236497e-07,
+        -0.0,
+        -0.0,
+        1.0728830375228426e-06,
+        -0.0,
+        3.9934315282152966e-05,
+        -0.0,
+        0.01378445141017437,
+        1.1920928244535389e-07,
+        1.0728830375228426e-06,
+        2.253030106658116e-05,
+        2.50339189733495e-06,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.014230557717382908,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        6.580135959666222e-05,
+        -0.0,
+        0.20144851505756378,
+        0.07102997601032257,
+        3.576278118089249e-07,
+        -0.0,
+        -0.0,
+        -0.0
+      ],
+      "teacher_forced_token_nll": [
+        3.576278118089249e-07,
+        -0.0,
+        -0.0,
+        -0.0,
+        1.1920928244535389e-07,
+        0.023245446383953094,
+        9.536738616588991e-07,
+        1.4305104514278355e-06,
+        0.006715348921716213,
+        -0.0,
+        -0.0,
+        7.152555099310121e-07,
+        -0.0,
+        -0.0,
+        1.0728830375228426e-06,
+        -0.0,
+        4.100715523236431e-05,
+        -0.0,
+        0.020311806350946426,
+        1.1920928244535389e-07,
+        8.344646857949556e-07,
+        2.13382354559144e-05,
+        2.7418097943154862e-06,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.014223976992070675,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        7.724463648628443e-05,
+        -0.0,
+        0.31333616375923157,
+        0.056210827082395554,
+        3.576278118089249e-07,
+        -0.0,
+        -0.0,
+        -0.0
+      ],
+      "processed_sampling_token_nll": [
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        8.487341256113723e-05,
+        -0.0,
+        -0.0,
+        3.6954811548639555e-06,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        1.3232143828645349e-05,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        2.4318398573086597e-05,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.023245446383953094,
+        0.0014113951474428177,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_vs_teacher_max_abs_nats": 0.11188764870166779,
+      "raw_vs_teacher_mean_abs_nats": 0.0034168048296123743,
+      "raw_vs_teacher_within_predeclared_tolerance": false,
+      "raw_vs_processed_mean_abs_nats": 0.007841233164072037,
+      "signal": {
+        "schema_version": 1,
+        "method": "fixed_field_mean_token_nll_v1",
+        "unit": "nats_per_token",
+        "score_range": "[0,infinity)",
+        "calibrated_error_probability": false,
+        "local_uncertainty": 0.002996377553645857,
+        "global_uncertainty": 0.008476692957198103,
+        "premise_uncertainty": 0.002996377553645857,
+        "consequence_uncertainty": 0.002804123491284116,
+        "field_spans": [
+          {
+            "field": "premise",
+            "char_start": 9,
+            "char_end": 55,
+            "text": "The door is closed but the handle is unlocked.",
+            "token_indices": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "token_count": 10,
+            "boundary_overhang_tokens": [
+              3
+            ],
+            "uncertainty": 0.002996377553645857
+          },
+          {
+            "field": "consequence",
+            "char_start": 80,
+            "char_end": 125,
+            "text": "The door will open when the handle is pulled.",
+            "token_indices": [
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27
+            ],
+            "token_count": 10,
+            "boundary_overhang_tokens": [
+              18
+            ],
+            "uncertainty": 0.002804123491284116
+          }
+        ],
+        "missing_span": false,
+        "missing_fields": [],
+        "format_valid": true,
+        "missing_reason": null,
+        "boundary_policy": "include_whole_token_if_character_interval_intersects_field_value",
+        "global_token_policy": "all_response_tokens_including_labels_and_action_excluding_eos_prompt_padding",
+        "response_tokens": 39
+      },
+      "teacher_forced_signal": {
+        "schema_version": 1,
+        "method": "fixed_field_mean_token_nll_v1",
+        "unit": "nats_per_token",
+        "score_range": "[0,infinity)",
+        "calibrated_error_probability": false,
+        "local_uncertainty": 0.0034560817062235572,
+        "global_uncertainty": 0.011133124661256853,
+        "premise_uncertainty": 0.0029964013954774773,
+        "consequence_uncertainty": 0.0034560817062235572,
+        "field_spans": [
+          {
+            "field": "premise",
+            "char_start": 9,
+            "char_end": 55,
+            "text": "The door is closed but the handle is unlocked.",
+            "token_indices": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "token_count": 10,
+            "boundary_overhang_tokens": [
+              3
+            ],
+            "uncertainty": 0.0029964013954774773
+          },
+          {
+            "field": "consequence",
+            "char_start": 80,
+            "char_end": 125,
+            "text": "The door will open when the handle is pulled.",
+            "token_indices": [
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27
+            ],
+            "token_count": 10,
+            "boundary_overhang_tokens": [
+              18
+            ],
+            "uncertainty": 0.0034560817062235572
+          }
+        ],
+        "missing_span": false,
+        "missing_fields": [],
+        "format_valid": true,
+        "missing_reason": null,
+        "boundary_policy": "include_whole_token_if_character_interval_intersects_field_value",
+        "global_token_policy": "all_response_tokens_including_labels_and_action_excluding_eos_prompt_padding",
+        "response_tokens": 39
+      },
+      "cost": {
+        "generation_with_logits_and_scores_seconds": 1.8936454132199287,
+        "online_reduction_and_summary_seconds": 0.010893959552049637,
+        "online_total_seconds": 1.9393124841153622,
+        "extra_teacher_forward_seconds": 0.04135954938828945,
+        "online_additional_backbone_forward_passes": 0,
+        "validation_extra_backbone_forward_passes": 1,
+        "forward_tokens": 137,
+        "saved_raw_logits_bytes": 24309760,
+        "saved_processed_scores_bytes_validation_only": 24309760,
+        "online_peak_allocated_bytes": 8268537344,
+        "validation_peak_allocated_bytes": 8268537344
+      },
+      "generated_tokens_including_eos": 40,
+      "generation_hit_token_limit": false
+    },
+    {
+      "synthetic_prompt": "Observation: A dry plant sits beside a watering can full of water. Goal: Water the plant.",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Choose one next action based only on the given observation and goal.\nOutput exactly three lines, with one short sentence per field and no extra text:\nPremise: <current observable condition the action depends on>\nExpected Consequence: <predicted immediate effect, not observed feedback>\nAction: <one short concrete action>\n\nObservation: A dry plant sits beside a watering can full of water. Goal: Water the plant."
+        }
+      ],
+      "response": "Premise: The plant is dry and the watering can is full.  \nExpected Consequence: The plant will be watered and become moist.  \nAction: Water the plant using the watering can.",
+      "prompt_token_ids": [
+        151644,
+        872,
+        198,
+        24051,
+        825,
+        1790,
+        1917,
+        3118,
+        1172,
+        389,
+        279,
+        2661,
+        21930,
+        323,
+        5795,
+        624,
+        5097,
+        6896,
+        2326,
+        5128,
+        11,
+        448,
+        825,
+        2805,
+        11652,
+        817,
+        2070,
+        323,
+        902,
+        4960,
+        1467,
+        510,
+        41462,
+        1064,
+        25,
+        366,
+        3231,
+        39535,
+        2971,
+        279,
+        1917,
+        13798,
+        389,
+        397,
+        18896,
+        1200,
+        15512,
+        25,
+        366,
+        94300,
+        13922,
+        2456,
+        11,
+        537,
+        13166,
+        11055,
+        397,
+        2512,
+        25,
+        366,
+        603,
+        2805,
+        14175,
+        1917,
+        1339,
+        37763,
+        367,
+        25,
+        362,
+        9058,
+        6008,
+        23011,
+        29388,
+        264,
+        72741,
+        646,
+        2480,
+        315,
+        3015,
+        13,
+        39947,
+        25,
+        9959,
+        279,
+        6008,
+        13,
+        151645,
+        198,
+        151644,
+        77091,
+        198,
+        151667,
+        271,
+        151668,
+        271
+      ],
+      "response_token_ids": [
+        41462,
+        1064,
+        25,
+        576,
+        6008,
+        374,
+        9058,
+        323,
+        279,
+        72741,
+        646,
+        374,
+        2480,
+        13,
+        2303,
+        18896,
+        1200,
+        15512,
+        25,
+        576,
+        6008,
+        686,
+        387,
+        3015,
+        291,
+        323,
+        3635,
+        20507,
+        13,
+        2303,
+        2512,
+        25,
+        9959,
+        279,
+        6008,
+        1667,
+        279,
+        72741,
+        646,
+        13
+      ],
+      "offsets": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          8,
+          12
+        ],
+        [
+          12,
+          18
+        ],
+        [
+          18,
+          21
+        ],
+        [
+          21,
+          25
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          29,
+          33
+        ],
+        [
+          33,
+          42
+        ],
+        [
+          42,
+          46
+        ],
+        [
+          46,
+          49
+        ],
+        [
+          49,
+          54
+        ],
+        [
+          54,
+          55
+        ],
+        [
+          55,
+          58
+        ],
+        [
+          58,
+          66
+        ],
+        [
+          66,
+          70
+        ],
+        [
+          70,
+          78
+        ],
+        [
+          78,
+          79
+        ],
+        [
+          79,
+          83
+        ],
+        [
+          83,
+          89
+        ],
+        [
+          89,
+          94
+        ],
+        [
+          94,
+          97
+        ],
+        [
+          97,
+          103
+        ],
+        [
+          103,
+          105
+        ],
+        [
+          105,
+          109
+        ],
+        [
+          109,
+          116
+        ],
+        [
+          116,
+          122
+        ],
+        [
+          122,
+          123
+        ],
+        [
+          123,
+          126
+        ],
+        [
+          126,
+          132
+        ],
+        [
+          132,
+          133
+        ],
+        [
+          133,
+          139
+        ],
+        [
+          139,
+          143
+        ],
+        [
+          143,
+          149
+        ],
+        [
+          149,
+          155
+        ],
+        [
+          155,
+          159
+        ],
+        [
+          159,
+          168
+        ],
+        [
+          168,
+          172
+        ],
+        [
+          172,
+          173
+        ]
+      ],
+      "raw_generation_token_nll": [
+        2.3841855067985307e-07,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.00043084874050691724,
+        0.00012337400403339416,
+        4.1126360883936286e-05,
+        -0.0,
+        1.1920928244535389e-07,
+        3.814689989667386e-06,
+        -0.0,
+        -0.0,
+        7.986990567587782e-06,
+        4.541770613286644e-05,
+        -0.0,
+        1.0728830375228426e-06,
+        -0.0,
+        7.390948667307384e-06,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.10632611811161041,
+        0.00038258862332440913,
+        -0.0,
+        3.766942609217949e-05,
+        0.5592762231826782,
+        0.5034544467926025,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.21620415151119232,
+        -0.0,
+        4.887569048150908e-06,
+        0.0380486436188221,
+        -0.0,
+        0.00043096792069263756,
+        -0.0,
+        -0.0
+      ],
+      "teacher_forced_token_nll": [
+        2.3841855067985307e-07,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.0002615109842736274,
+        7.486063259420916e-05,
+        4.1126360883936286e-05,
+        -0.0,
+        -0.0,
+        2.9802276912960224e-06,
+        -0.0,
+        -0.0,
+        1.0251946150674485e-05,
+        1.2993727978027891e-05,
+        -0.0,
+        1.0728830375228426e-06,
+        -0.0,
+        7.629365427419543e-06,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.13365378975868225,
+        0.0003723404952324927,
+        -0.0,
+        3.7788631743751466e-05,
+        0.6513649821281433,
+        0.5854367017745972,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.3203350305557251,
+        -0.0,
+        1.0251946150674485e-05,
+        0.04859368875622749,
+        -0.0,
+        0.0004886387032456696,
+        -0.0,
+        -0.0
+      ],
+      "processed_sampling_token_nll": [
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.0036028018221259117,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.0885765329003334,
+        0.047378480434417725,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.010291366837918758,
+        -0.0,
+        -0.0,
+        0.00029595286468975246,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_vs_teacher_max_abs_nats": 0.10413087904453278,
+      "raw_vs_teacher_mean_abs_nats": 0.007910044863820076,
+      "raw_vs_teacher_within_predeclared_tolerance": false,
+      "raw_vs_processed_mean_abs_nats": 0.031867049634456635,
+      "signal": {
+        "schema_version": 1,
+        "method": "fixed_field_mean_token_nll_v1",
+        "unit": "nats_per_token",
+        "score_range": "[0,infinity)",
+        "calibrated_error_probability": false,
+        "local_uncertainty": 0.11694770461363077,
+        "global_uncertainty": 0.035620677167692884,
+        "premise_uncertainty": 5.9335245581528604e-05,
+        "consequence_uncertainty": 0.11694770461363077,
+        "field_spans": [
+          {
+            "field": "premise",
+            "char_start": 9,
+            "char_end": 55,
+            "text": "The plant is dry and the watering can is full.",
+            "token_indices": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13
+            ],
+            "token_count": 11,
+            "boundary_overhang_tokens": [
+              3
+            ],
+            "uncertainty": 5.9335245581528604e-05
+          },
+          {
+            "field": "consequence",
+            "char_start": 80,
+            "char_end": 123,
+            "text": "The plant will be watered and become moist.",
+            "token_indices": [
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "token_count": 10,
+            "boundary_overhang_tokens": [
+              19
+            ],
+            "uncertainty": 0.11694770461363077
+          }
+        ],
+        "missing_span": false,
+        "missing_fields": [],
+        "format_valid": true,
+        "missing_reason": null,
+        "boundary_policy": "include_whole_token_if_character_interval_intersects_field_value",
+        "global_token_policy": "all_response_tokens_including_labels_and_action_excluding_eos_prompt_padding",
+        "response_tokens": 40
+      },
+      "teacher_forced_signal": {
+        "schema_version": 1,
+        "method": "fixed_field_mean_token_nll_v1",
+        "unit": "nats_per_token",
+        "score_range": "[0,infinity)",
+        "calibrated_error_probability": false,
+        "local_uncertainty": 0.1370865602788399,
+        "global_uncertainty": 0.04351764693240838,
+        "premise_uncertainty": 3.670217087016102e-05,
+        "consequence_uncertainty": 0.1370865602788399,
+        "field_spans": [
+          {
+            "field": "premise",
+            "char_start": 9,
+            "char_end": 55,
+            "text": "The plant is dry and the watering can is full.",
+            "token_indices": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13
+            ],
+            "token_count": 11,
+            "boundary_overhang_tokens": [
+              3
+            ],
+            "uncertainty": 3.670217087016102e-05
+          },
+          {
+            "field": "consequence",
+            "char_start": 80,
+            "char_end": 123,
+            "text": "The plant will be watered and become moist.",
+            "token_indices": [
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "token_count": 10,
+            "boundary_overhang_tokens": [
+              19
+            ],
+            "uncertainty": 0.1370865602788399
+          }
+        ],
+        "missing_span": false,
+        "missing_fields": [],
+        "format_valid": true,
+        "missing_reason": null,
+        "boundary_policy": "include_whole_token_if_character_interval_intersects_field_value",
+        "global_token_policy": "all_response_tokens_including_labels_and_action_excluding_eos_prompt_padding",
+        "response_tokens": 40
+      },
+      "cost": {
+        "generation_with_logits_and_scores_seconds": 1.3778821527957916,
+        "online_reduction_and_summary_seconds": 0.0007787458598613739,
+        "online_total_seconds": 1.3812746237963438,
+        "extra_teacher_forward_seconds": 0.03556882031261921,
+        "online_additional_backbone_forward_passes": 0,
+        "validation_extra_backbone_forward_passes": 1,
+        "forward_tokens": 135,
+        "saved_raw_logits_bytes": 24917504,
+        "saved_processed_scores_bytes_validation_only": 24917504,
+        "online_peak_allocated_bytes": 8274000896,
+        "validation_peak_allocated_bytes": 8274000896
+      },
+      "generated_tokens_including_eos": 41,
+      "generation_hit_token_limit": false
+    },
+    {
+      "synthetic_prompt": "Observation: A lamp is off and its power switch is within reach. Goal: Turn on the lamp.",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Choose one next action based only on the given observation and goal.\nOutput exactly three lines, with one short sentence per field and no extra text:\nPremise: <current observable condition the action depends on>\nExpected Consequence: <predicted immediate effect, not observed feedback>\nAction: <one short concrete action>\n\nObservation: A lamp is off and its power switch is within reach. Goal: Turn on the lamp."
+        }
+      ],
+      "response": "Premise: The lamp's power switch is within reach and the lamp is off.  \nExpected Consequence: The lamp will turn on when the switch is flipped.  \nAction: Flip the power switch.",
+      "prompt_token_ids": [
+        151644,
+        872,
+        198,
+        24051,
+        825,
+        1790,
+        1917,
+        3118,
+        1172,
+        389,
+        279,
+        2661,
+        21930,
+        323,
+        5795,
+        624,
+        5097,
+        6896,
+        2326,
+        5128,
+        11,
+        448,
+        825,
+        2805,
+        11652,
+        817,
+        2070,
+        323,
+        902,
+        4960,
+        1467,
+        510,
+        41462,
+        1064,
+        25,
+        366,
+        3231,
+        39535,
+        2971,
+        279,
+        1917,
+        13798,
+        389,
+        397,
+        18896,
+        1200,
+        15512,
+        25,
+        366,
+        94300,
+        13922,
+        2456,
+        11,
+        537,
+        13166,
+        11055,
+        397,
+        2512,
+        25,
+        366,
+        603,
+        2805,
+        14175,
+        1917,
+        1339,
+        37763,
+        367,
+        25,
+        362,
+        27962,
+        374,
+        1007,
+        323,
+        1181,
+        2355,
+        3398,
+        374,
+        2878,
+        5545,
+        13,
+        39947,
+        25,
+        11999,
+        389,
+        279,
+        27962,
+        13,
+        151645,
+        198,
+        151644,
+        77091,
+        198,
+        151667,
+        271,
+        151668,
+        271
+      ],
+      "response_token_ids": [
+        41462,
+        1064,
+        25,
+        576,
+        27962,
+        594,
+        2355,
+        3398,
+        374,
+        2878,
+        5545,
+        323,
+        279,
+        27962,
+        374,
+        1007,
+        13,
+        2303,
+        18896,
+        1200,
+        15512,
+        25,
+        576,
+        27962,
+        686,
+        2484,
+        389,
+        979,
+        279,
+        3398,
+        374,
+        46080,
+        13,
+        2303,
+        2512,
+        25,
+        40284,
+        279,
+        2355,
+        3398,
+        13
+      ],
+      "offsets": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          8,
+          12
+        ],
+        [
+          12,
+          17
+        ],
+        [
+          17,
+          19
+        ],
+        [
+          19,
+          25
+        ],
+        [
+          25,
+          32
+        ],
+        [
+          32,
+          35
+        ],
+        [
+          35,
+          42
+        ],
+        [
+          42,
+          48
+        ],
+        [
+          48,
+          52
+        ],
+        [
+          52,
+          56
+        ],
+        [
+          56,
+          61
+        ],
+        [
+          61,
+          64
+        ],
+        [
+          64,
+          68
+        ],
+        [
+          68,
+          69
+        ],
+        [
+          69,
+          72
+        ],
+        [
+          72,
+          80
+        ],
+        [
+          80,
+          84
+        ],
+        [
+          84,
+          92
+        ],
+        [
+          92,
+          93
+        ],
+        [
+          93,
+          97
+        ],
+        [
+          97,
+          102
+        ],
+        [
+          102,
+          107
+        ],
+        [
+          107,
+          112
+        ],
+        [
+          112,
+          115
+        ],
+        [
+          115,
+          120
+        ],
+        [
+          120,
+          124
+        ],
+        [
+          124,
+          131
+        ],
+        [
+          131,
+          134
+        ],
+        [
+          134,
+          142
+        ],
+        [
+          142,
+          143
+        ],
+        [
+          143,
+          146
+        ],
+        [
+          146,
+          152
+        ],
+        [
+          152,
+          153
+        ],
+        [
+          153,
+          158
+        ],
+        [
+          158,
+          162
+        ],
+        [
+          162,
+          168
+        ],
+        [
+          168,
+          175
+        ],
+        [
+          175,
+          176
+        ]
+      ],
+      "raw_generation_token_nll": [
+        3.576278118089249e-07,
+        -0.0,
+        -0.0,
+        -0.0,
+        1.1920928244535389e-07,
+        0.20142698287963867,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.4991980791091919,
+        7.152555099310121e-07,
+        0.0011701886542141438,
+        1.1920928244535389e-07,
+        -0.0,
+        -0.0,
+        4.565611743601039e-05,
+        -0.0,
+        -0.0,
+        1.4305104514278355e-06,
+        -0.0,
+        2.5987286790041253e-05,
+        -0.0,
+        7.152555099310121e-07,
+        -0.0,
+        1.1920928244535389e-07,
+        1.4424220353248529e-05,
+        -0.0,
+        0.00011693747364915907,
+        -0.0,
+        0.029755162075161934,
+        -0.0,
+        0.4000353515148163,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.0011192255187779665,
+        -0.0,
+        0.10020668804645538,
+        -0.0,
+        2.7418097943154862e-06
+      ],
+      "teacher_forced_token_nll": [
+        3.576278118089249e-07,
+        -0.0,
+        -0.0,
+        -0.0,
+        1.1920928244535389e-07,
+        0.029763029888272285,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.4990614652633667,
+        5.960462772236497e-07,
+        0.0007098776986822486,
+        -0.0,
+        -0.0,
+        -0.0,
+        2.169585604860913e-05,
+        -0.0,
+        -0.0,
+        1.4305104514278355e-06,
+        -0.0,
+        2.3364747903542593e-05,
+        -0.0,
+        8.344646857949556e-07,
+        -0.0,
+        1.1920928244535389e-07,
+        1.4662635294371285e-05,
+        -0.0,
+        0.0001501924270996824,
+        -0.0,
+        0.03804611787199974,
+        -0.0,
+        0.31288307905197144,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.001073856488801539,
+        -0.0,
+        0.10020668804645538,
+        1.1920928244535389e-07,
+        3.099436753473128e-06
+      ],
+      "processed_sampling_token_nll": [
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.023245446383953094,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.252057820558548,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.00015841660206206143,
+        -0.0,
+        0.06480508297681808,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.003600069787353277,
+        -0.0,
+        -0.0
+      ],
+      "raw_vs_teacher_max_abs_nats": 0.17166395485401154,
+      "raw_vs_teacher_mean_abs_nats": 0.006531961262226105,
+      "raw_vs_teacher_within_predeclared_tolerance": false,
+      "raw_vs_processed_mean_abs_nats": 0.021689126268029213,
+      "signal": {
+        "schema_version": 1,
+        "method": "fixed_field_mean_token_nll_v1",
+        "unit": "nats_per_token",
+        "score_range": "[0,infinity)",
+        "calibrated_error_probability": false,
+        "local_uncertainty": 0.05013156145961111,
+        "global_uncertainty": 0.03007612197520511,
+        "premise_uncertainty": 0.05013156145961111,
+        "consequence_uncertainty": 0.03908388270443391,
+        "field_spans": [
+          {
+            "field": "premise",
+            "char_start": 9,
+            "char_end": 69,
+            "text": "The lamp's power switch is within reach and the lamp is off.",
+            "token_indices": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "token_count": 14,
+            "boundary_overhang_tokens": [
+              3
+            ],
+            "uncertainty": 0.05013156145961111
+          },
+          {
+            "field": "consequence",
+            "char_start": 94,
+            "char_end": 143,
+            "text": "The lamp will turn on when the switch is flipped.",
+            "token_indices": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32
+            ],
+            "token_count": 11,
+            "boundary_overhang_tokens": [
+              22
+            ],
+            "uncertainty": 0.03908388270443391
+          }
+        ],
+        "missing_span": false,
+        "missing_fields": [],
+        "format_valid": true,
+        "missing_reason": null,
+        "boundary_policy": "include_whole_token_if_character_interval_intersects_field_value",
+        "global_token_policy": "all_response_tokens_including_labels_and_action_excluding_eos_prompt_padding",
+        "response_tokens": 41
+      },
+      "teacher_forced_signal": {
+        "schema_version": 1,
+        "method": "fixed_field_mean_token_nll_v1",
+        "unit": "nats_per_token",
+        "score_range": "[0,infinity)",
+        "calibrated_error_probability": false,
+        "local_uncertainty": 0.03782548456870925,
+        "global_uncertainty": 0.02395026111438348,
+        "premise_uncertainty": 0.03782548456870925,
+        "consequence_uncertainty": 0.03191772778730304,
+        "field_spans": [
+          {
+            "field": "premise",
+            "char_start": 9,
+            "char_end": 69,
+            "text": "The lamp's power switch is within reach and the lamp is off.",
+            "token_indices": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "token_count": 14,
+            "boundary_overhang_tokens": [
+              3
+            ],
+            "uncertainty": 0.03782548456870925
+          },
+          {
+            "field": "consequence",
+            "char_start": 94,
+            "char_end": 143,
+            "text": "The lamp will turn on when the switch is flipped.",
+            "token_indices": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32
+            ],
+            "token_count": 11,
+            "boundary_overhang_tokens": [
+              22
+            ],
+            "uncertainty": 0.03191772778730304
+          }
+        ],
+        "missing_span": false,
+        "missing_fields": [],
+        "format_valid": true,
+        "missing_reason": null,
+        "boundary_policy": "include_whole_token_if_character_interval_intersects_field_value",
+        "global_token_policy": "all_response_tokens_including_labels_and_action_excluding_eos_prompt_padding",
+        "response_tokens": 41
+      },
+      "cost": {
+        "generation_with_logits_and_scores_seconds": 1.41722253523767,
+        "online_reduction_and_summary_seconds": 0.0007924307137727737,
+        "online_total_seconds": 1.4204434752464294,
+        "extra_teacher_forward_seconds": 0.03551511466503143,
+        "online_additional_backbone_forward_passes": 0,
+        "validation_extra_backbone_forward_passes": 1,
+        "forward_tokens": 137,
+        "saved_raw_logits_bytes": 25525248,
+        "saved_processed_scores_bytes_validation_only": 25525248,
+        "online_peak_allocated_bytes": 8275670528,
+        "validation_peak_allocated_bytes": 8275670528
+      },
+      "generated_tokens_including_eos": 42,
+      "generation_hit_token_limit": false
+    }
+  ],
+  "all_formats_valid": true,
+  "all_numeric_checks_passed": false,
+  "phase2_started": false
+}

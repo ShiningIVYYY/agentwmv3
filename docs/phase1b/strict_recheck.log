@@ -1,0 +1,46 @@
+/data1/shn/agentwmv3/.venv-spanuq/lib/python3.12/site-packages/torch/nn/modules/transformer.py:392: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+{
+  "error": "Published SpanUQ architecture cannot strictly load this checkpoint",
+  "source_commit": "778b1c1e3eeeda66233fe6b426f9303f4c7f76a3",
+  "checkpoint_sha256": "78a203415037cb6645385d27b14d4207d184d522cc2c33af07098f2f2254fb12",
+  "unmodified_config_error": "SpanUQConfig.__init__() got an unexpected keyword argument 'mob_k'",
+  "explicit_config_translation": {
+    "mob_k": {
+      "canonical_field": "mob_n_components",
+      "value": 3
+    },
+    "seq_agg_mode": {
+      "canonical_field": "seq_aggregation",
+      "value": "importance"
+    },
+    "max_seq_len": {
+      "adapter_response_token_cap": 2048
+    }
+  },
+  "missing_keys": [],
+  "unexpected_keys": [
+    "u_conditioner.cond_mlp.0.bias",
+    "u_conditioner.cond_mlp.0.weight",
+    "u_conditioner.cond_mlp.2.bias",
+    "u_conditioner.cond_mlp.2.weight"
+  ],
+  "shape_mismatches": [
+    {
+      "key": "token_encoder.pos_enc.pe",
+      "source_shape": [
+        1,
+        4096,
+        512
+      ],
+      "checkpoint_shape": [
+        1,
+        16384,
+        512
+      ]
+    }
+  ],
+  "tensor_count": 134,
+  "strict_load_passed": false,
+  "strict_error": "Error(s) in loading state_dict for SpanUQ_DETR:\n\tUnexpected key(s) in state_dict: \"u_conditioner.cond_mlp.0.weight\", \"u_conditioner.cond_mlp.0.bias\", \"u_conditioner.cond_mlp.2.weight\", \"u_conditioner.cond_mlp.2.bias\". \n\tsize mismatch for token_encoder.pos_enc.pe: copying a param with shape torch.Size([1, 16384, 512]) from checkpoint, the shape in current model is torch.Size([1, 4096, 512])."
+}

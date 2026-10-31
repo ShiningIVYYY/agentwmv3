@@ -1,0 +1,7 @@
+......../data1/shn/agentwmv3/.venv-spanuq/lib/python3.12/site-packages/torch/nn/modules/transformer.py:392: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+...
+----------------------------------------------------------------------
+Ran 11 tests in 2.733s
+
+OK

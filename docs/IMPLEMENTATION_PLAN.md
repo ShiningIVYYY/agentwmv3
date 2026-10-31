@@ -95,3 +95,7 @@ Publish actual runnable setup/download/env/service/baseline/full/analysis comman
 ## Evaluation planning follow-up
 
 Paper/source audit completed without changing inference integration or legacy runtime configs. See PAPER_ALIGNED_EVAL.md for pinned source, exact Science IDs/61 overlap exclusion, independent development proposal, configuration map and pending equivalence checks. Phase 3–4 memory/calibration must exclude all 200 test IDs; derive a separate dev split from the 2059 disjoint source-train pool before inspecting outcomes. This update grants no phase/experiment authorization.
+
+## Phase 1B compatibility investigation and fallback planning
+
+Authorized Phase 1B is complete. Conclusion B: official SpanUQ remains incompatible; strict loading is still rejected. See SPANUQ_COMPATIBILITY.md and the unposted SPANUQ_ISSUE_DRAFT.md. A standalone fixed-field frozen-Qwen token-NLL prototype/design is in INTERNAL_SIGNAL_FALLBACK.md; no Agent/Gate wiring or complete Phase 2 development occurred. BF16 generation/full-forward NLL equivalence failed the predeclared tolerance, while FP32 diagnostic passed; provider/dtype-specific scoring must be fixed before later calibration. User must select the route before Phase 2. The existing external memory, Gate and paper-aligned evaluation plan remain unchanged.

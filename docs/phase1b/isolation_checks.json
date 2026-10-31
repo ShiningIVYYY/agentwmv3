@@ -1,0 +1,13 @@
+{
+  "internal_signals/hidden_states.py": true,
+  "internal_signals/spanuq_adapter.py": true,
+  "docs/PAPER_ALIGNED_EVAL.md": true,
+  "configs/worldmodel": true,
+  "scripts/run_audited_paper_eval.py": true,
+  "worldmodel": true,
+  "reflection": true,
+  "experiments": true,
+  "environment": true,
+  "v2_clean": true,
+  "official_source_clean": true
+}

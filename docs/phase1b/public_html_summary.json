@@ -1,0 +1,18 @@
+{
+  "github_pulls": {
+    "url": "https://github.com/damon-demon/SpanUQ/pulls?q=is%3Apr",
+    "public_html_status": 200,
+    "snippets": [
+      " Search Pull requests Open 0 ( 0 ) Closed 0 ( 0 ) 0 results Author Label Projects Milestones Reviews Assignee Sort by Newest descending Sort\u2026 Sort by Newest de"
+    ],
+    "pull_links": []
+  },
+  "github_releases": {
+    "url": "https://github.com/damon-demon/SpanUQ/releases",
+    "public_html_status": 200,
+    "snippets": [
+      "gs --> Releases \u00b7 damon-demon/SpanUQ There aren\u2019t any releases here You can create a release to package software, along with release notes and links to binary fil"
+    ],
+    "pull_links": []
+  }
+}

@@ -1,0 +1,259 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 83.04it/s]
+{
+  "response": "Premise: The door is closed but the handle is unlocked.  \nExpected Consequence: The door will open when the handle is pulled.  \nAction: Pull the handle to open the door.",
+  "signal": {
+    "schema_version": 1,
+    "method": "fixed_field_mean_token_nll_v1",
+    "unit": "nats_per_token",
+    "score_range": "[0,infinity)",
+    "calibrated_error_probability": false,
+    "local_uncertainty": 0.002996377553645857,
+    "global_uncertainty": 0.008476692957198103,
+    "premise_uncertainty": 0.002996377553645857,
+    "consequence_uncertainty": 0.002804123491284116,
+    "field_spans": [
+      {
+        "field": "premise",
+        "char_start": 9,
+        "char_end": 55,
+        "text": "The door is closed but the handle is unlocked.",
+        "token_indices": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "token_count": 10,
+        "boundary_overhang_tokens": [
+          3
+        ],
+        "uncertainty": 0.002996377553645857
+      },
+      {
+        "field": "consequence",
+        "char_start": 80,
+        "char_end": 125,
+        "text": "The door will open when the handle is pulled.",
+        "token_indices": [
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        "token_count": 10,
+        "boundary_overhang_tokens": [
+          18
+        ],
+        "uncertainty": 0.002804123491284116
+      }
+    ],
+    "missing_span": false,
+    "missing_fields": [],
+    "format_valid": true,
+    "missing_reason": null,
+    "boundary_policy": "include_whole_token_if_character_interval_intersects_field_value",
+    "global_token_policy": "all_response_tokens_including_labels_and_action_excluding_eos_prompt_padding",
+    "response_tokens": 39
+  },
+  "raw_vs_teacher_max_abs_nats": 0.11188764870166779,
+  "cost": {
+    "generation_with_logits_and_scores_seconds": 1.8936454132199287,
+    "online_reduction_and_summary_seconds": 0.010893959552049637,
+    "online_total_seconds": 1.9393124841153622,
+    "extra_teacher_forward_seconds": 0.04135954938828945,
+    "online_additional_backbone_forward_passes": 0,
+    "validation_extra_backbone_forward_passes": 1,
+    "forward_tokens": 137,
+    "saved_raw_logits_bytes": 24309760,
+    "saved_processed_scores_bytes_validation_only": 24309760,
+    "online_peak_allocated_bytes": 8268537344,
+    "validation_peak_allocated_bytes": 8268537344
+  }
+}
+{
+  "response": "Premise: The plant is dry and the watering can is full.  \nExpected Consequence: The plant will be watered and become moist.  \nAction: Water the plant using the watering can.",
+  "signal": {
+    "schema_version": 1,
+    "method": "fixed_field_mean_token_nll_v1",
+    "unit": "nats_per_token",
+    "score_range": "[0,infinity)",
+    "calibrated_error_probability": false,
+    "local_uncertainty": 0.11694770461363077,
+    "global_uncertainty": 0.035620677167692884,
+    "premise_uncertainty": 5.9335245581528604e-05,
+    "consequence_uncertainty": 0.11694770461363077,
+    "field_spans": [
+      {
+        "field": "premise",
+        "char_start": 9,
+        "char_end": 55,
+        "text": "The plant is dry and the watering can is full.",
+        "token_indices": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "token_count": 11,
+        "boundary_overhang_tokens": [
+          3
+        ],
+        "uncertainty": 5.9335245581528604e-05
+      },
+      {
+        "field": "consequence",
+        "char_start": 80,
+        "char_end": 123,
+        "text": "The plant will be watered and become moist.",
+        "token_indices": [
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28
+        ],
+        "token_count": 10,
+        "boundary_overhang_tokens": [
+          19
+        ],
+        "uncertainty": 0.11694770461363077
+      }
+    ],
+    "missing_span": false,
+    "missing_fields": [],
+    "format_valid": true,
+    "missing_reason": null,
+    "boundary_policy": "include_whole_token_if_character_interval_intersects_field_value",
+    "global_token_policy": "all_response_tokens_including_labels_and_action_excluding_eos_prompt_padding",
+    "response_tokens": 40
+  },
+  "raw_vs_teacher_max_abs_nats": 0.10413087904453278,
+  "cost": {
+    "generation_with_logits_and_scores_seconds": 1.3778821527957916,
+    "online_reduction_and_summary_seconds": 0.0007787458598613739,
+    "online_total_seconds": 1.3812746237963438,
+    "extra_teacher_forward_seconds": 0.03556882031261921,
+    "online_additional_backbone_forward_passes": 0,
+    "validation_extra_backbone_forward_passes": 1,
+    "forward_tokens": 135,
+    "saved_raw_logits_bytes": 24917504,
+    "saved_processed_scores_bytes_validation_only": 24917504,
+    "online_peak_allocated_bytes": 8274000896,
+    "validation_peak_allocated_bytes": 8274000896
+  }
+}
+{
+  "response": "Premise: The lamp's power switch is within reach and the lamp is off.  \nExpected Consequence: The lamp will turn on when the switch is flipped.  \nAction: Flip the power switch.",
+  "signal": {
+    "schema_version": 1,
+    "method": "fixed_field_mean_token_nll_v1",
+    "unit": "nats_per_token",
+    "score_range": "[0,infinity)",
+    "calibrated_error_probability": false,
+    "local_uncertainty": 0.05013156145961111,
+    "global_uncertainty": 0.03007612197520511,
+    "premise_uncertainty": 0.05013156145961111,
+    "consequence_uncertainty": 0.03908388270443391,
+    "field_spans": [
+      {
+        "field": "premise",
+        "char_start": 9,
+        "char_end": 69,
+        "text": "The lamp's power switch is within reach and the lamp is off.",
+        "token_indices": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "token_count": 14,
+        "boundary_overhang_tokens": [
+          3
+        ],
+        "uncertainty": 0.05013156145961111
+      },
+      {
+        "field": "consequence",
+        "char_start": 94,
+        "char_end": 143,
+        "text": "The lamp will turn on when the switch is flipped.",
+        "token_indices": [
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32
+        ],
+        "token_count": 11,
+        "boundary_overhang_tokens": [
+          22
+        ],
+        "uncertainty": 0.03908388270443391
+      }
+    ],
+    "missing_span": false,
+    "missing_fields": [],
+    "format_valid": true,
+    "missing_reason": null,
+    "boundary_policy": "include_whole_token_if_character_interval_intersects_field_value",
+    "global_token_policy": "all_response_tokens_including_labels_and_action_excluding_eos_prompt_padding",
+    "response_tokens": 41
+  },
+  "raw_vs_teacher_max_abs_nats": 0.17166395485401154,
+  "cost": {
+    "generation_with_logits_and_scores_seconds": 1.41722253523767,
+    "online_reduction_and_summary_seconds": 0.0007924307137727737,
+    "online_total_seconds": 1.4204434752464294,
+    "extra_teacher_forward_seconds": 0.03551511466503143,
+    "online_additional_backbone_forward_passes": 0,
+    "validation_extra_backbone_forward_passes": 1,
+    "forward_tokens": 137,
+    "saved_raw_logits_bytes": 25525248,
+    "saved_processed_scores_bytes_validation_only": 25525248,
+    "online_peak_allocated_bytes": 8275670528,
+    "validation_peak_allocated_bytes": 8275670528
+  }
+}

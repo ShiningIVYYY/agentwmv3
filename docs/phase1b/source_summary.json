@@ -1,0 +1,18 @@
+{
+  "checked_at_utc": "2026-10-31T19:36:12.461983+00:00",
+  "github_rest_api": "403 rate limit; not represented as a successful API search",
+  "github_issues": {
+    "url": "https://github.com/damon-demon/SpanUQ/issues?q=is%3Aissue",
+    "public_html_status": 200,
+    "zero_results_text_found": false,
+    "issue_links": []
+  },
+  "hf_head": "97ca9c820ac3561259956ec21cbdd984c3132d37",
+  "hf_discussions": [
+    {
+      "num": 1,
+      "title": "Update pipeline tag and add project page link",
+      "isPullRequest": true
+    }
+  ]
+}

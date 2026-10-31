@@ -35,3 +35,12 @@
 - Three real backbone samples passed token/offset/shape/finite/layer/repeat checks. 11 CPU tests passed. Overall smoke exits 2; Phase 1 NOT accepted.
 - Correction: official batch producer hooks blocks [21,22,23] = HF tuple [22,23,24]; only evaluator on-the-fly is off by one.
 - PHASE1_REPORT.md and docs/phase1 contain commands/results/blockers. PAPER_ALIGNED_EVAL.md unchanged. Stop before Phase 2.
+
+## Phase 1B handoff — complete investigation, route selection pending
+
+- Conclusion B: no official compatible code/update found; GitHub API rate-limited, public issue/PR HTML shows zero results and no release; HF unchanged. No Issue posted.
+- Full 134-vs-130 tensor comparison saved; PE length difference is deterministic (full/prefix max error 0), but conditioner forward remains unpublished. Checkpoint unchanged; strict=True still fails.
+- New documents: SPANUQ_COMPATIBILITY.md, INTERNAL_SIGNAL_FALLBACK.md, SPANUQ_ISSUE_DRAFT.md. Small real evidence in docs/phase1b.
+- Standalone fixed-field NLL prototype only: three synthetic prompts with real Qwen3-4B; 10 CPU tests pass. BF16 raw-vs-rescore equivalence fails 0.1-nat tolerance (exit 2); FP32 diagnostic passes (exit 0). Scores are surprisal, not error probabilities.
+- Existing hidden pipeline, strict loader, v2, benchmark configuration and PAPER_ALIGNED_EVAL.md remain unchanged. No training or complete benchmark.
+- STOP: await user choice before Phase 2; do not silently enable fallback or reuse SpanUQ thresholds.
