@@ -61,11 +61,15 @@ Calibrate thresholds or target rates using a frozen dev set only; record whether
 
 ## Phase 5 — ScienceWorld end to end
 
-Reconstruct independent v3 runtime assets and local patches first. Decide the new cohort explicitly: current audit is 200 test IDs/100 steps/AgentGym + ScienceWorld 1.2.3; RLVMR/L0-L2/30 steps is not established. No silent conversion. Freeze Actor and WM services, simulation/review depth, prompts, seed and manifest. Insert signals/memory/Gate between parsed draft and wm_runtime.select. For Skip, execute exactly once and update real WM history without invoking predict/reflection. For Call, preserve the selected current prediction/reflection/revision protocol and commit verification. Experience insertion occurs only after true feedback; never add rejected forecasts as facts.
+Follow-up evaluation specification: [PAPER_ALIGNED_EVAL.md](PAPER_ALIGNED_EVAL.md) is authoritative for the new opt-in paper-aligned cohort: Qwen3-4B, exact verified AgentGym 200 IDs, H=20, history=2, prompt=4096, response=512; preserve the old 100-step and other historical protocols. Implement profile-specific prompt/projection/reset/horizon/score/seed behavior only after phase authorization. This documentation update does not start Phase 5.
+
+Reconstruct independent v3 runtime assets and local patches first. The new paper-aligned target is AgentGym + ScienceWorld 1.2.3, 200 fixed tasks and 20 agent turns; the inherited cohort remains 100 steps, and RLVMR/L0-L2/30 steps is not established. Exact source-ID/order/task-variation equivalence has now been checked; live JAR/reset/observation equivalence remains pending. No silent conversion. Freeze Actor and WM services, simulation/review depth, prompts, seed and manifest. Insert signals/memory/Gate between parsed draft and wm_runtime.select. For Skip, execute exactly once and update real WM history without invoking predict/reflection. For Call, preserve the selected current prediction/reflection/revision protocol and commit verification. Experience insertion occurs only after true feedback; never add rejected forecasts as facts.
 
 Acceptance: a small real no-WM Qwen3 episode plus several Call/Skip traces; zero duplicate step/call and no hidden/future state leakage; non-thinking/action parsing verified; failures retained. Smoke tests do not validate hypotheses. No full benchmark at this stage.
 
 ## Phase 6 — baselines, ablations and analysis
+
+Apply the independent paper-aligned profile from [PAPER_ALIGNED_EVAL.md](PAPER_ALIGNED_EVAL.md): rollout seeds 0–7 with per-task-turn request seeding, fixed task identity, T=.4/top_p=1/no top-k restriction/response=512, per-instance aggregation and sample SD across eight complete seed means. Science main outcome is raw final Task Score; ALF is SR; Web is SR plus graded score. Add meaningful unequal-batch/category and score-scale tests. Keep pure paper-prompt and structured-draft controls distinct. ALF targets 140 valid_seen/H=50/history=2/prompt=2048; Web targets fixed 128 goal indices/H=15/history=2/prompt=4096 after environment validation. No test-driven threshold or memory construction.
 
 Implement Never, Always, Random and Periodic at predeclared matched-budget grids, action uncertainty, SpanUQ local, global, combined internal, experience-only and full Gate; retain Risk only if a real compatible implementation is later identified. Add Memory-only and full without sufficiency/conflict/local. Group memory correction on/off separately, sharing memory/correction for within-group Gate comparisons. Fixed Actor/WM, review depth, prompts, seeds/task set and environment; trajectories naturally diverge after decisions.
 
@@ -85,3 +89,7 @@ Publish actual runnable setup/download/env/service/baseline/full/analysis comman
 6. Gate: new `gates/` modules called from central `worldmodel/runtime.py` seam; no generic gate currently present.
 7. Leakage: existing test logs, test-informed policy/context, oracle metadata, future step outcomes, online episode ordering and cross-benchmark sharing are concrete risks; freeze independent splits and timestamp/provenance checks.
 8. File map above is the scoped proposal; none of those Phase 1–7 runtime edits are authorized/executed now.
+
+## Evaluation planning follow-up
+
+Paper/source audit completed without changing inference integration or legacy runtime configs. See PAPER_ALIGNED_EVAL.md for pinned source, exact Science IDs/61 overlap exclusion, independent development proposal, configuration map and pending equivalence checks. Phase 3–4 memory/calibration must exclude all 200 test IDs; derive a separate dev split from the 2059 disjoint source-train pool before inspecting outcomes. This update grants no phase/experiment authorization.

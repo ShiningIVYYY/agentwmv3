@@ -15,3 +15,13 @@
 1. `ssh lab`, then `cd /data1/shn/agentwmv3`.
 2. Read this file, IMPLEMENTATION_PLAN.md, SPANUQ_AUDIT.md; inspect `git status` and current branch/remote.
 3. Do not infer Phase 1 permission from the existence of these plans. Obtain/locate explicit confirmation.
+
+## Paper-aligned evaluation planning follow-up
+
+- Completed paper Section 4/C.1/C.4/Table S2/S3 and official evaluation source audit; pinned official commit 35a44f5c5647b1785ad23ddf0ffbd196b695bf86.
+- Added PAPER_ALIGNED_EVAL.md and updated Phase 5–6 plan. This is documentation-only; existing configurations, runtime code and SpanUQ files were not edited.
+- Science 200 IDs/file hash/order/task-variation mapping match; 61 source-train overlaps independently confirmed, leaving 2059. Live simulator/asset equivalence remains pending.
+- New planned cohort: Science 20/history2/prompt4096; ALF 50/history2/prompt2048; Web fixed128/15/history2/prompt4096; common response512/T=.4/top_p1/no top-k restriction/seeds0–7. Actor remains Qwen3-4B.
+- Separate dev/memory isolation and instance-weighted mean±sample SD planned; no runtime config, dataset split, model inference or full experiment implemented/launched in this follow-up.
+- Existing phase/SpanUQ status above is not advanced by this evaluation planning task.
+- WebShop follow-up risk: exact goal identity also depends on stable slot seed 1000+i; selecting 128 indices from the legacy single-seed catalog is insufficient. This remains a Phase 5–6 preparation requirement.
