@@ -1,0 +1,82 @@
+[
+  {
+    "role": "draft",
+    "task_id": "sciworld_1709",
+    "step": 1,
+    "started_at_ns": 1793652215398090801,
+    "finished_at_ns": 1793652217283904687,
+    "usage": {
+      "prompt_tokens": 353,
+      "completion_tokens": 38,
+      "total_tokens": 391
+    },
+    "cost": {
+      "generation_seconds": 1.8834244012832642,
+      "extraction_seconds": 0,
+      "additional_backbone_forward_passes": 0,
+      "retained_raw_logits_bytes": 0,
+      "output_tokens_including_eos": 38,
+      "peak_allocated_bytes": 8190680576
+    }
+  },
+  {
+    "role": "review",
+    "task_id": "sciworld_1709",
+    "step": 1,
+    "started_at_ns": 1793652221877906322,
+    "finished_at_ns": 1793652223714157542,
+    "usage": {
+      "prompt_tokens": 642,
+      "completion_tokens": 53,
+      "total_tokens": 695
+    },
+    "cost": {
+      "generation_seconds": 1.8324189446866512,
+      "extraction_seconds": 0,
+      "additional_backbone_forward_passes": 0,
+      "retained_raw_logits_bytes": 0,
+      "output_tokens_including_eos": 53,
+      "peak_allocated_bytes": 8275349504
+    }
+  },
+  {
+    "role": "review",
+    "task_id": "sciworld_1709",
+    "step": 1,
+    "started_at_ns": 1793652223896082604,
+    "finished_at_ns": 1793652225705336948,
+    "usage": {
+      "prompt_tokens": 703,
+      "completion_tokens": 52,
+      "total_tokens": 755
+    },
+    "cost": {
+      "generation_seconds": 1.8053022008389235,
+      "extraction_seconds": 0,
+      "additional_backbone_forward_passes": 0,
+      "retained_raw_logits_bytes": 0,
+      "output_tokens_including_eos": 52,
+      "peak_allocated_bytes": 8287678464
+    }
+  },
+  {
+    "role": "review",
+    "task_id": "sciworld_1709",
+    "step": 1,
+    "started_at_ns": 1793652225881039209,
+    "finished_at_ns": 1793652227676426267,
+    "usage": {
+      "prompt_tokens": 763,
+      "completion_tokens": 52,
+      "total_tokens": 815
+    },
+    "cost": {
+      "generation_seconds": 1.7907350715249777,
+      "extraction_seconds": 0,
+      "additional_backbone_forward_passes": 0,
+      "retained_raw_logits_bytes": 0,
+      "output_tokens_including_eos": 52,
+      "peak_allocated_bytes": 8299313664
+    }
+  }
+]

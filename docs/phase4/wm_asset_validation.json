@@ -1,0 +1,7 @@
+{
+  "all_weight_and_tokenizer_hashes_match": true,
+  "revision": "6196b3531c5634a8229af6b2cd111e02a70c13b5",
+  "seconds": 16.930617785081267,
+  "source": "/data1/shn/agentwmv2/checkpoints/word2world/scienceworld",
+  "read_only_reuse": true
+}

@@ -1,0 +1,75 @@
+{
+  "purpose": "engineering_only_no_task_benefit_claim",
+  "policy": "full",
+  "steps": 10,
+  "gate_call_steps": 2,
+  "gate_skip_steps": 8,
+  "budget_blocked_steps": 3,
+  "actual_wm_calls": 8,
+  "draft_actor_calls": 10,
+  "review_actor_calls": 6,
+  "total_online_model_calls": 24,
+  "online_usage": {
+    "prompt_tokens": 28626,
+    "completion_tokens": 731,
+    "total_tokens": 29357
+  },
+  "draft_usage": {
+    "prompt_tokens": 3913,
+    "completion_tokens": 338,
+    "total_tokens": 4251
+  },
+  "review_usage": {
+    "prompt_tokens": 4278,
+    "completion_tokens": 330,
+    "total_tokens": 4608
+  },
+  "wm_usage": {
+    "prompt_tokens": 20435,
+    "completion_tokens": 63,
+    "total_tokens": 20498
+  },
+  "actor_generation_seconds": 24.392697455361485,
+  "internal_extraction_seconds": 0.049313558265566826,
+  "internal_extraction_calls": 10,
+  "retrieval_calls": 10,
+  "retrieval_seconds": 0.003167005255818367,
+  "external_judge_seconds": 0.0002976246178150177,
+  "external_judge_model_calls": 0,
+  "gate_rule_seconds": 0.00021087750792503357,
+  "external_evidence_gate_total_seconds": 0.010480724275112152,
+  "wm_prediction_seconds": 2.7433470357209444,
+  "action_review_generation_seconds": 11.825019795447588,
+  "total_instrumented_inference_seconds": 27.19583877362311,
+  "wm_context_setup_seconds": 10.572307733818889,
+  "whole_driver_seconds": 58.23855890147388,
+  "max_actor_peak_allocated_bytes": 8312983552,
+  "validation_extra_calls": 1,
+  "validation_cost": [
+    {
+      "same_prompt_and_sampling": true,
+      "response_ids_identical": true,
+      "extra_actor_calls": 1,
+      "usage": {
+        "prompt_tokens": 353,
+        "completion_tokens": 38,
+        "total_tokens": 391
+      },
+      "cost": {
+        "generation_seconds": 1.268529126420617,
+        "extraction_seconds": 0,
+        "additional_backbone_forward_passes": 0,
+        "retained_raw_logits_bytes": 0,
+        "output_tokens_including_eos": 38,
+        "peak_allocated_bytes": 8190680576
+      }
+    }
+  ],
+  "offline_memory_synthesis": "unchanged Phase3 snapshot; offline Actor collection/probes/synthesis reported separately",
+  "calibration_status": "provisional_functional_only",
+  "memory_correction": false,
+  "extra_backbone_forward_passes": 0,
+  "missing_span_count": 0,
+  "invalid_draft_format_count": 0,
+  "memory_snapshot_unchanged": "c6c2dc4dc6ebecf6ef9d03020b7721748d79afa6379a6e2779a5a127e01c25d7"
+}

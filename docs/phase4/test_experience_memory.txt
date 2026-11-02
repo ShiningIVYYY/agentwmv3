@@ -1,0 +1,42 @@
+test_applicability_not_similarity (__main__.ExperienceTests.test_applicability_not_similarity) ... ok
+test_bm25_empty_and_topk (__main__.ExperienceTests.test_bm25_empty_and_topk) ... ok
+test_bootstrap_not_valid_for_construction (__main__.ExperienceTests.test_bootstrap_not_valid_for_construction) ... ok
+test_case_goal_changed (__main__.ExperienceTests.test_case_goal_changed) ... ok
+test_clone_source (__main__.ExperienceTests.test_clone_source) ... ok
+test_costs (__main__.ExperienceTests.test_costs) ... ok
+test_counterexample_abstains (__main__.ExperienceTests.test_counterexample_abstains) ... ok
+test_current_episode_excluded (__main__.ExperienceTests.test_current_episode_excluded) ... ok
+test_current_task_excluded (__main__.ExperienceTests.test_current_task_excluded) ... ok
+test_deterministic_ranking (__main__.ExperienceTests.test_deterministic_ranking) ... ok
+test_dev_case_rejected (__main__.ExperienceTests.test_dev_case_rejected) ... ok
+test_duplicate_case (__main__.ExperienceTests.test_duplicate_case) ... ok
+test_empty_memory (__main__.ExperienceTests.test_empty_memory) ... ok
+test_extra_oracle (__main__.ExperienceTests.test_extra_oracle) ... ok
+test_future_snapshot (__main__.ExperienceTests.test_future_snapshot) ... ok
+test_goal_leak (__main__.ExperienceTests.test_goal_leak) ... ok
+test_id_leak (__main__.ExperienceTests.test_id_leak) ... ok
+test_independent_instances (__main__.ExperienceTests.test_independent_instances) ... ok
+test_inflated_reliability (__main__.ExperienceTests.test_inflated_reliability) ... ok
+test_invented_support (__main__.ExperienceTests.test_invented_support) ... ok
+test_missing_required (__main__.ExperienceTests.test_missing_required) ... ok
+test_missing_success_unknown (__main__.ExperienceTests.test_missing_success_unknown) ... ok
+test_no_implicit_boolean (__main__.ExperienceTests.test_no_implicit_boolean) ... ok
+test_no_wm_causal_claim (__main__.ExperienceTests.test_no_wm_causal_claim) ... ok
+test_nonfinite_outcome (__main__.ExperienceTests.test_nonfinite_outcome) ... ok
+test_normalized_test_goal_leak (__main__.ExperienceTests.test_normalized_test_goal_leak) ... ok
+test_open_sufficiency_scope (__main__.ExperienceTests.test_open_sufficiency_scope) ... ok
+test_query_rejects_future (__main__.ExperienceTests.test_query_rejects_future) ... ok
+test_query_unchanged (__main__.ExperienceTests.test_query_unchanged) ... ok
+test_receipts_survive_downstream_failure (__main__.ExperienceTests.test_receipts_survive_downstream_failure) ... ok
+test_schema (__main__.ExperienceTests.test_schema) ... ok
+test_single_case_is_limited (__main__.ExperienceTests.test_single_case_is_limited) ... ok
+test_split_identity (__main__.ExperienceTests.test_split_identity) ... ok
+test_sufficiency_abstains_on_unverified_premise (__main__.ExperienceTests.test_sufficiency_abstains_on_unverified_premise) ... ok
+test_supported_conflict (__main__.ExperienceTests.test_supported_conflict) ... ok
+test_temporal_case (__main__.ExperienceTests.test_temporal_case) ... ok
+test_unit_wording_alias_only (__main__.ExperienceTests.test_unit_wording_alias_only) ... ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 0.009s
+
+OK

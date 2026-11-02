@@ -1,0 +1,25 @@
+{
+  "pid": 3879142,
+  "command": [
+    "/home/shn/miniconda3/envs/verl-agent/bin/vllm",
+    "serve",
+    "/data1/shn/agentwmv2/checkpoints/word2world/scienceworld",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "18212",
+    "--served-model-name",
+    "word2world-scienceworld",
+    "--dtype",
+    "bfloat16",
+    "--max-model-len",
+    "32768",
+    "--gpu-memory-utilization",
+    "0.90",
+    "--max-num-seqs",
+    "1",
+    "--enforce-eager"
+  ],
+  "gpu": 2,
+  "purpose": "phase4_owned_temporary_service_existing_weights_read_only"
+}

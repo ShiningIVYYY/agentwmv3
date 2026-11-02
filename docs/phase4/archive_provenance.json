@@ -1,0 +1,29 @@
+{
+  "phase4_full_v1": {
+    "original_steps_sha256": "a13b23836d661ebac22ac9da4b0b2dbfe09c0ad2b348e508459f03acd776c4b3",
+    "compact_steps_sha256": "a080700e482795c6a753807a310b69db79c1b0143949f74268987b70e296d3dd",
+    "source_changes_with_executed_archive": [
+      "gates/core.py",
+      "gates/evidence.py",
+      "scripts/diagnose_gate.py"
+    ]
+  },
+  "phase4_never_v1": {
+    "original_steps_sha256": "aca8c4e4786b92cdee8b72286ad489e80c64357bebafb2a653a67fc99cd8b4a6",
+    "compact_steps_sha256": "262ce2d7305860eacf1170d8f7211bc5e48b0a7726f4e2864eee344c444a7dda",
+    "source_changes_with_executed_archive": [
+      "gates/core.py",
+      "gates/evidence.py",
+      "scripts/diagnose_gate.py"
+    ]
+  },
+  "phase4_always_v1": {
+    "original_steps_sha256": "b81b9167a7bbd7eb548626d45bd6fb71b1c015be83005e7954602a762061ba78",
+    "compact_steps_sha256": "cca5ebea09cc17344193457699a69348fce747ff4fe642f8ffa3bdc23955d78b",
+    "source_changes_with_executed_archive": [
+      "gates/core.py",
+      "gates/evidence.py",
+      "scripts/diagnose_gate.py"
+    ]
+  }
+}

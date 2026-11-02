@@ -1,15 +1,17 @@
 # Current status
 
-Phase3 COMPLETE for the narrow training-free evidence module; awaiting explicit confirmation before Phase4. Phase2 accepted by user. Read PHASE3_REPORT.md, EXPERIENCE_MEMORY.md, IMPLEMENTATION_PLAN.md and PAPER_ALIGNED_EVAL.md when resuming. Earlier entries below are historical, not current authorization.
+Phase4 COMPLETE; awaiting explicit confirmation before Phase5. Phase3 accepted by user. Read PHASE4_REPORT.md, GATE_DESIGN.md, IMPLEMENTATION_PLAN.md and PAPER_ALIGNED_EVAL.md when resuming. Older entries below are historical, not current authorization.
 
-- Frozen split:1292 train/197 dev/200 test, with all200 native test identity/goal fingerprints checked and whole normalized goal groups isolated. Template/layout overlap and semantic-duplicate limits disclosed.
-- Fresh memory:48 Qwen training steps +6 separately labelled real environment probes ->54 Cases/two evidence Cards; no old v2 test/train feedback used for synthesis. Snapshot memory_6af512c385caf54a11ede606.
-- BM25 + explicit applicability + tri-state Coverage/Conflict/Sufficiency. Unknown remains Unknown; no action correction, no WM utility assertion, no Gate.
-- Dev diagnostics:15 fixed-hash steps all Unknown;10 separately labelled previously exposed targeted steps include2 naturally blocked-door conflicts. No natural Sufficiency=true observed. No performance/effectiveness claim.
-- 37 new +117 existing unit cases pass;25/25 dev native receipt/query-time/input-hash/prompt/signal replay checks pass. Import-path retry and failed initial goal-mismatch run are fully disclosed.
-- Phase2 hf_generation_raw_bf16_v1, Internal Signals and paper protocol unchanged. v2 clean; old envs/services unchanged. GPU1 released.
-- Final code includes a CPU-tested post-run receipt-persistence improvement; executed originals/source differences are archived in docs/phase3. Full logs retained only in outputs on lab.
-- STOP before Phase4. User must confirm; next work is conservative deterministic Gate semantics/unit tests, not a complete benchmark.
+- Seven Gates share GateInput/decision output: never/always/local/global/internal/experience/full. Unknown explicit; conflict priority; known correction never counts as executed correction. Memory Correction and confirmed-action skip remain disabled.
+- Accepted hf_generation_raw_bf16_v1, model revision/dtype/scoring/config and frozen Phase3 Memory are unchanged; all54 train Cases/6 controlled probes audited. Paper protocol unchanged, v2 clean.
+- Provisional dev-only Q=.75: tau_local=.13648279807529134, tau_global=.06599500845849053; only25 exposed decisions/5 groups. No stable calibration, success/test tuning or utility proof.
+- Actual Full10 dev steps:2 Call/8 Skip,8 WM predictions/6 reviews;3 later requested calls blocked by budget. Never/Always one-turn checks verified unused extraction/retrieval0. Source-bound/causal/native prompt/action/budget audits pass12/12. Owned server12 RPCs agree with client logs.
+-217 unit/regression cases passed, including63 Gate tests. A real scored/unscored generation parity check produced identical response IDs. No natural positive confirmation or missing Internal case; those branches are unit-tested only.
+- Both Full WM-revised actions received failure feedback. Engineering functioning does not imply scientific benefit. Full online29357 tokens/24 model calls; costs include extraction/retrieval/Judge/Gate/WM/revision, with setup/validation/offline Memory separate.
+- Temporary WM service used existing weights read-only and old environment without modifications; original helper source copied into ignored v3 external. First shared-GPU startup failure retained, retry succeeded; owned service stopped/GPU6 released, unrelated jobs untouched.
+- User requested background operation: detached CPU job PID3903604 finished/all_passed; progress at outputs/phase4_setup/background_progress.json. Compact logs/results under docs/phase4.
+- Executed source versions are archived where later type/provenance/output-metadata guards differ; exact real trace replay still passes. Full large logs/WM-only context remain ignored.
+- STOP before Phase5. Next work requires user confirmation: independent dev calibration, ScienceWorld profile/runtime hardening and WM/action compatibility investigation, not a full benchmark.
 
 # agentwmv3 progress
 

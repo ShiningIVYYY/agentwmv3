@@ -1,0 +1,22 @@
+{
+  "internal_backend": "hf_generation_raw_bf16_v1",
+  "model_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+  "dtype": "bfloat16",
+  "internal_code_config_and_paper_protocol_unchanged_from_accepted_phase3": true,
+  "cases": 54,
+  "all_cases_approved_training": true,
+  "controlled_probe_steps": 6,
+  "probe_task_ids": [
+    "sciworld_1545",
+    "sciworld_1667"
+  ],
+  "cards": 2,
+  "snapshot_sha256": "c6c2dc4dc6ebecf6ef9d03020b7721748d79afa6379a6e2779a5a127e01c25d7",
+  "tri_state_values": [
+    "true",
+    "false",
+    "unknown"
+  ],
+  "natural_positive_sufficiency_examples": 0,
+  "coverage_limit": "two door predicates; no WM utility evidence; semantic/template independence not established"
+}

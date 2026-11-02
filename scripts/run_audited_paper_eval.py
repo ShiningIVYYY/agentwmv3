@@ -446,8 +446,18 @@ class Science:
             if 'task_description_sha256' in row:
                 assert hashlib.sha256(task.encode()).hexdigest() == row['task_description_sha256'], 'ScienceWorld goal changed'
                 assert rst['score'] == row['initial_score'], 'ScienceWorld initial score changed'
-            controller = wm_runtime.make_controller(self.args, 'scienceworld', row, task,
-                self.transition(rst), lambda: self.branch(row), agent, ROOT, oracle=oracle) if getattr(self.args, 'wm_backend', 'none') != 'none' else None
+            gate_session = getattr(agent, 'gate_session', None)
+            if gate_session is not None:
+                if getattr(self.args, 'wm_backend', 'none') != 'word2world':
+                    raise ValueError('Phase4 Gate requires the learned Word2World backend')
+                initial_for_gate_wm = self.transition(rst)
+                gate_session.start_episode(row['task_id'], lambda: wm_runtime.make_controller(
+                    self.args, 'scienceworld', row, task, initial_for_gate_wm,
+                    lambda: self.branch(row), agent, ROOT))
+                controller = None  # Lazy: Never/Skip must not pay WM context setup.
+            else:
+                controller = wm_runtime.make_controller(self.args, 'scienceworld', row, task,
+                    self.transition(rst), lambda: self.branch(row), agent, ROOT, oracle=oracle) if getattr(self.args, 'wm_backend', 'none') != 'none' else None
             for t in range(self.args.max_steps):
                 if rst['done']:
                     break
@@ -467,8 +477,11 @@ class Science:
                 # category is forbidden or removed, unlike the superseded evaluator.
                 messages, h = bounded_science(agent, self.prelude, task, rst['observation'], steps)
                 text, metadata = agent.generate(messages, row['task_id'], t + 1)
-                # Optional read-only memory hook: current decision only, before step.
-                if getattr(agent, 'external_signal_provider', None) is not None:
+                # Gate consumes only the draft/current signals, before any WM or step.
+                if gate_session is not None:
+                    metadata.update(gate_session.prepare(text, metadata, task, rst['observation'], row['task_id'], t + 1))
+                # Preserve the Phase3 read-only hook when no Gate is enabled.
+                elif getattr(agent, 'external_signal_provider', None) is not None:
                     from experience.collection import fields
                     from experience.schema import ExternalQuery
                     premise, consequence, draft = fields(text)
@@ -485,7 +498,10 @@ class Science:
                 parts = text.rsplit('Action:', 1)
                 act = parts[-1].strip() if len(parts) == 2 else ''
                 initial_act = act
-                act, text, reflection = wm_runtime.select(controller, act, text, rst['observation'], steps, acts, t + 1)
+                if gate_session is not None:
+                    act, text, reflection = gate_session.select(act, text, rst['observation'], steps, acts, t + 1)
+                else:
+                    act, text, reflection = wm_runtime.select(controller, act, text, rst['observation'], steps, acts, t + 1)
                 prior = rst['observation']
                 native_action = view.action(act) if view else act
                 rst = oracle.execute(act) if snapshot_mode else http(
@@ -494,7 +510,9 @@ class Science:
                     rst = view.observe(rst)
                 if view:
                     reflection['native_action'] = native_action
-                if controller:
+                if gate_session is not None:
+                    gate_session.commit(act, self.transition(rst), reflection)
+                elif controller:
                     wm_runtime.commit(controller, act, self.transition(rst), reflection)
                 steps.append(dict(messages=messages, output=text, action=act,
                              valid_format=(metadata["decision_format_valid"] if getattr(self.args, "internal_signals_config", None) else bool(act != initial_act or (len(parts) == 2 and "Thought:" in parts[0]))), admissible=act in acts,

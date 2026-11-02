@@ -1,0 +1,352 @@
+[
+  {
+    "role": "draft",
+    "task_id": "sciworld_1709",
+    "step": 1,
+    "started_at_ns": 1793652098527599573,
+    "finished_at_ns": 1793652100504913585,
+    "usage": {
+      "prompt_tokens": 353,
+      "completion_tokens": 38,
+      "total_tokens": 391
+    },
+    "cost": {
+      "generation_seconds": 1.954739896580577,
+      "extraction_seconds": 0.015536956489086151,
+      "additional_backbone_forward_passes": 0,
+      "retained_raw_logits_bytes": 23094272,
+      "output_tokens_including_eos": 38,
+      "action_value_tokens": 2,
+      "non_action_response_tokens_including_labels": 35,
+      "peak_allocated_bytes": 8253843456,
+      "peak_reserved_bytes": 8296333312
+    }
+  },
+  {
+    "role": "review",
+    "task_id": "sciworld_1709",
+    "step": 1,
+    "started_at_ns": 1793652106958330544,
+    "finished_at_ns": 1793652108731432573,
+    "usage": {
+      "prompt_tokens": 642,
+      "completion_tokens": 53,
+      "total_tokens": 695
+    },
+    "cost": {
+      "generation_seconds": 1.76884532161057,
+      "extraction_seconds": 0,
+      "additional_backbone_forward_passes": 0,
+      "retained_raw_logits_bytes": 0,
+      "output_tokens_including_eos": 53,
+      "peak_allocated_bytes": 8273002496
+    }
+  },
+  {
+    "role": "review",
+    "task_id": "sciworld_1709",
+    "step": 1,
+    "started_at_ns": 1793652108916921787,
+    "finished_at_ns": 1793652110656312930,
+    "usage": {
+      "prompt_tokens": 703,
+      "completion_tokens": 52,
+      "total_tokens": 755
+    },
+    "cost": {
+      "generation_seconds": 1.7354657724499702,
+      "extraction_seconds": 0,
+      "additional_backbone_forward_passes": 0,
+      "retained_raw_logits_bytes": 0,
+      "output_tokens_including_eos": 52,
+      "peak_allocated_bytes": 8285393920
+    }
+  },
+  {
+    "role": "review",
+    "task_id": "sciworld_1709",
+    "step": 1,
+    "started_at_ns": 1793652110837140840,
+    "finished_at_ns": 1793652112635736211,
+    "usage": {
+      "prompt_tokens": 763,
+      "completion_tokens": 52,
+      "total_tokens": 815
+    },
+    "cost": {
+      "generation_seconds": 1.7929015792906284,
+      "extraction_seconds": 0,
+      "additional_backbone_forward_passes": 0,
+      "retained_raw_logits_bytes": 0,
+      "output_tokens_including_eos": 52,
+      "peak_allocated_bytes": 8300341760
+    }
+  },
+  {
+    "role": "draft",
+    "task_id": "sciworld_1709",
+    "step": 2,
+    "started_at_ns": 1793652112952974395,
+    "finished_at_ns": 1793652114263129506,
+    "usage": {
+      "prompt_tokens": 367,
+      "completion_tokens": 37,
+      "total_tokens": 404
+    },
+    "cost": {
+      "generation_seconds": 1.298926129937172,
+      "extraction_seconds": 0.0036917775869369507,
+      "additional_backbone_forward_passes": 0,
+      "retained_raw_logits_bytes": 22486528,
+      "output_tokens_including_eos": 37,
+      "action_value_tokens": 2,
+      "non_action_response_tokens_including_labels": 34,
+      "peak_allocated_bytes": 8252316672,
+      "peak_reserved_bytes": 8457814016
+    }
+  },
+  {
+    "role": "draft",
+    "task_id": "sciworld_1709",
+    "step": 3,
+    "started_at_ns": 1793652114492773899,
+    "finished_at_ns": 1793652115891542602,
+    "usage": {
+      "prompt_tokens": 381,
+      "completion_tokens": 35,
+      "total_tokens": 416
+    },
+    "cost": {
+      "generation_seconds": 1.3869009502232075,
+      "extraction_seconds": 0.004158664494752884,
+      "additional_backbone_forward_passes": 0,
+      "retained_raw_logits_bytes": 21271040,
+      "output_tokens_including_eos": 35,
+      "action_value_tokens": 2,
+      "non_action_response_tokens_including_labels": 32,
+      "peak_allocated_bytes": 8250149376,
+      "peak_reserved_bytes": 8459911168
+    }
+  },
+  {
+    "role": "draft",
+    "task_id": "sciworld_1709",
+    "step": 4,
+    "started_at_ns": 1793652116105615371,
+    "finished_at_ns": 1793652117180525243,
+    "usage": {
+      "prompt_tokens": 288,
+      "completion_tokens": 27,
+      "total_tokens": 315
+    },
+    "cost": {
+      "generation_seconds": 1.0655133407562971,
+      "extraction_seconds": 0.003247775137424469,
+      "additional_backbone_forward_passes": 0,
+      "retained_raw_logits_bytes": 16409088,
+      "output_tokens_including_eos": 27,
+      "action_value_tokens": 2,
+      "non_action_response_tokens_including_labels": 24,
+      "peak_allocated_bytes": 8218353152,
+      "peak_reserved_bytes": 8459911168
+    }
+  },
+  {
+    "role": "draft",
+    "task_id": "sciworld_1709",
+    "step": 5,
+    "started_at_ns": 1793652117381798502,
+    "finished_at_ns": 1793652118351139204,
+    "usage": {
+      "prompt_tokens": 291,
+      "completion_tokens": 26,
+      "total_tokens": 317
+    },
+    "cost": {
+      "generation_seconds": 0.9599504619836807,
+      "extraction_seconds": 0.00432826392352581,
+      "additional_backbone_forward_passes": 0,
+      "retained_raw_logits_bytes": 15801344,
+      "output_tokens_including_eos": 26,
+      "action_value_tokens": 2,
+      "non_action_response_tokens_including_labels": 23,
+      "peak_allocated_bytes": 8214416896,
+      "peak_reserved_bytes": 8459911168
+    }
+  },
+  {
+    "role": "draft",
+    "task_id": "sciworld_349",
+    "step": 1,
+    "started_at_ns": 1793652121026259741,
+    "finished_at_ns": 1793652122036684668,
+    "usage": {
+      "prompt_tokens": 366,
+      "completion_tokens": 28,
+      "total_tokens": 394
+    },
+    "cost": {
+      "generation_seconds": 1.0020433329045773,
+      "extraction_seconds": 0.0034427139908075333,
+      "additional_backbone_forward_passes": 0,
+      "retained_raw_logits_bytes": 17016832,
+      "output_tokens_including_eos": 28,
+      "action_value_tokens": 3,
+      "non_action_response_tokens_including_labels": 24,
+      "peak_allocated_bytes": 8231068160,
+      "peak_reserved_bytes": 8459911168
+    }
+  },
+  {
+    "role": "review",
+    "task_id": "sciworld_349",
+    "step": 1,
+    "started_at_ns": 1793652129115879160,
+    "finished_at_ns": 1793652131295161753,
+    "usage": {
+      "prompt_tokens": 657,
+      "completion_tokens": 59,
+      "total_tokens": 716
+    },
+    "cost": {
+      "generation_seconds": 2.1742609348148108,
+      "extraction_seconds": 0,
+      "additional_backbone_forward_passes": 0,
+      "retained_raw_logits_bytes": 0,
+      "output_tokens_including_eos": 59,
+      "peak_allocated_bytes": 8278209536
+    }
+  },
+  {
+    "role": "review",
+    "task_id": "sciworld_349",
+    "step": 1,
+    "started_at_ns": 1793652131486266438,
+    "finished_at_ns": 1793652133733295680,
+    "usage": {
+      "prompt_tokens": 724,
+      "completion_tokens": 57,
+      "total_tokens": 781
+    },
+    "cost": {
+      "generation_seconds": 2.241244360804558,
+      "extraction_seconds": 0,
+      "additional_backbone_forward_passes": 0,
+      "retained_raw_logits_bytes": 0,
+      "output_tokens_including_eos": 57,
+      "peak_allocated_bytes": 8293989888
+    }
+  },
+  {
+    "role": "review",
+    "task_id": "sciworld_349",
+    "step": 1,
+    "started_at_ns": 1793652133932923299,
+    "finished_at_ns": 1793652136050128409,
+    "usage": {
+      "prompt_tokens": 789,
+      "completion_tokens": 57,
+      "total_tokens": 846
+    },
+    "cost": {
+      "generation_seconds": 2.112301826477051,
+      "extraction_seconds": 0,
+      "additional_backbone_forward_passes": 0,
+      "retained_raw_logits_bytes": 0,
+      "output_tokens_including_eos": 57,
+      "peak_allocated_bytes": 8312983552
+    }
+  },
+  {
+    "role": "draft",
+    "task_id": "sciworld_349",
+    "step": 2,
+    "started_at_ns": 1793652136440304617,
+    "finished_at_ns": 1793652137626753234,
+    "usage": {
+      "prompt_tokens": 381,
+      "completion_tokens": 35,
+      "total_tokens": 416
+    },
+    "cost": {
+      "generation_seconds": 1.176592817530036,
+      "extraction_seconds": 0.003930889070034027,
+      "additional_backbone_forward_passes": 0,
+      "retained_raw_logits_bytes": 21271040,
+      "output_tokens_including_eos": 35,
+      "action_value_tokens": 2,
+      "non_action_response_tokens_including_labels": 32,
+      "peak_allocated_bytes": 8250149376,
+      "peak_reserved_bytes": 8476688384
+    }
+  },
+  {
+    "role": "draft",
+    "task_id": "sciworld_349",
+    "step": 3,
+    "started_at_ns": 1793652137765060310,
+    "finished_at_ns": 1793652138910178042,
+    "usage": {
+      "prompt_tokens": 472,
+      "completion_tokens": 34,
+      "total_tokens": 506
+    },
+    "cost": {
+      "generation_seconds": 1.1363514754921198,
+      "extraction_seconds": 0.0033376235514879227,
+      "additional_backbone_forward_passes": 0,
+      "retained_raw_logits_bytes": 20663296,
+      "output_tokens_including_eos": 34,
+      "action_value_tokens": 2,
+      "non_action_response_tokens_including_labels": 31,
+      "peak_allocated_bytes": 8262055424,
+      "peak_reserved_bytes": 8478785536
+    }
+  },
+  {
+    "role": "draft",
+    "task_id": "sciworld_349",
+    "step": 4,
+    "started_at_ns": 1793652139036510552,
+    "finished_at_ns": 1793652140168567358,
+    "usage": {
+      "prompt_tokens": 469,
+      "completion_tokens": 34,
+      "total_tokens": 503
+    },
+    "cost": {
+      "generation_seconds": 1.124131003394723,
+      "extraction_seconds": 0.003176851198077202,
+      "additional_backbone_forward_passes": 0,
+      "retained_raw_logits_bytes": 20663296,
+      "output_tokens_including_eos": 34,
+      "action_value_tokens": 2,
+      "non_action_response_tokens_including_labels": 31,
+      "peak_allocated_bytes": 8261613056,
+      "peak_reserved_bytes": 8478785536
+    }
+  },
+  {
+    "role": "draft",
+    "task_id": "sciworld_349",
+    "step": 5,
+    "started_at_ns": 1793652140296521020,
+    "finished_at_ns": 1793652141768669286,
+    "usage": {
+      "prompt_tokens": 545,
+      "completion_tokens": 44,
+      "total_tokens": 589
+    },
+    "cost": {
+      "generation_seconds": 1.4625282511115074,
+      "extraction_seconds": 0.004462042823433876,
+      "additional_backbone_forward_passes": 0,
+      "retained_raw_logits_bytes": 26740736,
+      "output_tokens_including_eos": 44,
+      "action_value_tokens": 2,
+      "non_action_response_tokens_including_labels": 41,
+      "peak_allocated_bytes": 8300063744,
+      "peak_reserved_bytes": 8533311488
+    }
+  }
+]

@@ -2,7 +2,7 @@
 
 ## Phase control
 
-Current phase: 3, explicitly authorized and completed. Phase2 passed user engineering acceptance using Token NLL; SpanUQ remains shelved. Phases4–7 require new user confirmation and are NOT started. Read PHASE3_REPORT.md and EXPERIENCE_MEMORY.md before resuming. Hypotheses1/2 remain unverified. No task-specific parameter training, action correction or WM Invocation Gate was performed.
+Current phase: 4, explicitly authorized and completed. Phase3 passed user engineering acceptance. Phase5–7 require new user confirmation and are NOT started. Read PHASE4_REPORT.md, GATE_DESIGN.md and PROGRESS.md before resuming. Hypotheses1/2 remain unverified. Thresholds are provisional; Memory Correction and confirmed-action skipping are disabled. No new parameter training or complete benchmark was performed.
 
 Read REPOSITORY_AUDIT.md and SPANUQ_AUDIT.md before modifying code. Existing components: audited Agent/benchmark loops, WM backends, reflection protocols, snapshot/replay, scheduler and task logs. Implemented additions: isolated Qwen3-4B inference, structured Science decisions and formal Token NLL signals. Still missing: validated optional SpanUQ integration, broader independently validated experience coverage, pre-WM Gate and complete system-cost accounting/fresh-server validation.
 
@@ -65,13 +65,22 @@ Historical Phase3 proposal below is retained for context; actual correction is i
 
 Before reading old results into memory, freeze split manifests and exclude test traces including past test-driven fixes. Extract cases only from real train/dev interaction sources with identity/availability timestamps. Build cards via rules/frozen LLM; require support/counterexamples and distinguish causal speculation. Single-case evidence remains low reliability. Use BM25 first or pinned existing embedding; fixed top-k, prompt/schema/temperature/revision for any judge. Log complete offline synthesis and online retrieval/judge costs. Correction is optional, explicit and shared across compared Gates. Acceptance: evidence-backed examples of applicability/conflict/sufficiency/correction plus split-overlap and time-leakage checks. Do not invent cards or trajectories when sources are absent.
 
-## Phase 4 — deterministic Gate
+## Phase 4 — deterministic Gate (completed)
 
-Implement Call = B AND NOT S AND (C OR U_local > tau_local OR U_global > tau_global). Missing signals use the documented Phase 2 fallback. Conflicting cards force S=false; low-reliability cards alone do not assert C/S (record their presence for analysis). S=true requires applicable reliable evidence with concrete action confirmation/correction and no unresolved conflict. Conservative validity/schema failure produces no sufficiency. Define budget semantics and no remaining-budget fallback explicitly.
+Implemented gates/{core,budget,evidence,generation,runtime,worldmodel_setup}.py and provisional configuration, calibration/diagnostic/audit/test scripts. Unified never/always/local/global/internal/experience/full; no extra extraction/retrieval for unused baseline signal types. Full default: budget AND (reliable unresolved/correctable conflict OR high Local OR high Global OR missing-required/invalid draft). Conflict always wins over sufficiency. A proposed correction is not an executed correction; correction remains off. Optional confirmed CURRENT action skipping is CPU-tested but disabled pending natural evidence. Unknown explicitly falls back/abstains, never implies no conflict or sufficient.
 
-Calibrate thresholds or target rates using a frozen dev set only; record whether dev success was used in selection. No test-dependent matched-budget tuning. Acceptance: CPU truth-table/property tests for missing, invalid, contradictory and budget-exhausted cases; immutable configs, explanatory logs, no optimizer/training path.
+Budget counts verification invocations plus a separate actual-forecast cap: reserve the unchanged protocol's maximum4 before a call, settle actual usage, never shorten the3-round JSON review. Skip really avoids predict/review and teacher-forces committed real feedback. Pure decisions precede WM and environment calls. Existing Word2World backbone, one-step prediction, JSON reflection and final-replacement revision are preserved through opt-in adapters; legacy no-Gate paths stay default. Accepted Actor/Internal/config, frozen54-Case Memory and paper protocol remain unchanged.
+
+Provisional Q=.75 thresholds from25 exposed dev steps/5 goal groups: Local=.13648279807529134, Global=.06599500845849053; Pearson=.95887/Spearman=.94846. No reward/success/test selection. Preset diagnostic budget1 invocation/4 predictions; no stable calibration or task-utility claim. Future calibration must use larger goal-group-separated development calibration/validation; the diagnostic data is already exposed.
+
+217 CPU/regression cases pass. Actual Full10 steps:2 Calls/8 Skips,8 WM forecasts/6 review calls,3 budget-blocked requests. Never/Always one-step real checks omit internal/retrieval costs as required. All12 committed development traces pass causal/input/evidence/budget/prompt replay; actual owned server12 forecast requests match logs. Both Full WM revisions failed immediate execution: no benefit claim. Full online model cost29357 tokens/24 calls, plus1 separately recorded parity-validation call; all actor/internal/external/WM/revision/setup and offline-memory costs are recorded. Current confirmation has no natural positive example. See PHASE4_REPORT.md and docs/phase4.
+
+Random/Periodic matched-budget scheduling interface is documented; active implementation/full experiments remain Phase6. Stop before Phase5.
 
 ## Phase 5 — ScienceWorld end to end
+
+Phase4 already established a targeted real functional seam, not the Phase5 formal cohort. Next work AFTER confirmation: harden the named opt-in ScienceWorld profile, new independent dev calibration/validation, run/error recovery and total-cost bookkeeping; investigate current WM/revision action failures without hiding them through backbone/protocol changes. Preserve the disabled unvalidated confirmed-action override and correction-off setting unless separately designed/validated/authorized. Reuse GateSession and the old Actor/WM/environment loop rather than rewriting them. These prerequisites do not authorize a complete200-task benchmark or claim calibrated Gate performance.
+
 
 Follow-up evaluation specification: [PAPER_ALIGNED_EVAL.md](PAPER_ALIGNED_EVAL.md) is authoritative for the new opt-in paper-aligned cohort: Qwen3-4B, exact verified AgentGym 200 IDs, H=20, history=2, prompt=4096, response=512; preserve the old 100-step and other historical protocols. Implement profile-specific prompt/projection/reset/horizon/score/seed behavior only after phase authorization. This documentation update does not start Phase 5.
 

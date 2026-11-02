@@ -1,0 +1,20 @@
+[
+  {
+    "same_prompt_and_sampling": true,
+    "response_ids_identical": true,
+    "extra_actor_calls": 1,
+    "usage": {
+      "prompt_tokens": 353,
+      "completion_tokens": 38,
+      "total_tokens": 391
+    },
+    "cost": {
+      "generation_seconds": 1.268529126420617,
+      "extraction_seconds": 0,
+      "additional_backbone_forward_passes": 0,
+      "retained_raw_logits_bytes": 0,
+      "output_tokens_including_eos": 38,
+      "peak_allocated_bytes": 8190680576
+    }
+  }
+]

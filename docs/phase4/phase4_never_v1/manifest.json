@@ -1,0 +1,81 @@
+{
+  "purpose": "targeted_previously_exposed_development_functional_smoke_not_benchmark",
+  "tasks": [
+    {
+      "task_id": "sciworld_1709",
+      "index": 1709,
+      "taskName": "test-conductivity",
+      "variationIdx": 273,
+      "category": "test_conductivity",
+      "goal_sha256": "82e89837c30c7703c0af01944230b4e97cbdb8791715aab99c7743e5b2463574",
+      "goal_group": "f0d6157b238de7f5a025cd3a701ffd5f2de1e75fda47d98ff7491dadc3c2e373",
+      "split": "development"
+    }
+  ],
+  "max_steps": 1,
+  "environment": {
+    "scienceworld": "1.2.3",
+    "jar_sha256": "f4e1fdce0cdabe1bab7128a7e78ea820210d9db3c28d7272bcbbc3f3a1c5f0d7"
+  },
+  "gate_config": {
+    "schema": "training-free-gate-v1",
+    "policy": "never",
+    "tau_local": 0.13648279807529134,
+    "tau_global": 0.06599500845849053,
+    "internal_signature": {
+      "backend": "hf_generation_raw_bf16_v1",
+      "dtype": "bfloat16",
+      "model_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+      "method": "fixed_field_mean_token_nll_v1",
+      "scoring_path": "raw_generation_logits_before_temperature",
+      "score_unit": "nats_per_token",
+      "config_sha256": "980d1f3f3f07e0df1061a842e80d42926e573e1d1810a2663c13fbefe001504b"
+    },
+    "allow_confirmed_action_skip": false,
+    "memory_correction": false,
+    "missing_policy": "global_then_call",
+    "wm_invocation_budget_per_episode": 1,
+    "wm_forecast_budget_per_episode": 4,
+    "max_forecasts_per_invocation": 4,
+    "review_protocol": "json",
+    "reflection_max_rounds": 3,
+    "budget_unit": "verification_steps_plus_actual_forecast_cap",
+    "calibration_status": "provisional_functional_only",
+    "run_id": "phase4_never_v1"
+  },
+  "source_hashes": {
+    "gates/__init__.py": "4ea21002a79a1a10eaf54c260a135ed69c92751b78b8f3807abb804d258fc42a",
+    "gates/budget.py": "17d48bf52d64c3edfc90229ddbe348f35abfbf425025fd8d32f3c8225cea6893",
+    "gates/core.py": "b2af04fc67d658f406a27822496d0303fed29f9bbbd879d1fdd602f572f3728f",
+    "gates/evidence.py": "910c16bc5c79d9798eb094155ba67d5cd803c8b4b5106618c4aab7f97140314c",
+    "gates/generation.py": "19476f30fe2f424b3b78bd87e5bebe4a44244e8a6481d624320148ade7d14b03",
+    "gates/runtime.py": "f0bc5f1da5d604ab23490d7d05276226bffa7827ce95a2a3ec0a97360f92d05d",
+    "gates/worldmodel_setup.py": "56f2337cd6a190a24f836bce06062778a3773f0a3be43b1edf34b5bc544f10e2",
+    "internal_signals/__init__.py": "df5e36553d247f1d3d09ac5c4cd4199b0d0a9c6406b06cda7c44200ca7798fa3",
+    "internal_signals/base.py": "90f6304d34f2003aa455491b7c83b0d3ab040681f9352307ff7bf70d238b2793",
+    "internal_signals/decision.py": "c6e1d0e7d95d9b8e21e38cc80eb8a2b8423e50b7d20c62bb84f80e92f083f6eb",
+    "internal_signals/hf_actor.py": "8a1572d36b362aef24965535716d5120445380f96814c865e871af851d274e53",
+    "internal_signals/hidden_states.py": "d55f649650643743145b182aa8684ed12b6387730b4418eed1cc5365e0954536",
+    "internal_signals/provider.py": "f73a5d0982aa1002c4b53f2d265adedc4c76796dcaf089140d1ed8c81125bb90",
+    "internal_signals/spanuq_adapter.py": "0346dc8f95c629cbc05d201cae1646533847e53957261e91956529ba6659eb25",
+    "internal_signals/token_nll.py": "69711504b838f2fcf4cb4bdb6ac49cb19c8a9424a509b5210a25826153ca01dd",
+    "experience/__init__.py": "e3bd066f65b43c42a3efe67069d025306fe11e8985d0ab69910ce0db34182768",
+    "experience/collection.py": "d0658bf06b10baf08ea5d712bdc05598e5016c8e0c5645c2b67ae682a8af7cdc",
+    "experience/memory.py": "d58fd88dc0c7a33c7be94cf994e337d713a00f417de4b6a87d9a43365d24a330",
+    "experience/schema.py": "4705bebbb2e5bcd6be3c4c668b22299a07311b94a702e2d9a3ce19d5de890155",
+    "experience/splits.py": "eeadfbbccd1c9c6f54ebcc3983120c06ca473d880062173f5183642c72cec65e",
+    "experience/synthesis.py": "0a54103a267583b3bed19fe6139874b93489dde641865a6365a61862051c0bc3",
+    "scripts/run_audited_paper_eval.py": "1f8c064edacebd743b32c31e3149772eec90e010d8972db4ad32ba06f0dc82ae",
+    "worldmodel/runtime.py": "e23326a83ab74ec5e0212f6c5d66af7d639caebd9be561a786d0dae38f0028ff",
+    "scripts/diagnose_gate.py": "2e11c0966921f1e021223430796e5f69aecfb8d8fed4708c943cf0c5edf826d3"
+  },
+  "input_hashes": {
+    "manifest": "6c354103f931d9c398be6ceddd3cb33755372643d0beef9ca052c57feb661fce",
+    "snapshot": "c6c2dc4dc6ebecf6ef9d03020b7721748d79afa6379a6e2779a5a127e01c25d7",
+    "gate_config": "1e0828e6fc4c999001789e50d7ef9e27249607312c6eb8a4dc8c0b6967715f4f"
+  },
+  "git_base": "2b6fde0c084ff2b38ccca8f913eed95f871168cc",
+  "paper_protocol_sha256": "5a411bcdf87eb3197fced9a7957bc1eb92081955ae2a133ffe17ea5ec9434d8b",
+  "internal_config_sha256": "adce5d6dcb8d9ec0d76797f41dab348a0db429b6aeff10d1c4e66bf99b0b63fb",
+  "no_experience_updates": true
+}

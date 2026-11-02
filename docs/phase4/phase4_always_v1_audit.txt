@@ -1,0 +1,18 @@
+{
+  "steps": 1,
+  "call_steps": 1,
+  "skip_steps": 0,
+  "gate_replay_exact": true,
+  "evidence_binding_replay_exact": true,
+  "actor_prompt_unchanged": true,
+  "native_receipts_match": true,
+  "all_gate_decisions_before_wm_and_environment": true,
+  "no_skip_predictions_or_reviews": true,
+  "budgets_no_overshoot": true,
+  "source_changes_with_archived_executed_versions": [
+    "gates/core.py",
+    "gates/evidence.py",
+    "scripts/diagnose_gate.py"
+  ],
+  "no_task_benefit_or_counterfactual_performance_claim": true
+}

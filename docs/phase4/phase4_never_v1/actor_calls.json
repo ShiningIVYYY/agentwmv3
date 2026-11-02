@@ -1,0 +1,22 @@
+[
+  {
+    "role": "draft",
+    "task_id": "sciworld_1709",
+    "step": 1,
+    "started_at_ns": 1793652198395356070,
+    "finished_at_ns": 1793652200254177665,
+    "usage": {
+      "prompt_tokens": 353,
+      "completion_tokens": 38,
+      "total_tokens": 391
+    },
+    "cost": {
+      "generation_seconds": 1.8556389212608337,
+      "extraction_seconds": 0,
+      "additional_backbone_forward_passes": 0,
+      "retained_raw_logits_bytes": 0,
+      "output_tokens_including_eos": 38,
+      "peak_allocated_bytes": 8190680576
+    }
+  }
+]

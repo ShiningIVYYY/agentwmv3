@@ -1,0 +1,148 @@
+{
+  "state": "finished",
+  "pid": 3903604,
+  "all_passed": true,
+  "results": [
+    {
+      "name": "test_gates",
+      "command": [
+        "/data1/shn/agentwmv3/.venv-spanuq/bin/python",
+        "scripts/test_gates.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.2728419452905655
+    },
+    {
+      "name": "test_experience_memory",
+      "command": [
+        "/data1/shn/agentwmv3/.venv-spanuq/bin/python",
+        "scripts/test_experience_memory.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.07866191491484642
+    },
+    {
+      "name": "test_internal_signals",
+      "command": [
+        "/data1/shn/agentwmv3/.venv-spanuq/bin/python",
+        "scripts/test_internal_signals.py"
+      ],
+      "exit_code": 0,
+      "seconds": 4.345456933602691
+    },
+    {
+      "name": "test_token_nll",
+      "command": [
+        "/data1/shn/agentwmv3/.venv-spanuq/bin/python",
+        "scripts/test_token_nll.py"
+      ],
+      "exit_code": 0,
+      "seconds": 1.718569340184331
+    },
+    {
+      "name": "test_spanuq_integration",
+      "command": [
+        "/data1/shn/agentwmv3/.venv-spanuq/bin/python",
+        "scripts/test_spanuq_integration.py"
+      ],
+      "exit_code": 0,
+      "seconds": 5.392100960016251
+    },
+    {
+      "name": "test_wm_reflection",
+      "command": [
+        "/data1/shn/agentwmv3/.venv-spanuq/bin/python",
+        "scripts/test_wm_reflection.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.15904716588556767
+    },
+    {
+      "name": "test_agentwm_reflection",
+      "command": [
+        "/data1/shn/agentwmv3/.venv-spanuq/bin/python",
+        "scripts/test_agentwm_reflection.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.15847968310117722
+    },
+    {
+      "name": "test_science_evidence",
+      "command": [
+        "/data1/shn/agentwmv3/.venv-spanuq/bin/python",
+        "scripts/test_science_evidence.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.13493932224810123
+    },
+    {
+      "name": "test_scienceworld_sr_context",
+      "command": [
+        "/data1/shn/agentwmv3/.venv-spanuq/bin/python",
+        "scripts/test_scienceworld_sr_context.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.1416027955710888
+    },
+    {
+      "name": "audit_gate_inputs",
+      "command": [
+        "/data1/shn/agentwmv3/.venv-spanuq/bin/python",
+        "scripts/audit_gate_inputs.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.08601011708378792
+    },
+    {
+      "name": "phase4_full_v1_audit",
+      "command": [
+        "/data1/shn/agentwmv3/.venv-spanuq/bin/python",
+        "scripts/audit_gate_diagnostic.py",
+        "--run-dir",
+        "outputs/phase4_full_v1",
+        "--manifest",
+        "docs/phase3/split_manifest.json",
+        "--snapshot",
+        "docs/phase3/memory_snapshot.json",
+        "--output",
+        "outputs/phase4_setup/phase4_full_v1_audit.json"
+      ],
+      "exit_code": 0,
+      "seconds": 0.08575113490223885
+    },
+    {
+      "name": "phase4_never_v1_audit",
+      "command": [
+        "/data1/shn/agentwmv3/.venv-spanuq/bin/python",
+        "scripts/audit_gate_diagnostic.py",
+        "--run-dir",
+        "outputs/phase4_never_v1",
+        "--manifest",
+        "docs/phase3/split_manifest.json",
+        "--snapshot",
+        "docs/phase3/memory_snapshot.json",
+        "--output",
+        "outputs/phase4_setup/phase4_never_v1_audit.json"
+      ],
+      "exit_code": 0,
+      "seconds": 0.08181889541447163
+    },
+    {
+      "name": "phase4_always_v1_audit",
+      "command": [
+        "/data1/shn/agentwmv3/.venv-spanuq/bin/python",
+        "scripts/audit_gate_diagnostic.py",
+        "--run-dir",
+        "outputs/phase4_always_v1",
+        "--manifest",
+        "docs/phase3/split_manifest.json",
+        "--snapshot",
+        "docs/phase3/memory_snapshot.json",
+        "--output",
+        "outputs/phase4_setup/phase4_always_v1_audit.json"
+      ],
+      "exit_code": 0,
+      "seconds": 0.08080961368978024
+    }
+  ]
+}

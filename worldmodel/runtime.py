@@ -33,6 +33,8 @@ def make_controller(args, env, row, task, initial, factory, agent, root, oracle=
         if matches[0].get('max_model_len') != config['max_model_len']:
             raise PredictionError('World model service context window differs from the fixed config')
         def count(messages):
+            if getattr(agent, 'wm_token_counter', None) is not None:
+                return agent.wm_token_counter(config, messages)
             response = requests.post(args.tokenizer_url.rstrip('/') + '/count', json=dict(
                 path=config['checkpoint'], messages=messages, disable_thinking=False), timeout=60)
             response.raise_for_status()
@@ -40,7 +42,10 @@ def make_controller(args, env, row, task, initial, factory, agent, root, oracle=
             if 'error' in result:
                 raise PredictionError(str(result['error']))
             return result['count']
-        wm = Word2WorldModel(config, initial_context(config, row, task, initial), count,
+        context = (agent.wm_context_provider(config, row, task, initial)
+                   if getattr(agent, 'wm_context_provider', None) is not None
+                   else initial_context(config, row, task, initial))
+        wm = Word2WorldModel(config, context, count,
             to_action=alf_action if env == 'alfworld' else lambda x: x,
             from_observation=lambda text: checkpoint_observation(env, text, task))
     def record(stage, step, data):

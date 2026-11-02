@@ -1,0 +1,12 @@
+{
+  "all_unit_cases_passed": 217,
+  "all_audits_passed": true,
+  "real_environment_steps": 12,
+  "full_gate_call_skip": [
+    2,
+    8
+  ],
+  "actual_service_chat_calls": 12,
+  "baseline_unused_signal_cost_omitted": true,
+  "no_scientific_effectiveness_claim": true
+}

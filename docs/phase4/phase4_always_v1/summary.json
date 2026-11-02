@@ -1,0 +1,56 @@
+{
+  "purpose": "engineering_only_no_task_benefit_claim",
+  "policy": "always",
+  "steps": 1,
+  "gate_call_steps": 1,
+  "gate_skip_steps": 0,
+  "budget_blocked_steps": 0,
+  "actual_wm_calls": 4,
+  "draft_actor_calls": 1,
+  "review_actor_calls": 3,
+  "total_online_model_calls": 8,
+  "online_usage": {
+    "prompt_tokens": 12083,
+    "completion_tokens": 226,
+    "total_tokens": 12309
+  },
+  "draft_usage": {
+    "prompt_tokens": 353,
+    "completion_tokens": 38,
+    "total_tokens": 391
+  },
+  "review_usage": {
+    "prompt_tokens": 2108,
+    "completion_tokens": 157,
+    "total_tokens": 2265
+  },
+  "wm_usage": {
+    "prompt_tokens": 9622,
+    "completion_tokens": 31,
+    "total_tokens": 9653
+  },
+  "actor_generation_seconds": 7.3118806183338165,
+  "internal_extraction_seconds": 0,
+  "internal_extraction_calls": 0,
+  "retrieval_calls": 0,
+  "retrieval_seconds": 0,
+  "external_judge_seconds": 0,
+  "external_judge_model_calls": 0,
+  "gate_rule_seconds": 1.1881813406944275e-05,
+  "external_evidence_gate_total_seconds": 0.0007878411561250687,
+  "wm_prediction_seconds": 1.361537380144,
+  "action_review_generation_seconds": 5.428456217050552,
+  "total_instrumented_inference_seconds": 8.674205839633942,
+  "wm_context_setup_seconds": 3.7196482960134745,
+  "whole_driver_seconds": 23.39878179319203,
+  "max_actor_peak_allocated_bytes": 8299313664,
+  "validation_extra_calls": 0,
+  "validation_cost": [],
+  "offline_memory_synthesis": "unchanged Phase3 snapshot; offline Actor collection/probes/synthesis reported separately",
+  "calibration_status": "provisional_functional_only",
+  "memory_correction": false,
+  "extra_backbone_forward_passes": 0,
+  "missing_span_count": 0,
+  "invalid_draft_format_count": 0,
+  "memory_snapshot_unchanged": "c6c2dc4dc6ebecf6ef9d03020b7721748d79afa6379a6e2779a5a127e01c25d7"
+}
