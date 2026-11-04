@@ -64,15 +64,22 @@ class HFInternalActor:
         prompt = self.render(messages)
         inputs = self.tokenizer(prompt, add_special_tokens=False, return_tensors="pt").to(self.device)
         prompt_ids = inputs["input_ids"][0].tolist()
+        removed_prompt_tokens = 0
         if len(prompt_ids) > self.config["max_prompt_tokens"]:
-            raise ValueError("Prompt over token budget")
+            if not getattr(self, "evaluation_left_truncation", False):
+                raise ValueError("Prompt over token budget")
+            removed_prompt_tokens = len(prompt_ids) - self.config["max_prompt_tokens"]
+            inputs = {key: value[:, removed_prompt_tokens:] for key, value in inputs.items()}
+            prompt_ids = inputs["input_ids"][0].tolist()
+        requested_seed = getattr(self, "request_seed", None)
+        effective_seed = self.config["seed"] if requested_seed is None else requested_seed
         # Local RNG isolation avoids changing other callers; no global training RNG.
         if self.device.type == "cuda":
             torch.cuda.reset_peak_memory_stats(self.device)
         self.sync()
         started = time.perf_counter()
         with torch.random.fork_rng(devices=[self.device.index] if self.device.type == "cuda" else []):
-            torch.manual_seed(self.config["seed"])
+            torch.manual_seed(effective_seed)
             generated = self.model.generate(
                 **inputs, do_sample=True, temperature=self.config["temperature"],
                 top_p=self.config["top_p"], top_k=self.config["top_k"],
@@ -105,6 +112,7 @@ class HFInternalActor:
             "messages": messages, "prompt_text": prompt, "prompt_ids": prompt_ids,
             "response": text, "response_ids": response_ids, "token_nll": values,
             "generation_tokens": len(emitted), "truncated": truncated,
+            "left_truncated_prompt_tokens": removed_prompt_tokens,
             "reduction_seconds": reduction_seconds}
         signal = self.provider.extract(record).to_dict()
         offsets = signal["details"].get("offsets", [])
@@ -128,6 +136,6 @@ class HFInternalActor:
             "actor_metadata": {"config_sha256": self.fingerprint, "model_revision": self.config["model_revision"],
                                "tokenizer_assets_sha256": self.asset_hashes,
                                "torch": torch.__version__, "transformers": importlib.metadata.version("transformers"),
-                               "attention": "sdpa", "generation_seed": self.config["seed"],
+                               "attention": "sdpa", "generation_seed": effective_seed,
                                "gpu": torch.cuda.get_device_name(self.device) if self.device.type == "cuda" else "cpu"}}
         return text, metadata

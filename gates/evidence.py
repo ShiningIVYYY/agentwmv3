@@ -31,7 +31,7 @@ def resolve_external(raw, query, memory):
             elif conflict == "false" and sufficient == "true" and raw.get("sufficiency_scope") == "explicitly_supported_immediate_transition_only":
                 # The v1 provider can confirm only this specific observed rule.
                 # A sufficient flag attached to movement evidence is not proof.
-                if all(c["kind"] == "closed_door_open" for c in trusted):
+                if all(c["kind"] in {"closed_door_open", "room_inspection_look"} for c in trusted):
                     status = "confirmed_action"
                 else:
                     diagnostics.append("confirmation_outside_verified_rule_scope")

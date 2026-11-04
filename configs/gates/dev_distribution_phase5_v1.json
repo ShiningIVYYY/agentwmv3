@@ -1,0 +1,27 @@
+{
+  "schema": "training-free-gate-v1",
+  "policy": "full",
+  "tau_local": 0.12081397919163489,
+  "tau_global": 0.053253251821409955,
+  "internal_signature": {
+    "backend": "hf_generation_raw_bf16_v1",
+    "dtype": "bfloat16",
+    "model_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+    "method": "fixed_field_mean_token_nll_v1",
+    "scoring_path": "raw_generation_logits_before_temperature",
+    "score_unit": "nats_per_token",
+    "config_sha256": "980d1f3f3f07e0df1061a842e80d42926e573e1d1810a2663c13fbefe001504b"
+  },
+  "allow_confirmed_action_skip": false,
+  "memory_correction": false,
+  "missing_policy": "global_then_call",
+  "max_forecasts_per_invocation": 4,
+  "review_protocol": "json",
+  "reflection_max_rounds": 3,
+  "budget_unit": "verification_steps_plus_actual_forecast_cap",
+  "calibration_status": "distribution_calibrated_development_only",
+  "run_id": "set_by_runtime",
+  "evaluation_profile_sha256": "75a39de6e7a53b7559128a5d494922c86d9fe6d7e3c2d1bb151e9b11216914cd",
+  "budget_configuration_source": "separate frozen development plan; not selected by NLL/outcomes",
+  "calibrated_at_ns": 1793764424139746461
+}

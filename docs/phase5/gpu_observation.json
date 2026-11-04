@@ -1,0 +1,6 @@
+{
+  "observed_gpus_csv": "index, name, memory.used [MiB], memory.free [MiB]\n0, NVIDIA GeForce RTX 4090, 3 MiB, 24089 MiB\n1, NVIDIA GeForce RTX 4090, 22327 MiB, 1766 MiB\n2, NVIDIA GeForce RTX 4090, 3 MiB, 24089 MiB\n3, NVIDIA GeForce RTX 4090, 3 MiB, 24089 MiB\n4, NVIDIA GeForce RTX 4090, 3 MiB, 24089 MiB\n5, NVIDIA GeForce RTX 4090, 3 MiB, 24089 MiB\n6, NVIDIA GeForce RTX 4090, 3 MiB, 24089 MiB\n7, NVIDIA GeForce RTX 4090, 3 MiB, 24089 MiB\n",
+  "kind": "point-in-time observation, not a measured global peak",
+  "actor_gpu": 0,
+  "wm_gpu": 1
+}

@@ -399,3 +399,32 @@ The JSON below is audit evidence, not experimental results or a substitute for r
   ]
 }
 ```
+
+## Phase 5 verification and independent ScienceWorld profile
+
+This section supersedes earlier *planned/unverified* ScienceWorld runtime settings only where explicitly stated below. Earlier audit entries and legacy experiment configurations remain historical records. ALFWorld/WebShop plans are not changed.
+
+Sources checked: [paper Section 4 and Appendix C, Tables S2/S3](https://arxiv.org/pdf/2610.19789), official repository commit [35a44f5](https://github.com/aim-uofa/Self-Distillation-AgentRL/tree/35a44f5c5647b1785ad23ddf0ffbd196b695bf86). Specific implementations: [ScienceWorld worker](https://github.com/aim-uofa/Self-Distillation-AgentRL/blob/35a44f5c5647b1785ad23ddf0ffbd196b695bf86/agent_system/environments/env_package/scienceworld/envs.py), [task catalog](https://github.com/aim-uofa/Self-Distillation-AgentRL/blob/35a44f5c5647b1785ad23ddf0ffbd196b695bf86/agent_system/scienceworld_protocol.py), [request seeds](https://github.com/aim-uofa/Self-Distillation-AgentRL/blob/35a44f5c5647b1785ad23ddf0ffbd196b695bf86/agent_system/evaluation/seeding.py).
+
+Implemented separately in `configs/evaluation/paper_aligned_v1/scienceworld.json`:
+
+| Item | Phase 5 implementation / verification |
+| --- | --- |
+| Evaluation set | Exact ordered 200 IDs, template names and variation indices compared against pinned official resolver and current SDK catalog. Native initial-goal hashes match previous audit. Metadata-only checks; no final-test rollout. |
+| Task revision | AgentGym-RL-Data-ID `99d0b7923bf126d9c6cdea5f362d2d41ccb5d493`; test JSON SHA256 `78fbe5ed7ba545f1a2ee08397a5e740f622872b6a3ee70315d349c4287675c79` |
+| Interaction horizon | 20 Actor actions. SDK envStepLimit=21 because reset performs one initial look. Verified real H20 probe and blocked21st action. Separate native completion and horizon truncation. |
+| History / input / response | Last2 executed observation-action entries;4096 actual input tokens,512 maximum response tokens. Explicit left-token truncation; original text and actual suffix IDs retained, goal visibility audited. |
+| Sampling | Nonthinking BF16 Actor, temperature0.4, top_p1.0, HF top_k0, repetition_penalty1.0. All online Gates share these settings. |
+| Seeds | Official task-turn request seed derivation, rollout0–7. Review subcalls use a separate recorded namespace and cannot advance the next Draft RNG. Phase5 only seed0. |
+| Observation | Official flat single-tab a/an object-list canonicalizer; nested lists unchanged. Preserve native numbered disambiguation IDs rather than reordering menus. |
+| Primary metric | Final raw SDK Task Score, including negative scores. No training invalid-action penalty, reward normalization, max-so-far score or silent clipping. |
+| Auxiliary success | Final score>=100, as official won flag; native termination separately recorded. H20 is not automatically success. |
+| Aggregation | Equal task-instance weight within each seed; complete fixed set per seed. Formal8-seed mean and sample SD across seed-level aggregates, denominator7. No batch/category reweighting. One seed in this diagnostic has no across-seed SD. |
+
+The legacy SDK wrapper used envStepLimit100 and the former diagnostic runner allowed configurable short horizons. The new **owned** profile service sets H20/SDK21 and does not modify that wrapper, the old service, or old configs. It reuses the installed SDK1.2.3; JAR SHA256 `f4e1fdce0cdabe1bab7128a7e78ea820210d9db3c28d7272bcbbc3f3a1c5f0d7`. Exact historical binary identity to the paper's authors is not proven by matching a package version; this remains a reproducibility limitation.
+
+Intentional differences: our Actor remains **Qwen3-4B**, not the paper's Qwen3.5; structured Premise/Expected Consequence/Action and native last-Action-tail parsing differ from the paper's action-only projection; Actor backend/hardware is HF SDPA/RTX4090; learned WM plus unchanged JSON reflection is our method addition. Therefore this is alignment of evaluation tasks, limits and native scoring, **not a literal reproduction of paper numbers** or a fair direct model comparison.
+
+Calibration:30 legal dev goal groups,273 actual decisions, q0.75 distribution-only thresholds frozen before validation. Separate5 held-out development goal groups, no overlap with final200 or train memory;1 rollout seed and4 policies only. Experience snapshot v2 uses the same54 approved TRAIN cases and3 conservatively scoped cards; every comparison policy shares the frozen snapshot identity, with unused retrieval/extraction omitted. Memory Correction and confirmed-action skip remain off. Full results and costs are in [Phase5 report](PHASE5_REPORT.md) and [small-scale results](SMALL_SCALE_EVAL.md). These development runs do not replace the final200x8 evaluation.
+
+Phase6 requires separately authorized fixed task/seed sweeps, predeclared matched-budget grids and per-seed instance aggregation. No final test outcome may influence thresholds, card construction, critic prompts or Gate rules. No RL, GRPO, PPO, self-distillation or teacher-loss code is involved.

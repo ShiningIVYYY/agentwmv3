@@ -1,0 +1,1275 @@
+{
+  "paper": "https://arxiv.org/pdf/2610.19789",
+  "source_commit": "35a44f5c5647b1785ad23ddf0ffbd196b695bf86",
+  "ordered_tasks": 200,
+  "task_ids_order_and_variations_match": true,
+  "all_prior_native_goal_hashes_match": true,
+  "current_sdk_catalog_matches": true,
+  "live_profile": {
+    "profile": "paper-aligned-scienceworld-v1",
+    "horizon": 20,
+    "envStepLimit": 21,
+    "scienceworld_version": "1.2.3",
+    "jar_sha256": "f4e1fdce0cdabe1bab7128a7e78ea820210d9db3c28d7272bcbbc3f3a1c5f0d7",
+    "base_wrapper_file": "/data1/shn/agentwmv2/external/AgentGym/agentenv-sciworld/agentenv_sciworld/environment.py",
+    "observation_format": "canonical-flat-object-lists-v1",
+    "open_sessions": 0
+  },
+  "formal_parameters": {
+    "schema": "scienceworld-paper-aligned-structured-wm-v1",
+    "benchmark": "scienceworld",
+    "actor_model": "Qwen/Qwen3-4B",
+    "actor_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+    "internal_backend": "hf_generation_raw_bf16_v1",
+    "dtype": "bfloat16",
+    "thinking": false,
+    "maximum_interaction_turns": 20,
+    "environment_step_limit": 21,
+    "history_length": 2,
+    "prompt_limit": 4096,
+    "response_limit": 512,
+    "temperature": 0.4,
+    "top_p": 1.0,
+    "hf_top_k": 0,
+    "task_seed": 0,
+    "rollout_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "request_seed_scheme": "eval_request_seed_v1",
+    "review_seed_scheme": "agentwmv3_review_seed_v1",
+    "simplifications": "",
+    "observation_format": "canonical-flat-object-lists-v1",
+    "overflow_policy": "left_token_truncation",
+    "metric": "native_final_task_score",
+    "success_diagnostic": "native_final_task_score >= 100",
+    "test_count": 200,
+    "test_source_revision": "99d0b7923bf126d9c6cdea5f362d2d41ccb5d493",
+    "test_source_sha256": "78fbe5ed7ba545f1a2ee08397a5e740f622872b6a3ee70315d349c4287675c79",
+    "official_code_revision": "35a44f5c5647b1785ad23ddf0ffbd196b695bf86",
+    "draft_schema": "scienceworld-premise-consequence-action-v1",
+    "action_parser": "last_Action_tail_native_ScienceWorld",
+    "wm_review_protocol": "json",
+    "wm_review_max_rounds": 3,
+    "wm_simulation_depth": 1,
+    "wm_response_limit": 512,
+    "memory_correction": false,
+    "confirmed_action_skip": false,
+    "deviations_from_literal_paper": [
+      "Qwen3-4B instead of Qwen3.5-4B",
+      "Structured decision and last-Action-tail parser instead of paper action-only prompt/projection",
+      "HF SDPA Actor on RTX4090 instead of paper rollout backend/hardware",
+      "Existing WM/review mechanism is an intentional method addition"
+    ]
+  },
+  "test_interaction_rollouts": 0,
+  "jar_identity": "same recorded deployment JAR; official independent JAR hash not published/attested",
+  "identities": [
+    {
+      "task_id": "sciworld_3491",
+      "task_name": "find-non-living-thing",
+      "variation_id": 255,
+      "goal_sha256": "e54e9ee13853217d4e87860562fc8561ae76f6fc18cc33e063a82c8c2ca23d42"
+    },
+    {
+      "task_id": "sciworld_4283",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 43,
+      "goal_sha256": "fc7f4b663a6273050f1dafc48a742331352c4d5d197fe2e4e8cddff4ad72fba8"
+    },
+    {
+      "task_id": "sciworld_624",
+      "task_name": "use-thermometer",
+      "variation_id": 504,
+      "goal_sha256": "f88c22b1a2e70513627c2bcf58b8151590c071e0143427ea7a62eee219c25f1c"
+    },
+    {
+      "task_id": "sciworld_3789",
+      "task_name": "find-plant",
+      "variation_id": 253,
+      "goal_sha256": "60662291314c2eb3b8de9972ddfa94e7245a4594815a456cdc86a92053cb055e"
+    },
+    {
+      "task_id": "sciworld_2015",
+      "task_name": "test-conductivity",
+      "variation_id": 579,
+      "goal_sha256": "cd42c41672ae40e23843993a71ede9e1a7ec83b5db20e05359384c48a01757bc"
+    },
+    {
+      "task_id": "sciworld_606",
+      "task_name": "use-thermometer",
+      "variation_id": 486,
+      "goal_sha256": "e1b8b48a8e49c232297409370923caf8350ee05087721c12f126cf267c2549ad"
+    },
+    {
+      "task_id": "sciworld_2932",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 596,
+      "goal_sha256": "bd39b2f34f4e73d38b15be342cb9faf0ca4cf13b4e1ba69eab3a30c100ccc971"
+    },
+    {
+      "task_id": "sciworld_1135",
+      "task_name": "measure-melting-point-unknown-substance",
+      "variation_id": 39,
+      "goal_sha256": "67ca9b9cdd4b643aac94a197fd37fbc73781251234ebdfcb2765eb2d6b5be381"
+    },
+    {
+      "task_id": "sciworld_3490",
+      "task_name": "find-non-living-thing",
+      "variation_id": 254,
+      "goal_sha256": "8133fe986b93ee514cc5e4d045a0e469ae90764d66375c20da34f8de4b1a56d7"
+    },
+    {
+      "task_id": "sciworld_616",
+      "task_name": "use-thermometer",
+      "variation_id": 496,
+      "goal_sha256": "3f69978371574b30ee46ca2843abb744204a7f1878ba2cdf1eea9e99498499ee"
+    },
+    {
+      "task_id": "sciworld_3464",
+      "task_name": "find-non-living-thing",
+      "variation_id": 228,
+      "goal_sha256": "e60a4a1d569ca6d4e24c9c90599b05405bbf9c8064293f0764c7bb465afdf866"
+    },
+    {
+      "task_id": "sciworld_1093",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 433,
+      "goal_sha256": "ff07259fc732c6e59ce1c2445267697cc4e67a595cf070655de84add7bdc94de"
+    },
+    {
+      "task_id": "sciworld_1131",
+      "task_name": "measure-melting-point-unknown-substance",
+      "variation_id": 35,
+      "goal_sha256": "3f21209939e69333be15f8dd4e7eb95fa3197a16e9962293a83efe0d077430dd"
+    },
+    {
+      "task_id": "sciworld_2497",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 161,
+      "goal_sha256": "2bb9cad4ffdd8841c178b8189980f17af7480529db6e6d3b9f8d3a4c33004583"
+    },
+    {
+      "task_id": "sciworld_547",
+      "task_name": "use-thermometer",
+      "variation_id": 427,
+      "goal_sha256": "5f10321b903d548b3d380e95606a7aede0d538d76f420b7d170d3e0cc1e18e80"
+    },
+    {
+      "task_id": "sciworld_3519",
+      "task_name": "find-non-living-thing",
+      "variation_id": 283,
+      "goal_sha256": "52e6d01cbcfdb7675e646395f8edeb024d845f4b66e6574da5e521f844c25240"
+    },
+    {
+      "task_id": "sciworld_1816",
+      "task_name": "test-conductivity",
+      "variation_id": 380,
+      "goal_sha256": "3de98d627fc9ba71e71235b0832ca540e63b9fae4c6bdee74507f34d2838ef8a"
+    },
+    {
+      "task_id": "sciworld_2563",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 227,
+      "goal_sha256": "09d1e0a79b4618627494da4c8610204fc7e69473f1cc8b3d28fb65a42c0dc506"
+    },
+    {
+      "task_id": "sciworld_1822",
+      "task_name": "test-conductivity",
+      "variation_id": 386,
+      "goal_sha256": "b3b12e2cf382ee89784f9b328d5a9732fb91f8e0a469384fae0b90c7c34392fa"
+    },
+    {
+      "task_id": "sciworld_1835",
+      "task_name": "test-conductivity",
+      "variation_id": 399,
+      "goal_sha256": "6e50e66c3c369dbd36e942f0d5c6a276c2ac56057e2676a2f41e8cca1ba47319"
+    },
+    {
+      "task_id": "sciworld_4336",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 96,
+      "goal_sha256": "fc7f4b663a6273050f1dafc48a742331352c4d5d197fe2e4e8cddff4ad72fba8"
+    },
+    {
+      "task_id": "sciworld_1914",
+      "task_name": "test-conductivity",
+      "variation_id": 478,
+      "goal_sha256": "5dad57f8b82aa330683c44d7e838e5e86faa68415bb8fce7cd85cd2b10370934"
+    },
+    {
+      "task_id": "sciworld_4159",
+      "task_name": "chemistry-mix",
+      "variation_id": 23,
+      "goal_sha256": "8a54de6a77733a6af8c4bc43999a07567c5e0417b03615bad52cc478241f5575"
+    },
+    {
+      "task_id": "sciworld_4292",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 52,
+      "goal_sha256": "fc7f4b663a6273050f1dafc48a742331352c4d5d197fe2e4e8cddff4ad72fba8"
+    },
+    {
+      "task_id": "sciworld_2866",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 530,
+      "goal_sha256": "fcfd9051609d81b26029d07cfa0ebb613bf1bceccfd3245215c0d04796ac9ecc"
+    },
+    {
+      "task_id": "sciworld_3523",
+      "task_name": "find-non-living-thing",
+      "variation_id": 287,
+      "goal_sha256": "239cce383a172a0c39f845c1fb23df5a8245fcefc09960759b9a355508165ac4"
+    },
+    {
+      "task_id": "sciworld_3813",
+      "task_name": "find-plant",
+      "variation_id": 277,
+      "goal_sha256": "5778c9beef4a42769d5950918fbcb800396494b7a2f4b2e931cef08881cada98"
+    },
+    {
+      "task_id": "sciworld_1821",
+      "task_name": "test-conductivity",
+      "variation_id": 385,
+      "goal_sha256": "3de98d627fc9ba71e71235b0832ca540e63b9fae4c6bdee74507f34d2838ef8a"
+    },
+    {
+      "task_id": "sciworld_1940",
+      "task_name": "test-conductivity",
+      "variation_id": 504,
+      "goal_sha256": "3e589fc05e2ef92746380b2a2a1c3658ee8ba5daaf5fad8eb1e45715e2761b13"
+    },
+    {
+      "task_id": "sciworld_1934",
+      "task_name": "test-conductivity",
+      "variation_id": 498,
+      "goal_sha256": "5dad57f8b82aa330683c44d7e838e5e86faa68415bb8fce7cd85cd2b10370934"
+    },
+    {
+      "task_id": "sciworld_557",
+      "task_name": "use-thermometer",
+      "variation_id": 437,
+      "goal_sha256": "04f2623b3b1d111b3b73453dfcad7e03d49da04b2978fe8715ea13f42da253da"
+    },
+    {
+      "task_id": "sciworld_1088",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 428,
+      "goal_sha256": "034dde8113e021ef01a060b8b4f57b4bd0f8034efde0572806caa07bbaa66929"
+    },
+    {
+      "task_id": "sciworld_1969",
+      "task_name": "test-conductivity",
+      "variation_id": 533,
+      "goal_sha256": "30a7fc7afab7b9f6199f03a32922a61dcc2b2eedd44fa8712c29a706611bf2a5"
+    },
+    {
+      "task_id": "sciworld_4335",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 95,
+      "goal_sha256": "fc7f4b663a6273050f1dafc48a742331352c4d5d197fe2e4e8cddff4ad72fba8"
+    },
+    {
+      "task_id": "sciworld_1897",
+      "task_name": "test-conductivity",
+      "variation_id": 461,
+      "goal_sha256": "0119777e50bd6cba48c6c1147b93c1909ddfb0f238566d7596880fa161ca10d9"
+    },
+    {
+      "task_id": "sciworld_581",
+      "task_name": "use-thermometer",
+      "variation_id": 461,
+      "goal_sha256": "0bac700945766135ce94b155e0f12c0777122448cd9d8635b8243a66cd556782"
+    },
+    {
+      "task_id": "sciworld_3931",
+      "task_name": "find-animal",
+      "variation_id": 95,
+      "goal_sha256": "0e02c4d90e441e25978f99376b3fd04afdee0dc6050ed40b6e49d8bb86e71092"
+    },
+    {
+      "task_id": "sciworld_1949",
+      "task_name": "test-conductivity",
+      "variation_id": 513,
+      "goal_sha256": "51c714b7de8f6061fe11e7d31d381ac675d065d861de6e1667754892dc657858"
+    },
+    {
+      "task_id": "sciworld_4312",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 72,
+      "goal_sha256": "fc7f4b663a6273050f1dafc48a742331352c4d5d197fe2e4e8cddff4ad72fba8"
+    },
+    {
+      "task_id": "sciworld_1006",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 346,
+      "goal_sha256": "711b9b35f8207847181517b57583be4667f7ce4601a9f698b37eb10adf705ddd"
+    },
+    {
+      "task_id": "sciworld_2548",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 212,
+      "goal_sha256": "a4c102c11c3e617d464174299755bc5c40890ef200ae7eba78d2df3406475d68"
+    },
+    {
+      "task_id": "sciworld_4059",
+      "task_name": "find-animal",
+      "variation_id": 223,
+      "goal_sha256": "1feb095a90838e406919c33b638d0feb54691a6703aedbb43f222851c8e98b62"
+    },
+    {
+      "task_id": "sciworld_3197",
+      "task_name": "find-living-thing",
+      "variation_id": 261,
+      "goal_sha256": "8b20e4a5d21517f3f37241acce432542fb00f034c2fa94e675c6d5a7003180d0"
+    },
+    {
+      "task_id": "sciworld_1065",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 405,
+      "goal_sha256": "40b6515112e1eb0e531dec47ee3a556f091caeed8229dd8aca77601e5380e1b4"
+    },
+    {
+      "task_id": "sciworld_1912",
+      "task_name": "test-conductivity",
+      "variation_id": 476,
+      "goal_sha256": "91a7ab29391948e5c3351622cd5116706fa74f7fd5e4da5722300d4101c7234e"
+    },
+    {
+      "task_id": "sciworld_3207",
+      "task_name": "find-living-thing",
+      "variation_id": 271,
+      "goal_sha256": "75cce643b8e37ea0d8fe3d4b773a65748c2d05432a4d1b648d53c34dfe85dc23"
+    },
+    {
+      "task_id": "sciworld_1915",
+      "task_name": "test-conductivity",
+      "variation_id": 479,
+      "goal_sha256": "54cd9f5abe31713d9fbbbbfde9856b1da2d33adb67f82b5008c832cf77232265"
+    },
+    {
+      "task_id": "sciworld_565",
+      "task_name": "use-thermometer",
+      "variation_id": 445,
+      "goal_sha256": "e71c8624badb9ac1b73805e4cbc631568ce004fd4057100fbb59581aec5320ec"
+    },
+    {
+      "task_id": "sciworld_2577",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 241,
+      "goal_sha256": "8069f08f1dd0ab1cbfe17bb76b035ac85de2ce8786a2c6752697aa8bf364a318"
+    },
+    {
+      "task_id": "sciworld_1068",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 408,
+      "goal_sha256": "331a6de6ecd9f65f81bdb445a759cf6bca61b94d81b69fc3938407132ced539c"
+    },
+    {
+      "task_id": "sciworld_4299",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 59,
+      "goal_sha256": "fc7f4b663a6273050f1dafc48a742331352c4d5d197fe2e4e8cddff4ad72fba8"
+    },
+    {
+      "task_id": "sciworld_1112",
+      "task_name": "measure-melting-point-unknown-substance",
+      "variation_id": 16,
+      "goal_sha256": "545eacf931a04333a9fcb3948ed17673bc4ddfd228ec4f9d79d20b47157a6122"
+    },
+    {
+      "task_id": "sciworld_1020",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 360,
+      "goal_sha256": "9204d43adb87b607139d5394d07c6e762ca1c6fdda74b3ae7931c9d3a3ae11d7"
+    },
+    {
+      "task_id": "sciworld_2531",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 195,
+      "goal_sha256": "77002bef5782a8d8fdd50ca01a969bf9a82b640e04e3f3c0628aa2c8a707fae1"
+    },
+    {
+      "task_id": "sciworld_3465",
+      "task_name": "find-non-living-thing",
+      "variation_id": 229,
+      "goal_sha256": "da006e80c3488a6afe4315d69c9928ca692f0f8d6a6e964a5dce2069eedb46fd"
+    },
+    {
+      "task_id": "sciworld_4294",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 54,
+      "goal_sha256": "fc7f4b663a6273050f1dafc48a742331352c4d5d197fe2e4e8cddff4ad72fba8"
+    },
+    {
+      "task_id": "sciworld_2887",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 551,
+      "goal_sha256": "ce58a3dc7f7dee0d48f6b1d2eab68d66e810346b6026a203a6dc766e9c8044fc"
+    },
+    {
+      "task_id": "sciworld_2862",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 526,
+      "goal_sha256": "3a7c94798e480285299bfb0de226a03009fbf6ca406ad0d30ffadf0ba4fe103a"
+    },
+    {
+      "task_id": "sciworld_1988",
+      "task_name": "test-conductivity",
+      "variation_id": 552,
+      "goal_sha256": "e2ba0876d6565454374fb74ca6e053616a8f0185426f38dc5f8f0faa1d85ad8b"
+    },
+    {
+      "task_id": "sciworld_1955",
+      "task_name": "test-conductivity",
+      "variation_id": 519,
+      "goal_sha256": "3e589fc05e2ef92746380b2a2a1c3658ee8ba5daaf5fad8eb1e45715e2761b13"
+    },
+    {
+      "task_id": "sciworld_2621",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 285,
+      "goal_sha256": "60448631936e94882d2366ba5f032a1ce5c6820a245c5eaa0aa63a0f366d2300"
+    },
+    {
+      "task_id": "sciworld_1953",
+      "task_name": "test-conductivity",
+      "variation_id": 517,
+      "goal_sha256": "4534f47f78f8d24db44679c335580cf3b40c2cebdac701c35c348ca23d16e422"
+    },
+    {
+      "task_id": "sciworld_559",
+      "task_name": "use-thermometer",
+      "variation_id": 439,
+      "goal_sha256": "512afbe5861aca38599cd00f805263d2fc984ac7b25880742abde15555db5167"
+    },
+    {
+      "task_id": "sciworld_2899",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 563,
+      "goal_sha256": "a01d7cefcdcf8ae9b1c1eacfc453989f984583278fd7b7ab8a229a2d0bb373a4"
+    },
+    {
+      "task_id": "sciworld_2555",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 219,
+      "goal_sha256": "9ae54d78a768b4f9c1af4da2753fc044ea70490a9913bf58a96c40a0752e976e"
+    },
+    {
+      "task_id": "sciworld_635",
+      "task_name": "use-thermometer",
+      "variation_id": 515,
+      "goal_sha256": "14d2bfb2de77b2d570873ca0474f7e338577d1617aca2410bbaa79c0bf713d44"
+    },
+    {
+      "task_id": "sciworld_1994",
+      "task_name": "test-conductivity",
+      "variation_id": 558,
+      "goal_sha256": "ec4650b1b0bdebf11230a8930ca41ce6efde55d12215a5bfdc76b4c3c9eb4fd4"
+    },
+    {
+      "task_id": "sciworld_2893",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 557,
+      "goal_sha256": "87694817f9b79fd9f9c5640d6f9d8b9cd23878d1089c241ba43df5066227bdd7"
+    },
+    {
+      "task_id": "sciworld_3515",
+      "task_name": "find-non-living-thing",
+      "variation_id": 279,
+      "goal_sha256": "830f8bf8d49232a0ebcf3c16bce6c9fe43803de66c5f50dec4a51bc39fb0775b"
+    },
+    {
+      "task_id": "sciworld_1033",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 373,
+      "goal_sha256": "d93ab18544bced03827b961b4ceca9745c3533001b0ced558b95667fd3a30bc8"
+    },
+    {
+      "task_id": "sciworld_2569",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 233,
+      "goal_sha256": "bb52145e332f2097e9a06149bb885e6f0cd73f141c38616b8295d65a6235417a"
+    },
+    {
+      "task_id": "sciworld_3518",
+      "task_name": "find-non-living-thing",
+      "variation_id": 282,
+      "goal_sha256": "08623295d7eceed72959723f9e92d30cb16197702242988bc7a9d592e01dacc8"
+    },
+    {
+      "task_id": "sciworld_2511",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 175,
+      "goal_sha256": "77002bef5782a8d8fdd50ca01a969bf9a82b640e04e3f3c0628aa2c8a707fae1"
+    },
+    {
+      "task_id": "sciworld_3782",
+      "task_name": "find-plant",
+      "variation_id": 246,
+      "goal_sha256": "f0290d91e20de02b5d916faf213be4ef665c4d492021e0f622b3d59d106ba934"
+    },
+    {
+      "task_id": "sciworld_1824",
+      "task_name": "test-conductivity",
+      "variation_id": 388,
+      "goal_sha256": "ebdc9bc75394b2b827b8467cadf65f43ba7a5ea40082fba1e61c755a705887e0"
+    },
+    {
+      "task_id": "sciworld_573",
+      "task_name": "use-thermometer",
+      "variation_id": 453,
+      "goal_sha256": "8aa8855fff7a50f0d864be693a2af2382952f7de10251d0186e6f19f804846fd"
+    },
+    {
+      "task_id": "sciworld_2552",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 216,
+      "goal_sha256": "4225c7105db4a3b56c361bacf8996ac1d4f074c4a0301b3434f9082e8258200e"
+    },
+    {
+      "task_id": "sciworld_4170",
+      "task_name": "chemistry-mix-paint-secondary-color",
+      "variation_id": 2,
+      "goal_sha256": "2e9e357531455ad516748b5c625626934cf5ac232a3c9e759a250f650f73fb11"
+    },
+    {
+      "task_id": "sciworld_4296",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 56,
+      "goal_sha256": "fc7f4b663a6273050f1dafc48a742331352c4d5d197fe2e4e8cddff4ad72fba8"
+    },
+    {
+      "task_id": "sciworld_2625",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 289,
+      "goal_sha256": "de81604119b137157026e09642fec3386b53464977692e2e1975f0c30b893f4c"
+    },
+    {
+      "task_id": "sciworld_4327",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 87,
+      "goal_sha256": "fc7f4b663a6273050f1dafc48a742331352c4d5d197fe2e4e8cddff4ad72fba8"
+    },
+    {
+      "task_id": "sciworld_1017",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 357,
+      "goal_sha256": "9204d43adb87b607139d5394d07c6e762ca1c6fdda74b3ae7931c9d3a3ae11d7"
+    },
+    {
+      "task_id": "sciworld_1003",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 343,
+      "goal_sha256": "752fa37212a2bc96d3b73932f935ef9a8dcd36c5f43ca16e406cb757add4cb3d"
+    },
+    {
+      "task_id": "sciworld_536",
+      "task_name": "use-thermometer",
+      "variation_id": 416,
+      "goal_sha256": "7cc829651e65ec0aa89e5ca9938fa0cb8fd7e5b3933850a933602a8146a986b1"
+    },
+    {
+      "task_id": "sciworld_1029",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 369,
+      "goal_sha256": "b8301d2b038a0785b192baf1dd94dbc6e226ed3e2f694b7c09899af96cea8d5d"
+    },
+    {
+      "task_id": "sciworld_2527",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 191,
+      "goal_sha256": "f9a37ca4fc4ae1d0b0b503217242563abe5656c11b02be943e113b0a9a219baf"
+    },
+    {
+      "task_id": "sciworld_2876",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 540,
+      "goal_sha256": "fcfd9051609d81b26029d07cfa0ebb613bf1bceccfd3245215c0d04796ac9ecc"
+    },
+    {
+      "task_id": "sciworld_1026",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 366,
+      "goal_sha256": "d7b0a305853c930cc840364f303ff313aad277fae99714ded8012a69ec04cf39"
+    },
+    {
+      "task_id": "sciworld_2631",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 295,
+      "goal_sha256": "60448631936e94882d2366ba5f032a1ce5c6820a245c5eaa0aa63a0f366d2300"
+    },
+    {
+      "task_id": "sciworld_4178",
+      "task_name": "chemistry-mix-paint-secondary-color",
+      "variation_id": 10,
+      "goal_sha256": "2e9e357531455ad516748b5c625626934cf5ac232a3c9e759a250f650f73fb11"
+    },
+    {
+      "task_id": "sciworld_2875",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 539,
+      "goal_sha256": "5859b26e4a8f54ace9ecaaededce7458286a96400ac22139e2318be05f9c44a3"
+    },
+    {
+      "task_id": "sciworld_2581",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 245,
+      "goal_sha256": "8d2d6a1bc4f3d8157b0262d75387dd6fd727ca9567131cfa43f59604c444a22c"
+    },
+    {
+      "task_id": "sciworld_3231",
+      "task_name": "find-living-thing",
+      "variation_id": 295,
+      "goal_sha256": "0c039a15e0739c6bb80f8f02c60a36c8bda03044dc2183b61ee986d998e79bba"
+    },
+    {
+      "task_id": "sciworld_1066",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 406,
+      "goal_sha256": "5e659fb881d656032b5273fed9e5eed1d0ce4b234df6bdbbcb257866075501c1"
+    },
+    {
+      "task_id": "sciworld_2912",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 576,
+      "goal_sha256": "bd39b2f34f4e73d38b15be342cb9faf0ca4cf13b4e1ba69eab3a30c100ccc971"
+    },
+    {
+      "task_id": "sciworld_3216",
+      "task_name": "find-living-thing",
+      "variation_id": 280,
+      "goal_sha256": "bacd20ce13a4711e81b47afe4d231113e38181a7076ba95c182b61e8a74c8f84"
+    },
+    {
+      "task_id": "sciworld_3471",
+      "task_name": "find-non-living-thing",
+      "variation_id": 235,
+      "goal_sha256": "4043fe7512b4edc3b5fcdd18c8e36099670df9c83a4f9ece309bd2ed054faf10"
+    },
+    {
+      "task_id": "sciworld_3867",
+      "task_name": "find-animal",
+      "variation_id": 31,
+      "goal_sha256": "88f23184f114916bb597f9025ec48e618928f33266e2e4d3156bb6b3b2a24d9d"
+    },
+    {
+      "task_id": "sciworld_2896",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 560,
+      "goal_sha256": "b2d2c9c037b885f23f5a5e909e064484f1e3f6f1db41ab477e98680eaafa4186"
+    },
+    {
+      "task_id": "sciworld_3191",
+      "task_name": "find-living-thing",
+      "variation_id": 255,
+      "goal_sha256": "7a39bcfd18ab23f9d8281f228e2741be521a8340172f3eaebcf843b9251dbce2"
+    },
+    {
+      "task_id": "sciworld_657",
+      "task_name": "use-thermometer",
+      "variation_id": 537,
+      "goal_sha256": "dbc79bbd3131fbe81a677eb0f872367b9b730f62f9b318b28807ac254f522547"
+    },
+    {
+      "task_id": "sciworld_2500",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 164,
+      "goal_sha256": "16643d5f03ab185e413913d3c0753375d7a93bba62ff9b6a39d6078dddd3599b"
+    },
+    {
+      "task_id": "sciworld_3794",
+      "task_name": "find-plant",
+      "variation_id": 258,
+      "goal_sha256": "950a0d864f78e54c64a21bed1b0880b5f5c2b19b5bbf5ee00d42de73aa3e2c87"
+    },
+    {
+      "task_id": "sciworld_4307",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 67,
+      "goal_sha256": "fc7f4b663a6273050f1dafc48a742331352c4d5d197fe2e4e8cddff4ad72fba8"
+    },
+    {
+      "task_id": "sciworld_2582",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 246,
+      "goal_sha256": "8069f08f1dd0ab1cbfe17bb76b035ac85de2ce8786a2c6752697aa8bf364a318"
+    },
+    {
+      "task_id": "sciworld_1134",
+      "task_name": "measure-melting-point-unknown-substance",
+      "variation_id": 38,
+      "goal_sha256": "fbf81c89f94acdf9ce6da3e4730cd373388ccb68cfa3c9d17ab1c1d6a1864dfc"
+    },
+    {
+      "task_id": "sciworld_3494",
+      "task_name": "find-non-living-thing",
+      "variation_id": 258,
+      "goal_sha256": "e60a4a1d569ca6d4e24c9c90599b05405bbf9c8064293f0764c7bb465afdf866"
+    },
+    {
+      "task_id": "sciworld_2589",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 253,
+      "goal_sha256": "dc66cc6321453826ac8a5e582ad4bcdc473e9954770963139c3d5d5984f500e6"
+    },
+    {
+      "task_id": "sciworld_610",
+      "task_name": "use-thermometer",
+      "variation_id": 490,
+      "goal_sha256": "fdf61656553731627180c4fbf09e7a78dadfddd307a7b72b10b969a2c8c191e9"
+    },
+    {
+      "task_id": "sciworld_572",
+      "task_name": "use-thermometer",
+      "variation_id": 452,
+      "goal_sha256": "ed141c6bc32e49994dbc352559f2a9d4d3df030616e9812162acd082e9eb51ad"
+    },
+    {
+      "task_id": "sciworld_2864",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 528,
+      "goal_sha256": "b83e479689f5981fbb3346249ee7d1a7ba21cc46cbdbd910fe20bb59a2b04292"
+    },
+    {
+      "task_id": "sciworld_2008",
+      "task_name": "test-conductivity",
+      "variation_id": 572,
+      "goal_sha256": "e2ba0876d6565454374fb74ca6e053616a8f0185426f38dc5f8f0faa1d85ad8b"
+    },
+    {
+      "task_id": "sciworld_1931",
+      "task_name": "test-conductivity",
+      "variation_id": 495,
+      "goal_sha256": "4ea4d0423d62f8952302bb419a695708beefe798aa17d1e27af105d646bbb330"
+    },
+    {
+      "task_id": "sciworld_3200",
+      "task_name": "find-living-thing",
+      "variation_id": 264,
+      "goal_sha256": "39bc41640bddeb148715b47db82b357dc5930961d1a3a3505ee228ef56c493fa"
+    },
+    {
+      "task_id": "sciworld_1844",
+      "task_name": "test-conductivity",
+      "variation_id": 408,
+      "goal_sha256": "fb9be4ecd346830de4bc0c6505e29ee2bb84e5a5dea31cb175e23ea97fa82ce7"
+    },
+    {
+      "task_id": "sciworld_4175",
+      "task_name": "chemistry-mix-paint-secondary-color",
+      "variation_id": 7,
+      "goal_sha256": "2e9e357531455ad516748b5c625626934cf5ac232a3c9e759a250f650f73fb11"
+    },
+    {
+      "task_id": "sciworld_1873",
+      "task_name": "test-conductivity",
+      "variation_id": 437,
+      "goal_sha256": "b6a7cc0d32b6b50580c39126650dc562d5e71e8f64f6df1dcb93e091cef6a262"
+    },
+    {
+      "task_id": "sciworld_3861",
+      "task_name": "find-animal",
+      "variation_id": 25,
+      "goal_sha256": "78851a11dd492b0c17020a05ef11c4b00d8273453341f132d9a4d1a8208d5cb9"
+    },
+    {
+      "task_id": "sciworld_4297",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 57,
+      "goal_sha256": "fc7f4b663a6273050f1dafc48a742331352c4d5d197fe2e4e8cddff4ad72fba8"
+    },
+    {
+      "task_id": "sciworld_2910",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 574,
+      "goal_sha256": "aaf308e19dfaacb0e8ce9966022f5166b2d7d25be8de7cd329c7e71f7aecdc62"
+    },
+    {
+      "task_id": "sciworld_620",
+      "task_name": "use-thermometer",
+      "variation_id": 500,
+      "goal_sha256": "ec8abd786ae38cba48c338ebb7f7538a0f753318a24acdc5646c0d63b75544a4"
+    },
+    {
+      "task_id": "sciworld_1831",
+      "task_name": "test-conductivity",
+      "variation_id": 395,
+      "goal_sha256": "3de98d627fc9ba71e71235b0832ca540e63b9fae4c6bdee74507f34d2838ef8a"
+    },
+    {
+      "task_id": "sciworld_2904",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 568,
+      "goal_sha256": "a01d7cefcdcf8ae9b1c1eacfc453989f984583278fd7b7ab8a229a2d0bb373a4"
+    },
+    {
+      "task_id": "sciworld_2619",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 283,
+      "goal_sha256": "579f0502ec91874cc63ed919f55fa82827f405efbcd757f5e96f6638868dda49"
+    },
+    {
+      "task_id": "sciworld_2888",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 552,
+      "goal_sha256": "87694817f9b79fd9f9c5640d6f9d8b9cd23878d1089c241ba43df5066227bdd7"
+    },
+    {
+      "task_id": "sciworld_4288",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 48,
+      "goal_sha256": "fc7f4b663a6273050f1dafc48a742331352c4d5d197fe2e4e8cddff4ad72fba8"
+    },
+    {
+      "task_id": "sciworld_544",
+      "task_name": "use-thermometer",
+      "variation_id": 424,
+      "goal_sha256": "b3bc833f983d6b3e777f7c7c3673c5ecaeb5dcadb2d4211c7087b8b12cc89522"
+    },
+    {
+      "task_id": "sciworld_2915",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 579,
+      "goal_sha256": "4e05d0e86bce912aa7a976fb60da5b3f1e3cb67a3df1ebff0b851d211c9725e1"
+    },
+    {
+      "task_id": "sciworld_2506",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 170,
+      "goal_sha256": "df7d6ef06e64fd525415885d0eb7a95e9a4d2b0c8df61e558de8117d4644abf6"
+    },
+    {
+      "task_id": "sciworld_1111",
+      "task_name": "measure-melting-point-unknown-substance",
+      "variation_id": 15,
+      "goal_sha256": "df167f1294642531e1f141e7bc5b8a919ffbfc48fcb245b84e20637352877f18"
+    },
+    {
+      "task_id": "sciworld_3895",
+      "task_name": "find-animal",
+      "variation_id": 59,
+      "goal_sha256": "06f47e71c6dd25aa25de24d8b081e01cd63c186b6f44d98b464b62184be287a0"
+    },
+    {
+      "task_id": "sciworld_1879",
+      "task_name": "test-conductivity",
+      "variation_id": 443,
+      "goal_sha256": "f24cd9f45cf5ec1fe1637754bdb939ffda61a0b092dde4e9dcf0bde7fded1eff"
+    },
+    {
+      "task_id": "sciworld_2513",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 177,
+      "goal_sha256": "0d7b54cc5e4a94b89f84b69def54883b99ac1e26652209256df940eb458857ed"
+    },
+    {
+      "task_id": "sciworld_3195",
+      "task_name": "find-living-thing",
+      "variation_id": 259,
+      "goal_sha256": "987af47ca20ef3610c2bfbb0fb560b35a28037aab000439cd4805b965ac10235"
+    },
+    {
+      "task_id": "sciworld_2901",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 565,
+      "goal_sha256": "b2d2c9c037b885f23f5a5e909e064484f1e3f6f1db41ab477e98680eaafa4186"
+    },
+    {
+      "task_id": "sciworld_2924",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 588,
+      "goal_sha256": "cd0093093369b216e325f5d54ba68246ce3eb582ab3ac80a8bd5b2311a476fb7"
+    },
+    {
+      "task_id": "sciworld_641",
+      "task_name": "use-thermometer",
+      "variation_id": 521,
+      "goal_sha256": "734e96f1955b9a032b256096aaaca597641d8bbb0e05f44bbd9f932515229f92"
+    },
+    {
+      "task_id": "sciworld_1938",
+      "task_name": "test-conductivity",
+      "variation_id": 502,
+      "goal_sha256": "4534f47f78f8d24db44679c335580cf3b40c2cebdac701c35c348ca23d16e422"
+    },
+    {
+      "task_id": "sciworld_2016",
+      "task_name": "test-conductivity",
+      "variation_id": 580,
+      "goal_sha256": "f0944ac9f2e09f71c76a2f5bd18b66addd0c7017d300ca84670212be25c8d2b1"
+    },
+    {
+      "task_id": "sciworld_995",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 335,
+      "goal_sha256": "f80d776d209f877178e05d6ff52c893ded3896aa424bef3791a5c80da8649f2e"
+    },
+    {
+      "task_id": "sciworld_4287",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 47,
+      "goal_sha256": "fc7f4b663a6273050f1dafc48a742331352c4d5d197fe2e4e8cddff4ad72fba8"
+    },
+    {
+      "task_id": "sciworld_3814",
+      "task_name": "find-plant",
+      "variation_id": 278,
+      "goal_sha256": "dba9ea7b88bf36c06a66bc9f504d917bf0c52180c969d97d213d29c024aee106"
+    },
+    {
+      "task_id": "sciworld_1954",
+      "task_name": "test-conductivity",
+      "variation_id": 518,
+      "goal_sha256": "51c714b7de8f6061fe11e7d31d381ac675d065d861de6e1667754892dc657858"
+    },
+    {
+      "task_id": "sciworld_2496",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 160,
+      "goal_sha256": "df7d6ef06e64fd525415885d0eb7a95e9a4d2b0c8df61e558de8117d4644abf6"
+    },
+    {
+      "task_id": "sciworld_2573",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 237,
+      "goal_sha256": "09d1e0a79b4618627494da4c8610204fc7e69473f1cc8b3d28fb65a42c0dc506"
+    },
+    {
+      "task_id": "sciworld_2487",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 151,
+      "goal_sha256": "2bb9cad4ffdd8841c178b8189980f17af7480529db6e6d3b9f8d3a4c33004583"
+    },
+    {
+      "task_id": "sciworld_3223",
+      "task_name": "find-living-thing",
+      "variation_id": 287,
+      "goal_sha256": "a530e8e3da5eac9f116b9224d88995ab7f14fda749aa15c5a69f6c1352270df1"
+    },
+    {
+      "task_id": "sciworld_3828",
+      "task_name": "find-plant",
+      "variation_id": 292,
+      "goal_sha256": "a940143d314f868b7dd12826e11dd64d2b78f144dcc1e0d37cb89a8f795c99d0"
+    },
+    {
+      "task_id": "sciworld_2546",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 210,
+      "goal_sha256": "b6ed4a4739c7d4f684eff1dc9db594f32445cff92640c2a723b6d2d258c5d0a8"
+    },
+    {
+      "task_id": "sciworld_2488",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 152,
+      "goal_sha256": "bcfdbe2446c4503714b350e67f4d0ac2a63b08724f095ffb50e222ad0c3f1312"
+    },
+    {
+      "task_id": "sciworld_2917",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 581,
+      "goal_sha256": "bd39b2f34f4e73d38b15be342cb9faf0ca4cf13b4e1ba69eab3a30c100ccc971"
+    },
+    {
+      "task_id": "sciworld_2503",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 167,
+      "goal_sha256": "bcfdbe2446c4503714b350e67f4d0ac2a63b08724f095ffb50e222ad0c3f1312"
+    },
+    {
+      "task_id": "sciworld_1032",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 372,
+      "goal_sha256": "a07c136fb290034b3ed772187dbeed82761870dccf61df97360cfcc2dedd95bd"
+    },
+    {
+      "task_id": "sciworld_4048",
+      "task_name": "find-animal",
+      "variation_id": 212,
+      "goal_sha256": "09ad3bb64afcf190a983cf62b6604d66f592cec65349175f75847b9e678dcf1b"
+    },
+    {
+      "task_id": "sciworld_3811",
+      "task_name": "find-plant",
+      "variation_id": 275,
+      "goal_sha256": "c14f19b84c3f7533f2e992699f6322f123ec0718398810e307d2f3529812294c"
+    },
+    {
+      "task_id": "sciworld_3210",
+      "task_name": "find-living-thing",
+      "variation_id": 274,
+      "goal_sha256": "ec5afb382962a2d953b167813d138766a0d1ee76b610add0302051912987776c"
+    },
+    {
+      "task_id": "sciworld_2633",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 297,
+      "goal_sha256": "6fafa04a8872fe938b770222ed4c8e35681bc23ccaf645c05168cdce34f86c64"
+    },
+    {
+      "task_id": "sciworld_3815",
+      "task_name": "find-plant",
+      "variation_id": 279,
+      "goal_sha256": "6f603fbdba25a927a2cf090d38c0d9e9295d0b679632779e1eb798706e3d9fc9"
+    },
+    {
+      "task_id": "sciworld_584",
+      "task_name": "use-thermometer",
+      "variation_id": 464,
+      "goal_sha256": "53144b67166f4cc681190e982b468b11f0333b7156a1dce09884bb6557e2b846"
+    },
+    {
+      "task_id": "sciworld_2498",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 162,
+      "goal_sha256": "bcfdbe2446c4503714b350e67f4d0ac2a63b08724f095ffb50e222ad0c3f1312"
+    },
+    {
+      "task_id": "sciworld_1023",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 363,
+      "goal_sha256": "5e88379d2b59ee9f621e4e954480fc84091f903b0723de9d853e319add4aaf3b"
+    },
+    {
+      "task_id": "sciworld_3483",
+      "task_name": "find-non-living-thing",
+      "variation_id": 247,
+      "goal_sha256": "14957d38d398bafb52ce6bb4b11ac75c5e2d71fcf491cf624a8ba088fcdafc43"
+    },
+    {
+      "task_id": "sciworld_1024",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 364,
+      "goal_sha256": "a47f30a68cdfcb4790bf5bbd3faa427d9786dee066941d8e3842d600570a1984"
+    },
+    {
+      "task_id": "sciworld_2521",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 185,
+      "goal_sha256": "77002bef5782a8d8fdd50ca01a969bf9a82b640e04e3f3c0628aa2c8a707fae1"
+    },
+    {
+      "task_id": "sciworld_538",
+      "task_name": "use-thermometer",
+      "variation_id": 418,
+      "goal_sha256": "e3c19f7b31c8601be5366c06f3d1b2529532f5389c485343e9c6f910672e53f4"
+    },
+    {
+      "task_id": "sciworld_3485",
+      "task_name": "find-non-living-thing",
+      "variation_id": 249,
+      "goal_sha256": "830f8bf8d49232a0ebcf3c16bce6c9fe43803de66c5f50dec4a51bc39fb0775b"
+    },
+    {
+      "task_id": "sciworld_1838",
+      "task_name": "test-conductivity",
+      "variation_id": 402,
+      "goal_sha256": "eae514cde0c9b167eebde666c282d93f381fbf56af9ac4555dba248e24cffe50"
+    },
+    {
+      "task_id": "sciworld_569",
+      "task_name": "use-thermometer",
+      "variation_id": 449,
+      "goal_sha256": "178fb6c60e236951fb39bacb5189a542f897d769bce90bf8236e2fb7f1c9e88c"
+    },
+    {
+      "task_id": "sciworld_1052",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 392,
+      "goal_sha256": "e52929db5761ba80d698a122c7668a933952ee5e11e3a7373335fe0185cad806"
+    },
+    {
+      "task_id": "sciworld_3496",
+      "task_name": "find-non-living-thing",
+      "variation_id": 260,
+      "goal_sha256": "bca0701b3d065b70b339e2664e2716bbb433c5b85eade5693bb9b47fbb050ac9"
+    },
+    {
+      "task_id": "sciworld_3174",
+      "task_name": "find-living-thing",
+      "variation_id": 238,
+      "goal_sha256": "74076c5fa2010510fcff90438719f5d939a420de39ada932ea6ba20b9936b2ca"
+    },
+    {
+      "task_id": "sciworld_537",
+      "task_name": "use-thermometer",
+      "variation_id": 417,
+      "goal_sha256": "9623a93dab6afeaf0d101220e8825d176ab9892eb14406c6c7e47ff0b497ba6e"
+    },
+    {
+      "task_id": "sciworld_1028",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 368,
+      "goal_sha256": "23d4e255f7970f9cedec9d0d4be7143d9f65d0b11fee35ec76d3a96eaf2fe9c6"
+    },
+    {
+      "task_id": "sciworld_3524",
+      "task_name": "find-non-living-thing",
+      "variation_id": 288,
+      "goal_sha256": "e60a4a1d569ca6d4e24c9c90599b05405bbf9c8064293f0764c7bb465afdf866"
+    },
+    {
+      "task_id": "sciworld_1882",
+      "task_name": "test-conductivity",
+      "variation_id": 446,
+      "goal_sha256": "f2df68e1bb4b017303498de7ff009ad614637d7b8e03dfa98cde64de7e935e5a"
+    },
+    {
+      "task_id": "sciworld_4284",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 44,
+      "goal_sha256": "fc7f4b663a6273050f1dafc48a742331352c4d5d197fe2e4e8cddff4ad72fba8"
+    },
+    {
+      "task_id": "sciworld_1095",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 435,
+      "goal_sha256": "2d39685d2c94799cb02a67b1462649bb6cf88c1398b81817cb044639c8a7aad7"
+    },
+    {
+      "task_id": "sciworld_3168",
+      "task_name": "find-living-thing",
+      "variation_id": 232,
+      "goal_sha256": "2657fa289f57dce26483d636c32d6bb5652176a805f3fb1bdf89985eb2665515"
+    },
+    {
+      "task_id": "sciworld_4176",
+      "task_name": "chemistry-mix-paint-secondary-color",
+      "variation_id": 8,
+      "goal_sha256": "2e9e357531455ad516748b5c625626934cf5ac232a3c9e759a250f650f73fb11"
+    },
+    {
+      "task_id": "sciworld_609",
+      "task_name": "use-thermometer",
+      "variation_id": 489,
+      "goal_sha256": "cf98f7da8277657669b639a535e430291d954c5bf155a3ada4480e2600e51b68"
+    },
+    {
+      "task_id": "sciworld_2559",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 223,
+      "goal_sha256": "16c74b0c5ed105a9e6c65f213f185f18467602b203e113ef51edd0db58562e90"
+    },
+    {
+      "task_id": "sciworld_543",
+      "task_name": "use-thermometer",
+      "variation_id": 423,
+      "goal_sha256": "1401ee47fb632dcd786eafe479e0b0d63d4f2a7a5dfa3bbcecc060d2bb01463b"
+    },
+    {
+      "task_id": "sciworld_3482",
+      "task_name": "find-non-living-thing",
+      "variation_id": 246,
+      "goal_sha256": "0e5bbf47c03c1f4210f00a46331c89aeeaaa21c3ea33eba46801dd62c0e0f494"
+    },
+    {
+      "task_id": "sciworld_2029",
+      "task_name": "test-conductivity",
+      "variation_id": 593,
+      "goal_sha256": "bd488a36e61b63844759656265dc69bb2f94406d5f9634412b429676416d8f4c"
+    },
+    {
+      "task_id": "sciworld_1002",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 342,
+      "goal_sha256": "d37a80c4a66f9ac9fdeda90a56e4d0a5c73a7a961a1408e23b49e461cc4bc8ca"
+    },
+    {
+      "task_id": "sciworld_2931",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 595,
+      "goal_sha256": "87ceba6545deb6d87591a3b609e45e5272050afd7449606a605d96391a8fee45"
+    },
+    {
+      "task_id": "sciworld_2512",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 176,
+      "goal_sha256": "f9a37ca4fc4ae1d0b0b503217242563abe5656c11b02be943e113b0a9a219baf"
+    },
+    {
+      "task_id": "sciworld_2504",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 168,
+      "goal_sha256": "c9aa384dd3e0ef25a1816acf280053cbdd48aa75d1e0a0cf216ff54d55fe1464"
+    },
+    {
+      "task_id": "sciworld_4295",
+      "task_name": "lifespan-longest-lived",
+      "variation_id": 55,
+      "goal_sha256": "fc7f4b663a6273050f1dafc48a742331352c4d5d197fe2e4e8cddff4ad72fba8"
+    },
+    {
+      "task_id": "sciworld_1074",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 414,
+      "goal_sha256": "d93ab18544bced03827b961b4ceca9745c3533001b0ced558b95667fd3a30bc8"
+    },
+    {
+      "task_id": "sciworld_1919",
+      "task_name": "test-conductivity",
+      "variation_id": 483,
+      "goal_sha256": "5dad57f8b82aa330683c44d7e838e5e86faa68415bb8fce7cd85cd2b10370934"
+    },
+    {
+      "task_id": "sciworld_1055",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 395,
+      "goal_sha256": "a07c136fb290034b3ed772187dbeed82761870dccf61df97360cfcc2dedd95bd"
+    },
+    {
+      "task_id": "sciworld_3533",
+      "task_name": "find-non-living-thing",
+      "variation_id": 297,
+      "goal_sha256": "50a1b4034e68a4c9180d6d0fc1403f4ac399def8a24d6d15c9f130ff114af736"
+    },
+    {
+      "task_id": "sciworld_3766",
+      "task_name": "find-plant",
+      "variation_id": 230,
+      "goal_sha256": "3af7744216a7ee12ee5b19840f23cfa8bc640852846fbe684cb5475288029e2a"
+    },
+    {
+      "task_id": "sciworld_3488",
+      "task_name": "find-non-living-thing",
+      "variation_id": 252,
+      "goal_sha256": "08623295d7eceed72959723f9e92d30cb16197702242988bc7a9d592e01dacc8"
+    },
+    {
+      "task_id": "sciworld_2871",
+      "task_name": "test-conductivity-of-unknown-substances",
+      "variation_id": 535,
+      "goal_sha256": "fcfd9051609d81b26029d07cfa0ebb613bf1bceccfd3245215c0d04796ac9ecc"
+    },
+    {
+      "task_id": "sciworld_4050",
+      "task_name": "find-animal",
+      "variation_id": 214,
+      "goal_sha256": "e713486cff0e63c6536bc4c8e94933b337ceb73912b4a795682adacd6477f9a3"
+    },
+    {
+      "task_id": "sciworld_631",
+      "task_name": "use-thermometer",
+      "variation_id": 511,
+      "goal_sha256": "3e6548a3ceba7d3919b35d29e39f8064ebd867b6a20646272cf3b4072e39ea37"
+    },
+    {
+      "task_id": "sciworld_652",
+      "task_name": "use-thermometer",
+      "variation_id": 532,
+      "goal_sha256": "6ff90da549d69d197c08726eaa10af8be54662dd6cd4345d4cec8521729827f1"
+    },
+    {
+      "task_id": "sciworld_1058",
+      "task_name": "measure-melting-point-known-substance",
+      "variation_id": 398,
+      "goal_sha256": "5e659fb881d656032b5273fed9e5eed1d0ce4b234df6bdbbcb257866075501c1"
+    }
+  ]
+}

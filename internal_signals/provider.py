@@ -33,7 +33,8 @@ class TokenNLLProvider:
             if any(not math.isfinite(v) or v < 0 for v in values):
                 raise ValueError("Non-finite or negative token NLL")
             text, offsets = response_alignment(
-                self.tokenizer, record["prompt_text"], record["prompt_ids"], record["response_ids"])
+                self.tokenizer, record["prompt_text"], record["prompt_ids"], record["response_ids"],
+                left_truncated_tokens=record.get("left_truncated_prompt_tokens", 0))
             if text != record["response"]:
                 raise ValueError("Decoded response differs from captured output")
             if any(t in self.tokenizer.all_special_ids for t in record["response_ids"]):

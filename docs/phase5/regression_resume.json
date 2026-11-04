@@ -1,0 +1,74 @@
+[
+  {
+    "suite": "test_gates",
+    "returncode": 0,
+    "command": [
+      ".venv-spanuq/bin/python",
+      "scripts/test_gates.py"
+    ]
+  },
+  {
+    "suite": "test_experience_memory",
+    "returncode": 0,
+    "command": [
+      ".venv-spanuq/bin/python",
+      "scripts/test_experience_memory.py"
+    ]
+  },
+  {
+    "suite": "test_internal_signals",
+    "returncode": 0,
+    "command": [
+      ".venv-spanuq/bin/python",
+      "scripts/test_internal_signals.py"
+    ]
+  },
+  {
+    "suite": "test_token_nll",
+    "returncode": 0,
+    "command": [
+      ".venv-spanuq/bin/python",
+      "scripts/test_token_nll.py"
+    ]
+  },
+  {
+    "suite": "test_spanuq_integration",
+    "returncode": 0,
+    "command": [
+      ".venv-spanuq/bin/python",
+      "scripts/test_spanuq_integration.py"
+    ]
+  },
+  {
+    "suite": "test_agentwm_reflection",
+    "returncode": 0,
+    "command": [
+      ".venv-spanuq/bin/python",
+      "scripts/test_agentwm_reflection.py"
+    ]
+  },
+  {
+    "suite": "test_science_evidence",
+    "returncode": 0,
+    "command": [
+      ".venv-spanuq/bin/python",
+      "scripts/test_science_evidence.py"
+    ]
+  },
+  {
+    "suite": "test_scienceworld_sr_context",
+    "returncode": 0,
+    "command": [
+      ".venv-spanuq/bin/python",
+      "scripts/test_scienceworld_sr_context.py"
+    ]
+  },
+  {
+    "suite": "test_wm_reflection",
+    "returncode": 0,
+    "command": [
+      ".venv-spanuq/bin/python",
+      "scripts/test_wm_reflection.py"
+    ]
+  }
+]

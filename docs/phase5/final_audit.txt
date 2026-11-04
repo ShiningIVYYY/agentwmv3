@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "counts": {
+    "steps": 280,
+    "calls": 107,
+    "skips": 173,
+    "wm_http_requests": 315,
+    "scored_drafts": 145,
+    "unknown_experience": 63,
+    "budget_blocked": 31,
+    "missing_internal": 0,
+    "prompt_left_truncations": 0,
+    "review_prompt_left_truncations": 0,
+    "goal_not_fully_visible": 0,
+    "draft_format_failures": 0,
+    "review_format_or_action_errors": 84
+  }
+}

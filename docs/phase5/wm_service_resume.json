@@ -1,0 +1,29 @@
+{
+  "pid": 1470274,
+  "command": [
+    "/home/shn/miniconda3/envs/verl-agent/bin/vllm",
+    "serve",
+    "/data1/shn/agentwmv2/checkpoints/word2world/scienceworld",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "18212",
+    "--served-model-name",
+    "word2world-scienceworld",
+    "--dtype",
+    "bfloat16",
+    "--max-model-len",
+    "32768",
+    "--gpu-memory-utilization",
+    "0.90",
+    "--max-num-seqs",
+    "1",
+    "--enforce-eager"
+  ],
+  "owned": true,
+  "timestamp_utc": "2026-11-04T18:34:54.260726+00:00",
+  "environment_overrides": {
+    "CUDA_VISIBLE_DEVICES": "1",
+    "PATH": "/home/shn/miniconda3/envs/verl-agent/bin:/home/shn/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+  }
+}

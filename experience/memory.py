@@ -125,6 +125,16 @@ class ExperienceMemory:
                     reason = "Supported visible-door opening and exact immediate-effect claim; sufficiency covers this transition only."
                 else:
                     reason = "Observed action has support, but the Agent consequence is outside the verified claim scope."
+            elif kinds == {"room_inspection_look"}:
+                binding = applicable("room_inspection_look", query.observation, query.draft_action)
+                room = binding["room"]
+                premises = {"the agent is in the " + room, "i am in the " + room, "the current room is the " + room}
+                effects = {"the current room will be observed", "the room description will be visible", "i will see the current room"}
+                if query.premise.casefold().strip().rstrip(".") in premises and query.expected_consequence.casefold().strip().rstrip(".") in effects:
+                    conflict, sufficient = Truth.FALSE, Truth.TRUE
+                    reason = "Supported current-room inspection with exact observable premise/immediate-effect claim; no task-utility claim."
+                else:
+                    reason = "Room-inspection evidence applies to this action/state, but the Agent premise/effect is not fully confirmed."
         elif uncertain:
             reason = "Applicable evidence is limited or has counterexamples; all judgments remain Unknown."
         evidence = sorted({cid for c in trusted for cid in c["supporting_cases"]}) if not uncertain else []

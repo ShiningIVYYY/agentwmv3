@@ -1,0 +1,108 @@
+{
+  "counts": {
+    "reviews": 278,
+    "valid_json": 278
+  },
+  "validation_error_reasons": {
+    "Replace decision requires a different concrete action": 34,
+    "Reflection proposed an invalid replacement action": 50
+  },
+  "examples": [
+    {
+      "task": "sciworld_742",
+      "policy": "always",
+      "step": 2,
+      "kind": "invalid_format",
+      "output": "{\"decision\": \"replace\", \"action\": \"focus on chocolate\", \"reason\": \"The candidate action 'focus on chocolate' is not valid as the chocolate is not in the current observation. The correct action is to focus on the chocolate, which is located around the kitchen.\"}",
+      "decision": {
+        "decision": "invalid",
+        "action": "focus on chocolate",
+        "reason": "Replace decision requires a different concrete action"
+      }
+    },
+    {
+      "task": "sciworld_742",
+      "policy": "always",
+      "step": 2,
+      "kind": "invalid_format",
+      "output": "{\"decision\": \"replace\", \"action\": \"focus on chocolate\", \"reason\": \"The candidate action is valid, but the predicted next observation indicates an error. The correct action should be to focus on the chocolate as per the task instructions.\"}",
+      "decision": {
+        "decision": "invalid",
+        "action": "focus on chocolate",
+        "reason": "Replace decision requires a different concrete action"
+      }
+    },
+    {
+      "task": "sciworld_742",
+      "policy": "always",
+      "step": 2,
+      "kind": "invalid_format",
+      "output": "{\"decision\": \"replace\", \"action\": \"focus on chocolate\", \"reason\": \"The candidate action 'focus on chocolate' is invalid as it is not a valid environment action. The correct action should be 'focus on chocolate' but it is not recognized, so it must be replaced with a valid action.\"}",
+      "decision": {
+        "decision": "invalid",
+        "action": "focus on chocolate",
+        "reason": "Replace decision requires a different concrete action"
+      }
+    },
+    {
+      "task": "sciworld_742",
+      "policy": "always",
+      "step": 3,
+      "kind": "invalid_format",
+      "output": "{\"decision\": \"replace\", \"action\": \"focus on chocolate\", \"reason\": \"The candidate action 'focus on chocolate' is necessary to proceed with the task of measuring the melting point of chocolate, as per the task instructions.\"}",
+      "decision": {
+        "decision": "invalid",
+        "action": "focus on chocolate",
+        "reason": "Replace decision requires a different concrete action"
+      }
+    },
+    {
+      "task": "sciworld_742",
+      "policy": "always",
+      "step": 3,
+      "kind": "invalid_format",
+      "output": "{\"decision\": \"replace\", \"action\": \"focus on chocolate\", \"reason\": \"The candidate action 'focus on chocolate' leads to an undesirable result as it does not match any known action. The correct action should be to focus on the chocolate to proceed with the task.\"}",
+      "decision": {
+        "decision": "invalid",
+        "action": "focus on chocolate",
+        "reason": "Replace decision requires a different concrete action"
+      }
+    },
+    {
+      "task": "sciworld_742",
+      "policy": "always",
+      "step": 4,
+      "kind": "invalid_format",
+      "output": "{\"decision\": \"replace\", \"action\": \"focus on yellow box\", \"reason\": \"The candidate action 'focus on yellow box' is valid as the yellow box is present in the current observation. The task requires focusing on the yellow box if the melting point of chocolate is below 200.0 degrees celsius, which is the next logical step after checking the thermometer.\"}",
+      "decision": {
+        "decision": "invalid",
+        "action": "focus on yellow box",
+        "reason": "Replace decision requires a different concrete action"
+      }
+    },
+    {
+      "task": "sciworld_128",
+      "policy": "always",
+      "step": 17,
+      "kind": "invalid_format",
+      "output": "{\"decision\": \"replace\", \"action\": \"focus on thermometer\", \"reason\": \"The candidate action 'focus on thermometer' is necessary to measure the temperature of substance B. The previous attempt to focus on the substance directly failed, indicating the need to first focus on the thermometer.\"}",
+      "decision": {
+        "decision": "invalid",
+        "action": "focus on thermometer",
+        "reason": "Replace decision requires a different concrete action"
+      }
+    },
+    {
+      "task": "sciworld_128",
+      "policy": "always",
+      "step": 20,
+      "kind": "invalid_format",
+      "output": "{\"decision\": \"replace\", \"action\": \"focus on thermometer\", \"reason\": \"The candidate action 'focus on thermometer' is not applicable in the current state as the thermometer is not in view. The correct action is to focus on the thermometer first as per the task instructions.\"}",
+      "decision": {
+        "decision": "invalid",
+        "action": "focus on thermometer",
+        "reason": "Replace decision requires a different concrete action"
+      }
+    }
+  ]
+}

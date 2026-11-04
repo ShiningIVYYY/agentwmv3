@@ -1,0 +1,27 @@
+{
+  "pid": 1472573,
+  "command": [
+    ".venv-spanuq/bin/python",
+    "-u",
+    "scripts/run_scienceworld_validation.py",
+    "--mode",
+    "episodes",
+    "--plan",
+    "outputs/phase5_setup/development_plan.json",
+    "--model-dir",
+    "checkpoints/qwen3-4b",
+    "--wm-checkpoint",
+    "/data1/shn/agentwmv2/checkpoints/word2world/scienceworld",
+    "--science-python",
+    "/home/shn/miniconda3/envs/ee-scienceworld/bin/python",
+    "--threshold-config",
+    "configs/gates/dev_distribution_phase5_v1.json",
+    "--snapshot",
+    "outputs/phase5_setup/memory_v2.json",
+    "--output",
+    "outputs/phase5_episodes_v1"
+  ],
+  "gpu": 0,
+  "started_at_ns": 1793817350330123507,
+  "owned": true
+}

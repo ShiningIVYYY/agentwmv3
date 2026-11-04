@@ -1,0 +1,410 @@
+{
+  "schema": "phase5-frozen-development-plan-v1",
+  "calibration_tasks": [
+    {
+      "task_id": "sciworld_142",
+      "index": 142,
+      "taskName": "use-thermometer",
+      "variationIdx": 22,
+      "category": "measure",
+      "goal_sha256": "22868922a3611a7522656914cf00ed23d941a2fc078e94ace31a455772e1f464",
+      "goal_group": "07c1b6f7b28dcb960f49b84194794b6883d6975ed73bd1139dbbf2e3af901fd6",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_1481",
+      "index": 1481,
+      "taskName": "test-conductivity",
+      "variationIdx": 45,
+      "category": "test_conductivity",
+      "goal_sha256": "2c0fc6f3a778d1de916b35fd5377ec0f90ac0bb8fe96c4fedfcec03e38fadde5",
+      "goal_group": "0980e146e5ce5074668256e3635c2d2a0e8681c5342b6a8791d1f278a84a11c4",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_383",
+      "index": 383,
+      "taskName": "use-thermometer",
+      "variationIdx": 263,
+      "category": "measure",
+      "goal_sha256": "30be977c9e5838d2e3b7c4f848a808ffbcbf0e0d3e49f7103c20f0710a27cc9d",
+      "goal_group": "103226a834ab53975acdfe50633a06b9f932fb1630a90388c90378bc1c8e010b",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_4420",
+      "index": 4420,
+      "taskName": "lifespan-shortest-lived",
+      "variationIdx": 55,
+      "category": "lifespan",
+      "goal_sha256": "5fd66d15a4eaa5d104b8b4223ed86eab3f1f26e4cf410db84b8b585ea3b55c79",
+      "goal_group": "35cdca1afe981286a6d2551a25f3b2836d6887e6f07425ac0945609fa06f14a2",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_152",
+      "index": 152,
+      "taskName": "use-thermometer",
+      "variationIdx": 32,
+      "category": "measure",
+      "goal_sha256": "e65de4ec170285c9bb6fdfd09c33dd86d75a189399fee80e902e11893cd97d4f",
+      "goal_group": "35fe8e0a5262f5a5d87489016385ab3fee050ee93284589056040f042fc22fd7",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_153",
+      "index": 153,
+      "taskName": "use-thermometer",
+      "variationIdx": 33,
+      "category": "measure",
+      "goal_sha256": "cbda409f357df79f2d6fc6c46ca579aabcfd1137e945f26860ad1bdb643754fc",
+      "goal_group": "37b9a0974b6ac20adaefbadbaf7b446426a72ae265e42d1cb6d828cf48d114cc",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_1697",
+      "index": 1697,
+      "taskName": "test-conductivity",
+      "variationIdx": 261,
+      "category": "test_conductivity",
+      "goal_sha256": "17ae5171af27cf17c6dd3e5c5de6cb6f798ea441daa9caa1baf24e1746312e7e",
+      "goal_group": "39d8e65f120598d1ff5aae6f78f3c687112c4613d6eb8c8e5f0d77136764db7b",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_3342",
+      "index": 3342,
+      "taskName": "find-non-living-thing",
+      "variationIdx": 106,
+      "category": "find",
+      "goal_sha256": "764db49163d42a71214f223ec45f5f6b2f92d6d14ad18e737cb12c9f1f4ad889",
+      "goal_group": "4528de755c16831995c7a6ea0209a8d11217c041336e3ad25f8bf9975cf3903f",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_242",
+      "index": 242,
+      "taskName": "use-thermometer",
+      "variationIdx": 122,
+      "category": "measure",
+      "goal_sha256": "fd395a839a849d3f9c960f274f7824d371851efbc16faafb7862dce8e9bd48a9",
+      "goal_group": "5a6d62c6cc8a250f69d536259e7f8a2dbfda7edbad0532eeb5851db497766898",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_2995",
+      "index": 2995,
+      "taskName": "find-living-thing",
+      "variationIdx": 59,
+      "category": "find",
+      "goal_sha256": "11ee2c8617c75b2255968f02e6331eae6f11405579b78df5aa351f620fd3145b",
+      "goal_group": "5e38c720295d18c9bb3dabc529d50babbe87a0ee25ab30bb494df304c203c6f9",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_307",
+      "index": 307,
+      "taskName": "use-thermometer",
+      "variationIdx": 187,
+      "category": "measure",
+      "goal_sha256": "0f5b56ab9d2dd0c4119f80c91657d32732c7964aced4c040abdc297f5597dd39",
+      "goal_group": "61477890ad374ae88ba54de6e4b64b225c8f1adf8ae27f08a84ef0c244477e4f",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_349",
+      "index": 349,
+      "taskName": "use-thermometer",
+      "variationIdx": 229,
+      "category": "measure",
+      "goal_sha256": "15b80d67a2b7f5dc6f6958bab6cba5bb412d6edf279dcaef84e3cb4905fcd438",
+      "goal_group": "67ed92c15a47c96abf42bf231baced327158c2c90db0ef37a32bdf99b2ebbab3",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_387",
+      "index": 387,
+      "taskName": "use-thermometer",
+      "variationIdx": 267,
+      "category": "measure",
+      "goal_sha256": "7d45d9d6dbebbea157da214b0310d8f2099db28830563973b73c8531be469037",
+      "goal_group": "6f5af22078fb247c944135b3a37f20a1293efbbf9ad1425b36ebbbaecccd9639",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_359",
+      "index": 359,
+      "taskName": "use-thermometer",
+      "variationIdx": 239,
+      "category": "measure",
+      "goal_sha256": "a721730674a50d554a50a05d3e36465e90c9dbbba1e86f531837a83eb4e90882",
+      "goal_group": "75d34a44f493af92181210d418e1916efe7b5e05fb1bb1d55cce908806fcbeee",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_4215",
+      "index": 4215,
+      "taskName": "chemistry-mix-paint-tertiary-color",
+      "variationIdx": 11,
+      "category": "chemistry_mix",
+      "goal_sha256": "a423613fb186e5367c35da5cbeeaf53bddba79808ecccd7ad9674af933922127",
+      "goal_group": "7d39ee60e30952cfe9974fa4a87ce4fc7845798962a4c16fffd62627a1d769d9",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_275",
+      "index": 275,
+      "taskName": "use-thermometer",
+      "variationIdx": 155,
+      "category": "measure",
+      "goal_sha256": "6aa52a9715087e5d99b92444f4ec2008962b7470e693929508365fa6473a743d",
+      "goal_group": "86eccc843cb7206d1545a35a1f077b25aeff8165e0d1cd8150af049d9a423090",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_3606",
+      "index": 3606,
+      "taskName": "find-plant",
+      "variationIdx": 70,
+      "category": "find",
+      "goal_sha256": "6824d9750613658751b4abfed97edd6eb1b8d1bedbed5df9395b9507e53a92ff",
+      "goal_group": "8df70a16c43d1e1c0c960df17db6bf09ee19c8913e018f99e6260fba956e8765",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_788",
+      "index": 788,
+      "taskName": "measure-melting-point-known-substance",
+      "variationIdx": 128,
+      "category": "measure",
+      "goal_sha256": "45f4a2579682f74367b3a02225a2f8df2ba125b984767836a970d78882a21cfd",
+      "goal_group": "b176505b605338ac0f909a63a3d05cbf3f36d99c1b0c2d30210bde003e880616",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_735",
+      "index": 735,
+      "taskName": "measure-melting-point-known-substance",
+      "variationIdx": 75,
+      "category": "measure",
+      "goal_sha256": "1aeb089eda33f78024cd32a08ce3f092743b50bc59945203def5dcf993da4480",
+      "goal_group": "b6b98ccf3aeed2b12f0a20f702470961b0a6bdbda47883041bb4ab3d09a3ccab",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_1640",
+      "index": 1640,
+      "taskName": "test-conductivity",
+      "variationIdx": 204,
+      "category": "test_conductivity",
+      "goal_sha256": "8b13126ea285ee18743d39f6fed174649293096e187d0e193f7f2622fb21e8fc",
+      "goal_group": "bee59c31bbc07168561d50aaa6731d6dda5f6969df8321d2984f926a6172d712",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_1674",
+      "index": 1674,
+      "taskName": "test-conductivity",
+      "variationIdx": 238,
+      "category": "test_conductivity",
+      "goal_sha256": "fbc2faffcf70d692991d6247809d364ead203ec3a9ad09eb080090a65a218d79",
+      "goal_group": "c6de85bef08864af35395fa38666a550e34d74e873badabf4f124259232bc8df",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_169",
+      "index": 169,
+      "taskName": "use-thermometer",
+      "variationIdx": 49,
+      "category": "measure",
+      "goal_sha256": "46f5d3154c7265057e8d5f9c31d5c446afcc66fc9e420f87f5847541be89a80b",
+      "goal_group": "c725ef3757ee1ebbee91fb78b2ecd20e6f228cda527db8d05b7fe8e780b53574",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_2392",
+      "index": 2392,
+      "taskName": "test-conductivity-of-unknown-substances",
+      "variationIdx": 56,
+      "category": "test_conductivity",
+      "goal_sha256": "ba2565d50a2285007085507eb5f3495e48627352106a3f3a2623b4147fa5e3f9",
+      "goal_group": "c989f4d55eafd9fbb8f46e81f70d247fddd4aa8fe27aff7aa775eaa492cf9e94",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_3028",
+      "index": 3028,
+      "taskName": "find-living-thing",
+      "variationIdx": 92,
+      "category": "find",
+      "goal_sha256": "427ef491fede1245aaeb79b34f09c0a1e4ae6a47425de8da622d5542c695589b",
+      "goal_group": "cecf3359ce1e009acc65afb7623ba4e605f79d9a685422655391fcfc2531bf70",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_272",
+      "index": 272,
+      "taskName": "use-thermometer",
+      "variationIdx": 152,
+      "category": "measure",
+      "goal_sha256": "ee21e572477f395a087ad2121b2897611fd2218ddf1b6d5fe227d3b1dc99ed53",
+      "goal_group": "d409a42fc3c7da979f1c15c1665ac2c75b8296746d3f8973416f44688d559f0d",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_281",
+      "index": 281,
+      "taskName": "use-thermometer",
+      "variationIdx": 161,
+      "category": "measure",
+      "goal_sha256": "085dfc1a7afe32aef9080ee304b468913ddc598cd1d57c238d3fad9dca6bf83d",
+      "goal_group": "d47734b0ebee6c3bf1594c5ca3a4a9e979f70f63db5dac30f1a2fee0cde0c585",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_3638",
+      "index": 3638,
+      "taskName": "find-plant",
+      "variationIdx": 102,
+      "category": "find",
+      "goal_sha256": "dbfbd97376cd494c9dbaaf92ae713cdbdc5e6c748d32546a8aa6040b1c36cad8",
+      "goal_group": "db86ddef4ad8a908cef0babc468690b0dcfe2ca94b7cd561189e7d3b56f5625d",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_1699",
+      "index": 1699,
+      "taskName": "test-conductivity",
+      "variationIdx": 263,
+      "category": "test_conductivity",
+      "goal_sha256": "82e89837c30c7703c0af01944230b4e97cbdb8791715aab99c7743e5b2463574",
+      "goal_group": "f0d6157b238de7f5a025cd3a701ffd5f2de1e75fda47d98ff7491dadc3c2e373",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_301",
+      "index": 301,
+      "taskName": "use-thermometer",
+      "variationIdx": 181,
+      "category": "measure",
+      "goal_sha256": "fb4ed6007ce183d50a8584e2f63eae806f05e0f62a9aa8f22e5b762ffb7e21d8",
+      "goal_group": "f44e9f99c6b20e5b44ddd1a1f2cc167b8573d533277bd39c0f703608391139a4",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_756",
+      "index": 756,
+      "taskName": "measure-melting-point-known-substance",
+      "variationIdx": 96,
+      "category": "measure",
+      "goal_sha256": "edb61e6d5310768d12691b27d7ec6ba68cd4f811de1a7f6ec7b70f644bb36ab8",
+      "goal_group": "f9ceb81fdd43721f382e66b53dc3fd9aee5371c3ae61244c6fc56940146620aa",
+      "split": "development"
+    }
+  ],
+  "validation_tasks": [
+    {
+      "task_id": "sciworld_742",
+      "index": 742,
+      "taskName": "measure-melting-point-known-substance",
+      "variationIdx": 82,
+      "category": "measure",
+      "goal_sha256": "a2e7916c73b30523b591201ceead47a5c43a550ebc09b65c4f916ba41e093bec",
+      "goal_group": "c9675e659e3b5d4cfe9c64e86d4855a9cb4c3ca236f71873970811c13120eb01",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_128",
+      "index": 128,
+      "taskName": "use-thermometer",
+      "variationIdx": 8,
+      "category": "measure",
+      "goal_sha256": "b4a904d903f91aca14abe84250c8224c9dc059160e9682ce1b59b6da646ccd20",
+      "goal_group": "20af3405fc2b88439bf791d18d7c85111e8854f1b14ad477cd3449d331f9930a",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_2417",
+      "index": 2417,
+      "taskName": "test-conductivity-of-unknown-substances",
+      "variationIdx": 81,
+      "category": "test_conductivity",
+      "goal_sha256": "b70fdbf909c7782a7ccafd88336875445ea6f0669777f08faae3a7f29e970879",
+      "goal_group": "2aca8a7ff4bb953d613a30dd03c35c3551968bdeac866d038cff5a4b94eb88d1",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_1569",
+      "index": 1569,
+      "taskName": "test-conductivity",
+      "variationIdx": 133,
+      "category": "test_conductivity",
+      "goal_sha256": "62e5cd3c67cab4c40af84ec28040fef72badd055d9944ba948dc9dfbe5321841",
+      "goal_group": "0cf73261217f7591140e4f4a730f5f811eb39f9f9b04d434a4a1f76abccbe5b7",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_3070",
+      "index": 3070,
+      "taskName": "find-living-thing",
+      "variationIdx": 134,
+      "category": "find",
+      "goal_sha256": "1ee32c4efdbef5de540dce2442b56e44c777a566367841f5448f0f5fc6e6a77f",
+      "goal_group": "4ae0f2d7eef75b8a6471881591ad0b0e565d840506f57dbc8683d22fa8105082",
+      "split": "development"
+    }
+  ],
+  "calibration_max_steps": 10,
+  "episode_max_steps": 20,
+  "rollout_seed": 0,
+  "policies": [
+    "never",
+    "always",
+    "internal",
+    "full"
+  ],
+  "prior_exposed_goal_groups": [
+    "0980e146e5ce5074668256e3635c2d2a0e8681c5342b6a8791d1f278a84a11c4",
+    "5a6d62c6cc8a250f69d536259e7f8a2dbfda7edbad0532eeb5851db497766898",
+    "5e38c720295d18c9bb3dabc529d50babbe87a0ee25ab30bb494df304c203c6f9",
+    "67ed92c15a47c96abf42bf231baced327158c2c90db0ef37a32bdf99b2ebbab3",
+    "f0d6157b238de7f5a025cd3a701ffd5f2de1e75fda47d98ff7491dadc3c2e373"
+  ],
+  "reserved_uncollected_goal_groups": [
+    "0a8ce975287f31d689a035ec5b98070708b4a025c0b4b8270b6fa3dd0c786b23",
+    "1cb0e345ae4ac9c427cddbb3b866aef96f437dc16e106bc5831aa7bfa438a0b5",
+    "34bb3e2f866e017313b6255c40a14903924ec0f4a418d035316d996d5c334d4d",
+    "850f5b9e152f88df7196153a3b4c17fcc37b1f0a86271b041ead144fbaf96fe2",
+    "8936a5d0f914a3c9ee53675d478d2bdca6573c01264590b967b7d6f7de499d1d",
+    "8ac471fa170918c742628a08a9b33d05e86b9c4031a6ff2f49459e1a35bd87db",
+    "b62a31ed54f08bd574887a0b0fb6c2ad4c7cf2ac179265345c23a8bd4bdeb56f",
+    "c6371393d7be24a68a736d45e36af77fd89a9891af7cff96ffcc3d16f605ff21"
+  ],
+  "calibration_target": "30 goal groups, up to300 real steps; distribution only; not outcome-selected",
+  "validation_scope": "5 independent goal groups in Measure/Test-Cond/Find; Chem-Mix/Lifespan not fully episode-validated",
+  "limitation": "Chem-Mix and Lifespan each have only one available dev goal group; assigned calibration to avoid cross-split goal leakage",
+  "category_counts": {
+    "calibration": {
+      "measure": 17,
+      "test_conductivity": 6,
+      "lifespan": 1,
+      "find": 5,
+      "chemistry_mix": 1
+    },
+    "validation": {
+      "measure": 2,
+      "test_conductivity": 2,
+      "find": 1
+    }
+  },
+  "budget": {
+    "never": 0,
+    "always": 20,
+    "internal": 5,
+    "full": 5
+  },
+  "budget_selection": "preset independently of NLL quantiles/outcomes; actual forecasts separately capped at4*invocations",
+  "memory": "unchanged training-only Phase3 snapshot; no dev insertion",
+  "no_final_test_rollouts": true,
+  "manifest_sha256": "6c354103f931d9c398be6ceddd3cb33755372643d0beef9ca052c57feb661fce"
+}

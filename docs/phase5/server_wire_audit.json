@@ -1,0 +1,38 @@
+{
+  "fresh_owned_service": true,
+  "server_successful_http_requests": 315,
+  "server_prometheus_successes": 315.0,
+  "client_observed_requests": 315,
+  "all_counts_match": true,
+  "service_job": {
+    "pid": 1470274,
+    "command": [
+      "/home/shn/miniconda3/envs/verl-agent/bin/vllm",
+      "serve",
+      "/data1/shn/agentwmv2/checkpoints/word2world/scienceworld",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "18212",
+      "--served-model-name",
+      "word2world-scienceworld",
+      "--dtype",
+      "bfloat16",
+      "--max-model-len",
+      "32768",
+      "--gpu-memory-utilization",
+      "0.90",
+      "--max-num-seqs",
+      "1",
+      "--enforce-eager"
+    ],
+    "owned": true,
+    "timestamp_utc": "2026-11-04T18:34:54.260726+00:00",
+    "environment_overrides": {
+      "CUDA_VISIBLE_DEVICES": "1",
+      "PATH": "/home/shn/miniconda3/envs/verl-agent/bin:/home/shn/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+    }
+  },
+  "access_lines_sha256": "ec21f3ded61a6284b6bc629d00748bb6dcf4634a5d0b3eac873dde6f9865dff3",
+  "captured_service_metrics_sha256": "1b2f8ad3d737d6410517de00be29bdd95b2de395eaa16f5f29d3d06347b6bc23"
+}

@@ -1,0 +1,245 @@
+{
+  "purpose": "controlled_real_development_H20_native_counter_test_not_Actor_evaluation",
+  "task_id": "sciworld_1709",
+  "native_reset": {
+    "task_name": "test-conductivity",
+    "var_num": 273,
+    "task_description": "Your task is to determine if glass jar is electrically conductive. The glass jar is located around the kitchen. First, focus on the glass jar. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box.",
+    "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+    "reward": 0,
+    "score": 0,
+    "deleted": false,
+    "done": false,
+    "native_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+    "native_done": false,
+    "horizon_truncated": false,
+    "actor_interaction_steps": 0,
+    "environment_step_limit": 21
+  },
+  "steps": [
+    {
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "reward": 0,
+      "score": 0,
+      "done": false,
+      "native_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "native_done": false,
+      "horizon_truncated": false,
+      "actor_interaction_steps": 1,
+      "environment_step_limit": 21
+    },
+    {
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "reward": 0,
+      "score": 0,
+      "done": false,
+      "native_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "native_done": false,
+      "horizon_truncated": false,
+      "actor_interaction_steps": 2,
+      "environment_step_limit": 21
+    },
+    {
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "reward": 0,
+      "score": 0,
+      "done": false,
+      "native_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "native_done": false,
+      "horizon_truncated": false,
+      "actor_interaction_steps": 3,
+      "environment_step_limit": 21
+    },
+    {
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "reward": 0,
+      "score": 0,
+      "done": false,
+      "native_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "native_done": false,
+      "horizon_truncated": false,
+      "actor_interaction_steps": 4,
+      "environment_step_limit": 21
+    },
+    {
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "reward": 0,
+      "score": 0,
+      "done": false,
+      "native_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "native_done": false,
+      "horizon_truncated": false,
+      "actor_interaction_steps": 5,
+      "environment_step_limit": 21
+    },
+    {
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "reward": 0,
+      "score": 0,
+      "done": false,
+      "native_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "native_done": false,
+      "horizon_truncated": false,
+      "actor_interaction_steps": 6,
+      "environment_step_limit": 21
+    },
+    {
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "reward": 0,
+      "score": 0,
+      "done": false,
+      "native_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "native_done": false,
+      "horizon_truncated": false,
+      "actor_interaction_steps": 7,
+      "environment_step_limit": 21
+    },
+    {
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "reward": 0,
+      "score": 0,
+      "done": false,
+      "native_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "native_done": false,
+      "horizon_truncated": false,
+      "actor_interaction_steps": 8,
+      "environment_step_limit": 21
+    },
+    {
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "reward": 0,
+      "score": 0,
+      "done": false,
+      "native_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "native_done": false,
+      "horizon_truncated": false,
+      "actor_interaction_steps": 9,
+      "environment_step_limit": 21
+    },
+    {
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "reward": 0,
+      "score": 0,
+      "done": false,
+      "native_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "native_done": false,
+      "horizon_truncated": false,
+      "actor_interaction_steps": 10,
+      "environment_step_limit": 21
+    },
+    {
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "reward": 0,
+      "score": 0,
+      "done": false,
+      "native_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "native_done": false,
+      "horizon_truncated": false,
+      "actor_interaction_steps": 11,
+      "environment_step_limit": 21
+    },
+    {
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "reward": 0,
+      "score": 0,
+      "done": false,
+      "native_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "native_done": false,
+      "horizon_truncated": false,
+      "actor_interaction_steps": 12,
+      "environment_step_limit": 21
+    },
+    {
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "reward": 0,
+      "score": 0,
+      "done": false,
+      "native_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "native_done": false,
+      "horizon_truncated": false,
+      "actor_interaction_steps": 13,
+      "environment_step_limit": 21
+    },
+    {
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "reward": 0,
+      "score": 0,
+      "done": false,
+      "native_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "native_done": false,
+      "horizon_truncated": false,
+      "actor_interaction_steps": 14,
+      "environment_step_limit": 21
+    },
+    {
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "reward": 0,
+      "score": 0,
+      "done": false,
+      "native_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "native_done": false,
+      "horizon_truncated": false,
+      "actor_interaction_steps": 15,
+      "environment_step_limit": 21
+    },
+    {
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "reward": 0,
+      "score": 0,
+      "done": false,
+      "native_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "native_done": false,
+      "horizon_truncated": false,
+      "actor_interaction_steps": 16,
+      "environment_step_limit": 21
+    },
+    {
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "reward": 0,
+      "score": 0,
+      "done": false,
+      "native_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "native_done": false,
+      "horizon_truncated": false,
+      "actor_interaction_steps": 17,
+      "environment_step_limit": 21
+    },
+    {
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "reward": 0,
+      "score": 0,
+      "done": false,
+      "native_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "native_done": false,
+      "horizon_truncated": false,
+      "actor_interaction_steps": 18,
+      "environment_step_limit": 21
+    },
+    {
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "reward": 0,
+      "score": 0,
+      "done": false,
+      "native_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "native_done": false,
+      "horizon_truncated": false,
+      "actor_interaction_steps": 19,
+      "environment_step_limit": 21
+    },
+    {
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "reward": 0,
+      "score": 0,
+      "done": true,
+      "native_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "native_done": false,
+      "horizon_truncated": true,
+      "actor_interaction_steps": 20,
+      "environment_step_limit": 21
+    }
+  ],
+  "over_horizon_response": {
+    "error": "Episode horizon exhausted; reset required"
+  },
+  "model_calls": 0
+}

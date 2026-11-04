@@ -1,0 +1,13 @@
+{
+  "pid": 1470273,
+  "command": [
+    "/home/shn/miniconda3/envs/ee-scienceworld/bin/python",
+    "-u",
+    "/data1/shn/agentwmv3/scripts/serve_scienceworld_profile.py",
+    "--port",
+    "36051"
+  ],
+  "owned": true,
+  "timestamp_utc": "2026-11-04T18:34:54.256078+00:00",
+  "environment_overrides": {}
+}

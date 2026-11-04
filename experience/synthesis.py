@@ -17,6 +17,9 @@ def closed_routes(observation):
 
 def applicable(kind, observation, action):
     action = action.strip().casefold()
+    if kind == "room_inspection_look":
+        match = re.match(r"^This room is called the ([^.]+)\.", observation)
+        return {"room": match[1].casefold()} if action == "look around" and match else None
     for door, room in closed_routes(observation):
         if kind == "closed_route_go" and action in {"go " + room, "go to " + room}:
             return {"door": door, "room": room}
@@ -26,8 +29,13 @@ def applicable(kind, observation, action):
     return None
 
 
-def confirms(kind, feedback):
+def confirms(kind, feedback, observation=None):
     text = feedback.strip().casefold()
+    if kind == "room_inspection_look":
+        if observation is None: return False
+        before = re.match(r"^This room is called the ([^.]+)\.", observation)
+        after = re.match(r"^This room is called the ([^.]+)\.", feedback)
+        return bool(before and after and before[1] == after[1])
     if kind == "closed_route_go":
         return text == "the door is not open."
     return text == "the door is now open."
@@ -41,7 +49,7 @@ def validate_card(card, cases):
         "wm_utility", "synthesis_version"}
     if set(card) != required or card["schema"] != "experience-card-v1":
         raise ValueError("Invalid card schema")
-    if card["kind"] not in {"closed_route_go", "closed_door_open"}:
+    if card["kind"] not in {"closed_route_go", "closed_door_open", "room_inspection_look"}:
         raise ValueError("Unimplemented evidence predicate")
     by_id = {c["case_id"]: c for c in cases}
     support, counter = card["supporting_cases"], card["counterexamples"]
@@ -51,7 +59,7 @@ def validate_card(card, cases):
         c = by_id[cid]
         if c["split"] != "train" or not applicable(card["kind"], c["observation"], c["draft_action"]):
             raise ValueError("Unqualified supporting case")
-        if confirms(card["kind"], c["environment_feedback"]) != (cid in support):
+        if confirms(card["kind"], c["environment_feedback"], c["observation"]) != (cid in support):
             raise ValueError("Invented or misclassified native feedback")
     evidence = [by_id[cid] for cid in support]
     counts = {"independent_episodes": len({c["episode_id"] for c in evidence}),

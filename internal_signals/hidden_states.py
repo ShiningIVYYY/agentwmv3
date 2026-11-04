@@ -17,7 +17,7 @@ class Extraction:
     metadata: dict
 
 
-def response_alignment(tokenizer, prompt_text, prompt_ids, response_ids):
+def response_alignment(tokenizer, prompt_text, prompt_ids, response_ids, *, left_truncated_tokens=0):
     """Fail on retokenization/merge drift; never trim arrays to the minimum length."""
     if not response_ids:
         raise ValueError("No response tokens")
@@ -25,11 +25,16 @@ def response_alignment(tokenizer, prompt_text, prompt_ids, response_ids):
                                 clean_up_tokenization_spaces=False)
     encoded = tokenizer(prompt_text + response, add_special_tokens=False,
                         return_offsets_mapping=True)
-    full_ids = prompt_ids + response_ids
+    original_prompt_ids = tokenizer(prompt_text, add_special_tokens=False)["input_ids"]
+    if isinstance(left_truncated_tokens, bool) or not isinstance(left_truncated_tokens, int) or not 0 <= left_truncated_tokens < len(original_prompt_ids):
+        raise ValueError("Invalid left-truncation boundary")
+    if original_prompt_ids[left_truncated_tokens:] != prompt_ids:
+        raise ValueError("Actual model prompt is not the declared exact suffix")
+    full_ids = original_prompt_ids + response_ids
     if encoded["input_ids"] != full_ids:
         raise ValueError("Full prompt/response retokenization differs from original IDs")
     boundary = len(prompt_text)
-    absolute = encoded["offset_mapping"][len(prompt_ids):]
+    absolute = encoded["offset_mapping"][len(original_prompt_ids):]
     if len(absolute) != len(response_ids):
         raise ValueError("Response token/offset lengths differ")
     offsets = []
@@ -37,7 +42,7 @@ def response_alignment(tokenizer, prompt_text, prompt_ids, response_ids):
         if not boundary <= start < end <= len(prompt_text + response):
             raise ValueError("Token crosses prompt boundary or has an invalid offset")
         offsets.append((start - boundary, end - boundary))
-    if tokenizer(prompt_text, add_special_tokens=False)["input_ids"] != prompt_ids:
+    if not left_truncated_tokens and original_prompt_ids != prompt_ids:
         raise ValueError("Prompt token IDs changed")
     return response, offsets
 

@@ -1,0 +1,219 @@
+{
+  "training_cases": 54,
+  "all_sources_validated_train_only": true,
+  "inventory": {
+    "navigation": {
+      "cases": 16,
+      "episodes": 6,
+      "goal_groups": 5,
+      "source_case_ids": [
+        "phase3_train_v2/sciworld_1545/step-1",
+        "phase3_train_v2/sciworld_1545/step-2",
+        "phase3_train_v2/sciworld_1545/step-3",
+        "phase3_train_v2/sciworld_325/step-1",
+        "phase3_train_v2/sciworld_325/step-2",
+        "phase3_train_v2/sciworld_325/step-4",
+        "phase3_train_v2/sciworld_325/step-6",
+        "phase3_train_v2/sciworld_325/step-8",
+        "phase3_train_v2/sciworld_326/step-5",
+        "phase3_train_v2/sciworld_326/step-6",
+        "phase3_train_v2/sciworld_326/step-7",
+        "phase3_train_v2/sciworld_3044/step-3",
+        "phase3_train_v2/sciworld_3044/step-5",
+        "phase3_train_v2/sciworld_3044/step-6",
+        "phase3_rule_probes_v1/sciworld_1667/step-1",
+        "phase3_rule_probes_v1/sciworld_1545/step-1"
+      ]
+    },
+    "object_interaction": {
+      "cases": 16,
+      "episodes": 4,
+      "goal_groups": 4,
+      "source_case_ids": [
+        "phase3_train_v2/sciworld_1667/step-1",
+        "phase3_train_v2/sciworld_1667/step-2",
+        "phase3_train_v2/sciworld_1667/step-3",
+        "phase3_train_v2/sciworld_1667/step-4",
+        "phase3_train_v2/sciworld_1667/step-5",
+        "phase3_train_v2/sciworld_1667/step-6",
+        "phase3_train_v2/sciworld_1667/step-7",
+        "phase3_train_v2/sciworld_1667/step-8",
+        "phase3_train_v2/sciworld_1545/step-4",
+        "phase3_train_v2/sciworld_1545/step-5",
+        "phase3_train_v2/sciworld_1545/step-6",
+        "phase3_train_v2/sciworld_326/step-1",
+        "phase3_train_v2/sciworld_326/step-8",
+        "phase3_train_v2/sciworld_3035/step-1",
+        "phase3_train_v2/sciworld_3035/step-2",
+        "phase3_train_v2/sciworld_3035/step-3"
+      ]
+    },
+    "state_preconditions": {
+      "cases": 20,
+      "episodes": 5,
+      "goal_groups": 5,
+      "source_case_ids": [
+        "phase3_train_v2/sciworld_325/step-3",
+        "phase3_train_v2/sciworld_325/step-4",
+        "phase3_train_v2/sciworld_325/step-5",
+        "phase3_train_v2/sciworld_325/step-7",
+        "phase3_train_v2/sciworld_326/step-2",
+        "phase3_train_v2/sciworld_326/step-3",
+        "phase3_train_v2/sciworld_326/step-4",
+        "phase3_train_v2/sciworld_3044/step-1",
+        "phase3_train_v2/sciworld_3044/step-2",
+        "phase3_train_v2/sciworld_3044/step-3",
+        "phase3_train_v2/sciworld_3044/step-4",
+        "phase3_train_v2/sciworld_3044/step-6",
+        "phase3_train_v2/sciworld_3044/step-7",
+        "phase3_train_v2/sciworld_3044/step-8",
+        "phase3_rule_probes_v1/sciworld_1667/step-1",
+        "phase3_rule_probes_v1/sciworld_1667/step-2",
+        "phase3_rule_probes_v1/sciworld_1667/step-3",
+        "phase3_rule_probes_v1/sciworld_1545/step-1",
+        "phase3_rule_probes_v1/sciworld_1545/step-2",
+        "phase3_rule_probes_v1/sciworld_1545/step-3"
+      ]
+    },
+    "failed_actions": {
+      "cases": 29,
+      "episodes": 5,
+      "goal_groups": 5,
+      "source_case_ids": [
+        "phase3_train_v2/sciworld_1667/step-3",
+        "phase3_train_v2/sciworld_1667/step-4",
+        "phase3_train_v2/sciworld_1667/step-5",
+        "phase3_train_v2/sciworld_1667/step-6",
+        "phase3_train_v2/sciworld_1667/step-7",
+        "phase3_train_v2/sciworld_1667/step-8",
+        "phase3_train_v2/sciworld_1545/step-1",
+        "phase3_train_v2/sciworld_1545/step-2",
+        "phase3_train_v2/sciworld_1545/step-3",
+        "phase3_train_v2/sciworld_1545/step-4",
+        "phase3_train_v2/sciworld_1545/step-5",
+        "phase3_train_v2/sciworld_1545/step-6",
+        "phase3_train_v2/sciworld_1545/step-7",
+        "phase3_train_v2/sciworld_1545/step-8",
+        "phase3_train_v2/sciworld_325/step-6",
+        "phase3_train_v2/sciworld_325/step-8",
+        "phase3_train_v2/sciworld_326/step-1",
+        "phase3_train_v2/sciworld_326/step-5",
+        "phase3_train_v2/sciworld_326/step-6",
+        "phase3_train_v2/sciworld_326/step-7",
+        "phase3_train_v2/sciworld_326/step-8",
+        "phase3_train_v2/sciworld_3035/step-1",
+        "phase3_train_v2/sciworld_3035/step-2",
+        "phase3_train_v2/sciworld_3035/step-3",
+        "phase3_train_v2/sciworld_3035/step-4",
+        "phase3_train_v2/sciworld_3035/step-5",
+        "phase3_train_v2/sciworld_3035/step-6",
+        "phase3_train_v2/sciworld_3035/step-7",
+        "phase3_train_v2/sciworld_3035/step-8"
+      ]
+    },
+    "positive_native_reward": {
+      "cases": 3,
+      "episodes": 2,
+      "goal_groups": 2,
+      "source_case_ids": [
+        "phase3_train_v2/sciworld_1667/step-1",
+        "phase3_train_v2/sciworld_3044/step-4",
+        "phase3_train_v2/sciworld_3044/step-5"
+      ]
+    }
+  },
+  "repeated_identical_transitions_within_episode": [
+    [
+      "phase3_train_v2/sciworld_1667/step-4",
+      "phase3_train_v2/sciworld_1667/step-5",
+      "phase3_train_v2/sciworld_1667/step-6",
+      "phase3_train_v2/sciworld_1667/step-7",
+      "phase3_train_v2/sciworld_1667/step-8"
+    ],
+    [
+      "phase3_train_v2/sciworld_1545/step-2",
+      "phase3_train_v2/sciworld_1545/step-3"
+    ],
+    [
+      "phase3_train_v2/sciworld_1545/step-7",
+      "phase3_train_v2/sciworld_1545/step-8"
+    ],
+    [
+      "phase3_train_v2/sciworld_326/step-3",
+      "phase3_train_v2/sciworld_326/step-4"
+    ],
+    [
+      "phase3_train_v2/sciworld_326/step-6",
+      "phase3_train_v2/sciworld_326/step-7"
+    ],
+    [
+      "phase3_train_v2/sciworld_3035/step-2",
+      "phase3_train_v2/sciworld_3035/step-3"
+    ],
+    [
+      "phase3_train_v2/sciworld_3035/step-6",
+      "phase3_train_v2/sciworld_3035/step-7",
+      "phase3_train_v2/sciworld_3035/step-8"
+    ],
+    [
+      "phase3_train_v2/sciworld_3044/step-1",
+      "phase3_train_v2/sciworld_3044/step-2"
+    ]
+  ],
+  "cards": [
+    {
+      "card_id": "exp_b5e8e19f18820e2efed9",
+      "kind": "closed_route_go",
+      "reliability": "supported",
+      "independent_episodes": 4,
+      "independent_instances": 4,
+      "independent_goal_groups": 4,
+      "supporting_cases": [
+        "phase3_rule_probes_v1/sciworld_1545/step-1",
+        "phase3_rule_probes_v1/sciworld_1667/step-1",
+        "phase3_train_v2/sciworld_3044/step-3",
+        "phase3_train_v2/sciworld_325/step-4"
+      ],
+      "counterexamples": []
+    },
+    {
+      "card_id": "exp_8db1a36db0a95a649654",
+      "kind": "closed_door_open",
+      "reliability": "supported",
+      "independent_episodes": 2,
+      "independent_instances": 2,
+      "independent_goal_groups": 2,
+      "supporting_cases": [
+        "phase3_rule_probes_v1/sciworld_1545/step-3",
+        "phase3_rule_probes_v1/sciworld_1667/step-3"
+      ],
+      "counterexamples": []
+    },
+    {
+      "card_id": "exp_7124e4e628e26cb3a034",
+      "kind": "room_inspection_look",
+      "reliability": "supported",
+      "independent_episodes": 2,
+      "independent_instances": 2,
+      "independent_goal_groups": 2,
+      "supporting_cases": [
+        "phase3_train_v2/sciworld_3044/step-1",
+        "phase3_train_v2/sciworld_3044/step-2",
+        "phase3_train_v2/sciworld_326/step-3",
+        "phase3_train_v2/sciworld_326/step-4"
+      ],
+      "counterexamples": []
+    }
+  ],
+  "unpromoted_candidates": {
+    "tool_use": "specific failed battery/tool examples lack broad independent conditional evidence",
+    "object_interaction": "referent availability, alias and task condition differ; no blanket focus/use correction",
+    "failed_actions": "No known action has multiple causes; feedback alone does not identify a universal failure rule",
+    "repeated_actions": "within-episode repeats are not independent support and need an explicit history-aware query contract",
+    "subgoal_progress": "few observed positive rewards do not justify a general causal subgoal rule",
+    "wm_utility": "no trustworthy Call/Skip counterfactual controls in training cases"
+  },
+  "new_training_gpu_collection": 0,
+  "reliability_threshold_relaxed": false,
+  "broader_domain_coverage_still_needed": true
+}

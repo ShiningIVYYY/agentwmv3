@@ -1,0 +1,9 @@
+{
+  "raw_file": "outputs/phase5_setup/wm_final_metrics.txt",
+  "raw_sha256": "1b2f8ad3d737d6410517de00be29bdd95b2de395eaa16f5f29d3d06347b6bc23",
+  "success_counter_lines": [
+    "vllm:request_success_total{engine=\"0\",finished_reason=\"stop\",model_name=\"word2world-scienceworld\"} 315.0",
+    "vllm:request_success_total{engine=\"0\",finished_reason=\"length\",model_name=\"word2world-scienceworld\"} 0.0",
+    "vllm:request_success_total{engine=\"0\",finished_reason=\"abort\",model_name=\"word2world-scienceworld\"} 0.0"
+  ]
+}

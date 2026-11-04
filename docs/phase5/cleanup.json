@@ -1,0 +1,16 @@
+{
+  "owned_services_only": [
+    {
+      "pid": 1470273,
+      "service": "environment_service_resume.json",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 1470274,
+      "service": "wm_service_resume.json",
+      "signal": "SIGTERM"
+    }
+  ],
+  "open_sessions_before_stop": 0,
+  "other_jobs_untouched": true
+}

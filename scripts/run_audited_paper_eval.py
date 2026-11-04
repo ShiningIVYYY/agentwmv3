@@ -79,6 +79,10 @@ def anchored_science_messages(prelude, task, observation, steps, keep):
 
 
 def bounded_science(agent, prelude, task, observation, steps):
+    if getattr(agent, "evaluation_profile", None) is not None:
+        from internal_signals.decision import messages
+        keep = min(2, len(steps))
+        return messages(task, observation, steps, keep), keep
     if getattr(agent, "internal_actor", None) is not None:
         from internal_signals.decision import bounded
         return bounded(agent, task, observation, steps)
@@ -438,7 +442,7 @@ class Science:
                 rst = http('POST', self.url + '/reset', json=dict(id=eid, data_idx=row['index']))
             assert rst['task_name'] == row['taskName'] and rst['var_num'] == row['variationIdx'], rst
             task = rst['task_description']
-            view = ScienceActionView() if getattr(self.args, 'wm_backend', 'none') != 'none' else None
+            view = ScienceActionView() if getattr(self.args, 'wm_backend', 'none') != 'none' and getattr(agent, 'evaluation_profile', None) is None else None
             if view:
                 rst = view.observe(rst)
             if snapshot_mode:
@@ -465,6 +469,9 @@ class Science:
                     'GET', self.url + '/admissible_actions', params=dict(id=eid))['admissible_actions']
                 if view:
                     acts = list(acts) + list(view.mapping)
+                if getattr(agent, 'evaluation_profile', None) is not None:
+                    from evaluation.profile import native_menu_actions
+                    acts = list(dict.fromkeys(list(acts) + native_menu_actions(rst['observation'])))
                 if controller is not None and (controller.review_protocol == 'agentwm-copied-v1' or controller.review_protocol.startswith('science-evidence-')):
                     from reflection.agentwm import science_action_information
                     hint = dict(possible_actions=list(sdk.get_possible_actions()),
