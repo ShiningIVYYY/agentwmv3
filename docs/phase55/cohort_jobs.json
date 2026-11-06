@@ -1,0 +1,90 @@
+[
+  {
+    "variant": "never",
+    "pid": 1526018,
+    "command": [
+      ".venv-spanuq/bin/python",
+      "-u",
+      "scripts/run_reviewer_diagnostics.py",
+      "--variant",
+      "never",
+      "--model-dir",
+      "checkpoints/qwen3-4b",
+      "--wm-checkpoint",
+      "/data1/shn/agentwmv2/checkpoints/word2world/scienceworld",
+      "--science-python",
+      "/home/shn/miniconda3/envs/ee-scienceworld/bin/python",
+      "--output",
+      "outputs/phase55_never_v1"
+    ],
+    "started_at_ns": 1793820930399941852,
+    "returncode": 0,
+    "finished_at_ns": 1793821043343453008
+  },
+  {
+    "variant": "original",
+    "pid": 1527792,
+    "command": [
+      ".venv-spanuq/bin/python",
+      "-u",
+      "scripts/run_reviewer_diagnostics.py",
+      "--variant",
+      "original",
+      "--model-dir",
+      "checkpoints/qwen3-4b",
+      "--wm-checkpoint",
+      "/data1/shn/agentwmv2/checkpoints/word2world/scienceworld",
+      "--science-python",
+      "/home/shn/miniconda3/envs/ee-scienceworld/bin/python",
+      "--output",
+      "outputs/phase55_original_v1"
+    ],
+    "started_at_ns": 1793821043347338243,
+    "returncode": 0,
+    "finished_at_ns": 1793821599915071116
+  },
+  {
+    "variant": "prediction_only",
+    "pid": 1535631,
+    "command": [
+      ".venv-spanuq/bin/python",
+      "-u",
+      "scripts/run_reviewer_diagnostics.py",
+      "--variant",
+      "prediction_only",
+      "--model-dir",
+      "checkpoints/qwen3-4b",
+      "--wm-checkpoint",
+      "/data1/shn/agentwmv2/checkpoints/word2world/scienceworld",
+      "--science-python",
+      "/home/shn/miniconda3/envs/ee-scienceworld/bin/python",
+      "--output",
+      "outputs/phase55_prediction_only_v1"
+    ],
+    "started_at_ns": 1793821599919081475,
+    "returncode": 0,
+    "finished_at_ns": 1793821763617562497
+  },
+  {
+    "variant": "validity_checked",
+    "pid": 1538933,
+    "command": [
+      ".venv-spanuq/bin/python",
+      "-u",
+      "scripts/run_reviewer_diagnostics.py",
+      "--variant",
+      "validity_checked",
+      "--model-dir",
+      "checkpoints/qwen3-4b",
+      "--wm-checkpoint",
+      "/data1/shn/agentwmv2/checkpoints/word2world/scienceworld",
+      "--science-python",
+      "/home/shn/miniconda3/envs/ee-scienceworld/bin/python",
+      "--output",
+      "outputs/phase55_validity_checked_v1"
+    ],
+    "started_at_ns": 1793821763624253237,
+    "returncode": 0,
+    "finished_at_ns": 1793822347342029186
+  }
+]

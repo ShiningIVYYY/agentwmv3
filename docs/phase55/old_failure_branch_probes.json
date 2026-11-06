@@ -1,0 +1,234 @@
+[
+  {
+    "task_id": "sciworld_1709",
+    "scope": "new shared checkpoint; historical hidden heap unavailable, not asserted identical",
+    "initial_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+    "snapshot": {
+      "snapshot_id": "1",
+      "heap_fields": 825956,
+      "heap_arrays": 34561,
+      "heap_matches": true,
+      "actor_steps": 0,
+      "native": {
+        "moves": 0,
+        "score": 0.0,
+        "completed": false
+      }
+    },
+    "actions": [
+      {
+        "action": "go kitchen",
+        "recorded_wm_prediction": "The door is not open.",
+        "real": {
+          "observation": "The door is not open.",
+          "reward": 0,
+          "score": 0,
+          "done": false,
+          "native_observation": "The door is not open.",
+          "native_done": false,
+          "horizon_truncated": false,
+          "actor_interaction_steps": 1,
+          "environment_step_limit": 21,
+          "simulator_moves": 1,
+          "simulator_completed": false,
+          "sdk_clock_limit_exceeded": false,
+          "negative_score_termination": false,
+          "sdk_done_definition": "server_completed OR simulator_moves>envStepLimit OR native_score<0"
+        },
+        "exact_text_match": true,
+        "same_live_heap": {
+          "snapshot_id": "1",
+          "heap_matches": true,
+          "actor_steps": 0,
+          "native": {
+            "moves": 0,
+            "score": 0.0,
+            "completed": false
+          },
+          "python_reward_state_restored": true
+        }
+      },
+      {
+        "action": "focus on glass jar",
+        "recorded_wm_prediction": "No known action matches that input.",
+        "real": {
+          "observation": "No known action matches that input.",
+          "reward": 0,
+          "score": 0,
+          "done": false,
+          "native_observation": "No known action matches that input.",
+          "native_done": false,
+          "horizon_truncated": false,
+          "actor_interaction_steps": 1,
+          "environment_step_limit": 21,
+          "simulator_moves": 0,
+          "simulator_completed": false,
+          "sdk_clock_limit_exceeded": false,
+          "negative_score_termination": false,
+          "sdk_done_definition": "server_completed OR simulator_moves>envStepLimit OR native_score<0"
+        },
+        "exact_text_match": true,
+        "same_live_heap": {
+          "snapshot_id": "1",
+          "heap_matches": true,
+          "actor_steps": 0,
+          "native": {
+            "moves": 0,
+            "score": 0.0,
+            "completed": false
+          },
+          "python_reward_state_restored": true
+        }
+      },
+      {
+        "action": "focus on glass cup",
+        "recorded_wm_prediction": "You focus on the glass cup.",
+        "real": {
+          "observation": "You focus on the glass cup.",
+          "reward": -100,
+          "score": -100,
+          "done": true,
+          "native_observation": "You focus on the glass cup.",
+          "native_done": true,
+          "horizon_truncated": false,
+          "actor_interaction_steps": 1,
+          "environment_step_limit": 21,
+          "simulator_moves": 1,
+          "simulator_completed": false,
+          "sdk_clock_limit_exceeded": false,
+          "negative_score_termination": true,
+          "sdk_done_definition": "server_completed OR simulator_moves>envStepLimit OR native_score<0"
+        },
+        "exact_text_match": true,
+        "same_live_heap": {
+          "snapshot_id": "1",
+          "heap_matches": true,
+          "actor_steps": 0,
+          "native": {
+            "moves": 0,
+            "score": 0.0,
+            "completed": false
+          },
+          "python_reward_state_restored": true
+        }
+      }
+    ],
+    "wait_restore_exact": true
+  },
+  {
+    "task_id": "sciworld_349",
+    "scope": "new shared checkpoint; historical hidden heap unavailable, not asserted identical",
+    "initial_observation": "This room is called the greenhouse. In it, you see: \n\tthe agent\n\ta bee hive. The bee hive door is closed. \n\ta jug (containing nothing)\n\ta shovel\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\nYou also see:\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)",
+    "snapshot": {
+      "snapshot_id": "2",
+      "heap_fields": 826705,
+      "heap_arrays": 34597,
+      "heap_matches": true,
+      "actor_steps": 0,
+      "native": {
+        "moves": 0,
+        "score": 0.0,
+        "completed": false
+      }
+    },
+    "actions": [
+      {
+        "action": "focus on thermometer",
+        "recorded_wm_prediction": "No known action matches that input.",
+        "real": {
+          "observation": "No known action matches that input.",
+          "reward": 0,
+          "score": 0,
+          "done": false,
+          "native_observation": "No known action matches that input.",
+          "native_done": false,
+          "horizon_truncated": false,
+          "actor_interaction_steps": 1,
+          "environment_step_limit": 21,
+          "simulator_moves": 0,
+          "simulator_completed": false,
+          "sdk_clock_limit_exceeded": false,
+          "negative_score_termination": false,
+          "sdk_done_definition": "server_completed OR simulator_moves>envStepLimit OR native_score<0"
+        },
+        "exact_text_match": true,
+        "same_live_heap": {
+          "snapshot_id": "2",
+          "heap_matches": true,
+          "actor_steps": 0,
+          "native": {
+            "moves": 0,
+            "score": 0.0,
+            "completed": false
+          },
+          "python_reward_state_restored": true
+        }
+      },
+      {
+        "action": "focus on substance called air",
+        "recorded_wm_prediction": "No known action matches that input.",
+        "real": {
+          "observation": "No known action matches that input.",
+          "reward": 0,
+          "score": 0,
+          "done": false,
+          "native_observation": "No known action matches that input.",
+          "native_done": false,
+          "horizon_truncated": false,
+          "actor_interaction_steps": 1,
+          "environment_step_limit": 21,
+          "simulator_moves": 0,
+          "simulator_completed": false,
+          "sdk_clock_limit_exceeded": false,
+          "negative_score_termination": false,
+          "sdk_done_definition": "server_completed OR simulator_moves>envStepLimit OR native_score<0"
+        },
+        "exact_text_match": true,
+        "same_live_heap": {
+          "snapshot_id": "2",
+          "heap_matches": true,
+          "actor_steps": 0,
+          "native": {
+            "moves": 0,
+            "score": 0.0,
+            "completed": false
+          },
+          "python_reward_state_restored": true
+        }
+      },
+      {
+        "action": "focus on bee hive",
+        "recorded_wm_prediction": "You focus on the bee hive.",
+        "real": {
+          "observation": "You focus on the bee hive.",
+          "reward": -100,
+          "score": -100,
+          "done": true,
+          "native_observation": "You focus on the bee hive.",
+          "native_done": true,
+          "horizon_truncated": false,
+          "actor_interaction_steps": 1,
+          "environment_step_limit": 21,
+          "simulator_moves": 1,
+          "simulator_completed": false,
+          "sdk_clock_limit_exceeded": false,
+          "negative_score_termination": true,
+          "sdk_done_definition": "server_completed OR simulator_moves>envStepLimit OR native_score<0"
+        },
+        "exact_text_match": true,
+        "same_live_heap": {
+          "snapshot_id": "2",
+          "heap_matches": true,
+          "actor_steps": 0,
+          "native": {
+            "moves": 0,
+            "score": 0.0,
+            "completed": false
+          },
+          "python_reward_state_restored": true
+        }
+      }
+    ],
+    "wait_restore_exact": true
+  }
+]

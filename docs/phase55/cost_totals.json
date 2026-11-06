@@ -1,0 +1,10 @@
+{
+  "tokens": 3073665,
+  "model_calls": 1590,
+  "actor_actions": 462,
+  "wm_requests": 628,
+  "episode_and_branch_seconds": 2100.221944482997,
+  "offline_validated_initializer_seconds": 56.83134467713535,
+  "snapshot_state_setup_seconds": 11.755416816100478,
+  "snapshot_restore_seconds": 3.5993724167346954
+}

@@ -1,0 +1,191 @@
+{
+  "tasks": [
+    {
+      "task_id": "sciworld_742",
+      "verified_rooms": [
+        "art studio",
+        "bathroom",
+        "bedroom",
+        "foundry",
+        "greenhouse",
+        "hallway",
+        "kitchen",
+        "living room",
+        "outside",
+        "workshop"
+      ],
+      "excluded": [
+        {
+          "candidate": "sewer",
+          "reason": "no_official_teleport_command"
+        },
+        {
+          "candidate": "terminal 1",
+          "reason": "no_official_teleport_command"
+        },
+        {
+          "candidate": "terminal 2",
+          "reason": "no_official_teleport_command"
+        }
+      ],
+      "repeat_description_sha256_matches": false,
+      "room_observations_repeat_exact": true,
+      "possible_object_aliases_can_vary": true,
+      "frozen_description_choice": "first actual verified collection, chosen before model evaluation; second retained without outcome selection",
+      "description_sha256": "347b4025529c8eeb461530e25b1aaa84be9b0fb088bdecb97a611715793efa2e",
+      "seconds": 11.552284924313426,
+      "description_characters": 10365
+    },
+    {
+      "task_id": "sciworld_128",
+      "verified_rooms": [
+        "art studio",
+        "bathroom",
+        "bedroom",
+        "foundry",
+        "greenhouse",
+        "hallway",
+        "kitchen",
+        "living room",
+        "outside",
+        "workshop"
+      ],
+      "excluded": [
+        {
+          "candidate": "sewer",
+          "reason": "no_official_teleport_command"
+        },
+        {
+          "candidate": "terminal 1",
+          "reason": "no_official_teleport_command"
+        },
+        {
+          "candidate": "terminal 2",
+          "reason": "no_official_teleport_command"
+        }
+      ],
+      "repeat_description_sha256_matches": true,
+      "room_observations_repeat_exact": true,
+      "possible_object_aliases_can_vary": true,
+      "frozen_description_choice": "first actual verified collection, chosen before model evaluation; second retained without outcome selection",
+      "description_sha256": "c110b1e21c70dc26a0704865436f92b0a24762edb084eb08895f88e12539f270",
+      "seconds": 10.189932296052575,
+      "description_characters": 8393
+    },
+    {
+      "task_id": "sciworld_2417",
+      "verified_rooms": [
+        "art studio",
+        "bathroom",
+        "bedroom",
+        "foundry",
+        "greenhouse",
+        "hallway",
+        "kitchen",
+        "living room",
+        "outside",
+        "workshop"
+      ],
+      "excluded": [
+        {
+          "candidate": "sewer",
+          "reason": "no_official_teleport_command"
+        },
+        {
+          "candidate": "terminal 1",
+          "reason": "no_official_teleport_command"
+        },
+        {
+          "candidate": "terminal 2",
+          "reason": "no_official_teleport_command"
+        }
+      ],
+      "repeat_description_sha256_matches": true,
+      "room_observations_repeat_exact": true,
+      "possible_object_aliases_can_vary": true,
+      "frozen_description_choice": "first actual verified collection, chosen before model evaluation; second retained without outcome selection",
+      "description_sha256": "5e94ed23ca446a5b29fb06be129e38d79f438bebe8901ca83341ebb891c1f35a",
+      "seconds": 11.992917835712433,
+      "description_characters": 8693
+    },
+    {
+      "task_id": "sciworld_1569",
+      "verified_rooms": [
+        "art studio",
+        "bathroom",
+        "bedroom",
+        "foundry",
+        "greenhouse",
+        "hallway",
+        "kitchen",
+        "living room",
+        "outside",
+        "workshop"
+      ],
+      "excluded": [
+        {
+          "candidate": "sewer",
+          "reason": "no_official_teleport_command"
+        },
+        {
+          "candidate": "terminal 1",
+          "reason": "no_official_teleport_command"
+        },
+        {
+          "candidate": "terminal 2",
+          "reason": "no_official_teleport_command"
+        }
+      ],
+      "repeat_description_sha256_matches": true,
+      "room_observations_repeat_exact": true,
+      "possible_object_aliases_can_vary": true,
+      "frozen_description_choice": "first actual verified collection, chosen before model evaluation; second retained without outcome selection",
+      "description_sha256": "27344c3415f3160ea780bd61fff07914ddb2ebe4652e18158866e6abb9dab5b2",
+      "seconds": 11.075260631740093,
+      "description_characters": 8477
+    },
+    {
+      "task_id": "sciworld_3070",
+      "verified_rooms": [
+        "art studio",
+        "bathroom",
+        "bedroom",
+        "foundry",
+        "greenhouse",
+        "hallway",
+        "kitchen",
+        "living room",
+        "outside",
+        "workshop"
+      ],
+      "excluded": [
+        {
+          "candidate": "sewer",
+          "reason": "no_official_teleport_command"
+        },
+        {
+          "candidate": "terminal 1",
+          "reason": "no_official_teleport_command"
+        },
+        {
+          "candidate": "terminal 2",
+          "reason": "no_official_teleport_command"
+        }
+      ],
+      "repeat_description_sha256_matches": true,
+      "room_observations_repeat_exact": true,
+      "possible_object_aliases_can_vary": true,
+      "frozen_description_choice": "first actual verified collection, chosen before model evaluation; second retained without outcome selection",
+      "description_sha256": "24ba750503669bbacd71a867517a24401b65666181fc82e461fadbbabdfb2e22",
+      "seconds": 12.02085705846548,
+      "description_characters": 8834
+    }
+  ],
+  "seconds": 56.83134467713535,
+  "model_calls": 0,
+  "source_hashes": {
+    "diagnostics/initialization.py": "b816c243dfed52f73b5a481f9a3b3a09b00465bbf7bcd643b312411884f273dd",
+    "worldmodel/HeapSnapshot.java": "a2441d4fee3b5bb9b09c530249e71a3d038a8850ab1b884330c3d6e96da6435c"
+  },
+  "scope": "development only; frozen actual WM-only helper observations"
+}

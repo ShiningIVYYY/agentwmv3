@@ -1,0 +1,27 @@
+{
+  "pid": 3309734,
+  "command": [
+    ".venv-spanuq/bin/python",
+    "-u",
+    "scripts/run_reviewer_diagnostics.py",
+    "--variant",
+    "fixed_initializer_original",
+    "--model-dir",
+    "checkpoints/qwen3-4b",
+    "--wm-checkpoint",
+    "/data1/shn/agentwmv2/checkpoints/word2world/scienceworld",
+    "--science-python",
+    "/home/shn/miniconda3/envs/ee-scienceworld/bin/python",
+    "--science-url",
+    "http://127.0.0.1:36056",
+    "--wm-url",
+    "http://127.0.0.1:18213",
+    "--output",
+    "outputs/phase55_fixed_initializer_original_v1"
+  ],
+  "owned": true,
+  "started_at_ns": 1794008355766095443,
+  "max_additional_actor_actions": 100,
+  "returncode": 0,
+  "finished_at_ns": 1794008896117690207
+}

@@ -1,0 +1,20 @@
+{
+  "pid": 1545632,
+  "command": [
+    ".venv-spanuq/bin/python",
+    "-u",
+    "scripts/diagnose_wm_branches.py",
+    "--model-dir",
+    "checkpoints/qwen3-4b",
+    "--wm-checkpoint",
+    "/data1/shn/agentwmv2/checkpoints/word2world/scienceworld",
+    "--science-python",
+    "/home/shn/miniconda3/envs/ee-scienceworld/bin/python",
+    "--output",
+    "outputs/phase55_branches_v1"
+  ],
+  "owned": true,
+  "started_at_ns": 1793822352133100634,
+  "returncode": 0,
+  "finished_at_ns": 1793822601937406929
+}

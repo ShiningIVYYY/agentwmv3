@@ -1,0 +1,113 @@
+{
+  "passed": true,
+  "task_id": "sciworld_3070",
+  "snapshot": {
+    "snapshot_id": "0",
+    "heap_fields": 826857,
+    "heap_arrays": 34598,
+    "heap_matches": true,
+    "actor_steps": 0,
+    "native": {
+      "moves": 0,
+      "score": 0.0,
+      "completed": false
+    }
+  },
+  "checks": [
+    {
+      "action": "look around",
+      "repeat_transition_exact": true,
+      "first": {
+        "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta finger painting\n\ta glass cup (containing nothing)\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+        "reward": 0,
+        "score": 0,
+        "done": false,
+        "native_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta finger painting\n\ta glass cup (containing nothing)\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+        "native_done": false,
+        "horizon_truncated": false,
+        "actor_interaction_steps": 1,
+        "environment_step_limit": 21,
+        "simulator_moves": 0,
+        "simulator_completed": false,
+        "sdk_clock_limit_exceeded": false,
+        "negative_score_termination": false,
+        "sdk_done_definition": "server_completed OR simulator_moves>envStepLimit OR native_score<0"
+      },
+      "restored": {
+        "snapshot_id": "0",
+        "heap_matches": true,
+        "actor_steps": 0,
+        "native": {
+          "moves": 0,
+          "score": 0.0,
+          "completed": false
+        },
+        "python_reward_state_restored": true
+      }
+    },
+    {
+      "action": "wait",
+      "repeat_transition_exact": true,
+      "first": {
+        "observation": "You decide to wait for 10 iterations.",
+        "reward": 0,
+        "score": 0,
+        "done": false,
+        "native_observation": "You decide to wait for 10 iterations.",
+        "native_done": false,
+        "horizon_truncated": false,
+        "actor_interaction_steps": 1,
+        "environment_step_limit": 21,
+        "simulator_moves": 11,
+        "simulator_completed": false,
+        "sdk_clock_limit_exceeded": false,
+        "negative_score_termination": false,
+        "sdk_done_definition": "server_completed OR simulator_moves>envStepLimit OR native_score<0"
+      },
+      "restored": {
+        "snapshot_id": "0",
+        "heap_matches": true,
+        "actor_steps": 0,
+        "native": {
+          "moves": 0,
+          "score": 0.0,
+          "completed": false
+        },
+        "python_reward_state_restored": true
+      }
+    },
+    {
+      "action": "focus on finger painting",
+      "repeat_transition_exact": true,
+      "first": {
+        "observation": "You focus on the finger painting.",
+        "reward": -100,
+        "score": -100,
+        "done": true,
+        "native_observation": "You focus on the finger painting.",
+        "native_done": true,
+        "horizon_truncated": false,
+        "actor_interaction_steps": 1,
+        "environment_step_limit": 21,
+        "simulator_moves": 1,
+        "simulator_completed": false,
+        "sdk_clock_limit_exceeded": false,
+        "negative_score_termination": true,
+        "sdk_done_definition": "server_completed OR simulator_moves>envStepLimit OR native_score<0"
+      },
+      "restored": {
+        "snapshot_id": "0",
+        "heap_matches": true,
+        "actor_steps": 0,
+        "native": {
+          "moves": 0,
+          "score": 0.0,
+          "completed": false
+        },
+        "python_reward_state_restored": true
+      }
+    }
+  ],
+  "seconds": 3.111417982727289,
+  "privileged_snapshot_used_only_for_offline_diagnostics": true
+}

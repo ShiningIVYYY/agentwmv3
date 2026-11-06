@@ -1,15 +1,15 @@
 # Current status
 
-Phase5 COMPLETE engineering validation; awaiting user confirmation before Phase6. Read [PHASE5_REPORT.md](PHASE5_REPORT.md), [WM_FAILURE_AUDIT.md](WM_FAILURE_AUDIT.md), [SMALL_SCALE_EVAL.md](SMALL_SCALE_EVAL.md) and [PAPER_ALIGNED_EVAL.md](PAPER_ALIGNED_EVAL.md). All work is in agentwmv3; agentwmv2 remains clean.
+Phase5.5 COMPLETE; no Phase6 authorization. Read PHASE5_5_REPORT.md, REVIEWER_AUDIT.md, WM_UTILITY_DIAGNOSTICS.md and PAPER_ALIGNED_EVAL.md before resuming.
 
-- 280 real dev decisions in20 complete episodes;107 Call/173 Skip;315 actual WM forecasts verified against owned server counters. All5 initial-state/first-Draft parity checks pass.
-- 254 CPU/regression cases and exact causal/score/cost/NLL/budget/evidence replay passed. Full large raw trajectories/source snapshots stay under outputs/; compact provenance/results in docs/phase5.
-- Actor Qwen3-4B BF16/nonthinking, accepted raw NLL backend/base configuration unchanged. Separate fixed Word2World Qwen2.5-7B WM and JSON3-round policy retained.
-- q0.75 thresholds Local0.12081397919163489 / Global0.053253251821409955 from273 decisions/30 dev goal groups.5 held-out development groups for episodes, seed0 only. Distribution estimate, not stable optimal thresholds.
-- Shared train-only Memory v2:3 cards/same54 cases. Narrow coverage; natural sufficient confirmation absent. Correction and confirmation Skip remain disabled.
-- Mean final native Task Score: Never-9, Always-29, Internal-29, Full-29; all success rates0/5. Reviewer valid JSON278/278 but84 semantic/action violations. Model capability/scientific benefit are NOT established by engineering tests.
-- Online total1,628,427 tokens/873 model calls/1212.106s episode wall; Actor peak allocated8.418GiB, dedicated WM reservation separate. Offline/setup/calibration costs disclosed.
-- Owned Phase5 WM/environment services stopped after audit; no auto waiter or queued experiments. Other jobs/services untouched. Original pause was respected until explicit user resume.
-- No training, final200x8 sweep, ALF/WebShop evaluation or Phase6 implementation. Final commit/push recorded in delivery.
-
-Historical reports are phase-specific records, not current authorization.
+- Baseline Git f6e864690fea7866a1112a250832619eba2e25a6. Only agentwmv3 changed; original algorithms/protected configs remain unchanged. Final commit/push is reported at handoff.
+- Four variants x5 dev tasks seed0: Never-9, Original-29, Prediction-Only-9, Validity-Checked-28; all0 successes. Never and Original source trajectories fully reproduce; prediction-only matches Never.
+- Five strict same-live-heap/RNG/Python-state paired interventions:0 positive,1 negative (3070,-100),4 zero final-score utilities. Original initializer was used for these pairs; corrected initializer has separate5 full Episode tests, not new pairs.
+- Native score extraction correct; simulator clock/Actor turns/LLM calls separated. Negative score is task failure, not generic invalid-action penalty.
+- Found and independently repaired WM initializer non-room labels/ambiguous-parser contamination.10 verified rooms/task, actual frozen descriptions published for exact replay. Cold aliases can vary; first strict full-string preflight failure retained. Corrective original Reviewer still mean-29/0 success,804134 tokens.
+-164 unique CPU/unit/regression cases pass; raw315 old predictions and438+190 new served requests bind to real records. Full cost/source/causal/score audits pass.
+- Total Phase5.5 new work:462 Actor actions,1590 model calls,628 WM requests,3073665 tokens. Offline helper and snapshot costs separate. Initial network outage's51.3h resident-service interval is disclosed, not hidden in inference time.
+-31 new unit cases include tri-state validity, cached comparison accounting, termination causes, snapshot/budget/clock identity and actual room-label/API-command checks.
+- Memory3 cards/54TRAIN cases, threshold/scoring/Actor revisions and original final test set remain unchanged. No positive sufficiency/correction added.
+- Initial and corrective owned services stopped; no queued model work. Other services/jobs untouched.
+- Next recommended: explicitly approved generic goal-grounded verification/common initializer validation before Phase6 large sweeps. Do not tune on final test outcomes or add task-specific exceptions.

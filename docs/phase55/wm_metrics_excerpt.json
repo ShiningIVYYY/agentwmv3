@@ -1,0 +1,18 @@
+{
+  "server_wire": {
+    "server_http_requests": 438,
+    "server_success_counter": 438.0,
+    "client_requests": 438,
+    "raw_metrics_sha256": "68b8c5316f133cf4481da7059d1729280c2233bb49d9796204c72a16cda4211c"
+  },
+  "original_counter_lines": [
+    "vllm:request_success_total{engine=\"0\",finished_reason=\"stop\",model_name=\"word2world-scienceworld\"} 438.0",
+    "vllm:request_success_total{engine=\"0\",finished_reason=\"length\",model_name=\"word2world-scienceworld\"} 0.0",
+    "vllm:request_success_total{engine=\"0\",finished_reason=\"abort\",model_name=\"word2world-scienceworld\"} 0.0"
+  ],
+  "fixed_counter_lines": [
+    "vllm:request_success_total{engine=\"0\",finished_reason=\"stop\",model_name=\"word2world-scienceworld\"} 190.0",
+    "vllm:request_success_total{engine=\"0\",finished_reason=\"length\",model_name=\"word2world-scienceworld\"} 0.0",
+    "vllm:request_success_total{engine=\"0\",finished_reason=\"abort\",model_name=\"word2world-scienceworld\"} 0.0"
+  ]
+}

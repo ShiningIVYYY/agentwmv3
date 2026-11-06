@@ -1,0 +1,293 @@
+{
+  "version": "validated-room-initializer-v1",
+  "task_id": "sciworld_128",
+  "taskName": "use-thermometer",
+  "variationIdx": 8,
+  "description": "\n=== Goal Progress ===\nCompleted keys: \n----------------------------------------------------------------------------------------------------\nSequential Subgoals:\n----------------------------------------------------------------------------------------------------\n0\tfalse\t                                GoalFind\tfocus on instrument\n1\tfalse\t                                GoalFind\tfocus on object\n2\tfalse\t              GoalContainerByTemperature\tmove object to correct answer box\n----------------------------------------------------------------------------------------------------\nUnordered and Optional Subgoals:\n----------------------------------------------------------------------------------------------------\n0\tfalse\t                    GoalInRoomWithObject\tbe in same location as thermometer\n1\tfalse\t     GoalSpecificObjectInDirectContainer\thave thermometer in inventory\n2\tfalse\t                   GoalMoveToNewLocation\tmove to a new location\n3\tfalse\t                      GoalMoveToLocation\tmove to the location asked by the task (object location)\n4\tfalse\t                      GoalMoveToLocation\tmove to the location asked by the task (answer box location)\n5\tfalse\t     GoalSpecificObjectInDirectContainer\thave task object in inventory\n6\tfalse\t         GoalPastActionUseObjectOnObject\tuse instrument on object\n7\tfalse\t         GoalPastActionUseObjectOnObject\tuse instrument on object (in answer box location)\n----------------------------------------------------------------------------------------------------\n\n\n=== Possible Actions ===\n - activate OBJ\n - close OBJ\n - connect OBJ to OBJ\n - deactivate OBJ\n - disconnect OBJ\n - dunk OBJ in OBJ\n - eat OBJ\n - flush OBJ\n - focus on OBJ\n - go OBJ\n - inventory\n - look around\n - look at OBJ\n - look in OBJ\n - mix OBJ\n - move OBJ to OBJ\n - open OBJ\n - pick up OBJ\n - pour OBJ in OBJ\n - put down OBJ\n - read OBJ\n - reset task\n - task\n - teleport OBJ\n - use OBJ on OBJ\n - wait\n - wait1\n\n=== Per-Room Observations ===\n== Room: art studio ==\nThis room is called the art studio. In it, you see: \n\tthe agent\n\ta large cupboard. The large cupboard door is closed. \n\ta substance called air\n\ta table. On the table is: a jug (containing nothing).\n\ta wood cup (containing blue paint)\n\ta wood cup (containing red paint)\n\ta wood cup (containing yellow paint)\nYou also see:\n\tA door to the hallway (that is closed)\nPossible Objects: agent, air, art studio, blue paint, cup containing blue paint, cup containing red paint, cup containing yellow paint, cupboard, door, hallway, jug, paint in cup containing red paint, paint in cup containing yellow paint, table\n\n== Room: bathroom ==\nThis room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is closed, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)\nPossible Objects: agent, air, bathroom, bathtub, cup, door, kitchen, picture, sink, substance in toilet, toilet\n\n== Room: bedroom ==\nThis room is called the bedroom. In it, you see: \n\tthe agent\n\ta bed. On the bed is: a mattress. On the mattress is: a white pillow..\n\ta closet. The closet door is closed. \n\ta green box (containing nothing)\n\ta painting\n\ta red box (containing nothing)\n\ta substance called air\n\ta table. On the table is: nothing.\nYou also see:\n\tA door to the hallway (that is closed)\nPossible Objects: agent, air, bed, bedroom, closet, cloth sittable, door, green box, hallway, object, painting, red box, table\n\n== Room: foundry ==\nThis room is called the foundry. In it, you see: \n\tthe agent\n\ta blast furnace, which is turned off. The blast furnace door is closed. \n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta table. On the table is: nothing.\nYou also see:\n\tA door to the outside (that is closed)\nPossible Objects: agent, air, blast furnace, door, foundry, outside, sink, steel table\n\n== Room: greenhouse ==\nThis room is called the greenhouse. In it, you see: \n\tthe agent\n\ta bee hive. The bee hive door is closed. \n\ta jug (containing nothing)\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\nYou also see:\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)\nPossible Objects: agent, air, bee hive, door to hallway, door to outside, greenhouse, hallway, jug, outside, sink\n\n== Room: hallway ==\nThis room is called the hallway. In it, you see: \n\tthe agent\n\ta finger painting\n\ta substance called air\nYou also see:\n\tA door to the art studio (that is closed)\n\tA door to the bedroom (that is closed)\n\tA door to the greenhouse (that is closed)\n\tA door to the kitchen (that is closed)\n\tA door to the living room (that is closed)\n\tA door to the workshop (that is closed)\nPossible Objects: agent, air, art studio, art studio door, bedroom, bedroom door, door to greenhouse, door to kitchen, door to living room, door to workshop, finger painting, greenhouse, hallway, kitchen, living room, workshop\n\n== Room: kitchen ==\nThis room is called the kitchen. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta substance called air\n\ta substance called soap\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)\nPossible Objects: agent, air, apple, banana, bathroom, bathroom door, bowl, chair, counter, cup, cupboard, door to hallway, door to outside, drawer, freezer, fridge, glass jar, hallway, kitchen, lighter, orange, outside, oven, painting, potato, sink, soap, stopwatch, stove, table, thermometer\n\n== Room: living room ==\nThis room is called the living room. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta picture\n\ta substance called air\n\ta table. On the table is: nothing.\n\tunknown substance B\nYou also see:\n\tA door to the hallway (that is closed)\nPossible Objects: agent, air, chair, cloth sittable, door, hallway, living room, object, picture, steel table, unknown substance\n\n== Room: outside ==\nThis outside location is called the outside. Here you see: \n\tthe agent\n\ta fire pit (containing nothing)\n\ta fountain (containing a substance called water)\n\ta substance called air\n\tan axe\n\tthe ground\n\ta shovel\n\ta substance called wood\nYou also see:\n\tA door to the foundry (that is closed)\n\tA door to the greenhouse (that is closed)\n\tA door to the kitchen (that is closed)\nPossible Objects: agent, air, axe, door to foundry, door to greenhouse, door to kitchen, fire pit, foundry, fountain, greenhouse, ground, kitchen, outside, shovel, substance in fountain, wood\n\n== Room: workshop ==\nThis room is called the workshop. In it, you see: \n\tthe agent\n\ta substance called air\n\ta table. On the table is: a battery, a black wire, a blue wire, a green light bulb, which is off, a orange light bulb, which is off, a orange wire, a switch, which is off, a yellow light bulb, which is off.\n\ta ultra low temperature freezer. The ultra low temperature freezer door is closed. \nYou also see:\n\tA door to the hallway (that is closed)\nPossible Objects: agent, air, anode in battery, anode in component, anode in green light bulb, anode in orange light bulb, anode in yellow light bulb, battery, battery cathode, black wire, black wire terminal 1, black wire terminal 2, blue wire, blue wire terminal 1, blue wire terminal 2, cathode in component, cathode in green light bulb, cathode in orange light bulb, cathode in yellow light bulb, door, freezer, green light bulb, hallway, orange light bulb, orange wire, orange wire terminal 1, orange wire terminal 2, switch, table, workshop, yellow light bulb\n\n",
+  "description_sha256": "c110b1e21c70dc26a0704865436f92b0a24762edb084eb08895f88e12539f270",
+  "candidates": [
+    "art studio",
+    "bathroom",
+    "bedroom",
+    "foundry",
+    "greenhouse",
+    "hallway",
+    "kitchen",
+    "living room",
+    "outside",
+    "sewer",
+    "terminal 1",
+    "terminal 2",
+    "workshop"
+  ],
+  "verified_rooms": [
+    "art studio",
+    "bathroom",
+    "bedroom",
+    "foundry",
+    "greenhouse",
+    "hallway",
+    "kitchen",
+    "living room",
+    "outside",
+    "workshop"
+  ],
+  "excluded": [
+    {
+      "candidate": "sewer",
+      "reason": "no_official_teleport_command"
+    },
+    {
+      "candidate": "terminal 1",
+      "reason": "no_official_teleport_command"
+    },
+    {
+      "candidate": "terminal 2",
+      "reason": "no_official_teleport_command"
+    }
+  ],
+  "views": [
+    {
+      "room": "art studio",
+      "look": "This room is called the art studio. In it, you see: \n\tthe agent\n\ta large cupboard. The large cupboard door is closed. \n\ta substance called air\n\ta table. On the table is: a jug (containing nothing).\n\ta wood cup (containing blue paint)\n\ta wood cup (containing red paint)\n\ta wood cup (containing yellow paint)\nYou also see:\n\tA door to the hallway (that is closed)\n",
+      "possible_objects": [
+        "agent",
+        "air",
+        "art studio",
+        "blue paint",
+        "cup containing blue paint",
+        "cup containing red paint",
+        "cup containing yellow paint",
+        "cupboard",
+        "door",
+        "hallway",
+        "jug",
+        "paint in cup containing red paint",
+        "paint in cup containing yellow paint",
+        "table"
+      ],
+      "simulator_moves_after_teleport": 1,
+      "verified_room_label": true
+    },
+    {
+      "room": "bathroom",
+      "look": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is closed, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)\n",
+      "possible_objects": [
+        "agent",
+        "air",
+        "bathroom",
+        "bathtub",
+        "cup",
+        "door",
+        "kitchen",
+        "picture",
+        "sink",
+        "substance in toilet",
+        "toilet"
+      ],
+      "simulator_moves_after_teleport": 1,
+      "verified_room_label": true
+    },
+    {
+      "room": "bedroom",
+      "look": "This room is called the bedroom. In it, you see: \n\tthe agent\n\ta bed. On the bed is: a mattress. On the mattress is: a white pillow..\n\ta closet. The closet door is closed. \n\ta green box (containing nothing)\n\ta painting\n\ta red box (containing nothing)\n\ta substance called air\n\ta table. On the table is: nothing.\nYou also see:\n\tA door to the hallway (that is closed)\n",
+      "possible_objects": [
+        "agent",
+        "air",
+        "bed",
+        "bedroom",
+        "closet",
+        "cloth sittable",
+        "door",
+        "green box",
+        "hallway",
+        "object",
+        "painting",
+        "red box",
+        "table"
+      ],
+      "simulator_moves_after_teleport": 1,
+      "verified_room_label": true
+    },
+    {
+      "room": "foundry",
+      "look": "This room is called the foundry. In it, you see: \n\tthe agent\n\ta blast furnace, which is turned off. The blast furnace door is closed. \n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta table. On the table is: nothing.\nYou also see:\n\tA door to the outside (that is closed)\n",
+      "possible_objects": [
+        "agent",
+        "air",
+        "blast furnace",
+        "door",
+        "foundry",
+        "outside",
+        "sink",
+        "steel table"
+      ],
+      "simulator_moves_after_teleport": 1,
+      "verified_room_label": true
+    },
+    {
+      "room": "greenhouse",
+      "look": "This room is called the greenhouse. In it, you see: \n\tthe agent\n\ta bee hive. The bee hive door is closed. \n\ta jug (containing nothing)\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\nYou also see:\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)\n",
+      "possible_objects": [
+        "agent",
+        "air",
+        "bee hive",
+        "door to hallway",
+        "door to outside",
+        "greenhouse",
+        "hallway",
+        "jug",
+        "outside",
+        "sink"
+      ],
+      "simulator_moves_after_teleport": 1,
+      "verified_room_label": true
+    },
+    {
+      "room": "hallway",
+      "look": "This room is called the hallway. In it, you see: \n\tthe agent\n\ta finger painting\n\ta substance called air\nYou also see:\n\tA door to the art studio (that is closed)\n\tA door to the bedroom (that is closed)\n\tA door to the greenhouse (that is closed)\n\tA door to the kitchen (that is closed)\n\tA door to the living room (that is closed)\n\tA door to the workshop (that is closed)\n",
+      "possible_objects": [
+        "agent",
+        "air",
+        "art studio",
+        "art studio door",
+        "bedroom",
+        "bedroom door",
+        "door to greenhouse",
+        "door to kitchen",
+        "door to living room",
+        "door to workshop",
+        "finger painting",
+        "greenhouse",
+        "hallway",
+        "kitchen",
+        "living room",
+        "workshop"
+      ],
+      "simulator_moves_after_teleport": 1,
+      "verified_room_label": true
+    },
+    {
+      "room": "kitchen",
+      "look": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta substance called air\n\ta substance called soap\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)\n",
+      "possible_objects": [
+        "agent",
+        "air",
+        "apple",
+        "banana",
+        "bathroom",
+        "bathroom door",
+        "bowl",
+        "chair",
+        "counter",
+        "cup",
+        "cupboard",
+        "door to hallway",
+        "door to outside",
+        "drawer",
+        "freezer",
+        "fridge",
+        "glass jar",
+        "hallway",
+        "kitchen",
+        "lighter",
+        "orange",
+        "outside",
+        "oven",
+        "painting",
+        "potato",
+        "sink",
+        "soap",
+        "stopwatch",
+        "stove",
+        "table",
+        "thermometer"
+      ],
+      "simulator_moves_after_teleport": 1,
+      "verified_room_label": true
+    },
+    {
+      "room": "living room",
+      "look": "This room is called the living room. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta picture\n\ta substance called air\n\ta table. On the table is: nothing.\n\tunknown substance B\nYou also see:\n\tA door to the hallway (that is closed)\n",
+      "possible_objects": [
+        "agent",
+        "air",
+        "chair",
+        "cloth sittable",
+        "door",
+        "hallway",
+        "living room",
+        "object",
+        "picture",
+        "steel table",
+        "unknown substance"
+      ],
+      "simulator_moves_after_teleport": 1,
+      "verified_room_label": true
+    },
+    {
+      "room": "outside",
+      "look": "This outside location is called the outside. Here you see: \n\tthe agent\n\ta fire pit (containing nothing)\n\ta fountain (containing a substance called water)\n\ta substance called air\n\tan axe\n\tthe ground\n\ta shovel\n\ta substance called wood\nYou also see:\n\tA door to the foundry (that is closed)\n\tA door to the greenhouse (that is closed)\n\tA door to the kitchen (that is closed)\n",
+      "possible_objects": [
+        "agent",
+        "air",
+        "axe",
+        "door to foundry",
+        "door to greenhouse",
+        "door to kitchen",
+        "fire pit",
+        "foundry",
+        "fountain",
+        "greenhouse",
+        "ground",
+        "kitchen",
+        "outside",
+        "shovel",
+        "substance in fountain",
+        "wood"
+      ],
+      "simulator_moves_after_teleport": 1,
+      "verified_room_label": true
+    },
+    {
+      "room": "workshop",
+      "look": "This room is called the workshop. In it, you see: \n\tthe agent\n\ta substance called air\n\ta table. On the table is: a battery, a black wire, a blue wire, a green light bulb, which is off, a orange light bulb, which is off, a orange wire, a switch, which is off, a yellow light bulb, which is off.\n\ta ultra low temperature freezer. The ultra low temperature freezer door is closed. \nYou also see:\n\tA door to the hallway (that is closed)\n",
+      "possible_objects": [
+        "agent",
+        "air",
+        "anode in battery",
+        "anode in component",
+        "anode in green light bulb",
+        "anode in orange light bulb",
+        "anode in yellow light bulb",
+        "battery",
+        "battery cathode",
+        "black wire",
+        "black wire terminal 1",
+        "black wire terminal 2",
+        "blue wire",
+        "blue wire terminal 1",
+        "blue wire terminal 2",
+        "cathode in component",
+        "cathode in green light bulb",
+        "cathode in orange light bulb",
+        "cathode in yellow light bulb",
+        "door",
+        "freezer",
+        "green light bulb",
+        "hallway",
+        "orange light bulb",
+        "orange wire",
+        "orange wire terminal 1",
+        "orange wire terminal 2",
+        "switch",
+        "table",
+        "workshop",
+        "yellow light bulb"
+      ],
+      "simulator_moves_after_teleport": 1,
+      "verified_room_label": true
+    }
+  ],
+  "scope": "WM-only helper world; each room view follows one real teleport from restored helper baseline; not an Actor future rollout"
+}

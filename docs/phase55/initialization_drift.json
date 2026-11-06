@@ -1,0 +1,278 @@
+[
+  {
+    "task": "sciworld_742",
+    "system_same": false,
+    "old_system_sha256": "a5a1604ccf7bacd86f56370e97ad9d8c1bd83008126b247f2157573ff52715b4",
+    "new_system_sha256": "a73132d889d0d476c10fd5d6faac2df4a012e7a646ebaa15e55f46f21324f1a6",
+    "only_system_changed": true,
+    "model_responses_same": true,
+    "per_request_prompt_delta_values": [
+      -476
+    ],
+    "sum_prompt_token_delta": -5236,
+    "old_mislabeled_sections": [
+      {
+        "label": "terminal 2",
+        "actual": "hallway"
+      },
+      {
+        "label": "outside",
+        "actual": "hallway"
+      },
+      {
+        "label": "sewer",
+        "actual": "kitchen"
+      },
+      {
+        "label": "terminal 1",
+        "actual": "kitchen"
+      },
+      {
+        "label": "workshop",
+        "actual": "kitchen"
+      }
+    ],
+    "new_mislabeled_sections": [
+      {
+        "label": "terminal 1",
+        "actual": "outside"
+      },
+      {
+        "label": "art studio",
+        "actual": "outside"
+      },
+      {
+        "label": "sewer",
+        "actual": "outside"
+      },
+      {
+        "label": "terminal 2",
+        "actual": "hallway"
+      },
+      {
+        "label": "bathroom",
+        "actual": "hallway"
+      }
+    ]
+  },
+  {
+    "task": "sciworld_128",
+    "system_same": false,
+    "old_system_sha256": "0f55d57fbd0a79c6ced63470ca54c287bdea2329db73463c39072c6e13129810",
+    "new_system_sha256": "1bb0bed997c48e7530adaa485308db6ef33116bca4c8aeda2f0b71b921349507",
+    "only_system_changed": true,
+    "model_responses_same": true,
+    "per_request_prompt_delta_values": [
+      -34
+    ],
+    "sum_prompt_token_delta": -1598,
+    "old_mislabeled_sections": [
+      {
+        "label": "terminal 1",
+        "actual": "bathroom"
+      },
+      {
+        "label": "workshop",
+        "actual": "bathroom"
+      },
+      {
+        "label": "sewer",
+        "actual": "outside"
+      },
+      {
+        "label": "terminal 2",
+        "actual": "outside"
+      },
+      {
+        "label": "bathroom",
+        "actual": "outside"
+      }
+    ],
+    "new_mislabeled_sections": [
+      {
+        "label": "terminal 2",
+        "actual": "hallway"
+      },
+      {
+        "label": "kitchen",
+        "actual": "hallway"
+      },
+      {
+        "label": "sewer",
+        "actual": "bedroom"
+      },
+      {
+        "label": "terminal 1",
+        "actual": "bedroom"
+      },
+      {
+        "label": "bathroom",
+        "actual": "bedroom"
+      }
+    ]
+  },
+  {
+    "task": "sciworld_2417",
+    "system_same": false,
+    "old_system_sha256": "fdd067ac382fa9060a565d0895560010b2cc3b6decf9f4a1e2b4ebdd620f4596",
+    "new_system_sha256": "8e8c103f2df7107b4ae4ed1945eea80de5c7ceaf7300f384a48224c38057662b",
+    "only_system_changed": true,
+    "model_responses_same": true,
+    "per_request_prompt_delta_values": [
+      276
+    ],
+    "sum_prompt_token_delta": 20700,
+    "old_mislabeled_sections": [
+      {
+        "label": "terminal 1",
+        "actual": "art studio"
+      },
+      {
+        "label": "foundry",
+        "actual": "art studio"
+      },
+      {
+        "label": "sewer",
+        "actual": "workshop"
+      },
+      {
+        "label": "terminal 2",
+        "actual": "hallway"
+      },
+      {
+        "label": "living room",
+        "actual": "hallway"
+      }
+    ],
+    "new_mislabeled_sections": [
+      {
+        "label": "terminal 1",
+        "actual": "kitchen"
+      },
+      {
+        "label": "hallway",
+        "actual": "kitchen"
+      },
+      {
+        "label": "sewer",
+        "actual": "bathroom"
+      },
+      {
+        "label": "terminal 2",
+        "actual": "kitchen"
+      }
+    ]
+  },
+  {
+    "task": "sciworld_1569",
+    "system_same": true,
+    "old_system_sha256": "af20e137bcbdc4d4c8dda4ec7dcf8a08042ce3d284314a30024d7bb7ec3330fa",
+    "new_system_sha256": "af20e137bcbdc4d4c8dda4ec7dcf8a08042ce3d284314a30024d7bb7ec3330fa",
+    "only_system_changed": true,
+    "model_responses_same": true,
+    "per_request_prompt_delta_values": [
+      0
+    ],
+    "sum_prompt_token_delta": 0,
+    "old_mislabeled_sections": [
+      {
+        "label": "terminal 1",
+        "actual": "greenhouse"
+      },
+      {
+        "label": "living room",
+        "actual": "greenhouse"
+      },
+      {
+        "label": "sewer",
+        "actual": "hallway"
+      },
+      {
+        "label": "terminal 2",
+        "actual": "hallway"
+      },
+      {
+        "label": "bedroom",
+        "actual": "hallway"
+      }
+    ],
+    "new_mislabeled_sections": [
+      {
+        "label": "terminal 1",
+        "actual": "greenhouse"
+      },
+      {
+        "label": "living room",
+        "actual": "greenhouse"
+      },
+      {
+        "label": "sewer",
+        "actual": "hallway"
+      },
+      {
+        "label": "terminal 2",
+        "actual": "hallway"
+      },
+      {
+        "label": "bedroom",
+        "actual": "hallway"
+      }
+    ]
+  },
+  {
+    "task": "sciworld_3070",
+    "system_same": true,
+    "old_system_sha256": "d3c3a23bc36a2a7b99fd1a91a39bdb5a3fe20c0debc3acc24ef79113e9c1ce8b",
+    "new_system_sha256": "d3c3a23bc36a2a7b99fd1a91a39bdb5a3fe20c0debc3acc24ef79113e9c1ce8b",
+    "only_system_changed": true,
+    "model_responses_same": true,
+    "per_request_prompt_delta_values": [
+      0
+    ],
+    "sum_prompt_token_delta": 0,
+    "old_mislabeled_sections": [
+      {
+        "label": "terminal 2",
+        "actual": "bedroom"
+      },
+      {
+        "label": "hallway",
+        "actual": "bedroom"
+      },
+      {
+        "label": "sewer",
+        "actual": "living room"
+      },
+      {
+        "label": "terminal 1",
+        "actual": "bathroom"
+      },
+      {
+        "label": "outside",
+        "actual": "bathroom"
+      }
+    ],
+    "new_mislabeled_sections": [
+      {
+        "label": "terminal 2",
+        "actual": "bedroom"
+      },
+      {
+        "label": "hallway",
+        "actual": "bedroom"
+      },
+      {
+        "label": "sewer",
+        "actual": "living room"
+      },
+      {
+        "label": "terminal 1",
+        "actual": "bathroom"
+      },
+      {
+        "label": "outside",
+        "actual": "bathroom"
+      }
+    ]
+  }
+]

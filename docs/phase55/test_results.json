@@ -1,0 +1,18 @@
+[
+  {
+    "suite": "test_reviewer_diagnostics",
+    "returncode": 0
+  },
+  {
+    "suite": "test_scienceworld_validation",
+    "returncode": 0
+  },
+  {
+    "suite": "test_wm_reflection",
+    "returncode": 0
+  },
+  {
+    "suite": "test_gates",
+    "returncode": 0
+  }
+]

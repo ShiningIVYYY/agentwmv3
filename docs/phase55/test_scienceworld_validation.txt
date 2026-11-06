@@ -1,0 +1,42 @@
+test_left_suffix_response_tokens_only (__main__.AlignmentTests.test_left_suffix_response_tokens_only) ... ok
+test_left_suffix_with_unicode_boundary (__main__.AlignmentTests.test_left_suffix_with_unicode_boundary) ... ok
+test_phase2_golden_signals_preserved (__main__.AlignmentTests.test_phase2_golden_signals_preserved) ... ok
+test_wrong_removed_count_fails (__main__.AlignmentTests.test_wrong_removed_count_fails) ... ok
+test_current_room_required (__main__.InspectionRuleTests.test_current_room_required) ... ok
+test_only_actual_room_reading_confirms (__main__.InspectionRuleTests.test_only_actual_room_reading_confirms) ... ok
+test_other_actions_do_not_match (__main__.InspectionRuleTests.test_other_actions_do_not_match) ... ok
+test_requests_keyword_url_is_preserved (__main__.ObserverTests.test_requests_keyword_url_is_preserved) ... ok
+test_30_distinct_calibration_groups (__main__.PartitionTests.test_30_distinct_calibration_groups) ... ok
+test_exposed_groups_not_validation (__main__.PartitionTests.test_exposed_groups_not_validation) ... ok
+test_five_validation_groups (__main__.PartitionTests.test_five_validation_groups) ... ok
+test_goal_groups_disjoint (__main__.PartitionTests.test_goal_groups_disjoint) ... ok
+test_no_test_ids (__main__.PartitionTests.test_no_test_ids) ... ok
+test_config_matches_contract (__main__.ProfileTests.test_config_matches_contract) ... ok
+test_flat_sort (__main__.ProfileTests.test_flat_sort) ... ok
+test_flat_sort_reversed (__main__.ProfileTests.test_flat_sort_reversed) ... ok
+test_nested_unchanged (__main__.ProfileTests.test_nested_unchanged) ... ok
+test_numbers_outside_menu_not_actions (__main__.ProfileTests.test_numbers_outside_menu_not_actions) ... ok
+test_numeric_menu_preserved (__main__.ProfileTests.test_numeric_menu_preserved) ... ok
+test_official_canonical_function_equivalent (__main__.ProfileTests.test_official_canonical_function_equivalent) ... ok
+test_wrong_horizon_rejected (__main__.ProfileTests.test_wrong_horizon_rejected) ... ok
+test_horizon_complete (__main__.ScoreTests.test_horizon_complete) ... ok
+test_native_terminal (__main__.ScoreTests.test_native_terminal) ... ok
+test_negative_score_not_clipped (__main__.ScoreTests.test_negative_score_not_clipped) ... ok
+test_no_missing_usage_as_zero (__main__.ScoreTests.test_no_missing_usage_as_zero) ... ok
+test_nonfinite_rejected (__main__.ScoreTests.test_nonfinite_rejected) ... ok
+test_partial_not_evaluation (__main__.ScoreTests.test_partial_not_evaluation) ... ok
+test_raw_score_not_divided (__main__.ScoreTests.test_raw_score_not_divided) ... ok
+test_success_native_score (__main__.ScoreTests.test_success_native_score) ... ok
+test_zero_calls_valid (__main__.ScoreTests.test_zero_calls_valid) ... ok
+test_deterministic (__main__.SeedTests.test_deterministic) ... ok
+test_pinned_official_function_equivalence (__main__.SeedTests.test_pinned_official_function_equivalence) ... ok
+test_review_does_not_shift_draft (__main__.SeedTests.test_review_does_not_shift_draft) ... ok
+test_review_namespace_distinct (__main__.SeedTests.test_review_namespace_distinct) ... ok
+test_rollout_changes (__main__.SeedTests.test_rollout_changes) ... ok
+test_seed_range (__main__.SeedTests.test_seed_range) ... ok
+test_turn_changes (__main__.SeedTests.test_turn_changes) ... ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 0.484s
+
+OK

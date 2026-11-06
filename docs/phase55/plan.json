@@ -1,0 +1,150 @@
+{
+  "schema": "phase55-frozen-diagnostics-v1",
+  "variants": [
+    "never",
+    "original",
+    "prediction_only",
+    "validity_checked"
+  ],
+  "tasks": [
+    {
+      "task_id": "sciworld_742",
+      "index": 742,
+      "taskName": "measure-melting-point-known-substance",
+      "variationIdx": 82,
+      "category": "measure",
+      "goal_sha256": "a2e7916c73b30523b591201ceead47a5c43a550ebc09b65c4f916ba41e093bec",
+      "goal_group": "c9675e659e3b5d4cfe9c64e86d4855a9cb4c3ca236f71873970811c13120eb01",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_128",
+      "index": 128,
+      "taskName": "use-thermometer",
+      "variationIdx": 8,
+      "category": "measure",
+      "goal_sha256": "b4a904d903f91aca14abe84250c8224c9dc059160e9682ce1b59b6da646ccd20",
+      "goal_group": "20af3405fc2b88439bf791d18d7c85111e8854f1b14ad477cd3449d331f9930a",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_2417",
+      "index": 2417,
+      "taskName": "test-conductivity-of-unknown-substances",
+      "variationIdx": 81,
+      "category": "test_conductivity",
+      "goal_sha256": "b70fdbf909c7782a7ccafd88336875445ea6f0669777f08faae3a7f29e970879",
+      "goal_group": "2aca8a7ff4bb953d613a30dd03c35c3551968bdeac866d038cff5a4b94eb88d1",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_1569",
+      "index": 1569,
+      "taskName": "test-conductivity",
+      "variationIdx": 133,
+      "category": "test_conductivity",
+      "goal_sha256": "62e5cd3c67cab4c40af84ec28040fef72badd055d9944ba948dc9dfbe5321841",
+      "goal_group": "0cf73261217f7591140e4f4a730f5f811eb39f9f9b04d434a4a1f76abccbe5b7",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_3070",
+      "index": 3070,
+      "taskName": "find-living-thing",
+      "variationIdx": 134,
+      "category": "find",
+      "goal_sha256": "1ee32c4efdbef5de540dce2442b56e44c777a566367841f5448f0f5fc6e6a77f",
+      "goal_group": "4ae0f2d7eef75b8a6471881591ad0b0e565d840506f57dbc8683d22fa8105082",
+      "split": "development"
+    }
+  ],
+  "seed": 0,
+  "horizon": 20,
+  "memory_correction": false,
+  "thresholds_and_memory_frozen": true,
+  "branch_states": [
+    {
+      "row": {
+        "task_id": "sciworld_742",
+        "index": 742,
+        "taskName": "measure-melting-point-known-substance",
+        "variationIdx": 82,
+        "category": "measure",
+        "goal_sha256": "a2e7916c73b30523b591201ceead47a5c43a550ebc09b65c4f916ba41e093bec",
+        "goal_group": "c9675e659e3b5d4cfe9c64e86d4855a9cb4c3ca236f71873970811c13120eb01",
+        "split": "development"
+      },
+      "source_step": 4,
+      "selector": "first Full WM invocation in each frozen development task; no reward-based selection",
+      "source_trace": "outputs/phase5_episodes_v1/full/sciworld_742/attempt-1/steps.jsonl",
+      "source_trace_sha256": "342d352c2c535dec5b9308e57f9fb83af6165d850389e616b476f0d1d8ae65a0"
+    },
+    {
+      "row": {
+        "task_id": "sciworld_128",
+        "index": 128,
+        "taskName": "use-thermometer",
+        "variationIdx": 8,
+        "category": "measure",
+        "goal_sha256": "b4a904d903f91aca14abe84250c8224c9dc059160e9682ce1b59b6da646ccd20",
+        "goal_group": "20af3405fc2b88439bf791d18d7c85111e8854f1b14ad477cd3449d331f9930a",
+        "split": "development"
+      },
+      "source_step": 1,
+      "selector": "first Full WM invocation in each frozen development task; no reward-based selection",
+      "source_trace": "outputs/phase5_episodes_v1/full/sciworld_128/attempt-1/steps.jsonl",
+      "source_trace_sha256": "46ebb1cefa8880780c2dd3f7db9c55062ae28e489480b2e91b7579236a37de9c"
+    },
+    {
+      "row": {
+        "task_id": "sciworld_2417",
+        "index": 2417,
+        "taskName": "test-conductivity-of-unknown-substances",
+        "variationIdx": 81,
+        "category": "test_conductivity",
+        "goal_sha256": "b70fdbf909c7782a7ccafd88336875445ea6f0669777f08faae3a7f29e970879",
+        "goal_group": "2aca8a7ff4bb953d613a30dd03c35c3551968bdeac866d038cff5a4b94eb88d1",
+        "split": "development"
+      },
+      "source_step": 3,
+      "selector": "first Full WM invocation in each frozen development task; no reward-based selection",
+      "source_trace": "outputs/phase5_episodes_v1/full/sciworld_2417/attempt-1/steps.jsonl",
+      "source_trace_sha256": "5fbf7d0b91b31d25cc9d7fea61a4676521b3306da7c08359ec5017572e435fb5"
+    },
+    {
+      "row": {
+        "task_id": "sciworld_1569",
+        "index": 1569,
+        "taskName": "test-conductivity",
+        "variationIdx": 133,
+        "category": "test_conductivity",
+        "goal_sha256": "62e5cd3c67cab4c40af84ec28040fef72badd055d9944ba948dc9dfbe5321841",
+        "goal_group": "0cf73261217f7591140e4f4a730f5f811eb39f9f9b04d434a4a1f76abccbe5b7",
+        "split": "development"
+      },
+      "source_step": 2,
+      "selector": "first Full WM invocation in each frozen development task; no reward-based selection",
+      "source_trace": "outputs/phase5_episodes_v1/full/sciworld_1569/attempt-1/steps.jsonl",
+      "source_trace_sha256": "f64bf48afe20e4bcde5c856284c87715556da4d9f00fc7ad40d42a10638210e8"
+    },
+    {
+      "row": {
+        "task_id": "sciworld_3070",
+        "index": 3070,
+        "taskName": "find-living-thing",
+        "variationIdx": 134,
+        "category": "find",
+        "goal_sha256": "1ee32c4efdbef5de540dce2442b56e44c777a566367841f5448f0f5fc6e6a77f",
+        "goal_group": "4ae0f2d7eef75b8a6471881591ad0b0e565d840506f57dbc8683d22fa8105082",
+        "split": "development"
+      },
+      "source_step": 1,
+      "selector": "first Full WM invocation in each frozen development task; no reward-based selection",
+      "source_trace": "outputs/phase5_episodes_v1/full/sciworld_3070/attempt-1/steps.jsonl",
+      "source_trace_sha256": "23b3ca9f57c246eadc6ca1ba8f365cac94dc9964c0d61c0db3bdbbb8be5047a9"
+    }
+  ],
+  "continuation_policy": "Never WM, same structured Actor and task-turn RNG in both branches",
+  "max_episode_actions": 600,
+  "baseline_commit": "f6e864690fea7866a1112a250832619eba2e25a6"
+}

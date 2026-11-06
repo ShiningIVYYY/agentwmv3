@@ -1,0 +1,67 @@
+{
+  "passed": true,
+  "baseline_parity": {
+    "never/sciworld_742": true,
+    "never/sciworld_128": true,
+    "never/sciworld_2417": true,
+    "never/sciworld_1569": true,
+    "never/sciworld_3070": true,
+    "original/sciworld_742": true,
+    "original/sciworld_128": true,
+    "original/sciworld_2417": true,
+    "original/sciworld_1569": true,
+    "original/sciworld_3070": true
+  },
+  "negative_control_parity": {
+    "sciworld_1569": true,
+    "sciworld_2417": true,
+    "sciworld_128": true,
+    "sciworld_3070": true,
+    "sciworld_742": true
+  },
+  "variants": {
+    "never": {
+      "mean_score": -9.0,
+      "success_rate": 0.0,
+      "environment_steps": 70
+    },
+    "original": {
+      "mean_score": -29.0,
+      "success_rate": 0.0,
+      "environment_steps": 65
+    },
+    "prediction_only": {
+      "mean_score": -9.0,
+      "success_rate": 0.0,
+      "environment_steps": 70
+    },
+    "validity_checked": {
+      "mean_score": -28.0,
+      "success_rate": 0.0,
+      "environment_steps": 65
+    }
+  },
+  "branch_utilities": [
+    [
+      "sciworld_742",
+      0
+    ],
+    [
+      "sciworld_128",
+      0
+    ],
+    [
+      "sciworld_2417",
+      0
+    ],
+    [
+      "sciworld_1569",
+      0
+    ],
+    [
+      "sciworld_3070",
+      -100
+    ]
+  ],
+  "server_requests": 438
+}

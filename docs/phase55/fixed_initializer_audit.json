@@ -1,0 +1,950 @@
+{
+  "audit_passed": true,
+  "summary": {
+    "mode": "episodes",
+    "completed_episodes": 5,
+    "actor_load_and_hash_seconds": 13.611323924735188,
+    "whole_run_seconds": 535.845816899091,
+    "snapshot_unchanged": true,
+    "outcome_based_threshold_selection": false,
+    "policies": {
+      "always": {
+        "instances": 5,
+        "mean_task_score": -29.0,
+        "success_rate": 0.0,
+        "average_environment_steps": 13.0,
+        "total_environment_steps": 65,
+        "total_online_model_calls": 423,
+        "total_tokens": 804134,
+        "total_wm_calls": 190,
+        "total_latency_seconds": 522.0521305538714
+      }
+    }
+  },
+  "episodes": [
+    {
+      "task_id": "sciworld_742",
+      "goal_group": "c9675e659e3b5d4cfe9c64e86d4855a9cb4c3ca236f71873970811c13120eb01",
+      "category": "measure",
+      "policy": "always",
+      "rollout_seed": 0,
+      "metrics": {
+        "task_score": -100.0,
+        "success_score_ge100": false,
+        "environment_steps": 4,
+        "native_terminated": true,
+        "horizon_truncated": false,
+        "termination_reason": "native_terminal"
+      },
+      "costs": {
+        "agent_calls": 14,
+        "draft_calls": 4,
+        "reflection_revision_calls": 10,
+        "wm_calls": 11,
+        "total_model_calls": 25,
+        "judge_calls": 0,
+        "router_model_calls": 0,
+        "draft_usage": {
+          "prompt_tokens": 1947,
+          "completion_tokens": 154,
+          "total_tokens": 2101
+        },
+        "reflection_revision_usage": {
+          "prompt_tokens": 9735,
+          "completion_tokens": 591,
+          "total_tokens": 10326
+        },
+        "wm_usage": {
+          "prompt_tokens": 30254,
+          "completion_tokens": 333,
+          "total_tokens": 30587
+        },
+        "total_usage": {
+          "prompt_tokens": 41936,
+          "completion_tokens": 1078,
+          "total_tokens": 43014
+        },
+        "agent_generation_seconds": 26.035980567336082,
+        "reflection_revision_generation_seconds": 20.108701726421714,
+        "internal_signal_seconds": 0,
+        "retrieval_calls": 0,
+        "retrieval_seconds": 0,
+        "external_judge_seconds": 0,
+        "gate_rule_seconds": 8.605234324932098e-05,
+        "signals_evidence_gate_seconds": 0.002681087702512741,
+        "wm_prediction_http_seconds": 6.824660757556558,
+        "wm_context_setup_seconds": 0.03768968768417835,
+        "episode_total_latency_seconds": 37.35839348658919,
+        "extra_backbone_forward_passes": 0,
+        "gate_call_steps": 4,
+        "gate_skip_steps": 0,
+        "budget_blocked_steps": 0,
+        "estimated_monetary_cost": null,
+        "pricing_status": "no_reliable_tariff",
+        "actor_peak_allocated_bytes": 8384322560
+      },
+      "configuration_signature": "9050f7d5b87fdb31a5301b362f6763dcb62245c461d605daa68c92ebb32d726b",
+      "attempt": 1,
+      "initial_observation_sha256": "62d35d2bb93aed309b56dc47ffcc12c3ceabe4c621f6630caf64f60fda679cb1",
+      "first_draft_response_ids": [
+        41462,
+        1064,
+        25,
+        576,
+        92197,
+        374,
+        304,
+        279,
+        9780,
+        323,
+        374,
+        5023,
+        5290,
+        220,
+        16,
+        15,
+        12348,
+        272,
+        40247,
+        13,
+        2303,
+        18896,
+        1200,
+        15512,
+        25,
+        576,
+        92197,
+        686,
+        1184,
+        311,
+        387,
+        10735,
+        389,
+        311,
+        1779,
+        279,
+        9315,
+        315,
+        279,
+        17931,
+        13,
+        2303,
+        2512,
+        25,
+        5244,
+        389,
+        92197
+      ],
+      "episode_path": "always/sciworld_742/attempt-1",
+      "wm_context_costs": [
+        {
+          "task_id": "sciworld_742",
+          "seconds": 0.0012637078762054443,
+          "characters": 11853,
+          "only_visible_to_wm": true,
+          "method": "validated-room-initializer-v1",
+          "description_sha256": "347b4025529c8eeb461530e25b1aaa84be9b0fb088bdecb97a611715793efa2e",
+          "source": "/data1/shn/agentwmv3/outputs/phase55_setup/validated_initializers/sciworld_742.json",
+          "offline_collection_separate": true
+        }
+      ]
+    },
+    {
+      "task_id": "sciworld_128",
+      "goal_group": "20af3405fc2b88439bf791d18d7c85111e8854f1b14ad477cd3449d331f9930a",
+      "category": "measure",
+      "policy": "always",
+      "rollout_seed": 0,
+      "metrics": {
+        "task_score": 0.0,
+        "success_score_ge100": false,
+        "environment_steps": 20,
+        "native_terminated": false,
+        "horizon_truncated": true,
+        "termination_reason": "interaction_horizon"
+      },
+      "costs": {
+        "agent_calls": 64,
+        "draft_calls": 20,
+        "reflection_revision_calls": 44,
+        "wm_calls": 47,
+        "total_model_calls": 111,
+        "judge_calls": 0,
+        "router_model_calls": 0,
+        "draft_usage": {
+          "prompt_tokens": 10418,
+          "completion_tokens": 790,
+          "total_tokens": 11208
+        },
+        "reflection_revision_usage": {
+          "prompt_tokens": 120421,
+          "completion_tokens": 2353,
+          "total_tokens": 122774
+        },
+        "wm_usage": {
+          "prompt_tokens": 145371,
+          "completion_tokens": 1983,
+          "total_tokens": 147354
+        },
+        "total_usage": {
+          "prompt_tokens": 276210,
+          "completion_tokens": 5126,
+          "total_tokens": 281336
+        },
+        "agent_generation_seconds": 112.79588284902275,
+        "reflection_revision_generation_seconds": 85.938088811934,
+        "internal_signal_seconds": 0,
+        "retrieval_calls": 0,
+        "retrieval_seconds": 0,
+        "external_judge_seconds": 0,
+        "gate_rule_seconds": 0.00019976310431957245,
+        "signals_evidence_gate_seconds": 0.009637368842959404,
+        "wm_prediction_http_seconds": 35.910991448909044,
+        "wm_context_setup_seconds": 0.015878260135650635,
+        "episode_total_latency_seconds": 153.99316583946347,
+        "extra_backbone_forward_passes": 0,
+        "gate_call_steps": 20,
+        "gate_skip_steps": 0,
+        "budget_blocked_steps": 0,
+        "estimated_monetary_cost": null,
+        "pricing_status": "no_reliable_tariff",
+        "actor_peak_allocated_bytes": 9039095296
+      },
+      "configuration_signature": "9050f7d5b87fdb31a5301b362f6763dcb62245c461d605daa68c92ebb32d726b",
+      "attempt": 1,
+      "initial_observation_sha256": "9efa3d4eea5be7d2dc785f81258aab8b0937bb25d5970e2a6eb6539872b54a29",
+      "first_draft_response_ids": [
+        41462,
+        1064,
+        25,
+        576,
+        92197,
+        374,
+        537,
+        304,
+        279,
+        1482,
+        3054,
+        13,
+        2303,
+        18896,
+        1200,
+        15512,
+        25,
+        576,
+        8315,
+        646,
+        3735,
+        705,
+        279,
+        92197,
+        504,
+        2441,
+        3054,
+        13,
+        2303,
+        2512,
+        25,
+        728,
+        9780
+      ],
+      "episode_path": "always/sciworld_128/attempt-1",
+      "wm_context_costs": [
+        {
+          "task_id": "sciworld_128",
+          "seconds": 0.0006052907556295395,
+          "characters": 9296,
+          "only_visible_to_wm": true,
+          "method": "validated-room-initializer-v1",
+          "description_sha256": "c110b1e21c70dc26a0704865436f92b0a24762edb084eb08895f88e12539f270",
+          "source": "/data1/shn/agentwmv3/outputs/phase55_setup/validated_initializers/sciworld_128.json",
+          "offline_collection_separate": true
+        }
+      ]
+    },
+    {
+      "task_id": "sciworld_2417",
+      "goal_group": "2aca8a7ff4bb953d613a30dd03c35c3551968bdeac866d038cff5a4b94eb88d1",
+      "category": "test_conductivity",
+      "policy": "always",
+      "rollout_seed": 0,
+      "metrics": {
+        "task_score": 0.0,
+        "success_score_ge100": false,
+        "environment_steps": 20,
+        "native_terminated": false,
+        "horizon_truncated": true,
+        "termination_reason": "interaction_horizon"
+      },
+      "costs": {
+        "agent_calls": 77,
+        "draft_calls": 20,
+        "reflection_revision_calls": 57,
+        "wm_calls": 75,
+        "total_model_calls": 152,
+        "judge_calls": 0,
+        "router_model_calls": 0,
+        "draft_usage": {
+          "prompt_tokens": 6606,
+          "completion_tokens": 677,
+          "total_tokens": 7283
+        },
+        "reflection_revision_usage": {
+          "prompt_tokens": 69904,
+          "completion_tokens": 3361,
+          "total_tokens": 73265
+        },
+        "wm_usage": {
+          "prompt_tokens": 194456,
+          "completion_tokens": 1050,
+          "total_tokens": 195506
+        },
+        "total_usage": {
+          "prompt_tokens": 270966,
+          "completion_tokens": 5088,
+          "total_tokens": 276054
+        },
+        "agent_generation_seconds": 138.21746771782637,
+        "reflection_revision_generation_seconds": 115.32888069748878,
+        "internal_signal_seconds": 0,
+        "retrieval_calls": 0,
+        "retrieval_seconds": 0,
+        "external_judge_seconds": 0,
+        "gate_rule_seconds": 0.0001865345984697342,
+        "signals_evidence_gate_seconds": 0.009168893098831177,
+        "wm_prediction_http_seconds": 21.026381727308035,
+        "wm_context_setup_seconds": 0.01631143130362034,
+        "episode_total_latency_seconds": 169.53265823610127,
+        "extra_backbone_forward_passes": 0,
+        "gate_call_steps": 20,
+        "gate_skip_steps": 0,
+        "budget_blocked_steps": 0,
+        "estimated_monetary_cost": null,
+        "pricing_status": "no_reliable_tariff",
+        "actor_peak_allocated_bytes": 8475501568
+      },
+      "configuration_signature": "9050f7d5b87fdb31a5301b362f6763dcb62245c461d605daa68c92ebb32d726b",
+      "attempt": 1,
+      "initial_observation_sha256": "ae5741330eb18468bcc6afa7e20c7594fd8fa9b9581eec7bc7473e464d12c6c9",
+      "first_draft_response_ids": [
+        41462,
+        1064,
+        25,
+        576,
+        9788,
+        19699,
+        468,
+        374,
+        537,
+        10007,
+        304,
+        279,
+        1482,
+        21930,
+        13,
+        2303,
+        18896,
+        1200,
+        15512,
+        25,
+        576,
+        8315,
+        686,
+        1184,
+        311,
+        2711,
+        369,
+        279,
+        9788,
+        19699,
+        468,
+        13,
+        2303,
+        2512,
+        25,
+        1401,
+        2163
+      ],
+      "episode_path": "always/sciworld_2417/attempt-1",
+      "wm_context_costs": [
+        {
+          "task_id": "sciworld_2417",
+          "seconds": 0.0007739439606666565,
+          "characters": 10029,
+          "only_visible_to_wm": true,
+          "method": "validated-room-initializer-v1",
+          "description_sha256": "5e94ed23ca446a5b29fb06be129e38d79f438bebe8901ca83341ebb891c1f35a",
+          "source": "/data1/shn/agentwmv3/outputs/phase55_setup/validated_initializers/sciworld_2417.json",
+          "offline_collection_separate": true
+        }
+      ]
+    },
+    {
+      "task_id": "sciworld_1569",
+      "goal_group": "0cf73261217f7591140e4f4a730f5f811eb39f9f9b04d434a4a1f76abccbe5b7",
+      "category": "test_conductivity",
+      "policy": "always",
+      "rollout_seed": 0,
+      "metrics": {
+        "task_score": 55.0,
+        "success_score_ge100": false,
+        "environment_steps": 20,
+        "native_terminated": false,
+        "horizon_truncated": true,
+        "termination_reason": "interaction_horizon"
+      },
+      "costs": {
+        "agent_calls": 75,
+        "draft_calls": 20,
+        "reflection_revision_calls": 55,
+        "wm_calls": 55,
+        "total_model_calls": 130,
+        "judge_calls": 0,
+        "router_model_calls": 0,
+        "draft_usage": {
+          "prompt_tokens": 6098,
+          "completion_tokens": 763,
+          "total_tokens": 6861
+        },
+        "reflection_revision_usage": {
+          "prompt_tokens": 55847,
+          "completion_tokens": 3335,
+          "total_tokens": 59182
+        },
+        "wm_usage": {
+          "prompt_tokens": 130957,
+          "completion_tokens": 434,
+          "total_tokens": 131391
+        },
+        "total_usage": {
+          "prompt_tokens": 192902,
+          "completion_tokens": 4532,
+          "total_tokens": 197434
+        },
+        "agent_generation_seconds": 139.34939033910632,
+        "reflection_revision_generation_seconds": 113.58444291353226,
+        "internal_signal_seconds": 0,
+        "retrieval_calls": 0,
+        "retrieval_seconds": 0,
+        "external_judge_seconds": 0,
+        "gate_rule_seconds": 0.00019396468997001648,
+        "signals_evidence_gate_seconds": 0.009115677326917648,
+        "wm_prediction_http_seconds": 9.721090296283364,
+        "wm_context_setup_seconds": 0.015717320144176483,
+        "episode_total_latency_seconds": 153.84326311945915,
+        "extra_backbone_forward_passes": 0,
+        "gate_call_steps": 20,
+        "gate_skip_steps": 0,
+        "budget_blocked_steps": 0,
+        "estimated_monetary_cost": null,
+        "pricing_status": "no_reliable_tariff",
+        "actor_peak_allocated_bytes": 8422623744
+      },
+      "configuration_signature": "9050f7d5b87fdb31a5301b362f6763dcb62245c461d605daa68c92ebb32d726b",
+      "attempt": 1,
+      "initial_observation_sha256": "75f1bd5214e9bcc9570be43d8ab92a401dbde646e21d33f09c41fed49b346e22",
+      "first_draft_response_ids": [
+        41462,
+        1064,
+        25,
+        576,
+        21049,
+        86437,
+        374,
+        7407,
+        304,
+        279,
+        5382,
+        3054,
+        13,
+        2303,
+        18896,
+        1200,
+        15512,
+        25,
+        576,
+        21049,
+        86437,
+        686,
+        387,
+        10820,
+        438,
+        2987,
+        9072,
+        745,
+        6786,
+        533,
+        476,
+        2477,
+        443,
+        67143,
+        13,
+        2303,
+        2512,
+        25,
+        5244,
+        389,
+        18575,
+        21049,
+        86437
+      ],
+      "episode_path": "always/sciworld_1569/attempt-1",
+      "wm_context_costs": [
+        {
+          "task_id": "sciworld_1569",
+          "seconds": 0.0007403213530778885,
+          "characters": 9140,
+          "only_visible_to_wm": true,
+          "method": "validated-room-initializer-v1",
+          "description_sha256": "27344c3415f3160ea780bd61fff07914ddb2ebe4652e18158866e6abb9dab5b2",
+          "source": "/data1/shn/agentwmv3/outputs/phase55_setup/validated_initializers/sciworld_1569.json",
+          "offline_collection_separate": true
+        }
+      ]
+    },
+    {
+      "task_id": "sciworld_3070",
+      "goal_group": "4ae0f2d7eef75b8a6471881591ad0b0e565d840506f57dbc8683d22fa8105082",
+      "category": "find",
+      "policy": "always",
+      "rollout_seed": 0,
+      "metrics": {
+        "task_score": -100.0,
+        "success_score_ge100": false,
+        "environment_steps": 1,
+        "native_terminated": true,
+        "horizon_truncated": false,
+        "termination_reason": "native_terminal"
+      },
+      "costs": {
+        "agent_calls": 3,
+        "draft_calls": 1,
+        "reflection_revision_calls": 2,
+        "wm_calls": 2,
+        "total_model_calls": 5,
+        "judge_calls": 0,
+        "router_model_calls": 0,
+        "draft_usage": {
+          "prompt_tokens": 323,
+          "completion_tokens": 35,
+          "total_tokens": 358
+        },
+        "reflection_revision_usage": {
+          "prompt_tokens": 1301,
+          "completion_tokens": 110,
+          "total_tokens": 1411
+        },
+        "wm_usage": {
+          "prompt_tokens": 4511,
+          "completion_tokens": 16,
+          "total_tokens": 4527
+        },
+        "total_usage": {
+          "prompt_tokens": 6135,
+          "completion_tokens": 161,
+          "total_tokens": 6296
+        },
+        "agent_generation_seconds": 4.88459961488843,
+        "reflection_revision_generation_seconds": 3.693707102909684,
+        "internal_signal_seconds": 0,
+        "retrieval_calls": 0,
+        "retrieval_seconds": 0,
+        "external_judge_seconds": 0,
+        "gate_rule_seconds": 1.0117888450622559e-05,
+        "signals_evidence_gate_seconds": 0.0006669722497463226,
+        "wm_prediction_http_seconds": 0.5389624275267124,
+        "wm_context_setup_seconds": 0.0163058340549469,
+        "episode_total_latency_seconds": 7.3246498722583055,
+        "extra_backbone_forward_passes": 0,
+        "gate_call_steps": 1,
+        "gate_skip_steps": 0,
+        "budget_blocked_steps": 0,
+        "estimated_monetary_cost": null,
+        "pricing_status": "no_reliable_tariff",
+        "actor_peak_allocated_bytes": 8283955200
+      },
+      "configuration_signature": "9050f7d5b87fdb31a5301b362f6763dcb62245c461d605daa68c92ebb32d726b",
+      "attempt": 1,
+      "initial_observation_sha256": "3611fc880c9735cf8bd8c9ddb7fa18d8a8d07f6b9cbd86c994a2736f915b2343",
+      "first_draft_response_ids": [
+        41462,
+        1064,
+        25,
+        576,
+        26214,
+        5610,
+        3015,
+        323,
+        264,
+        23727,
+        13,
+        2303,
+        18896,
+        1200,
+        15512,
+        25,
+        576,
+        23727,
+        1231,
+        387,
+        1483,
+        311,
+        3271,
+        279,
+        3015,
+        13,
+        2303,
+        2512,
+        25,
+        4914,
+        3015,
+        304,
+        23727,
+        13
+      ],
+      "episode_path": "always/sciworld_3070/attempt-1",
+      "wm_context_costs": [
+        {
+          "task_id": "sciworld_3070",
+          "seconds": 0.0007802564650774002,
+          "characters": 9448,
+          "only_visible_to_wm": true,
+          "method": "validated-room-initializer-v1",
+          "description_sha256": "24ba750503669bbacd71a867517a24401b65666181fc82e461fadbbabdfb2e22",
+          "source": "/data1/shn/agentwmv3/outputs/phase55_setup/validated_initializers/sciworld_3070.json",
+          "offline_collection_separate": true
+        }
+      ]
+    }
+  ],
+  "server_requests": 190,
+  "server_counter": 190.0,
+  "forecast_rows": [
+    {
+      "task": "sciworld_742",
+      "step": 1,
+      "exact": true
+    },
+    {
+      "task": "sciworld_742",
+      "step": 2,
+      "exact": true
+    },
+    {
+      "task": "sciworld_742",
+      "step": 3,
+      "exact": true
+    },
+    {
+      "task": "sciworld_742",
+      "step": 4,
+      "exact": true
+    },
+    {
+      "task": "sciworld_128",
+      "step": 1,
+      "exact": true
+    },
+    {
+      "task": "sciworld_128",
+      "step": 2,
+      "exact": true
+    },
+    {
+      "task": "sciworld_128",
+      "step": 3,
+      "exact": true
+    },
+    {
+      "task": "sciworld_128",
+      "step": 4,
+      "exact": true
+    },
+    {
+      "task": "sciworld_128",
+      "step": 5,
+      "exact": true
+    },
+    {
+      "task": "sciworld_128",
+      "step": 6,
+      "exact": true
+    },
+    {
+      "task": "sciworld_128",
+      "step": 7,
+      "exact": true
+    },
+    {
+      "task": "sciworld_128",
+      "step": 8,
+      "exact": true
+    },
+    {
+      "task": "sciworld_128",
+      "step": 9,
+      "exact": true
+    },
+    {
+      "task": "sciworld_128",
+      "step": 10,
+      "exact": true
+    },
+    {
+      "task": "sciworld_128",
+      "step": 11,
+      "exact": true
+    },
+    {
+      "task": "sciworld_128",
+      "step": 12,
+      "exact": true
+    },
+    {
+      "task": "sciworld_128",
+      "step": 13,
+      "exact": true
+    },
+    {
+      "task": "sciworld_128",
+      "step": 14,
+      "exact": true
+    },
+    {
+      "task": "sciworld_128",
+      "step": 15,
+      "exact": true
+    },
+    {
+      "task": "sciworld_128",
+      "step": 16,
+      "exact": true
+    },
+    {
+      "task": "sciworld_128",
+      "step": 17,
+      "exact": true
+    },
+    {
+      "task": "sciworld_128",
+      "step": 18,
+      "exact": true
+    },
+    {
+      "task": "sciworld_128",
+      "step": 19,
+      "exact": true
+    },
+    {
+      "task": "sciworld_128",
+      "step": 20,
+      "exact": true
+    },
+    {
+      "task": "sciworld_2417",
+      "step": 1,
+      "exact": true
+    },
+    {
+      "task": "sciworld_2417",
+      "step": 2,
+      "exact": true
+    },
+    {
+      "task": "sciworld_2417",
+      "step": 3,
+      "exact": true
+    },
+    {
+      "task": "sciworld_2417",
+      "step": 4,
+      "exact": true
+    },
+    {
+      "task": "sciworld_2417",
+      "step": 5,
+      "exact": true
+    },
+    {
+      "task": "sciworld_2417",
+      "step": 6,
+      "exact": true
+    },
+    {
+      "task": "sciworld_2417",
+      "step": 7,
+      "exact": true
+    },
+    {
+      "task": "sciworld_2417",
+      "step": 8,
+      "exact": true
+    },
+    {
+      "task": "sciworld_2417",
+      "step": 9,
+      "exact": true
+    },
+    {
+      "task": "sciworld_2417",
+      "step": 10,
+      "exact": true
+    },
+    {
+      "task": "sciworld_2417",
+      "step": 11,
+      "exact": true
+    },
+    {
+      "task": "sciworld_2417",
+      "step": 12,
+      "exact": true
+    },
+    {
+      "task": "sciworld_2417",
+      "step": 13,
+      "exact": true
+    },
+    {
+      "task": "sciworld_2417",
+      "step": 14,
+      "exact": true
+    },
+    {
+      "task": "sciworld_2417",
+      "step": 15,
+      "exact": true
+    },
+    {
+      "task": "sciworld_2417",
+      "step": 16,
+      "exact": true
+    },
+    {
+      "task": "sciworld_2417",
+      "step": 17,
+      "exact": true
+    },
+    {
+      "task": "sciworld_2417",
+      "step": 18,
+      "exact": true
+    },
+    {
+      "task": "sciworld_2417",
+      "step": 19,
+      "exact": true
+    },
+    {
+      "task": "sciworld_2417",
+      "step": 20,
+      "exact": true
+    },
+    {
+      "task": "sciworld_1569",
+      "step": 1,
+      "exact": true
+    },
+    {
+      "task": "sciworld_1569",
+      "step": 2,
+      "exact": true
+    },
+    {
+      "task": "sciworld_1569",
+      "step": 3,
+      "exact": true
+    },
+    {
+      "task": "sciworld_1569",
+      "step": 4,
+      "exact": true
+    },
+    {
+      "task": "sciworld_1569",
+      "step": 5,
+      "exact": true
+    },
+    {
+      "task": "sciworld_1569",
+      "step": 6,
+      "exact": true
+    },
+    {
+      "task": "sciworld_1569",
+      "step": 7,
+      "exact": true
+    },
+    {
+      "task": "sciworld_1569",
+      "step": 8,
+      "exact": true
+    },
+    {
+      "task": "sciworld_1569",
+      "step": 9,
+      "exact": true
+    },
+    {
+      "task": "sciworld_1569",
+      "step": 10,
+      "exact": true
+    },
+    {
+      "task": "sciworld_1569",
+      "step": 11,
+      "exact": true
+    },
+    {
+      "task": "sciworld_1569",
+      "step": 12,
+      "exact": true
+    },
+    {
+      "task": "sciworld_1569",
+      "step": 13,
+      "exact": true
+    },
+    {
+      "task": "sciworld_1569",
+      "step": 14,
+      "exact": true
+    },
+    {
+      "task": "sciworld_1569",
+      "step": 15,
+      "exact": true
+    },
+    {
+      "task": "sciworld_1569",
+      "step": 16,
+      "exact": true
+    },
+    {
+      "task": "sciworld_1569",
+      "step": 17,
+      "exact": true
+    },
+    {
+      "task": "sciworld_1569",
+      "step": 18,
+      "exact": true
+    },
+    {
+      "task": "sciworld_1569",
+      "step": 19,
+      "exact": true
+    },
+    {
+      "task": "sciworld_1569",
+      "step": 20,
+      "exact": true
+    },
+    {
+      "task": "sciworld_3070",
+      "step": 1,
+      "exact": true
+    }
+  ],
+  "all_initializer_files_verified": true
+}

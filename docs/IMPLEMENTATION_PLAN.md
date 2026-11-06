@@ -2,7 +2,7 @@
 
 ## Phase control
 
-Current phase: **5, explicitly authorized and completed engineering validation**. Phase4 accepted by user; Phase6–7 await new user confirmation. Read PHASE5_REPORT.md, WM_FAILURE_AUDIT.md, SMALL_SCALE_EVAL.md and PROGRESS.md when resuming. Hypotheses1/2 remain unverified. Development-only distribution thresholds are frozen, not proven stable/useful across seeds. Shared Memory v2 has3 conservative cards from54 TRAIN cases. Memory Correction and confirmed-action skip remain disabled. No training or complete200x8 benchmark was run.
+Current phase: **5.5 COMPLETE; await explicit confirmation for any next phase**. Phase6 large evaluation is not approved. See PHASE5_5_REPORT.md, REVIEWER_AUDIT.md, WM_UTILITY_DIAGNOSTICS.md and PROGRESS.md. No positive paired final-score WM utility established. Original algorithms and protected inputs remain unchanged; initializer repair and guard are explicit independent variants.
 
 Read REPOSITORY_AUDIT.md and SPANUQ_AUDIT.md before modifying code. Existing components: audited Agent/benchmark loops, WM backends, reflection protocols, snapshot/replay, scheduler and task logs. Implemented additions: isolated Qwen3-4B inference, structured Science decisions and formal Token NLL signals. Still missing: validated optional SpanUQ integration, broader independently validated experience coverage, pre-WM Gate and complete system-cost accounting/fresh-server validation.
 
@@ -90,6 +90,20 @@ Both Phase4 final failures were forecast correctly; reviewer grounding/decision 
 Train-only Memory extension adds one same-room observation card from the existing54 cases,2 independent supports/no counters; base snapshot unchanged. Shared frozen snapshot, unused modules skipped. Natural Sufficiency positive still absent; Full coverage10/73 and conflict3/73. Eleven low-Local-NLL historical conflict shadow cases are exploratory, not gate-training inputs or utility proof.
 
 See PHASE5_REPORT.md, SMALL_SCALE_EVAL.md, WM_FAILURE_AUDIT.md and docs/phase5 for actual commands, costs, per-task scores, complete raw-log hashes and remaining risks. All online diagnostic totals1,628,427 tokens/873 model calls/1212.106s episode wall time; setup/calibration/offline construction separately reported. Owned services stopped and GPUs released. **Stop before Phase6.** Full benchmark, matched-budget sweeps, cross-benchmark runs and fresh-server reproduction remain unauthorized/unperformed.
+
+## Phase 5.5 — WM verification and Reviewer effectiveness audit
+
+Completed. All20 Phase5 source trajectories/315 real WM replies/past-only prefixes audited. No score extraction or duplicate-main-step defect. The one3070 wrong-goal focus explains the mean-score gap. SDK clock termination is distinguished from task completion; PAPER_ALIGNED_EVAL.md contains an explicit clarification.
+
+Four independent variants x5 original dev tasks/seed0/H20: Never-9, Original-29, Prediction-Only-9, Validity-Checked-28; all0 success. Never/Original trajectories reproduce Phase5 exactly; Prediction-Only matches Never.31 new unit contracts plus133 related regression cases pass (164 total).
+
+Five strict paired branch points selected as first Full call per task, live-JVM heap/RNG/Python reward state restored, identical Actor prefixes/first Draft IDs/budgets/turn seeds, one intervention then Never.0 positive/1 negative/4 zero final-score utilities. New reconstructed shared states are not asserted identical to historical hidden heaps.
+
+Actual initializer defect found: root terminals/sewer treated as rooms, failed/ambiguous teleports contaminate subsequent queries/labels. Independent repair uses official action enumeration, per-room snapshot isolation and observed-room verification. All5 tasks have10 verified rooms; repeat look facts match, aliases can vary. Freeze first actual descriptions before outcome measurement. Separate5 corrected-initializer/original-Reviewer Episodes remain-29/0 success,804134 tokens; no hidden baseline replacement. Upstream code, default Gate/reviewer, Actor/NLL config, Memory/thresholds and final test identities remain unchanged.
+
+Original token drift between reruns is isolated to WM system strings; actual requests counted once.100 same-decision identical WM requests are redundancy by review retry/cycles, not duplicate environment execution. Snapshot/API validity/partial progress alone do not establish utility. The initial network outage caused idle WM service residency, disclosed separately; corrected owned-service supervisor cleans in finally. All owned services now stopped.
+
+Read PHASE5_5_REPORT.md (ten answers), REVIEWER_AUDIT.md (real category examples), WM_UTILITY_DIAGNOSTICS.md (matched branches) and docs/phase55 (real results/costs/source hashes). Total462 Actor actions, within600 bound; no model training, Test rollout, threshold search, memory extension or Phase6 work. Recommend goal-grounded verification and one common validated initializer before formal matched-budget comparisons. Stop for user confirmation.
 
 ## Phase 6 — baselines, ablations and analysis
 

@@ -1,0 +1,16 @@
+{
+  "owned_services_stopped": [
+    {
+      "pid": 1523661,
+      "command": "/home/shn/miniconda3/envs/ee-scienceworld/bin/python -u scripts/serve_scienceworld_diagnostics.py --port 36055 ",
+      "service": "environment_job.json"
+    },
+    {
+      "pid": 1523662,
+      "command": "/home/shn/miniconda3/envs/verl-agent/bin/python3.12 /home/shn/miniconda3/envs/verl-agent/bin/vllm serve /data1/shn/agentwmv2/checkpoints/word2world/scienceworld --host 127.0.0.1 --port 18212 --served-model-name word2world-scienceworld --dtype bfloat16 --max-model-len 32768 --gpu-memory-utilization 0.90 --max-num-seqs 1 --enforce-eager ",
+      "service": "wm_job.json"
+    }
+  ],
+  "open_sessions": 0,
+  "other_jobs_untouched": true
+}

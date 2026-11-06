@@ -1,0 +1,9 @@
+{
+  "post_experiment_resident_service_seconds_approx": 184743.42618465424,
+  "post_experiment_resident_service_hours_approx": 51.31761838462618,
+  "end_evidence": "cleanup.json original filesystem mtime",
+  "start_evidence": "successful branches_job finished_at_ns",
+  "cause": "network outage prevented client cleanup after detached experiments; fixed corrective supervisor uses finally cleanup",
+  "not_inference_latency": true,
+  "not_converted_to_monetary_cost": true
+}
