@@ -1,0 +1,211 @@
+{
+  "purpose": "phase57_development_engineering_diagnostic_not_final_benchmark",
+  "git_base": "fdbfa664a7beec7976f83bd177d11afff42d0408",
+  "calibration_tasks": [
+    {
+      "task_id": "sciworld_142",
+      "index": 142,
+      "taskName": "use-thermometer",
+      "variationIdx": 22,
+      "category": "measure",
+      "goal_sha256": "22868922a3611a7522656914cf00ed23d941a2fc078e94ace31a455772e1f464",
+      "goal_group": "07c1b6f7b28dcb960f49b84194794b6883d6975ed73bd1139dbbf2e3af901fd6",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_1481",
+      "index": 1481,
+      "taskName": "test-conductivity",
+      "variationIdx": 45,
+      "category": "test_conductivity",
+      "goal_sha256": "2c0fc6f3a778d1de916b35fd5377ec0f90ac0bb8fe96c4fedfcec03e38fadde5",
+      "goal_group": "0980e146e5ce5074668256e3635c2d2a0e8681c5342b6a8791d1f278a84a11c4",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_383",
+      "index": 383,
+      "taskName": "use-thermometer",
+      "variationIdx": 263,
+      "category": "measure",
+      "goal_sha256": "30be977c9e5838d2e3b7c4f848a808ffbcbf0e0d3e49f7103c20f0710a27cc9d",
+      "goal_group": "103226a834ab53975acdfe50633a06b9f932fb1630a90388c90378bc1c8e010b",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_4420",
+      "index": 4420,
+      "taskName": "lifespan-shortest-lived",
+      "variationIdx": 55,
+      "category": "lifespan",
+      "goal_sha256": "5fd66d15a4eaa5d104b8b4223ed86eab3f1f26e4cf410db84b8b585ea3b55c79",
+      "goal_group": "35cdca1afe981286a6d2551a25f3b2836d6887e6f07425ac0945609fa06f14a2",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_3342",
+      "index": 3342,
+      "taskName": "find-non-living-thing",
+      "variationIdx": 106,
+      "category": "find",
+      "goal_sha256": "764db49163d42a71214f223ec45f5f6b2f92d6d14ad18e737cb12c9f1f4ad889",
+      "goal_group": "4528de755c16831995c7a6ea0209a8d11217c041336e3ad25f8bf9975cf3903f",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_4215",
+      "index": 4215,
+      "taskName": "chemistry-mix-paint-tertiary-color",
+      "variationIdx": 11,
+      "category": "chemistry_mix",
+      "goal_sha256": "a423613fb186e5367c35da5cbeeaf53bddba79808ecccd7ad9674af933922127",
+      "goal_group": "7d39ee60e30952cfe9974fa4a87ce4fc7845798962a4c16fffd62627a1d769d9",
+      "split": "development"
+    }
+  ],
+  "evaluation_tasks": [
+    {
+      "task_id": "sciworld_128",
+      "index": 128,
+      "taskName": "use-thermometer",
+      "variationIdx": 8,
+      "category": "measure",
+      "goal_sha256": "b4a904d903f91aca14abe84250c8224c9dc059160e9682ce1b59b6da646ccd20",
+      "goal_group": "20af3405fc2b88439bf791d18d7c85111e8854f1b14ad477cd3449d331f9930a",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_2417",
+      "index": 2417,
+      "taskName": "test-conductivity-of-unknown-substances",
+      "variationIdx": 81,
+      "category": "test_conductivity",
+      "goal_sha256": "b70fdbf909c7782a7ccafd88336875445ea6f0669777f08faae3a7f29e970879",
+      "goal_group": "2aca8a7ff4bb953d613a30dd03c35c3551968bdeac866d038cff5a4b94eb88d1",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_3070",
+      "index": 3070,
+      "taskName": "find-living-thing",
+      "variationIdx": 134,
+      "category": "find",
+      "goal_sha256": "1ee32c4efdbef5de540dce2442b56e44c777a566367841f5448f0f5fc6e6a77f",
+      "goal_group": "4ae0f2d7eef75b8a6471881591ad0b0e565d840506f57dbc8683d22fa8105082",
+      "split": "development"
+    }
+  ],
+  "model_config": {
+    "schema_version": 1,
+    "backend": "hf_qwen35_generation_raw_bf16_v1",
+    "dtype": "bfloat16",
+    "model_id": "Qwen/Qwen3.5-9B",
+    "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "transformers_version": "5.22.2",
+    "torch_version": "2.8.0",
+    "temperature": 0.4,
+    "top_p": 1,
+    "top_k": 0,
+    "repetition_penalty": 1,
+    "max_new_tokens": 512,
+    "max_prompt_tokens": 4096,
+    "history_length": 2,
+    "enable_thinking": false,
+    "eos_token_ids": [
+      248044,
+      248046
+    ],
+    "eos_policy": "official_model_eos_plus_official_chat_tokenizer_eos",
+    "missing_policy": "global_only",
+    "seed": 0,
+    "prompt_schema": "scienceworld-premise-consequence-action-v1",
+    "action_format": "last_Action_tail_native_ScienceWorld",
+    "purpose": "phase57_frozen_posttrained_9b_development_only_oracle_like_replay"
+  },
+  "pilot_profile": {
+    "purpose": "development_functional_validation_not_final_benchmark",
+    "actor_model": "Qwen/Qwen3.5-9B",
+    "reviewer_model": "Qwen/Qwen3.5-9B",
+    "shared_weights": true,
+    "wm_backend": "ground_truth_environment_replay",
+    "simulation_depth": 1,
+    "review_rounds": 1,
+    "maximum_interaction_turns": 20,
+    "history_length": 2,
+    "prompt_limit": 4096,
+    "response_limit": 512,
+    "temperature": 0.4,
+    "top_p": 1.0,
+    "top_k": 0,
+    "simplifications": "",
+    "environment_step_limit": 21,
+    "task_seed": 0,
+    "rollout_seeds": [
+      0
+    ],
+    "rng_seed_policy": "set_before_load_and_after_load",
+    "sdk_transition_policy": "public_native_step_without_rng_mutating_valid_action_query",
+    "reconstruction_failure": "no_reviewer_keep_original_draft",
+    "calibration_tasks": [
+      "sciworld_142",
+      "sciworld_1481",
+      "sciworld_383",
+      "sciworld_4420",
+      "sciworld_3342",
+      "sciworld_4215"
+    ],
+    "calibration_max_actions": 8,
+    "calibration_quantile": 0.75,
+    "evaluation_tasks": [
+      "sciworld_128",
+      "sciworld_2417",
+      "sciworld_3070"
+    ],
+    "wm_invocation_budgets": {
+      "never": 0,
+      "always": 20,
+      "internal": 5,
+      "full": 5
+    },
+    "memory_snapshot": "docs/phase5/memory_snapshot_v2.json",
+    "reviewer_feedback_fields": [
+      "predicted_observation",
+      "predicted_reward",
+      "predicted_done",
+      "predicted_score"
+    ],
+    "full_hidden_state_equivalence_claimed": false
+  },
+  "calibration_max_actions": 8,
+  "episode_max_actions": 20,
+  "model_rollout_seed": 0,
+  "simulator_seed": 0,
+  "simplifications": "",
+  "environment_step_limit": 21,
+  "simulation_depth": 1,
+  "review_rounds": 1,
+  "feedback_permissions": [
+    "trial_observation",
+    "trial_reward",
+    "trial_done",
+    "trial_score"
+  ],
+  "query_policy": "native_step_without_rng_mutating_valid_action_enumeration/post_load_seed",
+  "bounded_state_verification": true,
+  "complete_hidden_state_equivalence": false,
+  "no_training": true,
+  "no_learned_wm_calls": true,
+  "source_hashes": {
+    "scripts/run_phase57_replay.py": "7fe3350fd53e3e7bc854cffd65635da90826199617e3c13d75323ee763339552",
+    "worldmodel/ground_truth_environment.py": "59de2b04170e6dc9d52e6228799e4f49ad4a252120da4c76c3a1b78082225cc8",
+    "reflection/replay_review.py": "0953d5df6de4e5ba097e5883836cbee1c2917bddce6bee34af23160f8a3bfe80",
+    "internal_signals/qwen35_actor.py": "e9690b1ac1075c35138753078fe7099c6e2bd075951f080217a38c128f856599",
+    "internal_signals/hf_actor.py": "cb3ba32ee3f7dfa7032ecb288b6d6eb6221fea6d7f09cd3d0eae486407d97341",
+    "internal_signals/provider.py": "c7def80ab3f951ad8bb2457053a118b8cccfeb18cd682281545d685feb9d1b16",
+    "internal_signals/token_nll.py": "69711504b838f2fcf4cb4bdb6ac49cb19c8a9424a509b5210a25826153ca01dd",
+    "gates/core.py": "39c9113e352b027d94764fcdbd1fe2fed34f10931cbb4349af650afb0d9187f3"
+  },
+  "memory_sha256": "e44f5ad3ef7ca3c3e310ef5a1eeb40c2f19f724c8bcc8cda07b3156a8a8e6186",
+  "split_sha256": "6c354103f931d9c398be6ceddd3cb33755372643d0beef9ca052c57feb661fce",
+  "paper_protocol_sha256": "add22fedd5f7f2803b53e087756b727135099f85e60bc88d3b93f0b06368bab0"
+}

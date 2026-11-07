@@ -1,0 +1,8 @@
+{
+  "repo": "Qwen/Qwen3.5-9B",
+  "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "files": 13,
+  "verified": true,
+  "downloaded": false,
+  "seconds": 14.842895621433854
+}

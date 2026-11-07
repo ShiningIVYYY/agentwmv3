@@ -7,19 +7,21 @@ from .hidden_states import response_alignment
 from .token_nll import summarize_fields
 
 BACKEND = "hf_generation_raw_bf16_v1"
+QWEN35_BACKEND = "hf_qwen35_generation_raw_bf16_v1"
 
 
 class TokenNLLProvider:
     def __init__(self, tokenizer, config):
         self.tokenizer, self.config = tokenizer, config
-        if config["backend"] != BACKEND or config["dtype"] != "bfloat16":
+        self.backend = config["backend"]
+        if self.backend not in (BACKEND, QWEN35_BACKEND) or config["dtype"] != "bfloat16":
             raise ValueError("Current provider accepts only its pinned raw-generation BF16 backend")
         if config["missing_policy"] not in ("global_only", "null"):
             raise ValueError("Unknown missing-field fallback")
 
     def extract(self, record):
         started = time.perf_counter()
-        if record["backend"] != BACKEND or record["dtype"] != self.config["dtype"]:
+        if record["backend"] != self.backend or record["dtype"] != self.config["dtype"]:
             raise ValueError("Generation provider/dtype mismatch; scores cannot be mixed")
         if record["model_revision"] != self.config["model_revision"]:
             raise ValueError("Generation model revision mismatch")
@@ -74,5 +76,5 @@ class TokenNLLProvider:
         return InternalSignals(
             premise, consequence, local, global_value, missing, len(values),
             record["reduction_seconds"] + time.perf_counter() - started,
-            BACKEND, self.config["dtype"], self.config["model_revision"],
+            self.backend, self.config["dtype"], self.config["model_revision"],
             "partial" if missing else "ok", errors, details)

@@ -1,10 +1,43 @@
 # agentwmv3
 
-Current architecture decision: **Qwen/Qwen3.5-9B Actor and Reviewer + isolated real-environment one-step WM**. Phase5.7 is **BLOCKED at reliable complete-state copying into an independent ScienceWorld instance**. Six real dev-task/seed probes pass bounded independent-instance isolation and transition checks; they do not implement full-state cloning. Per the phase's mandatory stop condition, no9B weights/inference/environment installation, new thresholds or four-strategy episodes were attempted. No learned Qwen2.5 WM was started or called.
+Current architecture: **frozen Qwen/Qwen3.5-9B Actor and Reviewer, sharing one model, plus verified independent ScienceWorld Reset + Replay lookahead**. Phase5.7 bounded integration/diagnostics are complete; **Phase6 is not authorized**. No learned Qwen2.5 WM is used by the new path. Old code remains for historical reproduction.
 
-Read [Phase5.7 report](docs/PHASE5_7_REPORT.md), [real-environment WM prerequisite](docs/REAL_ENVIRONMENT_WM.md), [9B metadata/compatibility audit](docs/QWEN35_9B_INTEGRATION.md), and [progress](docs/PROGRESS.md). The two new scripts are audit-only entrypoints: `scripts/audit_phase57_clone.py` (SDK Python; exit42 means blocked) and `scripts/audit_qwen35_metadata.py` (small official metadata only). There is no approved9B/isolated-WM runner yet. Do not run the historical learned-WM/rollback commands below as Phase5.7, and do not reuse4B thresholds for9B. Phase6 remains on hold.
+Read the [Phase5.7 report](docs/PHASE5_7_REPORT.md), [real-environment protocol](docs/REAL_ENVIRONMENT_WM.md), [9B integration](docs/QWEN35_9B_INTEGRATION.md), [actual evidence](docs/phase57_replay/summary.json) and [progress](docs/PROGRESS.md). This is Oracle-Like simulator access, not learned-WM prediction performance. Replay verifies only a subset:27/48 controlled states; the12-episode run accepts21/75 attempts and safely rejects54. No full hidden-state equivalence is claimed.
 
-Historical status follows:
+Three dev tasks xNever/Always/Internal/Full,seed0:mean Task Scores-61/-7.67/-100/41.67; all success rates0. One observed repair gives+8 immediate score, but7/13 replacements receive explicit rejection. This is engineering evidence, not proof of scientific effectiveness. Full uses fewer extra simulator queries than Always but slightly more total model tokens. Do not tune on the final200 tasks or run200x8 from this diagnostic.
+
+## Current setup and bounded commands
+
+Tested on Linux,Python3.12,RTX4090; one free24GB card is sufficient for the tested BF16 path. The recommended pure inference environment has no inherited RL/vLLM packages,pip check passes,91 tests pass,and numerical portability matches two actual prompts. The published12-episode run used the earlier overlay environment; that distinction is retained in the report. Old environments are unchanged.
+
+```bash
+# Fresh environment only; do not overwrite a stable environment.
+python3.12 -m venv .venv-qwen35-clean
+.venv-qwen35-clean/bin/python -m pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cu128
+.venv-qwen35-clean/bin/python -m pip install -r environment/qwen35-replay-requirements.txt
+.venv-qwen35-clean/bin/python -m pip check
+
+# Only pinned official post-trained9B assets; honors HF_HOME/HF_ENDPOINT.
+.venv-qwen35-clean/bin/python scripts/download_qwen35.py --model-dir checkpoints/qwen35_9b
+.venv-qwen35-clean/bin/python scripts/download_qwen35.py --model-dir checkpoints/qwen35_9b --verify-only
+
+PYTHONNOUSERSITE=1 .venv-qwen35-clean/bin/python scripts/test_replay_integration.py
+PYTHONNOUSERSITE=1 .venv-qwen35-clean/bin/python scripts/test_qwen35_tokenizer.py --model-dir checkpoints/qwen35_9b
+
+# Select a free card with nvidia-smi; GPU3 is an example, not a reservation.
+AGENTWM_GPU=3
+CUDA_VISIBLE_DEVICES="$AGENTWM_GPU" PYTHONNOUSERSITE=1 PYTHONDONTWRITEBYTECODE=1 \
+ .venv-qwen35-clean/bin/python scripts/run_phase57_replay.py \
+ --model-dir checkpoints/qwen35_9b --output outputs/phase57_new_run
+```
+
+The driver permits only a bounded approved development cohort,seed0,H20. It collects its own6-task pilot calibration before the3-task/four-policy run; every output requires a new Run ID. Original v5 strictly reused v4's frozen40-step collection with `--calibration-source outputs/phase57_replay_9b_v4`. The committed [calibration values](docs/phase57_replay/calibration_values.json) and [pilot Gate config](configs/gates/qwen35_replay_pilot_v1.json) identify that exact result. Different model/config/kernel/dtype paths need validation and calibration. Native cross-JVM physics remains nondeterministic, so exact fresh trajectory reproduction is not guaranteed.
+
+Standalone real environment checks use `scripts/validate_reset_replay.py` and `scripts/reproduce_replay_rng.py`; post-run checks use `scripts/audit_phase57_replay.py`. Requirements/complete observed lock are under `environment/`. All commands refer to actual scripts. Large weights,venvs,raw trajectories and caches remain ignored. No model/router/probe training is performed.
+
+## Historical deployments and reports
+
+The text below is historical. Its Qwen2.5/old-Actor/live-JVM rollback launch commands are NOT the Phase5.7 architecture. The initial full-clone audit is preserved separately in [PHASE5_7_INITIAL_AUDIT.md](docs/PHASE5_7_INITIAL_AUDIT.md).
 
 Current status: **Phase5.5 WM/Reviewer audit complete; Phase6 remains on hold.** See [ten-question report](docs/PHASE5_5_REPORT.md), [Reviewer audit](docs/REVIEWER_AUDIT.md), [strict utility diagnostics](docs/WM_UTILITY_DIAGNOSTICS.md), and [compact actual evidence](docs/phase55/results.json). Four development variants and five strict live-heap pairs find no positive final-score intervention (0 positive/1 negative/4 zero); all cohort success rates0. A real WM initializer/parser-state defect has an independently tested opt-in repair, with all original algorithms/results retained. Corrected initialization still yields mean-29/0 success;164 unit/regression tests and real cost/causal audits pass. No training, Memory/threshold changes, final200x8 sweep or Phase6 work. Owned services have been cleaned up. Old documentation below is historical.
 

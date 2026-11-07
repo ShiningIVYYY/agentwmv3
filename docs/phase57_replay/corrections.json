@@ -1,0 +1,145 @@
+[
+  {
+    "policy": "always",
+    "task_id": "sciworld_2417",
+    "step": 1,
+    "draft": "go hallway",
+    "final": "open door to the hallway",
+    "trial_feedback": "The door is not open.",
+    "actual_feedback": "The door is now open.",
+    "immediate_score_delta": 0,
+    "reason": "The draft action \"go hallway\" failed because the observation indicates the door to the hallway is closed, preventing movement. The goal requires finding \"unknown substance E\" to test for conductivity; since it is not in the current kitchen observation, the agent must search other locations. The agent needs to open the closed doors to explore. Opening the door to the hallway is a valid next step to continue the search."
+  },
+  {
+    "policy": "always",
+    "task_id": "sciworld_2417",
+    "step": 3,
+    "draft": "go workshop",
+    "final": "open door to the workshop",
+    "trial_feedback": "The door is not open.",
+    "actual_feedback": "The door is now open.",
+    "immediate_score_delta": 0,
+    "reason": "The draft action \"go workshop\" fails because the current observation indicates the door to the workshop is closed (implied by the inability to enter and the feedback \"The door is not open\"), whereas the agent is currently in the hallway and needs to open the door first."
+  },
+  {
+    "policy": "always",
+    "task_id": "sciworld_2417",
+    "step": 18,
+    "draft": "look around",
+    "final": "focus on air",
+    "trial_feedback": "This room is called the workshop. In it, you see: \n\tthe agent\n\ta blue box (containing nothing)\n\ta green box (containing nothing)\n\ta green light bulb, which is off\n\ta substance called air\n\ta table. On the table is: a battery, a black wire, a blue wire, a orange light bulb, which is off, a red light bulb, which is off, a switch, which is off, a violet light bulb, which is off, a yellow wire.\n\ta ultra low temperature freezer. The ultra low temperature freezer door is closed. \nYou also see:\n\tA door to the hallway (that is open)",
+    "actual_feedback": "You focus on the air.",
+    "immediate_score_delta": 0,
+    "reason": "The draft action \"look around\" was already executed in the history (step 1) and yielded the same observation. Repeating it provides no new information or progress toward testing substance E. The goal requires focusing on substance E, which is listed in the current observation as \"a substance called air\"."
+  },
+  {
+    "policy": "always",
+    "task_id": "sciworld_128",
+    "step": 1,
+    "draft": "go kitchen",
+    "final": "go living room",
+    "trial_feedback": "The door is not open.",
+    "actual_feedback": "No known action matches that input.",
+    "immediate_score_delta": 0,
+    "reason": "The draft action \"go kitchen\" failed because the observation states the door to the kitchen is closed, making it impossible to enter without opening it first. Additionally, the goal requires measuring substance B in the living room and placing it in boxes in the bedroom; going to the kitchen is not the immediate next step. The agent needs to navigate to the living room first to find substance B."
+  },
+  {
+    "policy": "always",
+    "task_id": "sciworld_128",
+    "step": 2,
+    "draft": "go living room",
+    "final": "go kitchen",
+    "trial_feedback": "No known action matches that input.",
+    "actual_feedback": "The door is not open.",
+    "immediate_score_delta": 0,
+    "reason": "The draft action \"go living room\" failed because the current observation indicates the agent is in the bathroom and the door to the kitchen is closed; there is no door to the living room visible, so the command is invalid. The agent must first navigate to the kitchen to access the living room."
+  },
+  {
+    "policy": "internal",
+    "task_id": "sciworld_3070",
+    "step": 5,
+    "draft": "look around",
+    "final": "go kitchen",
+    "trial_feedback": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta finger painting\n\ta glass cup (containing nothing)\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is closed, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+    "actual_feedback": "The door is not open.",
+    "immediate_score_delta": 0,
+    "reason": "The draft action \"look around\" was already executed in the past history (implied by the current observation state), and the current observation explicitly states \"No known action matches that input,\" indicating a syntax or context error for repeating it. The goal requires moving a living thing to a blue box in the living room, but the current location is the bathroom with no living thing present. The necessary next step is to navigate to the living room via the kitchen door to find the target object and container."
+  },
+  {
+    "policy": "internal",
+    "task_id": "sciworld_3070",
+    "step": 14,
+    "draft": "look in fridge",
+    "final": "open fridge",
+    "trial_feedback": "The fridge isn't open, so you can't see inside.",
+    "actual_feedback": "The fridge is now open.",
+    "immediate_score_delta": 0,
+    "reason": "The draft action \"look in fridge\" failed because the fridge door is closed; the feedback explicitly states \"The fridge isn't open, so you can't see inside.\" To find a living thing (likely inside the fridge or elsewhere), the door must be opened first."
+  },
+  {
+    "policy": "full",
+    "task_id": "sciworld_3070",
+    "step": 7,
+    "draft": "go kitchen",
+    "final": "open door to the kitchen",
+    "trial_feedback": "The door is not open.",
+    "actual_feedback": "The door is now open.",
+    "immediate_score_delta": 8,
+    "reason": "The draft action \"go kitchen\" failed because the observation explicitly states the door to the kitchen is closed; the agent cannot enter without opening it first. The goal requires finding a living thing, and the only potential candidate currently visible is \"water\" in the toilet (as water can be considered a living thing in some contexts or simply the only movable substance besides the agent). To proceed towards the goal, the agent must first open the door to access other rooms where a more obvious living thing might be found, or interact with the water. However, since the immediate barrier is the closed door, the necessary next step is to open it."
+  },
+  {
+    "policy": "full",
+    "task_id": "sciworld_2417",
+    "step": 1,
+    "draft": "go hallway",
+    "final": "open door to the hallway",
+    "trial_feedback": "The door is not open.",
+    "actual_feedback": "The door is now open.",
+    "immediate_score_delta": 0,
+    "reason": "The draft action \"go hallway\" failed because the observation indicates the door to the hallway is closed, preventing movement. The goal requires finding \"unknown substance E\" to test for conductivity; since it is not in the current kitchen observation, the agent must search other locations. The agent needs to open the closed doors to explore. Opening the door to the hallway is a valid next step to continue the search."
+  },
+  {
+    "policy": "full",
+    "task_id": "sciworld_128",
+    "step": 1,
+    "draft": "go kitchen",
+    "final": "go living room",
+    "trial_feedback": "The door is not open.",
+    "actual_feedback": "No known action matches that input.",
+    "immediate_score_delta": 0,
+    "reason": "The draft action \"go kitchen\" failed because the observation states the door to the kitchen is closed, making it impossible to enter without opening it first. Additionally, the goal requires measuring substance B in the living room and placing it in boxes in the bedroom; going to the kitchen is not the immediate next step. The agent needs to navigate to the living room first to find substance B."
+  },
+  {
+    "policy": "full",
+    "task_id": "sciworld_128",
+    "step": 4,
+    "draft": "look around",
+    "final": "go living room",
+    "trial_feedback": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+    "actual_feedback": "No known action matches that input.",
+    "immediate_score_delta": 0,
+    "reason": "The history shows the agent attempted \"go living room\" twice with failure, and the draft \"look around\" resulted in being in the bathroom, not the living room. The goal requires finding unknown substance B in the living room. The current observation confirms the agent is in the bathroom with no substance B visible. The agent must navigate to the correct room first."
+  },
+  {
+    "policy": "full",
+    "task_id": "sciworld_128",
+    "step": 5,
+    "draft": "look around",
+    "final": "go living room",
+    "trial_feedback": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+    "actual_feedback": "No known action matches that input.",
+    "immediate_score_delta": 0,
+    "reason": "The draft action \"look around\" was executed in the wrong room (bathroom) based on the feedback, whereas the goal requires measuring a substance in the living room. The history shows repeated failures to enter the living room, and the current observation confirms the agent is in the bathroom. The agent must first navigate to the correct location."
+  },
+  {
+    "policy": "full",
+    "task_id": "sciworld_128",
+    "step": 6,
+    "draft": "go to living room",
+    "final": "go living room",
+    "trial_feedback": "No known action matches that input.",
+    "actual_feedback": "No known action matches that input.",
+    "immediate_score_delta": 0,
+    "reason": "The action \"go to living room\" is syntactically invalid; the valid command form is \"go living room\" as demonstrated in the past history where it resulted in the same error message. The draft uses a preposition (\"to\") that the environment does not recognize."
+  }
+]

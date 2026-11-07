@@ -1,0 +1,30 @@
+{
+  "coverage": {
+    "true": 10,
+    "unknown": 50
+  },
+  "conflict": {
+    "unknown": 55,
+    "true": 5
+  },
+  "sufficiency": {
+    "unknown": 55,
+    "false": 5
+  },
+  "source_evidence_ids": [
+    "phase3_rule_probes_v1/sciworld_1545/step-1",
+    "phase3_rule_probes_v1/sciworld_1545/step-3",
+    "phase3_rule_probes_v1/sciworld_1667/step-1",
+    "phase3_rule_probes_v1/sciworld_1667/step-3",
+    "phase3_train_v2/sciworld_3044/step-1",
+    "phase3_train_v2/sciworld_3044/step-2",
+    "phase3_train_v2/sciworld_3044/step-3",
+    "phase3_train_v2/sciworld_325/step-4",
+    "phase3_train_v2/sciworld_326/step-3",
+    "phase3_train_v2/sciworld_326/step-4"
+  ],
+  "snapshot_sha256": "e44f5ad3ef7ca3c3e310ef5a1eeb40c2f19f724c8bcc8cda07b3156a8a8e6186",
+  "no_new_experience": true,
+  "memory_correction": false,
+  "confirmed_skip_enabled": false
+}

@@ -1,0 +1,31 @@
+{
+  "evaluation_model_calls": 222,
+  "evaluation_tokens": 111336,
+  "run_model_calls": 223,
+  "run_tokens": 111356,
+  "calibration_model_calls": 40,
+  "calibration_tokens": 16808,
+  "v3_ordinary_validation_tokens": 22,
+  "v4_ordinary_validation_tokens": 20,
+  "v4_extra_validation_tokens_derived_from_proven_parity": 910,
+  "v5_wall_to_summary_seconds": 696.605516365,
+  "formal_episode_initialization_queries": 12,
+  "formal_actions": 201,
+  "lookahead_transition_queries": {
+    "never": 0,
+    "always": 190,
+    "internal": 47,
+    "full": 61
+  },
+  "calibration_initialization_queries": 6,
+  "extra_diagnostic_forward_passes_v3_v4_v5": 3,
+  "diagnostic_forward_input_tokens": 59,
+  "unknown_historical_generation_token_receipts": [
+    "v1 first ordinary generation",
+    "v4 first evaluation draft before Query schema error"
+  ],
+  "historical_stage_total_tokens_exact": false,
+  "offline_new_experience_cost": 0,
+  "owned_logged_processes_checked": 84,
+  "owned_logged_processes_remaining": []
+}

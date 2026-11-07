@@ -1,0 +1,26 @@
+{
+  "source_run": "/data1/shn/agentwmv3/outputs/phase57_replay_9b_v4",
+  "records_sha256": "b09140dddf12e8dc0b6ceb536fb69a2c38cb083ecb3d0f3ab03128349804db0c",
+  "frozen_config": {
+    "schema": "training-free-gate-v1",
+    "policy": "full",
+    "tau_local": 0.5749072272810143,
+    "tau_global": 0.3332634086050418,
+    "allow_confirmed_action_skip": false,
+    "memory_correction": false,
+    "missing_policy": "global_then_call",
+    "max_forecasts_per_invocation": 1,
+    "review_protocol": "ground-truth-replay-one-round-v1",
+    "reflection_max_rounds": 1,
+    "calibration_status": "pilot_distribution_calibration_limited_goal_groups",
+    "internal_signature": {
+      "backend": "hf_qwen35_generation_raw_bf16_v1",
+      "dtype": "bfloat16",
+      "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+      "method": "fixed_field_mean_token_nll_v1",
+      "scoring_path": "raw_generation_logits_before_temperature",
+      "score_unit": "nats_per_token",
+      "config_sha256": "cad3791bc197e7f95baa16837d072ab26b68b6f76cb12cf164e0ccfcaf71a7a6"
+    }
+  }
+}

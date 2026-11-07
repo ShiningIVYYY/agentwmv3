@@ -1,0 +1,54 @@
+[
+  {
+    "version": 1,
+    "summary": {
+      "trials": 48,
+      "verified": 6,
+      "matched": 6,
+      "reconstruction_failures": 42,
+      "verified_but_different": 0,
+      "all_formal_unchanged": true,
+      "full_hidden_state_equivalence_claimed": false,
+      "seconds": 119.83223126456141
+    },
+    "trials_sha256": "a828163f3dd3c22c5148d48c97dd4e06ad7cb1ffee8f20a70c6be1ddf2dbea57"
+  },
+  {
+    "version": 2,
+    "summary": {
+      "trials": 48,
+      "verified": 27,
+      "matched": 27,
+      "reconstruction_failures": 21,
+      "verified_but_different": 0,
+      "all_formal_unchanged": true,
+      "full_hidden_state_equivalence_claimed": false,
+      "seconds": 108.57923026196659
+    },
+    "trials_sha256": "22410323d6eb70d67200b87aa39d044ffaed59c77c1bd61f31c2b0d055e3bafc"
+  },
+  {
+    "version": 3,
+    "summary": {
+      "trials": 48,
+      "verified": 27,
+      "matched": 27,
+      "reconstruction_failures": 21,
+      "verified_but_different": 0,
+      "all_formal_unchanged": true,
+      "full_hidden_state_equivalence_claimed": false,
+      "seconds": 113.34913156181574
+    },
+    "trials_sha256": "972f1c1246112a58db659955d3b0b40bcde4b6fdfeb738351a1a640ac0eb95b1",
+    "provenance": {
+      "command": [
+        "scripts/validate_reset_replay.py",
+        "--output",
+        "outputs/phase57_replay_validation_v3"
+      ],
+      "adapter_sha256": "9a0550d9289a4cbf3b51f6152da5e7c8d655b389645e3ce8ef579041355d2113",
+      "validator_sha256": "a65525744bbe0d18fedbf70fbdb37129a0ed445177aed96ea6c33af300637f5a",
+      "protocol": "public_native_step_without_valid_enumeration/post_load_seed/strict_projection"
+    }
+  }
+]

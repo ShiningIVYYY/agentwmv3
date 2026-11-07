@@ -1,0 +1,47 @@
+{
+  "valid_steps": 40,
+  "total_steps": 40,
+  "missing_steps": 0,
+  "independent_tasks": 6,
+  "pearson": 0.8753014861354593,
+  "spearman": 0.9181988742964355,
+  "quantiles": [
+    {
+      "quantile": 0.5,
+      "tau_local": 0.410021409909535,
+      "tau_global": 0.24304599289129705,
+      "expected_uncapped_call_rate": 0.575
+    },
+    {
+      "quantile": 0.75,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "expected_uncapped_call_rate": 0.25
+    },
+    {
+      "quantile": 0.9,
+      "tau_local": 0.7007675469498447,
+      "tau_global": 0.4281416261975226,
+      "expected_uncapped_call_rate": 0.15
+    }
+  ],
+  "local": {
+    "min": 0.15823600991094422,
+    "max": 1.1801360513155277,
+    "mean": 0.4671791871481772
+  },
+  "global_nll": {
+    "min": 0.09308270716774407,
+    "max": 0.4720647469941488,
+    "mean": 0.26637196397373897
+  },
+  "selected_quantile": 0.75,
+  "selected_without_outcomes": true,
+  "thresholds_fully_validated": false,
+  "budgets_selected_independently": {
+    "never": 0,
+    "always": 20,
+    "internal": 5,
+    "full": 5
+  }
+}

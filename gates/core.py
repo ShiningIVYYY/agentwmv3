@@ -72,7 +72,8 @@ class RuleGate:
             raise ValueError("Confirmation policy must be explicit")
         if config["memory_correction"] is not False or config["missing_policy"] != "global_then_call":
             raise ValueError("Phase4 correction is disabled; missing fallback is fixed")
-        if config["max_forecasts_per_invocation"] != 4:
+        expected_forecasts = 1 if config.get("review_protocol") == "ground-truth-replay-one-round-v1" else 4
+        if config["max_forecasts_per_invocation"] != expected_forecasts:
             raise ValueError("Current unchanged JSON/three-review-round protocol reserves four forecasts")
         self.needs_internal, self.needs_external = REQUIREMENTS[self.policy]
 

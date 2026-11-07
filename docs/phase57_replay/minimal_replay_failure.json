@@ -1,0 +1,156 @@
+{
+  "task": {
+    "taskName": "use-thermometer",
+    "variationIdx": 8,
+    "simplifications": "",
+    "seed": 0,
+    "environment_step_limit": 21
+  },
+  "valid_action_query_rng": [
+    {
+      "before": {
+        "seed": 25214903909,
+        "nextNextGaussian": 0.0,
+        "haveNextNextGaussian": false
+      },
+      "after": {
+        "seed": 76762870218675,
+        "nextNextGaussian": 0.0,
+        "haveNextNextGaussian": false
+      }
+    },
+    {
+      "before": {
+        "seed": 25214903909,
+        "nextNextGaussian": 0.0,
+        "haveNextNextGaussian": false
+      },
+      "after": {
+        "seed": 14085632520379,
+        "nextNextGaussian": 0.0,
+        "haveNextNextGaussian": false
+      }
+    }
+  ],
+  "prefix": [
+    "look around",
+    "inventory",
+    "this is an invalid action",
+    "wait"
+  ],
+  "selected_rng": [
+    {
+      "seed": 253140298244706,
+      "nextNextGaussian": 0.0,
+      "haveNextNextGaussian": false
+    },
+    {
+      "seed": 253140298244706,
+      "nextNextGaussian": 0.0,
+      "haveNextNextGaussian": false
+    }
+  ],
+  "tree_differences": [
+    {
+      "path": "/contents/art studio-17448/contents/air-17451/propMaterial/temperatureC",
+      "left": 24.20014089209703,
+      "right": 24.200482233189756
+    },
+    {
+      "path": "/contents/art studio-17448/contents/large cupboard-17484/contents/drawer-17487/propMaterial/temperatureC",
+      "left": 10.02581422806889,
+      "right": 10.027141255824858
+    },
+    {
+      "path": "/contents/art studio-17448/contents/large cupboard-17484/contents/wood cup-17499/contents/red paint-17490/propMaterial/temperatureC",
+      "left": 10.00222325500444,
+      "right": 10.002471907228449
+    },
+    {
+      "path": "/contents/art studio-17448/contents/large cupboard-17484/contents/wood cup-17499/propMaterial/temperatureC",
+      "left": 10.02400092309399,
+      "right": 10.026250920213272
+    },
+    {
+      "path": "/contents/art studio-17448/contents/large cupboard-17484/contents/wood cup-17502/contents/blue paint-17493/propMaterial/temperatureC",
+      "left": 10.002333377878058,
+      "right": 10.002356097141387
+    },
+    {
+      "path": "/contents/art studio-17448/contents/large cupboard-17484/contents/wood cup-17502/propMaterial/temperatureC",
+      "left": 10.024972363497215,
+      "right": 10.025241351554259
+    },
+    {
+      "path": "/contents/art studio-17448/contents/large cupboard-17484/contents/wood cup-17505/contents/yellow paint-17496/propMaterial/temperatureC",
+      "left": 10.002169282280647,
+      "right": 10.002533376114693
+    },
+    {
+      "path": "/contents/art studio-17448/contents/large cupboard-17484/contents/wood cup-17505/propMaterial/temperatureC",
+      "left": 10.023514425379911,
+      "right": 10.026789923269122
+    },
+    {
+      "path": "/contents/art studio-17448/contents/large cupboard-17484/propMaterial/temperatureC",
+      "left": 10.087149189429274,
+      "right": 10.092120198738826
+    },
+    {
+      "path": "/contents/art studio-17448/contents/table-17454/contents/jug-17463/propMaterial/temperatureC",
+      "left": 10.033460758774465,
+      "right": 10.031762283661987
+    },
+    {
+      "path": "/contents/art studio-17448/contents/table-17454/propMaterial/temperatureC",
+      "left": 10.12253466011867,
+      "right": 10.117476666460945
+    },
+    {
+      "path": "/contents/art studio-17448/contents/wood cup-17475/contents/red paint-17466/propMaterial/temperatureC",
+      "left": 10.015784763460267,
+      "right": 10.016933733955362
+    },
+    {
+      "path": "/contents/art studio-17448/contents/wood cup-17475/propMaterial/temperatureC",
+      "left": 10.131107614969922,
+      "right": 10.138198985588936
+    },
+    {
+      "path": "/contents/art studio-17448/contents/wood cup-17478/contents/blue paint-17469/propMaterial/temperatureC",
+      "left": 10.015877609932563,
+      "right": 10.01502685346151
+    },
+    {
+      "path": "/contents/art studio-17448/contents/wood cup-17478/propMaterial/temperatureC",
+      "left": 10.132098943872036,
+      "right": 10.126343378519163
+    },
+    {
+      "path": "/contents/art studio-17448/contents/wood cup-17481/contents/yellow paint-17472/propMaterial/temperatureC",
+      "left": 10.01580022525649,
+      "right": 10.015063095452076
+    },
+    {
+      "path": "/contents/art studio-17448/contents/wood cup-17481/propMaterial/temperatureC",
+      "left": 10.131334385617391,
+      "right": 10.126659903468932
+    },
+    {
+      "path": "/contents/bathroom-17346/contents/air-17349/propMaterial/temperatureC",
+      "left": 24.20105400543477,
+      "right": 24.20121003919336
+    },
+    {
+      "path": "/contents/bathroom-17346/contents/bathtub-17367/propMaterial/temperatureC",
+      "left": 10.160186920800214,
+      "right": 10.159890059126495
+    },
+    {
+      "path": "/contents/bathroom-17346/contents/glass cup-17373/propMaterial/temperatureC",
+      "left": 10.150685850342681,
+      "right": 10.161266425973354
+    }
+  ],
+  "full_hidden_state_equivalence_claimed": false
+}

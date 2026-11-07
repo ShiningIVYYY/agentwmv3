@@ -108,7 +108,7 @@ class HFInternalActor:
         self.sync()
         reduction_seconds = time.perf_counter() - started
         record = {
-            "backend": BACKEND, "dtype": self.config["dtype"], "model_revision": self.config["model_revision"],
+            "backend": self.config["backend"], "dtype": self.config["dtype"], "model_revision": self.config["model_revision"],
             "messages": messages, "prompt_text": prompt, "prompt_ids": prompt_ids,
             "response": text, "response_ids": response_ids, "token_nll": values,
             "generation_tokens": len(emitted), "truncated": truncated,

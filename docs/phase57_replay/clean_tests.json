@@ -1,0 +1,36 @@
+[
+  {
+    "command": [
+      "/data1/shn/agentwmv3/.venv-qwen35-clean/bin/python",
+      "scripts/test_replay_integration.py"
+    ],
+    "returncode": 0,
+    "tail": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.001s\n\nOK\n"
+  },
+  {
+    "command": [
+      "/data1/shn/agentwmv3/.venv-qwen35-clean/bin/python",
+      "scripts/test_qwen35_tokenizer.py",
+      "--model-dir",
+      "checkpoints/qwen35_9b"
+    ],
+    "returncode": 0,
+    "tail": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.044s\n\nOK\n"
+  },
+  {
+    "command": [
+      "/data1/shn/agentwmv3/.venv-qwen35-clean/bin/python",
+      "scripts/test_internal_signals.py"
+    ],
+    "returncode": 0,
+    "tail": "..............\n----------------------------------------------------------------------\nRan 14 tests in 0.543s\n\nOK\n"
+  },
+  {
+    "command": [
+      "/data1/shn/agentwmv3/.venv-qwen35-clean/bin/python",
+      "scripts/test_gates.py"
+    ],
+    "returncode": 0,
+    "tail": "ecision_rejected) ... ok\ntest_wrong_revision_rejected (__main__.GateTests.test_wrong_revision_rejected) ... ok\ntest_zero_is_a_valid_low_score (__main__.GateTests.test_zero_is_a_valid_low_score) ... ok\n\n----------------------------------------------------------------------\nRan 63 tests in 0.120s\n\nOK\n"
+  }
+]

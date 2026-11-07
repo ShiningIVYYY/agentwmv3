@@ -1,0 +1,37 @@
+[
+  {
+    "command": [
+      "/data1/shn/agentwmv3/.venv-qwen35-clean/bin/python",
+      "-m",
+      "pip",
+      "install",
+      "torch==2.8.0",
+      "--index-url",
+      "https://download.pytorch.org/whl/cu128"
+    ],
+    "returncode": 0,
+    "seconds": 182.52033352665603
+  },
+  {
+    "command": [
+      "/data1/shn/agentwmv3/.venv-qwen35-clean/bin/python",
+      "-m",
+      "pip",
+      "install",
+      "-r",
+      "environment/qwen35-replay-requirements.txt"
+    ],
+    "returncode": 0,
+    "seconds": 34.0477874558419
+  },
+  {
+    "command": [
+      "/data1/shn/agentwmv3/.venv-qwen35-clean/bin/python",
+      "-m",
+      "pip",
+      "check"
+    ],
+    "returncode": 0,
+    "seconds": 0.8326642122119665
+  }
+]

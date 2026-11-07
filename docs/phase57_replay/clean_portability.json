@@ -1,0 +1,105 @@
+{
+  "purpose": "same-public-prompts numerical compatibility only; no environment/action/utility outcome",
+  "independent_dependency_paths": true,
+  "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "model_loading_info": {
+    "missing_keys": [],
+    "unexpected_keys": [],
+    "mismatched_keys": [],
+    "error_msgs": []
+  },
+  "model_load_seconds": 19.25227228552103,
+  "packages": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.22.2",
+    "tokenizers": "0.23.3",
+    "huggingface-hub": "2.4.0",
+    "scienceworld": "1.2.3",
+    "numpy": "2.2.6"
+  },
+  "model_calls": 2,
+  "total_tokens": 1224,
+  "environment_calls": 4,
+  "tests": [
+    {
+      "role": "draft",
+      "response_ids_identical": true,
+      "token_nll_identical": true,
+      "max_nll_delta": 0.0,
+      "usage": {
+        "prompt_tokens": 410,
+        "completion_tokens": 45,
+        "total_tokens": 455
+      }
+    },
+    {
+      "role": "review",
+      "response_ids_identical": true,
+      "token_nll_identical": null,
+      "max_nll_delta": null,
+      "usage": {
+        "prompt_tokens": 673,
+        "completion_tokens": 96,
+        "total_tokens": 769
+      }
+    }
+  ],
+  "native_sdk_replay_smoke": {
+    "task_id": "sciworld_128",
+    "simulation": {
+      "source": "ground_truth_environment",
+      "backend": "ground_truth_environment_replay",
+      "status": "ok",
+      "prediction_available": true,
+      "verified_prefix_steps": 0,
+      "full_hidden_state_equivalence_claimed": false,
+      "worker_pid": 3964633,
+      "formal_pid": 3964509,
+      "predicted_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "predicted_reward": 0,
+      "predicted_done": false,
+      "predicted_score": 0,
+      "predicted_moves": 0,
+      "action_valid": null,
+      "environment_feedback": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "candidate_transition": {
+        "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+        "raw_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+        "reward": 0,
+        "done": false,
+        "score": 0,
+        "moves": 0,
+        "native_action": "look around",
+        "action": "look around",
+        "step_seconds": 0.008652802556753159
+      },
+      "formal_unchanged": true,
+      "checked_state_sha256": "81c134d0d02dc995740e877ab3e12481ff75d6de8c405a446a1e2a6e5fbde82f",
+      "simulation_cost": {
+        "jvm_initializations": 1,
+        "initialization_step_calls": 1,
+        "replay_step_calls": 0,
+        "candidate_step_calls": 1,
+        "initialization_seconds": 1.345897352322936,
+        "replay_seconds": 0.0,
+        "candidate_seconds": 0.06441262178122997,
+        "cleanup_seconds": 0.06466110423207283,
+        "audit_capture_bundles": 4
+      },
+      "simulation_latency": 1.5772413667291403,
+      "available_at_ns": 1794077618990909082
+    },
+    "actual": {
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "raw_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "reward": 0,
+      "done": false,
+      "score": 0,
+      "moves": 0,
+      "native_action": "look around",
+      "action": "look around",
+      "step_seconds": 0.008752554655075073
+    },
+    "transition_match": true
+  }
+}

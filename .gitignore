@@ -33,3 +33,7 @@ wandb/
 .venv-spanuq/
 
 .cache/
+
+.venv-qwen35/
+
+.venv-qwen35-clean/

@@ -1,0 +1,12 @@
+# Observed inference dependencies. Install the matching CUDA12.8 torch wheel first.
+torch==2.8.0
+transformers==5.22.2
+tokenizers==0.23.3
+huggingface-hub==2.4.0
+safetensors==0.8.0
+scienceworld==1.2.3
+py4j==0.10.9.9
+numpy==2.2.6
+requests==2.34.2
+# Post-run plots only:
+matplotlib==3.11.2

@@ -1,0 +1,318 @@
+{
+  "status": "engineering_trace_audit_pass",
+  "policies": [
+    {
+      "policy": "never",
+      "actor_calls": 44,
+      "reviewer_calls": 0,
+      "internal_extractions": 0,
+      "retrieval_calls": 0,
+      "judge_calls": 0,
+      "learned_wm_calls": 0,
+      "gate_calls": 44,
+      "gate_seconds": 0.0003898628056049347,
+      "actor_generation_seconds": 88.92386680282652,
+      "reviewer_generation_seconds": 0,
+      "internal_extraction_seconds": 0.0,
+      "retrieval_seconds": 0.0,
+      "simulation_seconds": 0.0,
+      "external_rule_judge_seconds": 0.0,
+      "external_only_calls_at_same_recorded_state": 0,
+      "external_coverage": {},
+      "external_conflict": {},
+      "external_sufficiency": {},
+      "missing_internal_steps": 0,
+      "invalid_draft_formats": 0,
+      "left_truncated_draft_prompts": 0,
+      "simulation_cost": {},
+      "reconstruction_mismatch_fields": {},
+      "gate_reasons": {
+        "never_policy": 44
+      },
+      "public_feedback_execution_status": {
+        "accepted_feedback": 25,
+        "unknown": 6,
+        "explicit_rejection": 13
+      },
+      "review_decisions": {},
+      "verified_keep_matches": 0,
+      "peak_torch_allocated_bytes": 19136422912
+    },
+    {
+      "policy": "always",
+      "actor_calls": 54,
+      "reviewer_calls": 9,
+      "internal_extractions": 0,
+      "retrieval_calls": 0,
+      "judge_calls": 0,
+      "learned_wm_calls": 0,
+      "gate_calls": 54,
+      "gate_seconds": 0.0007506534457206726,
+      "actor_generation_seconds": 114.79473364911973,
+      "reviewer_generation_seconds": 34.7942914403975,
+      "internal_extraction_seconds": 0.0,
+      "retrieval_seconds": 0.0,
+      "simulation_seconds": 95.00958807393909,
+      "external_rule_judge_seconds": 0.0,
+      "external_only_calls_at_same_recorded_state": 0,
+      "external_coverage": {},
+      "external_conflict": {},
+      "external_sufficiency": {},
+      "missing_internal_steps": 0,
+      "invalid_draft_formats": 0,
+      "left_truncated_draft_prompts": 0,
+      "simulation_cost": {
+        "jvm_initializations": 54,
+        "initialization_step_calls": 54,
+        "replay_step_calls": 127,
+        "candidate_step_calls": 9,
+        "initialization_seconds": 72.81132071465254,
+        "replay_seconds": 10.35674151033163,
+        "candidate_seconds": 0.6800030507147312,
+        "cleanup_seconds": 3.8054709136486053,
+        "audit_capture_bundles": 462
+      },
+      "reconstruction_mismatch_fields": {
+        "object_tree_sha256": 45
+      },
+      "gate_reasons": {
+        "always_policy": 54
+      },
+      "public_feedback_execution_status": {
+        "accepted_feedback": 27,
+        "unknown": 10,
+        "explicit_rejection": 17
+      },
+      "review_decisions": {
+        "KEEP": 4,
+        "REPLACE": 5
+      },
+      "verified_keep_matches": 4,
+      "peak_torch_allocated_bytes": 19174152704
+    },
+    {
+      "policy": "internal",
+      "actor_calls": 43,
+      "reviewer_calls": 4,
+      "internal_extractions": 43,
+      "retrieval_calls": 0,
+      "judge_calls": 0,
+      "learned_wm_calls": 0,
+      "gate_calls": 43,
+      "gate_seconds": 0.0007849223911762238,
+      "actor_generation_seconds": 85.22935871779919,
+      "reviewer_generation_seconds": 13.885465970262885,
+      "internal_extraction_seconds": 0.1488729640841484,
+      "retrieval_seconds": 0.0,
+      "simulation_seconds": 14.948302637785673,
+      "external_rule_judge_seconds": 0.0,
+      "external_only_calls_at_same_recorded_state": 0,
+      "external_coverage": {},
+      "external_conflict": {},
+      "external_sufficiency": {},
+      "missing_internal_steps": 0,
+      "invalid_draft_formats": 0,
+      "left_truncated_draft_prompts": 0,
+      "simulation_cost": {
+        "jvm_initializations": 7,
+        "initialization_step_calls": 7,
+        "replay_step_calls": 36,
+        "candidate_step_calls": 4,
+        "initialization_seconds": 9.360261626541615,
+        "replay_seconds": 2.905000790953636,
+        "candidate_seconds": 0.27831740491092205,
+        "cleanup_seconds": 0.7995933350175619,
+        "audit_capture_bundles": 127
+      },
+      "reconstruction_mismatch_fields": {
+        "object_tree_sha256": 3
+      },
+      "gate_reasons": {
+        "internal_trigger": 7,
+        "no_active_trigger": 35,
+        "budget_exhausted_execute_unverified_draft": 1
+      },
+      "public_feedback_execution_status": {
+        "accepted_feedback": 28,
+        "unknown": 6,
+        "explicit_rejection": 9
+      },
+      "review_decisions": {
+        "KEEP": 2,
+        "REPLACE": 2
+      },
+      "verified_keep_matches": 2,
+      "peak_torch_allocated_bytes": 19186398720
+    },
+    {
+      "policy": "full",
+      "actor_calls": 60,
+      "reviewer_calls": 8,
+      "internal_extractions": 60,
+      "retrieval_calls": 60,
+      "judge_calls": 0,
+      "learned_wm_calls": 0,
+      "gate_calls": 60,
+      "gate_seconds": 0.0009655337780714035,
+      "actor_generation_seconds": 129.34309223107994,
+      "reviewer_generation_seconds": 34.649502869695425,
+      "internal_extraction_seconds": 0.20129652507603168,
+      "retrieval_seconds": 0.015789270401000977,
+      "simulation_seconds": 26.255680415779352,
+      "external_rule_judge_seconds": 0.0014938358217477798,
+      "external_only_calls_at_same_recorded_state": 3,
+      "external_coverage": {
+        "true": 10,
+        "unknown": 50
+      },
+      "external_conflict": {
+        "unknown": 55,
+        "true": 5
+      },
+      "external_sufficiency": {
+        "unknown": 55,
+        "false": 5
+      },
+      "missing_internal_steps": 0,
+      "invalid_draft_formats": 0,
+      "left_truncated_draft_prompts": 0,
+      "simulation_cost": {
+        "jvm_initializations": 14,
+        "initialization_step_calls": 14,
+        "replay_step_calls": 39,
+        "candidate_step_calls": 8,
+        "initialization_seconds": 18.90403673797846,
+        "replay_seconds": 2.9764564782381058,
+        "candidate_seconds": 0.6232449971139431,
+        "cleanup_seconds": 1.3968781884759665,
+        "audit_capture_bundles": 155
+      },
+      "reconstruction_mismatch_fields": {
+        "object_tree_sha256": 6
+      },
+      "gate_reasons": {
+        "internal_trigger": 11,
+        "no_active_trigger": 40,
+        "reliable_action_conflict_requires_verification_correction_off": 3,
+        "budget_exhausted_execute_unverified_draft": 6
+      },
+      "public_feedback_execution_status": {
+        "accepted_feedback": 26,
+        "unknown": 12,
+        "explicit_rejection": 22
+      },
+      "review_decisions": {
+        "KEEP": 1,
+        "REPLACE": 7
+      },
+      "verified_keep_matches": 2,
+      "peak_torch_allocated_bytes": 19174152704
+    }
+  ],
+  "episodes": 12,
+  "formal_actions": 201,
+  "exact_full_hidden_state_equivalence": false,
+  "independent_raw_latency_scope": "episode seconds exclude formal JVM construction/disposal; whole-run wall includes them",
+  "replacement_one_step_score_delta": {
+    "positive": 1,
+    "zero": 12,
+    "negative": 0
+  },
+  "downstream_counterfactual_utility_established": false,
+  "scientific_effectiveness_established": false,
+  "actual_replacements": 13,
+  "replacement_feedback_status": {
+    "accepted_feedback": 6,
+    "explicit_rejection": 7
+  },
+  "replace_same_action_proposals": 1,
+  "review_format_errors": 0,
+  "feedback_validity_scope": "Conservative public-feedback execution acceptance; Unknown retained; not task correctness or exhaustive native validity",
+  "calibration_reference_steps": 40,
+  "calibration_reused_without_new_generation": true,
+  "source_hashes_verified": true,
+  "protected_inputs_verified": true,
+  "early_model_call_logs": 223,
+  "model_call_tokens": 111356,
+  "final_run_summary": {
+    "purpose": "small_development_functional_diagnostic",
+    "policies": [
+      {
+        "policy": "never",
+        "instances": 3,
+        "mean_task_score": -61.0,
+        "success_rate": 0.0,
+        "formal_environment_actions": 44,
+        "lookahead_attempts": 0,
+        "verified_lookaheads": 0,
+        "reconstruction_failures": 0,
+        "reviewer_calls": 0,
+        "action_corrections": 0,
+        "input_tokens": 18851,
+        "output_tokens": 1924,
+        "total_tokens": 20775,
+        "seconds": 92.6213649995625
+      },
+      {
+        "policy": "always",
+        "instances": 3,
+        "mean_task_score": -7.666666666666667,
+        "success_rate": 0.0,
+        "formal_environment_actions": 54,
+        "lookahead_attempts": 54,
+        "verified_lookaheads": 9,
+        "reconstruction_failures": 45,
+        "reviewer_calls": 9,
+        "action_corrections": 5,
+        "input_tokens": 29625,
+        "output_tokens": 3250,
+        "total_tokens": 32875,
+        "seconds": 248.45209149084985
+      },
+      {
+        "policy": "internal",
+        "instances": 3,
+        "mean_task_score": -100.0,
+        "success_rate": 0.0,
+        "formal_environment_actions": 43,
+        "lookahead_attempts": 7,
+        "verified_lookaheads": 4,
+        "reconstruction_failures": 3,
+        "reviewer_calls": 4,
+        "action_corrections": 2,
+        "input_tokens": 22278,
+        "output_tokens": 2140,
+        "total_tokens": 24418,
+        "seconds": 117.7617377974093
+      },
+      {
+        "policy": "full",
+        "instances": 3,
+        "mean_task_score": 41.666666666666664,
+        "success_rate": 0.0,
+        "formal_environment_actions": 60,
+        "lookahead_attempts": 14,
+        "verified_lookaheads": 8,
+        "reconstruction_failures": 6,
+        "reviewer_calls": 8,
+        "action_corrections": 6,
+        "input_tokens": 29700,
+        "output_tokens": 3568,
+        "total_tokens": 33268,
+        "seconds": 194.9656547512859
+      }
+    ],
+    "rollout_seed_count": 1,
+    "across_seed_sample_sd": null,
+    "positive_scientific_effectiveness_claimed": false,
+    "offline_new_experience_cost": 0,
+    "calibration_source": "outputs/phase57_replay_9b_v4",
+    "calibration_reference_steps": 40,
+    "calibration_model_calls": 0,
+    "calibration_tokens": 0,
+    "validation_model_calls": 1,
+    "validation_tokens": 20,
+    "learned_wm_calls": 0,
+    "new_model_training": false
+  }
+}

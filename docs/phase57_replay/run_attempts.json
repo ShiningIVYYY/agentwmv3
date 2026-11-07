@@ -1,0 +1,119 @@
+[
+  {
+    "version": 1,
+    "job": {
+      "pid": 3367931,
+      "command": [
+        "/data1/shn/agentwmv3/.venv-qwen35/bin/python",
+        "scripts/run_phase57_replay.py",
+        "--model-dir",
+        "checkpoints/qwen35_9b",
+        "--output",
+        "outputs/phase57_replay_9b_v1",
+        "--device",
+        "cuda:0"
+      ],
+      "physical_gpu": 0,
+      "started_at_ns": 1794013320198423501,
+      "model_roles_shared": true,
+      "allowed_scope": "6 dev calibration + 3 dev x4 policies; no final test"
+    },
+    "log_sha256": "b0a9ed2126dfb32568bb824bd0780933776e85762ae9f69599f307beadd64605",
+    "outcome": "ValueError: Captured raw logits and selected-token NLL disagree"
+  },
+  {
+    "version": 2,
+    "job": {
+      "pid": 3373913,
+      "command": [
+        "/data1/shn/agentwmv3/.venv-qwen35/bin/python",
+        "scripts/run_phase57_replay.py",
+        "--model-dir",
+        "checkpoints/qwen35_9b",
+        "--output",
+        "outputs/phase57_replay_9b_v2",
+        "--device",
+        "cuda:0"
+      ],
+      "physical_gpu": 0,
+      "started_at_ns": 1794013485463757373,
+      "model_roles_shared": true
+    },
+    "log_sha256": "161599274021e84c7c7a72cf2766a03ca059feefc27eddccd558c84f072bf28e",
+    "outcome": "TypeError: Object of type set is not JSON serializable"
+  },
+  {
+    "version": 3,
+    "job": {
+      "pid": 3375567,
+      "command": [
+        "/data1/shn/agentwmv3/.venv-qwen35/bin/python",
+        "scripts/run_phase57_replay.py",
+        "--model-dir",
+        "checkpoints/qwen35_9b",
+        "--output",
+        "outputs/phase57_replay_9b_v3",
+        "--device",
+        "cuda:0"
+      ],
+      "physical_gpu": 0,
+      "started_at_ns": 1794013604352210645,
+      "model_roles_shared": true
+    },
+    "log_sha256": "c31f4d330a372a754dd7ce373596a06002cc35e61a086d6a3871cda6dde7cb04",
+    "outcome": "ValueError: Native development goal differs"
+  },
+  {
+    "version": 4,
+    "job": {
+      "pid": 3934738,
+      "command": [
+        "/data1/shn/agentwmv3/.venv-qwen35/bin/python",
+        "scripts/run_phase57_replay.py",
+        "--model-dir",
+        "checkpoints/qwen35_9b",
+        "--output",
+        "outputs/phase57_replay_9b_v4",
+        "--device",
+        "cuda:0"
+      ],
+      "physical_gpu": 3,
+      "started_at_ns": 1794075001269238977,
+      "model_roles_shared": true,
+      "checked_source_hashes": {
+        "worldmodel/ground_truth_environment.py": "59de2b04170e6dc9d52e6228799e4f49ad4a252120da4c76c3a1b78082225cc8",
+        "internal_signals/qwen35_actor.py": "e9690b1ac1075c35138753078fe7099c6e2bd075951f080217a38c128f856599",
+        "configs/internal_signals/qwen35_9b_replay_v1.json": "456b47809dd2be5d218a5df2775e04617d612efa489fcbfebf7d18f3e6d6542c",
+        "scripts/run_phase57_replay.py": "607f2d87ae07aa977d4663a649cfc43c3bf9d412b5ca0322ac592ede660cad2e",
+        "gates/core.py": "39c9113e352b027d94764fcdbd1fe2fed34f10931cbb4349af650afb0d9187f3",
+        "internal_signals/provider.py": "c7def80ab3f951ad8bb2457053a118b8cccfeb18cd682281545d685feb9d1b16"
+      }
+    },
+    "log_sha256": "be5504e4b1e1ab62aea884e9f30cf05bba93428f7f4ceddd71e77d272bb142be",
+    "outcome": "ValueError: Invalid causal query"
+  },
+  {
+    "version": 5,
+    "job": {
+      "pid": 3939349,
+      "command": [
+        "/data1/shn/agentwmv3/.venv-qwen35/bin/python",
+        "scripts/run_phase57_replay.py",
+        "--model-dir",
+        "checkpoints/qwen35_9b",
+        "--output",
+        "outputs/phase57_replay_9b_v5",
+        "--device",
+        "cuda:0",
+        "--calibration-source",
+        "outputs/phase57_replay_9b_v4"
+      ],
+      "physical_gpu": 3,
+      "started_at_ns": 1794075510288836024,
+      "model_roles_shared": true,
+      "calibration": "identical frozen v4 dev signals; no recollection/retuning"
+    },
+    "log_sha256": "571375b5c3026b20621ec0bdbc8538983fd9696dcb551eb862ea7408952748e4",
+    "outcome": "complete"
+  }
+]

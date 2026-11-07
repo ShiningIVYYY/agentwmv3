@@ -1,87 +1,65 @@
-# Real-environment World Model: Phase 5.7 prerequisite audit
+# GroundTruthEnvironmentWM: verified Reset + Replay
 
-Status: **BLOCKED at full-state transfer into an independent environment**. No usable `GroundTruthEnvironmentWM` is claimed or enabled. The requested architecture is now Qwen3.5-9B Actor/Reviewer with isolated real-environment one-step lookahead. The previous learned WM and same-live-JVM rollback oracle are historical implementations, not approved backends for this architecture.
+The user superseded the initial complete-JVM-clone requirement. The new implementation uses an independent ScienceWorld JVM, reset to the same task/variation/simplifications/transition seed, then replays every committed command. No installed SDK or Java/Scala modification, formal-environment preview/rollback, learned WM, or post-action reflection is used.
 
-## Required semantics
+Status: bounded adapter/model integration is complete, with12 real9B development episodes and201 formal actions. Dynamic histories are **not universally reproducible**: controlled tests verify27/48 scenarios and reject21/48, with all27 subsequent public transitions matching. In the complete policy run21/75 attempts verify,54 reject;8 retained Draft transitions match formal execution. This is bounded evidence, not complete hidden-state equivalence. See [phase report](PHASE5_7_REPORT.md) and [actual audit](phase57_replay/audit.json).
 
-The formal environment must remain untouched until the final action is executed. A Call must copy its **current complete state** into another isolated simulator, execute exactly the Draft Action once there, then give only public trial feedback to the Reviewer. KEEP still executes the Draft Action normally in the formal environment; it must not adopt a trial transition. REPLACE executes the revised action normally without a second speculative search or recursive review. A Skip creates no trial transition and makes no Reviewer call.
+## Protocol
 
-The planned adapter contract is:
+`ReplayScienceEnvironment` owns one SDK/JVM, exact initialization spec, public current feedback and a journal containing EVERY executed command, including invalid commands, free observation commands and numeric disambiguation selections. Stable disambiguation labels are mapped to each JVM's native choices using the existing `ScienceActionView`. Journals contain actual committed actions, never rejected Reviewer alternatives or prior trial transitions.
 
-```python
-simulate_one_step(opaque_environment_snapshot, draft_action, config)
-# public result, not a snapshot or private state:
-{
-    "predicted_observation": str,
-    "predicted_reward": float,
-    "predicted_done": bool,
-    "action_valid": True | False | None,
-    "environment_feedback": str,
-    "simulation_latency": float,
-    "simulation_cost": {"environment_queries": 1},
-    "source": "ground_truth_environment",
-}
-```
+`GroundTruthEnvironmentWM.simulate_one_step(formal, draft_action)`:
 
-This is a **design contract**, not implemented functionality. Validity remains Unknown unless the public API or feedback establishes it; grammar validity does not establish task utility. Errors must fail explicitly, without fabricated predictions, formal-environment execution/rollback, learned-WM fallback or post-action reflection. A trial terminal state must not terminate the formal episode. Native simulator ticks, formal Actor turns, trial queries and model calls require separate counters.
+1. Capture reference verification fields; do not execute a reference action.
+2. Create a fresh independent JVM and initialize the identical spec and initial `look around` query.
+3. Verify initial projection; replay each committed command and verify its resulting projection, then verify the complete current recorded projection.
+4. Only if every check passes, perform ONE candidate command in B. No alternative-action search or extra review round.
+5. Return genuine trial observation/reward/done/score and measured costs. `action_valid` stays Unknown unless independently established.
+6. Close B; require reference verification fields to remain unchanged. A reference mutation is fatal, not a normal fallback.
 
-## Installed implementation and direct evidence
+Reconstruction errors return `status=reconstruction_failed,prediction_available=false`, an explicit cause and costs, with no predicted/public trial feedback. The runtime consumes the invocation attempt budget, calls no Reviewer and executes the original Draft normally. This protects state/information integrity, not task correctness: the Draft can still fail. It does not call another WM. A failed reconstruction is not successful verification. KEEP or REPLACE always executes once normally in A; no trial state is adopted. Trial done/score cannot terminate or update A. A verified KEEP whose actual transition differs is a fatal diagnostic error.
 
-See [full preflight evidence](phase57/clone_preflight.json) and [execution/check records](phase57/verification.json). The actual installed SDK is ScienceWorld **1.2.3**. Its Python source SHA256 is `23a37a2e9ed8e43d8c5e27d8660ea344d38a544abcd8c7e6af40071c7832ce68`; JAR SHA256 is `f4e1fdce0cdabe1bab7128a7e78ea820210d9db3c28d7272bcbbc3f3a1c5f0d7`.
+## State verification and its limits
 
-The public Python and native `scienceworld.runtime.pythonapi.PythonInterface` method inventories expose reset/load, queries, steps and run-history export, but no complete state export/import or cross-instance clone API. Direct Java serialization fails:
+Compared fields: canonical current observation, reward, score, done, native move count; current room/inventory; SDK last score; native completion; executed native action history; object-tree hash; selected Scala/Java RNG state; journal action count and disambiguation mapping. Raw feedback is retained; existing official flat-list presentation canonicalization is shared across strategies and is the only observation-order normalization. Object-tree property differences are never rounded away.
 
-```text
-java.io.NotSerializableException: scienceworld.runtime.pythonapi.PythonInterface
-```
+Snapshots/digests/RNG and private mismatch evidence stay inside validation/audit logs. The Gate sees only accepted Internal/External Signals and budget; the Reviewer receives only whitelisted public trial feedback. No gold path, task answer, private goal progress or future formal trajectory is queried.
 
-Serializing `agentInterface`, `agent`, `actionHandler`, `taskMaker` and `currentHistory` independently also fails, on their contained engine classes. An enclosing Scala `Option` does not make its contents serializable. Object-tree JSON and run history omit engine/task/parser/RNG state and are not complete restorable checkpoints.
+The object-tree and selected RNG do not cover every hidden engine/global state. Passing a finite projection and transition test cannot certify complete state equality or all future stochastic behavior. The additional validator itself has privileged simulator inspection access, which must be disclosed alongside the real trial queries. This method is **Ground-Truth Simulator / Oracle-Like Lookahead**, not learned-WM prediction performance or an equivalent deployable learned world model.
 
-`worldmodel/science_snapshot.py` and `worldmodel/HeapSnapshot.java` retain references to objects/fields in the **same JVM**. Their earlier restore/commit diagnostics do not transfer state to a separate process. Phase 5.7 uses only `take()` and read-only `matches()` as an additional pollution witness: **no `restore()`, `predict()` or speculative action is applied to the reference environment**. The witness is not a transferable snapshot and is not asserted to prove all possible hidden-state invariants.
+## Why the thin native wrapper is necessary
 
-CRIU is not installed and the probing process has zero effective/permitted Linux capabilities. No validated OS/JVM process-copy facility is available in this setup. This is a statement about the inspected installation and tested mechanisms, not a proof that ScienceWorld can never be extended to clone.
+Installed ScienceWorld1.2.3 `SDK.step` calls the public native step/score/completion/move APIs, computes reward as native score delta, then also calls `get_valid_action_object_combinations`. Real two-JVM tracing shows that this extra action-enumeration query consumes the global RNG by different amounts. It is not a read-only query suitable for this replay pipeline. The SDK's `load` additionally reseeds from Variation, overriding a seed set before load.
 
-Official source context: [ScienceWorld SDK](https://github.com/allenai/ScienceWorld/blob/main/scienceworld/scienceworld.py), [ScienceWorld repository](https://github.com/allenai/ScienceWorld). The installed source/JAR hashes, not a floating upstream branch, identify what was actually tested.
+The new wrapper invokes the SAME public native transition APIs and preserves SDK semantics: `round(100*native_score)`, reward delta, native completion OR moves>21 OR negative score. It omits the unused RNG-consuming enumeration and explicitly sets the transition seed after load in both A and B. The native task construction still uses the identical task/variation/simplifications. Initial public Goal uses `server.getTaskDescription`; SDK `taskdescription` adds a presentation label absent from AgentGym identity metadata.
 
-## Real independent-instance diagnostic
+This is an explicit new query/seed profile shared by all four9B strategies. It is not claimed identical to the old SDK-query schedule or old4B experiments. No validity list is invented for Reviewer grounding; it uses visible state, committed history, native action forms and trial evidence. Its unproven action validity remains Unknown. Do not re-enable the RNG-mutating enumeration in the formal path without investigating and declaring the change.
 
-The existing frozen split manifest is validated, including normalized goal separation from the final 200 tasks. The probe selects only approved development instances from `docs/phase5/development_plan.json`:
+## Real reproducibility evidence
 
-| ID | Native task | Variation | Probe seeds |
-| --- | --- | ---: | --- |
-| sciworld_128 | use-thermometer | 8 | 0, 1 |
-| sciworld_2417 | test-conductivity-of-unknown-substances | 81 | 0, 1 |
-| sciworld_3070 | find-living-thing | 134 | 0, 1 |
+SDK1.2.3 JAR SHA256: `f4e1fdce0cdabe1bab7128a7e78ea820210d9db3c28d7272bcbbc3f3a1c5f0d7`.
 
-For each trial two fresh independent JVMs are seeded before load. They receive the same initialization and then `look around`, `wait`, `focus on air` in lockstep. The worker executes first. Before the reference executes normally, its observation/inventory, native score, completion flag, native move counter, SDK last score, executed-action history and object-tree digest must remain unchanged; the read-only heap witness must also match. Public worker/reference transitions are then compared. Observation comparison uses the existing versioned canonicalizer; raw equality is counted separately. No gold action/goal-progress query is used. Internal audit digests never enter an Actor, Gate or Reviewer prompt.
+Approved dev instances128/142 (thermometer variations8/22),2417 (unknown conductivity81),3070 (living thing134); seeds0/1/7; histories of lengths0/2/4/8. Controlled commands include look, inventory, a real invalid command, wait, door opening and navigation. These are actual SDK transitions for infrastructure diagnosis, not Actor benchmark results or fabricated feedback.
 
-This establishes bounded evidence of **independent-instance isolation and seeded reset/replay consistency**. It does **not** export/import the reference's current state, prove complete hidden/RNG-state equality, cover arbitrary stochastic actions, or establish a general snapshot implementation. Probe seeds are Scala simulator seed inputs, not a validated Qwen rollout configuration. Passing these tests is necessary but insufficient for the requested real-environment WM.
+- Original SDK query schedule:6/48 reconstructed and matched,42 rejected,0 verified public-transition mismatches.
+- Corrected native query schedule:27/48 reconstructed and matched,21 rejected,0 verified public-transition mismatches; all formal-isolation checks pass. Two runs independently reproduce these counts; final cleanup/accounting run113.349s.
+- Remaining failures include real material-temperature drift after `wait`, despite matching selected RNG. For example, room air temperature24.20014089209703 versus24.200482233189756. This is physical-state divergence, not merely object ordering. It remains a hard reconstruction rejection; no task-specific tolerance or action exception is introduced.
 
-The observed trial feedback includes accepted `focus on air` actions that end some tasks at score -100. These are genuine diagnostic failures, not invented invalid-action penalties or strategy evaluation results. `wait` advances 11 native ticks; it is one API action. Counts include initialization queries separately.
-
-## Reproduce without models
-
-Run from the repository root with the existing isolated ScienceWorld SDK environment; substitute its Python path for `SDK_PYTHON`:
+Raw runs remain under ignored `outputs/phase57_replay_validation_v{1,2,3}`; minimal failure evidence is `outputs/phase57_setup/replay_minimal_failure.json`. The final controlled run includes source hashes; the public Goal-label-only fix afterward does not alter transition or verification logic. The subsequent complete9B run exercises the final code. Compact evidence is versioned under [phase57_replay](phase57_replay/replay_validation.json), including a [minimal failure](phase57_replay/minimal_replay_failure.json).
 
 ```bash
-export SDK_PYTHON=/path/to/scienceworld-environment/bin/python
 PYTHONNOUSERSITE=1 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. CUDA_VISIBLE_DEVICES='' \
-  "$SDK_PYTHON" scripts/audit_phase57_clone.py \
-  --output outputs/phase57_clone_new_run
+  "$SCIENCE_PYTHON" scripts/validate_reset_replay.py --output outputs/replay_new_run
+PYTHONNOUSERSITE=1 PYTHONPATH=. CUDA_VISIBLE_DEVICES='' \
+  "$SCIENCE_PYTHON" scripts/reproduce_replay_rng.py --output outputs/replay_failure.json
 ```
 
-Use a new output directory. **Exit 42 means prerequisite blocked**, not a passing clone test. Other exceptions are failures to investigate. The script intentionally cannot promote seeded replay to a clone. `phase57/verification.json` contains the actual lab command/return code and derived counters. Full local logs remain in ignored `outputs/phase57_setup/` and `outputs/phase57_clone_preflight_v2/`; the initial v1 run is retained separately.
+These tests return an error if accepted prediction and actual subsequent transition disagree. Safe reconstruction failures are reported separately and must not be hidden in an average accuracy denominator. No accepted reconstruction means blocked, not100% predictive accuracy.
 
-Run `python3 scripts/check_phase57_evidence.py --check-worktree` to check the committed real evidence, source/split hashes and accounting. Its exit0 certifies record consistency only; its output explicitly retains `phase_status=blocked` and `full_state_clone_verified=false`.
+## Costs and fairness
 
-## What must be implemented before resuming
+Count one fresh JVM, its initialization query, EVERY replayed committed command, the candidate query if reached, validation, disposal and Reviewer generation. Failed reconstruction still has real setup/replay costs. Formal Actor turns, native simulation ticks, initialization queries, replay queries, candidate queries and model calls are separate counters. `wait` can advance11 native ticks while remaining one API command. These extra queries are not free because learned-WM tokens are zero.
 
-The preferred engineering option is a versioned ScienceWorld engine fork with an explicit state codec, built under agentwmv3 without modifying the installed stable SDK or agentwmv2. It must cover object identity/aliases, world and agent state, task/goal evaluation state, action-parser/disambiguation state, native and Python counters/history, random generators, UID allocation and process-global mutable state. Import must target an independent JVM. A separately validated process-checkpoint system is an alternative infrastructure project, not an assumed workaround.
+Never performs no replay/Reviewer. Always attempts a Call each formal turn while budget permits. Internal/Full use independent9B thresholds and the SAME one-round feedback/review policy and frozen Memory. Reconstruction failure executes the original draft consistently; it does not silently convert the method into post-action reflection. No extra model parameters are trained. Formal paper settings and final200 IDs remain unchanged in their original files; this bounded development profile is separate.
 
-Acceptance must demonstrate full round-trip restoration into an independent instance, noninitial states, varied task families/seeds, random transitions, interactive ambiguity, negative/terminal states, public transition equality and unchanged formal state/counters/history after both successful and failing trials. Identical observable projections alone cannot certify complete-state copying. Tests must also prove repeated trial disposal, resource cleanup, error isolation and no hidden snapshot fields in model inputs. Then implement the adapter and the Qwen3.5-9B runtime, and run the four development strategies.
-
-## Information permissions and costs
-
-Real simulator access grants true counterfactual one-step environment feedback unavailable to a learned WM. It must be reported as a simulator-access experiment, not an equivalent deployable learned-world-model method. No test answer, gold path, hidden task progress or future rollout is exposed to the model. Decide and freeze whether publicly available trial reward/done are included in the Reviewer evidence; the planned interface allows them, which must be disclosed explicitly in all comparable variants.
-
-Count trial queries, clone/export/import and environment-compute latency in addition to Actor/Reviewer tokens and latency, NLL extraction, Gate and retrieval. A zero learned-WM token count is not zero simulation cost. Keep formal episode steps and trial steps separate. Memory remains frozen, and old Qwen3-4B thresholds are ineligible for the new Actor.
+In the actual run,Always adds190 transition queries (54initialization+127replay+9candidate),Internal47,Full61. There are744 read-only audit capture bundles in addition; their latency is included, not equated to zero API cost. No reliable monetary/FLOP conversion is available. The full12-episode native transition count is201 formal actions+12 formal initialization queries+298 extra lookahead queries. Native move clocks are a different unit.
