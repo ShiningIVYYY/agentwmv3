@@ -1,0 +1,84 @@
+{
+  "status": "prerequisite_blocked_downstream_not_run",
+  "checked_at_utc": "2026-11-07T00:29:20.808877+00:00",
+  "baseline_commit": "0c3b0c067671b5a885db630cd461783d5ae844a2",
+  "commands": [
+    {
+      "command": [
+        "/home/shn/miniconda3/envs/ee-scienceworld/bin/python",
+        "scripts/audit_phase57_clone.py",
+        "--output",
+        "outputs/phase57_clone_preflight_v2"
+      ],
+      "returncode": 42,
+      "expected_returncode": 42
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/audit_qwen35_metadata.py",
+        "--output",
+        "outputs/phase57_setup/qwen35_metadata_v2",
+        "--legacy-python",
+        "/home/shn/miniconda3/envs/verl-agent/bin/python",
+        "--cache-root",
+        "/data1/shn/models"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/check_phase57_evidence.py",
+        "--check-worktree"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0
+    }
+  ],
+  "syntax_checks": [
+    "scripts/audit_phase57_clone.py",
+    "scripts/audit_qwen35_metadata.py",
+    "scripts/check_phase57_evidence.py"
+  ],
+  "real_trials": 6,
+  "paired_actions": 18,
+  "real_transition_calls": 36,
+  "initialization_step_calls": 12,
+  "raw_feedback_matches": 18,
+  "public_transition_matches": 18,
+  "read_only_isolation_witnesses": 18,
+  "worker_step_seconds": 2.273334050551057,
+  "reference_step_seconds": 2.2313135098665953,
+  "preflight_wall_seconds": 31.141150699928403,
+  "owned_jvm_count": 12,
+  "owned_jvms_still_running": 0,
+  "protected_paths": [
+    "configs",
+    "gates",
+    "internal_signals",
+    "experience",
+    "environment",
+    "reflection",
+    "worldmodel",
+    "evaluation",
+    "docs/PAPER_ALIGNED_EVAL.md",
+    "docs/phase3",
+    "docs/phase5/development_plan.json"
+  ],
+  "protected_diff": [],
+  "v2_worktree_clean": true,
+  "weights_downloaded": false,
+  "model_calls": 0,
+  "model_tokens": 0,
+  "full_state_clone_verified": false,
+  "clone_test_result": "blocked",
+  "nvidia_smi": "0, NVIDIA GeForce RTX 4090, 24564 MiB, 3 MiB, 570.172.08\n1, NVIDIA GeForce RTX 4090, 24564 MiB, 3 MiB, 570.172.08\n2, NVIDIA GeForce RTX 4090, 24564 MiB, 3 MiB, 570.172.08\n3, NVIDIA GeForce RTX 4090, 24564 MiB, 3 MiB, 570.172.08\n4, NVIDIA GeForce RTX 4090, 24564 MiB, 3 MiB, 570.172.08\n5, NVIDIA GeForce RTX 4090, 24564 MiB, 3 MiB, 570.172.08\n6, NVIDIA GeForce RTX 4090, 24564 MiB, 3 MiB, 570.172.08\n7, NVIDIA GeForce RTX 4090, 24564 MiB, 3 MiB, 570.172.08\n",
+  "source_hashes": {
+    "worldmodel/science_snapshot.py": "751f8c860e00ab635111026f76b77c7804f9a7c67738a6f83c87d4089bfd83be",
+    "worldmodel/HeapSnapshot.java": "a2441d4fee3b5bb9b09c530249e71a3d038a8850ab1b884330c3d6e96da6435c",
+    "scripts/audit_phase57_clone.py": "a1903a13aa2c27c8203627ac3b9bdf2933f33465dc5710cd644ab0caac16212e",
+    "scripts/audit_qwen35_metadata.py": "f77d080e7ee12a5215ee2380a94a64ebfd51df453aa48e8773b2568b1f2159e0"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "evidence_consistent": true,
+  "full_state_clone_verified": false,
+  "phase_status": "blocked",
+  "paired_real_actions": 18,
+  "model_generation_verified": false
+}

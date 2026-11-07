@@ -1,0 +1,95 @@
+{
+  "model_id": "Qwen/Qwen3.5-9B",
+  "metadata_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "metadata_only": true,
+  "weights_downloaded": false,
+  "real_generation_verified": false,
+  "token_logprobs_verified": false,
+  "thresholds_calibrated": false,
+  "architectures": [
+    "Qwen3_5ForConditionalGeneration"
+  ],
+  "model_type": "qwen3_5",
+  "text_model_type": "qwen3_5_text",
+  "official_non_thinking_parameter": "chat_template_kwargs.enable_thinking=false",
+  "hidden_size": 4096,
+  "num_hidden_layers": 32,
+  "vocab_size": 248320,
+  "artifacts": {
+    "config.json": {
+      "url": "https://huggingface.co/Qwen/Qwen3.5-9B/resolve/c202236235762e1c871ad0ccb60c8ee5ba337b9a/config.json",
+      "bytes": 3126,
+      "sha256": "d0883072e01861ed0b2d47be3c16c36a8e81c224c7ffaa310c6558fb3f932b05"
+    },
+    "tokenizer_config.json": {
+      "url": "https://huggingface.co/Qwen/Qwen3.5-9B/resolve/c202236235762e1c871ad0ccb60c8ee5ba337b9a/tokenizer_config.json",
+      "bytes": 16710,
+      "sha256": "316230d6a809701f4db5ea8f8fc862bc3a6f3229c937c174e674ff3ca0a64ac8"
+    },
+    "chat_template.jinja": {
+      "url": "https://huggingface.co/Qwen/Qwen3.5-9B/resolve/c202236235762e1c871ad0ccb60c8ee5ba337b9a/chat_template.jinja",
+      "bytes": 7756,
+      "sha256": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715"
+    },
+    "README.md": {
+      "url": "https://huggingface.co/Qwen/Qwen3.5-9B/resolve/c202236235762e1c871ad0ccb60c8ee5ba337b9a/README.md",
+      "bytes": 77643,
+      "sha256": "c5f5a8c2dddab69cfbf05279235aa5fddb137939a06539c4c7637aa900fef6d0"
+    }
+  },
+  "cache_search": [
+    {
+      "root": "/data1/shn/agentwmv3/checkpoints",
+      "exists": true,
+      "matching_entries": [],
+      "snapshots": []
+    },
+    {
+      "root": "/data1/shn/models",
+      "exists": true,
+      "matching_entries": [],
+      "snapshots": []
+    },
+    {
+      "root": "/home/shn/.cache/huggingface/hub",
+      "exists": true,
+      "matching_entries": [
+        "/home/shn/.cache/huggingface/hub/models--Qwen--Qwen3.5-9B"
+      ],
+      "snapshots": [
+        {
+          "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+          "files": [
+            "config.json"
+          ],
+          "present_bytes": 3126,
+          "weight_files": []
+        }
+      ]
+    }
+  ],
+  "existing_environment_versions": {
+    "accepted_hf": {
+      "python": "3.12.0 | packaged by Anaconda, Inc. | (main, Oct  2 2023, 17:29:18) [GCC 11.2.0]",
+      "packages": {
+        "torch": "2.8.0",
+        "transformers": "4.57.3",
+        "vllm": null
+      }
+    },
+    "legacy_vllm": {
+      "python": "3.12.0 | packaged by Anaconda, Inc. | (main, Oct  2 2023, 17:29:18) [GCC 11.2.0]",
+      "packages": {
+        "torch": "2.8.0",
+        "transformers": "4.57.3",
+        "vllm": "0.11.0"
+      }
+    }
+  },
+  "accepted_hf_model_type_mapping": {
+    "qwen3_5": null,
+    "qwen3_5_text": null
+  },
+  "isolated_environment_created": false,
+  "stop_reason": "Required independent complete-state clone not validated; model installation/inference deferred"
+}

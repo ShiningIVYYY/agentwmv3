@@ -1,5 +1,11 @@
 # agentwmv3
 
+Current architecture decision: **Qwen/Qwen3.5-9B Actor and Reviewer + isolated real-environment one-step WM**. Phase5.7 is **BLOCKED at reliable complete-state copying into an independent ScienceWorld instance**. Six real dev-task/seed probes pass bounded independent-instance isolation and transition checks; they do not implement full-state cloning. Per the phase's mandatory stop condition, no9B weights/inference/environment installation, new thresholds or four-strategy episodes were attempted. No learned Qwen2.5 WM was started or called.
+
+Read [Phase5.7 report](docs/PHASE5_7_REPORT.md), [real-environment WM prerequisite](docs/REAL_ENVIRONMENT_WM.md), [9B metadata/compatibility audit](docs/QWEN35_9B_INTEGRATION.md), and [progress](docs/PROGRESS.md). The two new scripts are audit-only entrypoints: `scripts/audit_phase57_clone.py` (SDK Python; exit42 means blocked) and `scripts/audit_qwen35_metadata.py` (small official metadata only). There is no approved9B/isolated-WM runner yet. Do not run the historical learned-WM/rollback commands below as Phase5.7, and do not reuse4B thresholds for9B. Phase6 remains on hold.
+
+Historical status follows:
+
 Current status: **Phase5.5 WM/Reviewer audit complete; Phase6 remains on hold.** See [ten-question report](docs/PHASE5_5_REPORT.md), [Reviewer audit](docs/REVIEWER_AUDIT.md), [strict utility diagnostics](docs/WM_UTILITY_DIAGNOSTICS.md), and [compact actual evidence](docs/phase55/results.json). Four development variants and five strict live-heap pairs find no positive final-score intervention (0 positive/1 negative/4 zero); all cohort success rates0. A real WM initializer/parser-state defect has an independently tested opt-in repair, with all original algorithms/results retained. Corrected initialization still yields mean-29/0 success;164 unit/regression tests and real cost/causal audits pass. No training, Memory/threshold changes, final200x8 sweep or Phase6 work. Owned services have been cleaned up. Old documentation below is historical.
 
 The documentation below is inherited from agentwmv2 and describes historical deployments and results. It is not a verified agentwmv3 setup guide. Legacy benchmark runtime assets/results have not been copied. The selected Qwen3-4B/probe assets were prepared separately in Phase 1 and remain ignored by Git.

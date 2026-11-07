@@ -1,15 +1,14 @@
 # Current status
 
-Phase5.5 COMPLETE; no Phase6 authorization. Read PHASE5_5_REPORT.md, REVIEWER_AUDIT.md, WM_UTILITY_DIAGNOSTICS.md and PAPER_ALIGNED_EVAL.md before resuming.
+**Phase5.7 BLOCKED; downstream execution stopped. No Phase6 authorization.**
 
-- Baseline Git f6e864690fea7866a1112a250832619eba2e25a6. Only agentwmv3 changed; original algorithms/protected configs remain unchanged. Final commit/push is reported at handoff.
-- Four variants x5 dev tasks seed0: Never-9, Original-29, Prediction-Only-9, Validity-Checked-28; all0 successes. Never and Original source trajectories fully reproduce; prediction-only matches Never.
-- Five strict same-live-heap/RNG/Python-state paired interventions:0 positive,1 negative (3070,-100),4 zero final-score utilities. Original initializer was used for these pairs; corrected initializer has separate5 full Episode tests, not new pairs.
-- Native score extraction correct; simulator clock/Actor turns/LLM calls separated. Negative score is task failure, not generic invalid-action penalty.
-- Found and independently repaired WM initializer non-room labels/ambiguous-parser contamination.10 verified rooms/task, actual frozen descriptions published for exact replay. Cold aliases can vary; first strict full-string preflight failure retained. Corrective original Reviewer still mean-29/0 success,804134 tokens.
--164 unique CPU/unit/regression cases pass; raw315 old predictions and438+190 new served requests bind to real records. Full cost/source/causal/score audits pass.
-- Total Phase5.5 new work:462 Actor actions,1590 model calls,628 WM requests,3073665 tokens. Offline helper and snapshot costs separate. Initial network outage's51.3h resident-service interval is disclosed, not hidden in inference time.
--31 new unit cases include tri-state validity, cached comparison accounting, termination causes, snapshot/budget/clock identity and actual room-label/API-command checks.
-- Memory3 cards/54TRAIN cases, threshold/scoring/Actor revisions and original final test set remain unchanged. No positive sufficiency/correction added.
-- Initial and corrective owned services stopped; no queued model work. Other services/jobs untouched.
-- Next recommended: explicitly approved generic goal-grounded verification/common initializer validation before Phase6 large sweeps. Do not tune on final test outcomes or add task-specific exceptions.
+- User selected official post-trained Qwen3.5-9B for Actor/Reviewer and isolated true-environment one-step WM. This supersedes the learned Qwen2.5 architecture, but is not yet implemented successfully.
+- Baseline before this work: `0c3b0c067671b5a885db630cd461783d5ae844a2`. Read PHASE5_7_REPORT.md, REAL_ENVIRONMENT_WM.md and QWEN35_9B_INTEGRATION.md first.
+- Required complete-state independent clone not validated. SDK1.2.3 exposes no native state transfer; Java root and5 critical engine field serialization probes fail. Existing heap snapshot is same-live-JVM only and forbidden as the new online backend. No formal speculative action/restore occurred.
+- Final preflight:3 approved development tasks x2 simulator probe seeds,12 independent JVMs,18 paired real actions/36 transitions,12 extra initialization step calls. All18 raw/public comparisons and read-only isolation witnesses match. This is reset/lockstep consistency, not a copied current state. Exit42 is an intentional BLOCKED result. All12 owned JVMs exited.
+- Official9B metadata revision `c202236235762e1c871ad0ccb60c8ee5ba337b9a`; inspected cache contains config only. Existing HF Transformers4.57.3 lacks qwen3_5 mappings. No new env/dependency, weights, service or GPU job. Actor/Reviewer/logprobs/thresholds/episodes remain unverified, not zero-score outcomes.
+- Frozen Memory,4B provider, Gates, benchmark configs, split manifest, final200 IDs and PAPER_ALIGNED_EVAL.md are unchanged. agentwmv2 remains clean. No new trajectory becomes memory or threshold evidence.
+- New versioned artifacts: two audit scripts and a recorded-evidence checker, three Phase5.7 docs, compact raw diagnostic/metadata/check records and plan/README updates. Full probe outputs are ignored under outputs/phase57_*; old Phase5.5 results remain unchanged.
+- Resume only with a reviewed plan for a complete engine-state codec into an independent JVM or separately validated process checkpointing. After real clone acceptance, install/pin an isolated9B backend, validate raw NLL, recalibrate on dev, implement one-round Reviewer/adapter and run small matched episodes. No old-WM or post-action fallback.
+
+Phase5.5 historical diagnostics remain in PHASE5_5_REPORT.md, REVIEWER_AUDIT.md and WM_UTILITY_DIAGNOSTICS.md. They establish engineering execution but no reliable positive learned-WM utility; they do not provide evidence about the unrun9B architecture.

@@ -1,0 +1,923 @@
+{
+  "schema": "phase57-isolated-clone-preflight-v1",
+  "status": "blocked_required_clone_not_validated",
+  "inventory": {
+    "sdk_version": "1.2.3",
+    "sdk_file": "/home/shn/miniconda3/envs/ee-scienceworld/lib/python3.8/site-packages/scienceworld/scienceworld.py",
+    "sdk_source_sha256": "23a37a2e9ed8e43d8c5e27d8660ea344d38a544abcd8c7e6af40071c7832ce68",
+    "jar_sha256": "f4e1fdce0cdabe1bab7128a7e78ea820210d9db3c28d7272bcbbc3f3a1c5f0d7",
+    "java_root_class": "scienceworld.runtime.pythonapi.PythonInterface",
+    "sdk_public_methods": [
+      "clearRunHistories",
+      "clear_run_histories",
+      "close",
+      "getAllObjectIdsTypesReferentsLUTJSON",
+      "getAllObjectTypesLUTJSON",
+      "getGoalProgressStr",
+      "getGoldActionSequence",
+      "getMaxVariations",
+      "getNumMoves",
+      "getObjectTree",
+      "getObjectTypes",
+      "getPossibleActionObjectCombinations",
+      "getPossibleActions",
+      "getPossibleActionsWithIDs",
+      "getPossibleObjectReferentLUT",
+      "getPossibleObjectReferentTypesLUT",
+      "getPossibleObjects",
+      "getPossibleSimplifications",
+      "getRandomVariationDev",
+      "getRandomVariationTest",
+      "getRandomVariationTrain",
+      "getRunHistory",
+      "getRunHistorySize",
+      "getSimplificationsUsed",
+      "getTaskDescription",
+      "getTaskNames",
+      "getValidActionObjectCombinations",
+      "getValidActionObjectCombinationsWithTemplates",
+      "getVariationsDev",
+      "getVariationsTest",
+      "getVariationsTrain",
+      "getVocabulary",
+      "get_all_object_ids_types_referents_LUTJSON",
+      "get_all_object_types_LUTJSON",
+      "get_goal_progress",
+      "get_gold_action_sequence",
+      "get_max_variations",
+      "get_num_moves",
+      "get_object_types",
+      "get_possible_action_object_combinations",
+      "get_possible_actions",
+      "get_possible_actions_with_IDs",
+      "get_possible_object_referent_LUT",
+      "get_possible_object_referent_types_LUT",
+      "get_possible_objects",
+      "get_possible_simplifications",
+      "get_random_variation_dev",
+      "get_random_variation_test",
+      "get_random_variation_train",
+      "get_run_history",
+      "get_run_history_size",
+      "get_simplifications_used",
+      "get_task_description",
+      "get_task_names",
+      "get_valid_action_object_combinations",
+      "get_valid_action_object_combinations_with_templates",
+      "get_variations_dev",
+      "get_variations_test",
+      "get_variations_train",
+      "get_vocabulary",
+      "inventory",
+      "load",
+      "look",
+      "reset",
+      "saveRunHistories",
+      "saveRunHistoriesBufferIfFull",
+      "save_run_histories",
+      "save_run_histories_buffer_if_full",
+      "step",
+      "storeRunHistory",
+      "store_run_history",
+      "task_names",
+      "taskdescription",
+      "tasks"
+    ],
+    "java_public_methods": [
+      "ERROR_MESSAGE_UNINITIALIZED",
+      "actionHandler",
+      "agent",
+      "agentInterface",
+      "agentInterface_$eq",
+      "agent_$eq",
+      "currentHistory",
+      "currentHistory_$eq",
+      "equals",
+      "errorStr",
+      "errorStr_$eq",
+      "errorUnknownEnvironment",
+      "errorUnknownEnvironment_$eq",
+      "freeActionInventory",
+      "freeActionLook",
+      "freeActionTaskDesc",
+      "getActionHistory",
+      "getAllObjectIdsTypesReferentsLUTJSON",
+      "getAllObjectTypesLUTJSON",
+      "getClass",
+      "getCompleted",
+      "getGoalProgressStr",
+      "getGoldActionSequence",
+      "getNumMoves",
+      "getObjectTree",
+      "getObjectTree$default$1",
+      "getObjectTypesLUTJSON",
+      "getPossibleActionObjectCombinationsJSON",
+      "getPossibleActions",
+      "getPossibleActionsWithIDs",
+      "getPossibleObjectReferentLUTJSON",
+      "getPossibleObjectReferentTypesLUTJSON",
+      "getPossibleObjects",
+      "getPossibleSimplifications",
+      "getRandomVariationDev",
+      "getRandomVariationTest",
+      "getRandomVariationTrain",
+      "getRunHistoryJSON",
+      "getScore",
+      "getSets",
+      "getSimplificationsUsed",
+      "getTaskDescription",
+      "getTaskMaxVariations",
+      "getTaskNames",
+      "getValidActionObjectCombinations",
+      "getValidActionObjectCombinationsJSON",
+      "getVariationsDev",
+      "getVariationsTest",
+      "getVariationsTrain",
+      "goldActionsStr",
+      "goldActionsStr_$eq",
+      "goldPathGenerationEnabled",
+      "goldPathGenerationEnabled_$eq",
+      "hashCode",
+      "isComplete",
+      "isComplete_$eq",
+      "load",
+      "load$default$4",
+      "main",
+      "notify",
+      "notifyAll",
+      "printUsage",
+      "reset",
+      "score",
+      "score_$eq",
+      "shutdown",
+      "simplificationStr",
+      "simplificationStr_$eq",
+      "step",
+      "taskMaker",
+      "taskMaker_$eq",
+      "taskStr",
+      "taskStr_$eq",
+      "taskVariationIdx",
+      "taskVariationIdx_$eq",
+      "toString",
+      "wait"
+    ],
+    "root_java_serialization": {
+      "success": false,
+      "error": "An error occurred while calling o132.writeObject.\n: java.io.NotSerializableException: scienceworld.runtime.pythonapi.PythonInterface\n\tat java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1184)\n\tat java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)\n\tat py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)\n\tat py4j.Gateway.invoke(Gateway.java:282)\n\tat py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)\n\tat py4j.commands.CallCommand.execute(CallCommand.java:79)\n\tat py4j.GatewayConnection.run(GatewayConnection.java:240)\n\tat java.lang.Thread.run(Thread.java:750)\n"
+    },
+    "critical_fields_java_serialization": {
+      "agentInterface": {
+        "success": false,
+        "error": "An error occurred while calling o20.writeObject.\n: java.io.NotSerializableException: scienceworld.runtime.AgentInterface\n\tat java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1184)\n\tat java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1548)\n\tat java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1509)\n\tat java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432)\n\tat java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178)\n\tat java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)\n\tat py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)\n\tat py4j.Gateway.invoke(Gateway.java:282)\n\tat py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)\n\tat py4j.commands.CallCommand.execute(CallCommand.java:79)\n\tat py4j.GatewayConnection.run(GatewayConnection.java:240)\n\tat java.lang.Thread.run(Thread.java:750)\n"
+      },
+      "agent": {
+        "success": false,
+        "error": "An error occurred while calling o25.writeObject.\n: java.io.NotSerializableException: scienceworld.objects.agent.Agent\n\tat java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1184)\n\tat java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1548)\n\tat java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1509)\n\tat java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432)\n\tat java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178)\n\tat java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)\n\tat py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)\n\tat py4j.Gateway.invoke(Gateway.java:282)\n\tat py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)\n\tat py4j.commands.CallCommand.execute(CallCommand.java:79)\n\tat py4j.GatewayConnection.run(GatewayConnection.java:240)\n\tat java.lang.Thread.run(Thread.java:750)\n"
+      },
+      "actionHandler": {
+        "success": false,
+        "error": "An error occurred while calling o30.writeObject.\n: java.io.NotSerializableException: scienceworld.input.ActionHandler\n\tat java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1184)\n\tat java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)\n\tat py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)\n\tat py4j.Gateway.invoke(Gateway.java:282)\n\tat py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)\n\tat py4j.commands.CallCommand.execute(CallCommand.java:79)\n\tat py4j.GatewayConnection.run(GatewayConnection.java:240)\n\tat java.lang.Thread.run(Thread.java:750)\n"
+      },
+      "taskMaker": {
+        "success": false,
+        "error": "An error occurred while calling o44.writeObject.\n: java.io.NotSerializableException: scienceworld.tasks.TaskMaker1\n\tat java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1184)\n\tat java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)\n\tat py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)\n\tat py4j.Gateway.invoke(Gateway.java:282)\n\tat py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)\n\tat py4j.commands.CallCommand.execute(CallCommand.java:79)\n\tat py4j.GatewayConnection.run(GatewayConnection.java:240)\n\tat java.lang.Thread.run(Thread.java:750)\n"
+      },
+      "currentHistory": {
+        "success": false,
+        "error": "An error occurred while calling o49.writeObject.\n: java.io.NotSerializableException: scienceworld.goldagent.RunHistory\n\tat java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1184)\n\tat java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)\n\tat py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)\n\tat py4j.Gateway.invoke(Gateway.java:282)\n\tat py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)\n\tat py4j.commands.CallCommand.execute(CallCommand.java:79)\n\tat py4j.GatewayConnection.run(GatewayConnection.java:240)\n\tat java.lang.Thread.run(Thread.java:750)\n"
+      }
+    },
+    "criu_path": null,
+    "capability_lines": [
+      "CapPrm:\t0000000000000000",
+      "CapEff:\t0000000000000000"
+    ],
+    "snapshot_implementation": "same-JVM live object references; no cross-JVM export/import"
+  },
+  "trials": [
+    {
+      "task_id": "sciworld_128",
+      "taskName": "use-thermometer",
+      "variationIdx": 8,
+      "probe_seed": 0,
+      "distinct_jvm_pids": [
+        3332035,
+        3332159
+      ],
+      "instance_isolation_observed": true,
+      "initial_observable_projection_match": true,
+      "initial_ref": {
+        "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)\n",
+        "inventory": "In your inventory, you see:\n\tan orange\n",
+        "moves": 0,
+        "score": 0,
+        "completed": false,
+        "sdk_last_score": 0,
+        "executed_action_history": "['look around']",
+        "object_tree_projection_sha256": "6543600d923ce1f26fb2816d3b2e541b473f51b42ad496d8eaf988fa24834ae9"
+      },
+      "initial_worker": {
+        "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)\n",
+        "inventory": "In your inventory, you see:\n\tan orange\n",
+        "moves": 0,
+        "score": 0,
+        "completed": false,
+        "sdk_last_score": 0,
+        "executed_action_history": "['look around']",
+        "object_tree_projection_sha256": "6543600d923ce1f26fb2816d3b2e541b473f51b42ad496d8eaf988fa24834ae9"
+      },
+      "steps": [
+        {
+          "action": "look around",
+          "worker": {
+            "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+            "raw_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 0,
+            "latency_seconds": 0.06590106338262558
+          },
+          "reference_normal_execution": {
+            "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+            "raw_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 0,
+            "latency_seconds": 0.061260780319571495
+          },
+          "observable_transition_match": true,
+          "reference_unchanged_during_worker_step": true,
+          "read_only_heap_witness_matches": true,
+          "reference_steps": 1,
+          "worker_steps": 1,
+          "full_snapshot_import_performed": false
+        },
+        {
+          "action": "wait",
+          "worker": {
+            "observation": "You decide to wait for 10 iterations.",
+            "raw_observation": "You decide to wait for 10 iterations.",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 11,
+            "latency_seconds": 0.09274248965084553
+          },
+          "reference_normal_execution": {
+            "observation": "You decide to wait for 10 iterations.",
+            "raw_observation": "You decide to wait for 10 iterations.",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 11,
+            "latency_seconds": 0.08547979593276978
+          },
+          "observable_transition_match": true,
+          "reference_unchanged_during_worker_step": true,
+          "read_only_heap_witness_matches": true,
+          "reference_steps": 2,
+          "worker_steps": 2,
+          "full_snapshot_import_performed": false
+        },
+        {
+          "action": "focus on air",
+          "worker": {
+            "observation": "You focus on the air.",
+            "raw_observation": "You focus on the air.",
+            "reward": -100,
+            "done": true,
+            "score": -100,
+            "simulator_moves": 12,
+            "latency_seconds": 0.06291952542960644
+          },
+          "reference_normal_execution": {
+            "observation": "You focus on the air.",
+            "raw_observation": "You focus on the air.",
+            "reward": -100,
+            "done": true,
+            "score": -100,
+            "simulator_moves": 12,
+            "latency_seconds": 0.0615774430334568
+          },
+          "observable_transition_match": true,
+          "reference_unchanged_during_worker_step": true,
+          "read_only_heap_witness_matches": true,
+          "reference_steps": 3,
+          "worker_steps": 3,
+          "full_snapshot_import_performed": false
+        }
+      ],
+      "scope": "independent seeded reset/lockstep diagnostic, NOT a copied complete state"
+    },
+    {
+      "task_id": "sciworld_128",
+      "taskName": "use-thermometer",
+      "variationIdx": 8,
+      "probe_seed": 1,
+      "distinct_jvm_pids": [
+        3332293,
+        3332420
+      ],
+      "instance_isolation_observed": true,
+      "initial_observable_projection_match": true,
+      "initial_ref": {
+        "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)\n",
+        "inventory": "In your inventory, you see:\n\tan orange\n",
+        "moves": 0,
+        "score": 0,
+        "completed": false,
+        "sdk_last_score": 0,
+        "executed_action_history": "['look around']",
+        "object_tree_projection_sha256": "6543600d923ce1f26fb2816d3b2e541b473f51b42ad496d8eaf988fa24834ae9"
+      },
+      "initial_worker": {
+        "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)\n",
+        "inventory": "In your inventory, you see:\n\tan orange\n",
+        "moves": 0,
+        "score": 0,
+        "completed": false,
+        "sdk_last_score": 0,
+        "executed_action_history": "['look around']",
+        "object_tree_projection_sha256": "6543600d923ce1f26fb2816d3b2e541b473f51b42ad496d8eaf988fa24834ae9"
+      },
+      "steps": [
+        {
+          "action": "look around",
+          "worker": {
+            "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+            "raw_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 0,
+            "latency_seconds": 0.06989128515124321
+          },
+          "reference_normal_execution": {
+            "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+            "raw_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 0,
+            "latency_seconds": 0.06331280991435051
+          },
+          "observable_transition_match": true,
+          "reference_unchanged_during_worker_step": true,
+          "read_only_heap_witness_matches": true,
+          "reference_steps": 1,
+          "worker_steps": 1,
+          "full_snapshot_import_performed": false
+        },
+        {
+          "action": "wait",
+          "worker": {
+            "observation": "You decide to wait for 10 iterations.",
+            "raw_observation": "You decide to wait for 10 iterations.",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 11,
+            "latency_seconds": 0.10283315926790237
+          },
+          "reference_normal_execution": {
+            "observation": "You decide to wait for 10 iterations.",
+            "raw_observation": "You decide to wait for 10 iterations.",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 11,
+            "latency_seconds": 0.09062179177999496
+          },
+          "observable_transition_match": true,
+          "reference_unchanged_during_worker_step": true,
+          "read_only_heap_witness_matches": true,
+          "reference_steps": 2,
+          "worker_steps": 2,
+          "full_snapshot_import_performed": false
+        },
+        {
+          "action": "focus on air",
+          "worker": {
+            "observation": "You focus on the air.",
+            "raw_observation": "You focus on the air.",
+            "reward": -100,
+            "done": true,
+            "score": -100,
+            "simulator_moves": 12,
+            "latency_seconds": 0.07068279758095741
+          },
+          "reference_normal_execution": {
+            "observation": "You focus on the air.",
+            "raw_observation": "You focus on the air.",
+            "reward": -100,
+            "done": true,
+            "score": -100,
+            "simulator_moves": 12,
+            "latency_seconds": 0.06591173633933067
+          },
+          "observable_transition_match": true,
+          "reference_unchanged_during_worker_step": true,
+          "read_only_heap_witness_matches": true,
+          "reference_steps": 3,
+          "worker_steps": 3,
+          "full_snapshot_import_performed": false
+        }
+      ],
+      "scope": "independent seeded reset/lockstep diagnostic, NOT a copied complete state"
+    },
+    {
+      "task_id": "sciworld_2417",
+      "taskName": "test-conductivity-of-unknown-substances",
+      "variationIdx": 81,
+      "probe_seed": 0,
+      "distinct_jvm_pids": [
+        3332569,
+        3332688
+      ],
+      "instance_isolation_observed": true,
+      "initial_observable_projection_match": true,
+      "initial_ref": {
+        "observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta substance called air\n\ta substance called soap\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)\n",
+        "inventory": "In your inventory, you see:\n\tan orange\n",
+        "moves": 0,
+        "score": 0,
+        "completed": false,
+        "sdk_last_score": 0,
+        "executed_action_history": "['look around']",
+        "object_tree_projection_sha256": "fb36f23793107cc878e0f54d193cb50ce59e2c8ef04e903e3f0b4456f050708d"
+      },
+      "initial_worker": {
+        "observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta substance called air\n\ta substance called soap\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)\n",
+        "inventory": "In your inventory, you see:\n\tan orange\n",
+        "moves": 0,
+        "score": 0,
+        "completed": false,
+        "sdk_last_score": 0,
+        "executed_action_history": "['look around']",
+        "object_tree_projection_sha256": "fb36f23793107cc878e0f54d193cb50ce59e2c8ef04e903e3f0b4456f050708d"
+      },
+      "steps": [
+        {
+          "action": "look around",
+          "worker": {
+            "observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta substance called air\n\ta substance called soap\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)",
+            "raw_observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta substance called air\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called soap\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 0,
+            "latency_seconds": 0.20604966953396797
+          },
+          "reference_normal_execution": {
+            "observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta substance called air\n\ta substance called soap\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)",
+            "raw_observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta substance called air\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called soap\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 0,
+            "latency_seconds": 0.19784225337207317
+          },
+          "observable_transition_match": true,
+          "reference_unchanged_during_worker_step": true,
+          "read_only_heap_witness_matches": true,
+          "reference_steps": 1,
+          "worker_steps": 1,
+          "full_snapshot_import_performed": false
+        },
+        {
+          "action": "wait",
+          "worker": {
+            "observation": "You decide to wait for 10 iterations.",
+            "raw_observation": "You decide to wait for 10 iterations.",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 11,
+            "latency_seconds": 0.23628246039152145
+          },
+          "reference_normal_execution": {
+            "observation": "You decide to wait for 10 iterations.",
+            "raw_observation": "You decide to wait for 10 iterations.",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 11,
+            "latency_seconds": 0.21674093790352345
+          },
+          "observable_transition_match": true,
+          "reference_unchanged_during_worker_step": true,
+          "read_only_heap_witness_matches": true,
+          "reference_steps": 2,
+          "worker_steps": 2,
+          "full_snapshot_import_performed": false
+        },
+        {
+          "action": "focus on air",
+          "worker": {
+            "observation": "You focus on the air.",
+            "raw_observation": "You focus on the air.",
+            "reward": -100,
+            "done": true,
+            "score": -100,
+            "simulator_moves": 12,
+            "latency_seconds": 0.19415438547730446
+          },
+          "reference_normal_execution": {
+            "observation": "You focus on the air.",
+            "raw_observation": "You focus on the air.",
+            "reward": -100,
+            "done": true,
+            "score": -100,
+            "simulator_moves": 12,
+            "latency_seconds": 0.17549997568130493
+          },
+          "observable_transition_match": true,
+          "reference_unchanged_during_worker_step": true,
+          "read_only_heap_witness_matches": true,
+          "reference_steps": 3,
+          "worker_steps": 3,
+          "full_snapshot_import_performed": false
+        }
+      ],
+      "scope": "independent seeded reset/lockstep diagnostic, NOT a copied complete state"
+    },
+    {
+      "task_id": "sciworld_2417",
+      "taskName": "test-conductivity-of-unknown-substances",
+      "variationIdx": 81,
+      "probe_seed": 1,
+      "distinct_jvm_pids": [
+        3332838,
+        3332966
+      ],
+      "instance_isolation_observed": true,
+      "initial_observable_projection_match": true,
+      "initial_ref": {
+        "observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta substance called air\n\ta substance called soap\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)\n",
+        "inventory": "In your inventory, you see:\n\tan orange\n",
+        "moves": 0,
+        "score": 0,
+        "completed": false,
+        "sdk_last_score": 0,
+        "executed_action_history": "['look around']",
+        "object_tree_projection_sha256": "fb36f23793107cc878e0f54d193cb50ce59e2c8ef04e903e3f0b4456f050708d"
+      },
+      "initial_worker": {
+        "observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta substance called air\n\ta substance called soap\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)\n",
+        "inventory": "In your inventory, you see:\n\tan orange\n",
+        "moves": 0,
+        "score": 0,
+        "completed": false,
+        "sdk_last_score": 0,
+        "executed_action_history": "['look around']",
+        "object_tree_projection_sha256": "fb36f23793107cc878e0f54d193cb50ce59e2c8ef04e903e3f0b4456f050708d"
+      },
+      "steps": [
+        {
+          "action": "look around",
+          "worker": {
+            "observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta substance called air\n\ta substance called soap\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)",
+            "raw_observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta substance called air\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called soap\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 0,
+            "latency_seconds": 0.21634972840547562
+          },
+          "reference_normal_execution": {
+            "observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta substance called air\n\ta substance called soap\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)",
+            "raw_observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta substance called air\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called soap\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 0,
+            "latency_seconds": 0.22815673239529133
+          },
+          "observable_transition_match": true,
+          "reference_unchanged_during_worker_step": true,
+          "read_only_heap_witness_matches": true,
+          "reference_steps": 1,
+          "worker_steps": 1,
+          "full_snapshot_import_performed": false
+        },
+        {
+          "action": "wait",
+          "worker": {
+            "observation": "You decide to wait for 10 iterations.",
+            "raw_observation": "You decide to wait for 10 iterations.",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 11,
+            "latency_seconds": 0.2390339244157076
+          },
+          "reference_normal_execution": {
+            "observation": "You decide to wait for 10 iterations.",
+            "raw_observation": "You decide to wait for 10 iterations.",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 11,
+            "latency_seconds": 0.28536706417798996
+          },
+          "observable_transition_match": true,
+          "reference_unchanged_during_worker_step": true,
+          "read_only_heap_witness_matches": true,
+          "reference_steps": 2,
+          "worker_steps": 2,
+          "full_snapshot_import_performed": false
+        },
+        {
+          "action": "focus on air",
+          "worker": {
+            "observation": "You focus on the air.",
+            "raw_observation": "You focus on the air.",
+            "reward": -100,
+            "done": true,
+            "score": -100,
+            "simulator_moves": 12,
+            "latency_seconds": 0.22162272036075592
+          },
+          "reference_normal_execution": {
+            "observation": "You focus on the air.",
+            "raw_observation": "You focus on the air.",
+            "reward": -100,
+            "done": true,
+            "score": -100,
+            "simulator_moves": 12,
+            "latency_seconds": 0.22756779566407204
+          },
+          "observable_transition_match": true,
+          "reference_unchanged_during_worker_step": true,
+          "read_only_heap_witness_matches": true,
+          "reference_steps": 3,
+          "worker_steps": 3,
+          "full_snapshot_import_performed": false
+        }
+      ],
+      "scope": "independent seeded reset/lockstep diagnostic, NOT a copied complete state"
+    },
+    {
+      "task_id": "sciworld_3070",
+      "taskName": "find-living-thing",
+      "variationIdx": 134,
+      "probe_seed": 0,
+      "distinct_jvm_pids": [
+        3333126,
+        3333250
+      ],
+      "instance_isolation_observed": true,
+      "initial_observable_projection_match": true,
+      "initial_ref": {
+        "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta finger painting\n\ta glass cup (containing nothing)\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)\n",
+        "inventory": "In your inventory, you see:\n\tan orange\n",
+        "moves": 0,
+        "score": 0,
+        "completed": false,
+        "sdk_last_score": 0,
+        "executed_action_history": "['look around']",
+        "object_tree_projection_sha256": "637cdf1d1a2a6ad2ce2b5362ad9af4c0d60ca53c0393a82a6a447f9b4d372e5b"
+      },
+      "initial_worker": {
+        "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta finger painting\n\ta glass cup (containing nothing)\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)\n",
+        "inventory": "In your inventory, you see:\n\tan orange\n",
+        "moves": 0,
+        "score": 0,
+        "completed": false,
+        "sdk_last_score": 0,
+        "executed_action_history": "['look around']",
+        "object_tree_projection_sha256": "637cdf1d1a2a6ad2ce2b5362ad9af4c0d60ca53c0393a82a6a447f9b4d372e5b"
+      },
+      "steps": [
+        {
+          "action": "look around",
+          "worker": {
+            "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta finger painting\n\ta glass cup (containing nothing)\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+            "raw_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta finger painting\n\ta glass cup (containing nothing)\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 0,
+            "latency_seconds": 0.08137182891368866
+          },
+          "reference_normal_execution": {
+            "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta finger painting\n\ta glass cup (containing nothing)\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+            "raw_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta finger painting\n\ta glass cup (containing nothing)\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 0,
+            "latency_seconds": 0.06844872049987316
+          },
+          "observable_transition_match": true,
+          "reference_unchanged_during_worker_step": true,
+          "read_only_heap_witness_matches": true,
+          "reference_steps": 1,
+          "worker_steps": 1,
+          "full_snapshot_import_performed": false
+        },
+        {
+          "action": "wait",
+          "worker": {
+            "observation": "You decide to wait for 10 iterations.",
+            "raw_observation": "You decide to wait for 10 iterations.",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 11,
+            "latency_seconds": 0.09841235913336277
+          },
+          "reference_normal_execution": {
+            "observation": "You decide to wait for 10 iterations.",
+            "raw_observation": "You decide to wait for 10 iterations.",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 11,
+            "latency_seconds": 0.09203390404582024
+          },
+          "observable_transition_match": true,
+          "reference_unchanged_during_worker_step": true,
+          "read_only_heap_witness_matches": true,
+          "reference_steps": 2,
+          "worker_steps": 2,
+          "full_snapshot_import_performed": false
+        },
+        {
+          "action": "focus on air",
+          "worker": {
+            "observation": "You focus on the air.",
+            "raw_observation": "You focus on the air.",
+            "reward": -100,
+            "done": true,
+            "score": -100,
+            "simulator_moves": 12,
+            "latency_seconds": 0.0753618199378252
+          },
+          "reference_normal_execution": {
+            "observation": "You focus on the air.",
+            "raw_observation": "You focus on the air.",
+            "reward": -100,
+            "done": true,
+            "score": -100,
+            "simulator_moves": 12,
+            "latency_seconds": 0.07391160167753696
+          },
+          "observable_transition_match": true,
+          "reference_unchanged_during_worker_step": true,
+          "read_only_heap_witness_matches": true,
+          "reference_steps": 3,
+          "worker_steps": 3,
+          "full_snapshot_import_performed": false
+        }
+      ],
+      "scope": "independent seeded reset/lockstep diagnostic, NOT a copied complete state"
+    },
+    {
+      "task_id": "sciworld_3070",
+      "taskName": "find-living-thing",
+      "variationIdx": 134,
+      "probe_seed": 1,
+      "distinct_jvm_pids": [
+        3333411,
+        3333530
+      ],
+      "instance_isolation_observed": true,
+      "initial_observable_projection_match": true,
+      "initial_ref": {
+        "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta finger painting\n\ta glass cup (containing nothing)\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)\n",
+        "inventory": "In your inventory, you see:\n\tan orange\n",
+        "moves": 0,
+        "score": 0,
+        "completed": false,
+        "sdk_last_score": 0,
+        "executed_action_history": "['look around']",
+        "object_tree_projection_sha256": "637cdf1d1a2a6ad2ce2b5362ad9af4c0d60ca53c0393a82a6a447f9b4d372e5b"
+      },
+      "initial_worker": {
+        "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta finger painting\n\ta glass cup (containing nothing)\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)\n",
+        "inventory": "In your inventory, you see:\n\tan orange\n",
+        "moves": 0,
+        "score": 0,
+        "completed": false,
+        "sdk_last_score": 0,
+        "executed_action_history": "['look around']",
+        "object_tree_projection_sha256": "637cdf1d1a2a6ad2ce2b5362ad9af4c0d60ca53c0393a82a6a447f9b4d372e5b"
+      },
+      "steps": [
+        {
+          "action": "look around",
+          "worker": {
+            "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta finger painting\n\ta glass cup (containing nothing)\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+            "raw_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta finger painting\n\ta glass cup (containing nothing)\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 0,
+            "latency_seconds": 0.06449449807405472
+          },
+          "reference_normal_execution": {
+            "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta finger painting\n\ta glass cup (containing nothing)\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+            "raw_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta finger painting\n\ta glass cup (containing nothing)\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 0,
+            "latency_seconds": 0.06958015449345112
+          },
+          "observable_transition_match": true,
+          "reference_unchanged_during_worker_step": true,
+          "read_only_heap_witness_matches": true,
+          "reference_steps": 1,
+          "worker_steps": 1,
+          "full_snapshot_import_performed": false
+        },
+        {
+          "action": "wait",
+          "worker": {
+            "observation": "You decide to wait for 10 iterations.",
+            "raw_observation": "You decide to wait for 10 iterations.",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 11,
+            "latency_seconds": 0.09825113974511623
+          },
+          "reference_normal_execution": {
+            "observation": "You decide to wait for 10 iterations.",
+            "raw_observation": "You decide to wait for 10 iterations.",
+            "reward": 0,
+            "done": false,
+            "score": 0,
+            "simulator_moves": 11,
+            "latency_seconds": 0.09479745291173458
+          },
+          "observable_transition_match": true,
+          "reference_unchanged_during_worker_step": true,
+          "read_only_heap_witness_matches": true,
+          "reference_steps": 2,
+          "worker_steps": 2,
+          "full_snapshot_import_performed": false
+        },
+        {
+          "action": "focus on air",
+          "worker": {
+            "observation": "You focus on the air.",
+            "raw_observation": "You focus on the air.",
+            "reward": -100,
+            "done": true,
+            "score": -100,
+            "simulator_moves": 12,
+            "latency_seconds": 0.07697919569909573
+          },
+          "reference_normal_execution": {
+            "observation": "You focus on the air.",
+            "raw_observation": "You focus on the air.",
+            "reward": -100,
+            "done": true,
+            "score": -100,
+            "simulator_moves": 12,
+            "latency_seconds": 0.07320255972445011
+          },
+          "observable_transition_match": true,
+          "reference_unchanged_during_worker_step": true,
+          "read_only_heap_witness_matches": true,
+          "reference_steps": 3,
+          "worker_steps": 3,
+          "full_snapshot_import_performed": false
+        }
+      ],
+      "scope": "independent seeded reset/lockstep diagnostic, NOT a copied complete state"
+    }
+  ],
+  "independent_instances_verified": true,
+  "full_state_transfer_implemented": false,
+  "isolated_clone_verified": false,
+  "formal_environment_speculative_steps": 0,
+  "actor_calls": 0,
+  "reviewer_calls": 0,
+  "learned_wm_calls": 0,
+  "new_model_weights_downloaded": false,
+  "required_next_step": "validated full-state export/import into another JVM, or separately validated process checkpoint infrastructure",
+  "no_formal_rollback_or_legacy_fallback": true,
+  "seconds": 31.141150699928403,
+  "owned_probe_java_pids": [
+    3332035,
+    3332159,
+    3332293,
+    3332420,
+    3332569,
+    3332688,
+    3332838,
+    3332966,
+    3333126,
+    3333250,
+    3333411,
+    3333530
+  ],
+  "split_manifest_sha256": "6c354103f931d9c398be6ceddd3cb33755372643d0beef9ca052c57feb661fce",
+  "development_plan_sha256": "5664ae4da4298a56c0d800ccd91273ecb2919fb658c4200ced86a655939207d1"
+}
