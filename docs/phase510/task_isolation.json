@@ -1,0 +1,362 @@
+{
+  "candidates": [
+    {
+      "task_id": "sciworld_1614",
+      "index": 1614,
+      "taskName": "test-conductivity",
+      "variationIdx": 178,
+      "category": "test_conductivity",
+      "goal_sha256": "5b5cef9a75b912a97aee7a67df7a98899fba971061371ca887f7c73835770b3b",
+      "goal_group": "0a8ce975287f31d689a035ec5b98070708b4a025c0b4b8270b6fa3dd0c786b23",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_1619",
+      "index": 1619,
+      "taskName": "test-conductivity",
+      "variationIdx": 183,
+      "category": "test_conductivity",
+      "goal_sha256": "5b5cef9a75b912a97aee7a67df7a98899fba971061371ca887f7c73835770b3b",
+      "goal_group": "0a8ce975287f31d689a035ec5b98070708b4a025c0b4b8270b6fa3dd0c786b23",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_1629",
+      "index": 1629,
+      "taskName": "test-conductivity",
+      "variationIdx": 193,
+      "category": "test_conductivity",
+      "goal_sha256": "5b5cef9a75b912a97aee7a67df7a98899fba971061371ca887f7c73835770b3b",
+      "goal_group": "0a8ce975287f31d689a035ec5b98070708b4a025c0b4b8270b6fa3dd0c786b23",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_1634",
+      "index": 1634,
+      "taskName": "test-conductivity",
+      "variationIdx": 198,
+      "category": "test_conductivity",
+      "goal_sha256": "5b5cef9a75b912a97aee7a67df7a98899fba971061371ca887f7c73835770b3b",
+      "goal_group": "0a8ce975287f31d689a035ec5b98070708b4a025c0b4b8270b6fa3dd0c786b23",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_2514",
+      "index": 2514,
+      "taskName": "test-conductivity-of-unknown-substances",
+      "variationIdx": 178,
+      "category": "test_conductivity",
+      "goal_sha256": "5e893acf55f0db6e9de7c97c96142ca5ad336ec8d079342a59693020aaf75194",
+      "goal_group": "1cb0e345ae4ac9c427cddbb3b866aef96f437dc16e106bc5831aa7bfa438a0b5",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_2524",
+      "index": 2524,
+      "taskName": "test-conductivity-of-unknown-substances",
+      "variationIdx": 188,
+      "category": "test_conductivity",
+      "goal_sha256": "5e893acf55f0db6e9de7c97c96142ca5ad336ec8d079342a59693020aaf75194",
+      "goal_group": "1cb0e345ae4ac9c427cddbb3b866aef96f437dc16e106bc5831aa7bfa438a0b5",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_2529",
+      "index": 2529,
+      "taskName": "test-conductivity-of-unknown-substances",
+      "variationIdx": 193,
+      "category": "test_conductivity",
+      "goal_sha256": "5e893acf55f0db6e9de7c97c96142ca5ad336ec8d079342a59693020aaf75194",
+      "goal_group": "1cb0e345ae4ac9c427cddbb3b866aef96f437dc16e106bc5831aa7bfa438a0b5",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_2534",
+      "index": 2534,
+      "taskName": "test-conductivity-of-unknown-substances",
+      "variationIdx": 198,
+      "category": "test_conductivity",
+      "goal_sha256": "5e893acf55f0db6e9de7c97c96142ca5ad336ec8d079342a59693020aaf75194",
+      "goal_group": "1cb0e345ae4ac9c427cddbb3b866aef96f437dc16e106bc5831aa7bfa438a0b5",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_2948",
+      "index": 2948,
+      "taskName": "find-living-thing",
+      "variationIdx": 12,
+      "category": "find",
+      "goal_sha256": "b0f89dda7cc737cd05c18f205e8c88730bbfc31afb76fab1d20df5dda4c43ad6",
+      "goal_group": "34bb3e2f866e017313b6255c40a14903924ec0f4a418d035316d996d5c334d4d",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_2978",
+      "index": 2978,
+      "taskName": "find-living-thing",
+      "variationIdx": 42,
+      "category": "find",
+      "goal_sha256": "b0f89dda7cc737cd05c18f205e8c88730bbfc31afb76fab1d20df5dda4c43ad6",
+      "goal_group": "34bb3e2f866e017313b6255c40a14903924ec0f4a418d035316d996d5c334d4d",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_3008",
+      "index": 3008,
+      "taskName": "find-living-thing",
+      "variationIdx": 72,
+      "category": "find",
+      "goal_sha256": "b0f89dda7cc737cd05c18f205e8c88730bbfc31afb76fab1d20df5dda4c43ad6",
+      "goal_group": "34bb3e2f866e017313b6255c40a14903924ec0f4a418d035316d996d5c334d4d",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_2448",
+      "index": 2448,
+      "taskName": "test-conductivity-of-unknown-substances",
+      "variationIdx": 112,
+      "category": "test_conductivity",
+      "goal_sha256": "b5ee2e9427edc3c849e027b724452cf6758acf5bbcb7775b1a5c76166c600825",
+      "goal_group": "850f5b9e152f88df7196153a3b4c17fcc37b1f0a86271b041ead144fbaf96fe2",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_2453",
+      "index": 2453,
+      "taskName": "test-conductivity-of-unknown-substances",
+      "variationIdx": 117,
+      "category": "test_conductivity",
+      "goal_sha256": "b5ee2e9427edc3c849e027b724452cf6758acf5bbcb7775b1a5c76166c600825",
+      "goal_group": "850f5b9e152f88df7196153a3b4c17fcc37b1f0a86271b041ead144fbaf96fe2",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_1488",
+      "index": 1488,
+      "taskName": "test-conductivity",
+      "variationIdx": 52,
+      "category": "test_conductivity",
+      "goal_sha256": "2c3904b7ada37b7f53f50a3d99a458ff897d1aafe4d1c7a7551cdd9cf931b975",
+      "goal_group": "8ac471fa170918c742628a08a9b33d05e86b9c4031a6ff2f49459e1a35bd87db",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_1498",
+      "index": 1498,
+      "taskName": "test-conductivity",
+      "variationIdx": 62,
+      "category": "test_conductivity",
+      "goal_sha256": "2c3904b7ada37b7f53f50a3d99a458ff897d1aafe4d1c7a7551cdd9cf931b975",
+      "goal_group": "8ac471fa170918c742628a08a9b33d05e86b9c4031a6ff2f49459e1a35bd87db",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_3063",
+      "index": 3063,
+      "taskName": "find-living-thing",
+      "variationIdx": 127,
+      "category": "find",
+      "goal_sha256": "3f424903be5df60a66b8a7b94b94d1b5c3b67862b4e0e4b386eeb281e9d3407a",
+      "goal_group": "b62a31ed54f08bd574887a0b0fb6c2ad4c7cf2ac179265345c23a8bd4bdeb56f",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_2973",
+      "index": 2973,
+      "taskName": "find-living-thing",
+      "variationIdx": 37,
+      "category": "find",
+      "goal_sha256": "3f424903be5df60a66b8a7b94b94d1b5c3b67862b4e0e4b386eeb281e9d3407a",
+      "goal_group": "b62a31ed54f08bd574887a0b0fb6c2ad4c7cf2ac179265345c23a8bd4bdeb56f",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_2943",
+      "index": 2943,
+      "taskName": "find-living-thing",
+      "variationIdx": 7,
+      "category": "find",
+      "goal_sha256": "3f424903be5df60a66b8a7b94b94d1b5c3b67862b4e0e4b386eeb281e9d3407a",
+      "goal_group": "b62a31ed54f08bd574887a0b0fb6c2ad4c7cf2ac179265345c23a8bd4bdeb56f",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_3033",
+      "index": 3033,
+      "taskName": "find-living-thing",
+      "variationIdx": 97,
+      "category": "find",
+      "goal_sha256": "3f424903be5df60a66b8a7b94b94d1b5c3b67862b4e0e4b386eeb281e9d3407a",
+      "goal_group": "b62a31ed54f08bd574887a0b0fb6c2ad4c7cf2ac179265345c23a8bd4bdeb56f",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_715",
+      "index": 715,
+      "taskName": "measure-melting-point-known-substance",
+      "variationIdx": 55,
+      "category": "measure",
+      "goal_sha256": "9a253e3ac0562d142ac7ea610e8daa07f79b7c27c55795cb3a6172d8f03782c5",
+      "goal_group": "c6371393d7be24a68a736d45e36af77fd89a9891af7cff96ffcc3d16f605ff21",
+      "split": "development"
+    }
+  ],
+  "selected": [
+    {
+      "task_id": "sciworld_2948",
+      "index": 2948,
+      "taskName": "find-living-thing",
+      "variationIdx": 12,
+      "category": "find",
+      "goal_sha256": "b0f89dda7cc737cd05c18f205e8c88730bbfc31afb76fab1d20df5dda4c43ad6",
+      "goal_group": "34bb3e2f866e017313b6255c40a14903924ec0f4a418d035316d996d5c334d4d",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_715",
+      "index": 715,
+      "taskName": "measure-melting-point-known-substance",
+      "variationIdx": 55,
+      "category": "measure",
+      "goal_sha256": "9a253e3ac0562d142ac7ea610e8daa07f79b7c27c55795cb3a6172d8f03782c5",
+      "goal_group": "c6371393d7be24a68a736d45e36af77fd89a9891af7cff96ffcc3d16f605ff21",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_1619",
+      "index": 1619,
+      "taskName": "test-conductivity",
+      "variationIdx": 183,
+      "category": "test_conductivity",
+      "goal_sha256": "5b5cef9a75b912a97aee7a67df7a98899fba971061371ca887f7c73835770b3b",
+      "goal_group": "0a8ce975287f31d689a035ec5b98070708b4a025c0b4b8270b6fa3dd0c786b23",
+      "split": "development"
+    }
+  ],
+  "unused_goal_groups": [],
+  "previously_exposed_goal_groups": 43,
+  "prior_phase59_ids": [
+    {
+      "task_id": "sciworld_859",
+      "index": 859,
+      "taskName": "measure-melting-point-known-substance",
+      "variationIdx": 199,
+      "category": "measure",
+      "goal_sha256": "9a253e3ac0562d142ac7ea610e8daa07f79b7c27c55795cb3a6172d8f03782c5",
+      "goal_group": "c6371393d7be24a68a736d45e36af77fd89a9891af7cff96ffcc3d16f605ff21",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_378",
+      "index": 378,
+      "taskName": "use-thermometer",
+      "variationIdx": 258,
+      "category": "measure",
+      "goal_sha256": "96378ccaa14c15f44f4ec40ba1ae233756a8ce3ac1f906ac19f14e7f62cfc320",
+      "goal_group": "8936a5d0f914a3c9ee53675d478d2bdca6573c01264590b967b7d6f7de499d1d",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_1508",
+      "index": 1508,
+      "taskName": "test-conductivity",
+      "variationIdx": 72,
+      "category": "test_conductivity",
+      "goal_sha256": "2c3904b7ada37b7f53f50a3d99a458ff897d1aafe4d1c7a7551cdd9cf931b975",
+      "goal_group": "8ac471fa170918c742628a08a9b33d05e86b9c4031a6ff2f49459e1a35bd87db",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_2438",
+      "index": 2438,
+      "taskName": "test-conductivity-of-unknown-substances",
+      "variationIdx": 102,
+      "category": "test_conductivity",
+      "goal_sha256": "b5ee2e9427edc3c849e027b724452cf6758acf5bbcb7775b1a5c76166c600825",
+      "goal_group": "850f5b9e152f88df7196153a3b4c17fcc37b1f0a86271b041ead144fbaf96fe2",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_3038",
+      "index": 3038,
+      "taskName": "find-living-thing",
+      "variationIdx": 102,
+      "category": "find",
+      "goal_sha256": "b0f89dda7cc737cd05c18f205e8c88730bbfc31afb76fab1d20df5dda4c43ad6",
+      "goal_group": "34bb3e2f866e017313b6255c40a14903924ec0f4a418d035316d996d5c334d4d",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_1624",
+      "index": 1624,
+      "taskName": "test-conductivity",
+      "variationIdx": 188,
+      "category": "test_conductivity",
+      "goal_sha256": "5b5cef9a75b912a97aee7a67df7a98899fba971061371ca887f7c73835770b3b",
+      "goal_group": "0a8ce975287f31d689a035ec5b98070708b4a025c0b4b8270b6fa3dd0c786b23",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_2519",
+      "index": 2519,
+      "taskName": "test-conductivity-of-unknown-substances",
+      "variationIdx": 183,
+      "category": "test_conductivity",
+      "goal_sha256": "5e893acf55f0db6e9de7c97c96142ca5ad336ec8d079342a59693020aaf75194",
+      "goal_group": "1cb0e345ae4ac9c427cddbb3b866aef96f437dc16e106bc5831aa7bfa438a0b5",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_3003",
+      "index": 3003,
+      "taskName": "find-living-thing",
+      "variationIdx": 67,
+      "category": "find",
+      "goal_sha256": "3f424903be5df60a66b8a7b94b94d1b5c3b67862b4e0e4b386eeb281e9d3407a",
+      "goal_group": "b62a31ed54f08bd574887a0b0fb6c2ad4c7cf2ac179265345c23a8bd4bdeb56f",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_746",
+      "index": 746,
+      "taskName": "measure-melting-point-known-substance",
+      "variationIdx": 86,
+      "category": "measure",
+      "goal_sha256": "9a253e3ac0562d142ac7ea610e8daa07f79b7c27c55795cb3a6172d8f03782c5",
+      "goal_group": "c6371393d7be24a68a736d45e36af77fd89a9891af7cff96ffcc3d16f605ff21",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_1503",
+      "index": 1503,
+      "taskName": "test-conductivity",
+      "variationIdx": 67,
+      "category": "test_conductivity",
+      "goal_sha256": "2c3904b7ada37b7f53f50a3d99a458ff897d1aafe4d1c7a7551cdd9cf931b975",
+      "goal_group": "8ac471fa170918c742628a08a9b33d05e86b9c4031a6ff2f49459e1a35bd87db",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_2458",
+      "index": 2458,
+      "taskName": "test-conductivity-of-unknown-substances",
+      "variationIdx": 122,
+      "category": "test_conductivity",
+      "goal_sha256": "b5ee2e9427edc3c849e027b724452cf6758acf5bbcb7775b1a5c76166c600825",
+      "goal_group": "850f5b9e152f88df7196153a3b4c17fcc37b1f0a86271b041ead144fbaf96fe2",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_3068",
+      "index": 3068,
+      "taskName": "find-living-thing",
+      "variationIdx": 132,
+      "category": "find",
+      "goal_sha256": "b0f89dda7cc737cd05c18f205e8c88730bbfc31afb76fab1d20df5dda4c43ad6",
+      "goal_group": "34bb3e2f866e017313b6255c40a14903924ec0f4a418d035316d996d5c334d4d",
+      "split": "development"
+    }
+  ],
+  "source_audit_sha256": "5251899b00ed67d8e598348bb1e465b9d672dc8ba92bf97e1c4422997809c903",
+  "limitation": "No pristine goal-level dev holdout remains; new-ID variants are regression/within-goal checks only."
+}

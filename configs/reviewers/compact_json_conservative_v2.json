@@ -1,0 +1,14 @@
+{
+  "version": "compact-json-conservative-v2",
+  "parent": "ground-truth-replay-one-round-v1",
+  "max_new_tokens": 192,
+  "temperature": 0.4,
+  "top_p": 1,
+  "top_k": 0,
+  "history_length": 2,
+  "json_schema_guidance_only": true,
+  "grammar_constrained_decoding": false,
+  "retry_calls": 0,
+  "invalid_output": "record INVALID, preserve unchanged draft",
+  "gate_threshold_memory_actor_unchanged": true
+}

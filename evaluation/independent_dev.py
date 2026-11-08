@@ -125,7 +125,7 @@ class Ledger:
         self.batch_start={k:self.state[k] for k in self.batch_start}
 
 
-def run_episode(actor,memory,row,policy,rollout_seed,profile,gate_config,episode_dir,ledger):
+def run_episode(actor,memory,row,policy,rollout_seed,profile,gate_config,episode_dir,ledger,reviewer=None):
     out=Path(episode_dir);out.mkdir(parents=True,exist_ok=False)
     spec=dict(taskName=row['taskName'],variationIdx=row['variationIdx'],simplifications=profile['simplifications'],
               seed=profile['simulator_seed'],environment_step_limit=profile['environment_step_limit'],simulator_profile=profile['simulator_profile'])
@@ -134,9 +134,10 @@ def run_episode(actor,memory,row,policy,rollout_seed,profile,gate_config,episode
     atomic(out/'identity.json',dict(task=row,policy=policy,rollout_seed=rollout_seed,spec=spec,started_at_ns=time.time_ns()))
     raw_generate=actor.generate_role
     def logged_generate(prompt,role,seed,scored):
-        reservation=min(actor.count(prompt),actor.config['max_prompt_tokens'])+actor.config['max_new_tokens']
+        response_cap=reviewer.max_new_tokens if role=='review' and reviewer else actor.config['max_new_tokens']
+        reservation=min(actor.count(prompt),actor.config['max_prompt_tokens'])+response_cap
         ledger.begin_model(reservation,dict(episode=str(out),step=len(traces),role=role))
-        text,meta=raw_generate(prompt,role,seed,scored)
+        text,meta=reviewer.generate(actor,prompt,seed) if role=='review' and reviewer else raw_generate(prompt,role,seed,scored)
         append(out/'generation_calls.jsonl',dict(available_at_ns=time.time_ns(),metadata=meta))
         ledger.finish_model(meta)
         return text,meta
@@ -170,10 +171,10 @@ def run_episode(actor,memory,row,policy,rollout_seed,profile,gate_config,episode
                 ledger.finish_transition(sum(cost[k] for k in ('initialization_step_calls','replay_step_calls','candidate_step_calls')))
                 ledger.captures(cost['audit_capture_bundles'])
                 if simulation['prediction_available']:
-                    rp=review_messages(env.goal,observation,past,draft,simulation)
+                    rp=(reviewer.messages if reviewer else review_messages)(env.goal,observation,past,draft,simulation)
                     if actor.count(rp)<=actor.config['max_prompt_tokens']:
                         raw,review_meta=logged_generate(rp,'review',request_seed(row['task_id'],step,'review',rollout_seed),False)
-                        review=dict(raw=raw,parsed=parse_review(raw,draft));final=review['parsed']['final_action']
+                        review=dict(raw=raw,parsed=(reviewer.parse if reviewer else parse_review)(raw,draft));final=review['parsed']['final_action']
                     else:review=dict(parsed=dict(decision='NOT_CALLED',final_action=draft,error='review_context_overflow'))
                 else:review=dict(parsed=dict(decision='NOT_CALLED',final_action=draft,error='reconstruction_failed_keep_draft'))
             ledger.begin_transition(1,dict(episode=str(out),step=step,kind='formal_action'))
@@ -182,7 +183,7 @@ def run_episode(actor,memory,row,policy,rollout_seed,profile,gate_config,episode
             if simulation and simulation['prediction_available'] and final==draft:
                 match=(all(simulation['candidate_transition'][k]==actual[k] for k in ('observation','reward','done','score','moves'))
                     and simulation['candidate_state_sha256']==after_sha)
-            trace=dict(policy=policy,task_id=row['task_id'],rollout_seed=rollout_seed,step=step,goal=env.goal,
+            trace=dict(reviewer_version=reviewer.version if reviewer else 'original',policy=policy,task_id=row['task_id'],rollout_seed=rollout_seed,step=step,goal=env.goal,
                 observation=observation,draft_output=text,draft_action=draft,metadata=meta,external=external,
                 resolved_external=asdict(resolved),gate=decision,decided_at_ns=decided_ns,simulation=simulation,
                 review=review,review_metadata=review_meta,final_action=final,executed_at_ns=execution_ns,actual=actual,
@@ -196,7 +197,7 @@ def run_episode(actor,memory,row,policy,rollout_seed,profile,gate_config,episode
             past.append(dict(observation=observation,action=final))
             if actual['done']:break
         usage=[t['metadata']['usage'] for t in traces]+[t['review_metadata']['usage'] for t in traces if t['review_metadata']]
-        result=dict(policy=policy,task_id=row['task_id'],rollout_seed=rollout_seed,variation=row['variationIdx'],
+        result=dict(reviewer_version=reviewer.version if reviewer else 'original',policy=policy,task_id=row['task_id'],rollout_seed=rollout_seed,variation=row['variationIdx'],
             task_name=row['taskName'],goal_group=row['goal_group'],category=row['category'],task_score=env.current['score'],
             success=env.current['done'] and env.current['score']==100,formal_environment_actions=len(traces),
             simulator_moves=env.current['moves'],done=env.current['done'],action_turn_cap_reached=len(traces)==20,

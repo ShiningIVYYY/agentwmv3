@@ -1,5 +1,7 @@
 # Current status
 
+Phase5.10 IN PROGRESS: Original Reviewer retained; compact-json-conservative-v2 proposed. Gate/Memory/thresholds/Actor unchanged. Bounded protocol:20 old-debug unique requests +44 unique Phase5.9 format-failure prompts (53 original events) +12 Full quality cases;32 strict one-step Draft/Original/Fixed branch comparisons;3 new-ID known-goal dev variants ×5 conditions =15 Episodes at seed0. No independent unseen goal groups remain. No Phase6 or final test. See PHASE5_10_REPORT.md.
+
 Phase5.9 COMPLETE: 12 frozen independent dev instances × seeds0/1 ×4 policies =96 real Episodes; 8 goal clusters. Engineering audit passes (531/531 lookaheads,187/187 KEEP projections). Mean scores Never−0.542/Always3.333/Internal−10.833/Full−19.375; successes0/1/0/0 of24. Full did not reproduce a benefit. Frozen method/Memory/thresholds unchanged. Read [Phase5.9 report](PHASE5_9_REPORT.md) and [independent protocol](INDEPENDENT_DEV_EVAL.md). Await user review; do not start Phase6.
 
 Phase5.7 amended Reset + Replay integration and bounded real validation COMPLETE. No Phase6 authorization. Scientific effectiveness and general replay reliability are NOT established. Read PHASE5_7_REPORT.md before any next work.

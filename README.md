@@ -1,5 +1,7 @@
 # agentwmv3
 
+Phase5.10 IN PROGRESS: Original Reviewer retained; compact-json-conservative-v2 proposed. Gate/Memory/thresholds/Actor unchanged. Bounded protocol:20 old-debug unique requests +44 unique Phase5.9 format-failure prompts (53 original events) +12 Full quality cases;32 strict one-step Draft/Original/Fixed branch comparisons;3 new-ID known-goal dev variants ×5 conditions =15 Episodes at seed0. No independent unseen goal groups remain. No Phase6 or final test. See docs/PHASE5_10_REPORT.md.
+
 Phase5.9 COMPLETE: 12 frozen independent dev instances × seeds0/1 ×4 policies =96 real Episodes; 8 goal clusters. Engineering audit passes (531/531 lookaheads,187/187 KEEP projections). Mean scores Never−0.542/Always3.333/Internal−10.833/Full−19.375; successes0/1/0/0 of24. Full did not reproduce a benefit. Frozen method/Memory/thresholds unchanged. Read [Phase5.9 report](docs/PHASE5_9_REPORT.md) and [independent protocol](docs/INDEPENDENT_DEV_EVAL.md). Await user review; do not start Phase6.
 
 Current architecture: **frozen Qwen/Qwen3.5-9B Actor/Reviewer sharing one model, plus independent ScienceWorld Reset + Replay lookahead**. The new default bounded profile uses the pinned official **1.3.0 native engine**, which fixes the 1.2.3 cross-JVM object/heat-transfer ordering defect. No Qwen2.5 WM, training, formal-environment preview or rollback is used. Phase6 remains unauthorized.
