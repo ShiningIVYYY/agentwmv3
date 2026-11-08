@@ -1,5 +1,7 @@
 # Current status
 
+Phase5.9 is authorized and in progress: frozen-method independent development evaluation. The12-task/2-seed cohort, pre-generation exposure audit, resource caps and descriptive analysis are fixed in [INDEPENDENT_DEV_EVAL.md](INDEPENDENT_DEV_EVAL.md). No method/Memory/threshold tuning, training or final200-task evaluation. First20 Episodes must pass engineering audit before the remaining76 start. Phase6 is not authorized.
+
 Phase5.7 amended Reset + Replay integration and bounded real validation COMPLETE. No Phase6 authorization. Scientific effectiveness and general replay reliability are NOT established. Read PHASE5_7_REPORT.md before any next work.
 
 The user superseded full Java serialization/clone as a prerequisite. Independent strict reset/replay adapter is implemented:27/48 controlled scenarios verified/matched,21 safely rejected,0 accepted-public-transition mismatches. Current production guard rejects tree differences; minimal real thermal-drift reproduction retained. No installed SDK or Java/Scala changes, formal preview/rollback or Qwen2.5 online fallback.

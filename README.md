@@ -1,5 +1,7 @@
 # agentwmv3
 
+Phase5.9 is authorized and in progress: frozen-method independent development evaluation. The12-task/2-seed cohort, pre-generation exposure audit, resource caps and descriptive analysis are fixed in [INDEPENDENT_DEV_EVAL.md](docs/INDEPENDENT_DEV_EVAL.md). No method/Memory/threshold tuning, training or final200-task evaluation. First20 Episodes must pass engineering audit before the remaining76 start. Phase6 is not authorized.
+
 Current architecture: **frozen Qwen/Qwen3.5-9B Actor/Reviewer sharing one model, plus independent ScienceWorld Reset + Replay lookahead**. The new default bounded profile uses the pinned official **1.3.0 native engine**, which fixes the 1.2.3 cross-JVM object/heat-transfer ordering defect. No Qwen2.5 WM, training, formal-environment preview or rollback is used. Phase6 remains unauthorized.
 
 Read the [deterministic replay repair](docs/REAL_ENV_WM_REPLAY_FIX.md), [repair results](docs/REAL_ENV_WM_REPLAY_FIX_REPORT.md), [9B integration](docs/QWEN35_9B_INTEGRATION.md) and [progress](docs/PROGRESS.md). Controlled checks match48/48 real transitions; longer recorded-history checks match63/63 public transitions AND checked post-step fingerprints, plus9 repeated-worker and9 failed-evidence guards. This remains finite validation of a checked projection, not complete hidden-state equivalence or learned-WM prediction accuracy.

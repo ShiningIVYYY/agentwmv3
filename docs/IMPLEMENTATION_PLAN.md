@@ -1,5 +1,7 @@
 # Training-Free Internal–External Selective WM: implementation plan
 
+Phase5.9 is authorized and in progress: frozen-method independent development evaluation. The12-task/2-seed cohort, pre-generation exposure audit, resource caps and descriptive analysis are fixed in [INDEPENDENT_DEV_EVAL.md](INDEPENDENT_DEV_EVAL.md). No method/Memory/threshold tuning, training or final200-task evaluation. First20 Episodes must pass engineering audit before the remaining76 start. Phase6 is not authorized.
+
 ## Follow-up: deterministic real-environment next-state repair
 
 User authorized resolving true-simulator next-state prediction. Root cause:1.2.3 unstable object iteration changes in-place heat updates across independent JVMs. Use official native1.3.0 commit e8216d6044e8e39be9fcb185e3b2dfb602584b52, with a pinned hash and explicit new profile; no local Java/Scala patch or SDK replacement. Controlled48/48 and recorded-history63/63 transitions match;9 repeated worker and9 corrupt-evidence checks pass. New post-step fingerprints strengthen KEEP verification. See REAL_ENV_WM_REPLAY_FIX.md and REAL_ENV_WM_REPLAY_FIX_REPORT.md.

@@ -1,0 +1,19 @@
+{
+  "status": "engineering_preflight_pass",
+  "real_generation_started": false,
+  "new_contract_tests": 12,
+  "related_regression_tests": 98,
+  "total_tests": 110,
+  "python_version": "3.12.0 | packaged by Anaconda, Inc. | (main, Oct  2 2023, 17:29:18) [GCC 11.2.0]",
+  "method_source_base": "6e564390955f136ea80d57facffd2e50c8543d34",
+  "method_hashes_verified": true,
+  "selected_tasks": 12,
+  "selected_goal_groups": 8,
+  "round1_episodes": 20,
+  "total_episodes": 96,
+  "preparation_failures": [
+    "HF online verify-only TLS EOF; no download",
+    "system Python3.9 cannot import3.12 union typing; reran under isolated3.12"
+  ],
+  "operational_asset_check": "supervisor recomputes all13 local SHA256 against prior pinned official manifest"
+}
