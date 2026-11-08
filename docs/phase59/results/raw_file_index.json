@@ -1,0 +1,1541 @@
+{
+  "run": "outputs/phase59_independent_v2",
+  "files": [
+    {
+      "path": "episodes/sciworld_859/seed0/never/steps.jsonl",
+      "sha256": "65681b394ba79efaeb97aee9dd0d4cbb16c5c74d10645421b4d3614be32ed856"
+    },
+    {
+      "path": "episodes/sciworld_859/seed0/never/generation_calls.jsonl",
+      "sha256": "b0490e420fb08d33ed674ff1834a0b78e75f7714607aad6578f30df36f038a5a"
+    },
+    {
+      "path": "episodes/sciworld_859/seed0/never/initial.json",
+      "sha256": "05dfe118f7bbf5cb2c30561abc6315f7a70f61d5476e123e4b4cde8ad4fb94e9"
+    },
+    {
+      "path": "episodes/sciworld_859/seed0/never/complete.json",
+      "sha256": "7032c0ac9fccd26ed0b220de6040033f0a829d4d3cc71ec1bda2da1e7f633d55"
+    },
+    {
+      "path": "episodes/sciworld_859/seed0/always/steps.jsonl",
+      "sha256": "ba9d3f90b15d74b605c29cdf4faf3ad780fa5c64ca9319ec51cdf34afa5f146d"
+    },
+    {
+      "path": "episodes/sciworld_859/seed0/always/generation_calls.jsonl",
+      "sha256": "450940fc207a341a171df806181d5beea4006c795971fb971f1307688b8cb6a6"
+    },
+    {
+      "path": "episodes/sciworld_859/seed0/always/initial.json",
+      "sha256": "e76697f749c8f821af18057abf6a13d1d9b33930db5fb2c690efaf8e7be7e021"
+    },
+    {
+      "path": "episodes/sciworld_859/seed0/always/complete.json",
+      "sha256": "1e2022f2bb0282f2c1443901655ce60e62f84d3fe35ca36c833dc09465ee9646"
+    },
+    {
+      "path": "episodes/sciworld_859/seed0/internal/steps.jsonl",
+      "sha256": "9242a95bd1aaf94723c80fc14fb0f2255208f9f84b420c2560bba5c5f85bd206"
+    },
+    {
+      "path": "episodes/sciworld_859/seed0/internal/generation_calls.jsonl",
+      "sha256": "0084df8ac5d850712e66522de9efd1d90069d769bede8a4ac33d6c7b676894bd"
+    },
+    {
+      "path": "episodes/sciworld_859/seed0/internal/initial.json",
+      "sha256": "c7c387a7121b0fbc42a2d9dd0d0320b92ff961d6a967ccbf1abf4f10e01d3e29"
+    },
+    {
+      "path": "episodes/sciworld_859/seed0/internal/complete.json",
+      "sha256": "5964f2210ff50cf02091e6e4b05c724aa78ef94bda52b56cc035c2310ac735e1"
+    },
+    {
+      "path": "episodes/sciworld_859/seed0/full/steps.jsonl",
+      "sha256": "c39315303fcf697eeb489fe1f017130ac456d60be38ee4704abfa53119d20e01"
+    },
+    {
+      "path": "episodes/sciworld_859/seed0/full/generation_calls.jsonl",
+      "sha256": "afc6df0b8153094a3fc64bb2ff6630722fd52b6240d669da7de417e176c1d501"
+    },
+    {
+      "path": "episodes/sciworld_859/seed0/full/initial.json",
+      "sha256": "0b8e489df66e7b0e71cd63d6752c37572ba349553cb6244f5835aad9c800a88d"
+    },
+    {
+      "path": "episodes/sciworld_859/seed0/full/complete.json",
+      "sha256": "0e53096bb46b6d1f2582413515311f5aff2906e417558f6d3de9edc22d93d569"
+    },
+    {
+      "path": "episodes/sciworld_378/seed0/never/steps.jsonl",
+      "sha256": "e92cbdc24981bdbe7c988c326a614216ae48af339e1df83c61e709450f5f350a"
+    },
+    {
+      "path": "episodes/sciworld_378/seed0/never/generation_calls.jsonl",
+      "sha256": "d93e6cb3a63e7554ab49cc661c99668a995ead6fdb728f3bc03777745399eead"
+    },
+    {
+      "path": "episodes/sciworld_378/seed0/never/initial.json",
+      "sha256": "ae3526ace721e7916880f4d92b4bbc72ecdcc155645219fdf63f3c343f900828"
+    },
+    {
+      "path": "episodes/sciworld_378/seed0/never/complete.json",
+      "sha256": "12dce6f06b5824458ce5acf6f162680659051a28d9c1b0a00b49b93a1a1f4eed"
+    },
+    {
+      "path": "episodes/sciworld_378/seed0/always/steps.jsonl",
+      "sha256": "d7d0da64d1943293d065bdd8c565e30f3aa1612ce8acb5d17291176f43f11275"
+    },
+    {
+      "path": "episodes/sciworld_378/seed0/always/generation_calls.jsonl",
+      "sha256": "25d4fad5eab73d0701f07be28fdc7d6958629093b4d27c99d6cb588b70eb0f55"
+    },
+    {
+      "path": "episodes/sciworld_378/seed0/always/initial.json",
+      "sha256": "ec8b68cf16d64b409947614c9e90854e274358edc2966959b2df8845df76f2d5"
+    },
+    {
+      "path": "episodes/sciworld_378/seed0/always/complete.json",
+      "sha256": "29300f214c46a37e0d73134c3c0a9f70b336d825e803bc94fc46f22638047e57"
+    },
+    {
+      "path": "episodes/sciworld_378/seed0/internal/steps.jsonl",
+      "sha256": "1a1f9e60d2164d4a26386afb21db4cc170c5bebcf393cb9f51920cea12b5fc15"
+    },
+    {
+      "path": "episodes/sciworld_378/seed0/internal/generation_calls.jsonl",
+      "sha256": "58ef9a51dd050f1475a96430e8778d1e14d5ec59aaba979889438c3e42e3f85e"
+    },
+    {
+      "path": "episodes/sciworld_378/seed0/internal/initial.json",
+      "sha256": "76a151714e6a65e41ebd7588d637e538e023571d6963a21ce9e16beae0441c8a"
+    },
+    {
+      "path": "episodes/sciworld_378/seed0/internal/complete.json",
+      "sha256": "865d6041a02eca25cd9cf62d437adb84f0802c1b458e1d10c39058396262802a"
+    },
+    {
+      "path": "episodes/sciworld_378/seed0/full/steps.jsonl",
+      "sha256": "9acea02133c35869e459a5105049a904403f56ba930bf7fce448d00f415246be"
+    },
+    {
+      "path": "episodes/sciworld_378/seed0/full/generation_calls.jsonl",
+      "sha256": "54e0d57b2a930611adcb6d128607a7950cc6ec842a399e1233d2baf3980883de"
+    },
+    {
+      "path": "episodes/sciworld_378/seed0/full/initial.json",
+      "sha256": "46d3a5590862de0cb8693ead5bc7b4ef37f247faf796735d7eb08fdc1280db3d"
+    },
+    {
+      "path": "episodes/sciworld_378/seed0/full/complete.json",
+      "sha256": "8336eec3426d265a436351471db0c2f115765cbbdaa2cb46bd6e761020e66a96"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed0/never/steps.jsonl",
+      "sha256": "969a72bf4302903da1f63313cd2f91893e32ae69e5c8105b391221c2332d2dda"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed0/never/generation_calls.jsonl",
+      "sha256": "3f05743717ea313aa88188f09bab4ccee9c9a2d40e581c48de83e05381a71221"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed0/never/initial.json",
+      "sha256": "36d6660e1d281e214c833b2253dc74e523d3486a9f233b961c279b98a454dceb"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed0/never/complete.json",
+      "sha256": "c407f126d28b8ee4c99ada04b0a6c5531c69c110db6d1cd85328d1186d084351"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed0/always/steps.jsonl",
+      "sha256": "2fd405ee49a5b5d51bf65e824a9eb3203b7893d0f24e02260645c2314bd1e491"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed0/always/generation_calls.jsonl",
+      "sha256": "5a87ccee7231c9408cee4e8c22504b049f9ca0cc5c3ee6eae900611adb8b19db"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed0/always/initial.json",
+      "sha256": "52609e245737880160f0fa878c27c39e23cc9a2dc8a31a8e5453ebc64d631958"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed0/always/complete.json",
+      "sha256": "5f870c47a443bafc813457b695b5608b1b18a6051cad16994bdda2e26f1ba695"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed0/internal/steps.jsonl",
+      "sha256": "25a547d9e52fc5a1b26a6be1be836cd3d1c0d2d438dcd3e732ca9598d78fecf9"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed0/internal/generation_calls.jsonl",
+      "sha256": "978ef1ab3e53f6b7ca3de4eacb8cdedccd2cabf0f8be96d277946126ca8599bd"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed0/internal/initial.json",
+      "sha256": "43a167fda790a971ca92a610f7d12469938bfd8199812d25d431c17e9a150f42"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed0/internal/complete.json",
+      "sha256": "6cfd1ae87961933bcc51aa4c36d3e7be09ebe320522777a0661fb8bf15e3da4a"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed0/full/steps.jsonl",
+      "sha256": "1abc78e0ed3d273f02f98f38b66a7c1112a6f3c52ac327cf94d364c96d43862c"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed0/full/generation_calls.jsonl",
+      "sha256": "2717d381f4781f347fbe556ac3102db3778e4848a419f8842f941ef60e8926a5"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed0/full/initial.json",
+      "sha256": "842474ab72d0fd712cff55d02628d21bb6750c9dfb13c4b8b9f94e68cdeb140a"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed0/full/complete.json",
+      "sha256": "a97615619ca0ca2fb4f5227bbcd37ff8114126a34a74f79df2f01f43d965f536"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed0/never/steps.jsonl",
+      "sha256": "242878fb8480f9003c22f6034046714705208d2607346dcca4eb7432872e6353"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed0/never/generation_calls.jsonl",
+      "sha256": "ed61400e0086e16d7ed29b586add56928150b9263fc1f91fc03f537d6bf318c3"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed0/never/initial.json",
+      "sha256": "1a76b8435d7c6ebb33e86d70c55ac1e5cdca21774870c660256dcba5aacd015f"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed0/never/complete.json",
+      "sha256": "eaaa220a8bee93e60542fa24663bce2c7f0629d1bec57daa7498ed90e99ead29"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed0/always/steps.jsonl",
+      "sha256": "a44b02dd150727669e3a562324c03aabe75413dce2e0d4feaa921217ca82faec"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed0/always/generation_calls.jsonl",
+      "sha256": "5e8e5b521b9b1e11f2be97d2d9da9f205f99cdf4dd51a3a0127aa422f8bad27a"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed0/always/initial.json",
+      "sha256": "34c342091e27d8229d1fb6ed0006b81270ee558e2f0f381ef1604d5168bc4624"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed0/always/complete.json",
+      "sha256": "3bf1d40901e1d0153ce6341ee576900751aed65bc6e09c41299531a3e3ccffbb"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed0/internal/steps.jsonl",
+      "sha256": "828cf6892a6fb0ec895c5ac51710afa6abdc247370489ddd347daccdb14d1891"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed0/internal/generation_calls.jsonl",
+      "sha256": "f1c99ceb73ebfd7a8f7ef91c7d6b891778559d42c47004c560ffe62ce5ab5635"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed0/internal/initial.json",
+      "sha256": "4beda192f4e01befd89a4ad31f91172c2a4ebd7624a48b93e57e76891e2cb99a"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed0/internal/complete.json",
+      "sha256": "8f62ec939af43f059ce78e8106d8763dd64964c8689defd82329411f2ac6ac83"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed0/full/steps.jsonl",
+      "sha256": "643e4e7da7ce854d0647b475022a4879919bd61672583878488af5ea9e8adc37"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed0/full/generation_calls.jsonl",
+      "sha256": "16d8afa147120bbed9b589e28709567cb7a50c16510a1c7469c1579b18b2bf80"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed0/full/initial.json",
+      "sha256": "63144049392214cbbb365831211bca143923d9e141925854f7741c611b3aa66b"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed0/full/complete.json",
+      "sha256": "72d4d4725d1fb1ad246420eacf1fce6c87d7264879b1cb0135e10b07c74702b7"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed0/never/steps.jsonl",
+      "sha256": "734261bf34678b0138b6dfeaa240452284d36e8d45a59317a50584e72e69d2fa"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed0/never/generation_calls.jsonl",
+      "sha256": "7010840e1318346a2aab92d60645c08ea0313eecf4f5107b3f705bc9c9c7d188"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed0/never/initial.json",
+      "sha256": "0799aa9c97e284aca0250d014fdb99876950b782c450593648756cb382458c3b"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed0/never/complete.json",
+      "sha256": "440456f525e002b0f2c00af78debf1399275929f80382d008068970d913a1634"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed0/always/steps.jsonl",
+      "sha256": "b155eac74275a8c78085a0016dc0dd2850ec853b909fd6daa806029d14f222dc"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed0/always/generation_calls.jsonl",
+      "sha256": "1d0eb99926b06e91f1f35e07a619a7925f7d92fc3a57653188c128bfaccad614"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed0/always/initial.json",
+      "sha256": "e3ac3eb7643f14a84f717fea58f008d297b9801a4668e892a7c706e2d5552bea"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed0/always/complete.json",
+      "sha256": "631d0dcd9ce4c3cd4e80961fcd3581e0435ffba8465884e204afc9769061d389"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed0/internal/steps.jsonl",
+      "sha256": "1fcd14ce1fa95534abb76a0ee13216cff7c6bf84e4531162bf577605304fcf46"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed0/internal/generation_calls.jsonl",
+      "sha256": "34f6426db59b770e1681900915c6a509c7b67fde91027bcdbcaf21fe40f11bb9"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed0/internal/initial.json",
+      "sha256": "f0605b3b537bb4aa664da8094b10a8908ad22750c357d6a7524470b63206355e"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed0/internal/complete.json",
+      "sha256": "adc1e14c90a3e2641cc94652d58007252d8438fc3f029a87f35aad53ef094c1a"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed0/full/steps.jsonl",
+      "sha256": "6e360df4fda2b985d90a2fb8261340a95175b90ffa9326d2a660d6b7f347f36a"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed0/full/generation_calls.jsonl",
+      "sha256": "4b3f31fbb1d0cb29aae74bff4e404710ff6b24a9c21341e7939e58da2df70876"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed0/full/initial.json",
+      "sha256": "c39c101496abe1c48b3808e26110a98b1ace59338ad9bf281e29dbc3dc3d6381"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed0/full/complete.json",
+      "sha256": "b7202321db3bfc1404706bba538b11bd855890f9ac202452c5d7b41d101765ac"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed0/never/steps.jsonl",
+      "sha256": "66efa62a2ffd570f34c35051ade9046af6051acdfb9181272ad9e2cbe40621ce"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed0/never/generation_calls.jsonl",
+      "sha256": "1825173ad75507bcf8c48d02d95527385f7ac76ec0e7f42f8a9a90f76a0ea091"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed0/never/initial.json",
+      "sha256": "743823ee582fa4753bb584e63407a60d02478bc54526c13981e0247f85a3968b"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed0/never/complete.json",
+      "sha256": "52b85cfee1672c6246a01839086b52de1933089bd3785925a2831ad37c706510"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed0/always/steps.jsonl",
+      "sha256": "5b1be080c1a1112162aad112864ba9debd533279eac984554b10c81e3c3c6455"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed0/always/generation_calls.jsonl",
+      "sha256": "96740ecbf5ff8502f1a9d78f86b9850c77df674cdbd91dc883ff52c83efa4bc4"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed0/always/initial.json",
+      "sha256": "2f723bbcb3e9ff9f75f74433fed5c5124db1786373f95bf4e7e7e445fc105f43"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed0/always/complete.json",
+      "sha256": "d60e678508ff5a5c358057c4f884cf3db449dc535e2177eb22b2d613e1fc6425"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed0/internal/steps.jsonl",
+      "sha256": "3883973b320fd3767b2f68037104254e18f996cb0e8bce0b6343f5de1ff5c537"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed0/internal/generation_calls.jsonl",
+      "sha256": "33d8e6917850f3caa67ac0a5e47ec68260f15338372d0ee0fd6796a172fcb962"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed0/internal/initial.json",
+      "sha256": "17a66695f63319c06e4d3269f8704d8f2b4f4e41ce6c75e620738545556c87c8"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed0/internal/complete.json",
+      "sha256": "394e3e5edbb6b7d1c2a910fbea61b31084af9b25fd9a54b41c6d4e273c7b6700"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed0/full/steps.jsonl",
+      "sha256": "197c252355d1875302bd9e7cee8099e7760f706fa293ee7c5d0cd57d0fd670d3"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed0/full/generation_calls.jsonl",
+      "sha256": "41bde761fabc363bda4115c9b0ebd15339e3afef287032ea6b14680095ca149e"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed0/full/initial.json",
+      "sha256": "f81a86dda309de4992253b3ddbf1d15bd4a7077e7f887ebb5045598b6ea4e879"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed0/full/complete.json",
+      "sha256": "13b38e0952fd606fe9c12b5510a8b4b030aec76d4ee5de32a59cda242afe89ec"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed0/never/steps.jsonl",
+      "sha256": "ec621af06b581c204e7372c3e89cc2b96b154f4e09bc8db7714cbd7e4889cf37"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed0/never/generation_calls.jsonl",
+      "sha256": "e3297a144b3ba1137e71c1b437c40c624a15810ead4bf21213369fcc3c8443c3"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed0/never/initial.json",
+      "sha256": "2f16d368a4dc67b03eb257eb1eef643ae3d4dd04335ec66f078ac13319f214ae"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed0/never/complete.json",
+      "sha256": "bac58f5c0e6ec4f77ef003402b0ccf42943881f80c59efc35c5980b401f57f60"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed0/always/steps.jsonl",
+      "sha256": "6b0230df23ed3f773b5967ca4ab87d3d4095d75edc44254c479e2ae96e010a22"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed0/always/generation_calls.jsonl",
+      "sha256": "858cc9af4e2d8db3d7c4f470b1cced2199a90d6f6ef19aa4911ee7c529333c27"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed0/always/initial.json",
+      "sha256": "cc056ee4172fea4728b7011d567553784a52c41e67f5ab012b0ebfa46464ef9f"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed0/always/complete.json",
+      "sha256": "74e8da6704060aa021af85fea6be18331a65c321e3d993b4d0f0cf2aec784e38"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed0/internal/steps.jsonl",
+      "sha256": "c4765b9e5e402f38310e9eeed8377fb303ddb6ddf3c540848fd26581dab5bd81"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed0/internal/generation_calls.jsonl",
+      "sha256": "4d8cb114e7c94818b81632e8d033c6992b045335b907782e9a6a69ffa192c469"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed0/internal/initial.json",
+      "sha256": "67b4197078908e76647f365d529e4ce97bbd48fb84dabd9b6d7f350fd9319aad"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed0/internal/complete.json",
+      "sha256": "c16eb0c012614b95fbfc0dbca7d12837910a1ecf0c3c6912e8f82f40b1a3990e"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed0/full/steps.jsonl",
+      "sha256": "31f5dc5571b7001b8f1553f92c64bbc278ca4882d2e0fcf3652ceb9172632a38"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed0/full/generation_calls.jsonl",
+      "sha256": "046886f41e98d764ea095007f2e0d6169583fcff73663a172f8dfc69cadfb6d7"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed0/full/initial.json",
+      "sha256": "044a2eab1093a33513258d44944145798b3ec47812ce920b414418ffd82f3522"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed0/full/complete.json",
+      "sha256": "99ad49e110a5e6b7db86dec744cc653618d4eadcdcf489baa8a3b0cb09dce4da"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed0/never/steps.jsonl",
+      "sha256": "72d7fb95785b48a871f0b7c3d7ceb01965881427b26c4d7d02ce971c73a91d45"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed0/never/generation_calls.jsonl",
+      "sha256": "f66b6fd2889421b569e4387df4de3849ff341425f748d091be51e31ebee4f19e"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed0/never/initial.json",
+      "sha256": "e60a7556f9b722468e87e22230a45a8cd6cdf6ee481f74bdb0e0ab56503397bc"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed0/never/complete.json",
+      "sha256": "3ce7db23adc8b1639dcadd845f0d96a12e22e6bb6c3726d9cc2a632767e446bf"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed0/always/steps.jsonl",
+      "sha256": "e2645c81a59bb41480786aefc1946d74b448b98b9f6a6925471ed3a29c29240b"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed0/always/generation_calls.jsonl",
+      "sha256": "28d7af41cf23ac854e94ac5d578c2ba4138c29a5147563a4a38c9d840cbdaa41"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed0/always/initial.json",
+      "sha256": "19efb7f06995609b59dcdf6ac2ead104252e81cf3342cd318510bc21735547d3"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed0/always/complete.json",
+      "sha256": "146eb52435d19abba914378530662776403e5fb9e853c35b78136ee43aa2d72d"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed0/internal/steps.jsonl",
+      "sha256": "ebe63054295e57918cdd684f436f6cc3544d09df88c0e35564557a96a5869fb5"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed0/internal/generation_calls.jsonl",
+      "sha256": "68901941db222a594536ab518837a237d24fa9a43fefb8d7a7fdf662d6951e8c"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed0/internal/initial.json",
+      "sha256": "e21a6c15ec9f0278e5fe0b5499dc5f3c81b9057b198323ef26164bcc4d702316"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed0/internal/complete.json",
+      "sha256": "7805d73a3ac301d37ceb907df2d3dd230d8215275333b5dde3a51c086569838b"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed0/full/steps.jsonl",
+      "sha256": "c93fab763ee21291bb629c13b9c1148d0e730c022a6720efeedc8fac89663dd3"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed0/full/generation_calls.jsonl",
+      "sha256": "636c6e80d9c9a212242f06c220fd6f5126b1c7816006c7fd562c2903f7cc2b8e"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed0/full/initial.json",
+      "sha256": "d135c372179ad533ae6992197689348d20dc0040da1f38de7d7186b16effc209"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed0/full/complete.json",
+      "sha256": "5b07b7bac19899f37a4054f5028963dc2782ab7ed5ab24cf368f102abcd73401"
+    },
+    {
+      "path": "episodes/sciworld_746/seed0/never/steps.jsonl",
+      "sha256": "b74cad486a04ff0d31528c0059bbecc8bafd4bdb40f3b4eda78a43393ccaa8ee"
+    },
+    {
+      "path": "episodes/sciworld_746/seed0/never/generation_calls.jsonl",
+      "sha256": "31bbb0499097f11c404e4a4149fa678aebe657e0b32a97cad10efa6f596286cf"
+    },
+    {
+      "path": "episodes/sciworld_746/seed0/never/initial.json",
+      "sha256": "492217f7b3eaf4158dbc9f36a1d41872e649fd9079b0bd51513132a0d79e34e8"
+    },
+    {
+      "path": "episodes/sciworld_746/seed0/never/complete.json",
+      "sha256": "990208c6f79773fd5d9b5f299cb2a0f1963b24250e3e16a61e13493356b55275"
+    },
+    {
+      "path": "episodes/sciworld_746/seed0/always/steps.jsonl",
+      "sha256": "c44daf9c6b4ec5d0aaf2896fcf748149735d051d6361cabf7be13044c7c579b0"
+    },
+    {
+      "path": "episodes/sciworld_746/seed0/always/generation_calls.jsonl",
+      "sha256": "df8a9133ae0334c4a04f9b6be33403df82ca3db3166caefaf337d223a2d34f79"
+    },
+    {
+      "path": "episodes/sciworld_746/seed0/always/initial.json",
+      "sha256": "c0839069bf32699763d1d9b1e0681a3fc448893530a421cb30fad2bf22d35dd0"
+    },
+    {
+      "path": "episodes/sciworld_746/seed0/always/complete.json",
+      "sha256": "49f6bfb83a290ee2eda5382c9290406dec011b2aa8f807d0d5ae6efd7a876421"
+    },
+    {
+      "path": "episodes/sciworld_746/seed0/internal/steps.jsonl",
+      "sha256": "ce006e65179189ebf635aa71ca0d232047dc3dc40833026edb7a58a7112324a3"
+    },
+    {
+      "path": "episodes/sciworld_746/seed0/internal/generation_calls.jsonl",
+      "sha256": "db1430accc115dd642a4ce58acef5af5d0ea5ee34d502f49d795925c327a24d3"
+    },
+    {
+      "path": "episodes/sciworld_746/seed0/internal/initial.json",
+      "sha256": "798da346888c6e4e06bb1cb3ae73ccb3360596395c71e70fd073a3721c0cbb0f"
+    },
+    {
+      "path": "episodes/sciworld_746/seed0/internal/complete.json",
+      "sha256": "58320169665ccdf3be0b313286ebaa5da96a6d399de4d140a5c0e760cec40468"
+    },
+    {
+      "path": "episodes/sciworld_746/seed0/full/steps.jsonl",
+      "sha256": "3cfdab508bae5d645b69393601a0740a20b3a1e08cf29632925ea22ceb056c1d"
+    },
+    {
+      "path": "episodes/sciworld_746/seed0/full/generation_calls.jsonl",
+      "sha256": "0058750ba2517228103d12159d9e2f36a09670383884699ac459ee5f8abaa5cc"
+    },
+    {
+      "path": "episodes/sciworld_746/seed0/full/initial.json",
+      "sha256": "8b87f40f6910270f7b6a1c2e22bb41bda30dae6a03d3383f4964cfc73165babc"
+    },
+    {
+      "path": "episodes/sciworld_746/seed0/full/complete.json",
+      "sha256": "88c78a2a2bbd52fc0af17d00633f0b52b5e53b3757a8c4608a91ee068d54f79d"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed0/never/steps.jsonl",
+      "sha256": "8eb74b55dc7666187859a3cfc29cbe9c53327f76e9bb30251e1c668b898e2ba8"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed0/never/generation_calls.jsonl",
+      "sha256": "a0f547af8e91948790813e944ff9d8a0c5f3cbfd4a1dbcc32e9a398b7939ca13"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed0/never/initial.json",
+      "sha256": "c1463ed9b994a7505f92007198f6baea4c04fdc150d1f9a0782dfa0862328313"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed0/never/complete.json",
+      "sha256": "1ad31f914378470548b5102379e7783ce2f6875bc9085f0e00636605a47760f5"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed0/always/steps.jsonl",
+      "sha256": "49e14cd8dc57044843e2324ca956c02261325057bf3695d083b959ecbba4b20d"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed0/always/generation_calls.jsonl",
+      "sha256": "1d075b400308c9160358ebd04299b163d072caa31efcc863ce389c3b0827adb2"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed0/always/initial.json",
+      "sha256": "0a4ca79aa6af15fa58ba29618e07588b563e7ec90fb8aa90d1d01a0609208c18"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed0/always/complete.json",
+      "sha256": "8efc561643456d0caad9a64608868cbf945509cc98ef2b5f9490108cbba07193"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed0/internal/steps.jsonl",
+      "sha256": "64a686d82b6e8b0a0c32787e3176d7a480651b5e1ecb22e901b13816786c8a09"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed0/internal/generation_calls.jsonl",
+      "sha256": "f22cbcf083fb4b87d6cbd5383c63fa506d48c647f2a67a8db40ca3d0d568d26b"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed0/internal/initial.json",
+      "sha256": "762c35e3827907daa08199cd486a68b9adf5ad44c7c963ef6d6b1d2aa5bfb414"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed0/internal/complete.json",
+      "sha256": "734c2899430a6d3d1babfcf7327886d5a2c1144b1299ee5724fd76c386f0f585"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed0/full/steps.jsonl",
+      "sha256": "09ebfe88e0c2170ad7bd2a36d719b1206af4f5a0dc3de0a9c2c1adad5acd0dbc"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed0/full/generation_calls.jsonl",
+      "sha256": "8b5e353ea1ec08bd45f9ec4b6052dac8f7de17bf80454d66919b3a87ba4cffdf"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed0/full/initial.json",
+      "sha256": "203c3bd578565b1606e41c67964bb5aadb947331677ad426f8d266e56bc82efc"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed0/full/complete.json",
+      "sha256": "9582ba4287abdf2d53ccf7f72066d8528ccd0af5dbd670c04d1ad62b99ba0346"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed0/never/steps.jsonl",
+      "sha256": "1c01599cb6aebbd9de62c35e5972e433063dfe87d1ab6023e97a85fefc3eaf9f"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed0/never/generation_calls.jsonl",
+      "sha256": "df0d059a8420cdb326f390f9ada2c6324c11cf342176866a926779bbcb1c13fa"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed0/never/initial.json",
+      "sha256": "77b3cbdefe0dbabd11140674bc17a7e136305087774c99db35cb389208354aaa"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed0/never/complete.json",
+      "sha256": "7e4e7cd07845c612f0bb2100b5c80ec8be0f2a26633c81ba051a58de932749cc"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed0/always/steps.jsonl",
+      "sha256": "68381cd69e2052e1e2e284431180e294da305a9566254ba95f75d76e41bb95f2"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed0/always/generation_calls.jsonl",
+      "sha256": "dcd55ab02f373ddae5c2df53b22334ea31780a0364b35bb86895742fbfef9c7b"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed0/always/initial.json",
+      "sha256": "9ce44e1305ee9df6d9f1ae3b98fe5b311ef0a315291edcac8d6d9e2e06d052a4"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed0/always/complete.json",
+      "sha256": "08b481572e17377672829af198b70c0c5c71650fd6ed9698b55406bb128d9012"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed0/internal/steps.jsonl",
+      "sha256": "d61381a0a9fe382aedbb8ff699bac4e737a2d799b1bad249f3f9fbc77fb80267"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed0/internal/generation_calls.jsonl",
+      "sha256": "5eaee0edc3079036d683cb7735103d86392e21a27dce9b59da8c67be37a23138"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed0/internal/initial.json",
+      "sha256": "e9f8ef59af4392fdd1c2a8975530a0ffd9cec956de5200276c6c04e3a5b6f40b"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed0/internal/complete.json",
+      "sha256": "a68a375dba249f23265bf397a69aeb6690c09d6f147856155705708892fc8f05"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed0/full/steps.jsonl",
+      "sha256": "8bc8c37d959bb6da0b33c2d6a11c764339e9f5d38a2c8aad56fd8a2002b92981"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed0/full/generation_calls.jsonl",
+      "sha256": "7663398e892b6a7a87b21e186a1880f4f1b4d36f71432fdb9f26db0c807d1d63"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed0/full/initial.json",
+      "sha256": "30c4514a21308c3950aeb88898cf29ce1bcffe361e0dd07fa94c25fdcda41594"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed0/full/complete.json",
+      "sha256": "29884a4c3596bcb0f8b522259b5565964927f9b8cf0f04f3cb739a21cd646fc5"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed0/never/steps.jsonl",
+      "sha256": "331b044914c4f359cc92277c9bfef8aa2dccac2bb3b1dca41b361d0f29cc9b3d"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed0/never/generation_calls.jsonl",
+      "sha256": "16715aebe586046f88ddffd0a6a37b9cf230f70ef0a019353c5f0883d9c7bb65"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed0/never/initial.json",
+      "sha256": "2ad232cdd377e714fc8dbe4f0d72b42a756214d0035f8a63a649667fcf59537b"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed0/never/complete.json",
+      "sha256": "29eef2f1a1f5dab52ce9928776eeb1f6687e4320643276e2774487549ea5af2d"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed0/always/steps.jsonl",
+      "sha256": "1f78a7dc1755b8b7596254b28c33ea7d5605c2f209ee5f8a58b61deffcf51711"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed0/always/generation_calls.jsonl",
+      "sha256": "5c257ce41acdad0e152c1b14d85e3bc0c5360005752618fbff1cecda5c076067"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed0/always/initial.json",
+      "sha256": "c5da7b89ef44b0d8c56f02172e39d2672ca6f9ab251a9e303cf444902e1eabc4"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed0/always/complete.json",
+      "sha256": "13ddf54064aa5bfc40d5454bc330ad9f519f0540ab2960812e90ac6121a919a4"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed0/internal/steps.jsonl",
+      "sha256": "f242fe7da9e34dfb56ab8ebc0f7972f8a2c16d14ca51cf40d312446dd4a983d3"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed0/internal/generation_calls.jsonl",
+      "sha256": "16a28108ed7d6259d85fb02e4d02dd73fa78a1d62164a1acc1a150aae5442692"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed0/internal/initial.json",
+      "sha256": "a17f3a42bfd7d4243193c11f6f5d90219a43751cf849d1115e79c7928b21c6b2"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed0/internal/complete.json",
+      "sha256": "a779916e4a395c7d9145195c9d9bc39cd5277ef54fabaf7da0483dcaa4ab171c"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed0/full/steps.jsonl",
+      "sha256": "0dccb2db2072395c58a236158c3837b74d4fe5361416fb81893d498377014a3f"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed0/full/generation_calls.jsonl",
+      "sha256": "9fa50a11da41bddf76960183c54116a3b8da02cd2b296691df34dd7a3655adc0"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed0/full/initial.json",
+      "sha256": "476643669c00096be556221af71420fc5b0a80c6b528c8751b1a0ee191993c28"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed0/full/complete.json",
+      "sha256": "cc937541622efb2b75450a39fb3bfc02530d41db30800b79d4e548f238ebe3b9"
+    },
+    {
+      "path": "episodes/sciworld_859/seed1/never/steps.jsonl",
+      "sha256": "e13aaae9affb5d6223c139043151de5e9e4f40c7c8c1a5c4eb58684743aaca15"
+    },
+    {
+      "path": "episodes/sciworld_859/seed1/never/generation_calls.jsonl",
+      "sha256": "e4c10e679f778f6c107cb5ae324264a5cb6cd921097fb3cebef08a5178eb6366"
+    },
+    {
+      "path": "episodes/sciworld_859/seed1/never/initial.json",
+      "sha256": "014d5420979e0179eab8c2c7799961235a72c6bf23fda8d0f4ce5e875f17d75d"
+    },
+    {
+      "path": "episodes/sciworld_859/seed1/never/complete.json",
+      "sha256": "a6f60973866511b05617dd8d572804bc3439db7260e9a3022db013bb7bbaf68e"
+    },
+    {
+      "path": "episodes/sciworld_859/seed1/always/steps.jsonl",
+      "sha256": "c7f366ab9bbd572e9a18211a8ea8ef75fa5bc050be823e7955bd4a87e0e515b4"
+    },
+    {
+      "path": "episodes/sciworld_859/seed1/always/generation_calls.jsonl",
+      "sha256": "0c93a3f670e292f019fb15a62433d454090a902a0d95a4de7caf4b54618a3205"
+    },
+    {
+      "path": "episodes/sciworld_859/seed1/always/initial.json",
+      "sha256": "8b74046135387d841bc9a2d225683fef791107d1f13470d7ed547b660a0143f8"
+    },
+    {
+      "path": "episodes/sciworld_859/seed1/always/complete.json",
+      "sha256": "d912a021ac2c4e16ec9b72c53b8f88068f3c54b3544d3456c35b52f2ca3774a9"
+    },
+    {
+      "path": "episodes/sciworld_859/seed1/internal/steps.jsonl",
+      "sha256": "8929071e89aded4d8080da0ad05606407cb777648ed4dd66e3b6f3f3e5dc915c"
+    },
+    {
+      "path": "episodes/sciworld_859/seed1/internal/generation_calls.jsonl",
+      "sha256": "2b6a2f240bdfcc7eaad8b2d3f8b090d6329e88857a2c6682e1eac72b2d3a4282"
+    },
+    {
+      "path": "episodes/sciworld_859/seed1/internal/initial.json",
+      "sha256": "1732b139cbf8ed22296f4ca7c730a4f45da161cb6b1314b65fc553cd52a1941a"
+    },
+    {
+      "path": "episodes/sciworld_859/seed1/internal/complete.json",
+      "sha256": "7f36bdff54e489a711c7860769ddc3525a106be691b772b0daf1b3e2d9c941bd"
+    },
+    {
+      "path": "episodes/sciworld_859/seed1/full/steps.jsonl",
+      "sha256": "59cd0ebca3a3bcd91c2b2e3a798b054c7d679592d26b50e72113c3b6d4e3aee3"
+    },
+    {
+      "path": "episodes/sciworld_859/seed1/full/generation_calls.jsonl",
+      "sha256": "43c230e34a88a855e217451adeacbdad3c63d31b00b2d443c2ed95087d87cc40"
+    },
+    {
+      "path": "episodes/sciworld_859/seed1/full/initial.json",
+      "sha256": "35eb55dbbc8b9b1142030af932dfe76ea62b5b63e7ed0527ae1d1ec307e72726"
+    },
+    {
+      "path": "episodes/sciworld_859/seed1/full/complete.json",
+      "sha256": "1d92b049cdd3e4006f91d6ec10afd0f5182648a8d7bc3cb54f6d14c7b5004ba5"
+    },
+    {
+      "path": "episodes/sciworld_378/seed1/never/steps.jsonl",
+      "sha256": "c30dc7499ab1ed8c45c4f31ad52de0e464e884b9f16344c0f6314ed8e5cdf3da"
+    },
+    {
+      "path": "episodes/sciworld_378/seed1/never/generation_calls.jsonl",
+      "sha256": "9f9479d8da9144daa8519d684266d81305a3ae33ca427de96950eea04ec332d7"
+    },
+    {
+      "path": "episodes/sciworld_378/seed1/never/initial.json",
+      "sha256": "b3223275ea193fe2b1e30d206791ba01f748e2af197a4ee1f417b815f8fd2a0c"
+    },
+    {
+      "path": "episodes/sciworld_378/seed1/never/complete.json",
+      "sha256": "0ebc3c5d254c50cac6e2cc84c7fd30cc827a1006635894eb44b006804c32ba7a"
+    },
+    {
+      "path": "episodes/sciworld_378/seed1/always/steps.jsonl",
+      "sha256": "87c99733821d01ee539b68b9e49f5793082334b7d6dc061db067549fb6bf225f"
+    },
+    {
+      "path": "episodes/sciworld_378/seed1/always/generation_calls.jsonl",
+      "sha256": "5b37185de945512115e4c47db25a82c3340e7d5c3907e35f050e16cdba005ef3"
+    },
+    {
+      "path": "episodes/sciworld_378/seed1/always/initial.json",
+      "sha256": "cc5dd398e0d9fa13bc714ca1fc219a1200fb1194009b5dce1b01784c25c6b740"
+    },
+    {
+      "path": "episodes/sciworld_378/seed1/always/complete.json",
+      "sha256": "1479a26b7d8e60f5e66dfe227a157c3852ad0a58bfa230952771da7a5c72532f"
+    },
+    {
+      "path": "episodes/sciworld_378/seed1/internal/steps.jsonl",
+      "sha256": "516f9038e3603c155506f8e7f14a2482a5fa9cfecba890fd2c9ba52dbb5cbe17"
+    },
+    {
+      "path": "episodes/sciworld_378/seed1/internal/generation_calls.jsonl",
+      "sha256": "b160a0885b43b1eb42f4ec507a0ce0aef8815ddec245ec262b15564cb943e113"
+    },
+    {
+      "path": "episodes/sciworld_378/seed1/internal/initial.json",
+      "sha256": "10794609d9d2d1dd37e2b836eedeec1bd912d31648a9774950ad08ec03720ac6"
+    },
+    {
+      "path": "episodes/sciworld_378/seed1/internal/complete.json",
+      "sha256": "350305e69e21cd694aa0d57e9383600835c10937572594112ffdc031d2199d6e"
+    },
+    {
+      "path": "episodes/sciworld_378/seed1/full/steps.jsonl",
+      "sha256": "baef2e343eaee82739e58ce4a786fcdb7495cf8b897616035f789a267ad8c5a2"
+    },
+    {
+      "path": "episodes/sciworld_378/seed1/full/generation_calls.jsonl",
+      "sha256": "53e44e0694776e9a7a7cf27725855aa18302b4ff26e8245b79d008849fac12d6"
+    },
+    {
+      "path": "episodes/sciworld_378/seed1/full/initial.json",
+      "sha256": "355ee9381baa3b77768d55ef74f9bc51c0a615a841be61285156f9cf5bee6e76"
+    },
+    {
+      "path": "episodes/sciworld_378/seed1/full/complete.json",
+      "sha256": "147f0c8d3a95354c1399f5be3cdcb2edd4a4c06764fe229f7521e4894b408d31"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed1/never/steps.jsonl",
+      "sha256": "6a733ccdc02cc81bca4e3fbe0115fa3ebf4a02bea36bd6bf1049dc1bdc4a44e8"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed1/never/generation_calls.jsonl",
+      "sha256": "b4ed8eec7463749cdc2ad3c56f123301d2cfc7b09aad9e1b472389c5872bd864"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed1/never/initial.json",
+      "sha256": "6329aba367b1af7c8c24a6be5a42c89108f75276e8b0f9f3beb270a134b72c81"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed1/never/complete.json",
+      "sha256": "0235ab7dbbde4338083acba72db42a689b1bdd10443a81d2c2d3169c5b12bc7b"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed1/always/steps.jsonl",
+      "sha256": "70f1cdf6ad1238abc336937b797888a36aecc7521705f8602ced32f883be293f"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed1/always/generation_calls.jsonl",
+      "sha256": "8fbe5d60e075316c95b37cd8854d0ad18a3db2d9eb8536270f3c2febefbb7432"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed1/always/initial.json",
+      "sha256": "9239faadb272d63b69f5c11836472cd14fb37630ecbdb6957d86e2f92d8c9cda"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed1/always/complete.json",
+      "sha256": "dfc1154b7029166483802e39c7402d87a1dd703925871c496f1a6246b7fe7b19"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed1/internal/steps.jsonl",
+      "sha256": "0161f582ac108d24a22545b2c5401a4761f360b80bc09dbe4eac4c7fa9cf55d1"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed1/internal/generation_calls.jsonl",
+      "sha256": "e516c2280c20c928fa4a75c752067f7aabcdf04add141ca53d52f4aa79480b8a"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed1/internal/initial.json",
+      "sha256": "a99320cbc0c2c6af75134a7c5647a609e1f60b6005e02673cc4cbd0c7a961952"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed1/internal/complete.json",
+      "sha256": "cacffac117ab38cdd8be2ab92ccb9689bcb33d966a48b58f277dcc9c00141378"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed1/full/steps.jsonl",
+      "sha256": "cf855dfc2c1acca773d86d2ce82ecc28c5f72da059d935877cc12175cb17949c"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed1/full/generation_calls.jsonl",
+      "sha256": "a20f09b65334eabd2d244da009937ae1d439535a93058450a4ef49ed395bc9f7"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed1/full/initial.json",
+      "sha256": "943e5877a7f1895438c39b8ce752c2fdf2a744bb6ba1a1a24b6fd4e497552933"
+    },
+    {
+      "path": "episodes/sciworld_1508/seed1/full/complete.json",
+      "sha256": "2f8e84298102686c8596495e03424e2bfe300369a08804379e24bb3b376681fa"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed1/never/steps.jsonl",
+      "sha256": "c128cfa28cbb4139efbaa19e2c2169dfc97552af8db85178df0489c4189b3df7"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed1/never/generation_calls.jsonl",
+      "sha256": "d15c9cf040a0452e9de42daf7a930a0664b288cfce54d4c49c8db63b0669a45e"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed1/never/initial.json",
+      "sha256": "3ef5e3b9172b09c5a23f3bb273b282b5da848615e2ad9b4be5142095fae1df44"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed1/never/complete.json",
+      "sha256": "cbcd3a7a5a67d1564b2871d8ca156c4144a0dea30d500c9d52261f2b5128c034"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed1/always/steps.jsonl",
+      "sha256": "b23e43e2771ff6bf55ee8ea5f8f7ee895c330a8f687d2a36ff66e4634b5fbfd5"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed1/always/generation_calls.jsonl",
+      "sha256": "de6b8a170c7a41f90a272011b48910279e29fa86a8e9bf6e86b2a252996aaae9"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed1/always/initial.json",
+      "sha256": "0e0fc5a1d9461426146c2b98bc734c6048342769e6d7aeb663efea89dfe17d52"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed1/always/complete.json",
+      "sha256": "aa9815175caeb4022c021c4e9ae0c7a96ad537bb16854e643278ef2ef2b85e64"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed1/internal/steps.jsonl",
+      "sha256": "956b5730ba5aadd48d5b57678a66a3f49997373c8dc2f4745dbcad348a2c6a92"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed1/internal/generation_calls.jsonl",
+      "sha256": "eca60f48e3f3b7a15f3f93e680792dc960c1f53ce69c0154498a0929eb6fa843"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed1/internal/initial.json",
+      "sha256": "710aaeff262ac4ab1b02848dd06194856795012c79c4f2c65ea11b270ab52cc2"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed1/internal/complete.json",
+      "sha256": "ab95aa83c8945bea8931d1a439dcc54a055df013d47bb2d43099e095802ac6a6"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed1/full/steps.jsonl",
+      "sha256": "0ab9d27a8e054dfabd211ddd75a642c1323969534c112fcfafbe95da94597884"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed1/full/generation_calls.jsonl",
+      "sha256": "a8d38a0359a6d65b5e34af746bcca6f3e0ecb0a06b693b025295ecef74929af1"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed1/full/initial.json",
+      "sha256": "ba232541eb060332eb27235f4d156eab26490041418d44415c9bdf9afebade2e"
+    },
+    {
+      "path": "episodes/sciworld_2438/seed1/full/complete.json",
+      "sha256": "00f36107daea15585d10ca9fa86d987fbd13c8d0779347daf98d7ceb34f68747"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed1/never/steps.jsonl",
+      "sha256": "20fdc4155aa3b2f6aecec7d8acb667f8a7a4265b7ef756104e315c6bf04f490f"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed1/never/generation_calls.jsonl",
+      "sha256": "05b4a986bd66fb3c6ca02a88b3438c694fb18adc723d3c636152b01048bc2b20"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed1/never/initial.json",
+      "sha256": "8c8472162183a6784d7fb499f60440351044577857bc8d83e1e5537a1ae441b6"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed1/never/complete.json",
+      "sha256": "b8890b65ea08b70a60aa260419817ae2477122f1769e50ec2b00999b8dcf1960"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed1/always/steps.jsonl",
+      "sha256": "a68081fd21a310e939942622d46310746f68dd48e90e7c3aa2dc99ee3490446e"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed1/always/generation_calls.jsonl",
+      "sha256": "cde2bfe4bff9048acd785721022c48c762c434a9a520584480c0b87282d5d826"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed1/always/initial.json",
+      "sha256": "68383ee65753afea5967d1a5bea98fd0cc3f5f0eb2ac2696071f408f715568a7"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed1/always/complete.json",
+      "sha256": "a7d4358cb8470c93d8ec12df0cd2a7be69dc9c1883a3fbd74178561ce9d0d193"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed1/internal/steps.jsonl",
+      "sha256": "6393bc64963a1f4f1960053abfd88773102c417fae9031252db166fbb146d2bb"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed1/internal/generation_calls.jsonl",
+      "sha256": "ec8779edda3898eadb48d04b8bf7879b9eca3ac28fe43e90923fa19980166932"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed1/internal/initial.json",
+      "sha256": "d662447cc3148d8732aaa0dd4e024b9d19714452634387a847cdd20991174c4e"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed1/internal/complete.json",
+      "sha256": "5c902d97891ffda542a444fec2573f0dffb50f2275ffc199ea8b3be196ea3f1e"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed1/full/steps.jsonl",
+      "sha256": "b34c19b0ff8937a4f7f0e8470a7bb4b3061b7af389514e0257c2172c9f14681a"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed1/full/generation_calls.jsonl",
+      "sha256": "2d357ad99f99185c33221c4dbbf324bf816e79d74db400e61b3a95aa81fe31d9"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed1/full/initial.json",
+      "sha256": "ad8ceca75d27e08917eace0088e9f8419cd320a55273cf0956146bb1658a8eca"
+    },
+    {
+      "path": "episodes/sciworld_3038/seed1/full/complete.json",
+      "sha256": "e4983fea69cdd95049009a69dcf0daefb630b7ebfe52c490156d81eecdea0513"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed1/never/steps.jsonl",
+      "sha256": "f1bca44dc8780909c2beb300a1a25062520389bcb123da53369aaadd7cab551e"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed1/never/generation_calls.jsonl",
+      "sha256": "aafae89228623109c9212b273dbc1ddb5d3bf6cdf0e1743b81d483e75a72d8e9"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed1/never/initial.json",
+      "sha256": "8dcfb6996325d93b29c584c768a3c07156cf863d5d3c348a1c54a792ad9d3619"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed1/never/complete.json",
+      "sha256": "39f0cc42eeec25f811392a630cd0555afa10d1f4c40208634ae9a76cdae3d4f2"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed1/always/steps.jsonl",
+      "sha256": "51cec3407e224a1a5ba1f44e1c5b7cfc98aa3ce6ccdb20597996f65ece3d89aa"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed1/always/generation_calls.jsonl",
+      "sha256": "295ffedb0535cc04170497d4bde6f44a2c97e8cf613fbae41bbf43e143a7f707"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed1/always/initial.json",
+      "sha256": "78597c5723f5de2a211e5292780616e596dba0fde520f3ee54a1bbb09c15b850"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed1/always/complete.json",
+      "sha256": "70ca2e285d56cb18c9e77f927446c42b91e7b09e0490c07cfe2ac7dc81617255"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed1/internal/steps.jsonl",
+      "sha256": "26376ee1373d0a5bb57d5317598e8226064f03cb359283d5f76194e2d1c64028"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed1/internal/generation_calls.jsonl",
+      "sha256": "487d2438148f46f09987833d355d73de5f4b4f9e073a02fed9bdf0f700399b1b"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed1/internal/initial.json",
+      "sha256": "961eaec674d6d15b6b1493446b112d922cdf2de64506b9e1b1da62192c9f0a6c"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed1/internal/complete.json",
+      "sha256": "447cd47fce726d6b8d7d7fb84aa2ac541d5667f06fa1c0ec3f2c8b03b9e6e1c9"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed1/full/steps.jsonl",
+      "sha256": "cdc763d18a358e67727af15261864f09643f688212813550abbb611c1e8a73ad"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed1/full/generation_calls.jsonl",
+      "sha256": "34b3148021cf8670bebed633b9ea2b0cb6a86b2077bed8b8945facda48a2870b"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed1/full/initial.json",
+      "sha256": "7bc30b399e313d77f4c14a1111d8774a41eb2a09ae61d4a139649f292ad41be0"
+    },
+    {
+      "path": "episodes/sciworld_1624/seed1/full/complete.json",
+      "sha256": "ff0c6900cf32b775ee42f784fdf019b9cccbc421e1257e9bad72fe7ba4512fdb"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed1/never/steps.jsonl",
+      "sha256": "2c5cc6662358429f638d2ea6cee2ac86a8971f9827c9629144b27eb35de0ba69"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed1/never/generation_calls.jsonl",
+      "sha256": "2bda72c29adc3ee230831d8cf3b1fc0f8a9d8112338fe92411d2cd46a7d41a16"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed1/never/initial.json",
+      "sha256": "0cb74777435ca0a6758e8b75a687c012456a97b7f5d9beff32403d5cc77135c0"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed1/never/complete.json",
+      "sha256": "b566bc42d3a3bfaf753902e6223fde093471a5917681d5f756e1f87fa3738aae"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed1/always/steps.jsonl",
+      "sha256": "11b25840405b73ea6eb5299118ffab5a9325d299fa03488d4e6c0ee6e38e754e"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed1/always/generation_calls.jsonl",
+      "sha256": "eee5cb87532c0ec20b80495eabe6363b7e3250b9cc9fd48e55422355655c4439"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed1/always/initial.json",
+      "sha256": "ff60a6c036fb558d46b18aec5ddad4108cb69726ed35ecd23f1b3656e7448d41"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed1/always/complete.json",
+      "sha256": "d0a4c40e0b98ab019e3605e203167161f1236245e097cd225c6e809586f9c7c7"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed1/internal/steps.jsonl",
+      "sha256": "0e79d2aa5397ddaa5941fb4b05ca99db1d9a9ac25329642c8d2bcbacf6cd4d4d"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed1/internal/generation_calls.jsonl",
+      "sha256": "39fd34329392cb8d15c0bf309d577e098c2a7e7a921a93bc054c0617a0abfeb1"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed1/internal/initial.json",
+      "sha256": "3e042f01ec3345a02b65afb9216bc4be5a2ebd9b9dde11cbf1a13bae5b4c7060"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed1/internal/complete.json",
+      "sha256": "ecd05f244e4a487ea768eb57fbbb28b481eebf8295bca1a2cc52c803a12d3364"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed1/full/steps.jsonl",
+      "sha256": "6c9ccb78f5043f01b1e1348d37243ef4545ec55e28672a8f08618a7fdb2274d2"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed1/full/generation_calls.jsonl",
+      "sha256": "2978030c078319335606e606434a82e7a6a5bccfc197dd4b5d6eb83117e53b91"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed1/full/initial.json",
+      "sha256": "fcabfd955cdde8615bd7be182fcc7e4572b4cd19dd5e5b7db1c04c6e1ced8e85"
+    },
+    {
+      "path": "episodes/sciworld_2519/seed1/full/complete.json",
+      "sha256": "1331252923688fe511be7526063af2ae22d3a6c3af0a9d03df6e3f8f1b39112b"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed1/never/steps.jsonl",
+      "sha256": "b2b7aa848f2a3b7dae688cc3cb56011d872ed6fbc37f52abfd54024eb4cba994"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed1/never/generation_calls.jsonl",
+      "sha256": "539f2cd094cee3b7fa2ca626488a411a3e8f66f3043588544522e7b31c0e73f9"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed1/never/initial.json",
+      "sha256": "eb6e9827031f72ea57deb563be4000f6d48448724b802ff833e13237dc43d4f2"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed1/never/complete.json",
+      "sha256": "bea4773059c0591cce7386770d11665bf8c2e5938b614e2fbb7ec9238e344b9b"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed1/always/steps.jsonl",
+      "sha256": "5c06fcbb374cb0e1bb7bdbdb9c32ca40e17efd2ec0c433a2525a2b031d5610be"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed1/always/generation_calls.jsonl",
+      "sha256": "bd61b5b009bc75c15a0c73c8ef29de3dbcf2bd165fbfdcecddb1b8658d58cecd"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed1/always/initial.json",
+      "sha256": "911bac60cf27df4519cc7a3423d38264ed881e547dd1dd351e69017652b4bc56"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed1/always/complete.json",
+      "sha256": "13e2e43779e00edecb0e6be14676840ccf43acd2eeb481d305323b00163e8f1b"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed1/internal/steps.jsonl",
+      "sha256": "2956255f8b690cf9e18f329a04a89212f979adff888ffa3c7e82fe34b33df405"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed1/internal/generation_calls.jsonl",
+      "sha256": "08edd1ce141df2cd95b1bf32bc5ff9e362cc119f3cbf04cf3d94d1a481c8c38b"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed1/internal/initial.json",
+      "sha256": "92a1d35b6f7dbe9b02d763994b1e7f1d49446defe53dc51b7bc57dbd88c61b30"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed1/internal/complete.json",
+      "sha256": "6da0e7e7778ae75e63f4d4b799d09b61e705ca7509261b7fac905bdc2cd6df52"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed1/full/steps.jsonl",
+      "sha256": "51eec9e00b92a7d2c0ab8c6243ba64fab9fd781cf81b159e6bf5dc381c4b8a2f"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed1/full/generation_calls.jsonl",
+      "sha256": "8a570cbf4c208f3a463240e88b934f312a3c36bb76b91534bbd7986e058fdeb7"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed1/full/initial.json",
+      "sha256": "b531c595d7684cfcbd9b8fbb958786b664dad916f7ddad4e6064827e77ef7b3e"
+    },
+    {
+      "path": "episodes/sciworld_3003/seed1/full/complete.json",
+      "sha256": "26f8cd87a9dc58fce739be0df86e5f2cb172911c4f27e91cc0bded2f322cf4e4"
+    },
+    {
+      "path": "episodes/sciworld_746/seed1/never/steps.jsonl",
+      "sha256": "eba5a7c4964d488e9dfac35288bfcd1f1918ac44fc5db260529122755798d842"
+    },
+    {
+      "path": "episodes/sciworld_746/seed1/never/generation_calls.jsonl",
+      "sha256": "e2448f7bfde654ad959571e418aef6d4bec95cc0aa64a91732488af54eb2900d"
+    },
+    {
+      "path": "episodes/sciworld_746/seed1/never/initial.json",
+      "sha256": "3a667c292f06eb4dc4bedb6bd072175f2d5946b88363dcc2f936f386f1d018a1"
+    },
+    {
+      "path": "episodes/sciworld_746/seed1/never/complete.json",
+      "sha256": "782261bb3f7dbb58d84d0328419ab695f78c33051509e7d7f1b7c75cbc86ed7c"
+    },
+    {
+      "path": "episodes/sciworld_746/seed1/always/steps.jsonl",
+      "sha256": "726638900e66f7509f084ce979e799908f3b70bb973926a79763e111fc6fdd89"
+    },
+    {
+      "path": "episodes/sciworld_746/seed1/always/generation_calls.jsonl",
+      "sha256": "65c1e1c20bda5d4c0193242075b52016bc02dc4742cb738b9b11b5e47347000e"
+    },
+    {
+      "path": "episodes/sciworld_746/seed1/always/initial.json",
+      "sha256": "8746e79ab816dba35060d58f55d98747428502bc97877de1a84d012b530382ec"
+    },
+    {
+      "path": "episodes/sciworld_746/seed1/always/complete.json",
+      "sha256": "c8c14fcbea9833c5df758904d7f683ffad03d8b198c65b83ac43542563c7fe38"
+    },
+    {
+      "path": "episodes/sciworld_746/seed1/internal/steps.jsonl",
+      "sha256": "dcae6f88e5e7c11cbed25709f9b845a7ca4234abd4581646679ee4d2cebbe5e1"
+    },
+    {
+      "path": "episodes/sciworld_746/seed1/internal/generation_calls.jsonl",
+      "sha256": "61b8f523229ae0c3e418ebd0d3ca6d3db2728163ab301812dbd2577fe5cc2d95"
+    },
+    {
+      "path": "episodes/sciworld_746/seed1/internal/initial.json",
+      "sha256": "f0cc0ae556e1595f8dfb70bca34b190b6f686a4a06947b4cc6fec7f3577e9fb5"
+    },
+    {
+      "path": "episodes/sciworld_746/seed1/internal/complete.json",
+      "sha256": "080fe99c4fd7cfef15878e686450b0dde0ce02c4c09fb809317e78b04e9245d5"
+    },
+    {
+      "path": "episodes/sciworld_746/seed1/full/steps.jsonl",
+      "sha256": "8e78388cd75a2524b8d8b765f22eaf3304072a0af91481635f42baad3e6fb465"
+    },
+    {
+      "path": "episodes/sciworld_746/seed1/full/generation_calls.jsonl",
+      "sha256": "b992ba16db0b3398e5223fb11a1de81c50eb69706466fee5a222e0e7214ca44d"
+    },
+    {
+      "path": "episodes/sciworld_746/seed1/full/initial.json",
+      "sha256": "e853e7f9e3ddfc32bca87fca37b05702d1cfacd9601e6d64bd6ab9d6c3f41e15"
+    },
+    {
+      "path": "episodes/sciworld_746/seed1/full/complete.json",
+      "sha256": "7c473e36e5cb01bb87b61cbc951a888537a04408e9fce7bbfe1a521523d3db89"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed1/never/steps.jsonl",
+      "sha256": "210765d0eed424d7c7536f781ab168784c9b8084a399f3cbfc02a354caf16b51"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed1/never/generation_calls.jsonl",
+      "sha256": "e57d96ed27b2fe5646109ba0042644ff76a2c9244869fa7b8e1adc89eafeb1e4"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed1/never/initial.json",
+      "sha256": "72b8048c8997c9b62a1c08f7d141c8b9f6586f1008cb13c4e2bb73b82809a428"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed1/never/complete.json",
+      "sha256": "02acd6a131b7fa1ca3be49f624385a0b072bae508b3ddaa787a8687253ab6468"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed1/always/steps.jsonl",
+      "sha256": "7b4dea390da55fb2dab2964c42485572fa2ae66ad10cfbe56dbded2412eb67cd"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed1/always/generation_calls.jsonl",
+      "sha256": "c02ebe461786c767d8a3879b197b736f3fdec575ceded2a2f7e41e5f9fb84b1d"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed1/always/initial.json",
+      "sha256": "ceb292b4ac0e92887f7ea523ab0c6a944f48fc8f1c46c1e89bc17a051c20748b"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed1/always/complete.json",
+      "sha256": "008ac98399d563ba30d0cf9f1db93509f64ae78cf49153be17a1bd8042123421"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed1/internal/steps.jsonl",
+      "sha256": "18b8e5d840dd76920136ab18da740a1e00dbb58aae7f6d5da0af257868d877ce"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed1/internal/generation_calls.jsonl",
+      "sha256": "d9a6e0a560ddf1671bc7cf2854b5b35a6fbf0ccf65211e6d9a0fd4ae8cc6685a"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed1/internal/initial.json",
+      "sha256": "1584a3ef03e8c87548a9b889152d22e4be7228fbabd85259bcbdddf59efb9d69"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed1/internal/complete.json",
+      "sha256": "090a244fab88a9065dd04dfa26e3a47959ff7bcb9866c897aee50d249072b43f"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed1/full/steps.jsonl",
+      "sha256": "018b4979bff569a08f2ca98d899d6efd9b3df13f4d2db06630f01b6bb271d693"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed1/full/generation_calls.jsonl",
+      "sha256": "a4467d190e725b5ad52b61254574543d4958ad51cb78902536540decb9c3c565"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed1/full/initial.json",
+      "sha256": "1b064b7e312d75af6945e6947e41cb3df7ca634dd4694d9898b685687b5f38ed"
+    },
+    {
+      "path": "episodes/sciworld_1503/seed1/full/complete.json",
+      "sha256": "db8b6d6a8314e72b48c90d8ca20056701c333f4e846c56d4f06fed77bf292dd9"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed1/never/steps.jsonl",
+      "sha256": "e2942ec53e1d0aa8dfa0ddaf069c77d78d71eefb66ea7ce5767ad6458d80daf5"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed1/never/generation_calls.jsonl",
+      "sha256": "29876486b22facfe018d022e711836d751f4f5d2bdcae10d6192d82391c3dd0c"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed1/never/initial.json",
+      "sha256": "0d729a9e21625b7c6c2a7a2024ccb20c0064a96ee3f43909dcf27b34f59c40e3"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed1/never/complete.json",
+      "sha256": "d240ffc228d6978448e8f762c88d00a11b3be0ff22624c2dfb9d6fb00682251d"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed1/always/steps.jsonl",
+      "sha256": "53cf939fc8d69b8f8800c14c92df89818c30a113a8b389db18cf6f681ae60778"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed1/always/generation_calls.jsonl",
+      "sha256": "6a914cfd922804c0b9edef15a306115458353a408528fde345082296b8741e52"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed1/always/initial.json",
+      "sha256": "cf6f462b81a245f5abbc93036d2434c806925caa54d8ff92660888078fdd9286"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed1/always/complete.json",
+      "sha256": "c27de2fdbef193ac4775642a63ee3ec312554a452f640b841d33b83a7521c20d"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed1/internal/steps.jsonl",
+      "sha256": "8bc30af0b9b74e6b5b915b9d7656835ee09bec5808bcee2a92865ebb7120c1d5"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed1/internal/generation_calls.jsonl",
+      "sha256": "67dde53b6ee806294410e98ebe7e3ced227545b062fa7b79214a00af28de2fe9"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed1/internal/initial.json",
+      "sha256": "6470a9b2e5217a04eb15498cf8466cadc85e06825dd041280824d9a841390894"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed1/internal/complete.json",
+      "sha256": "dbc29204acc999138058988f90f4bd4f6e206473fd64ce21cfc5f3b6b5ba9a63"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed1/full/steps.jsonl",
+      "sha256": "dbba40805dc981d2a40fdb108a0746c9ddee9dfc2f52ea859ef86562ad6c645e"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed1/full/generation_calls.jsonl",
+      "sha256": "ef5ceaa942bd9db61f94b7b7dc5afb818dcdf4f8efa3920abf2782218617ff86"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed1/full/initial.json",
+      "sha256": "67c3d90b511033c969b9f70603f6107be97c25fdfc84ac0c2a66ba9bc3ed44b1"
+    },
+    {
+      "path": "episodes/sciworld_2458/seed1/full/complete.json",
+      "sha256": "8d1dcaa006537d3f26ea0b440fbc98b3e32cd033c2f21e0a700e273fe99fcaea"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed1/never/steps.jsonl",
+      "sha256": "6e9e8b9962fdc884e9745e2e918a957aba321ade19f3773afce04da1156360f5"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed1/never/generation_calls.jsonl",
+      "sha256": "7c37dddb3b492e84552adb391c3ef837627e44fa612a7e3a780dc5cfa3db86bf"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed1/never/initial.json",
+      "sha256": "90356514e30e536b0f2ade2f25500b09e394371712e08b5d94864760227d26f1"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed1/never/complete.json",
+      "sha256": "ff4463262a1c620a671305b5babc084ac40d0b8613598cffd167d0bddc076536"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed1/always/steps.jsonl",
+      "sha256": "dbb6f425542d03bca7e4de3ca88d96dcff0e1fd58948e8d33574a13839997997"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed1/always/generation_calls.jsonl",
+      "sha256": "fd9fd079ab50549194b73614998137c83fe5c93060ebd34b00330d1a1504296e"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed1/always/initial.json",
+      "sha256": "501beb696f82ded0161f606d3b1753e2120ee39d99f11189574a630369c1eb78"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed1/always/complete.json",
+      "sha256": "f4d07f3f4dd3b5c88c6c602edbe78c8a79cac540124d6d215d0e65a6844ed75f"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed1/internal/steps.jsonl",
+      "sha256": "1c3d2554029ddb72f6b708a317eb483613c7df208cd6ba90ecf5874b60b459af"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed1/internal/generation_calls.jsonl",
+      "sha256": "0012c7bfc21efb9c0d761f1df6274b0789c530c0ce9ca1d8e72a8d0eb9f6b351"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed1/internal/initial.json",
+      "sha256": "ae446cd8b67ab67c25855a5145ac6415bcb24772f4cd2a0620a8375db6c734a9"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed1/internal/complete.json",
+      "sha256": "1a8f68b61d98092f2157df4018a55f87a7a0a1c3d856ffafe929c3966406dca5"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed1/full/steps.jsonl",
+      "sha256": "918fd0bef5ccca1f40201406c7921e924f373b2e2d0271fc84573db5f309038a"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed1/full/generation_calls.jsonl",
+      "sha256": "af3bc8eebe85d897fe0f81a92dcc44c1bbd54a434dce90c6f88a4376f9e96c08"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed1/full/initial.json",
+      "sha256": "8c6954d3ad329ad4621e52ebd0e3973f108403f121b66f716a3c3a1b520c5de5"
+    },
+    {
+      "path": "episodes/sciworld_3068/seed1/full/complete.json",
+      "sha256": "5c0c3acb14acfddb3b506f24fd5d745607b7f7db79fa9ca8b30259dec16eb3fc"
+    }
+  ]
+}

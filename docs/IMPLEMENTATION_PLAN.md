@@ -1,6 +1,6 @@
 # Training-Free Internal–External Selective WM: implementation plan
 
-Phase5.9 is authorized and in progress: frozen-method independent development evaluation. The12-task/2-seed cohort, pre-generation exposure audit, resource caps and descriptive analysis are fixed in [INDEPENDENT_DEV_EVAL.md](INDEPENDENT_DEV_EVAL.md). No method/Memory/threshold tuning, training or final200-task evaluation. First20 Episodes must pass engineering audit before the remaining76 start. Phase6 is not authorized.
+Phase5.9 COMPLETE: 12 frozen independent dev instances × seeds0/1 ×4 policies =96 real Episodes; 8 goal clusters. Engineering audit passes (531/531 lookaheads,187/187 KEEP projections). Mean scores Never−0.542/Always3.333/Internal−10.833/Full−19.375; successes0/1/0/0 of24. Full did not reproduce a benefit. Frozen method/Memory/thresholds unchanged. Read [Phase5.9 report](PHASE5_9_REPORT.md) and [independent protocol](INDEPENDENT_DEV_EVAL.md). Await user review; do not start Phase6.
 
 ## Follow-up: deterministic real-environment next-state repair
 

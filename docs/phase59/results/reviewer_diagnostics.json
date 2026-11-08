@@ -1,0 +1,2317 @@
+{
+  "policies": [
+    {
+      "policy": "never",
+      "episode_count": 24,
+      "formal_steps": 374,
+      "role_cost": {
+        "actor": {
+          "calls": 374,
+          "input_tokens": 146396,
+          "output_tokens": 17403,
+          "total_tokens": 163799,
+          "generation_seconds": 803.4281997103244
+        },
+        "reviewer": {
+          "calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "generation_seconds": 0
+        }
+      },
+      "review_decisions": {},
+      "format_errors": 0,
+      "replace_same_action": 0,
+      "actual_revisions": 0,
+      "revision_feedback": {},
+      "one_step_revision_score_delta": {
+        "positive": 0,
+        "zero": 0,
+        "negative": 0,
+        "sum": 0
+      },
+      "replay_attempts": 0,
+      "replay_verified": 0,
+      "replay_rejections": {},
+      "formal_unchanged_checks_passed": 0,
+      "same_action_next_projection_checks": 0,
+      "same_action_next_projection_passed": 0,
+      "draft_parse_errors": 0,
+      "scored_steps": 0,
+      "missing_internal": 0,
+      "local_global_pearson": null,
+      "local_global_spearman": null,
+      "local_quantiles": [],
+      "global_quantiles": [],
+      "episode_termination": {
+        "outer_horizon20": 15,
+        "native_done_non_success": 9
+      },
+      "full_hidden_state_equivalence_claimed": false,
+      "downstream_per_call_causal_utility_established": false
+    },
+    {
+      "policy": "always",
+      "episode_count": 24,
+      "formal_steps": 371,
+      "role_cost": {
+        "actor": {
+          "calls": 371,
+          "input_tokens": 139330,
+          "output_tokens": 17568,
+          "total_tokens": 156898,
+          "generation_seconds": 807.267490055412
+        },
+        "reviewer": {
+          "calls": 371,
+          "input_tokens": 217742,
+          "output_tokens": 49639,
+          "total_tokens": 267381,
+          "generation_seconds": 2254.7272653989494
+        }
+      },
+      "review_decisions": {
+        "KEEP": 93,
+        "REPLACE": 243,
+        "INVALID": 35
+      },
+      "format_errors": 35,
+      "replace_same_action": 16,
+      "actual_revisions": 227,
+      "revision_feedback": {
+        "unknown": 27,
+        "accepted_feedback": 73,
+        "explicit_rejection": 127
+      },
+      "one_step_revision_score_delta": {
+        "positive": 12,
+        "zero": 213,
+        "negative": 2,
+        "sum": 832
+      },
+      "replay_attempts": 371,
+      "replay_verified": 371,
+      "replay_rejections": {},
+      "formal_unchanged_checks_passed": 371,
+      "same_action_next_projection_checks": 144,
+      "same_action_next_projection_passed": 144,
+      "draft_parse_errors": 0,
+      "scored_steps": 0,
+      "missing_internal": 0,
+      "local_global_pearson": null,
+      "local_global_spearman": null,
+      "local_quantiles": [],
+      "global_quantiles": [],
+      "episode_termination": {
+        "outer_horizon20": 16,
+        "success_score100": 1,
+        "native_done_non_success": 7
+      },
+      "full_hidden_state_equivalence_claimed": false,
+      "downstream_per_call_causal_utility_established": false
+    },
+    {
+      "policy": "internal",
+      "episode_count": 24,
+      "formal_steps": 370,
+      "role_cost": {
+        "actor": {
+          "calls": 370,
+          "input_tokens": 142924,
+          "output_tokens": 17219,
+          "total_tokens": 160143,
+          "generation_seconds": 791.7499415837228
+        },
+        "reviewer": {
+          "calls": 80,
+          "input_tokens": 47623,
+          "output_tokens": 11869,
+          "total_tokens": 59492,
+          "generation_seconds": 535.5778316855431
+        }
+      },
+      "review_decisions": {
+        "REPLACE": 60,
+        "KEEP": 11,
+        "INVALID": 9
+      },
+      "format_errors": 9,
+      "replace_same_action": 1,
+      "actual_revisions": 59,
+      "revision_feedback": {
+        "unknown": 7,
+        "accepted_feedback": 16,
+        "explicit_rejection": 36
+      },
+      "one_step_revision_score_delta": {
+        "positive": 2,
+        "zero": 56,
+        "negative": 1,
+        "sum": 93
+      },
+      "replay_attempts": 80,
+      "replay_verified": 80,
+      "replay_rejections": {},
+      "formal_unchanged_checks_passed": 80,
+      "same_action_next_projection_checks": 21,
+      "same_action_next_projection_passed": 21,
+      "draft_parse_errors": 0,
+      "scored_steps": 370,
+      "missing_internal": 0,
+      "local_global_pearson": 0.9237364288480944,
+      "local_global_spearman": 0.9366824125485964,
+      "local_quantiles": [
+        0.142211959217074,
+        0.3070047160058893,
+        0.4274228873998943,
+        0.5755844682426453,
+        1.1517922039243527
+      ],
+      "global_quantiles": [
+        0.06918631771774623,
+        0.18027753153190443,
+        0.250891770601669,
+        0.33375157455784543,
+        0.6312090503326233
+      ],
+      "episode_termination": {
+        "outer_horizon20": 15,
+        "native_done_non_success": 9
+      },
+      "full_hidden_state_equivalence_claimed": false,
+      "downstream_per_call_causal_utility_established": false
+    },
+    {
+      "policy": "full",
+      "episode_count": 24,
+      "formal_steps": 350,
+      "role_cost": {
+        "actor": {
+          "calls": 350,
+          "input_tokens": 137598,
+          "output_tokens": 16401,
+          "total_tokens": 153999,
+          "generation_seconds": 751.9024213254452
+        },
+        "reviewer": {
+          "calls": 80,
+          "input_tokens": 47251,
+          "output_tokens": 11298,
+          "total_tokens": 58549,
+          "generation_seconds": 511.0526585318148
+        }
+      },
+      "review_decisions": {
+        "REPLACE": 59,
+        "KEEP": 12,
+        "INVALID": 9
+      },
+      "format_errors": 9,
+      "replace_same_action": 1,
+      "actual_revisions": 58,
+      "revision_feedback": {
+        "unknown": 11,
+        "accepted_feedback": 23,
+        "explicit_rejection": 24
+      },
+      "one_step_revision_score_delta": {
+        "positive": 1,
+        "zero": 55,
+        "negative": 2,
+        "sum": -177
+      },
+      "replay_attempts": 80,
+      "replay_verified": 80,
+      "replay_rejections": {},
+      "formal_unchanged_checks_passed": 80,
+      "same_action_next_projection_checks": 22,
+      "same_action_next_projection_passed": 22,
+      "draft_parse_errors": 0,
+      "scored_steps": 350,
+      "missing_internal": 0,
+      "local_global_pearson": 0.9167035750251177,
+      "local_global_spearman": 0.9308414073973702,
+      "local_quantiles": [
+        0.1275968695258977,
+        0.2987747141519473,
+        0.4058269668893921,
+        0.5520075338041417,
+        1.1517922039243527
+      ],
+      "global_quantiles": [
+        0.06680455724056994,
+        0.17164008640101058,
+        0.23100052739605337,
+        0.3210108529502185,
+        0.6312090503326233
+      ],
+      "episode_termination": {
+        "outer_horizon20": 13,
+        "native_done_non_success": 11
+      },
+      "full_hidden_state_equivalence_claimed": false,
+      "downstream_per_call_causal_utility_established": false
+    }
+  ],
+  "representative_revisions": [
+    {
+      "label": "positive",
+      "rollout_seed": 0,
+      "source_record_sha256": "2ac098cbdd431194ec999e6bb3a1433f5fa8aa5f80621d23f894bab9427d1f28",
+      "policy": "always",
+      "task_id": "sciworld_2438",
+      "step_index": 3,
+      "goal": "Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+      "observation": "The door is now open.",
+      "draft_decision": "Premise: The agent has opened the door to the hallway to search for the unknown substance F.\nExpected Consequence: The agent will see the contents of the hallway, potentially revealing the unknown substance F.\nAction: look around",
+      "internal_signals": null,
+      "external": {
+        "coverage": "unknown",
+        "conflict": "unknown",
+        "sufficiency": "unknown",
+        "reliability": "unknown",
+        "evidence_ids": [],
+        "matched_experience_ids": [],
+        "evidence_verified": false,
+        "action_status": "unknown",
+        "diagnostics": []
+      },
+      "gate": {
+        "schema": "gate-decision-v1",
+        "decision_id": "/data1/shn/agentwmv3/outputs/phase59_independent_v1/episodes/sciworld_2438/seed0/always/2",
+        "policy": "always",
+        "call_wm": true,
+        "verification_requested": true,
+        "verification_unavailable": false,
+        "reason": "always_policy",
+        "triggered_signals": [
+          "always"
+        ],
+        "diagnostics": [],
+        "local_uncertainty": null,
+        "global_uncertainty": null,
+        "missing_span": false,
+        "signal_validity": "not_requested",
+        "experience_coverage": "unknown",
+        "experience_conflict": "unknown",
+        "experience_sufficiency": "unknown",
+        "experience_action_status": "unknown",
+        "experience_evidence_ids": [],
+        "evidence_verified": false,
+        "confirmed_action": false,
+        "memory_correction_enabled": false,
+        "budget_remaining": 18,
+        "forecast_budget_remaining": 18,
+        "tau_local": 0.5749072272810143,
+        "tau_global": 0.3332634086050418,
+        "gate_latency": 1.6901642084121704e-05,
+        "additional_cost": {
+          "model_calls": 0,
+          "tokens": 0,
+          "forward_passes": 0
+        },
+        "signal_requirements": {
+          "internal": false,
+          "external": false
+        }
+      },
+      "simulation": {
+        "status": "ok",
+        "prediction_available": true,
+        "source": "ground_truth_environment",
+        "verified_prefix_steps": 2,
+        "predicted_observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta substance called air\n\ta substance called soap\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is open)\n\tA door to the outside (that is closed)",
+        "predicted_reward": 0,
+        "predicted_done": false,
+        "predicted_score": 0,
+        "error": null,
+        "simulation_cost": {
+          "jvm_initializations": 1,
+          "initialization_step_calls": 1,
+          "replay_step_calls": 2,
+          "candidate_step_calls": 1,
+          "initialization_seconds": 1.5161169487982988,
+          "replay_seconds": 0.19060782343149185,
+          "candidate_seconds": 0.07346110418438911,
+          "cleanup_seconds": 0.06461916491389275,
+          "audit_capture_bundles": 11
+        },
+        "simulation_latency": 2.035950405523181
+      },
+      "review": {
+        "raw": "Decision: REPLACE\nReason: The draft action \"look around\" only confirms the hallway door is open but does not advance the goal of finding \"unknown substance F\". The goal states F is located \"around the workshop\" (implying other rooms like the workshop or hallway), and the current observation does not list F in the kitchen. The agent must navigate to the hallway to continue the search.\nFinal Action: go hallway",
+        "parsed": {
+          "decision": "REPLACE",
+          "reason": "The draft action \"look around\" only confirms the hallway door is open but does not advance the goal of finding \"unknown substance F\". The goal states F is located \"around the workshop\" (implying other rooms like the workshop or hallway), and the current observation does not list F in the kitchen. The agent must navigate to the hallway to continue the search.",
+          "final_action": "go hallway",
+          "changed": true,
+          "action_validity": "unknown",
+          "semantic_utility": "unknown"
+        }
+      },
+      "final_action": "go hallway",
+      "actual": {
+        "observation": "You move to the hallway.",
+        "raw_observation": "You move to the hallway.",
+        "reward": 5,
+        "done": false,
+        "score": 5,
+        "moves": 2,
+        "native_action": "go hallway",
+        "action": "go hallway",
+        "step_seconds": 0.023650750517845154
+      },
+      "gate_decided_at_ns": 1794100472940885809,
+      "executed_at_ns": 1794100479134776778,
+      "actor_usage": {
+        "prompt_tokens": 775,
+        "completion_tokens": 48,
+        "total_tokens": 823
+      },
+      "review_usage": {
+        "prompt_tokens": 1265,
+        "completion_tokens": 87,
+        "total_tokens": 1352
+      },
+      "immediate_score_delta": 5
+    },
+    {
+      "label": "positive",
+      "rollout_seed": 1,
+      "source_record_sha256": "5a4f3fa2b408fcb6196516598ea7d5c907532310d4495c8d2621d8d579301bcb",
+      "policy": "always",
+      "task_id": "sciworld_2438",
+      "step_index": 3,
+      "goal": "Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+      "observation": "The door is now open.",
+      "draft_decision": "Premise: The agent has opened the door to the hallway and is now in a new room.\nExpected Consequence: The agent will see the contents of the workshop room where the unknown substance F is located.\nAction: look around",
+      "internal_signals": null,
+      "external": {
+        "coverage": "unknown",
+        "conflict": "unknown",
+        "sufficiency": "unknown",
+        "reliability": "unknown",
+        "evidence_ids": [],
+        "matched_experience_ids": [],
+        "evidence_verified": false,
+        "action_status": "unknown",
+        "diagnostics": []
+      },
+      "gate": {
+        "schema": "gate-decision-v1",
+        "decision_id": "/data1/shn/agentwmv3/outputs/phase59_independent_v2/episodes/sciworld_2438/seed1/always/2",
+        "policy": "always",
+        "call_wm": true,
+        "verification_requested": true,
+        "verification_unavailable": false,
+        "reason": "always_policy",
+        "triggered_signals": [
+          "always"
+        ],
+        "diagnostics": [],
+        "local_uncertainty": null,
+        "global_uncertainty": null,
+        "missing_span": false,
+        "signal_validity": "not_requested",
+        "experience_coverage": "unknown",
+        "experience_conflict": "unknown",
+        "experience_sufficiency": "unknown",
+        "experience_action_status": "unknown",
+        "experience_evidence_ids": [],
+        "evidence_verified": false,
+        "confirmed_action": false,
+        "memory_correction_enabled": false,
+        "budget_remaining": 18,
+        "forecast_budget_remaining": 18,
+        "tau_local": 0.5749072272810143,
+        "tau_global": 0.3332634086050418,
+        "gate_latency": 1.8512830138206482e-05,
+        "additional_cost": {
+          "model_calls": 0,
+          "tokens": 0,
+          "forward_passes": 0
+        },
+        "signal_requirements": {
+          "internal": false,
+          "external": false
+        }
+      },
+      "simulation": {
+        "status": "ok",
+        "prediction_available": true,
+        "source": "ground_truth_environment",
+        "verified_prefix_steps": 2,
+        "predicted_observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta substance called air\n\ta substance called soap\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is open)\n\tA door to the outside (that is closed)",
+        "predicted_reward": 0,
+        "predicted_done": false,
+        "predicted_score": 0,
+        "error": null,
+        "simulation_cost": {
+          "jvm_initializations": 1,
+          "initialization_step_calls": 1,
+          "replay_step_calls": 2,
+          "candidate_step_calls": 1,
+          "initialization_seconds": 1.4518979471176863,
+          "replay_seconds": 0.18989520147442818,
+          "candidate_seconds": 0.06745545007288456,
+          "cleanup_seconds": 0.11420022323727608,
+          "audit_capture_bundles": 11
+        },
+        "simulation_latency": 2.0124250426888466
+      },
+      "review": {
+        "raw": "Decision: REPLACE\nReason: The current location is the kitchen, which does not contain the unknown substance F. The goal requires finding substance F located \"around the workshop\". The draft action \"look around\" only confirms the hallway door is open but does not move the agent to the workshop or find the substance. A navigation action is required.\nFinal Action: go hallway",
+        "parsed": {
+          "decision": "REPLACE",
+          "reason": "The current location is the kitchen, which does not contain the unknown substance F. The goal requires finding substance F located \"around the workshop\". The draft action \"look around\" only confirms the hallway door is open but does not move the agent to the workshop or find the substance. A navigation action is required.",
+          "final_action": "go hallway",
+          "changed": true,
+          "action_validity": "unknown",
+          "semantic_utility": "unknown"
+        }
+      },
+      "final_action": "go hallway",
+      "actual": {
+        "observation": "You move to the hallway.",
+        "raw_observation": "You move to the hallway.",
+        "reward": 5,
+        "done": false,
+        "score": 5,
+        "moves": 2,
+        "native_action": "go hallway",
+        "action": "go hallway",
+        "step_seconds": 0.024900143966078758
+      },
+      "gate_decided_at_ns": 1794103763494399809,
+      "executed_at_ns": 1794103769083102548,
+      "actor_usage": {
+        "prompt_tokens": 775,
+        "completion_tokens": 49,
+        "total_tokens": 824
+      },
+      "review_usage": {
+        "prompt_tokens": 1265,
+        "completion_tokens": 75,
+        "total_tokens": 1340
+      },
+      "immediate_score_delta": 5
+    },
+    {
+      "label": "negative",
+      "rollout_seed": 0,
+      "source_record_sha256": "d2f342c93f8b4bdc5a2447face0fa46429dfcca6d4cc18236b79bbcffadc90d9",
+      "policy": "always",
+      "task_id": "sciworld_2519",
+      "step_index": 8,
+      "goal": "Your task is to determine if unknown substance J is electrically conductive. The unknown substance J is located around the workshop. First, focus on the unknown substance J. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box.",
+      "observation": "You move to the hallway.",
+      "draft_decision": "Premise: The agent has moved to the hallway and needs to locate unknown substance J.\nExpected Consequence: Looking around will reveal the contents of the hallway, potentially showing the unknown substance J.\nAction: look around",
+      "internal_signals": null,
+      "external": {
+        "coverage": "unknown",
+        "conflict": "unknown",
+        "sufficiency": "unknown",
+        "reliability": "unknown",
+        "evidence_ids": [],
+        "matched_experience_ids": [],
+        "evidence_verified": false,
+        "action_status": "unknown",
+        "diagnostics": []
+      },
+      "gate": {
+        "schema": "gate-decision-v1",
+        "decision_id": "/data1/shn/agentwmv3/outputs/phase59_independent_v2/episodes/sciworld_2519/seed0/always/7",
+        "policy": "always",
+        "call_wm": true,
+        "verification_requested": true,
+        "verification_unavailable": false,
+        "reason": "always_policy",
+        "triggered_signals": [
+          "always"
+        ],
+        "diagnostics": [],
+        "local_uncertainty": null,
+        "global_uncertainty": null,
+        "missing_span": false,
+        "signal_validity": "not_requested",
+        "experience_coverage": "unknown",
+        "experience_conflict": "unknown",
+        "experience_sufficiency": "unknown",
+        "experience_action_status": "unknown",
+        "experience_evidence_ids": [],
+        "evidence_verified": false,
+        "confirmed_action": false,
+        "memory_correction_enabled": false,
+        "budget_remaining": 13,
+        "forecast_budget_remaining": 13,
+        "tau_local": 0.5749072272810143,
+        "tau_global": 0.3332634086050418,
+        "gate_latency": 2.224370837211609e-05,
+        "additional_cost": {
+          "model_calls": 0,
+          "tokens": 0,
+          "forward_passes": 0
+        },
+        "signal_requirements": {
+          "internal": false,
+          "external": false
+        }
+      },
+      "simulation": {
+        "status": "ok",
+        "prediction_available": true,
+        "source": "ground_truth_environment",
+        "verified_prefix_steps": 7,
+        "predicted_observation": "This room is called the hallway. In it, you see: \n\tthe agent\n\ta finger painting\n\ta substance called air\nYou also see:\n\tA door to the art studio (that is open)\n\tA door to the bedroom (that is closed)\n\tA door to the greenhouse (that is closed)\n\tA door to the kitchen (that is closed)\n\tA door to the living room (that is closed)\n\tA door to the workshop (that is closed)",
+        "predicted_reward": 0,
+        "predicted_done": false,
+        "predicted_score": 5,
+        "error": null,
+        "simulation_cost": {
+          "jvm_initializations": 1,
+          "initialization_step_calls": 1,
+          "replay_step_calls": 7,
+          "candidate_step_calls": 1,
+          "initialization_seconds": 1.4329543001949787,
+          "replay_seconds": 0.6211374029517174,
+          "candidate_seconds": 0.06179221719503403,
+          "cleanup_seconds": 0.21403961069881916,
+          "audit_capture_bundles": 26
+        },
+        "simulation_latency": 2.7028933316469193
+      },
+      "review": {
+        "raw": "Decision: REPLACE\nReason: The draft action \"look around\" is syntactically valid but redundant because the agent has already moved to the hallway and the observation explicitly lists the contents, including \"a substance called air\" (which is likely the unknown substance J given the context of finding it around the workshop). The goal requires focusing on the substance to test conductivity. Since \"air\" is the only candidate visible in the hallway, the agent should immediately focus on it rather than looking around again.\nFinal Action: focus on air",
+        "parsed": {
+          "decision": "REPLACE",
+          "reason": "The draft action \"look around\" is syntactically valid but redundant because the agent has already moved to the hallway and the observation explicitly lists the contents, including \"a substance called air\" (which is likely the unknown substance J given the context of finding it around the workshop). The goal requires focusing on the substance to test conductivity. Since \"air\" is the only candidate visible in the hallway, the agent should immediately focus on it rather than looking around again.",
+          "final_action": "focus on air",
+          "changed": true,
+          "action_validity": "unknown",
+          "semantic_utility": "unknown"
+        }
+      },
+      "final_action": "focus on air",
+      "actual": {
+        "observation": "You focus on the air.",
+        "raw_observation": "You focus on the air.",
+        "reward": -105,
+        "done": true,
+        "score": -100,
+        "moves": 5,
+        "native_action": "focus on air",
+        "action": "focus on air",
+        "step_seconds": 0.01576847769320011
+      },
+      "gate_decided_at_ns": 1794101770098375712,
+      "executed_at_ns": 1794101778102482112,
+      "actor_usage": {
+        "prompt_tokens": 431,
+        "completion_tokens": 46,
+        "total_tokens": 477
+      },
+      "review_usage": {
+        "prompt_tokens": 719,
+        "completion_tokens": 107,
+        "total_tokens": 826
+      },
+      "immediate_score_delta": -105
+    },
+    {
+      "label": "negative",
+      "rollout_seed": 0,
+      "source_record_sha256": "a8e9bfe678d41fef0fcd01446cd3efdbea4d8f8a0e85eecc836c6ac343bae06e",
+      "policy": "always",
+      "task_id": "sciworld_859",
+      "step_index": 4,
+      "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+      "observation": "No known action matches that input.",
+      "draft_decision": "Premise: The previous action to focus on the chocolate failed due to a command error.\nExpected Consequence: The system will reject the invalid command again.\nAction: focus on the chocolate",
+      "internal_signals": null,
+      "external": {
+        "coverage": "unknown",
+        "conflict": "unknown",
+        "sufficiency": "unknown",
+        "reliability": "unknown",
+        "evidence_ids": [],
+        "matched_experience_ids": [],
+        "evidence_verified": false,
+        "action_status": "unknown",
+        "diagnostics": []
+      },
+      "gate": {
+        "schema": "gate-decision-v1",
+        "decision_id": "/data1/shn/agentwmv3/outputs/phase59_independent_v1/episodes/sciworld_859/seed0/always/3",
+        "policy": "always",
+        "call_wm": true,
+        "verification_requested": true,
+        "verification_unavailable": false,
+        "reason": "always_policy",
+        "triggered_signals": [
+          "always"
+        ],
+        "diagnostics": [],
+        "local_uncertainty": null,
+        "global_uncertainty": null,
+        "missing_span": false,
+        "signal_validity": "not_requested",
+        "experience_coverage": "unknown",
+        "experience_conflict": "unknown",
+        "experience_sufficiency": "unknown",
+        "experience_action_status": "unknown",
+        "experience_evidence_ids": [],
+        "evidence_verified": false,
+        "confirmed_action": false,
+        "memory_correction_enabled": false,
+        "budget_remaining": 17,
+        "forecast_budget_remaining": 17,
+        "tau_local": 0.5749072272810143,
+        "tau_global": 0.3332634086050418,
+        "gate_latency": 1.1933967471122742e-05,
+        "additional_cost": {
+          "model_calls": 0,
+          "tokens": 0,
+          "forward_passes": 0
+        },
+        "signal_requirements": {
+          "internal": false,
+          "external": false
+        }
+      },
+      "simulation": {
+        "status": "ok",
+        "prediction_available": true,
+        "source": "ground_truth_environment",
+        "verified_prefix_steps": 3,
+        "predicted_observation": "No known action matches that input.",
+        "predicted_reward": 0,
+        "predicted_done": false,
+        "predicted_score": 37,
+        "error": null,
+        "simulation_cost": {
+          "jvm_initializations": 1,
+          "initialization_step_calls": 1,
+          "replay_step_calls": 3,
+          "candidate_step_calls": 1,
+          "initialization_seconds": 1.4578877165913582,
+          "replay_seconds": 0.314588887616992,
+          "candidate_seconds": 0.07898267172276974,
+          "cleanup_seconds": 0.11472092382609844,
+          "audit_capture_bundles": 14
+        },
+        "simulation_latency": 2.2244395073503256
+      },
+      "review": {
+        "raw": "Decision: REPLACE\nReason: The observation history shows \"focus on the chocolate\" was attempted twice with the error \"No known action matches that input,\" indicating the command syntax is incorrect for this environment. The goal explicitly states to \"focus on the thermometer\" first, but the agent has already failed to execute that correctly (implied by the history starting with a failed chocolate focus). Since \"focus on the chocolate\" is confirmed invalid, and the agent is currently in a state where no valid action was taken, I must try the correct first step from the goal instructions: focusing on the thermometer.\nFinal Action: focus on the thermometer",
+        "parsed": {
+          "decision": "REPLACE",
+          "reason": "The observation history shows \"focus on the chocolate\" was attempted twice with the error \"No known action matches that input,\" indicating the command syntax is incorrect for this environment. The goal explicitly states to \"focus on the thermometer\" first, but the agent has already failed to execute that correctly (implied by the history starting with a failed chocolate focus). Since \"focus on the chocolate\" is confirmed invalid, and the agent is currently in a state where no valid action was taken, I must try the correct first step from the goal instructions: focusing on the thermometer.",
+          "final_action": "focus on the thermometer",
+          "changed": true,
+          "action_validity": "unknown",
+          "semantic_utility": "unknown"
+        }
+      },
+      "final_action": "focus on the thermometer",
+      "actual": {
+        "observation": "You focus on the thermometer.",
+        "raw_observation": "You focus on the thermometer.",
+        "reward": -137,
+        "done": true,
+        "score": -100,
+        "moves": 2,
+        "native_action": "focus on the thermometer",
+        "action": "focus on the thermometer",
+        "step_seconds": 0.029032094404101372
+      },
+      "gate_decided_at_ns": 1794099992928347812,
+      "executed_at_ns": 1794100000889327016,
+      "actor_usage": {
+        "prompt_tokens": 331,
+        "completion_tokens": 40,
+        "total_tokens": 371
+      },
+      "review_usage": {
+        "prompt_tokens": 512,
+        "completion_tokens": 128,
+        "total_tokens": 640
+      },
+      "immediate_score_delta": -137
+    },
+    {
+      "label": "explicit_rejection",
+      "rollout_seed": 0,
+      "source_record_sha256": "2718470db5be2630ce6097f96a63b3a785f104f3a9e8d3a70d18e33aaa90ba1a",
+      "policy": "always",
+      "task_id": "sciworld_1503",
+      "step_index": 8,
+      "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+      "observation": "A aluminum foil",
+      "draft_decision": "Premise: The aluminum foil is currently in view and needs to be tested for conductivity.\nExpected Consequence: The circuit will complete if the foil is conductive, lighting the bulb.\nAction: connect aluminum foil to battery",
+      "internal_signals": null,
+      "external": {
+        "coverage": "unknown",
+        "conflict": "unknown",
+        "sufficiency": "unknown",
+        "reliability": "unknown",
+        "evidence_ids": [],
+        "matched_experience_ids": [],
+        "evidence_verified": false,
+        "action_status": "unknown",
+        "diagnostics": []
+      },
+      "gate": {
+        "schema": "gate-decision-v1",
+        "decision_id": "/data1/shn/agentwmv3/outputs/phase59_independent_v2/episodes/sciworld_1503/seed0/always/7",
+        "policy": "always",
+        "call_wm": true,
+        "verification_requested": true,
+        "verification_unavailable": false,
+        "reason": "always_policy",
+        "triggered_signals": [
+          "always"
+        ],
+        "diagnostics": [],
+        "local_uncertainty": null,
+        "global_uncertainty": null,
+        "missing_span": false,
+        "signal_validity": "not_requested",
+        "experience_coverage": "unknown",
+        "experience_conflict": "unknown",
+        "experience_sufficiency": "unknown",
+        "experience_action_status": "unknown",
+        "experience_evidence_ids": [],
+        "evidence_verified": false,
+        "confirmed_action": false,
+        "memory_correction_enabled": false,
+        "budget_remaining": 13,
+        "forecast_budget_remaining": 13,
+        "tau_local": 0.5749072272810143,
+        "tau_global": 0.3332634086050418,
+        "gate_latency": 2.3445114493370056e-05,
+        "additional_cost": {
+          "model_calls": 0,
+          "tokens": 0,
+          "forward_passes": 0
+        },
+        "signal_requirements": {
+          "internal": false,
+          "external": false
+        }
+      },
+      "simulation": {
+        "status": "ok",
+        "prediction_available": true,
+        "source": "ground_truth_environment",
+        "verified_prefix_steps": 7,
+        "predicted_observation": "No known action matches that input.",
+        "predicted_reward": 0,
+        "predicted_done": false,
+        "predicted_score": 55,
+        "error": null,
+        "simulation_cost": {
+          "jvm_initializations": 1,
+          "initialization_step_calls": 1,
+          "replay_step_calls": 7,
+          "candidate_step_calls": 1,
+          "initialization_seconds": 1.3997547999024391,
+          "replay_seconds": 0.7209152095019817,
+          "candidate_seconds": 0.05627942457795143,
+          "cleanup_seconds": 0.2140791080892086,
+          "audit_capture_bundles": 26
+        },
+        "simulation_latency": 2.6982074081897736
+      },
+      "review": {
+        "raw": "Decision: REPLACE\nReason: The draft action \"connect aluminum foil to battery\" is invalid because the \"connect\" command requires two objects (connect OBJ to OBJ), and the feedback explicitly states no matching action exists. To test conductivity as intended by the goal, the foil must be connected to a circuit component like a lightbulb or battery using a valid syntax (e.g., \"connect aluminum foil to lightbulb\").\nFinal Action: connect aluminum foil to lightbulb",
+        "parsed": {
+          "decision": "REPLACE",
+          "reason": "The draft action \"connect aluminum foil to battery\" is invalid because the \"connect\" command requires two objects (connect OBJ to OBJ), and the feedback explicitly states no matching action exists. To test conductivity as intended by the goal, the foil must be connected to a circuit component like a lightbulb or battery using a valid syntax (e.g., \"connect aluminum foil to lightbulb\").",
+          "final_action": "connect aluminum foil to lightbulb",
+          "changed": true,
+          "action_validity": "unknown",
+          "semantic_utility": "unknown"
+        }
+      },
+      "final_action": "connect aluminum foil to lightbulb",
+      "actual": {
+        "observation": "No known action matches that input.",
+        "raw_observation": "No known action matches that input.",
+        "reward": 0,
+        "done": false,
+        "score": 55,
+        "moves": 7,
+        "native_action": "connect aluminum foil to lightbulb",
+        "action": "connect aluminum foil to lightbulb",
+        "step_seconds": 0.010719403624534607
+      },
+      "gate_decided_at_ns": 1794102731772483849,
+      "executed_at_ns": 1794102738788700701,
+      "actor_usage": {
+        "prompt_tokens": 299,
+        "completion_tokens": 47,
+        "total_tokens": 346
+      },
+      "review_usage": {
+        "prompt_tokens": 482,
+        "completion_tokens": 97,
+        "total_tokens": 579
+      },
+      "immediate_score_delta": 0
+    },
+    {
+      "label": "explicit_rejection",
+      "rollout_seed": 0,
+      "source_record_sha256": "01e8f73f127cdde9dbede8aa5b055c529edae0dba5c665a71f0fd86b3da0392f",
+      "policy": "always",
+      "task_id": "sciworld_1503",
+      "step_index": 12,
+      "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+      "observation": "No known action matches that input.",
+      "draft_decision": "Premise: The previous action to connect the aluminum foil to the lightbulb failed, likely because the objects were not in the same room or the connection command requires specific proximity.\nExpected Consequence: Moving the aluminum foil to the living room where the lightbulb is located will allow a successful connection attempt.\nAction: go living room",
+      "internal_signals": null,
+      "external": {
+        "coverage": "unknown",
+        "conflict": "unknown",
+        "sufficiency": "unknown",
+        "reliability": "unknown",
+        "evidence_ids": [],
+        "matched_experience_ids": [],
+        "evidence_verified": false,
+        "action_status": "unknown",
+        "diagnostics": []
+      },
+      "gate": {
+        "schema": "gate-decision-v1",
+        "decision_id": "/data1/shn/agentwmv3/outputs/phase59_independent_v2/episodes/sciworld_1503/seed0/always/11",
+        "policy": "always",
+        "call_wm": true,
+        "verification_requested": true,
+        "verification_unavailable": false,
+        "reason": "always_policy",
+        "triggered_signals": [
+          "always"
+        ],
+        "diagnostics": [],
+        "local_uncertainty": null,
+        "global_uncertainty": null,
+        "missing_span": false,
+        "signal_validity": "not_requested",
+        "experience_coverage": "unknown",
+        "experience_conflict": "unknown",
+        "experience_sufficiency": "unknown",
+        "experience_action_status": "unknown",
+        "experience_evidence_ids": [],
+        "evidence_verified": false,
+        "confirmed_action": false,
+        "memory_correction_enabled": false,
+        "budget_remaining": 9,
+        "forecast_budget_remaining": 9,
+        "tau_local": 0.5749072272810143,
+        "tau_global": 0.3332634086050418,
+        "gate_latency": 3.768317401409149e-05,
+        "additional_cost": {
+          "model_calls": 0,
+          "tokens": 0,
+          "forward_passes": 0
+        },
+        "signal_requirements": {
+          "internal": false,
+          "external": false
+        }
+      },
+      "simulation": {
+        "status": "ok",
+        "prediction_available": true,
+        "source": "ground_truth_environment",
+        "verified_prefix_steps": 11,
+        "predicted_observation": "It's not clear how to get there from here.",
+        "predicted_reward": 0,
+        "predicted_done": false,
+        "predicted_score": 55,
+        "error": null,
+        "simulation_cost": {
+          "jvm_initializations": 1,
+          "initialization_step_calls": 1,
+          "replay_step_calls": 11,
+          "candidate_step_calls": 1,
+          "initialization_seconds": 1.4011704213917255,
+          "replay_seconds": 0.9415149856358767,
+          "candidate_seconds": 0.09213455580174923,
+          "cleanup_seconds": 0.11506680212914944,
+          "audit_capture_bundles": 38
+        },
+        "simulation_latency": 3.0373739041388035
+      },
+      "review": {
+        "raw": "Decision: REPLACE\nReason: The draft action \"go living room\" is invalid because the current observation indicates \"It's not clear how to get there from here,\" likely due to being already in the living room or a navigation error. The goal requires testing the foil's conductivity by connecting it to a circuit (lightbulb), which was attempted in the history but failed to yield a result. The immediate next step should be to re-attempt the connection to observe the lightbulb's reaction, rather than trying to navigate.\nFinal Action: connect aluminum foil to lightbulb",
+        "parsed": {
+          "decision": "REPLACE",
+          "reason": "The draft action \"go living room\" is invalid because the current observation indicates \"It's not clear how to get there from here,\" likely due to being already in the living room or a navigation error. The goal requires testing the foil's conductivity by connecting it to a circuit (lightbulb), which was attempted in the history but failed to yield a result. The immediate next step should be to re-attempt the connection to observe the lightbulb's reaction, rather than trying to navigate.",
+          "final_action": "connect aluminum foil to lightbulb",
+          "changed": true,
+          "action_validity": "unknown",
+          "semantic_utility": "unknown"
+        }
+      },
+      "final_action": "connect aluminum foil to lightbulb",
+      "actual": {
+        "observation": "No known action matches that input.",
+        "raw_observation": "No known action matches that input.",
+        "reward": 0,
+        "done": false,
+        "score": 55,
+        "moves": 8,
+        "native_action": "connect aluminum foil to lightbulb",
+        "action": "connect aluminum foil to lightbulb",
+        "step_seconds": 0.007954256609082222
+      },
+      "gate_decided_at_ns": 1794102808505037142,
+      "executed_at_ns": 1794102816844505862,
+      "actor_usage": {
+        "prompt_tokens": 310,
+        "completion_tokens": 70,
+        "total_tokens": 380
+      },
+      "review_usage": {
+        "prompt_tokens": 494,
+        "completion_tokens": 118,
+        "total_tokens": 612
+      },
+      "immediate_score_delta": 0
+    },
+    {
+      "label": "positive",
+      "rollout_seed": 1,
+      "source_record_sha256": "e666ba22702db120a78cc748fdb75c3e56996c09fcfea571a8b974000537a262",
+      "policy": "internal",
+      "task_id": "sciworld_2519",
+      "step_index": 16,
+      "goal": "Your task is to determine if unknown substance J is electrically conductive. The unknown substance J is located around the workshop. First, focus on the unknown substance J. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box.",
+      "observation": "This room is called the workshop. In it, you see: \n\tthe agent\n\ta orange box (containing nothing)\n\ta substance called air\n\ta table. On the table is: a black wire, a green light bulb, which is off, a orange light bulb, which is off, a orange wire, a red wire, a switch, which is off, a violet light bulb, which is off.\n\ta ultra low temperature freezer. The ultra low temperature freezer door is closed. \n\ta yellow box (containing nothing)\nYou also see:\n\tA door to the hallway (that is open)",
+      "draft_decision": "Premise: The unknown substance J is not explicitly named in the current observation list, but the task requires focusing on it first.\nExpected Consequence: Focusing on the substance will reveal its identity or properties if it is present in the scene.\nAction: focus on air",
+      "internal_signals": {
+        "premise_uncertainty": 0.4828171383275691,
+        "consequence_uncertainty": 0.5591004034718744,
+        "local_uncertainty": 0.5591004034718744,
+        "global_uncertainty": 0.4200136899818269,
+        "missing_span": false,
+        "backend": "hf_qwen35_generation_raw_bf16_v1",
+        "dtype": "bfloat16",
+        "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a"
+      },
+      "external": {
+        "coverage": "unknown",
+        "conflict": "unknown",
+        "sufficiency": "unknown",
+        "reliability": "unknown",
+        "evidence_ids": [],
+        "matched_experience_ids": [],
+        "evidence_verified": false,
+        "action_status": "unknown",
+        "diagnostics": []
+      },
+      "gate": {
+        "schema": "gate-decision-v1",
+        "decision_id": "/data1/shn/agentwmv3/outputs/phase59_independent_v2/episodes/sciworld_2519/seed1/internal/15",
+        "policy": "internal",
+        "call_wm": true,
+        "verification_requested": true,
+        "verification_unavailable": false,
+        "reason": "internal_trigger",
+        "triggered_signals": [
+          "high_global_uncertainty"
+        ],
+        "diagnostics": [],
+        "local_uncertainty": 0.5591004034718744,
+        "global_uncertainty": 0.4200136899818269,
+        "missing_span": false,
+        "signal_validity": "valid",
+        "experience_coverage": "unknown",
+        "experience_conflict": "unknown",
+        "experience_sufficiency": "unknown",
+        "experience_action_status": "unknown",
+        "experience_evidence_ids": [],
+        "evidence_verified": false,
+        "confirmed_action": false,
+        "memory_correction_enabled": false,
+        "budget_remaining": 4,
+        "forecast_budget_remaining": 4,
+        "tau_local": 0.5749072272810143,
+        "tau_global": 0.3332634086050418,
+        "gate_latency": 5.7367607951164246e-05,
+        "additional_cost": {
+          "model_calls": 0,
+          "tokens": 0,
+          "forward_passes": 0
+        },
+        "signal_requirements": {
+          "internal": true,
+          "external": false
+        }
+      },
+      "simulation": {
+        "status": "ok",
+        "prediction_available": true,
+        "source": "ground_truth_environment",
+        "verified_prefix_steps": 15,
+        "predicted_observation": "You focus on the air.",
+        "predicted_reward": -110,
+        "predicted_done": true,
+        "predicted_score": -100,
+        "error": null,
+        "simulation_cost": {
+          "jvm_initializations": 1,
+          "initialization_step_calls": 1,
+          "replay_step_calls": 15,
+          "candidate_step_calls": 1,
+          "initialization_seconds": 1.3719240128993988,
+          "replay_seconds": 1.0036933347582817,
+          "candidate_seconds": 0.06699753552675247,
+          "cleanup_seconds": 0.11394406296312809,
+          "audit_capture_bundles": 50
+        },
+        "simulation_latency": 3.072741651907563
+      },
+      "review": {
+        "raw": "Decision: REPLACE\nReason: The draft action \"focus on air\" targets a background substance (\"a substance called air\") rather than the specific unknown substance J required by the goal. The feedback indicates failure (reward -110, done true) because the task has not progressed toward testing substance J. The observation lists specific components on the table (black wire, green light bulb, etc.) that likely form the testing circuit, but \"air\" is not the target object to focus on.\nFinal Action: look at table",
+        "parsed": {
+          "decision": "REPLACE",
+          "reason": "The draft action \"focus on air\" targets a background substance (\"a substance called air\") rather than the specific unknown substance J required by the goal. The feedback indicates failure (reward -110, done true) because the task has not progressed toward testing substance J. The observation lists specific components on the table (black wire, green light bulb, etc.) that likely form the testing circuit, but \"air\" is not the target object to focus on.",
+          "final_action": "look at table",
+          "changed": true,
+          "action_validity": "unknown",
+          "semantic_utility": "unknown"
+        }
+      },
+      "final_action": "look at table",
+      "actual": {
+        "observation": "a table. On the table is: \n\ta black wire\n\ta green light bulb, which is off\n\ta orange light bulb, which is off\n\ta orange wire\n\ta red wire\n\ta switch, which is off\n\ta violet light bulb, which is off",
+        "raw_observation": "a table. On the table is: \n\ta black wire\n\ta green light bulb, which is off\n\ta orange light bulb, which is off\n\ta orange wire\n\ta red wire\n\ta switch, which is off\n\ta violet light bulb, which is off",
+        "reward": 0,
+        "done": false,
+        "score": 10,
+        "moves": 11,
+        "native_action": "look at table",
+        "action": "look at table",
+        "step_seconds": 0.010820373892784119
+      },
+      "gate_decided_at_ns": 1794103657767487169,
+      "executed_at_ns": 1794103665716412989,
+      "actor_usage": {
+        "prompt_tokens": 427,
+        "completion_tokens": 57,
+        "total_tokens": 484
+      },
+      "review_usage": {
+        "prompt_tokens": 609,
+        "completion_tokens": 107,
+        "total_tokens": 716
+      },
+      "immediate_score_delta": 110
+    },
+    {
+      "label": "positive",
+      "rollout_seed": 1,
+      "source_record_sha256": "6566b5a75d5e78b72c93afc511a3cc99092d3a2b85dcc002180f145e8da0aa6f",
+      "policy": "internal",
+      "task_id": "sciworld_3003",
+      "step_index": 1,
+      "goal": "Your task is to find a(n) living thing. First, focus on the thing. Then, move it to the green box in the bathroom.",
+      "observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\n\ta substance called air\nYou also see:\n\tA door to the hallway (that is closed)",
+      "draft_decision": "Premise: The current room is the living room and contains a chair with nothing on it.\nExpected Consequence: The agent will focus on the chair.\nAction: focus on chair",
+      "internal_signals": {
+        "premise_uncertainty": 0.3373441591043047,
+        "consequence_uncertainty": 0.625655373907648,
+        "local_uncertainty": 0.625655373907648,
+        "global_uncertainty": 0.2830110692171209,
+        "missing_span": false,
+        "backend": "hf_qwen35_generation_raw_bf16_v1",
+        "dtype": "bfloat16",
+        "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a"
+      },
+      "external": {
+        "coverage": "unknown",
+        "conflict": "unknown",
+        "sufficiency": "unknown",
+        "reliability": "unknown",
+        "evidence_ids": [],
+        "matched_experience_ids": [],
+        "evidence_verified": false,
+        "action_status": "unknown",
+        "diagnostics": []
+      },
+      "gate": {
+        "schema": "gate-decision-v1",
+        "decision_id": "/data1/shn/agentwmv3/outputs/phase59_independent_v2/episodes/sciworld_3003/seed1/internal/0",
+        "policy": "internal",
+        "call_wm": true,
+        "verification_requested": true,
+        "verification_unavailable": false,
+        "reason": "internal_trigger",
+        "triggered_signals": [
+          "high_local_uncertainty"
+        ],
+        "diagnostics": [],
+        "local_uncertainty": 0.625655373907648,
+        "global_uncertainty": 0.2830110692171209,
+        "missing_span": false,
+        "signal_validity": "valid",
+        "experience_coverage": "unknown",
+        "experience_conflict": "unknown",
+        "experience_sufficiency": "unknown",
+        "experience_action_status": "unknown",
+        "experience_evidence_ids": [],
+        "evidence_verified": false,
+        "confirmed_action": false,
+        "memory_correction_enabled": false,
+        "budget_remaining": 5,
+        "forecast_budget_remaining": 5,
+        "tau_local": 0.5749072272810143,
+        "tau_global": 0.3332634086050418,
+        "gate_latency": 4.9464404582977295e-05,
+        "additional_cost": {
+          "model_calls": 0,
+          "tokens": 0,
+          "forward_passes": 0
+        },
+        "signal_requirements": {
+          "internal": true,
+          "external": false
+        }
+      },
+      "simulation": {
+        "status": "ok",
+        "prediction_available": true,
+        "source": "ground_truth_environment",
+        "verified_prefix_steps": 0,
+        "predicted_observation": "You focus on the chair.",
+        "predicted_reward": -100,
+        "predicted_done": true,
+        "predicted_score": -100,
+        "error": null,
+        "simulation_cost": {
+          "jvm_initializations": 1,
+          "initialization_step_calls": 1,
+          "replay_step_calls": 0,
+          "candidate_step_calls": 1,
+          "initialization_seconds": 1.4133392795920372,
+          "replay_seconds": 0.0,
+          "candidate_seconds": 0.11406794935464859,
+          "cleanup_seconds": 0.06378047540783882,
+          "audit_capture_bundles": 5
+        },
+        "simulation_latency": 1.7288704700767994
+      },
+      "review": {
+        "raw": "Decision: REPLACE\nReason: The draft action \"focus on chair\" resulted in a reward of -100 and `predicted_done: true`, indicating failure. The goal requires finding a \"living thing\" (the agent is the only living thing) and moving it to the green box in the bathroom. Focusing on the chair does not advance this goal. The agent must first move to the bathroom to locate the green box and then move itself there.\nFinal Action: go bathroom",
+        "parsed": {
+          "decision": "REPLACE",
+          "reason": "The draft action \"focus on chair\" resulted in a reward of -100 and `predicted_done: true`, indicating failure. The goal requires finding a \"living thing\" (the agent is the only living thing) and moving it to the green box in the bathroom. Focusing on the chair does not advance this goal. The agent must first move to the bathroom to locate the green box and then move itself there.",
+          "final_action": "go bathroom",
+          "changed": true,
+          "action_validity": "unknown",
+          "semantic_utility": "unknown"
+        }
+      },
+      "final_action": "go bathroom",
+      "actual": {
+        "observation": "No known action matches that input.",
+        "raw_observation": "No known action matches that input.",
+        "reward": 0,
+        "done": false,
+        "score": 0,
+        "moves": 0,
+        "native_action": "go bathroom",
+        "action": "go bathroom",
+        "step_seconds": 0.021305931732058525
+      },
+      "gate_decided_at_ns": 1794104715572763460,
+      "executed_at_ns": 1794104721746957342,
+      "actor_usage": {
+        "prompt_tokens": 312,
+        "completion_tokens": 39,
+        "total_tokens": 351
+      },
+      "review_usage": {
+        "prompt_tokens": 486,
+        "completion_tokens": 99,
+        "total_tokens": 585
+      },
+      "immediate_score_delta": 100
+    },
+    {
+      "label": "negative",
+      "rollout_seed": 0,
+      "source_record_sha256": "3f1b82d005b31f6bc23558a998f6362aec4db9e2e8c6bab4341cd7e6afa00ca5",
+      "policy": "internal",
+      "task_id": "sciworld_3003",
+      "step_index": 15,
+      "goal": "Your task is to find a(n) living thing. First, focus on the thing. Then, move it to the green box in the bathroom.",
+      "observation": "a painting of a lush green meadow. The artist is listed as Lily.",
+      "draft_decision": "Premise: The painting contains an image of a lush green meadow which is a living thing.\nExpected Consequence: The painting will be opened to reveal the living thing inside.\nAction: open painting",
+      "internal_signals": {
+        "premise_uncertainty": 0.3687164495114196,
+        "consequence_uncertainty": 0.5973702659830451,
+        "local_uncertainty": 0.5973702659830451,
+        "global_uncertainty": 0.3211316228509553,
+        "missing_span": false,
+        "backend": "hf_qwen35_generation_raw_bf16_v1",
+        "dtype": "bfloat16",
+        "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a"
+      },
+      "external": {
+        "coverage": "unknown",
+        "conflict": "unknown",
+        "sufficiency": "unknown",
+        "reliability": "unknown",
+        "evidence_ids": [],
+        "matched_experience_ids": [],
+        "evidence_verified": false,
+        "action_status": "unknown",
+        "diagnostics": []
+      },
+      "gate": {
+        "schema": "gate-decision-v1",
+        "decision_id": "/data1/shn/agentwmv3/outputs/phase59_independent_v2/episodes/sciworld_3003/seed0/internal/14",
+        "policy": "internal",
+        "call_wm": true,
+        "verification_requested": true,
+        "verification_unavailable": false,
+        "reason": "internal_trigger",
+        "triggered_signals": [
+          "high_local_uncertainty"
+        ],
+        "diagnostics": [],
+        "local_uncertainty": 0.5973702659830451,
+        "global_uncertainty": 0.3211316228509553,
+        "missing_span": false,
+        "signal_validity": "valid",
+        "experience_coverage": "unknown",
+        "experience_conflict": "unknown",
+        "experience_sufficiency": "unknown",
+        "experience_action_status": "unknown",
+        "experience_evidence_ids": [],
+        "evidence_verified": false,
+        "confirmed_action": false,
+        "memory_correction_enabled": false,
+        "budget_remaining": 3,
+        "forecast_budget_remaining": 3,
+        "tau_local": 0.5749072272810143,
+        "tau_global": 0.3332634086050418,
+        "gate_latency": 1.7121434211730957e-05,
+        "additional_cost": {
+          "model_calls": 0,
+          "tokens": 0,
+          "forward_passes": 0
+        },
+        "signal_requirements": {
+          "internal": true,
+          "external": false
+        }
+      },
+      "simulation": {
+        "status": "ok",
+        "prediction_available": true,
+        "source": "ground_truth_environment",
+        "verified_prefix_steps": 14,
+        "predicted_observation": "The painting is not openable.",
+        "predicted_reward": 0,
+        "predicted_done": false,
+        "predicted_score": 17,
+        "error": null,
+        "simulation_cost": {
+          "jvm_initializations": 1,
+          "initialization_step_calls": 1,
+          "replay_step_calls": 14,
+          "candidate_step_calls": 1,
+          "initialization_seconds": 1.418286181986332,
+          "replay_seconds": 0.9021768849343061,
+          "candidate_seconds": 0.07126622833311558,
+          "cleanup_seconds": 0.11407799832522869,
+          "audit_capture_bundles": 47
+        },
+        "simulation_latency": 2.966480867937207
+      },
+      "review": {
+        "raw": "Decision: REPLACE\nReason: The painting is described as \"a painting of a lush green meadow\" and the feedback explicitly states \"The painting is not openable.\" Opening it is impossible and does not help find the living thing or move it to the green box. The living thing (the meadow) is visually depicted on the painting itself, so the agent should focus on the painting to see it, rather than trying to open it.\nFinal Action: focus on painting",
+        "parsed": {
+          "decision": "REPLACE",
+          "reason": "The painting is described as \"a painting of a lush green meadow\" and the feedback explicitly states \"The painting is not openable.\" Opening it is impossible and does not help find the living thing or move it to the green box. The living thing (the meadow) is visually depicted on the painting itself, so the agent should focus on the painting to see it, rather than trying to open it.",
+          "final_action": "focus on painting",
+          "changed": true,
+          "action_validity": "unknown",
+          "semantic_utility": "unknown"
+        }
+      },
+      "final_action": "focus on painting",
+      "actual": {
+        "observation": "You focus on the painting.",
+        "raw_observation": "You focus on the painting.",
+        "reward": -117,
+        "done": true,
+        "score": -100,
+        "moves": 6,
+        "native_action": "focus on painting",
+        "action": "focus on painting",
+        "step_seconds": 0.015441788360476494
+      },
+      "gate_decided_at_ns": 1794102563907950029,
+      "executed_at_ns": 1794102571232192307,
+      "actor_usage": {
+        "prompt_tokens": 350,
+        "completion_tokens": 43,
+        "total_tokens": 393
+      },
+      "review_usage": {
+        "prompt_tokens": 537,
+        "completion_tokens": 97,
+        "total_tokens": 634
+      },
+      "immediate_score_delta": -117
+    },
+    {
+      "label": "explicit_rejection",
+      "rollout_seed": 0,
+      "source_record_sha256": "6a1cba68e1daa9ac9856f670b4e3091fde5f3aace2e5ea501b36c7e83df5f8bd",
+      "policy": "internal",
+      "task_id": "sciworld_1508",
+      "step_index": 7,
+      "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+      "observation": "No known action matches that input.",
+      "draft_decision": "Premise: The agent has picked up the aluminum foil but the system is rejecting the action or the object name requires adjustment.\nExpected Consequence: The system will recognize the valid action to place the foil into one of the boxes based on the task logic.\nAction: pick up aluminum foil",
+      "internal_signals": {
+        "premise_uncertainty": 0.8617088009068952,
+        "consequence_uncertainty": 0.5430202516928272,
+        "local_uncertainty": 0.8617088009068952,
+        "global_uncertainty": 0.5587897450500119,
+        "missing_span": false,
+        "backend": "hf_qwen35_generation_raw_bf16_v1",
+        "dtype": "bfloat16",
+        "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a"
+      },
+      "external": {
+        "coverage": "unknown",
+        "conflict": "unknown",
+        "sufficiency": "unknown",
+        "reliability": "unknown",
+        "evidence_ids": [],
+        "matched_experience_ids": [],
+        "evidence_verified": false,
+        "action_status": "unknown",
+        "diagnostics": []
+      },
+      "gate": {
+        "schema": "gate-decision-v1",
+        "decision_id": "/data1/shn/agentwmv3/outputs/phase59_independent_v1/episodes/sciworld_1508/seed0/internal/6",
+        "policy": "internal",
+        "call_wm": true,
+        "verification_requested": true,
+        "verification_unavailable": false,
+        "reason": "internal_trigger",
+        "triggered_signals": [
+          "high_local_uncertainty",
+          "high_global_uncertainty"
+        ],
+        "diagnostics": [],
+        "local_uncertainty": 0.8617088009068952,
+        "global_uncertainty": 0.5587897450500119,
+        "missing_span": false,
+        "signal_validity": "valid",
+        "experience_coverage": "unknown",
+        "experience_conflict": "unknown",
+        "experience_sufficiency": "unknown",
+        "experience_action_status": "unknown",
+        "experience_evidence_ids": [],
+        "evidence_verified": false,
+        "confirmed_action": false,
+        "memory_correction_enabled": false,
+        "budget_remaining": 5,
+        "forecast_budget_remaining": 5,
+        "tau_local": 0.5749072272810143,
+        "tau_global": 0.3332634086050418,
+        "gate_latency": 1.6631558537483215e-05,
+        "additional_cost": {
+          "model_calls": 0,
+          "tokens": 0,
+          "forward_passes": 0
+        },
+        "signal_requirements": {
+          "internal": true,
+          "external": false
+        }
+      },
+      "simulation": {
+        "status": "ok",
+        "prediction_available": true,
+        "source": "ground_truth_environment",
+        "verified_prefix_steps": 6,
+        "predicted_observation": "No known action matches that input.",
+        "predicted_reward": 0,
+        "predicted_done": false,
+        "predicted_score": 0,
+        "error": null,
+        "simulation_cost": {
+          "jvm_initializations": 1,
+          "initialization_step_calls": 1,
+          "replay_step_calls": 6,
+          "candidate_step_calls": 1,
+          "initialization_seconds": 1.4288569204509258,
+          "replay_seconds": 0.5121918115764856,
+          "candidate_seconds": 0.06931785307824612,
+          "cleanup_seconds": 0.2641602195799351,
+          "audit_capture_bundles": 23
+        },
+        "simulation_latency": 2.5739252883940935
+      },
+      "review": {
+        "raw": "Decision: REPLACE\nReason: The history shows that \"pick up aluminum foil\" was already executed and failed (\"No known action matches that input\"). Repeating the same failed action is redundant and unproductive. The goal requires placing the foil in a specific box based on conductivity, so the next logical step is to test the foil or interact with the boxes, not attempt to pick it up again.\nFinal Action: look at aluminum foil",
+        "parsed": {
+          "decision": "REPLACE",
+          "reason": "The history shows that \"pick up aluminum foil\" was already executed and failed (\"No known action matches that input\"). Repeating the same failed action is redundant and unproductive. The goal requires placing the foil in a specific box based on conductivity, so the next logical step is to test the foil or interact with the boxes, not attempt to pick it up again.",
+          "final_action": "look at aluminum foil",
+          "changed": true,
+          "action_validity": "unknown",
+          "semantic_utility": "unknown"
+        }
+      },
+      "final_action": "look at aluminum foil",
+      "actual": {
+        "observation": "No known action matches that input.",
+        "raw_observation": "No known action matches that input.",
+        "reward": 0,
+        "done": false,
+        "score": 0,
+        "moves": 3,
+        "native_action": "look at aluminum foil",
+        "action": "look at aluminum foil",
+        "step_seconds": 0.010055730119347572
+      },
+      "gate_decided_at_ns": 1794100284320942502,
+      "executed_at_ns": 1794100290889216619,
+      "actor_usage": {
+        "prompt_tokens": 307,
+        "completion_tokens": 60,
+        "total_tokens": 367
+      },
+      "review_usage": {
+        "prompt_tokens": 487,
+        "completion_tokens": 88,
+        "total_tokens": 575
+      },
+      "immediate_score_delta": 0
+    },
+    {
+      "label": "explicit_rejection",
+      "rollout_seed": 1,
+      "source_record_sha256": "acddc03faa98935c7fc4831ba81ff514526783264da6e9015c9982f30af48578",
+      "policy": "internal",
+      "task_id": "sciworld_1508",
+      "step_index": 5,
+      "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+      "observation": "No known action matches that input.",
+      "draft_decision": "Premise: The command 'go living room' was not recognized in the current observation context.\nExpected Consequence: The agent will remain in the current location or the system will reject the action.\nAction: go to the living room",
+      "internal_signals": {
+        "premise_uncertainty": 0.4705450035821741,
+        "consequence_uncertainty": 0.5160786696724244,
+        "local_uncertainty": 0.5160786696724244,
+        "global_uncertainty": 0.3840083306915621,
+        "missing_span": false,
+        "backend": "hf_qwen35_generation_raw_bf16_v1",
+        "dtype": "bfloat16",
+        "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a"
+      },
+      "external": {
+        "coverage": "unknown",
+        "conflict": "unknown",
+        "sufficiency": "unknown",
+        "reliability": "unknown",
+        "evidence_ids": [],
+        "matched_experience_ids": [],
+        "evidence_verified": false,
+        "action_status": "unknown",
+        "diagnostics": []
+      },
+      "gate": {
+        "schema": "gate-decision-v1",
+        "decision_id": "/data1/shn/agentwmv3/outputs/phase59_independent_v2/episodes/sciworld_1508/seed1/internal/4",
+        "policy": "internal",
+        "call_wm": true,
+        "verification_requested": true,
+        "verification_unavailable": false,
+        "reason": "internal_trigger",
+        "triggered_signals": [
+          "high_global_uncertainty"
+        ],
+        "diagnostics": [],
+        "local_uncertainty": 0.5160786696724244,
+        "global_uncertainty": 0.3840083306915621,
+        "missing_span": false,
+        "signal_validity": "valid",
+        "experience_coverage": "unknown",
+        "experience_conflict": "unknown",
+        "experience_sufficiency": "unknown",
+        "experience_action_status": "unknown",
+        "experience_evidence_ids": [],
+        "evidence_verified": false,
+        "confirmed_action": false,
+        "memory_correction_enabled": false,
+        "budget_remaining": 5,
+        "forecast_budget_remaining": 5,
+        "tau_local": 0.5749072272810143,
+        "tau_global": 0.3332634086050418,
+        "gate_latency": 1.6858801245689392e-05,
+        "additional_cost": {
+          "model_calls": 0,
+          "tokens": 0,
+          "forward_passes": 0
+        },
+        "signal_requirements": {
+          "internal": true,
+          "external": false
+        }
+      },
+      "simulation": {
+        "status": "ok",
+        "prediction_available": true,
+        "source": "ground_truth_environment",
+        "verified_prefix_steps": 4,
+        "predicted_observation": "No known action matches that input.",
+        "predicted_reward": 0,
+        "predicted_done": false,
+        "predicted_score": 0,
+        "error": null,
+        "simulation_cost": {
+          "jvm_initializations": 1,
+          "initialization_step_calls": 1,
+          "replay_step_calls": 4,
+          "candidate_step_calls": 1,
+          "initialization_seconds": 1.3901358768343925,
+          "replay_seconds": 0.2983619552105665,
+          "candidate_seconds": 0.07728548347949982,
+          "cleanup_seconds": 0.11385964415967464,
+          "audit_capture_bundles": 17
+        },
+        "simulation_latency": 2.119044478982687
+      },
+      "review": {
+        "raw": "Decision: REPLACE\nReason: The draft action \"go to the living room\" is syntactically incorrect for this environment; the valid command is \"go living room\" (without \"to\"), as confirmed by the history where \"go living room\" was successfully executed.\nFinal Action: go living room",
+        "parsed": {
+          "decision": "REPLACE",
+          "reason": "The draft action \"go to the living room\" is syntactically incorrect for this environment; the valid command is \"go living room\" (without \"to\"), as confirmed by the history where \"go living room\" was successfully executed.",
+          "final_action": "go living room",
+          "changed": true,
+          "action_validity": "unknown",
+          "semantic_utility": "unknown"
+        }
+      },
+      "final_action": "go living room",
+      "actual": {
+        "observation": "No known action matches that input.",
+        "raw_observation": "No known action matches that input.",
+        "reward": 0,
+        "done": false,
+        "score": 0,
+        "moves": 0,
+        "native_action": "go living room",
+        "action": "go living room",
+        "step_seconds": 0.011138707399368286
+      },
+      "gate_decided_at_ns": 1794103138799953296,
+      "executed_at_ns": 1794103143770120536,
+      "actor_usage": {
+        "prompt_tokens": 393,
+        "completion_tokens": 49,
+        "total_tokens": 442
+      },
+      "review_usage": {
+        "prompt_tokens": 584,
+        "completion_tokens": 62,
+        "total_tokens": 646
+      },
+      "immediate_score_delta": 0
+    },
+    {
+      "label": "positive",
+      "rollout_seed": 1,
+      "source_record_sha256": "6579b701d14781d3f9ef6d975ec1765994102f5c47f4677b7edeed91c01ff151",
+      "policy": "full",
+      "task_id": "sciworld_3003",
+      "step_index": 1,
+      "goal": "Your task is to find a(n) living thing. First, focus on the thing. Then, move it to the green box in the bathroom.",
+      "observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\n\ta substance called air\nYou also see:\n\tA door to the hallway (that is closed)",
+      "draft_decision": "Premise: The current room is the living room and contains a chair with nothing on it.\nExpected Consequence: The agent will focus on the chair.\nAction: focus on chair",
+      "internal_signals": {
+        "premise_uncertainty": 0.3373441591043047,
+        "consequence_uncertainty": 0.625655373907648,
+        "local_uncertainty": 0.625655373907648,
+        "global_uncertainty": 0.2830110692171209,
+        "missing_span": false,
+        "backend": "hf_qwen35_generation_raw_bf16_v1",
+        "dtype": "bfloat16",
+        "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a"
+      },
+      "external": {
+        "coverage": "unknown",
+        "conflict": "unknown",
+        "sufficiency": "unknown",
+        "reliability": "unknown",
+        "evidence_ids": [],
+        "matched_experience_ids": [],
+        "evidence_verified": false,
+        "action_status": "unknown",
+        "diagnostics": [
+          "unverified_or_inapplicable_external_evidence"
+        ]
+      },
+      "gate": {
+        "schema": "gate-decision-v1",
+        "decision_id": "/data1/shn/agentwmv3/outputs/phase59_independent_v2/episodes/sciworld_3003/seed1/full/0",
+        "policy": "full",
+        "call_wm": true,
+        "verification_requested": true,
+        "verification_unavailable": false,
+        "reason": "internal_trigger",
+        "triggered_signals": [
+          "high_local_uncertainty"
+        ],
+        "diagnostics": [
+          "unverified_or_inapplicable_external_evidence",
+          "external_unknown_internal_fallback"
+        ],
+        "local_uncertainty": 0.625655373907648,
+        "global_uncertainty": 0.2830110692171209,
+        "missing_span": false,
+        "signal_validity": "valid",
+        "experience_coverage": "unknown",
+        "experience_conflict": "unknown",
+        "experience_sufficiency": "unknown",
+        "experience_action_status": "unknown",
+        "experience_evidence_ids": [],
+        "evidence_verified": false,
+        "confirmed_action": false,
+        "memory_correction_enabled": false,
+        "budget_remaining": 5,
+        "forecast_budget_remaining": 5,
+        "tau_local": 0.5749072272810143,
+        "tau_global": 0.3332634086050418,
+        "gate_latency": 1.8104910850524902e-05,
+        "additional_cost": {
+          "model_calls": 0,
+          "tokens": 0,
+          "forward_passes": 0
+        },
+        "signal_requirements": {
+          "internal": true,
+          "external": true
+        }
+      },
+      "simulation": {
+        "status": "ok",
+        "prediction_available": true,
+        "source": "ground_truth_environment",
+        "verified_prefix_steps": 0,
+        "predicted_observation": "You focus on the chair.",
+        "predicted_reward": -100,
+        "predicted_done": true,
+        "predicted_score": -100,
+        "error": null,
+        "simulation_cost": {
+          "jvm_initializations": 1,
+          "initialization_step_calls": 1,
+          "replay_step_calls": 0,
+          "candidate_step_calls": 1,
+          "initialization_seconds": 1.4272428825497627,
+          "replay_seconds": 0.0,
+          "candidate_seconds": 0.11960209906101227,
+          "cleanup_seconds": 0.11489416472613811,
+          "audit_capture_bundles": 5
+        },
+        "simulation_latency": 1.823034081608057
+      },
+      "review": {
+        "raw": "Decision: REPLACE\nReason: The draft action \"focus on chair\" resulted in a reward of -100 and `predicted_done: true`, indicating failure. The goal requires finding a \"living thing\" (the agent is the only living thing) and moving it to the green box in the bathroom. Focusing on the chair does not advance this goal. The agent must first move to the bathroom to locate the green box and then move itself there.\nFinal Action: go bathroom",
+        "parsed": {
+          "decision": "REPLACE",
+          "reason": "The draft action \"focus on chair\" resulted in a reward of -100 and `predicted_done: true`, indicating failure. The goal requires finding a \"living thing\" (the agent is the only living thing) and moving it to the green box in the bathroom. Focusing on the chair does not advance this goal. The agent must first move to the bathroom to locate the green box and then move itself there.",
+          "final_action": "go bathroom",
+          "changed": true,
+          "action_validity": "unknown",
+          "semantic_utility": "unknown"
+        }
+      },
+      "final_action": "go bathroom",
+      "actual": {
+        "observation": "No known action matches that input.",
+        "raw_observation": "No known action matches that input.",
+        "reward": 0,
+        "done": false,
+        "score": 0,
+        "moves": 0,
+        "native_action": "go bathroom",
+        "action": "go bathroom",
+        "step_seconds": 0.016271227970719337
+      },
+      "gate_decided_at_ns": 1794104763540514207,
+      "executed_at_ns": 1794104769815841410,
+      "actor_usage": {
+        "prompt_tokens": 312,
+        "completion_tokens": 39,
+        "total_tokens": 351
+      },
+      "review_usage": {
+        "prompt_tokens": 486,
+        "completion_tokens": 99,
+        "total_tokens": 585
+      },
+      "immediate_score_delta": 100
+    },
+    {
+      "label": "negative",
+      "rollout_seed": 1,
+      "source_record_sha256": "884bebb693822a8716dee30e4cb2e6db1241e99f9ca91875efc637e1ae9747f5",
+      "policy": "full",
+      "task_id": "sciworld_2519",
+      "step_index": 11,
+      "goal": "Your task is to determine if unknown substance J is electrically conductive. The unknown substance J is located around the workshop. First, focus on the unknown substance J. If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box.",
+      "observation": "I'm not sure how to use the battery.",
+      "draft_decision": "Premise: The user does not know how to use the battery to test conductivity.\nExpected Consequence: The battery will be picked up and used to test the unknown substance J.\nAction: use battery on unknown substance J",
+      "internal_signals": {
+        "premise_uncertainty": 0.2687743273259652,
+        "consequence_uncertainty": 0.6833456338520288,
+        "local_uncertainty": 0.6833456338520288,
+        "global_uncertainty": 0.3070290164414127,
+        "missing_span": false,
+        "backend": "hf_qwen35_generation_raw_bf16_v1",
+        "dtype": "bfloat16",
+        "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a"
+      },
+      "external": {
+        "coverage": "unknown",
+        "conflict": "unknown",
+        "sufficiency": "unknown",
+        "reliability": "unknown",
+        "evidence_ids": [],
+        "matched_experience_ids": [],
+        "evidence_verified": false,
+        "action_status": "unknown",
+        "diagnostics": [
+          "unverified_or_inapplicable_external_evidence"
+        ]
+      },
+      "gate": {
+        "schema": "gate-decision-v1",
+        "decision_id": "/data1/shn/agentwmv3/outputs/phase59_independent_v2/episodes/sciworld_2519/seed1/full/10",
+        "policy": "full",
+        "call_wm": true,
+        "verification_requested": true,
+        "verification_unavailable": false,
+        "reason": "internal_trigger",
+        "triggered_signals": [
+          "high_local_uncertainty"
+        ],
+        "diagnostics": [
+          "unverified_or_inapplicable_external_evidence",
+          "external_unknown_internal_fallback"
+        ],
+        "local_uncertainty": 0.6833456338520288,
+        "global_uncertainty": 0.3070290164414127,
+        "missing_span": false,
+        "signal_validity": "valid",
+        "experience_coverage": "unknown",
+        "experience_conflict": "unknown",
+        "experience_sufficiency": "unknown",
+        "experience_action_status": "unknown",
+        "experience_evidence_ids": [],
+        "evidence_verified": false,
+        "confirmed_action": false,
+        "memory_correction_enabled": false,
+        "budget_remaining": 4,
+        "forecast_budget_remaining": 4,
+        "tau_local": 0.5749072272810143,
+        "tau_global": 0.3332634086050418,
+        "gate_latency": 1.609884202480316e-05,
+        "additional_cost": {
+          "model_calls": 0,
+          "tokens": 0,
+          "forward_passes": 0
+        },
+        "signal_requirements": {
+          "internal": true,
+          "external": true
+        }
+      },
+      "simulation": {
+        "status": "ok",
+        "prediction_available": true,
+        "source": "ground_truth_environment",
+        "verified_prefix_steps": 10,
+        "predicted_observation": "I'm not sure how to use the battery.",
+        "predicted_reward": 0,
+        "predicted_done": false,
+        "predicted_score": 60,
+        "error": null,
+        "simulation_cost": {
+          "jvm_initializations": 1,
+          "initialization_step_calls": 1,
+          "replay_step_calls": 10,
+          "candidate_step_calls": 1,
+          "initialization_seconds": 1.4244526755064726,
+          "replay_seconds": 0.7432558238506317,
+          "candidate_seconds": 0.058484381064772606,
+          "cleanup_seconds": 0.1639234721660614,
+          "audit_capture_bundles": 35
+        },
+        "simulation_latency": 2.793545126914978
+      },
+      "review": {
+        "raw": "Decision: REPLACE\nReason: The draft action \"use battery on unknown substance J\" resulted in the observation \"I'm not sure how to use the battery,\" indicating the command syntax or object interaction is incorrect. The agent already picked up the substance and moved it to inventory; the battery test failed, implying the substance is likely nonconductive. The goal states nonconductive substances should be placed in the yellow box. The inventory contains the substance, and the yellow box is the correct destination.\nFinal Action: move unknown substance J to yellow box",
+        "parsed": {
+          "decision": "REPLACE",
+          "reason": "The draft action \"use battery on unknown substance J\" resulted in the observation \"I'm not sure how to use the battery,\" indicating the command syntax or object interaction is incorrect. The agent already picked up the substance and moved it to inventory; the battery test failed, implying the substance is likely nonconductive. The goal states nonconductive substances should be placed in the yellow box. The inventory contains the substance, and the yellow box is the correct destination.",
+          "final_action": "move unknown substance J to yellow box",
+          "changed": true,
+          "action_validity": "unknown",
+          "semantic_utility": "unknown"
+        }
+      },
+      "final_action": "move unknown substance J to yellow box",
+      "actual": {
+        "observation": "You move the unknown substance J to the yellow box.",
+        "raw_observation": "You move the unknown substance J to the yellow box.",
+        "reward": -160,
+        "done": true,
+        "score": -100,
+        "moves": 8,
+        "native_action": "move unknown substance J to yellow box",
+        "action": "move unknown substance J to yellow box",
+        "step_seconds": 0.018908381462097168
+      },
+      "gate_decided_at_ns": 1794103706267715630,
+      "executed_at_ns": 1794103714098590148,
+      "actor_usage": {
+        "prompt_tokens": 319,
+        "completion_tokens": 47,
+        "total_tokens": 366
+      },
+      "review_usage": {
+        "prompt_tokens": 505,
+        "completion_tokens": 111,
+        "total_tokens": 616
+      },
+      "immediate_score_delta": -160
+    },
+    {
+      "label": "negative",
+      "rollout_seed": 0,
+      "source_record_sha256": "440ade1b4739ff60d2c941f727c989a1e7b61239209ba7b4bcbf0251ec82b980",
+      "policy": "full",
+      "task_id": "sciworld_3003",
+      "step_index": 15,
+      "goal": "Your task is to find a(n) living thing. First, focus on the thing. Then, move it to the green box in the bathroom.",
+      "observation": "a painting of a lush green meadow. The artist is listed as Lily.",
+      "draft_decision": "Premise: The painting contains an image of a lush green meadow which is a living thing.\nExpected Consequence: The painting will be opened to reveal the living thing inside.\nAction: open painting",
+      "internal_signals": {
+        "premise_uncertainty": 0.3687164495114196,
+        "consequence_uncertainty": 0.5973702659830451,
+        "local_uncertainty": 0.5973702659830451,
+        "global_uncertainty": 0.3211316228509553,
+        "missing_span": false,
+        "backend": "hf_qwen35_generation_raw_bf16_v1",
+        "dtype": "bfloat16",
+        "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a"
+      },
+      "external": {
+        "coverage": "unknown",
+        "conflict": "unknown",
+        "sufficiency": "unknown",
+        "reliability": "unknown",
+        "evidence_ids": [],
+        "matched_experience_ids": [],
+        "evidence_verified": false,
+        "action_status": "unknown",
+        "diagnostics": [
+          "unverified_or_inapplicable_external_evidence"
+        ]
+      },
+      "gate": {
+        "schema": "gate-decision-v1",
+        "decision_id": "/data1/shn/agentwmv3/outputs/phase59_independent_v2/episodes/sciworld_3003/seed0/full/14",
+        "policy": "full",
+        "call_wm": true,
+        "verification_requested": true,
+        "verification_unavailable": false,
+        "reason": "internal_trigger",
+        "triggered_signals": [
+          "high_local_uncertainty"
+        ],
+        "diagnostics": [
+          "unverified_or_inapplicable_external_evidence",
+          "external_unknown_internal_fallback"
+        ],
+        "local_uncertainty": 0.5973702659830451,
+        "global_uncertainty": 0.3211316228509553,
+        "missing_span": false,
+        "signal_validity": "valid",
+        "experience_coverage": "unknown",
+        "experience_conflict": "unknown",
+        "experience_sufficiency": "unknown",
+        "experience_action_status": "unknown",
+        "experience_evidence_ids": [],
+        "evidence_verified": false,
+        "confirmed_action": false,
+        "memory_correction_enabled": false,
+        "budget_remaining": 3,
+        "forecast_budget_remaining": 3,
+        "tau_local": 0.5749072272810143,
+        "tau_global": 0.3332634086050418,
+        "gate_latency": 1.5057623386383057e-05,
+        "additional_cost": {
+          "model_calls": 0,
+          "tokens": 0,
+          "forward_passes": 0
+        },
+        "signal_requirements": {
+          "internal": true,
+          "external": true
+        }
+      },
+      "simulation": {
+        "status": "ok",
+        "prediction_available": true,
+        "source": "ground_truth_environment",
+        "verified_prefix_steps": 14,
+        "predicted_observation": "The painting is not openable.",
+        "predicted_reward": 0,
+        "predicted_done": false,
+        "predicted_score": 17,
+        "error": null,
+        "simulation_cost": {
+          "jvm_initializations": 1,
+          "initialization_step_calls": 1,
+          "replay_step_calls": 14,
+          "candidate_step_calls": 1,
+          "initialization_seconds": 1.433511996641755,
+          "replay_seconds": 1.1104972586035728,
+          "candidate_seconds": 0.0834326520562172,
+          "cleanup_seconds": 0.11410956457257271,
+          "audit_capture_bundles": 47
+        },
+        "simulation_latency": 3.3482642993330956
+      },
+      "review": {
+        "raw": "Decision: REPLACE\nReason: The painting is described as \"a painting of a lush green meadow\" and the feedback explicitly states \"The painting is not openable.\" Opening it is impossible and does not help find the living thing or move it to the green box. The living thing (the meadow) is visually depicted on the painting itself, so the agent should focus on the painting to see it, rather than trying to open it.\nFinal Action: focus on painting",
+        "parsed": {
+          "decision": "REPLACE",
+          "reason": "The painting is described as \"a painting of a lush green meadow\" and the feedback explicitly states \"The painting is not openable.\" Opening it is impossible and does not help find the living thing or move it to the green box. The living thing (the meadow) is visually depicted on the painting itself, so the agent should focus on the painting to see it, rather than trying to open it.",
+          "final_action": "focus on painting",
+          "changed": true,
+          "action_validity": "unknown",
+          "semantic_utility": "unknown"
+        }
+      },
+      "final_action": "focus on painting",
+      "actual": {
+        "observation": "You focus on the painting.",
+        "raw_observation": "You focus on the painting.",
+        "reward": -117,
+        "done": true,
+        "score": -100,
+        "moves": 6,
+        "native_action": "focus on painting",
+        "action": "focus on painting",
+        "step_seconds": 0.018012385815382004
+      },
+      "gate_decided_at_ns": 1794102618888161391,
+      "executed_at_ns": 1794102626579448582,
+      "actor_usage": {
+        "prompt_tokens": 350,
+        "completion_tokens": 43,
+        "total_tokens": 393
+      },
+      "review_usage": {
+        "prompt_tokens": 537,
+        "completion_tokens": 97,
+        "total_tokens": 634
+      },
+      "immediate_score_delta": -117
+    },
+    {
+      "label": "explicit_rejection",
+      "rollout_seed": 1,
+      "source_record_sha256": "043e736ab7d3268fba50fe4e5431b31476870e6612b23ddee5beffea27214ac6",
+      "policy": "full",
+      "task_id": "sciworld_1508",
+      "step_index": 5,
+      "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+      "observation": "No known action matches that input.",
+      "draft_decision": "Premise: The command 'go living room' was not recognized in the current observation context.\nExpected Consequence: The agent will remain in the current location or the system will reject the action.\nAction: go to the living room",
+      "internal_signals": {
+        "premise_uncertainty": 0.4705450035821741,
+        "consequence_uncertainty": 0.5160786696724244,
+        "local_uncertainty": 0.5160786696724244,
+        "global_uncertainty": 0.3840083306915621,
+        "missing_span": false,
+        "backend": "hf_qwen35_generation_raw_bf16_v1",
+        "dtype": "bfloat16",
+        "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a"
+      },
+      "external": {
+        "coverage": "unknown",
+        "conflict": "unknown",
+        "sufficiency": "unknown",
+        "reliability": "unknown",
+        "evidence_ids": [],
+        "matched_experience_ids": [],
+        "evidence_verified": false,
+        "action_status": "unknown",
+        "diagnostics": [
+          "unverified_or_inapplicable_external_evidence"
+        ]
+      },
+      "gate": {
+        "schema": "gate-decision-v1",
+        "decision_id": "/data1/shn/agentwmv3/outputs/phase59_independent_v2/episodes/sciworld_1508/seed1/full/4",
+        "policy": "full",
+        "call_wm": true,
+        "verification_requested": true,
+        "verification_unavailable": false,
+        "reason": "internal_trigger",
+        "triggered_signals": [
+          "high_global_uncertainty"
+        ],
+        "diagnostics": [
+          "unverified_or_inapplicable_external_evidence",
+          "external_unknown_internal_fallback"
+        ],
+        "local_uncertainty": 0.5160786696724244,
+        "global_uncertainty": 0.3840083306915621,
+        "missing_span": false,
+        "signal_validity": "valid",
+        "experience_coverage": "unknown",
+        "experience_conflict": "unknown",
+        "experience_sufficiency": "unknown",
+        "experience_action_status": "unknown",
+        "experience_evidence_ids": [],
+        "evidence_verified": false,
+        "confirmed_action": false,
+        "memory_correction_enabled": false,
+        "budget_remaining": 5,
+        "forecast_budget_remaining": 5,
+        "tau_local": 0.5749072272810143,
+        "tau_global": 0.3332634086050418,
+        "gate_latency": 1.5759840607643127e-05,
+        "additional_cost": {
+          "model_calls": 0,
+          "tokens": 0,
+          "forward_passes": 0
+        },
+        "signal_requirements": {
+          "internal": true,
+          "external": true
+        }
+      },
+      "simulation": {
+        "status": "ok",
+        "prediction_available": true,
+        "source": "ground_truth_environment",
+        "verified_prefix_steps": 4,
+        "predicted_observation": "No known action matches that input.",
+        "predicted_reward": 0,
+        "predicted_done": false,
+        "predicted_score": 0,
+        "error": null,
+        "simulation_cost": {
+          "jvm_initializations": 1,
+          "initialization_step_calls": 1,
+          "replay_step_calls": 4,
+          "candidate_step_calls": 1,
+          "initialization_seconds": 1.4117594622075558,
+          "replay_seconds": 0.2855555843561888,
+          "candidate_seconds": 0.07554074004292488,
+          "cleanup_seconds": 0.11454736068844795,
+          "audit_capture_bundles": 17
+        },
+        "simulation_latency": 2.131658347323537
+      },
+      "review": {
+        "raw": "Decision: REPLACE\nReason: The draft action \"go to the living room\" is syntactically incorrect for this environment; the valid command is \"go living room\" (without \"to\"), as confirmed by the history where \"go living room\" was successfully executed.\nFinal Action: go living room",
+        "parsed": {
+          "decision": "REPLACE",
+          "reason": "The draft action \"go to the living room\" is syntactically incorrect for this environment; the valid command is \"go living room\" (without \"to\"), as confirmed by the history where \"go living room\" was successfully executed.",
+          "final_action": "go living room",
+          "changed": true,
+          "action_validity": "unknown",
+          "semantic_utility": "unknown"
+        }
+      },
+      "final_action": "go living room",
+      "actual": {
+        "observation": "No known action matches that input.",
+        "raw_observation": "No known action matches that input.",
+        "reward": 0,
+        "done": false,
+        "score": 0,
+        "moves": 0,
+        "native_action": "go living room",
+        "action": "go living room",
+        "step_seconds": 0.017346251755952835
+      },
+      "gate_decided_at_ns": 1794103237249983723,
+      "executed_at_ns": 1794103242252894619,
+      "actor_usage": {
+        "prompt_tokens": 393,
+        "completion_tokens": 49,
+        "total_tokens": 442
+      },
+      "review_usage": {
+        "prompt_tokens": 584,
+        "completion_tokens": 62,
+        "total_tokens": 646
+      },
+      "immediate_score_delta": 0
+    },
+    {
+      "label": "explicit_rejection",
+      "rollout_seed": 1,
+      "source_record_sha256": "7106aceaacbd99e1e5c47b8a782791997d35d09f3474db2d61d94711fb745d31",
+      "policy": "full",
+      "task_id": "sciworld_1508",
+      "step_index": 6,
+      "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+      "observation": "No known action matches that input.",
+      "draft_decision": "Premise: The agent is in the art studio and cannot move to the living room where the aluminum foil is located.\nExpected Consequence: The command will fail again as the navigation to the living room is blocked or invalid.\nAction: look around",
+      "internal_signals": {
+        "premise_uncertainty": 0.46191419645133247,
+        "consequence_uncertainty": 0.6424504130538802,
+        "local_uncertainty": 0.6424504130538802,
+        "global_uncertainty": 0.41258946797077833,
+        "missing_span": false,
+        "backend": "hf_qwen35_generation_raw_bf16_v1",
+        "dtype": "bfloat16",
+        "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a"
+      },
+      "external": {
+        "coverage": "unknown",
+        "conflict": "unknown",
+        "sufficiency": "unknown",
+        "reliability": "unknown",
+        "evidence_ids": [],
+        "matched_experience_ids": [],
+        "evidence_verified": false,
+        "action_status": "unknown",
+        "diagnostics": [
+          "unverified_or_inapplicable_external_evidence"
+        ]
+      },
+      "gate": {
+        "schema": "gate-decision-v1",
+        "decision_id": "/data1/shn/agentwmv3/outputs/phase59_independent_v2/episodes/sciworld_1508/seed1/full/5",
+        "policy": "full",
+        "call_wm": true,
+        "verification_requested": true,
+        "verification_unavailable": false,
+        "reason": "internal_trigger",
+        "triggered_signals": [
+          "high_local_uncertainty",
+          "high_global_uncertainty"
+        ],
+        "diagnostics": [
+          "unverified_or_inapplicable_external_evidence",
+          "external_unknown_internal_fallback"
+        ],
+        "local_uncertainty": 0.6424504130538802,
+        "global_uncertainty": 0.41258946797077833,
+        "missing_span": false,
+        "signal_validity": "valid",
+        "experience_coverage": "unknown",
+        "experience_conflict": "unknown",
+        "experience_sufficiency": "unknown",
+        "experience_action_status": "unknown",
+        "experience_evidence_ids": [],
+        "evidence_verified": false,
+        "confirmed_action": false,
+        "memory_correction_enabled": false,
+        "budget_remaining": 4,
+        "forecast_budget_remaining": 4,
+        "tau_local": 0.5749072272810143,
+        "tau_global": 0.3332634086050418,
+        "gate_latency": 1.8654391169548035e-05,
+        "additional_cost": {
+          "model_calls": 0,
+          "tokens": 0,
+          "forward_passes": 0
+        },
+        "signal_requirements": {
+          "internal": true,
+          "external": true
+        }
+      },
+      "simulation": {
+        "status": "ok",
+        "prediction_available": true,
+        "source": "ground_truth_environment",
+        "verified_prefix_steps": 5,
+        "predicted_observation": "This room is called the art studio. In it, you see: \n\tthe agent\n\ta large cupboard. The large cupboard door is closed. \n\ta substance called air\n\ta table. On the table is: a jug (containing nothing).\n\ta wood cup (containing blue paint)\n\ta wood cup (containing red paint)\n\ta wood cup (containing yellow paint)\nYou also see:\n\tA door to the hallway (that is closed)",
+        "predicted_reward": 0,
+        "predicted_done": false,
+        "predicted_score": 0,
+        "error": null,
+        "simulation_cost": {
+          "jvm_initializations": 1,
+          "initialization_step_calls": 1,
+          "replay_step_calls": 5,
+          "candidate_step_calls": 1,
+          "initialization_seconds": 1.3721793927252293,
+          "replay_seconds": 0.3684752471745014,
+          "candidate_seconds": 0.06162169761955738,
+          "cleanup_seconds": 0.11381635814905167,
+          "audit_capture_bundles": 20
+        },
+        "simulation_latency": 2.2331217043101788
+      },
+      "review": {
+        "raw": "Decision: REPLACE\nReason: The draft action \"look around\" is syntactically valid but fails to advance the task because the aluminum foil is not visible in the current room (art studio). The goal requires locating the foil in the living room, but the history shows the agent is still in the art studio (the second history entry \"go living room\" resulted in an error and the observation remains the art studio). The agent must first successfully navigate to the living room where the foil is located.\nFinal Action: go living room",
+        "parsed": {
+          "decision": "REPLACE",
+          "reason": "The draft action \"look around\" is syntactically valid but fails to advance the task because the aluminum foil is not visible in the current room (art studio). The goal requires locating the foil in the living room, but the history shows the agent is still in the art studio (the second history entry \"go living room\" resulted in an error and the observation remains the art studio). The agent must first successfully navigate to the living room where the foil is located.",
+          "final_action": "go living room",
+          "changed": true,
+          "action_validity": "unknown",
+          "semantic_utility": "unknown"
+        }
+      },
+      "final_action": "go living room",
+      "actual": {
+        "observation": "No known action matches that input.",
+        "raw_observation": "No known action matches that input.",
+        "reward": 0,
+        "done": false,
+        "score": 0,
+        "moves": 0,
+        "native_action": "go living room",
+        "action": "go living room",
+        "step_seconds": 0.010606672614812851
+      },
+      "gate_decided_at_ns": 1794103244768212097,
+      "executed_at_ns": 1794103251959816808,
+      "actor_usage": {
+        "prompt_tokens": 394,
+        "completion_tokens": 52,
+        "total_tokens": 446
+      },
+      "review_usage": {
+        "prompt_tokens": 681,
+        "completion_tokens": 108,
+        "total_tokens": 789
+      },
+      "immediate_score_delta": 0
+    }
+  ],
+  "source_script_sha256": "a0024795f5304a7dbff7b25a7eb4ca4fc27143d1d0b3b71aa26041fb020b45ff",
+  "run_manifest_sha256": "bdb8ed0a3f26b2f60fcaa7cdb1220ac0fd529dc3f588af6a207138947edfcf83",
+  "score_delta_scope": "formal final action next score minus isolated draft trial next score; not downstream causal return",
+  "validity_scope": "conservative public-feedback acceptance/rejection/Unknown; not exhaustive grammar validity or task correctness",
+  "correlation_scope": "realized policy states, not threshold re-calibration or independent per-step statistical samples"
+}

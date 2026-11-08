@@ -1,0 +1,12 @@
+{
+  "unique_tests_total": 124,
+  "previous_contract_tests": 12,
+  "seed_schema_tests": 6,
+  "analysis_tests": 8,
+  "retained_core_tests": 98,
+  "analysis_command": "PYTHONNOUSERSITE=1 CUDA_VISIBLE_DEVICES=\"\" .venv-qwen35-clean/bin/python scripts/test_independent_analysis.py",
+  "analysis_exit_code": 0,
+  "initial_diagnostic_import_syntax_error_fixed_before_analysis": true,
+  "figure_png_pdf_visually_checked": true,
+  "updated_at_ns": 1794110101643735660
+}

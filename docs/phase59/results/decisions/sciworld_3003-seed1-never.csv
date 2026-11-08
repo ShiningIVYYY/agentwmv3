@@ -1,0 +1,2 @@
+policy,task_id,rollout_seed,step,local_nll,global_nll,missing_span,call_wm,reason,triggered_signals,budget_after,coverage,conflict,sufficiency,reliability,evidence_ids,draft_action,final_action,prediction_available,review_decision,score,reward,done,feedback_status,actor_tokens,reviewer_tokens,kept_state_match,actual_feedback_sha256
+never,sciworld_3003,1,1,,,,False,never_policy,[],0,unknown,unknown,unknown,unknown,[],focus on chair,focus on chair,,,-100,-100,True,accepted_feedback,351,0,,588b23b12fbd5d36d8565e98d8a757b46862b8719e1911a7c15261f95b26e44a

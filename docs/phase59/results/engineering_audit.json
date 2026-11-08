@@ -1,0 +1,24 @@
+{
+  "status": "engineering_checks_pass",
+  "stage": "all",
+  "episodes": 96,
+  "formal_actions": 1465,
+  "model_calls": 1996,
+  "llm_tokens": 1020261,
+  "transition_queries": 7168,
+  "lookahead_attempts": 531,
+  "verified_lookaheads": 531,
+  "rejected_lookaheads": 0,
+  "verified_keep_projection_matches": 187,
+  "method_hashes_verified": true,
+  "evaluation_code_hashes_verified": true,
+  "identical_initial_states": true,
+  "policy_outcomes_used_for_acceptance": false,
+  "scientific_effectiveness_established": false,
+  "ledger": {
+    "tokens": 1020261,
+    "model_calls": 1996,
+    "transition_queries": 7168,
+    "audit_capture_bundles": 21843
+  }
+}

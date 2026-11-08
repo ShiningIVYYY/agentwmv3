@@ -1,0 +1,21 @@
+{
+  "script_sha256": "7a4d8bb5379de669c7d54ade5b3204b1e913a714589b4bfd26d37deaadc0aa81",
+  "run_manifest_sha256": "bdb8ed0a3f26b2f60fcaa7cdb1220ac0fd529dc3f588af6a207138947edfcf83",
+  "analysis_plan": {
+    "bootstrap_seed": 202659,
+    "bootstrap_resamples": 2000,
+    "confidence": 0.95,
+    "cluster": "goal_group",
+    "paired_comparisons": [
+      "full-never",
+      "full-always",
+      "full-internal"
+    ],
+    "seed_sd": "sample_ddof1",
+    "aggregation": "instance_weighted",
+    "influence": "leave_one_task_and_goal_out",
+    "no_significance_claim": true
+  },
+  "policy_effectiveness_is_descriptive": true,
+  "exact_downstream_WM_counterfactual_utility": false
+}

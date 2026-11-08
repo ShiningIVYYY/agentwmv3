@@ -7,6 +7,7 @@ import tempfile
 import unittest
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
 from scripts.analyze_independent_dev import interval,write_csv,rejection_reason,analyze
+from scripts.diagnose_independent_dev import ranks,correlation
 
 
 class Analysis(unittest.TestCase):
@@ -40,6 +41,14 @@ class Analysis(unittest.TestCase):
         self.assertEqual(rejection_reason('No known action matches that input.',0),'syntax_or_reference_resolution')
         self.assertEqual(rejection_reason('The door is not open.',0),'state_precondition')
         self.assertEqual(rejection_reason('You focus on an object.',-100),'accepted_execution_but_task_failure')
+
+    def test_spearman_average_tied_ranks(self):
+        self.assertEqual(ranks([4,1,4,2]).tolist(),[2.5,0.,2.5,1.])
+        self.assertAlmostEqual(correlation(ranks([1,2,2]),ranks([3,2,2])),-1.)
+
+    def test_constant_correlation_is_unknown(self):
+        self.assertIsNone(correlation([1,1],[2,3]))
+        self.assertIsNone(correlation([],[]))
 
     def test_partial_run_not_analyzed_as_complete(self):
         with tempfile.TemporaryDirectory() as p:

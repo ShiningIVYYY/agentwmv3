@@ -1,0 +1,4 @@
+
+# Keep exported research CSV bytes (RFC4180 CRLF); retain other whitespace checks.
+docs/phase59/results/*.csv whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/phase59/results/decisions/*.csv whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

@@ -1,6 +1,6 @@
 # Phase 5.9 — frozen independent development evaluation
 
-Status: preregistered protocol, not results. Only Phase5.9 is authorized. No final200-task sweep, training, method revision, memory expansion, outcome-based threshold selection or old Qwen2.5 WM is included.
+Status: COMPLETE. This document retains the pre-generation protocol and actual run lineage; results are in [PHASE5_9_REPORT.md](PHASE5_9_REPORT.md) and [phase59/results](phase59/results/). All96 Episodes completed. Engineering checks pass; Full has no demonstrated benefit on this cohort. No Phase6 authorization, final200-task sweep, training, method tuning, memory expansion or Qwen2.5 WM.
 
 ## Frozen method
 
@@ -75,3 +75,25 @@ No authoritative native difficulty labels were available; tasks are not retrospe
 ## Recorded engineering repair before Round2
 
 Round1 completed all20 Episodes. The first auditor incorrectly read request_seed from scored generation_record; scored metadata actually records actor_metadata.generation_seed. This is a post-run reader defect, not a sampling/Actor/Gate change. Original run/code/data remain preserved. The strict dual-schema fix rejects absent/conflicting seeds;6 new tests pass. Re-audit of all20 original byte-identical measurements passes:91/91 lookaheads and27 exact KEEP projections. Recovery imports cumulative ledgers and ALL20 results; no selected reruns. Remaining76 execute under the same frozen cohort/method/deadline. Safe stop/reload adds two model initializations, counted as engineering overhead. See phase59/engineering_repair.json.
+
+## Actual run lineage
+
+Pre-registration:1ac8a8473b92c68ba782d99e92978ab75f8fe5a0. Original outputs/phase59_independent_v1 completed20/20 Round1 Episodes, then stopped on the auditor schema bug. Repair830d2abceac788c5e8e69813c9fde5941fac7994 changes only that observer among the frozen evaluation execution files. Model/Actor/Reviewer/Gate/Memory/thresholds remain unchanged.
+
+The recovery helper created outputs/phase59_independent_v2, verified120 copied raw files byte-identical, imported all20 measurements and cumulative ledgers, and retained the original8h deadline. The strict20-Episode re-audit passed before continuation. The original run remains immutable; current execution is the v2 supervisor.
+
+```bash
+# Actual recovery operations already executed; do not launch duplicates.
+.venv-qwen35-clean/bin/python scripts/prepare_independent_resume.py \
+ --source outputs/phase59_independent_v1 --output outputs/phase59_independent_v2
+.venv-qwen35-clean/bin/python scripts/run_independent_dev.py \
+ --model-dir checkpoints/qwen35_9b --gpus 6,7 --run outputs/phase59_independent_v2 --resume
+```
+
+For a fresh reproduction, use a NEW run directory with the frozen profile and current corrected auditor. The specialized recovery command is only for this preserved first-round audit incident. Independence is supported by retained repository evidence; unrecorded historical manual interactions cannot be certified.
+
+## Completion and evidence
+
+All96 Episodes finished under the frozen plan; first20 reused, not regenerated. Final checks:1,465 formal actions,531/531 verified lookaheads,187/187 same-action checked transitions,1,996 model calls,1,020,261 tokens,7,168 transition queries. No replay reject or observed formal pollution. Complete instance-weighted results/paired analysis/costs are in PHASE5_9_REPORT.md. Full scored−19.375 with0 success; no positive efficacy claim. Raw logs remain at outputs/phase59_independent_v1 and outputs/phase59_independent_v2; compact raw-instance results, all decision CSVs and hashes under phase59/results. All633 recorded owned process IDs were absent at cleanup; agentwmv2 remains clean.
+
+Current diagnostic script adds formatting-length evidence; reviewer_diagnostics_v2.json extends the retained v1 analysis without changing any original measurements. Analysis tests8/8 pass,124 unique tests including retained integration coverage. Plot PNG/PDF visually checked. Do not reinterpret this now-exposed cohort as independent after future tuning. No further jobs scheduled.

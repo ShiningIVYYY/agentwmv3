@@ -1,0 +1,486 @@
+[
+  {
+    "label": "successful_terminal",
+    "rollout_seed": 1,
+    "source_record_sha256": "c6b49963b24c49d10f0982dc3312e751e5b25afe56242a089f14828fd2c56696",
+    "policy": "always",
+    "task_id": "sciworld_2438",
+    "step_index": 18,
+    "goal": "Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "(disconnecting unknown substance F)You move the unknown substance F to the inventory.",
+    "draft_decision": "Premise: The unknown substance F has been disconnected from the bulb and moved to the inventory.\nExpected Consequence: The unknown substance F will be placed in the orange box since it was nonconductive (bulb did not light).\nAction: move unknown substance F to orange box",
+    "internal_signals": null,
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_independent_v2/episodes/sciworld_2438/seed1/always/17",
+      "policy": "always",
+      "call_wm": true,
+      "verification_requested": true,
+      "verification_unavailable": false,
+      "reason": "always_policy",
+      "triggered_signals": [
+        "always"
+      ],
+      "diagnostics": [],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 3,
+      "forecast_budget_remaining": 3,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 1.3075768947601318e-05,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": false
+      }
+    },
+    "simulation": {
+      "status": "ok",
+      "prediction_available": true,
+      "source": "ground_truth_environment",
+      "verified_prefix_steps": 17,
+      "predicted_observation": "You move the unknown substance F to the orange box.",
+      "predicted_reward": 40,
+      "predicted_done": true,
+      "predicted_score": 100,
+      "error": null,
+      "simulation_cost": {
+        "jvm_initializations": 1,
+        "initialization_step_calls": 1,
+        "replay_step_calls": 17,
+        "candidate_step_calls": 1,
+        "initialization_seconds": 1.4219998940825462,
+        "replay_seconds": 1.1530996076762676,
+        "candidate_seconds": 0.04956403933465481,
+        "cleanup_seconds": 0.11382468789815903,
+        "audit_capture_bundles": 56
+      },
+      "simulation_latency": 3.221721164882183
+    },
+    "review": {
+      "raw": "Decision: KEEP\nReason: The draft action successfully moves the unknown substance F to the orange box, which aligns with the goal for a nonconductive substance, and the simulated feedback indicates a perfect score and task completion.\nFinal Action: move unknown substance F to orange box",
+      "parsed": {
+        "decision": "KEEP",
+        "reason": "The draft action successfully moves the unknown substance F to the orange box, which aligns with the goal for a nonconductive substance, and the simulated feedback indicates a perfect score and task completion.",
+        "final_action": "move unknown substance F to orange box",
+        "changed": false,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final_action": "move unknown substance F to orange box",
+    "actual": {
+      "observation": "You move the unknown substance F to the orange box.",
+      "raw_observation": "You move the unknown substance F to the orange box.",
+      "reward": 40,
+      "done": true,
+      "score": 100,
+      "moves": 12,
+      "native_action": "move unknown substance F to orange box",
+      "action": "move unknown substance F to orange box",
+      "step_seconds": 0.01403626799583435
+    },
+    "gate_decided_at_ns": 1794103901088701907,
+    "executed_at_ns": 1794103906894868541,
+    "actor_usage": {
+      "prompt_tokens": 323,
+      "completion_tokens": 59,
+      "total_tokens": 382
+    },
+    "review_usage": {
+      "prompt_tokens": 514,
+      "completion_tokens": 57,
+      "total_tokens": 571
+    },
+    "immediate_score_delta": 0
+  },
+  {
+    "label": "positive_immediate_correction",
+    "rollout_seed": 0,
+    "source_record_sha256": "2e6f2f836a5fddd80b8eee45569da3f12e0f60891879646a297b02d657cf41e0",
+    "policy": "always",
+    "task_id": "sciworld_859",
+    "step_index": 1,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+    "observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta blue box (containing nothing)\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta orange box (containing nothing)\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta substance called air\n\ta substance called soap\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)",
+    "draft_decision": "Premise: The thermometer is currently reading 10 degrees celsius, which is below 200.0 degrees celsius.\nExpected Consequence: The agent will focus on the orange box as per the task instructions.\nAction: focus on the orange box",
+    "internal_signals": null,
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_independent_v1/episodes/sciworld_859/seed0/always/0",
+      "policy": "always",
+      "call_wm": true,
+      "verification_requested": true,
+      "verification_unavailable": false,
+      "reason": "always_policy",
+      "triggered_signals": [
+        "always"
+      ],
+      "diagnostics": [],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 20,
+      "forecast_budget_remaining": 20,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 1.3407319784164429e-05,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": false
+      }
+    },
+    "simulation": {
+      "status": "ok",
+      "prediction_available": true,
+      "source": "ground_truth_environment",
+      "verified_prefix_steps": 0,
+      "predicted_observation": "You focus on the orange box.",
+      "predicted_reward": -104,
+      "predicted_done": true,
+      "predicted_score": -100,
+      "error": null,
+      "simulation_cost": {
+        "jvm_initializations": 1,
+        "initialization_step_calls": 1,
+        "replay_step_calls": 0,
+        "candidate_step_calls": 1,
+        "initialization_seconds": 1.451888820156455,
+        "replay_seconds": 0.0,
+        "candidate_seconds": 0.1335836946964264,
+        "cleanup_seconds": 0.06439272128045559,
+        "audit_capture_bundles": 5
+      },
+      "simulation_latency": 1.789524495601654
+    },
+    "review": {
+      "raw": "Decision: REPLACE\nReason: The goal requires measuring the melting point of chocolate first to determine which box to focus on. The current observation shows a thermometer reading 10 degrees celsius, but no chocolate has been located or measured yet. Focusing on the orange box prematurely without confirming the chocolate's state (likely below 200\u00b0C based on the low reading, but the procedure demands verification) violates the task sequence and results in a failure state.\nFinal Action: focus on the thermometer",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The goal requires measuring the melting point of chocolate first to determine which box to focus on. The current observation shows a thermometer reading 10 degrees celsius, but no chocolate has been located or measured yet. Focusing on the orange box prematurely without confirming the chocolate's state (likely below 200\u00b0C based on the low reading, but the procedure demands verification) violates the task sequence and results in a failure state.",
+        "final_action": "focus on the thermometer",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final_action": "focus on the thermometer",
+    "actual": {
+      "observation": "You focus on the thermometer.",
+      "raw_observation": "You focus on the thermometer.",
+      "reward": 33,
+      "done": false,
+      "score": 37,
+      "moves": 1,
+      "native_action": "focus on the thermometer",
+      "action": "focus on the thermometer",
+      "step_seconds": 0.06731595285236835
+    },
+    "gate_decided_at_ns": 1794099958423124536,
+    "executed_at_ns": 1794099964797172488,
+    "actor_usage": {
+      "prompt_tokens": 552,
+      "completion_tokens": 56,
+      "total_tokens": 608
+    },
+    "review_usage": {
+      "prompt_tokens": 729,
+      "completion_tokens": 101,
+      "total_tokens": 830
+    },
+    "immediate_score_delta": 137
+  },
+  {
+    "label": "negative_immediate_correction",
+    "rollout_seed": 0,
+    "source_record_sha256": "a8e9bfe678d41fef0fcd01446cd3efdbea4d8f8a0e85eecc836c6ac343bae06e",
+    "policy": "always",
+    "task_id": "sciworld_859",
+    "step_index": 4,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+    "observation": "No known action matches that input.",
+    "draft_decision": "Premise: The previous action to focus on the chocolate failed due to a command error.\nExpected Consequence: The system will reject the invalid command again.\nAction: focus on the chocolate",
+    "internal_signals": null,
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_independent_v1/episodes/sciworld_859/seed0/always/3",
+      "policy": "always",
+      "call_wm": true,
+      "verification_requested": true,
+      "verification_unavailable": false,
+      "reason": "always_policy",
+      "triggered_signals": [
+        "always"
+      ],
+      "diagnostics": [],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 17,
+      "forecast_budget_remaining": 17,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 1.1933967471122742e-05,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": false
+      }
+    },
+    "simulation": {
+      "status": "ok",
+      "prediction_available": true,
+      "source": "ground_truth_environment",
+      "verified_prefix_steps": 3,
+      "predicted_observation": "No known action matches that input.",
+      "predicted_reward": 0,
+      "predicted_done": false,
+      "predicted_score": 37,
+      "error": null,
+      "simulation_cost": {
+        "jvm_initializations": 1,
+        "initialization_step_calls": 1,
+        "replay_step_calls": 3,
+        "candidate_step_calls": 1,
+        "initialization_seconds": 1.4578877165913582,
+        "replay_seconds": 0.314588887616992,
+        "candidate_seconds": 0.07898267172276974,
+        "cleanup_seconds": 0.11472092382609844,
+        "audit_capture_bundles": 14
+      },
+      "simulation_latency": 2.2244395073503256
+    },
+    "review": {
+      "raw": "Decision: REPLACE\nReason: The observation history shows \"focus on the chocolate\" was attempted twice with the error \"No known action matches that input,\" indicating the command syntax is incorrect for this environment. The goal explicitly states to \"focus on the thermometer\" first, but the agent has already failed to execute that correctly (implied by the history starting with a failed chocolate focus). Since \"focus on the chocolate\" is confirmed invalid, and the agent is currently in a state where no valid action was taken, I must try the correct first step from the goal instructions: focusing on the thermometer.\nFinal Action: focus on the thermometer",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The observation history shows \"focus on the chocolate\" was attempted twice with the error \"No known action matches that input,\" indicating the command syntax is incorrect for this environment. The goal explicitly states to \"focus on the thermometer\" first, but the agent has already failed to execute that correctly (implied by the history starting with a failed chocolate focus). Since \"focus on the chocolate\" is confirmed invalid, and the agent is currently in a state where no valid action was taken, I must try the correct first step from the goal instructions: focusing on the thermometer.",
+        "final_action": "focus on the thermometer",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final_action": "focus on the thermometer",
+    "actual": {
+      "observation": "You focus on the thermometer.",
+      "raw_observation": "You focus on the thermometer.",
+      "reward": -137,
+      "done": true,
+      "score": -100,
+      "moves": 2,
+      "native_action": "focus on the thermometer",
+      "action": "focus on the thermometer",
+      "step_seconds": 0.029032094404101372
+    },
+    "gate_decided_at_ns": 1794099992928347812,
+    "executed_at_ns": 1794100000889327016,
+    "actor_usage": {
+      "prompt_tokens": 331,
+      "completion_tokens": 40,
+      "total_tokens": 371
+    },
+    "review_usage": {
+      "prompt_tokens": 512,
+      "completion_tokens": 128,
+      "total_tokens": 640
+    },
+    "immediate_score_delta": -137
+  },
+  {
+    "label": "explicitly_rejected_revision",
+    "rollout_seed": 0,
+    "source_record_sha256": "fe0620e6ea31072847be763fede98503871a5f6cc61e046ba0c1b734cd559fce",
+    "policy": "always",
+    "task_id": "sciworld_859",
+    "step_index": 2,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+    "observation": "You focus on the thermometer.",
+    "draft_decision": "Premise: The thermometer currently reads 10 degrees celsius, which is below 200.0.\nExpected Consequence: The agent will focus on the orange box as per the condition.\nAction: focus on the orange box",
+    "internal_signals": null,
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_independent_v1/episodes/sciworld_859/seed0/always/1",
+      "policy": "always",
+      "call_wm": true,
+      "verification_requested": true,
+      "verification_unavailable": false,
+      "reason": "always_policy",
+      "triggered_signals": [
+        "always"
+      ],
+      "diagnostics": [],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 19,
+      "forecast_budget_remaining": 19,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 3.291293978691101e-05,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": false
+      }
+    },
+    "simulation": {
+      "status": "ok",
+      "prediction_available": true,
+      "source": "ground_truth_environment",
+      "verified_prefix_steps": 1,
+      "predicted_observation": "You focus on the orange box.",
+      "predicted_reward": -137,
+      "predicted_done": true,
+      "predicted_score": -100,
+      "error": null,
+      "simulation_cost": {
+        "jvm_initializations": 1,
+        "initialization_step_calls": 1,
+        "replay_step_calls": 1,
+        "candidate_step_calls": 1,
+        "initialization_seconds": 1.476819522678852,
+        "replay_seconds": 0.14940542913973331,
+        "candidate_seconds": 0.09781765937805176,
+        "cleanup_seconds": 0.11451398767530918,
+        "audit_capture_bundles": 8
+      },
+      "simulation_latency": 2.0062023233622313
+    },
+    "review": {
+      "raw": "Decision: REPLACE\nReason: The draft action executed successfully in the simulator (focus on the orange box was performed), but the resulting score is -100 and the task is marked as done, indicating failure. The goal requires checking the melting point of chocolate first. The current observation shows the thermometer reads 10 degrees celsius. Since 10 is below 200.0, the correct next step is to focus on the orange box. However, the draft action was \"focus on the orange box\" which matches the logic derived from the thermometer reading. Wait, let me re-evaluate. The draft action IS \"focus on the orange box\". The feedback says score -100. Why? Perhaps the instruction \"focus on the chocolate\" was missed? The goal says: \"First, focus on the thermometer. Next, focus on the chocolate.\" The agent focused on the thermometer. The draft skips \"focus on the chocolate\" and goes straight to the box. The logic flow is: Thermometer (10) < 200 -> Focus on orange box. But the explicit instruction says \"Next, focus on the chocolate\". Skipping a required step likely caused the failure. I must include \"focus on the chocolate\" before the box.\nFinal Action: focus on the chocolate",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The draft action executed successfully in the simulator (focus on the orange box was performed), but the resulting score is -100 and the task is marked as done, indicating failure. The goal requires checking the melting point of chocolate first. The current observation shows the thermometer reads 10 degrees celsius. Since 10 is below 200.0, the correct next step is to focus on the orange box. However, the draft action was \"focus on the orange box\" which matches the logic derived from the thermometer reading. Wait, let me re-evaluate. The draft action IS \"focus on the orange box\". The feedback says score -100. Why? Perhaps the instruction \"focus on the chocolate\" was missed? The goal says: \"First, focus on the thermometer. Next, focus on the chocolate.\" The agent focused on the thermometer. The draft skips \"focus on the chocolate\" and goes straight to the box. The logic flow is: Thermometer (10) < 200 -> Focus on orange box. But the explicit instruction says \"Next, focus on the chocolate\". Skipping a required step likely caused the failure. I must include \"focus on the chocolate\" before the box.",
+        "final_action": "focus on the chocolate",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final_action": "focus on the chocolate",
+    "actual": {
+      "observation": "No known action matches that input.",
+      "raw_observation": "No known action matches that input.",
+      "reward": 0,
+      "done": false,
+      "score": 37,
+      "moves": 1,
+      "native_action": "focus on the chocolate",
+      "action": "focus on the chocolate",
+      "step_seconds": 0.02640763856470585
+    },
+    "gate_decided_at_ns": 1794099967346951485,
+    "executed_at_ns": 1794099981262502123,
+    "actor_usage": {
+      "prompt_tokens": 565,
+      "completion_tokens": 51,
+      "total_tokens": 616
+    },
+    "review_usage": {
+      "prompt_tokens": 776,
+      "completion_tokens": 266,
+      "total_tokens": 1042
+    },
+    "immediate_score_delta": 137
+  }
+]

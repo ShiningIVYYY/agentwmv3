@@ -1,0 +1,176 @@
+[
+  {
+    "comparison": "full-never",
+    "paired_instances": 24,
+    "mean_score_delta": -18.833333333333332,
+    "mean_success_delta": 0.0,
+    "mean_token_delta": 2031.2083333333333,
+    "mean_transition_query_delta": 30.791666666666668,
+    "mean_episode_latency_delta": 27.558489970086764,
+    "score_interval": {
+      "method": "descriptive_goal_cluster_percentile_bootstrap",
+      "clusters": 8,
+      "resamples": 2000,
+      "seed": 202659,
+      "low": -39.708333333333336,
+      "high": -2.830357142857439,
+      "no_significance_claim": true
+    },
+    "success_interval": {
+      "method": "descriptive_goal_cluster_percentile_bootstrap",
+      "clusters": 8,
+      "resamples": 2000,
+      "seed": 202659,
+      "low": 0.0,
+      "high": 0.0,
+      "no_significance_claim": true
+    },
+    "per_seed_score_delta": {
+      "0": -20.25,
+      "1": -17.416666666666668
+    },
+    "per_task_mean_score_delta": {
+      "sciworld_1508": 5.0,
+      "sciworld_378": 0.0,
+      "sciworld_746": -121.5,
+      "sciworld_2458": 0.0,
+      "sciworld_1624": 0.0,
+      "sciworld_3038": 0.0,
+      "sciworld_2519": -55.0,
+      "sciworld_859": 0.0,
+      "sciworld_1503": -2.5,
+      "sciworld_3068": 0.0,
+      "sciworld_3003": -50.0,
+      "sciworld_2438": -2.0
+    },
+    "positive_tasks": 1,
+    "negative_tasks": 5,
+    "zero_tasks": 6,
+    "top1_fraction_of_positive_task_gains": 1.0,
+    "top3_fraction_of_positive_task_gains": 1.0,
+    "leave_one_task_out_score_delta_range": [
+      -21.0,
+      -9.5
+    ],
+    "leave_one_goal_out_score_delta_range": [
+      -22.85,
+      -10.45
+    ]
+  },
+  {
+    "comparison": "full-always",
+    "paired_instances": 24,
+    "mean_score_delta": -22.708333333333332,
+    "mean_success_delta": -0.041666666666666664,
+    "mean_token_delta": -8822.125,
+    "mean_transition_query_delta": -137.16666666666666,
+    "mean_episode_latency_delta": -107.83046910096891,
+    "score_interval": {
+      "method": "descriptive_goal_cluster_percentile_bootstrap",
+      "clusters": 8,
+      "resamples": 2000,
+      "seed": 202659,
+      "low": -55.009090909090894,
+      "high": 4.616346153846148,
+      "no_significance_claim": true
+    },
+    "success_interval": {
+      "method": "descriptive_goal_cluster_percentile_bootstrap",
+      "clusters": 8,
+      "resamples": 2000,
+      "seed": 202659,
+      "low": -0.11562499999999959,
+      "high": 0.0,
+      "no_significance_claim": true
+    },
+    "per_seed_score_delta": {
+      "0": 2.25,
+      "1": -47.666666666666664
+    },
+    "per_task_mean_score_delta": {
+      "sciworld_1508": -25.0,
+      "sciworld_378": -54.5,
+      "sciworld_746": -119.0,
+      "sciworld_2458": 0.0,
+      "sciworld_1624": 0.0,
+      "sciworld_3038": 0.0,
+      "sciworld_2519": -2.0,
+      "sciworld_859": 0.0,
+      "sciworld_1503": 2.5,
+      "sciworld_3068": 62.5,
+      "sciworld_3003": -117.0,
+      "sciworld_2438": -20.0
+    },
+    "positive_tasks": 2,
+    "negative_tasks": 6,
+    "zero_tasks": 4,
+    "top1_fraction_of_positive_task_gains": 0.9615384615384616,
+    "top3_fraction_of_positive_task_gains": 1.0,
+    "leave_one_task_out_score_delta_range": [
+      -30.454545454545453,
+      -13.954545454545455
+    ],
+    "leave_one_goal_out_score_delta_range": [
+      -33.5,
+      -14.136363636363637
+    ]
+  },
+  {
+    "comparison": "full-internal",
+    "paired_instances": 24,
+    "mean_score_delta": -8.541666666666666,
+    "mean_success_delta": 0.0,
+    "mean_token_delta": -295.2916666666667,
+    "mean_transition_query_delta": -2.7916666666666665,
+    "mean_episode_latency_delta": -3.002476261851067,
+    "score_interval": {
+      "method": "descriptive_goal_cluster_percentile_bootstrap",
+      "clusters": 8,
+      "resamples": 2000,
+      "seed": 202659,
+      "low": -25.5,
+      "high": 0.35714285714285715,
+      "no_significance_claim": true
+    },
+    "success_interval": {
+      "method": "descriptive_goal_cluster_percentile_bootstrap",
+      "clusters": 8,
+      "resamples": 2000,
+      "seed": 202659,
+      "low": 0.0,
+      "high": 0.0,
+      "no_significance_claim": true
+    },
+    "per_seed_score_delta": {
+      "0": 0.0,
+      "1": -17.083333333333332
+    },
+    "per_task_mean_score_delta": {
+      "sciworld_1508": 2.5,
+      "sciworld_378": -50.0,
+      "sciworld_746": 0.0,
+      "sciworld_2458": 0.0,
+      "sciworld_1624": 0.0,
+      "sciworld_3038": 0.0,
+      "sciworld_2519": -55.0,
+      "sciworld_859": 0.0,
+      "sciworld_1503": 0.0,
+      "sciworld_3068": 0.0,
+      "sciworld_3003": 0.0,
+      "sciworld_2438": 0.0
+    },
+    "positive_tasks": 1,
+    "negative_tasks": 2,
+    "zero_tasks": 9,
+    "top1_fraction_of_positive_task_gains": 1.0,
+    "top3_fraction_of_positive_task_gains": 1.0,
+    "leave_one_task_out_score_delta_range": [
+      -9.545454545454545,
+      -4.318181818181818
+    ],
+    "leave_one_goal_out_score_delta_range": [
+      -10.5,
+      -4.318181818181818
+    ]
+  }
+]

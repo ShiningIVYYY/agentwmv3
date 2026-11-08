@@ -1,0 +1,8 @@
+{
+  "checked_at_ns": 1794109745600994443,
+  "recorded_owned_pids": 633,
+  "remaining_recorded_pids": [],
+  "gpu_snapshot": "0, 19685 MiB, 24564 MiB, 77 %\n1, 17763 MiB, 24564 MiB, 0 %\n2, 18063 MiB, 24564 MiB, 75 %\n3, 15455 MiB, 24564 MiB, 71 %\n4, 20909 MiB, 24564 MiB, 53 %\n5, 15985 MiB, 24564 MiB, 23 %\n6, 491 MiB, 24564 MiB, 0 %\n7, 3 MiB, 24564 MiB, 0 %\n",
+  "agentwmv2_git_status": "",
+  "note": "Read-only ownership audit; other users processes untouched. Full hidden-state equivalence is not claimed."
+}

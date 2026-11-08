@@ -1,0 +1,27 @@
+{
+  "python": "3.12.0",
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "java_executable": "/usr/bin/java",
+  "java_version": "openjdk version \"1.8.0_452\"\nOpenJDK Runtime Environment (build 1.8.0_452-8u452-ga~us1-0ubuntu1~20.04-b09)\nOpenJDK 64-Bit Server VM (build 25.452-b09, mixed mode)\n",
+  "packages": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.22.2",
+    "tokenizers": "0.23.3",
+    "numpy": "2.2.6",
+    "scienceworld": "1.2.3",
+    "py4j": "0.10.9.9",
+    "safetensors": "0.8.0",
+    "huggingface-hub": "2.4.0"
+  },
+  "gpu_inventory": "0, NVIDIA GeForce RTX 4090, 570.172.08, 24564 MiB\n1, NVIDIA GeForce RTX 4090, 570.172.08, 24564 MiB\n2, NVIDIA GeForce RTX 4090, 570.172.08, 24564 MiB\n3, NVIDIA GeForce RTX 4090, 570.172.08, 24564 MiB\n4, NVIDIA GeForce RTX 4090, 570.172.08, 24564 MiB\n5, NVIDIA GeForce RTX 4090, 570.172.08, 24564 MiB\n6, NVIDIA GeForce RTX 4090, 570.172.08, 24564 MiB\n7, NVIDIA GeForce RTX 4090, 570.172.08, 24564 MiB\n",
+  "selected_gpus": [
+    6,
+    7
+  ],
+  "worker_flags": {
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "PYTHONNOUSERSITE": "1"
+  },
+  "purpose": "read_only_environment_snapshot_not_method_change"
+}

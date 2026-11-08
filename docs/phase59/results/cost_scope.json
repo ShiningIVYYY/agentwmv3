@@ -1,0 +1,69 @@
+{
+  "model_calls": 1996,
+  "llm_tokens": 1020261,
+  "transition_queries": 7168,
+  "audit_capture_bundles": 21843,
+  "original_round1_calls": 342,
+  "original_round1_tokens": 183574,
+  "round1_measurements_included_without_regeneration": true,
+  "recovery_import": true,
+  "unique_measurement_episodes": 96,
+  "total_model_loads_including_original_and_recovery": 4,
+  "additional_model_loads_due_to_recovery": 2,
+  "shared_model_load_seconds": 80.2055666744709,
+  "shared_memory_load_seconds": 0.04745430126786232,
+  "worker_residency_upper_intervals": [
+    {
+      "worker": 0,
+      "pid": 4170704,
+      "gpu": 6,
+      "started_at_ns": 1794099926399531465,
+      "process_residency_upper_seconds": 927.106797497,
+      "scope": "worker spawn to supervising-run completion; includes CPU setup/idle, not measured GPU kernel time"
+    },
+    {
+      "worker": 1,
+      "pid": 4170705,
+      "gpu": 7,
+      "started_at_ns": 1794099926404434729,
+      "process_residency_upper_seconds": 927.101894233,
+      "scope": "worker spawn to supervising-run completion; includes CPU setup/idle, not measured GPU kernel time"
+    },
+    {
+      "worker": 0,
+      "pid": 12987,
+      "gpu": 6,
+      "started_at_ns": 1794101615799874841,
+      "process_residency_upper_seconds": 3906.263886444,
+      "scope": "worker spawn to supervising-run completion; includes CPU setup/idle, not measured GPU kernel time"
+    },
+    {
+      "worker": 1,
+      "pid": 12988,
+      "gpu": 7,
+      "started_at_ns": 1794101615804005183,
+      "process_residency_upper_seconds": 3906.259756102,
+      "scope": "worker spawn to supervising-run completion; includes CPU setup/idle, not measured GPU kernel time"
+    }
+  ],
+  "assigned_worker_process_hours_upper": 2.685203426187778,
+  "calendar_study_wall_seconds": 5610.661950441,
+  "original_supervisor_wall_to_error_seconds": 942.104518118,
+  "recovered_supervisor_seconds": 3920.941674184054,
+  "counter_import_note": "Recovery ledgers already include original counters; never add them twice.",
+  "query_unit": "native initialization/action/replay/candidate transitions; inspection bundles separate; low-level RPC count unmeasured",
+  "offline_new_experience_construction": 0,
+  "historical_memory_construction": "unchanged; see Phase3/5 provenance",
+  "monetary_cost": null,
+  "flops": null,
+  "resource_caps": {
+    "max_workers": 2,
+    "max_llm_tokens": 4000000,
+    "max_model_calls": 2650,
+    "max_transition_queries": 12500,
+    "max_audit_capture_bundles": 96000,
+    "max_wall_seconds": 28800,
+    "max_batches": 9,
+    "max_groups_per_batch": 3
+  }
+}

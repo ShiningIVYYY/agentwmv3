@@ -1,0 +1,18 @@
+{
+  "status": "engineering_checks_pass",
+  "stage": "round1",
+  "episodes": 20,
+  "formal_actions": 251,
+  "model_calls": 342,
+  "llm_tokens": 183574,
+  "transition_queries": 1235,
+  "lookahead_attempts": 91,
+  "verified_lookaheads": 91,
+  "rejected_lookaheads": 0,
+  "verified_keep_projection_matches": 27,
+  "method_hashes_verified": true,
+  "evaluation_code_hashes_verified": true,
+  "identical_initial_states": true,
+  "policy_outcomes_used_for_acceptance": false,
+  "scientific_effectiveness_established": false
+}

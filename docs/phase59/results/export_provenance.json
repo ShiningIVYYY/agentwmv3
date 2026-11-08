@@ -1,0 +1,15 @@
+{
+  "export_script_sha256": "956158109394bf81b531ef1ad74b5a4ee48cfcc08e55e49df825d54324d1a0a2",
+  "source_run_manifest_sha256": "bdb8ed0a3f26b2f60fcaa7cdb1220ac0fd529dc3f588af6a207138947edfcf83",
+  "source_analysis": "outputs/phase59_analysis_v1",
+  "dependency_hashes": {
+    "scripts/analyze_independent_dev.py": "7a4d8bb5379de669c7d54ade5b3204b1e913a714589b4bfd26d37deaadc0aa81",
+    "scripts/audit_independent_dev.py": "4b0d5ee2bcc22aa0c117800a0d61db5e6b57c999a102086097737c1f94471ea0",
+    "scripts/audit_phase57_replay.py": "8f59327645ac844decd60f4a2748002d1f3ba71eba9dd48f82e0266d0fee2ca4",
+    "scripts/export_phase57_evidence.py": "676b658af420982eaaaf8af6f3591614839fb9c30b929c6ecfdfa3c661409aa5",
+    "scripts/plot_independent_dev.py": "596a4a5b48179d7091966dc82e319382dbebe0e67184e8698d5fae9af96c9591",
+    "evaluation/independent_dev.py": "1bfc3f5c2665be33c18c90080194f3351cd4071e016f84aa83a51348257ae791"
+  },
+  "native_environment_queries_are_additional_real_access": true,
+  "no_downstream_counterfactual_utility_claim": true
+}
