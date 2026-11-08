@@ -25,9 +25,19 @@ def mean(xs):return sum(xs)/len(xs) if xs else None
 def utility(values):return dict(positive=sum(x>0 for x in values),zero=sum(x==0 for x in values),negative=sum(x<0 for x in values),mean=mean(values))
 
 
+def refined_feedback_status(text):
+    """Audit-only explicit native error strings; legacy metrics also retained."""
+    status=feedback_status(text)
+    if status=='unknown' and (text.lower().startswith('connections must specify') or text.lower().startswith("i'm not sure how to use")):
+        return 'explicit_rejection'
+    return status
+
+
 def validity(text):
-    status=feedback_status(text);low=text.lower()
+    status=refined_feedback_status(text);low=text.lower()
     if status=='explicit_rejection':
+        if low.startswith('connections must specify'):return status,'electrical_contact_point_precondition'
+        if low.startswith("i'm not sure how to use"):return status,'unsupported_tool_use'
         if 'no known action' in low:return status,'syntax_or_reference_unresolved'
         if any(x in low for x in ('not open',"isn\'t open",'not visible','not accessible')):return status,'state_precondition_or_access'
         return status,'other_explicit_rejection'
@@ -119,6 +129,8 @@ def main():
         for variant,i in [('original',1),('fixed',2)]:
             changed=[c for c in cs if c['branches'][i]['action']!=c['branches'][0]['action']]
             base[variant]=dict(actual_revisions=len(changed),feedback=dict(Counter(feedback_status(c['branches'][i]['actual']['observation']) for c in changed)),
+                feedback_refined=dict(Counter(refined_feedback_status(c['branches'][i]['actual']['observation']) for c in changed)),
+                supported_nonharmful_draft_changed=sum(feedback_status(c['branches'][0]['actual']['observation'])=='accepted_feedback' and c['branches'][0]['actual']['reward']>=0 and c['branches'][i]['action']!=c['branches'][0]['action'] for c in cs),
                 one_step_vs_skip=utility([c['branches'][i]['actual']['score']-c['branches'][0]['actual']['score'] for c in cs]),
                 successful_draft_replaced=sum(c['branches'][0]['actual']['done'] and c['branches'][0]['actual']['score']==100 and c['branches'][i]['action']!=c['branches'][0]['action'] for c in cs),
                 successful_draft_cases=sum(c['branches'][0]['actual']['done'] and c['branches'][0]['actual']['score']==100 for c in cs))
@@ -131,6 +143,7 @@ def main():
             reviewer_calls=len(reviews),format_errors=sum(t['review']['parsed']['decision']=='INVALID' for t in reviews),
             reviewer_decisions=dict(Counter(t['review']['parsed']['decision'] for t in reviews)),
             actual_revisions=len(changed),revision_feedback=dict(Counter(feedback_status(t['actual']['observation']) for t in changed)),
+            revision_feedback_refined=dict(Counter(refined_feedback_status(t['actual']['observation']) for t in changed)),
             revision_semantic_correctness='unknown_unless_supported_by_separate_controlled_evidence',
             total_tokens=sum(e['total_tokens'] for e in es),input_tokens=sum(e['input_tokens'] for e in es),output_tokens=sum(e['output_tokens'] for e in es),
             reviewer_tokens=sum(t['review_metadata']['usage']['total_tokens'] for t in reviews),actor_tokens=sum(t['metadata']['usage']['total_tokens'] for t in ts),
@@ -153,7 +166,7 @@ def main():
         if e['legacy'] or t['policy']!='full' or t['final_action']==t['draft_action']:continue
         status,subtype=validity(t['actual']['observation']);delta=t['one_step_score_delta_actual_minus_trial_draft']
         full58.append(dict(ref=e['ref'],goal=t['goal'],observation=t['observation'],draft=t['draft_action'],final=t['final_action'],
-            feedback=t['actual']['observation'],execution_status=status,execution_subtype=subtype,trial_score=t['simulation']['predicted_score'],actual_score=t['actual']['score'],
+            feedback=t['actual']['observation'],legacy_execution_status=feedback_status(t['actual']['observation']),execution_status=status,execution_subtype=subtype,trial_score=t['simulation']['predicted_score'],actual_score=t['actual']['score'],
             one_step_score_difference=delta,goal_relevance='not_automatically_inferred',correct_revision='not_established_by_format_or_acceptance',
             actual_harm_observed=delta<0,original_reason=t['review']['parsed'].get('reason')))
     assert len(full58)==58

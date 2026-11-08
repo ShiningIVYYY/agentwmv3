@@ -62,6 +62,13 @@ class Contracts(unittest.TestCase):
         a=dict(transition=dict(observation='same',raw_observation='a'))
         b=dict(transition=dict(observation='same',raw_observation='b'))
         self.assertNotEqual(historical_pre_hash(a),historical_pre_hash(b))
+    def test_all_real_source_schemas_preflight_before_gpu(self):
+        from scripts.run_reviewer_repair import preflight_cases
+        p=json.loads((ROOT/'configs/evaluation/phase510_reviewer_repair_v1.json').read_text());preflight_cases(p)
+    def test_missing_phase59_hash_is_not_silently_ignored(self):
+        from scripts.run_reviewer_repair import historical_post_hash
+        with self.assertRaises(KeyError):historical_post_hash({},dict(source='outputs/phase59_independent_v2/episodes/x/steps.jsonl'))
+        self.assertIsNone(historical_post_hash({},dict(source='outputs/replay_fix_130_e2e_v1/evaluation_steps.jsonl')))
     def test_frozen_task_isolation_and_caps(self):
         p=json.loads((ROOT/'configs/evaluation/phase510_reviewer_repair_v1.json').read_text());old=json.loads((ROOT/'configs/evaluation/phase59_independent_dev_v1.json').read_text())
         self.assertFalse({r['task_id'] for r in p['tasks']}&{r['task_id'] for r in old['tasks']});self.assertEqual(p['unused_dev_goal_groups'],0)

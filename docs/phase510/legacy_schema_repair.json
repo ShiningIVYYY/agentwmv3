@@ -1,0 +1,14 @@
+{
+  "source_run": "outputs/phase510_reviewer_repair_v3",
+  "source_commit": "db67057a44c317fbadcea54fb95b1cf8e6f7bc0c",
+  "error": "Diagnostic assumed formal_after_state_sha256 exists in legacy Phase5.7; it exists only in Phase5.9",
+  "resolution": "Version-aware full source preflight before GPU. Legacy missing formal post hash explicitly marked; never invented. Exact full pre-state hash and draft candidate post hash still required; Original branch matches all recorded public transition fields. Phase5.9 formal post hash remains required.",
+  "reused_model_calls": 80,
+  "reused_validated_draft_branches": 1,
+  "known_cumulative_native_queries": 54,
+  "known_cumulative_capture_bundles": 110,
+  "no_unknown_receipts": true,
+  "model_loading_delayed_until_controlled_checks_finish_on_resume": true,
+  "unit_tests": 25,
+  "gate_reviewer_threshold_memory_actor_changed": false
+}

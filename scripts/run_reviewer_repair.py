@@ -31,10 +31,40 @@ def historical_pre_hash(state):
     return digest(state)
 
 
+def historical_post_hash(t,ref):
+    """Legacy debug traces have no formal post hash; Phase5.9 requires it."""
+    name=ref['source']
+    if name=='outputs/replay_fix_130_e2e_v1/evaluation_steps.jsonl':
+        return t.get('formal_after_state_sha256')
+    if name.startswith('outputs/phase59_independent_v2/episodes/'):
+        value=t['formal_after_state_sha256']
+        if not isinstance(value,str) or len(value)!=64:raise ValueError('Invalid Phase5.9 post hash')
+        return value
+    raise ValueError('Unrecognized historical trace schema')
+
+
+def preflight_cases(profile):
+    for ref in profile['old_debug_panel']+profile['format_regression_panel']+profile['quality_panel']:
+        t,_,prefix=source_case(ref)
+        assert t['task_id']==ref['task_id'] and len(prefix)==ref['step']-1
+        for key in ['checked_state_sha256','candidate_state_sha256']:
+            value=t['simulation'][key];assert isinstance(value,str) and len(value)==64;int(value,16)
+        for key in ['observation','reward','done','score','moves']:
+            assert key in t['actual'] and key in t['simulation']['candidate_transition']
+        historical_post_hash(t,ref)
+
+
 def branch(ref,action,ledger,out,branch_name,profile):
     t,past,prefix=source_case(ref);row=next(r for r in profile['_dev_rows'] if r['task_id']==t['task_id'])
     spec=dict(taskName=row['taskName'],variationIdx=row['variationIdx'],simplifications=profile['simplifications'],
         seed=profile['simulator_seed'],environment_step_limit=profile['environment_step_limit'],simulator_profile=profile['simulator_profile'])
+    receipts=read_rows(out/'controlled_branches.jsonl') if (out/'controlled_branches.jsonl').exists() else []
+    cached=[x for x in receipts if x['case']['prompt_id']==ref['prompt_id'] and x['branch']==branch_name]
+    if cached:
+        assert len(cached)==1 and cached[0]['action']==action
+        assert cached[0]['before_sha256']==t['simulation']['checked_state_sha256']
+        if branch_name=='draft':assert cached[0]['after_sha256']==t['simulation']['candidate_state_sha256']
+        return dict(cached[0],reused_receipt=True)
     env=None;begin=time.perf_counter();ledger.begin_transition(len(prefix)+2,dict(kind='offline_controlled_branch',case=ref['prompt_id'],branch=branch_name))
     actual_queries=0
     try:
@@ -50,9 +80,12 @@ def branch(ref,action,ledger,out,branch_name,profile):
             assert after==t['simulation']['candidate_state_sha256']
         if branch_name=='original':
             assert all(actual[k]==t['actual'][k] for k in ('observation','reward','done','score','moves'))
-            assert after==t['formal_after_state_sha256']
+            post=historical_post_hash(t,ref)
+            if post is not None:assert after==post
+            elif action==t['draft_action']:assert after==t['simulation']['candidate_state_sha256']
         result=dict(branch=branch_name,action=action,before_sha256=before,after_sha256=after,actual=actual,
             pid=env.pid,transition_queries=actual_queries,capture_bundles=env.capture_count,
+            historical_original_post_hash_available=historical_post_hash(t,ref) is not None,
             before_hash_contract='WM checked_state_sha256 = digest(full capture including raw_observation)',
             after_hash_contract='candidate/formal_after = state_fingerprint(excludes raw_observation)')
         ledger.finish_transition(actual_queries);ledger.captures(env.capture_count)
@@ -74,13 +107,14 @@ def main():
     run.mkdir(parents=True);profile=json.loads((ROOT/'configs/evaluation/phase510_reviewer_repair_v1.json').read_text())
     for name,sha in profile['method_hashes'].items():
         if file_hash(ROOT/name)!=sha:raise ValueError('Frozen Actor/Gate/Memory/WM changed '+name)
+    preflight_cases(profile)
     started=time.perf_counter();manifest=dict(source_git_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
         profile=profile,file_hashes=freeze_hashes(profile),started_at_ns=time.time_ns(),deadline_unix=time.time()+profile['max_wall_seconds'],
         pid=os.getpid(),gpu=os.environ.get('CUDA_VISIBLE_DEVICES'),offline_only=a.offline_only)
     recovery=None
     if a.resume_offline_from:
         source=Path(a.resume_offline_from).resolve();prior=json.loads((source/'manifest.json').read_text());error=json.loads((source/'error.json').read_text())
-        if error['message']!='Historical same-state fingerprint mismatch; no utility value' or (source/'episodes').exists() or (source/'controlled_branches.jsonl').exists():raise ValueError('Unsupported resume state')
+        if error['message'] not in ['Historical same-state fingerprint mismatch; no utility value',"'formal_after_state_sha256'"] or (source/'episodes').exists() or (source/'one_step_comparisons.jsonl').exists():raise ValueError('Unsupported resume state')
         changed=[name for name,sha in prior['file_hashes'].items() if file_hash(ROOT/name)!=sha]
         if changed!=['scripts/run_reviewer_repair.py']:raise ValueError('Only observer hash-contract/resume code may change: '+str(changed))
         data={}
@@ -89,11 +123,18 @@ def main():
         oldledger=json.loads((source/'ledger.json').read_text());assert oldledger['pending_model'] is None and oldledger['pending_transition'] is None
         assert len(read_rows(run/'offline_reviews.jsonl'))==76 and oldledger['model_calls']==80
         probe=json.loads((ROOT/'docs/phase510/hash_semantics_probe.json').read_text());assert probe['legacy_digest_exact_match'] is True
-        recovery=dict(source_run=str(source),source_manifest_sha256=file_hash(source/'manifest.json'),data_generation_commit=prior['source_git_commit'],
+        cached=[]
+        if (source/'controlled_branches.jsonl').exists():
+            cached=read_rows(source/'controlled_branches.jsonl');assert len(cached)==1 and cached[0]['branch']=='draft'
+            shutil.copyfile(source/'controlled_branches.jsonl',run/'controlled_branches.jsonl')
+            data['controlled_branches.jsonl']=file_hash(source/'controlled_branches.jsonl');assert data['controlled_branches.jsonl']==file_hash(run/'controlled_branches.jsonl')
+        add_probe=0 if prior.get('recovery') else probe['transition_queries']
+        add_probe_captures=0 if prior.get('recovery') else probe['capture_bundles']
+        recovery=dict(source_run=str(source),source_manifest_sha256=file_hash(source/'manifest.json'),data_generation_commit=prior.get('recovery',{}).get('data_generation_commit',prior['source_git_commit']),source_chain=prior.get('recovery'),
             data_files_reused_byte_identical=data,changed_files=changed,source_error=error,probe=probe,
-            inherited_failed_diagnostic_transition_queries=oldledger['transition_queries'],inherited_failed_diagnostic_capture_bundles=oldledger['audit_capture_bundles'],
-            additional_probe_transition_queries=probe['transition_queries'],additional_probe_capture_bundles=probe['capture_bundles'],original_model_load=json.loads((source/'model.json').read_text()))
-        oldledger['transition_queries']+=probe['transition_queries'];oldledger['audit_capture_bundles']+=probe['capture_bundles']
+            inherited_failed_diagnostic_transition_queries=oldledger['transition_queries']-sum(x['transition_queries'] for x in cached),inherited_failed_diagnostic_capture_bundles=oldledger['audit_capture_bundles']-sum(x['capture_bundles'] for x in cached),
+            additional_probe_transition_queries=add_probe,additional_probe_capture_bundles=add_probe_captures,original_model_load=json.loads((source/'model.json').read_text()))
+        oldledger['transition_queries']+=add_probe;oldledger['audit_capture_bundles']+=add_probe_captures
         atomic(run/'ledger.json',oldledger);atomic(run/'reused_data_provenance.json',recovery)
         manifest['deadline_unix']=prior['deadline_unix'];manifest['recovery']=recovery
     atomic(run/'manifest.json',manifest)
@@ -103,14 +144,18 @@ def main():
     os.environ['HF_HUB_OFFLINE']='1';os.environ['TRANSFORMERS_OFFLINE']='1'
     try:
         atomic(run/'assets_verified.json',verify_model_assets(ROOT,a.model_dir))
-        before=time.perf_counter();actor=Qwen35Actor(ROOT/profile['actor_config'],a.model_dir,'cuda:0')
-        atomic(run/'model.json',dict(load_seconds=time.perf_counter()-before,loading_info=actor.loading_info,
-            revision=actor.config['model_revision'],config_sha256=actor.fingerprint,shared_actor_reviewer_object=True,
-            gpu=__import__('torch').cuda.get_device_name(0),backend=actor.config['backend'],dtype=actor.config['dtype']))
+        def load_actor():
+            before=time.perf_counter();actor=Qwen35Actor(ROOT/profile['actor_config'],a.model_dir,'cuda:0')
+            atomic(run/'model.json',dict(load_seconds=time.perf_counter()-before,loading_info=actor.loading_info,
+                revision=actor.config['model_revision'],config_sha256=actor.fingerprint,shared_actor_reviewer_object=True,
+                gpu=__import__('torch').cuda.get_device_name(0),backend=actor.config['backend'],dtype=actor.config['dtype']))
+            return actor
+        actor=load_actor() if recovery is None else None
         split=json.loads((ROOT/'docs/phase3/split_manifest.json').read_text());validate_manifest(split,require_native=True)
         profile['_dev_rows']=split['partitions']['development']
         memory=ExperienceMemory(json.loads((ROOT/profile['memory_snapshot']).read_text()),split)
-        gate=json.loads((ROOT/profile['gate_config']).read_text());assert actor.fingerprint==gate['internal_signature']['config_sha256']
+        gate=json.loads((ROOT/profile['gate_config']).read_text())
+        if actor is not None:assert actor.fingerprint==gate['internal_signature']['config_sha256']
         original=ReviewerProtocol('original');fixed=ReviewerProtocol(VERSION)
         reviewer_cfg=json.loads((ROOT/profile['reviewer_config']).read_text())
         assert reviewer_cfg['version']==fixed.version and reviewer_cfg['max_new_tokens']==fixed.max_new_tokens
@@ -157,6 +202,8 @@ def main():
                 original_minus_skip=branches[1]['actual']['score']-branches[0]['actual']['score'],fixed_minus_skip=branches[2]['actual']['score']-branches[0]['actual']['score'],
                 full_hidden_state_equivalence_claimed=False,downstream_causal_return_measured=False))
         if not a.offline_only:
+            if actor is None:actor=load_actor()
+            assert actor.fingerprint==gate['internal_signature']['config_sha256']
             for i,row in enumerate(profile['tasks']):
                 ledger.begin_batch();verify(manifest)
                 variants=profile['episode_variants'];variants=[variants[0]]+list(reversed(variants[1:])) if i%2 else variants
