@@ -1,0 +1,15 @@
+{
+  "unique_executed_tests": 52,
+  "reviewer_contracts": 25,
+  "analysis_contracts": 7,
+  "existing_replay_integration": 8,
+  "existing_independent_contracts": 12,
+  "all_exit_codes": 0,
+  "real_fixed_regression_requests": 76,
+  "real_episodes": 15,
+  "controlled_same_state_comparisons": 32,
+  "real_lookaheads_verified": 91,
+  "real_keep_projection_matches": 29,
+  "synthetic_unit_fixtures_excluded_from_research_metrics": true,
+  "recorded_at_ns": 1794120391462671922
+}

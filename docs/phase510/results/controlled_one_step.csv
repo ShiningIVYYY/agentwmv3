@@ -1,0 +1,369 @@
+case,panel,task_id,seed,step,draft_action,original_action,fixed_action,draft_score,original_score,fixed_score,draft_feedback,original_feedback,fixed_feedback,fixed_minus_original,original_minus_skip,fixed_minus_skip
+9cb9d656531c076835fcb136ae5479e66912a66da24315a06555e7657e1e263a,old_debug,sciworld_128,0,13,go bedroom,go bedroom,go bedroom,6,6,6,No known action matches that input.,No known action matches that input.,No known action matches that input.,0,0,0
+24331f6b8a04b68795f7cd199102bb549bf66f67c3018869e03755b0b35701a9,old_debug,sciworld_128,0,14,go living room,go living room,look around,6,6,6,No known action matches that input.,No known action matches that input.,"This room is called the bathroom. In it, you see: 
+	the agent
+	a bathtub, which is turned off. In the bathtub is: nothing.
+	a glass cup (containing nothing)
+	a picture
+	a sink, which is turned off. In the sink is: nothing.
+	a substance called air
+	a toilet. In the toilet is: A drain, which is closed, a substance called water.
+You also see:
+	A door to the kitchen (that is open)",0,0,0
+8e8e46a662d84fe338bd3214fc73a547bfcfbab1eda9ab157caf72082d2a8ae4,old_debug,sciworld_128,0,6,go living room,go living room,go living room,0,0,0,No known action matches that input.,No known action matches that input.,No known action matches that input.,0,0,0
+bda82791c411a77e0e5cf131d30207d5123e38624da9f66d4666f4fc559262c2,old_debug,sciworld_128,0,10,go kitchen,go kitchen,go kitchen,6,6,6,You move to the kitchen.,You move to the kitchen.,You move to the kitchen.,0,0,0
+5f7657f9e9328442178ad7a44ef33e54718d215474fe79be12b366dd1cef36eb,old_debug,sciworld_2417,0,16,look around,look around,look around,60,60,60,"This room is called the workshop. In it, you see: 
+	the agent
+	a blue box (containing nothing)
+	a green box (containing nothing)
+	a green light bulb, which is off
+	a substance called air
+	a table. On the table is: a battery, a black wire, a blue wire, a orange light bulb, which is off, a red light bulb, which is off, a switch, which is off, a violet light bulb, which is off, a yellow wire.
+	a ultra low temperature freezer. The ultra low temperature freezer door is closed. 
+You also see:
+	A door to the hallway (that is open)","This room is called the workshop. In it, you see: 
+	the agent
+	a blue box (containing nothing)
+	a green box (containing nothing)
+	a green light bulb, which is off
+	a substance called air
+	a table. On the table is: a battery, a black wire, a blue wire, a orange light bulb, which is off, a red light bulb, which is off, a switch, which is off, a violet light bulb, which is off, a yellow wire.
+	a ultra low temperature freezer. The ultra low temperature freezer door is closed. 
+You also see:
+	A door to the hallway (that is open)","This room is called the workshop. In it, you see: 
+	the agent
+	a blue box (containing nothing)
+	a green box (containing nothing)
+	a green light bulb, which is off
+	a substance called air
+	a table. On the table is: a battery, a black wire, a blue wire, a orange light bulb, which is off, a red light bulb, which is off, a switch, which is off, a violet light bulb, which is off, a yellow wire.
+	a ultra low temperature freezer. The ultra low temperature freezer door is closed. 
+You also see:
+	A door to the hallway (that is open)",0,0,0
+ef50313f4f4b149654f9df60f6a3ee1a48eabe07ee6f9efa19ab9d17a29ae8d6,old_debug,sciworld_128,0,17,look at the thermometer,focus on the thermometer,focus on the thermometer,6,6,6,No known action matches that input.,No known action matches that input.,No known action matches that input.,0,0,0
+229746274ca580b01b56d9d52092b62215b7e7aae830c4105f6f7f5bb2f98a2c,old_debug,sciworld_128,0,2,go kitchen,go living room,go kitchen,0,0,0,The door is not open.,No known action matches that input.,The door is not open.,0,0,0
+266774eb7f0f1fe9ad7f34c3a997a866484533fea6c97b7ddebc1aed5883d26e,old_debug,sciworld_3070,0,14,go living room,go living,move plant to blue box,8,8,8,No known action matches that input.,No known action matches that input.,No known action matches that input.,0,0,0
+a9d41da6795bddd1a4052b095f367ee4debcd5b0a60a079f6542e1b21ba5cc22,old_debug,sciworld_3070,0,8,go kitchen,open toilet,go kitchen,0,0,0,The door is not open.,The toilet is not openable.,The door is not open.,0,0,0
+6a2c9aaaffb1c0b6659fc55238192fdfcb8e73faa7614f6b2a5b6c22fe835ce5,old_debug,sciworld_3070,0,13,look around,go living,look around,8,8,8,"This room is called the bathroom. In it, you see: 
+	the agent
+	a bathtub, which is turned off. In the bathtub is: nothing.
+	a glass cup (containing nothing)
+	a sink, which is turned off. In the sink is: nothing.
+	a substance called air
+	a toilet. In the toilet is: A drain, which is closed, a substance called water.
+You also see:
+	A door to the kitchen (that is open)",No known action matches that input.,"This room is called the bathroom. In it, you see: 
+	the agent
+	a bathtub, which is turned off. In the bathtub is: nothing.
+	a glass cup (containing nothing)
+	a sink, which is turned off. In the sink is: nothing.
+	a substance called air
+	a toilet. In the toilet is: A drain, which is closed, a substance called water.
+You also see:
+	A door to the kitchen (that is open)",0,0,0
+264d0d7c54ec462b15c5d75ee51839445c914426e011a4db5a596aa2035d6dce,old_debug,sciworld_3070,0,20,go living room,look around,go living room,8,8,8,No known action matches that input.,"This room is called the bathroom. In it, you see: 
+	the agent
+	a bathtub, which is turned off. In the bathtub is: nothing.
+	a glass cup (containing nothing)
+	a sink, which is turned off. In the sink is: nothing.
+	a substance called air
+	a toilet. In the toilet is: A drain, which is closed, a substance called water.
+You also see:
+	A door to the kitchen (that is open)",No known action matches that input.,0,0,0
+31778e37df35ab49f13512c87807f9b0c3405112b92feaedb8d4914174f9033b,old_debug,sciworld_3070,0,6,pour water in blue box,look around,pour water in blue box,0,0,0,No known action matches that input.,"This room is called the bathroom. In it, you see: 
+	the agent
+	a bathtub, which is turned off. In the bathtub is: nothing.
+	a finger painting
+	a glass cup (containing nothing)
+	a sink, which is turned off. In the sink is: nothing.
+	a substance called air
+	a toilet. In the toilet is: A drain, which is closed, a substance called water.
+You also see:
+	A door to the kitchen (that is closed)",No known action matches that input.,0,0,0
+eb53b56c040f2878f28831c1652faedef67faad998381f90a441aa50665c3cf2,old_debug,sciworld_3070,0,13,go hallway,open door to the hallway,go bathroom,17,17,17,The door is not open.,The door is now open.,You move to the bathroom.,0,0,0
+2e1ab3cc04d53ef805a5677f0b3080cad7fb6aa2c658c0e9d4c221458276dc1a,old_debug,sciworld_2417,0,2,go hallway,open door to the hallway,go bathroom,0,0,0,The door is not open.,The door is now open.,The door is not open.,0,0,0
+70a0aa056627d0056ddf3f945497b48afe724f4f152a1f8c7780eaca00048626,old_debug,sciworld_2417,0,19,look around,go workshop,look around,60,60,60,"This room is called the hallway. In it, you see: 
+	the agent
+	a drawing
+	a substance called air
+You also see:
+	A door to the art studio (that is closed)
+	A door to the bedroom (that is closed)
+	A door to the greenhouse (that is closed)
+	A door to the kitchen (that is open)
+	A door to the living room (that is closed)
+	A door to the workshop (that is open)",You move to the workshop.,"This room is called the hallway. In it, you see: 
+	the agent
+	a drawing
+	a substance called air
+You also see:
+	A door to the art studio (that is closed)
+	A door to the bedroom (that is closed)
+	A door to the greenhouse (that is closed)
+	A door to the kitchen (that is open)
+	A door to the living room (that is closed)
+	A door to the workshop (that is open)",0,0,0
+ae77ee9f3327d245c754f4008ec38ee66cb89fa5787e117f9f827c7bffe8d87e,old_debug,sciworld_2417,0,1,look around,look around,look around,0,0,0,"This room is called the kitchen. In it, you see: 
+	the agent
+	a chair. On the chair is: nothing.
+	a counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.
+	a cupboard. The cupboard door is closed. 
+	a freezer. The freezer door is closed. 
+	a fridge. The fridge door is closed. 
+	a glass jar (containing a substance called sodium chloride)
+	a lighter
+	a oven, which is turned off. The oven door is closed. 
+	a painting
+	a sink, which is turned off. In the sink is: nothing.
+	a stopwatch, which is deactivated. 
+	a stove, which is turned off. On the stove is: nothing.
+	a substance called air
+	a substance called soap
+	a table. On the table is: a glass cup (containing nothing).
+	a thermometer, currently reading a temperature of 10 degrees celsius
+You also see:
+	A door to the bathroom (that is closed)
+	A door to the hallway (that is closed)
+	A door to the outside (that is closed)","This room is called the kitchen. In it, you see: 
+	the agent
+	a chair. On the chair is: nothing.
+	a counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.
+	a cupboard. The cupboard door is closed. 
+	a freezer. The freezer door is closed. 
+	a fridge. The fridge door is closed. 
+	a glass jar (containing a substance called sodium chloride)
+	a lighter
+	a oven, which is turned off. The oven door is closed. 
+	a painting
+	a sink, which is turned off. In the sink is: nothing.
+	a stopwatch, which is deactivated. 
+	a stove, which is turned off. On the stove is: nothing.
+	a substance called air
+	a substance called soap
+	a table. On the table is: a glass cup (containing nothing).
+	a thermometer, currently reading a temperature of 10 degrees celsius
+You also see:
+	A door to the bathroom (that is closed)
+	A door to the hallway (that is closed)
+	A door to the outside (that is closed)","This room is called the kitchen. In it, you see: 
+	the agent
+	a chair. On the chair is: nothing.
+	a counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.
+	a cupboard. The cupboard door is closed. 
+	a freezer. The freezer door is closed. 
+	a fridge. The fridge door is closed. 
+	a glass jar (containing a substance called sodium chloride)
+	a lighter
+	a oven, which is turned off. The oven door is closed. 
+	a painting
+	a sink, which is turned off. In the sink is: nothing.
+	a stopwatch, which is deactivated. 
+	a stove, which is turned off. On the stove is: nothing.
+	a substance called air
+	a substance called soap
+	a table. On the table is: a glass cup (containing nothing).
+	a thermometer, currently reading a temperature of 10 degrees celsius
+You also see:
+	A door to the bathroom (that is closed)
+	A door to the hallway (that is closed)
+	A door to the outside (that is closed)",0,0,0
+c3ffc8566249b0b0cace3748490c73a1402a32682895bcefc7699911619a38cc,old_debug,sciworld_2417,0,7,pick up unknown substance E,pick up unknown substance E,pick up unknown substance E,10,10,10,You move the unknown substance E to the inventory.,You move the unknown substance E to the inventory.,You move the unknown substance E to the inventory.,0,0,0
+66ddd04ff0ef1ba8333a5a0bcc1a5eb51db323ce144765723af0bcd46854aed7,old_debug,sciworld_128,0,1,look around,look around,look around,0,0,0,"This room is called the bathroom. In it, you see: 
+	the agent
+	a bathtub, which is turned off. In the bathtub is: nothing.
+	a glass cup (containing nothing)
+	a picture
+	a sink, which is turned off. In the sink is: nothing.
+	a substance called air
+	a toilet. In the toilet is: A drain, which is open, a substance called water.
+You also see:
+	A door to the kitchen (that is closed)","This room is called the bathroom. In it, you see: 
+	the agent
+	a bathtub, which is turned off. In the bathtub is: nothing.
+	a glass cup (containing nothing)
+	a picture
+	a sink, which is turned off. In the sink is: nothing.
+	a substance called air
+	a toilet. In the toilet is: A drain, which is open, a substance called water.
+You also see:
+	A door to the kitchen (that is closed)","This room is called the bathroom. In it, you see: 
+	the agent
+	a bathtub, which is turned off. In the bathtub is: nothing.
+	a glass cup (containing nothing)
+	a picture
+	a sink, which is turned off. In the sink is: nothing.
+	a substance called air
+	a toilet. In the toilet is: A drain, which is open, a substance called water.
+You also see:
+	A door to the kitchen (that is closed)",0,0,0
+f425bf466ca3c5078ec475d946b7830d43255bffdccd5918e0c9c48efa6cd709,old_debug,sciworld_2417,0,17,look around,look around,look around,60,60,60,"This room is called the workshop. In it, you see: 
+	the agent
+	a blue box (containing nothing)
+	a green box (containing nothing)
+	a green light bulb, which is off
+	a substance called air
+	a table. On the table is: a battery, a black wire, a blue wire, a orange light bulb, which is off, a red light bulb, which is off, a switch, which is off, a violet light bulb, which is off, a yellow wire.
+	a ultra low temperature freezer. The ultra low temperature freezer door is closed. 
+You also see:
+	A door to the hallway (that is open)","This room is called the workshop. In it, you see: 
+	the agent
+	a blue box (containing nothing)
+	a green box (containing nothing)
+	a green light bulb, which is off
+	a substance called air
+	a table. On the table is: a battery, a black wire, a blue wire, a orange light bulb, which is off, a red light bulb, which is off, a switch, which is off, a violet light bulb, which is off, a yellow wire.
+	a ultra low temperature freezer. The ultra low temperature freezer door is closed. 
+You also see:
+	A door to the hallway (that is open)","This room is called the workshop. In it, you see: 
+	the agent
+	a blue box (containing nothing)
+	a green box (containing nothing)
+	a green light bulb, which is off
+	a substance called air
+	a table. On the table is: a battery, a black wire, a blue wire, a orange light bulb, which is off, a red light bulb, which is off, a switch, which is off, a violet light bulb, which is off, a yellow wire.
+	a ultra low temperature freezer. The ultra low temperature freezer door is closed. 
+You also see:
+	A door to the hallway (that is open)",0,0,0
+e00d6c7c116bfe26b2380c8bdc7f11e2a45b86c3f5a24fea24299632c9d865d5,old_debug,sciworld_128,0,12,look around,look around,look around,40,40,40,"This room is called the kitchen. In it, you see: 
+	the agent
+	a chair. On the chair is: nothing.
+	a counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.
+	a cupboard. The cupboard door is closed. 
+	a freezer. The freezer door is closed. 
+	a fridge. The fridge door is closed. 
+	a glass jar (containing a substance called sodium chloride)
+	a lighter
+	a oven, which is turned off. The oven door is closed. 
+	a painting
+	a sink, which is turned off. In the sink is: nothing.
+	a stopwatch, which is deactivated. 
+	a stove, which is turned off. On the stove is: nothing.
+	a substance called air
+	a substance called soap
+	a table. On the table is: a glass cup (containing nothing).
+	a thermometer, currently reading a temperature of 10 degrees celsius
+You also see:
+	A door to the bathroom (that is open)
+	A door to the hallway (that is open)
+	A door to the outside (that is closed)","This room is called the kitchen. In it, you see: 
+	the agent
+	a chair. On the chair is: nothing.
+	a counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.
+	a cupboard. The cupboard door is closed. 
+	a freezer. The freezer door is closed. 
+	a fridge. The fridge door is closed. 
+	a glass jar (containing a substance called sodium chloride)
+	a lighter
+	a oven, which is turned off. The oven door is closed. 
+	a painting
+	a sink, which is turned off. In the sink is: nothing.
+	a stopwatch, which is deactivated. 
+	a stove, which is turned off. On the stove is: nothing.
+	a substance called air
+	a substance called soap
+	a table. On the table is: a glass cup (containing nothing).
+	a thermometer, currently reading a temperature of 10 degrees celsius
+You also see:
+	A door to the bathroom (that is open)
+	A door to the hallway (that is open)
+	A door to the outside (that is closed)","This room is called the kitchen. In it, you see: 
+	the agent
+	a chair. On the chair is: nothing.
+	a counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.
+	a cupboard. The cupboard door is closed. 
+	a freezer. The freezer door is closed. 
+	a fridge. The fridge door is closed. 
+	a glass jar (containing a substance called sodium chloride)
+	a lighter
+	a oven, which is turned off. The oven door is closed. 
+	a painting
+	a sink, which is turned off. In the sink is: nothing.
+	a stopwatch, which is deactivated. 
+	a stove, which is turned off. On the stove is: nothing.
+	a substance called air
+	a substance called soap
+	a table. On the table is: a glass cup (containing nothing).
+	a thermometer, currently reading a temperature of 10 degrees celsius
+You also see:
+	A door to the bathroom (that is open)
+	A door to the hallway (that is open)
+	A door to the outside (that is closed)",0,0,0
+85488b0e69a489b310927d5efbf7455eb9caa51a2327cc915d5f6bcce6ee80cc,phase59_full_quality,sciworld_3003,0,15,open painting,focus on painting,open painting,17,-100,17,The painting is not openable.,You focus on the painting.,The painting is not openable.,117,-117,0
+4971675edfe851f55086f95542ff391830d482e2b650bfb4aa40dfd9ea82cd48,phase59_full_quality,sciworld_2519,1,11,use battery on unknown substance J,move unknown substance J to yellow box,look at battery,60,-100,60,I'm not sure how to use the battery.,You move the unknown substance J to the yellow box.,a battery. its anode is connected to: nothing. its cathode is connected to: nothing.,160,-160,0
+87d01263905be81635e026605be962ab994b9ba8b223cd964cbc2cfb4990381f,phase59_full_quality,sciworld_3003,1,1,focus on chair,go bathroom,focus on couch,-100,0,-100,You focus on the chair.,No known action matches that input.,You focus on the couch.,-100,100,0
+11c6da92cd607480407cd998b56f5e3d5f135dd2b4e731e742cd0cb9bccca66e,phase59_full_quality,sciworld_1503,0,9,look in A aluminum foil,look at A aluminum foil,look in A aluminum foil,55,55,55,It's not clear how to look inside of that.,A aluminum foil,It's not clear how to look inside of that.,0,0,0
+214dc7bdfceb87a5e788c3e5314877629b1ed345cdb5e0902ffc0fecb4316da8,phase59_full_quality,sciworld_1503,0,2,look around,look at A desk,look around,55,55,55,"This room is called the living room. In it, you see: 
+	the agent
+	A aluminum foil
+	a chair. On the chair is: nothing.
+	a couch. On the couch is: a white pillow.
+	a desk. On the desk is: a drawer.
+	a painting
+	a substance called air
+You also see:
+	A door to the hallway (that is closed)","a desk. On the desk is: 
+	a drawer","This room is called the living room. In it, you see: 
+	the agent
+	A aluminum foil
+	a chair. On the chair is: nothing.
+	a couch. On the couch is: a white pillow.
+	a desk. On the desk is: a drawer.
+	a painting
+	a substance called air
+You also see:
+	A door to the hallway (that is closed)",0,0,0
+11d1fca26ee462c754efcd162e3e3918076557cf7d28f5ff9cf1f84daefd1998,phase59_full_quality,sciworld_2438,0,12,look at switch,use switch on unknown substance F,look at switch,60,60,60,"a switch, which is off. its anode is connected to: nothing. its cathode is connected to: nothing.",I'm not sure how to use the switch.,"a switch, which is off. its anode is connected to: nothing. its cathode is connected to: nothing.",0,0,0
+44a0e93165645ae2c0efcd7e67dfa692a72e620406184fee4f1b1c8b1156e2a3,phase59_full_quality,sciworld_3003,1,4,look around,go bathroom,look around,0,0,0,"This room is called the living room. In it, you see: 
+	the agent
+	a chair. On the chair is: nothing.
+	a couch. On the couch is: a white pillow.
+	a desk. On the desk is: a drawer.
+	a painting
+	a substance called air
+You also see:
+	A door to the hallway (that is closed)",No known action matches that input.,"This room is called the living room. In it, you see: 
+	the agent
+	a chair. On the chair is: nothing.
+	a couch. On the couch is: a white pillow.
+	a desk. On the desk is: a drawer.
+	a painting
+	a substance called air
+You also see:
+	A door to the hallway (that is closed)",0,0,0
+263eb7a8e6197285b18477d67b05784e66c28ce70b7dc8a36d4a5d20c0e2cbb5,phase59_full_quality,sciworld_2519,0,2,go hallway,look in large cupboard,open door to the hallway,0,0,0,The door is not open.,"The large cupboard isn't open, so you can't see inside.",The door is now open.,0,0,0
+0bd1c3c3de7b91e31b9fafcc4d1f30d35b332e358afb26842f5b95ac01847d24,phase59_full_quality,sciworld_378,0,13,look around,go living room,go bathroom,0,0,0,"This room is called the greenhouse. In it, you see: 
+	the agent
+	a bee hive. The bee hive door is closed. 
+	a jug (containing nothing)
+	a sink, which is turned off. In the sink is: nothing.
+	a substance called air
+You also see:
+	A door to the hallway (that is closed)
+	A door to the outside (that is closed)",No known action matches that input.,No known action matches that input.,0,0,0
+70c258216bf0b8e0b839fb30c1a60758912b140c0a10358d72bd26817a50611a,phase59_full_quality,sciworld_378,0,11,look at thermometer,look around,focus on thermometer,0,0,0,No known action matches that input.,"This room is called the greenhouse. In it, you see: 
+	the agent
+	a bee hive. The bee hive door is closed. 
+	a jug (containing nothing)
+	a sink, which is turned off. In the sink is: nothing.
+	a substance called air
+You also see:
+	A door to the hallway (that is closed)
+	A door to the outside (that is closed)",No known action matches that input.,0,0,0
+fdcc0d0f8b4e840c2c905e57c3ea3f4f875959a79366b06dd05426e860f4a522,phase59_full_quality,sciworld_3068,0,15,look around,go hallway,look around,25,25,25,"This room is called the living room. In it, you see: 
+	the agent
+	a book shelf (containing A book (Beowulf) titled Beowulf by Beowulf poet, A book (Pride and Prejudice) titled Pride and Prejudice by Jane Austen)
+	a chair. On the chair is: nothing.
+	a couch. On the couch is: a white pillow.
+	a substance called air
+	a table. On the table is: nothing.
+You also see:
+	A door to the hallway (that is open)",You move to the hallway.,"This room is called the living room. In it, you see: 
+	the agent
+	a book shelf (containing A book (Beowulf) titled Beowulf by Beowulf poet, A book (Pride and Prejudice) titled Pride and Prejudice by Jane Austen)
+	a chair. On the chair is: nothing.
+	a couch. On the couch is: a white pillow.
+	a substance called air
+	a table. On the table is: nothing.
+You also see:
+	A door to the hallway (that is open)",0,0,0
+e75f72130b33e8d0c079a73fc64a572ff7709c6f9a706bc95e42f06dfb7c97f7,phase59_full_quality,sciworld_2458,1,2,go hallway,open door to the hallway,go workshop,0,0,0,The door is not open.,The door is now open.,No known action matches that input.,0,0,0

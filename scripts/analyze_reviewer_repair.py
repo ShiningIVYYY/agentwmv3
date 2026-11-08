@@ -168,9 +168,31 @@ def main():
         full58.append(dict(ref=e['ref'],goal=t['goal'],observation=t['observation'],draft=t['draft_action'],final=t['final_action'],
             feedback=t['actual']['observation'],legacy_execution_status=feedback_status(t['actual']['observation']),execution_status=status,execution_subtype=subtype,trial_score=t['simulation']['predicted_score'],actual_score=t['actual']['score'],
             one_step_score_difference=delta,goal_relevance='not_automatically_inferred',correct_revision='not_established_by_format_or_acceptance',
+            bounded_precondition_repair=(t['draft_action'].startswith('go ') and t['simulation']['predicted_observation']=='The door is not open.' and t['final_action'].startswith('open ') and t['actual']['observation']=='The door is now open.'),
+            completed_task_draft_unnecessarily_replaced=(t['simulation']['predicted_done'] and t['simulation']['predicted_score']==100),
             actual_harm_observed=delta<0,original_reason=t['review']['parsed'].get('reason')))
     assert len(full58)==58
     atomic(out/'original_full58_classifications.json',full58)
+    # All350 Full pre-action states, including Skip and exhausted-budget steps.
+    full_states=[]
+    for f in sorted((ROOT/'outputs/phase59_independent_v2/episodes').rglob('steps.jsonl')):
+        full_states.extend(t for t in read_rows(f) if t['policy']=='full')
+    overlap=Counter();shadows=Counter()
+    for t in full_states:
+        sig=t['metadata']['internal_signals'];l=sig['local_uncertainty']>gate['tau_local'];g=sig['global_uncertainty']>gate['tau_global']
+        overlap['both' if l and g else 'local_only' if l else 'global_only' if g else 'neither']+=1
+        ctx=GateInput(t['gate']['decision_id'],t['gate']['budget_remaining'],sig,ExternalInput(**t['resolved_external']),t['gate']['budget_remaining'],t['metadata']['decision_format_valid'])
+        for policy in ('local','global','internal','full'):shadows[policy]+=bool(RuleGate(dict(gate,policy=policy)).decide(ctx)['call_wm'])
+    snapshot=json.loads((ROOT/profile['memory_snapshot']).read_text())
+    atomic(out/'gate_utility_detail.json',dict(all_full_pre_action_states=len(full_states),all_state_high_nll_overlap=dict(overlap),
+        shadow_calls_on_same_full_states_and_actual_full_budget=dict(shadows),
+        calls_not_duplicated_by_two_signals=True,not_a_different_policy_trajectory=True,
+        called_state_overlap_reference='docs/phase510/gate_audit.json counts80 reviewed Full calls only, not350 states',
+        frozen_snapshot_keys=list(snapshot),frozen_cards=snapshot.get('cards'),
+        original_full58_legacy_feedback=dict(Counter(x['legacy_execution_status'] for x in full58)),
+        original_full58_refined_feedback=dict(Counter(x['execution_status'] for x in full58)),
+        original_full58_rejection_subtypes=dict(Counter(x['execution_subtype'] for x in full58)),
+        no_gate_threshold_memory_tuning=True,no_downstream_per_call_utility_claim=True))
     atomic(out/'summary.json',dict(episode_groups=groups,offline_groups=offline_groups,controlled_one_step=control_summaries,
         ledger=ledger,engineering_audit=dict(status='pass',episodes=15,formal_steps=len(allrows),lookahead_attempts=lookaheads,exact_keep_projections=kept,
             identical_initial_projections=True,identical_initial_actor_tokens=True,causality_prompts_gate_budgets_and_costs=True),

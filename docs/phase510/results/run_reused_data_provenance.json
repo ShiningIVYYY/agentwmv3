@@ -1,0 +1,141 @@
+{
+  "source_run": "/data1/shn/agentwmv3/outputs/phase510_reviewer_repair_v3",
+  "source_manifest_sha256": "b5ceb7510a678d39d3e1792fa88330a39896b06d49e5296decfc5842001dd23a",
+  "data_generation_commit": "a7736a14ad7774df94149dabaa18019136136589",
+  "source_chain": {
+    "source_run": "/data1/shn/agentwmv3/outputs/phase510_reviewer_repair_v2",
+    "source_manifest_sha256": "cd9ce6a78f3ab49b10ae136774b2fadc765485482c9fd77682b3bde2dae19754",
+    "data_generation_commit": "a7736a14ad7774df94149dabaa18019136136589",
+    "data_files_reused_byte_identical": {
+      "generation_calls.jsonl": "837df30a4f815bebe9ed60ffb92e0982ef2099f56f5d942423e793b9fae466af",
+      "offline_reviews.jsonl": "c59bea765304e7084ce8d7170e7c7ba76d74f8d28e8eff37bf6664d74a279abe",
+      "length_diagnostics.jsonl": "f7bac3091a7131ee8ba11a129d189006d2bf11eb97aff3117e10de9ac8fbefc2",
+      "fixed_reviewer_lock.json": "db0298400c146644d0c18c6bed7deb46aa311d789b182d23f5d3a296b7120265"
+    },
+    "changed_files": [
+      "scripts/run_reviewer_repair.py"
+    ],
+    "source_error": {
+      "type": "ValueError",
+      "message": "Historical same-state fingerprint mismatch; no utility value",
+      "ledger": {
+        "tokens": 58634,
+        "model_calls": 80,
+        "transition_queries": 13,
+        "audit_capture_bundles": 26,
+        "pending_model": null,
+        "pending_transition": null
+      },
+      "at_ns": 1794113184827483056
+    },
+    "probe": {
+      "case": {
+        "source": "outputs/replay_fix_130_e2e_v1/evaluation_steps.jsonl",
+        "line_index": 56,
+        "line_sha256": "271b8d21959a8c7d5f7e04858634ab5d39f072d58ffa59982853711d506acefc",
+        "task_id": "sciworld_128",
+        "policy": "always",
+        "seed": 0,
+        "step": 13,
+        "prompt_id": "9cb9d656531c076835fcb136ae5479e66912a66da24315a06555e7657e1e263a",
+        "panel": "old_debug",
+        "stratum": "format_failure"
+      },
+      "expected_legacy_digest": "daafb3808d9b68dfb0370839a8e9e0726ec1adb2fa4dd973dbcb8fd01f4091cd",
+      "actual_full_digest": "daafb3808d9b68dfb0370839a8e9e0726ec1adb2fa4dd973dbcb8fd01f4091cd",
+      "actual_normalized_fingerprint": "28f2e61c69231da7c4c66ca1d1dfd034dff80e767b980abed2ac1ae645a655ea",
+      "legacy_digest_exact_match": true,
+      "expected_includes_raw_observation": true,
+      "transition_queries": 13,
+      "capture_bundles": 26,
+      "pid": 214513,
+      "public_observation_matches": true,
+      "seconds_including_cleanup": 2.4086742661893368
+    },
+    "inherited_failed_diagnostic_transition_queries": 13,
+    "inherited_failed_diagnostic_capture_bundles": 26,
+    "additional_probe_transition_queries": 13,
+    "additional_probe_capture_bundles": 26,
+    "original_model_load": {
+      "load_seconds": 22.498594872653484,
+      "loading_info": {
+        "missing_keys": [],
+        "unexpected_keys": [],
+        "mismatched_keys": [],
+        "error_msgs": []
+      },
+      "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+      "config_sha256": "cad3791bc197e7f95baa16837d072ab26b68b6f76cb12cf164e0ccfcaf71a7a6",
+      "shared_actor_reviewer_object": true,
+      "gpu": "NVIDIA GeForce RTX 4090",
+      "backend": "hf_qwen35_generation_raw_bf16_v1",
+      "dtype": "bfloat16"
+    }
+  },
+  "data_files_reused_byte_identical": {
+    "generation_calls.jsonl": "837df30a4f815bebe9ed60ffb92e0982ef2099f56f5d942423e793b9fae466af",
+    "offline_reviews.jsonl": "c59bea765304e7084ce8d7170e7c7ba76d74f8d28e8eff37bf6664d74a279abe",
+    "length_diagnostics.jsonl": "f7bac3091a7131ee8ba11a129d189006d2bf11eb97aff3117e10de9ac8fbefc2",
+    "fixed_reviewer_lock.json": "db0298400c146644d0c18c6bed7deb46aa311d789b182d23f5d3a296b7120265",
+    "controlled_branches.jsonl": "23554e36969413ce34852b2c70984f0063e418e90ff428c5eefc4d2c1acb09e5"
+  },
+  "changed_files": [
+    "scripts/run_reviewer_repair.py"
+  ],
+  "source_error": {
+    "type": "KeyError",
+    "message": "'formal_after_state_sha256'",
+    "ledger": {
+      "tokens": 58634,
+      "model_calls": 80,
+      "transition_queries": 54,
+      "audit_capture_bundles": 110,
+      "pending_model": null,
+      "pending_transition": null
+    },
+    "at_ns": 1794113461790990219
+  },
+  "probe": {
+    "case": {
+      "source": "outputs/replay_fix_130_e2e_v1/evaluation_steps.jsonl",
+      "line_index": 56,
+      "line_sha256": "271b8d21959a8c7d5f7e04858634ab5d39f072d58ffa59982853711d506acefc",
+      "task_id": "sciworld_128",
+      "policy": "always",
+      "seed": 0,
+      "step": 13,
+      "prompt_id": "9cb9d656531c076835fcb136ae5479e66912a66da24315a06555e7657e1e263a",
+      "panel": "old_debug",
+      "stratum": "format_failure"
+    },
+    "expected_legacy_digest": "daafb3808d9b68dfb0370839a8e9e0726ec1adb2fa4dd973dbcb8fd01f4091cd",
+    "actual_full_digest": "daafb3808d9b68dfb0370839a8e9e0726ec1adb2fa4dd973dbcb8fd01f4091cd",
+    "actual_normalized_fingerprint": "28f2e61c69231da7c4c66ca1d1dfd034dff80e767b980abed2ac1ae645a655ea",
+    "legacy_digest_exact_match": true,
+    "expected_includes_raw_observation": true,
+    "transition_queries": 13,
+    "capture_bundles": 26,
+    "pid": 214513,
+    "public_observation_matches": true,
+    "seconds_including_cleanup": 2.4086742661893368
+  },
+  "inherited_failed_diagnostic_transition_queries": 40,
+  "inherited_failed_diagnostic_capture_bundles": 81,
+  "additional_probe_transition_queries": 0,
+  "additional_probe_capture_bundles": 0,
+  "original_model_load": {
+    "load_seconds": 22.30783603526652,
+    "loading_info": {
+      "missing_keys": [],
+      "unexpected_keys": [],
+      "mismatched_keys": [],
+      "error_msgs": []
+    },
+    "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "config_sha256": "cad3791bc197e7f95baa16837d072ab26b68b6f76cb12cf164e0ccfcaf71a7a6",
+    "shared_actor_reviewer_object": true,
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "backend": "hf_qwen35_generation_raw_bf16_v1",
+    "dtype": "bfloat16"
+  }
+}

@@ -1,0 +1,208 @@
+{
+  "ref": {
+    "source": "outputs/replay_fix_130_e2e_v1/evaluation_steps.jsonl",
+    "line_index": 115,
+    "line_sha256": "060d087af67d53a464efe272f5f710e9c76b3f087b6096ec8b6e0660f6af9d64",
+    "task_id": "sciworld_128",
+    "policy": "internal",
+    "seed": 0,
+    "step": 12,
+    "prompt_id": "e00d6c7c116bfe26b2380c8bdc7f11e2a45b86c3f5a24fea24299632c9d865d5",
+    "panel": "old_debug",
+    "stratum": "unchanged"
+  },
+  "reviewer_input_public_only": {
+    "goal": "Your task is to measure the temperature of unknown substance B, which is located around the living room. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above -50.0 degrees celsius, place it in the red box. If the unknown substance B temperature is below -50.0 degrees celsius, place it in the green box. The boxes are located around the bedroom.",
+    "current_observation": "It's not clear how to get there from here.",
+    "past_committed_history": [
+      {
+        "observation": "Ambiguous request: Please enter the number for the action you intended (or blank to cancel):\n0:\topen door between bathroom and kitchen\n1:\topen door between kitchen and hallway\n2:\topen door between kitchen and outside\n",
+        "action": "1"
+      },
+      {
+        "observation": "The door is now open.",
+        "action": "go kitchen"
+      }
+    ],
+    "draft_action": "look around",
+    "isolated_trial_feedback": {
+      "predicted_observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta substance called air\n\ta substance called soap\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is open)\n\tA door to the hallway (that is open)\n\tA door to the outside (that is closed)",
+      "predicted_reward": 0,
+      "predicted_done": false,
+      "predicted_score": 40
+    }
+  },
+  "source_original_raw": "Decision: KEEP\nReason: The draft action \"look around\" was successfully executed, revealing the kitchen environment where the thermometer and necessary doors are located. This observation is required to proceed with the task of finding the thermometer and navigating to the bedroom.\nFinal Action: look around",
+  "source_original_parse": {
+    "decision": "KEEP",
+    "reason": "The draft action \"look around\" was successfully executed, revealing the kitchen environment where the thermometer and necessary doors are located. This observation is required to proceed with the task of finding the thermometer and navigating to the bedroom.",
+    "final_action": "look around",
+    "changed": false,
+    "action_validity": "unknown",
+    "semantic_utility": "unknown"
+  },
+  "source_original_metadata": {
+    "usage": {
+      "prompt_tokens": 817,
+      "completion_tokens": 56,
+      "total_tokens": 873
+    },
+    "finish_reason": "stop",
+    "request_seed": 2019498126,
+    "generation_seconds": 2.5880077239125967,
+    "truncated": false,
+    "prompt_tokens": 817,
+    "response_ids": [
+      72298,
+      25,
+      92496,
+      198,
+      24342,
+      25,
+      561,
+      9665,
+      1852,
+      328,
+      6975,
+      2094,
+      1,
+      557,
+      7544,
+      15234,
+      11,
+      29621,
+      279,
+      9488,
+      4424,
+      1332,
+      279,
+      89016,
+      321,
+      5689,
+      13635,
+      513,
+      7172,
+      13,
+      1061,
+      21254,
+      369,
+      2483,
+      310,
+      10046,
+      440,
+      279,
+      3274,
+      314,
+      8996,
+      279,
+      89016,
+      321,
+      57394,
+      310,
+      279,
+      13433,
+      13,
+      198,
+      18770,
+      5411,
+      25,
+      1353,
+      2094
+    ],
+    "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "actor_config_sha256": "cad3791bc197e7f95baa16837d072ab26b68b6f76cb12cf164e0ccfcaf71a7a6"
+  },
+  "fixed_raw": "{\"decision\":\"KEEP\",\"final_action\":\"look around\",\"reason_code\":\"trial_supported\"}",
+  "fixed_parse": {
+    "decision": "KEEP",
+    "final_action": "look around",
+    "reason_code": "trial_supported",
+    "reason": "trial_supported",
+    "changed": false,
+    "action_validity": "unknown",
+    "semantic_utility": "unknown",
+    "reviewer_version": "compact-json-conservative-v2"
+  },
+  "fixed_metadata": {
+    "usage": {
+      "prompt_tokens": 915,
+      "completion_tokens": 18,
+      "total_tokens": 933
+    },
+    "finish_reason": "stop",
+    "request_seed": 2019498126,
+    "generation_seconds": 0.8875747844576836,
+    "truncated": false,
+    "prompt_tokens": 915,
+    "response_ids": [
+      4754,
+      61781,
+      3147,
+      50057,
+      2129,
+      11483,
+      7681,
+      3147,
+      6975,
+      2094,
+      2129,
+      19290,
+      4000,
+      3147,
+      45770,
+      55943,
+      8934
+    ],
+    "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "actor_config_sha256": "cad3791bc197e7f95baa16837d072ab26b68b6f76cb12cf164e0ccfcaf71a7a6"
+  },
+  "audit_only_not_reviewer_input": {
+    "task": {
+      "task_id": "sciworld_128",
+      "index": 128,
+      "taskName": "use-thermometer",
+      "variationIdx": 8,
+      "category": "measure",
+      "goal_sha256": "b4a904d903f91aca14abe84250c8224c9dc059160e9682ce1b59b6da646ccd20",
+      "goal_group": "20af3405fc2b88439bf791d18d7c85111e8854f1b14ad477cd3449d331f9930a",
+      "split": "development"
+    },
+    "simulation_spec": {
+      "taskName": "use-thermometer",
+      "variationIdx": 8,
+      "seed": 0,
+      "simplifications": "",
+      "environment_step_limit": 21,
+      "simulator_profile": "scienceworld130"
+    },
+    "full_committed_action_prefix": [
+      "look around",
+      "go kitchen",
+      "open door to the kitchen",
+      "go kitchen",
+      "look around",
+      "focus on thermometer",
+      "go bedroom",
+      "go hallway",
+      "open door",
+      "1",
+      "go kitchen"
+    ],
+    "expected_pre_full_digest": "4703a293f73b3f17987c1e0bd9d43e63cfb7ae9bd0453c89dfce18ef810ce8b3",
+    "expected_draft_post_fingerprint": "7568a4a185629e1a286aa4f72939e71808b25f7a2759fd795653cf5a8d372723",
+    "original_final_action": "look around",
+    "original_final_action_feedback": {
+      "observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta substance called air\n\ta substance called soap\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is open)\n\tA door to the hallway (that is open)\n\tA door to the outside (that is closed)",
+      "raw_observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta substance called air\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called soap\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is open)\n\tA door to the hallway (that is open)\n\tA door to the outside (that is closed)",
+      "reward": 0,
+      "done": false,
+      "score": 40,
+      "moves": 7,
+      "native_action": "look around",
+      "action": "look around",
+      "step_seconds": 0.006029760465025902
+    },
+    "original_formal_post_fingerprint": null,
+    "historical_original_post_fingerprint_missing": true
+  }
+}

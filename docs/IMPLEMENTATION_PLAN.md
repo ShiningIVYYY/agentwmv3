@@ -1,8 +1,17 @@
 # Training-Free Internal–External Selective WM: implementation plan
 
-Phase5.10 IN PROGRESS: Original Reviewer retained; compact-json-conservative-v2 proposed. Gate/Memory/thresholds/Actor unchanged. Bounded protocol:20 old-debug unique requests +44 unique Phase5.9 format-failure prompts (53 original events) +12 Full quality cases;32 strict one-step Draft/Original/Fixed branch comparisons;3 new-ID known-goal dev variants ×5 conditions =15 Episodes at seed0. No independent unseen goal groups remain. No Phase6 or final test. See PHASE5_10_REPORT.md.
+Phase5.10 COMPLETE: compact-json-conservative-v2 has0/76 offline and0/47 online format errors; Original online4/44. All15 Episodes complete,91/91 lookaheads and29/29 KEEP projections verified. Every condition scores−66.67/SR0%; no task benefit. Always replacement acceptance improves, Full does not. Gate/thresholds/Memory/Actor/WM/Paper protocol unchanged; new-ID variants share known goals. All owned jobs stopped. Await user decision; do not start Phase6. See PHASE5_10_REPORT.md.
 
 Phase5.9 COMPLETE: 12 frozen independent dev instances × seeds0/1 ×4 policies =96 real Episodes; 8 goal clusters. Engineering audit passes (531/531 lookaheads,187/187 KEEP projections). Mean scores Never−0.542/Always3.333/Internal−10.833/Full−19.375; successes0/1/0/0 of24. Full did not reproduce a benefit. Frozen method/Memory/thresholds unchanged. Read [Phase5.9 report](PHASE5_9_REPORT.md) and [independent protocol](INDEPENDENT_DEV_EVAL.md). Await user review; do not start Phase6.
+
+## Phase5.10 acceptance and next decision
+
+- Format engineering: bounded real regression76/76 and online47/47 parse;52 unique CPU tests pass.
+- Environment/runtime:15 Episodes,91 verified one-step lookaheads,29 exact KEEP projections; all source/input/seed/budget/receipt checks pass. Diagnostic reader incidents and their full costs are preserved.
+- Action quality: Always public execution acceptance improves; Full acceptance stays3/7 and rejected replacements persist. Same-state one-step Fixed−Skip is0 in32 selected states; no downstream causal return estimate.
+- Scientific utility: five conditions all score−66.67/SR0% on3 new-ID/known-goal variants. No task improvement; no independent unseen-goal evidence. Original defaults and Gate/threshold/Memory/Actor/Paper protocol remain unchanged.
+
+Await user review before further implementation. Recommended future scope: separately version format-only versus conservative-prompt effects; diagnose goal-incorrect but syntactically accepted revisions; evaluate paired continuations under explicit extra query/cost permissions. A new goal-level development partition could be reserved from unused, uncollected training goals only after a separately approved split audit excluding Memory/test overlap. Do not tune or relabel current regression tasks as independent. No Phase6 authorization.
 
 ## Follow-up: deterministic real-environment next-state repair
 

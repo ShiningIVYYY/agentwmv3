@@ -1,0 +1,14 @@
+{
+  "stage": "complete",
+  "episodes": 15,
+  "seconds": 1243.034772431478,
+  "finished_at_ns": 1794119678336694662,
+  "ledger": {
+    "tokens": 198040,
+    "model_calls": 327,
+    "transition_queries": 2003,
+    "audit_capture_bundles": 5107,
+    "pending_model": null,
+    "pending_transition": null
+  }
+}

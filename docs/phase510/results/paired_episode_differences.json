@@ -1,0 +1,32 @@
+[
+  {
+    "task_id": "sciworld_2948",
+    "policy": "always",
+    "fixed_minus_original_score": 0
+  },
+  {
+    "task_id": "sciworld_2948",
+    "policy": "full",
+    "fixed_minus_original_score": 0
+  },
+  {
+    "task_id": "sciworld_715",
+    "policy": "always",
+    "fixed_minus_original_score": 0
+  },
+  {
+    "task_id": "sciworld_715",
+    "policy": "full",
+    "fixed_minus_original_score": 0
+  },
+  {
+    "task_id": "sciworld_1619",
+    "policy": "always",
+    "fixed_minus_original_score": 0
+  },
+  {
+    "task_id": "sciworld_1619",
+    "policy": "full",
+    "fixed_minus_original_score": 0
+  }
+]

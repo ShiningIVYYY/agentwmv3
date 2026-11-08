@@ -1,6 +1,6 @@
 # agentwmv3
 
-Phase5.10 IN PROGRESS: Original Reviewer retained; compact-json-conservative-v2 proposed. Gate/Memory/thresholds/Actor unchanged. Bounded protocol:20 old-debug unique requests +44 unique Phase5.9 format-failure prompts (53 original events) +12 Full quality cases;32 strict one-step Draft/Original/Fixed branch comparisons;3 new-ID known-goal dev variants ×5 conditions =15 Episodes at seed0. No independent unseen goal groups remain. No Phase6 or final test. See docs/PHASE5_10_REPORT.md.
+Phase5.10 COMPLETE: compact-json-conservative-v2 has0/76 offline and0/47 online format errors; Original online4/44. All15 Episodes complete,91/91 lookaheads and29/29 KEEP projections verified. Every condition scores−66.67/SR0%; no task benefit. Always replacement acceptance improves, Full does not. Gate/thresholds/Memory/Actor/WM/Paper protocol unchanged; new-ID variants share known goals. All owned jobs stopped. Await user decision; do not start Phase6. See docs/PHASE5_10_REPORT.md.
 
 Phase5.9 COMPLETE: 12 frozen independent dev instances × seeds0/1 ×4 policies =96 real Episodes; 8 goal clusters. Engineering audit passes (531/531 lookaheads,187/187 KEEP projections). Mean scores Never−0.542/Always3.333/Internal−10.833/Full−19.375; successes0/1/0/0 of24. Full did not reproduce a benefit. Frozen method/Memory/thresholds unchanged. Read [Phase5.9 report](docs/PHASE5_9_REPORT.md) and [independent protocol](docs/INDEPENDENT_DEV_EVAL.md). Await user review; do not start Phase6.
 
@@ -9,6 +9,17 @@ Current architecture: **frozen Qwen/Qwen3.5-9B Actor/Reviewer sharing one model,
 Read the [deterministic replay repair](docs/REAL_ENV_WM_REPLAY_FIX.md), [repair results](docs/REAL_ENV_WM_REPLAY_FIX_REPORT.md), [9B integration](docs/QWEN35_9B_INTEGRATION.md) and [progress](docs/PROGRESS.md). Controlled checks match48/48 real transitions; longer recorded-history checks match63/63 public transitions AND checked post-step fingerprints, plus9 repeated-worker and9 failed-evidence guards. This remains finite validation of a checked projection, not complete hidden-state equivalence or learned-WM prediction accuracy.
 
 The [original Phase5.7 report](docs/PHASE5_7_REPORT.md) and [original1.2.3 results](docs/phase57_replay/summary.json) remain historical. Old27/48 reconstruction and21/75 availability numbers describe that original engine, not the new1.3.0 profile. Reliable simulator feedback alone does not establish Reviewer utility or scientific effectiveness. Final test tasks and paper protocol are unchanged.
+
+## Phase5.10 Reviewer diagnostics
+
+Original remains the default Reviewer. `compact-json-conservative-v2` is selected explicitly by `configs/evaluation/phase510_reviewer_repair_v1.json`. The bounded experiment completed15 Episodes on3 new IDs sharing exposed goals; all conditions scored−66.67/SR0%. Online format errors fell4/44 to0/47, while Full revision quality and task return did not improve. Read [the report](docs/PHASE5_10_REPORT.md), [format audit](docs/REVIEWER_FORMAT_AUDIT.md), [Gate audit](docs/GATE_UTILITY_AUDIT.md) and [raw instance results](docs/phase510/results/episodes.csv).
+
+```bash
+CUDA_VISIBLE_DEVICES= PYTHONNOUSERSITE=1 .venv-qwen35-clean/bin/python scripts/test_reviewer_repair.py
+CUDA_VISIBLE_DEVICES= PYTHONNOUSERSITE=1 .venv-qwen35-clean/bin/python scripts/test_reviewer_repair_analysis.py
+```
+
+Real source logs are retained on lab; complete run/recovery/analysis commands and provenance are in the report. Compact76-case public inputs/outcomes and156 online decision traces are committed, with evaluation-only fields separated from Reviewer inputs. There are no unused goal-level development groups in the current split. Further method selection needs a separately approved validation plan; Phase6 remains awaiting confirmation.
 
 ## Current setup and bounded commands
 

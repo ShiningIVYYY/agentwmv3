@@ -1,0 +1,30 @@
+{
+  "total_ledger": {
+    "tokens": 198040,
+    "model_calls": 327,
+    "transition_queries": 2003,
+    "audit_capture_bundles": 5107,
+    "pending_model": null,
+    "pending_transition": null
+  },
+  "model_loads": 3,
+  "model_load_seconds": 77.85283238813281,
+  "episode_online_tokens": 139406,
+  "episode_online_queries": 943,
+  "offline_model_tokens": 58634,
+  "offline_model_requests": 80,
+  "controlled_comparison_queries": 1020,
+  "failed_and_probe_engineering_queries": 40,
+  "inherited_ledgers_already_include_all_original_offline_model_calls": true,
+  "never_add_reused_model_cost_twice": true,
+  "historical_original_source_inference_cost_not_charged_as_new_measurement": true,
+  "original_phase59_experience_construction_unchanged": true,
+  "new_offline_memory_synthesis": 0,
+  "low_level_py4j_rpc_count": null,
+  "gpu_kernel_hours": null,
+  "monetary_cost": null,
+  "flops": null,
+  "final_process_wall_seconds": 1243.034772431478,
+  "calendar_since_first_real_model_run_seconds": 6729.226344006,
+  "note": "Online episode, offline regression/controlled queries and failed engineering overhead are separate; no all-cost-zero claim. Timing scopes overlap; do not sum wall and components."
+}

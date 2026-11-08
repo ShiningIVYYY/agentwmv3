@@ -1,0 +1,9 @@
+{
+  "status": "format_regression_engineering_pass",
+  "reviewer": "compact-json-conservative-v2",
+  "sha256": "09b6c95edb31d8a8d2ff5700df637e72127c4effd0a8fc217b46e6b654669f3e",
+  "gate_memory_thresholds_changed": false,
+  "not_a_task_benefit_acceptance": true,
+  "offline_requests": 76,
+  "locked_at_ns": 1794113182358131908
+}

@@ -1,0 +1,405 @@
+{
+  "episode_groups": [
+    {
+      "policy": "never",
+      "reviewer": "original",
+      "episodes": 3,
+      "mean_score": -66.66666666666667,
+      "successes": 0,
+      "success_rate": 0.0,
+      "formal_steps": 29,
+      "wm_calls": 0,
+      "verified_lookaheads": 0,
+      "reviewer_calls": 0,
+      "format_errors": 0,
+      "reviewer_decisions": {},
+      "actual_revisions": 0,
+      "revision_feedback": {},
+      "revision_feedback_refined": {},
+      "revision_semantic_correctness": "unknown_unless_supported_by_separate_controlled_evidence",
+      "total_tokens": 12842,
+      "input_tokens": 11493,
+      "output_tokens": 1349,
+      "reviewer_tokens": 0,
+      "actor_tokens": 12842,
+      "episode_seconds": 71.30048128776252,
+      "reviewer_seconds": 0,
+      "lookahead_seconds": 0,
+      "total_transition_queries": 32,
+      "extra_lookahead_queries": 0,
+      "peak_torch_allocated_bytes": 19078454784
+    },
+    {
+      "policy": "always",
+      "reviewer": "original",
+      "episodes": 3,
+      "mean_score": -66.66666666666667,
+      "successes": 0,
+      "success_rate": 0.0,
+      "formal_steps": 36,
+      "wm_calls": 36,
+      "verified_lookaheads": 36,
+      "reviewer_calls": 36,
+      "format_errors": 4,
+      "reviewer_decisions": {
+        "KEEP": 5,
+        "REPLACE": 27,
+        "INVALID": 4
+      },
+      "actual_revisions": 25,
+      "revision_feedback": {
+        "accepted_feedback": 5,
+        "explicit_rejection": 19,
+        "unknown": 1
+      },
+      "revision_feedback_refined": {
+        "accepted_feedback": 5,
+        "explicit_rejection": 19,
+        "unknown": 1
+      },
+      "revision_semantic_correctness": "unknown_unless_supported_by_separate_controlled_evidence",
+      "total_tokens": 42052,
+      "input_tokens": 34424,
+      "output_tokens": 7628,
+      "reviewer_tokens": 27258,
+      "actor_tokens": 14794,
+      "episode_seconds": 451.740584237501,
+      "reviewer_seconds": 272.60297572240233,
+      "lookahead_seconds": 90.81809468381107,
+      "total_transition_queries": 366,
+      "extra_lookahead_queries": 327,
+      "peak_torch_allocated_bytes": 19146445312
+    },
+    {
+      "policy": "always",
+      "reviewer": "compact-json-conservative-v2",
+      "episodes": 3,
+      "mean_score": -66.66666666666667,
+      "successes": 0,
+      "success_rate": 0.0,
+      "formal_steps": 37,
+      "wm_calls": 37,
+      "verified_lookaheads": 37,
+      "reviewer_calls": 37,
+      "format_errors": 0,
+      "reviewer_decisions": {
+        "REPLACE": 27,
+        "KEEP": 10
+      },
+      "actual_revisions": 23,
+      "revision_feedback": {
+        "explicit_rejection": 12,
+        "accepted_feedback": 11
+      },
+      "revision_feedback_refined": {
+        "explicit_rejection": 12,
+        "accepted_feedback": 11
+      },
+      "revision_semantic_correctness": "unknown_unless_supported_by_separate_controlled_evidence",
+      "total_tokens": 44042,
+      "input_tokens": 41620,
+      "output_tokens": 2422,
+      "reviewer_tokens": 27434,
+      "actor_tokens": 16608,
+      "episode_seconds": 215.53444499894977,
+      "reviewer_seconds": 36.57559755630791,
+      "lookahead_seconds": 90.71835423260927,
+      "total_transition_queries": 370,
+      "extra_lookahead_queries": 330,
+      "peak_torch_allocated_bytes": 19172532736
+    },
+    {
+      "policy": "full",
+      "reviewer": "original",
+      "episodes": 3,
+      "mean_score": -66.66666666666667,
+      "successes": 0,
+      "success_rate": 0.0,
+      "formal_steps": 26,
+      "wm_calls": 8,
+      "verified_lookaheads": 8,
+      "reviewer_calls": 8,
+      "format_errors": 0,
+      "reviewer_decisions": {
+        "REPLACE": 8
+      },
+      "actual_revisions": 7,
+      "revision_feedback": {
+        "accepted_feedback": 3,
+        "unknown": 1,
+        "explicit_rejection": 3
+      },
+      "revision_feedback_refined": {
+        "accepted_feedback": 3,
+        "unknown": 1,
+        "explicit_rejection": 3
+      },
+      "revision_semantic_correctness": "unknown_unless_supported_by_separate_controlled_evidence",
+      "total_tokens": 19052,
+      "input_tokens": 16890,
+      "output_tokens": 2162,
+      "reviewer_tokens": 6498,
+      "actor_tokens": 12554,
+      "episode_seconds": 125.94797435589135,
+      "reviewer_seconds": 43.09134520217776,
+      "lookahead_seconds": 18.319614937528968,
+      "total_transition_queries": 87,
+      "extra_lookahead_queries": 58,
+      "peak_torch_allocated_bytes": 19168058368
+    },
+    {
+      "policy": "full",
+      "reviewer": "compact-json-conservative-v2",
+      "episodes": 3,
+      "mean_score": -66.66666666666667,
+      "successes": 0,
+      "success_rate": 0.0,
+      "formal_steps": 28,
+      "wm_calls": 10,
+      "verified_lookaheads": 10,
+      "reviewer_calls": 10,
+      "format_errors": 0,
+      "reviewer_decisions": {
+        "REPLACE": 9,
+        "KEEP": 1
+      },
+      "actual_revisions": 7,
+      "revision_feedback": {
+        "explicit_rejection": 4,
+        "accepted_feedback": 3
+      },
+      "revision_feedback_refined": {
+        "explicit_rejection": 4,
+        "accepted_feedback": 3
+      },
+      "revision_semantic_correctness": "unknown_unless_supported_by_separate_controlled_evidence",
+      "total_tokens": 21418,
+      "input_tokens": 19891,
+      "output_tokens": 1527,
+      "reviewer_tokens": 8133,
+      "actor_tokens": 13285,
+      "episode_seconds": 101.90479995682836,
+      "reviewer_seconds": 9.984357852488756,
+      "lookahead_seconds": 22.199186604470015,
+      "total_transition_queries": 88,
+      "extra_lookahead_queries": 57,
+      "peak_torch_allocated_bytes": 19172532736
+    }
+  ],
+  "offline_groups": [
+    {
+      "panel": "old_debug",
+      "unique_requests": 20,
+      "source_events": 20,
+      "original_errors": 5,
+      "fixed_errors": 0,
+      "original_event_errors": 5,
+      "fixed_event_errors": 0,
+      "original_mean_output_tokens": 194.45,
+      "fixed_mean_output_tokens": 20.2,
+      "original_mean_total_tokens": 839.3,
+      "fixed_mean_total_tokens": 768.4,
+      "original_mean_generation_seconds": 8.761037208791823,
+      "fixed_mean_generation_seconds": 0.9586142174899578,
+      "latency_comparison_uses_historical_original_hardware_load": true,
+      "original_keep_changed": 0
+    },
+    {
+      "panel": "phase59_format_failure",
+      "unique_requests": 44,
+      "source_events": 53,
+      "original_errors": 44,
+      "fixed_errors": 0,
+      "original_event_errors": 53,
+      "fixed_event_errors": 0,
+      "original_mean_output_tokens": 509.4318181818182,
+      "fixed_mean_output_tokens": 21.431818181818183,
+      "original_mean_total_tokens": 1064.7727272727273,
+      "fixed_mean_total_tokens": 676.6818181818181,
+      "original_mean_generation_seconds": 22.965772543187168,
+      "fixed_mean_generation_seconds": 0.9945737639526752,
+      "latency_comparison_uses_historical_original_hardware_load": true,
+      "original_keep_changed": 0
+    },
+    {
+      "panel": "phase59_full_quality",
+      "unique_requests": 12,
+      "source_events": 12,
+      "original_errors": 0,
+      "fixed_errors": 0,
+      "original_event_errors": 0,
+      "fixed_event_errors": 0,
+      "original_mean_output_tokens": 102.5,
+      "fixed_mean_output_tokens": 20.083333333333332,
+      "original_mean_total_tokens": 672.5833333333334,
+      "fixed_mean_total_tokens": 690.5833333333334,
+      "original_mean_generation_seconds": 4.636194220433633,
+      "fixed_mean_generation_seconds": 0.9431707832651833,
+      "latency_comparison_uses_historical_original_hardware_load": true,
+      "original_keep_changed": 0
+    }
+  ],
+  "controlled_one_step": [
+    {
+      "panel": "old_debug",
+      "cases": 20,
+      "same_state_projection_verified": true,
+      "original": {
+        "actual_revisions": 10,
+        "feedback": {
+          "explicit_rejection": 5,
+          "accepted_feedback": 5
+        },
+        "feedback_refined": {
+          "explicit_rejection": 5,
+          "accepted_feedback": 5
+        },
+        "supported_nonharmful_draft_changed": 2,
+        "one_step_vs_skip": {
+          "positive": 0,
+          "zero": 20,
+          "negative": 0,
+          "mean": 0.0
+        },
+        "successful_draft_replaced": 0,
+        "successful_draft_cases": 0
+      },
+      "fixed": {
+        "actual_revisions": 5,
+        "feedback": {
+          "accepted_feedback": 2,
+          "explicit_rejection": 3
+        },
+        "feedback_refined": {
+          "accepted_feedback": 2,
+          "explicit_rejection": 3
+        },
+        "supported_nonharmful_draft_changed": 0,
+        "one_step_vs_skip": {
+          "positive": 0,
+          "zero": 20,
+          "negative": 0,
+          "mean": 0.0
+        },
+        "successful_draft_replaced": 0,
+        "successful_draft_cases": 0
+      },
+      "fixed_minus_original": {
+        "positive": 0,
+        "zero": 20,
+        "negative": 0,
+        "mean": 0.0
+      }
+    },
+    {
+      "panel": "phase59_full_quality",
+      "cases": 12,
+      "same_state_projection_verified": true,
+      "original": {
+        "actual_revisions": 12,
+        "feedback": {
+          "accepted_feedback": 5,
+          "explicit_rejection": 4,
+          "unknown": 3
+        },
+        "feedback_refined": {
+          "accepted_feedback": 5,
+          "explicit_rejection": 5,
+          "unknown": 2
+        },
+        "supported_nonharmful_draft_changed": 4,
+        "one_step_vs_skip": {
+          "positive": 1,
+          "zero": 9,
+          "negative": 2,
+          "mean": -14.75
+        },
+        "successful_draft_replaced": 0,
+        "successful_draft_cases": 0
+      },
+      "fixed": {
+        "actual_revisions": 6,
+        "feedback": {
+          "unknown": 1,
+          "accepted_feedback": 2,
+          "explicit_rejection": 3
+        },
+        "feedback_refined": {
+          "unknown": 1,
+          "accepted_feedback": 2,
+          "explicit_rejection": 3
+        },
+        "supported_nonharmful_draft_changed": 1,
+        "one_step_vs_skip": {
+          "positive": 0,
+          "zero": 12,
+          "negative": 0,
+          "mean": 0.0
+        },
+        "successful_draft_replaced": 0,
+        "successful_draft_cases": 0
+      },
+      "fixed_minus_original": {
+        "positive": 2,
+        "zero": 9,
+        "negative": 1,
+        "mean": 14.75
+      }
+    }
+  ],
+  "ledger": {
+    "tokens": 198040,
+    "model_calls": 327,
+    "transition_queries": 2003,
+    "audit_capture_bundles": 5107,
+    "pending_model": null,
+    "pending_transition": null
+  },
+  "engineering_audit": {
+    "status": "pass",
+    "episodes": 15,
+    "formal_steps": 156,
+    "lookahead_attempts": 91,
+    "exact_keep_projections": 29,
+    "identical_initial_projections": true,
+    "identical_initial_actor_tokens": true,
+    "causality_prompts_gate_budgets_and_costs": true
+  },
+  "isolated_goal_generalization": false,
+  "independent_new_goal_groups": 0,
+  "old_results_preserved": true,
+  "no_gate_threshold_memory_change": true,
+  "model_load": {
+    "load_seconds": 33.04640148021281,
+    "loading_info": {
+      "missing_keys": [],
+      "unexpected_keys": [],
+      "mismatched_keys": [],
+      "error_msgs": []
+    },
+    "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "config_sha256": "cad3791bc197e7f95baa16837d072ab26b68b6f76cb12cf164e0ccfcaf71a7a6",
+    "shared_actor_reviewer_object": true,
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "backend": "hf_qwen35_generation_raw_bf16_v1",
+    "dtype": "bfloat16"
+  },
+  "complete": {
+    "stage": "complete",
+    "episodes": 15,
+    "seconds": 1243.034772431478,
+    "finished_at_ns": 1794119678336694662,
+    "ledger": {
+      "tokens": 198040,
+      "model_calls": 327,
+      "transition_queries": 2003,
+      "audit_capture_bundles": 5107,
+      "pending_model": null,
+      "pending_transition": null
+    }
+  },
+  "monetary_cost": null,
+  "flops": null,
+  "query_scope": "new online+offline controlled native transitions; original historic queries excluded; state captures separate",
+  "downstream_causal_utility_established": false
+}

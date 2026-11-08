@@ -1,0 +1,170 @@
+{
+  "all_full_pre_action_states": 350,
+  "all_state_high_nll_overlap": {
+    "neither": 258,
+    "both": 59,
+    "global_only": 21,
+    "local_only": 12
+  },
+  "shadow_calls_on_same_full_states_and_actual_full_budget": {
+    "local": 51,
+    "global": 58,
+    "internal": 67,
+    "full": 80
+  },
+  "calls_not_duplicated_by_two_signals": true,
+  "not_a_different_policy_trajectory": true,
+  "called_state_overlap_reference": "docs/phase510/gate_audit.json counts80 reviewed Full calls only, not350 states",
+  "frozen_snapshot_keys": [
+    "schema",
+    "manifest_sha256",
+    "built_at_ns",
+    "cases",
+    "cards",
+    "synthesis_cost",
+    "base_snapshot_sha256",
+    "snapshot_id"
+  ],
+  "frozen_cards": [
+    {
+      "schema": "experience-card-v1",
+      "benchmark": "scienceworld",
+      "kind": "closed_route_go",
+      "card_id": "exp_b5e8e19f18820e2efed9",
+      "card_type": [
+        "environment_rule",
+        "agent_failure_pattern"
+      ],
+      "applicability_conditions": {
+        "predicate": "closed_route_go",
+        "requires": "current observation explicitly names a closed door to the drafted destination, or the exact door being opened"
+      },
+      "observed_rule": "In recorded matching states, going through the explicitly closed route returned 'The door is not open.'.",
+      "failure_pattern": "Repeated Actor proposals through observed closed doors",
+      "suggested_correction": null,
+      "supporting_cases": [
+        "phase3_rule_probes_v1/sciworld_1545/step-1",
+        "phase3_rule_probes_v1/sciworld_1667/step-1",
+        "phase3_train_v2/sciworld_3044/step-3",
+        "phase3_train_v2/sciworld_325/step-4"
+      ],
+      "counterexamples": [],
+      "reliability": "supported",
+      "evidence_type": "observed_fact",
+      "independent_episodes": 4,
+      "independent_instances": 4,
+      "independent_goal_groups": 4,
+      "source_task_ids": [
+        "sciworld_1545",
+        "sciworld_1667",
+        "sciworld_3044",
+        "sciworld_325"
+      ],
+      "source_trajectory_ids": [
+        "phase3_rule_probes_v1/sciworld_1545",
+        "phase3_rule_probes_v1/sciworld_1667",
+        "phase3_train_v2/sciworld_3044",
+        "phase3_train_v2/sciworld_325"
+      ],
+      "available_at_ns": 1793483109754129273,
+      "wm_utility": "unknown",
+      "synthesis_version": "observed-door-rules-v1"
+    },
+    {
+      "schema": "experience-card-v1",
+      "benchmark": "scienceworld",
+      "kind": "closed_door_open",
+      "card_id": "exp_8db1a36db0a95a649654",
+      "card_type": [
+        "environment_rule"
+      ],
+      "applicability_conditions": {
+        "predicate": "closed_door_open",
+        "requires": "current observation explicitly names a closed door to the drafted destination, or the exact door being opened"
+      },
+      "observed_rule": "In recorded matching states, opening the explicitly visible closed door returned 'The door is now open.'.",
+      "failure_pattern": null,
+      "suggested_correction": null,
+      "supporting_cases": [
+        "phase3_rule_probes_v1/sciworld_1545/step-3",
+        "phase3_rule_probes_v1/sciworld_1667/step-3"
+      ],
+      "counterexamples": [],
+      "reliability": "supported",
+      "evidence_type": "observed_fact",
+      "independent_episodes": 2,
+      "independent_instances": 2,
+      "independent_goal_groups": 2,
+      "source_task_ids": [
+        "sciworld_1545",
+        "sciworld_1667"
+      ],
+      "source_trajectory_ids": [
+        "phase3_rule_probes_v1/sciworld_1545",
+        "phase3_rule_probes_v1/sciworld_1667"
+      ],
+      "available_at_ns": 1793483109941962577,
+      "wm_utility": "unknown",
+      "synthesis_version": "observed-door-rules-v1"
+    },
+    {
+      "schema": "experience-card-v1",
+      "card_id": "exp_7124e4e628e26cb3a034",
+      "benchmark": "scienceworld",
+      "kind": "room_inspection_look",
+      "card_type": [
+        "environment_rule"
+      ],
+      "applicability_conditions": {
+        "predicate": "room_inspection_look",
+        "requires": "current observation explicitly names room; exact look around draft"
+      },
+      "observed_rule": "In recorded states with an explicit current-room description, look around returned a description of the same room.",
+      "failure_pattern": null,
+      "suggested_correction": null,
+      "supporting_cases": [
+        "phase3_train_v2/sciworld_3044/step-1",
+        "phase3_train_v2/sciworld_3044/step-2",
+        "phase3_train_v2/sciworld_326/step-3",
+        "phase3_train_v2/sciworld_326/step-4"
+      ],
+      "counterexamples": [],
+      "reliability": "supported",
+      "evidence_type": "observed_fact",
+      "independent_episodes": 2,
+      "independent_instances": 2,
+      "independent_goal_groups": 2,
+      "source_task_ids": [
+        "sciworld_3044",
+        "sciworld_326"
+      ],
+      "source_trajectory_ids": [
+        "phase3_train_v2/sciworld_3044",
+        "phase3_train_v2/sciworld_326"
+      ],
+      "available_at_ns": 1793483054110360818,
+      "wm_utility": "unknown",
+      "synthesis_version": "room-inspection-training-only-v1"
+    }
+  ],
+  "original_full58_legacy_feedback": {
+    "unknown": 11,
+    "accepted_feedback": 23,
+    "explicit_rejection": 24
+  },
+  "original_full58_refined_feedback": {
+    "unknown": 7,
+    "accepted_feedback": 23,
+    "explicit_rejection": 28
+  },
+  "original_full58_rejection_subtypes": {
+    "not_classifiable_from_public_text": 7,
+    "accepted_execution_not_semantic_correctness": 23,
+    "syntax_or_reference_unresolved": 20,
+    "unsupported_tool_use": 1,
+    "electrical_contact_point_precondition": 3,
+    "state_precondition_or_access": 4
+  },
+  "no_gate_threshold_memory_tuning": true,
+  "no_downstream_per_call_utility_claim": true
+}

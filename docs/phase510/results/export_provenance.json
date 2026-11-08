@@ -1,0 +1,11 @@
+{
+  "script_sha256": "1fd1853337cf4684a54cc9ec005150268b89de2879d555e08f9b0c5f19e12319",
+  "analysis_script_sha256": "d3641e44b64bee00d647222af372791c73fbd6647f6dc6dd7c7ec44d6f3e2af3",
+  "source_manifest_sha256": "0b7b902920f4960e97a6ede8a7d1f0b815d72df089ceed13a26486cb0e8e861a",
+  "exported_at_ns": 1794119738025025179,
+  "case_pack_is_genuine": true,
+  "raw_complete_prompts_and_trace_logs_retained_on_lab": true,
+  "original_experiments_not_overwritten": true,
+  "full_driver_reproduction_requires_historical_source_files": true,
+  "case_input_and_audit_only_outcome_fields_separated": true
+}

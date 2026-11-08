@@ -1,0 +1,15 @@
+{
+  "checked_at_ns": 1794119963780955950,
+  "recorded_owned_pids": 207,
+  "remaining_recorded_pids": [],
+  "owned_session_ids": [
+    211077,
+    211586,
+    216333,
+    263920
+  ],
+  "remaining_in_owned_sessions": [],
+  "agentwmv2_git_status": "",
+  "note": "Two failed early branches lacked individual JVM PID logs; finally awaited close, and their detached worker sessions were scanned. No other user process killed.",
+  "gpu_snapshot": "0, 19685 MiB, 24564 MiB\n1, 3 MiB, 24564 MiB\n2, 17715 MiB, 24564 MiB\n3, 3 MiB, 24564 MiB\n4, 3 MiB, 24564 MiB\n5, 16941 MiB, 24564 MiB\n6, 16675 MiB, 24564 MiB\n7, 3 MiB, 24564 MiB\n"
+}
