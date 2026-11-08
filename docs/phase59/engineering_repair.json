@@ -1,0 +1,51 @@
+{
+  "type": "deterministic_post_run_auditor_schema_bug",
+  "before_commit": "1ac8a8473b92c68ba782d99e92978ab75f8fe5a0",
+  "original_run": "outputs/phase59_independent_v1",
+  "recovery_run": "outputs/phase59_independent_v2",
+  "original_error": "KeyError: request_seed in scored generation_record; actual seed is actor_metadata.generation_seed",
+  "fix": "strictly read actual scored/unscored locations; require agreement if both exist; reject missing/invalid seed",
+  "method_or_sampling_changes": false,
+  "only_changed_frozen_evaluation_file": [
+    "scripts/audit_independent_dev.py"
+  ],
+  "original_manifest_sha256": "4b6056b3095a5c8371c017dacc917f743f36794dc43f1e66d8fefdbd3170a419",
+  "original_supervisor_log_sha256": "324673d7c91c6c9a88f7fecbb156844f7e3d65da1ab83e72c81a38900f63ef30",
+  "data_reused": 20,
+  "data_regenerated": 0,
+  "all_copied_files_byte_identical": true,
+  "physical_cost_ledger_cumulative": true,
+  "original_llm_calls": 342,
+  "original_tokens": 183574,
+  "original_transition_queries": 1235,
+  "original_gpus": [
+    6,
+    7
+  ],
+  "extra_model_loads_required_by_safe_stop_and_resume": 2,
+  "first_round_reaudit": {
+    "status": "engineering_checks_pass",
+    "stage": "round1",
+    "episodes": 20,
+    "formal_actions": 251,
+    "model_calls": 342,
+    "llm_tokens": 183574,
+    "transition_queries": 1235,
+    "lookahead_attempts": 91,
+    "verified_lookaheads": 91,
+    "rejected_lookaheads": 0,
+    "verified_keep_projection_matches": 27,
+    "method_hashes_verified": true,
+    "evaluation_code_hashes_verified": true,
+    "identical_initial_states": true,
+    "policy_outcomes_used_for_acceptance": false,
+    "scientific_effectiveness_established": false
+  },
+  "unit_tests": {
+    "seed_schema": 6,
+    "analysis": 6,
+    "runtime": 12,
+    "related_regressions": 98,
+    "total": 122
+  }
+}

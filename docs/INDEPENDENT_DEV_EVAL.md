@@ -71,3 +71,7 @@ The supervisor verifies all13 local model/tokenizer assets against the previousl
 Raw traces remain under the ignored run directory; compact per-instance raw results, full decision signals, evidence examples and provenance are exported with the final report. Unit fixtures/Mock scores never enter research metrics. No training or final Benchmark experiment is part of this protocol.
 
 No authoritative native difficulty labels were available; tasks are not retrospectively labelled easy/hard from scores. Use the isolated Python3.12 interpreter; system Python3.9 is incompatible with existing type hints.
+
+## Recorded engineering repair before Round2
+
+Round1 completed all20 Episodes. The first auditor incorrectly read request_seed from scored generation_record; scored metadata actually records actor_metadata.generation_seed. This is a post-run reader defect, not a sampling/Actor/Gate change. Original run/code/data remain preserved. The strict dual-schema fix rejects absent/conflicting seeds;6 new tests pass. Re-audit of all20 original byte-identical measurements passes:91/91 lookaheads and27 exact KEEP projections. Recovery imports cumulative ledgers and ALL20 results; no selected reruns. Remaining76 execute under the same frozen cohort/method/deadline. Safe stop/reload adds two model initializations, counted as engineering overhead. See phase59/engineering_repair.json.

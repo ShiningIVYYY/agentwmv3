@@ -18,6 +18,20 @@ def require(value,why):
     if not value:raise ValueError(why)
 
 
+def recorded_seed(metadata):
+    # The accepted scored and unscored providers have distinct REAL schemas.
+    # Require actual recorded values; never substitute the expected seed.
+    values=[]
+    record=metadata.get('generation_record',{})
+    actor=metadata.get('actor_metadata',{})
+    if 'request_seed' in record:values.append(record['request_seed'])
+    if 'generation_seed' in actor:values.append(actor['generation_seed'])
+    if not values or any(not isinstance(v,int) or isinstance(v,bool) for v in values):
+        raise ValueError('Missing/invalid recorded generation seed')
+    if len(set(values))!=1:raise ValueError('Inconsistent recorded generation seeds')
+    return values[0]
+
+
 def audit(run,stage):
     run=Path(run);manifest=json.loads((run/'manifest.json').read_text());profile=manifest['profile']
     verify_frozen(ROOT,profile)
@@ -40,7 +54,7 @@ def audit(run,stage):
                 require(t['step']==step and t['task_id']==task and t['rollout_seed']==seed,'Step identity/count')
                 require(record['messages']==messages(t['goal'],t['observation'],past,keep=2),'Actor future/different prompt')
                 require(meta['shared_model_revision']==config['internal_signature']['model_revision'],'Actor model revision drift')
-                require(record['request_seed']==request_seed(task,step,'draft',seed),'Draft random seed drift')
+                require(recorded_seed(meta)==request_seed(task,step,'draft',seed),'Draft random seed drift')
                 if past:require(t['observation']==rows[step-1]['actual']['observation'],'Observation not last actual feedback')
                 if not gate.needs_internal:require(signals is None and meta['internal_cost']['extraction_seconds']==0,'Unused Internal cost')
                 if not gate.needs_external:require(t['external'] is None,'Unused External cost')
@@ -66,7 +80,7 @@ def audit(run,stage):
                         if review:
                             require(review['generation_record']['messages']==review_messages(t['goal'],t['observation'],past,t['draft_action'],sim),'Private/different Reviewer prompt')
                             require(review['shared_model_revision']==meta['shared_model_revision'] and review['config_sha256']==meta['config_sha256'],'Reviewer weights differ')
-                            require(review['generation_record']['request_seed']==request_seed(task,step,'review',seed),'Reviewer seed drift')
+                            require(recorded_seed(review)==request_seed(task,step,'review',seed),'Reviewer seed drift')
                             ep_calls+=1;ep_reviews+=1;ep_tokens+=review['usage']['total_tokens']
                     else:
                         require(review is None and t['final_action']==t['draft_action'],'Failed replay used')
