@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "scripts/export_replay_fix_evidence.py": "338ac2a652c9538105d4a99539c7e5b1e3aef4176f4ddaad191c2e6d48c8f44f",
+    "scripts/validate_replay_histories.py": "b38765dd0f3b50cd3d70d42e4e7e53238c037e1266ad9aab50312692e179eac6",
+    "scripts/prepare_scienceworld_replay.py": "556d09927fbb1b92ce4b90c3f7c3465b31a7eef8b6788fe08f6a21e7e4e47181"
+  },
+  "original_report_unchanged_evidence": "docs/phase57_replay",
+  "real_simulator_access": "oracle_like_not_learned_wm",
+  "phase6_started": false
+}

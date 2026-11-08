@@ -1,0 +1,12 @@
+{
+  "status": "final_checks_pass",
+  "source_hashes_match_executed_run": true,
+  "owned_logged_processes_checked": 89,
+  "owned_processes_remaining": [],
+  "protected_inputs_unchanged": true,
+  "agentwmv2_clean": true,
+  "new_report_links_valid": true,
+  "changed_scripts_compile": true,
+  "tests": 98,
+  "phase6_started": false
+}

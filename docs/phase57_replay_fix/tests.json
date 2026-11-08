@@ -1,0 +1,28 @@
+{
+  "status": "pass",
+  "total": 98,
+  "commands": [
+    {
+      "script": "scripts/test_replay_profiles.py",
+      "tests": 7
+    },
+    {
+      "script": "scripts/test_replay_integration.py",
+      "tests": 8
+    },
+    {
+      "script": "scripts/test_internal_signals.py",
+      "tests": 14
+    },
+    {
+      "script": "scripts/test_gates.py",
+      "tests": 63
+    },
+    {
+      "script": "scripts/test_qwen35_tokenizer.py --model-dir checkpoints/qwen35_9b",
+      "tests": 6
+    }
+  ],
+  "scope": "unit/tokenizer checks separate from real replay and true model results",
+  "pip_check": "No broken requirements found."
+}

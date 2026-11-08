@@ -14,6 +14,7 @@ from worldmodel.ground_truth_environment import ReplayScienceEnvironment, Ground
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--output', required=True)
+    parser.add_argument('--simulator-profile', choices=['scienceworld123','scienceworld130'], default='scienceworld123')
     args = parser.parse_args()
     out = Path(args.output)
     if out.exists():
@@ -22,7 +23,7 @@ def main():
     import hashlib
     provenance = dict(command=sys.argv, adapter_sha256=hashlib.sha256((ROOT/'worldmodel/ground_truth_environment.py').read_bytes()).hexdigest(),
                       validator_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
-                      protocol='public_native_step_without_valid_enumeration/post_load_seed/strict_projection')
+                      simulator_profile=args.simulator_profile, protocol='public_native_step_without_valid_enumeration/post_load_seed/strict_projection')
     (out/'provenance.json').write_text(json.dumps(provenance,indent=2)+'\n')
     manifest = json.loads((ROOT/'docs/phase3/split_manifest.json').read_text())
     validate_manifest(manifest, require_native=True)
@@ -35,7 +36,7 @@ def main():
         row = dev[task_id]
         for seed in (0, 1, 7):
             spec = dict(taskName=row['taskName'], variationIdx=row['variationIdx'], simplifications='',
-                        seed=seed, environment_step_limit=21)
+                        seed=seed, environment_step_limit=21, simulator_profile=args.simulator_profile)
             env = ReplayScienceEnvironment(spec)
             try:
                 for length in range(9):

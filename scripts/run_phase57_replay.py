@@ -23,7 +23,7 @@ from internal_signals.decision import messages
 from internal_signals.qwen35_actor import Qwen35Actor
 from internal_signals.token_nll import selected_token_nll, teacher_forced_nll
 from reflection.replay_review import PROTOCOL, review_messages, parse_review
-from worldmodel.ground_truth_environment import ReplayScienceEnvironment, GroundTruthEnvironmentWM
+from worldmodel.ground_truth_environment import ReplayScienceEnvironment, GroundTruthEnvironmentWM, simulator_identity, state_fingerprint
 
 
 def atomic(path, value):
@@ -87,10 +87,12 @@ def calibrate(records, actor):
     return config, report
 
 
-def load_calibration_source(source, actor_config, calibration_ids):
+def load_calibration_source(source, actor_config, calibration_ids, simulator_profile='scienceworld123'):
     """Resume only identical model/scoring/split data, never select by outcomes."""
     source = Path(source).resolve()
     old = json.loads((source/'manifest.json').read_text())
+    if old['pilot_profile'].get('simulator_profile','scienceworld123') != simulator_profile:
+        raise ValueError('Calibration simulator profile mismatch; collect fresh development signals')
     if old['model_config'] != actor_config or [r['task_id'] for r in old['calibration_tasks']] != calibration_ids:
         raise ValueError('Calibration source model/cohort mismatch')
     if old['split_sha256'] != file_hash(ROOT/'docs/phase3/split_manifest.json'):
@@ -116,7 +118,7 @@ def main():
     parser.add_argument('--output', required=True)
     parser.add_argument('--device', default='cuda:0')
     parser.add_argument('--config', default=str(ROOT/'configs/internal_signals/qwen35_9b_replay_v1.json'))
-    parser.add_argument('--profile', default=str(ROOT/'configs/evaluation/phase57_replay_dev_v1.json'))
+    parser.add_argument('--profile', default=str(ROOT/'configs/evaluation/phase57_replay_dev_v2.json'))
     parser.add_argument('--calibration-source', help='Reuse only a verified identical frozen development collection')
     args = parser.parse_args()
     out = Path(args.output)
@@ -129,6 +131,8 @@ def main():
     plan = json.loads((ROOT/'docs/phase5/development_plan.json').read_text())
     profile = json.loads(Path(args.profile).read_text())
     calibration_ids, evaluation_ids = profile['calibration_tasks'], profile['evaluation_tasks']
+    simulator_profile = profile.get('simulator_profile', 'scienceworld123')
+    _, simulator = simulator_identity(dict(simulator_profile=simulator_profile))
     if len(calibration_ids)>6 or len(evaluation_ids)>3 or profile['rollout_seeds']!=[0] or profile['calibration_quantile']!=.75:
         raise ValueError('Bounded prespecified pilot profile required')
     fixed = dict(maximum_interaction_turns=20,calibration_max_actions=8,environment_step_limit=21,
@@ -139,7 +143,7 @@ def main():
     actor_config=json.loads(Path(args.config).read_text())
     reused_calibration = None
     if args.calibration_source:
-        reused_calibration = load_calibration_source(args.calibration_source, actor_config, calibration_ids)
+        reused_calibration = load_calibration_source(args.calibration_source, actor_config, calibration_ids, simulator_profile)
     for public, actual in [('temperature','temperature'),('top_p','top_p'),('top_k','top_k'),
                            ('prompt_limit','max_prompt_tokens'),('response_limit','max_new_tokens'),('history_length','history_length')]:
         if profile[public]!=actor_config[actual]:
@@ -160,7 +164,7 @@ def main():
            episode_max_actions=20, model_rollout_seed=0, simulator_seed=0, simplifications='',
            environment_step_limit=21, simulation_depth=1, review_rounds=1,
            feedback_permissions=['trial_observation', 'trial_reward', 'trial_done', 'trial_score'],
-           query_policy='native_step_without_rng_mutating_valid_action_enumeration/post_load_seed',
+           simulator=simulator, query_policy='native_step_without_rng_mutating_valid_action_enumeration/post_load_seed',
            bounded_state_verification=True, complete_hidden_state_equivalence=False,
            no_training=True, no_learned_wm_calls=True,
            source_hashes={str(p.relative_to(ROOT)): file_hash(p) for p in sources},
@@ -229,7 +233,7 @@ def main():
         for task_id in calibration_ids:
             row = dev[task_id]
             env = ReplayScienceEnvironment(dict(taskName=row['taskName'], variationIdx=row['variationIdx'],
-                                         simplifications='', seed=0, environment_step_limit=21))
+                                         simplifications='', seed=0, environment_step_limit=21, simulator_profile=simulator_profile))
             past = []
             try:
                 if goal_key(env.goal) != row['goal_group']:
@@ -281,7 +285,7 @@ def main():
         for task_id in evaluation_ids:
             row = dev[task_id]
             env = ReplayScienceEnvironment(dict(taskName=row['taskName'], variationIdx=row['variationIdx'],
-                                         simplifications='', seed=0, environment_step_limit=21))
+                                         simplifications='', seed=0, environment_step_limit=21, simulator_profile=simulator_profile))
             started = time.perf_counter()
             budget = profile['wm_invocation_budgets'][policy]
             past, traces = [], []
@@ -325,7 +329,8 @@ def main():
                     actual = env.step(final)
                     match = None
                     if simulation and simulation['prediction_available'] and final == draft:
-                        match = all(simulation['candidate_transition'][k] == actual[k] for k in ('observation','reward','done','score','moves'))
+                        match = (all(simulation['candidate_transition'][k] == actual[k] for k in ('observation','reward','done','score','moves'))
+                                 and simulation['candidate_state_sha256'] == state_fingerprint(env.capture()))
                     trace = dict(policy=policy, task_id=task_id, step=step, goal=env.goal, observation=observation,
                                  draft_output=text, draft_action=draft, metadata=meta, external=external,
                                  resolved_external=asdict(resolved), gate=decision, decided_at_ns=decided_ns,

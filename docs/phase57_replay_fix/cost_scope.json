@@ -1,0 +1,58 @@
+{
+  "process_timing": {
+    "pid": 4021284,
+    "gpu": 4,
+    "initial_free_mib": 24089,
+    "log": "/data1/shn/agentwmv3/outputs/replay_fix_130_e2e_v1.log",
+    "purpose": "small_dev_replay_fix_regression_no_phase6",
+    "process_start_ticks": 1005992012,
+    "kernel_clock_ticks_per_second": 100,
+    "process_start_unix_ns_estimate": 1794081991526049486,
+    "process_wall_scope": "estimated kernel start tick to summary timestamp, includes startup/calibration/formal initialization, excludes post-summary cleanup",
+    "process_wall_estimate_tick_resolution_seconds": 0.01
+  },
+  "whole_run_to_summary_seconds_estimate": 1305.530926829,
+  "evaluation_calls": 279,
+  "evaluation_tokens": 150094,
+  "all_run_calls": 322,
+  "all_run_tokens": 167832,
+  "calls_by_role": {
+    "validation": 1,
+    "calibration_draft": 40,
+    "parity": 1,
+    "repeat_validation": 1,
+    "draft": 199,
+    "review": 80
+  },
+  "tokens_by_role": {
+    "calibration_draft": 16808,
+    "draft": 90378,
+    "parity": 455,
+    "repeat_validation": 455,
+    "review": 59716,
+    "validation": 20
+  },
+  "formal_actions": 199,
+  "formal_initialization_queries": 12,
+  "online_simulation_cost": {
+    "jvm_initializations": 80,
+    "initialization_step_calls": 80,
+    "replay_step_calls": 693,
+    "candidate_step_calls": 80,
+    "initialization_seconds": 112.98844204470515,
+    "replay_seconds": 51.03102274239063,
+    "candidate_seconds": 5.406061969697475,
+    "cleanup_seconds": 10.582788890227675,
+    "audit_capture_bundles": 2479
+  },
+  "online_simulation_latency": 208.81353585608304,
+  "formal_environment_version": "1.3.0",
+  "prediction_available": 80,
+  "reconstruction_failures": 0,
+  "checked_keep_transitions": 30,
+  "negative_trial_predictions": 0,
+  "terminal_trial_predictions": 1,
+  "diagnostic_forward_passes": 1,
+  "offline_new_experience_cost": 0,
+  "no_money_conversion": true
+}

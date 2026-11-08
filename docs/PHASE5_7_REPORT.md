@@ -1,5 +1,7 @@
 # Phase 5.7：Qwen3.5-9B + 严格验证的 Reset + Replay
 
+> 后续修复：官方 ScienceWorld1.3.0 已解决这里记录的跨 JVM 对象遍历/温度漂移问题。见 [修复原理](REAL_ENV_WM_REPLAY_FIX.md) 和 [真实修复报告](REAL_ENV_WM_REPLAY_FIX_REPORT.md)。本报告及下方旧版分数/成本保持原样，不覆盖历史结果。
+
 **新的受限架构已完成集成和小规模真实验证。Reset + Replay 并非对所有状态可靠；验证失败时明确回退，不使用未验证反馈。没有进入 Phase 6。**
 
 本报告按用户后续批准的 Reset + Replay 要求执行，不再把完整 Java/JVM 序列化作为前提。最初的克隆审查保存在 `PHASE5_7_INITIAL_AUDIT.md`，其中的停止条件是历史要求。

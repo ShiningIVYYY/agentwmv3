@@ -66,3 +66,7 @@ CUDA_VISIBLE_DEVICES=3 PYTHONNOUSERSITE=1 PYTHONDONTWRITEBYTECODE=1 \
 ```
 
 Use a new Run ID; keep failures and raw logs. No Qwen2.5 WM launcher or request is part of this entrypoint. Official sources: [model repository](https://huggingface.co/Qwen/Qwen3.5-9B), [Transformers model documentation](https://huggingface.co/docs/transformers/model_doc/qwen3_5). Hardware peak/costs and actual episode outcomes must come from completed records, not model-card benchmarks.
+
+## Deterministic simulator follow-up
+
+The official1.3.0 native JAR is selected through SDK1.2.3 serverPath, leaving this inference environment/model unchanged. The new v2 development profile collects its own40-step calibration before evaluation; it never assumes engine changes preserve NLL distributions. Observed fresh quantiles coincide numerically with the prior pilot, with separate provenance. The calibrated model/backend/dtype/signature remains frozen. See REAL_ENV_WM_REPLAY_FIX.md.

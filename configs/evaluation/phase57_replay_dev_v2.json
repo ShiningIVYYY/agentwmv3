@@ -1,0 +1,56 @@
+{
+  "purpose": "development_official_130_replay_fix_not_paper_aligned",
+  "actor_model": "Qwen/Qwen3.5-9B",
+  "reviewer_model": "Qwen/Qwen3.5-9B",
+  "shared_weights": true,
+  "wm_backend": "ground_truth_environment_replay",
+  "simulation_depth": 1,
+  "review_rounds": 1,
+  "maximum_interaction_turns": 20,
+  "history_length": 2,
+  "prompt_limit": 4096,
+  "response_limit": 512,
+  "temperature": 0.4,
+  "top_p": 1.0,
+  "top_k": 0,
+  "simplifications": "",
+  "environment_step_limit": 21,
+  "task_seed": 0,
+  "rollout_seeds": [
+    0
+  ],
+  "rng_seed_policy": "set_before_load_and_after_load",
+  "sdk_transition_policy": "public_native_step_without_rng_mutating_valid_action_query",
+  "reconstruction_failure": "no_reviewer_keep_original_draft",
+  "calibration_tasks": [
+    "sciworld_142",
+    "sciworld_1481",
+    "sciworld_383",
+    "sciworld_4420",
+    "sciworld_3342",
+    "sciworld_4215"
+  ],
+  "calibration_max_actions": 8,
+  "calibration_quantile": 0.75,
+  "evaluation_tasks": [
+    "sciworld_128",
+    "sciworld_2417",
+    "sciworld_3070"
+  ],
+  "wm_invocation_budgets": {
+    "never": 0,
+    "always": 20,
+    "internal": 5,
+    "full": 5
+  },
+  "memory_snapshot": "docs/phase5/memory_snapshot_v2.json",
+  "reviewer_feedback_fields": [
+    "predicted_observation",
+    "predicted_reward",
+    "predicted_done",
+    "predicted_score"
+  ],
+  "full_hidden_state_equivalence_claimed": false,
+  "simulator_profile": "scienceworld130",
+  "requires_fresh_calibration": true
+}

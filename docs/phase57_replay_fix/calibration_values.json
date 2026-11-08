@@ -1,0 +1,286 @@
+{
+  "source_sha256": "28f4ce543ad51045a948f3f0737dc43cb0032480338d1d8ed79fa4e560303048",
+  "collection": "fresh_130_not_reused",
+  "records": [
+    {
+      "task_id": "sciworld_142",
+      "step_index": 1,
+      "local": 0.3012466514686821,
+      "global_nll": 0.19490389793183607,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_142",
+      "step_index": 2,
+      "local": 0.3945219216506909,
+      "global_nll": 0.19864468926914192,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_142",
+      "step_index": 3,
+      "local": 0.15823600991094422,
+      "global_nll": 0.10520030048063546,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_142",
+      "step_index": 4,
+      "local": 0.34266237311931036,
+      "global_nll": 0.2261509771749685,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_142",
+      "step_index": 5,
+      "local": 0.3738195613841526,
+      "global_nll": 0.2022977881976845,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_142",
+      "step_index": 6,
+      "local": 0.6120142839076299,
+      "global_nll": 0.4715402484317272,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_142",
+      "step_index": 7,
+      "local": 0.5119599125141071,
+      "global_nll": 0.3098083928179293,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_142",
+      "step_index": 8,
+      "local": 0.6624252296003761,
+      "global_nll": 0.36655936060233446,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_1481",
+      "step_index": 1,
+      "local": 0.21136414255919303,
+      "global_nll": 0.1515849852242294,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_1481",
+      "step_index": 2,
+      "local": 0.3111535896224758,
+      "global_nll": 0.2231293267207501,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_1481",
+      "step_index": 3,
+      "local": 0.392811871324039,
+      "global_nll": 0.22404782589563485,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_1481",
+      "step_index": 4,
+      "local": 0.3921061793807894,
+      "global_nll": 0.2192817519183863,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_1481",
+      "step_index": 5,
+      "local": 0.4079307680563943,
+      "global_nll": 0.24677403666323408,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_1481",
+      "step_index": 6,
+      "local": 0.4110453742945207,
+      "global_nll": 0.2183830850881691,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_1481",
+      "step_index": 7,
+      "local": 0.4677448671593863,
+      "global_nll": 0.3266442519792463,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_1481",
+      "step_index": 8,
+      "local": 0.4089974455245493,
+      "global_nll": 0.27663294527275184,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_383",
+      "step_index": 1,
+      "local": 0.6103307609319927,
+      "global_nll": 0.3531208784824281,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_4420",
+      "step_index": 1,
+      "local": 0.438059610009077,
+      "global_nll": 0.3053784223214835,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_4420",
+      "step_index": 2,
+      "local": 0.5497894213973161,
+      "global_nll": 0.3092702289751858,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_4420",
+      "step_index": 3,
+      "local": 0.36843852715736086,
+      "global_nll": 0.22221740412292215,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_4420",
+      "step_index": 4,
+      "local": 0.24281899574756002,
+      "global_nll": 0.09308270716774407,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_4420",
+      "step_index": 5,
+      "local": 0.3078988223550141,
+      "global_nll": 0.15389957495138412,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_4420",
+      "step_index": 6,
+      "local": 0.38565031935771305,
+      "global_nll": 0.2228138120244779,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_4420",
+      "step_index": 7,
+      "local": 0.5277235027841436,
+      "global_nll": 0.29562179251951065,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_3342",
+      "step_index": 1,
+      "local": 1.1801360513155277,
+      "global_nll": 0.4431799717749458,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_3342",
+      "step_index": 2,
+      "local": 0.24587620632673163,
+      "global_nll": 0.13880076411661574,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_3342",
+      "step_index": 3,
+      "local": 0.19303957531990498,
+      "global_nll": 0.11466422465251856,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_3342",
+      "step_index": 4,
+      "local": 0.6947014619453022,
+      "global_nll": 0.4720647469941488,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_3342",
+      "step_index": 5,
+      "local": 0.3364440099848296,
+      "global_nll": 0.2596960460878228,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_3342",
+      "step_index": 6,
+      "local": 0.5832051381237208,
+      "global_nll": 0.4264706989111422,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_3342",
+      "step_index": 7,
+      "local": 0.7338814637225975,
+      "global_nll": 0.3597139235567664,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_3342",
+      "step_index": 8,
+      "local": 0.7051891108805483,
+      "global_nll": 0.3706816200882762,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_4215",
+      "step_index": 1,
+      "local": 0.8778594346209005,
+      "global_nll": 0.4631232146789285,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_4215",
+      "step_index": 2,
+      "local": 0.7002762620686553,
+      "global_nll": 0.36289233574620994,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_4215",
+      "step_index": 3,
+      "local": 0.3343898206891026,
+      "global_nll": 0.16757237485001358,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_4215",
+      "step_index": 4,
+      "local": 0.506108438555384,
+      "global_nll": 0.25221056530956826,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_4215",
+      "step_index": 5,
+      "local": 0.33620179820361673,
+      "global_nll": 0.19324332514642953,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_4215",
+      "step_index": 6,
+      "local": 0.4795023590117685,
+      "global_nll": 0.23931794911936002,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_4215",
+      "step_index": 7,
+      "local": 0.5721412570001121,
+      "global_nll": 0.2781633212850799,
+      "missing": false
+    },
+    {
+      "task_id": "sciworld_4215",
+      "step_index": 8,
+      "local": 0.41746495694096664,
+      "global_nll": 0.19609479239793523,
+      "missing": false
+    }
+  ]
+}

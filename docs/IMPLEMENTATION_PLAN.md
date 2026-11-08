@@ -1,6 +1,12 @@
 # Training-Free Internal–External Selective WM: implementation plan
 
-## Phase control
+## Follow-up: deterministic real-environment next-state repair
+
+User authorized resolving true-simulator next-state prediction. Root cause:1.2.3 unstable object iteration changes in-place heat updates across independent JVMs. Use official native1.3.0 commit e8216d6044e8e39be9fcb185e3b2dfb602584b52, with a pinned hash and explicit new profile; no local Java/Scala patch or SDK replacement. Controlled48/48 and recorded-history63/63 transitions match;9 repeated worker and9 corrupt-evidence checks pass. New post-step fingerprints strengthen KEEP verification. See REAL_ENV_WM_REPLAY_FIX.md and REAL_ENV_WM_REPLAY_FIX_REPORT.md.
+
+The bounded driver defaults to phase57_replay_dev_v2.json and recollects dev calibration; old v1 configs/reports/evidence remain for provenance. Native physics/door-reference behavior can differ from1.2.3, so this is a separate environment profile, not silent exact paper alignment. Memory, Gate rules, Reviewer, model/scoring and final task identities remain unchanged. New four-policy dev regression and source/cost audit are recorded in the repair report. Do not enter Phase6 without approval; reliable simulator access does not resolve Reviewer reliability or establish utility.
+
+## Phase control (original Phase5.7 handoff)
 
 **Phase5.7 amended Reset + Replay integration and bounded validation are complete. Await user confirmation; no Phase6 authorization.** Actor/Reviewer are official frozen Qwen3.5-9B; real independent ScienceWorld replay supplies one-step feedback only when verified. The initial full-JVM-clone prerequisite was superseded by the user and is archived in PHASE5_7_INITIAL_AUDIT.md. It is not an outstanding requirement for the accepted reset/replay design.
 
@@ -17,7 +23,7 @@ Read PHASE5_7_REPORT.md,REAL_ENVIRONMENT_WM.md,QWEN35_9B_INTEGRATION.md and PROG
 
 ## Before any Phase6 large evaluation
 
-1. Agree on the scientific scope of strict partial replay (actual21/75 availability),failed-reconstruction budget/cost and simulator information permissions. Do not represent observed state agreement as complete hidden equality. Keep the thermal-drift minimal reproducer and unsafe-feedback rejection.
+1. Use the explicit official1.3.0 replay profile and its new verified evidence; historical1.2.3 had21/75 availability. Continue validating broader lawful development states and simulator information permissions. Finite state/transition agreement is not complete hidden equality; preserve strict failure rejection and historical thermal evidence.
 2. Independently validate Reviewer grounding/goal reasoning. Any generic action-validity guard or prompt change must be a named version shared by all compared Gates;retain the current results. No task-specific rules or hidden answers.
 3. Expand/repeat only legal development calibration and diagnostic seeds under a predeclared plan. The40-step pilot is not stable calibration;no final-test threshold/rule selection. Keep budget independent of threshold and include all actual costs.
 4. Audit horizon/negative-failure censoring:Full's partial scores/all20-turn endpoints are not task success or strict downstream WM utility. More positive/zero/negative evidence requires reliable same-state comparisons;no similar-state shortcuts.

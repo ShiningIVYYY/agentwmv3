@@ -1,0 +1,671 @@
+{
+  "trace_sha256": "b2af6079d21bb0f0a011a7c7d1c01a918b013d7e2e6c5ba6112fd97b04654506",
+  "examples": [
+    {
+      "label": "ordinary_verified_keep",
+      "source_record_sha256": "9f906f861195f010d1ebab6417cd407956f687f2ba5a3e4c5e3d872e1d2ef71d",
+      "policy": "always",
+      "task_id": "sciworld_128",
+      "step_index": 1,
+      "goal": "Your task is to measure the temperature of unknown substance B, which is located around the living room. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above -50.0 degrees celsius, place it in the red box. If the unknown substance B temperature is below -50.0 degrees celsius, place it in the green box. The boxes are located around the bedroom.",
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "draft_decision": "Premise: The agent is currently in the bathroom and needs to locate the thermometer to measure the temperature of unknown substance B.\nExpected Consequence: Looking around will reveal all objects in the current room, allowing the agent to identify the thermometer.\nAction: look around",
+      "internal_signals": null,
+      "external": {
+        "coverage": "unknown",
+        "conflict": "unknown",
+        "sufficiency": "unknown",
+        "reliability": "unknown",
+        "evidence_ids": [],
+        "matched_experience_ids": [],
+        "evidence_verified": false,
+        "action_status": "unknown",
+        "diagnostics": []
+      },
+      "gate": {
+        "schema": "gate-decision-v1",
+        "decision_id": "replay_fix_130_e2e_v1/always/sciworld_128/0",
+        "policy": "always",
+        "call_wm": true,
+        "verification_requested": true,
+        "verification_unavailable": false,
+        "reason": "always_policy",
+        "triggered_signals": [
+          "always"
+        ],
+        "diagnostics": [],
+        "local_uncertainty": null,
+        "global_uncertainty": null,
+        "missing_span": false,
+        "signal_validity": "not_requested",
+        "experience_coverage": "unknown",
+        "experience_conflict": "unknown",
+        "experience_sufficiency": "unknown",
+        "experience_action_status": "unknown",
+        "experience_evidence_ids": [],
+        "evidence_verified": false,
+        "confirmed_action": false,
+        "memory_correction_enabled": false,
+        "budget_remaining": 20,
+        "forecast_budget_remaining": 20,
+        "tau_local": 0.5749072272810143,
+        "tau_global": 0.3332634086050418,
+        "gate_latency": 1.0507181286811829e-05,
+        "additional_cost": {
+          "model_calls": 0,
+          "tokens": 0,
+          "forward_passes": 0
+        },
+        "signal_requirements": {
+          "internal": false,
+          "external": false
+        }
+      },
+      "simulation": {
+        "status": "ok",
+        "prediction_available": true,
+        "source": "ground_truth_environment",
+        "verified_prefix_steps": 0,
+        "predicted_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+        "predicted_reward": 0,
+        "predicted_done": false,
+        "predicted_score": 0,
+        "error": null,
+        "simulation_cost": {
+          "jvm_initializations": 1,
+          "initialization_step_calls": 1,
+          "replay_step_calls": 0,
+          "candidate_step_calls": 1,
+          "initialization_seconds": 1.4202757328748703,
+          "replay_seconds": 0.0,
+          "candidate_seconds": 0.07757247798144817,
+          "cleanup_seconds": 0.06472562812268734,
+          "audit_capture_bundles": 5
+        },
+        "simulation_latency": 1.7121891472488642
+      },
+      "review": {
+        "raw": "Decision: KEEP\nReason: The draft action \"look around\" was successfully executed, confirming the current location is the bathroom and listing available objects. Since the goal requires focusing on the thermometer (not yet seen) and unknown substance B (not yet seen), and the only exit is a door to the kitchen, the agent must first explore the current room to find the thermometer or proceed to the kitchen. The action is valid and necessary for progress.\nFinal Action: look around",
+        "parsed": {
+          "decision": "KEEP",
+          "reason": "The draft action \"look around\" was successfully executed, confirming the current location is the bathroom and listing available objects. Since the goal requires focusing on the thermometer (not yet seen) and unknown substance B (not yet seen), and the only exit is a door to the kitchen, the agent must first explore the current room to find the thermometer or proceed to the kitchen. The action is valid and necessary for progress.",
+          "final_action": "look around",
+          "changed": false,
+          "action_validity": "unknown",
+          "semantic_utility": "unknown"
+        }
+      },
+      "final_action": "look around",
+      "actual": {
+        "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+        "raw_observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta substance called air\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+        "reward": 0,
+        "done": false,
+        "score": 0,
+        "moves": 0,
+        "native_action": "look around",
+        "action": "look around",
+        "step_seconds": 0.009697316214442253
+      },
+      "gate_decided_at_ns": 1794082222443930795,
+      "executed_at_ns": 1794082228528108822,
+      "actor_usage": {
+        "prompt_tokens": 399,
+        "completion_tokens": 55,
+        "total_tokens": 454
+      },
+      "review_usage": {
+        "prompt_tokens": 673,
+        "completion_tokens": 96,
+        "total_tokens": 769
+      },
+      "immediate_score_delta": 0,
+      "checked_candidate_state_sha256": "9cb6794597c9fdff9758e1295055307c67ae6d65ee9fd1678651206c12ad2f70",
+      "kept_draft_transition_match": true
+    },
+    {
+      "label": "terminal_transition",
+      "source_record_sha256": "0667fbd145fcdbf9b6c86b758d12c9afc29169cbb55e15b9debb230eaf5cab77",
+      "policy": "full",
+      "task_id": "sciworld_2417",
+      "step_index": 11,
+      "goal": "Your task is to determine if unknown substance E is electrically conductive. The unknown substance E is located around the workshop. First, focus on the unknown substance E. If it is electrically conductive, place it in the green box. If it is electrically nonconductive, place it in the blue box.",
+      "observation": "You move the unknown substance E to the inventory.",
+      "draft_decision": "Premise: The unknown substance E is currently in the agent's inventory.\nExpected Consequence: The agent will hold the unknown substance E and can move it to a container.\nAction: move unknown substance E to green box",
+      "internal_signals": {
+        "premise_uncertainty": 0.11106052057433165,
+        "consequence_uncertainty": 0.5901363601137746,
+        "local_uncertainty": 0.5901363601137746,
+        "global_uncertainty": 0.24839251802644738,
+        "missing_span": false,
+        "backend": "hf_qwen35_generation_raw_bf16_v1",
+        "dtype": "bfloat16",
+        "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a"
+      },
+      "external": {
+        "coverage": "unknown",
+        "conflict": "unknown",
+        "sufficiency": "unknown",
+        "reliability": "unknown",
+        "evidence_ids": [],
+        "matched_experience_ids": [],
+        "evidence_verified": false,
+        "action_status": "unknown",
+        "diagnostics": [
+          "unverified_or_inapplicable_external_evidence"
+        ]
+      },
+      "gate": {
+        "schema": "gate-decision-v1",
+        "decision_id": "replay_fix_130_e2e_v1/full/sciworld_2417/10",
+        "policy": "full",
+        "call_wm": true,
+        "verification_requested": true,
+        "verification_unavailable": false,
+        "reason": "internal_trigger",
+        "triggered_signals": [
+          "high_local_uncertainty"
+        ],
+        "diagnostics": [
+          "unverified_or_inapplicable_external_evidence",
+          "external_unknown_internal_fallback"
+        ],
+        "local_uncertainty": 0.5901363601137746,
+        "global_uncertainty": 0.24839251802644738,
+        "missing_span": false,
+        "signal_validity": "valid",
+        "experience_coverage": "unknown",
+        "experience_conflict": "unknown",
+        "experience_sufficiency": "unknown",
+        "experience_action_status": "unknown",
+        "experience_evidence_ids": [],
+        "evidence_verified": false,
+        "confirmed_action": false,
+        "memory_correction_enabled": false,
+        "budget_remaining": 3,
+        "forecast_budget_remaining": 3,
+        "tau_local": 0.5749072272810143,
+        "tau_global": 0.3332634086050418,
+        "gate_latency": 2.8362497687339783e-05,
+        "additional_cost": {
+          "model_calls": 0,
+          "tokens": 0,
+          "forward_passes": 0
+        },
+        "signal_requirements": {
+          "internal": true,
+          "external": true
+        }
+      },
+      "simulation": {
+        "status": "ok",
+        "prediction_available": true,
+        "source": "ground_truth_environment",
+        "verified_prefix_steps": 10,
+        "predicted_observation": "You move the unknown substance E to the green box.",
+        "predicted_reward": 40,
+        "predicted_done": true,
+        "predicted_score": 100,
+        "error": null,
+        "simulation_cost": {
+          "jvm_initializations": 1,
+          "initialization_step_calls": 1,
+          "replay_step_calls": 10,
+          "candidate_step_calls": 1,
+          "initialization_seconds": 1.3908152431249619,
+          "replay_seconds": 0.844385551288724,
+          "candidate_seconds": 0.07386927306652069,
+          "cleanup_seconds": 0.11522631905972958,
+          "audit_capture_bundles": 35
+        },
+        "simulation_latency": 2.8543029986321926
+      },
+      "review": {
+        "raw": "Decision: KEEP\nReason: The draft action successfully moves the unknown substance E to the green box, aligning with the goal's condition for an electrically conductive substance, and the simulator feedback indicates a perfect score and task completion.\nFinal Action: move unknown substance E to green box",
+        "parsed": {
+          "decision": "KEEP",
+          "reason": "The draft action successfully moves the unknown substance E to the green box, aligning with the goal's condition for an electrically conductive substance, and the simulator feedback indicates a perfect score and task completion.",
+          "final_action": "move unknown substance E to green box",
+          "changed": false,
+          "action_validity": "unknown",
+          "semantic_utility": "unknown"
+        }
+      },
+      "final_action": "move unknown substance E to green box",
+      "actual": {
+        "observation": "You move the unknown substance E to the green box.",
+        "raw_observation": "You move the unknown substance E to the green box.",
+        "reward": 40,
+        "done": true,
+        "score": 100,
+        "moves": 8,
+        "native_action": "move unknown substance E to green box",
+        "action": "move unknown substance E to green box",
+        "step_seconds": 0.025318389758467674
+      },
+      "gate_decided_at_ns": 1794083213019041243,
+      "executed_at_ns": 1794083218597382197,
+      "actor_usage": {
+        "prompt_tokens": 451,
+        "completion_tokens": 47,
+        "total_tokens": 498
+      },
+      "review_usage": {
+        "prompt_tokens": 651,
+        "completion_tokens": 59,
+        "total_tokens": 710
+      },
+      "immediate_score_delta": 0,
+      "checked_candidate_state_sha256": "43e373dcf8de71bfc31efe4893d843241563609a12033b5a8786bd8a12f0dba2",
+      "kept_draft_transition_match": true
+    },
+    {
+      "label": "positive_immediate_correction",
+      "source_record_sha256": "5bd01aa4f21c5d2e6b7d516c3f481d09554cbe3debf42711811ce2713c085194",
+      "policy": "full",
+      "task_id": "sciworld_3070",
+      "step_index": 8,
+      "goal": "Your task is to find a(n) living thing. First, focus on the thing. Then, move it to the blue box in the living room.",
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta finger painting\n\ta glass cup (containing nothing)\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is closed, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "draft_decision": "Premise: The current room is the bathroom and contains a door to the kitchen.\nExpected Consequence: The agent will enter the kitchen room.\nAction: go kitchen",
+      "internal_signals": {
+        "premise_uncertainty": 0.2988339162298611,
+        "consequence_uncertainty": 0.24798172933151363,
+        "local_uncertainty": 0.2988339162298611,
+        "global_uncertainty": 0.17888315898598128,
+        "missing_span": false,
+        "backend": "hf_qwen35_generation_raw_bf16_v1",
+        "dtype": "bfloat16",
+        "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a"
+      },
+      "external": {
+        "coverage": "true",
+        "conflict": "true",
+        "sufficiency": "false",
+        "reliability": "supported",
+        "evidence_ids": [
+          "phase3_rule_probes_v1/sciworld_1545/step-1",
+          "phase3_rule_probes_v1/sciworld_1667/step-1",
+          "phase3_train_v2/sciworld_3044/step-3",
+          "phase3_train_v2/sciworld_325/step-4"
+        ],
+        "matched_experience_ids": [
+          "exp_b5e8e19f18820e2efed9"
+        ],
+        "evidence_verified": true,
+        "action_status": "unresolved_conflict",
+        "diagnostics": []
+      },
+      "gate": {
+        "schema": "gate-decision-v1",
+        "decision_id": "replay_fix_130_e2e_v1/full/sciworld_3070/7",
+        "policy": "full",
+        "call_wm": true,
+        "verification_requested": true,
+        "verification_unavailable": false,
+        "reason": "reliable_action_conflict_requires_verification_correction_off",
+        "triggered_signals": [
+          "reliable_unresolved_conflict"
+        ],
+        "diagnostics": [],
+        "local_uncertainty": 0.2988339162298611,
+        "global_uncertainty": 0.17888315898598128,
+        "missing_span": false,
+        "signal_validity": "valid",
+        "experience_coverage": "true",
+        "experience_conflict": "true",
+        "experience_sufficiency": "false",
+        "experience_action_status": "unresolved_conflict",
+        "experience_evidence_ids": [
+          "phase3_rule_probes_v1/sciworld_1545/step-1",
+          "phase3_rule_probes_v1/sciworld_1667/step-1",
+          "phase3_train_v2/sciworld_3044/step-3",
+          "phase3_train_v2/sciworld_325/step-4"
+        ],
+        "evidence_verified": true,
+        "confirmed_action": false,
+        "memory_correction_enabled": false,
+        "budget_remaining": 2,
+        "forecast_budget_remaining": 2,
+        "tau_local": 0.5749072272810143,
+        "tau_global": 0.3332634086050418,
+        "gate_latency": 1.36643648147583e-05,
+        "additional_cost": {
+          "model_calls": 0,
+          "tokens": 0,
+          "forward_passes": 0
+        },
+        "signal_requirements": {
+          "internal": true,
+          "external": true
+        }
+      },
+      "simulation": {
+        "status": "ok",
+        "prediction_available": true,
+        "source": "ground_truth_environment",
+        "verified_prefix_steps": 7,
+        "predicted_observation": "The door is not open.",
+        "predicted_reward": 0,
+        "predicted_done": false,
+        "predicted_score": 0,
+        "error": null,
+        "simulation_cost": {
+          "jvm_initializations": 1,
+          "initialization_step_calls": 1,
+          "replay_step_calls": 7,
+          "candidate_step_calls": 1,
+          "initialization_seconds": 1.4870647639036179,
+          "replay_seconds": 0.6248676497489214,
+          "candidate_seconds": 0.07667920365929604,
+          "cleanup_seconds": 0.11390633136034012,
+          "audit_capture_bundles": 26
+        },
+        "simulation_latency": 2.660959357395768
+      },
+      "review": {
+        "raw": "Decision: REPLACE\nReason: The draft action \"go kitchen\" failed because the observation explicitly states the door to the kitchen is closed; the agent cannot enter without opening it first. The goal requires finding a living thing, and the only potential candidate currently visible is \"water\" in the toilet (as water can be considered a living thing in some contexts or simply the only movable substance besides the agent). To proceed towards the goal, the agent must first open the door to access other rooms where a more obvious living thing might be found, or interact with the water. However, since the immediate barrier is the closed door, the necessary next step is to open it.\nFinal Action: open door to the kitchen",
+        "parsed": {
+          "decision": "REPLACE",
+          "reason": "The draft action \"go kitchen\" failed because the observation explicitly states the door to the kitchen is closed; the agent cannot enter without opening it first. The goal requires finding a living thing, and the only potential candidate currently visible is \"water\" in the toilet (as water can be considered a living thing in some contexts or simply the only movable substance besides the agent). To proceed towards the goal, the agent must first open the door to access other rooms where a more obvious living thing might be found, or interact with the water. However, since the immediate barrier is the closed door, the necessary next step is to open it.",
+          "final_action": "open door to the kitchen",
+          "changed": true,
+          "action_validity": "unknown",
+          "semantic_utility": "unknown"
+        }
+      },
+      "final_action": "open door to the kitchen",
+      "actual": {
+        "observation": "The door is now open.",
+        "raw_observation": "The door is now open.",
+        "reward": 8,
+        "done": false,
+        "score": 8,
+        "moves": 4,
+        "native_action": "open door to the kitchen",
+        "action": "open door to the kitchen",
+        "step_seconds": 0.012165732681751251
+      },
+      "gate_decided_at_ns": 1794083253651201945,
+      "executed_at_ns": 1794083262809040581,
+      "actor_usage": {
+        "prompt_tokens": 463,
+        "completion_tokens": 36,
+        "total_tokens": 499
+      },
+      "review_usage": {
+        "prompt_tokens": 649,
+        "completion_tokens": 143,
+        "total_tokens": 792
+      },
+      "immediate_score_delta": 8,
+      "checked_candidate_state_sha256": "a667dfe274e1aedde47eadbb371370733e51a41856b1c295d31f18b0b73bf9a9",
+      "kept_draft_transition_match": null
+    },
+    {
+      "label": "rejected_replacement",
+      "source_record_sha256": "91be0379da28b98509a23f1a59c6d04f508b5313c89875d4584da2862a94341f",
+      "policy": "always",
+      "task_id": "sciworld_128",
+      "step_index": 2,
+      "goal": "Your task is to measure the temperature of unknown substance B, which is located around the living room. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above -50.0 degrees celsius, place it in the red box. If the unknown substance B temperature is below -50.0 degrees celsius, place it in the green box. The boxes are located around the bedroom.",
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "draft_decision": "Premise: The agent is currently in the bathroom and needs to find the thermometer to measure the temperature of unknown substance B.\nExpected Consequence: Moving to the kitchen may reveal the thermometer or the door to the bedroom where the boxes are located.\nAction: go kitchen",
+      "internal_signals": null,
+      "external": {
+        "coverage": "unknown",
+        "conflict": "unknown",
+        "sufficiency": "unknown",
+        "reliability": "unknown",
+        "evidence_ids": [],
+        "matched_experience_ids": [],
+        "evidence_verified": false,
+        "action_status": "unknown",
+        "diagnostics": []
+      },
+      "gate": {
+        "schema": "gate-decision-v1",
+        "decision_id": "replay_fix_130_e2e_v1/always/sciworld_128/1",
+        "policy": "always",
+        "call_wm": true,
+        "verification_requested": true,
+        "verification_unavailable": false,
+        "reason": "always_policy",
+        "triggered_signals": [
+          "always"
+        ],
+        "diagnostics": [],
+        "local_uncertainty": null,
+        "global_uncertainty": null,
+        "missing_span": false,
+        "signal_validity": "not_requested",
+        "experience_coverage": "unknown",
+        "experience_conflict": "unknown",
+        "experience_sufficiency": "unknown",
+        "experience_action_status": "unknown",
+        "experience_evidence_ids": [],
+        "evidence_verified": false,
+        "confirmed_action": false,
+        "memory_correction_enabled": false,
+        "budget_remaining": 19,
+        "forecast_budget_remaining": 19,
+        "tau_local": 0.5749072272810143,
+        "tau_global": 0.3332634086050418,
+        "gate_latency": 1.2813135981559753e-05,
+        "additional_cost": {
+          "model_calls": 0,
+          "tokens": 0,
+          "forward_passes": 0
+        },
+        "signal_requirements": {
+          "internal": false,
+          "external": false
+        }
+      },
+      "simulation": {
+        "status": "ok",
+        "prediction_available": true,
+        "source": "ground_truth_environment",
+        "verified_prefix_steps": 1,
+        "predicted_observation": "The door is not open.",
+        "predicted_reward": 0,
+        "predicted_done": false,
+        "predicted_score": 0,
+        "error": null,
+        "simulation_cost": {
+          "jvm_initializations": 1,
+          "initialization_step_calls": 1,
+          "replay_step_calls": 1,
+          "candidate_step_calls": 1,
+          "initialization_seconds": 1.4075130969285965,
+          "replay_seconds": 0.06929679214954376,
+          "candidate_seconds": 0.100241769105196,
+          "cleanup_seconds": 0.06378576345741749,
+          "audit_capture_bundles": 8
+        },
+        "simulation_latency": 1.7974712681025267
+      },
+      "review": {
+        "raw": "Decision: REPLACE\nReason: The draft action \"go kitchen\" failed because the observation states the door to the kitchen is closed, making it impossible to enter without opening it first. Additionally, the goal requires measuring substance B in the living room and placing it in boxes in the bedroom; going to the kitchen is not the immediate next step. The agent needs to navigate to the living room first to find substance B.\nFinal Action: go living room",
+        "parsed": {
+          "decision": "REPLACE",
+          "reason": "The draft action \"go kitchen\" failed because the observation states the door to the kitchen is closed, making it impossible to enter without opening it first. Additionally, the goal requires measuring substance B in the living room and placing it in boxes in the bedroom; going to the kitchen is not the immediate next step. The agent needs to navigate to the living room first to find substance B.",
+          "final_action": "go living room",
+          "changed": true,
+          "action_validity": "unknown",
+          "semantic_utility": "unknown"
+        }
+      },
+      "final_action": "go living room",
+      "actual": {
+        "observation": "No known action matches that input.",
+        "raw_observation": "No known action matches that input.",
+        "reward": 0,
+        "done": false,
+        "score": 0,
+        "moves": 0,
+        "native_action": "go living room",
+        "action": "go living room",
+        "step_seconds": 0.014709364622831345
+      },
+      "gate_decided_at_ns": 1794082231224838402,
+      "executed_at_ns": 1794082237256890870,
+      "actor_usage": {
+        "prompt_tokens": 506,
+        "completion_tokens": 56,
+        "total_tokens": 562
+      },
+      "review_usage": {
+        "prompt_tokens": 690,
+        "completion_tokens": 91,
+        "total_tokens": 781
+      },
+      "immediate_score_delta": 0,
+      "checked_candidate_state_sha256": "91dd63ae560cdf20b048b7857b33e7d1ca0bc1f646e134ad2182464cf4a6bee4",
+      "kept_draft_transition_match": null
+    },
+    {
+      "label": "external_conflict",
+      "source_record_sha256": "252cd1df3edef820747c6b1b5019efce739c165d5730b62e1e0118b8f3faa331",
+      "policy": "full",
+      "task_id": "sciworld_128",
+      "step_index": 2,
+      "goal": "Your task is to measure the temperature of unknown substance B, which is located around the living room. First, focus on the thermometer. Next, focus on the unknown substance B. If the unknown substance B temperature is above -50.0 degrees celsius, place it in the red box. If the unknown substance B temperature is below -50.0 degrees celsius, place it in the green box. The boxes are located around the bedroom.",
+      "observation": "This room is called the bathroom. In it, you see: \n\tthe agent\n\ta bathtub, which is turned off. In the bathtub is: nothing.\n\ta glass cup (containing nothing)\n\ta picture\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called air\n\ta toilet. In the toilet is: A drain, which is open, a substance called water.\nYou also see:\n\tA door to the kitchen (that is closed)",
+      "draft_decision": "Premise: The agent is currently in the bathroom and needs to find the thermometer to measure the temperature of unknown substance B.\nExpected Consequence: Moving to the kitchen may reveal the thermometer or the door to the bedroom where the boxes are located.\nAction: go kitchen",
+      "internal_signals": {
+        "premise_uncertainty": 0.19088925367079604,
+        "consequence_uncertainty": 0.40050391426775606,
+        "local_uncertainty": 0.40050391426775606,
+        "global_uncertainty": 0.22475435610962946,
+        "missing_span": false,
+        "backend": "hf_qwen35_generation_raw_bf16_v1",
+        "dtype": "bfloat16",
+        "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a"
+      },
+      "external": {
+        "coverage": "true",
+        "conflict": "true",
+        "sufficiency": "false",
+        "reliability": "supported",
+        "evidence_ids": [
+          "phase3_rule_probes_v1/sciworld_1545/step-1",
+          "phase3_rule_probes_v1/sciworld_1667/step-1",
+          "phase3_train_v2/sciworld_3044/step-3",
+          "phase3_train_v2/sciworld_325/step-4"
+        ],
+        "matched_experience_ids": [
+          "exp_b5e8e19f18820e2efed9"
+        ],
+        "evidence_verified": true,
+        "action_status": "unresolved_conflict",
+        "diagnostics": []
+      },
+      "gate": {
+        "schema": "gate-decision-v1",
+        "decision_id": "replay_fix_130_e2e_v1/full/sciworld_128/1",
+        "policy": "full",
+        "call_wm": true,
+        "verification_requested": true,
+        "verification_unavailable": false,
+        "reason": "reliable_action_conflict_requires_verification_correction_off",
+        "triggered_signals": [
+          "reliable_unresolved_conflict"
+        ],
+        "diagnostics": [],
+        "local_uncertainty": 0.40050391426775606,
+        "global_uncertainty": 0.22475435610962946,
+        "missing_span": false,
+        "signal_validity": "valid",
+        "experience_coverage": "true",
+        "experience_conflict": "true",
+        "experience_sufficiency": "false",
+        "experience_action_status": "unresolved_conflict",
+        "experience_evidence_ids": [
+          "phase3_rule_probes_v1/sciworld_1545/step-1",
+          "phase3_rule_probes_v1/sciworld_1667/step-1",
+          "phase3_train_v2/sciworld_3044/step-3",
+          "phase3_train_v2/sciworld_325/step-4"
+        ],
+        "evidence_verified": true,
+        "confirmed_action": false,
+        "memory_correction_enabled": false,
+        "budget_remaining": 5,
+        "forecast_budget_remaining": 5,
+        "tau_local": 0.5749072272810143,
+        "tau_global": 0.3332634086050418,
+        "gate_latency": 1.6050413250923157e-05,
+        "additional_cost": {
+          "model_calls": 0,
+          "tokens": 0,
+          "forward_passes": 0
+        },
+        "signal_requirements": {
+          "internal": true,
+          "external": true
+        }
+      },
+      "simulation": {
+        "status": "ok",
+        "prediction_available": true,
+        "source": "ground_truth_environment",
+        "verified_prefix_steps": 1,
+        "predicted_observation": "The door is not open.",
+        "predicted_reward": 0,
+        "predicted_done": false,
+        "predicted_score": 0,
+        "error": null,
+        "simulation_cost": {
+          "jvm_initializations": 1,
+          "initialization_step_calls": 1,
+          "replay_step_calls": 1,
+          "candidate_step_calls": 1,
+          "initialization_seconds": 1.4135889038443565,
+          "replay_seconds": 0.08418933488428593,
+          "candidate_seconds": 0.10986031033098698,
+          "cleanup_seconds": 0.06371824629604816,
+          "audit_capture_bundles": 8
+        },
+        "simulation_latency": 1.8446902055293322
+      },
+      "review": {
+        "raw": "Decision: REPLACE\nReason: The draft action \"go kitchen\" failed because the observation states the door to the kitchen is closed, making it impossible to enter without opening it first. Additionally, the goal requires measuring substance B in the living room and placing it in boxes in the bedroom; going to the kitchen is not the immediate next step. The agent needs to navigate to the living room first to find substance B.\nFinal Action: go living room",
+        "parsed": {
+          "decision": "REPLACE",
+          "reason": "The draft action \"go kitchen\" failed because the observation states the door to the kitchen is closed, making it impossible to enter without opening it first. Additionally, the goal requires measuring substance B in the living room and placing it in boxes in the bedroom; going to the kitchen is not the immediate next step. The agent needs to navigate to the living room first to find substance B.",
+          "final_action": "go living room",
+          "changed": true,
+          "action_validity": "unknown",
+          "semantic_utility": "unknown"
+        }
+      },
+      "final_action": "go living room",
+      "actual": {
+        "observation": "No known action matches that input.",
+        "raw_observation": "No known action matches that input.",
+        "reward": 0,
+        "done": false,
+        "score": 0,
+        "moves": 0,
+        "native_action": "go living room",
+        "action": "go living room",
+        "step_seconds": 0.015323063358664513
+      },
+      "gate_decided_at_ns": 1794083103565735637,
+      "executed_at_ns": 1794083109583301351,
+      "actor_usage": {
+        "prompt_tokens": 506,
+        "completion_tokens": 56,
+        "total_tokens": 562
+      },
+      "review_usage": {
+        "prompt_tokens": 690,
+        "completion_tokens": 91,
+        "total_tokens": 781
+      },
+      "immediate_score_delta": 0,
+      "checked_candidate_state_sha256": "91dd63ae560cdf20b048b7857b33e7d1ca0bc1f646e134ad2182464cf4a6bee4",
+      "kept_draft_transition_match": null
+    }
+  ]
+}

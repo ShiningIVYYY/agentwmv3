@@ -1,14 +1,14 @@
 # agentwmv3
 
-Current architecture: **frozen Qwen/Qwen3.5-9B Actor and Reviewer, sharing one model, plus verified independent ScienceWorld Reset + Replay lookahead**. Phase5.7 bounded integration/diagnostics are complete; **Phase6 is not authorized**. No learned Qwen2.5 WM is used by the new path. Old code remains for historical reproduction.
+Current architecture: **frozen Qwen/Qwen3.5-9B Actor/Reviewer sharing one model, plus independent ScienceWorld Reset + Replay lookahead**. The new default bounded profile uses the pinned official **1.3.0 native engine**, which fixes the 1.2.3 cross-JVM object/heat-transfer ordering defect. No Qwen2.5 WM, training, formal-environment preview or rollback is used. Phase6 remains unauthorized.
 
-Read the [Phase5.7 report](docs/PHASE5_7_REPORT.md), [real-environment protocol](docs/REAL_ENVIRONMENT_WM.md), [9B integration](docs/QWEN35_9B_INTEGRATION.md), [actual evidence](docs/phase57_replay/summary.json) and [progress](docs/PROGRESS.md). This is Oracle-Like simulator access, not learned-WM prediction performance. Replay verifies only a subset:27/48 controlled states; the12-episode run accepts21/75 attempts and safely rejects54. No full hidden-state equivalence is claimed.
+Read the [deterministic replay repair](docs/REAL_ENV_WM_REPLAY_FIX.md), [repair results](docs/REAL_ENV_WM_REPLAY_FIX_REPORT.md), [9B integration](docs/QWEN35_9B_INTEGRATION.md) and [progress](docs/PROGRESS.md). Controlled checks match48/48 real transitions; longer recorded-history checks match63/63 public transitions AND checked post-step fingerprints, plus9 repeated-worker and9 failed-evidence guards. This remains finite validation of a checked projection, not complete hidden-state equivalence or learned-WM prediction accuracy.
 
-Three dev tasks xNever/Always/Internal/Full,seed0:mean Task Scores-61/-7.67/-100/41.67; all success rates0. One observed repair gives+8 immediate score, but7/13 replacements receive explicit rejection. This is engineering evidence, not proof of scientific effectiveness. Full uses fewer extra simulator queries than Always but slightly more total model tokens. Do not tune on the final200 tasks or run200x8 from this diagnostic.
+The [original Phase5.7 report](docs/PHASE5_7_REPORT.md) and [original1.2.3 results](docs/phase57_replay/summary.json) remain historical. Old27/48 reconstruction and21/75 availability numbers describe that original engine, not the new1.3.0 profile. Reliable simulator feedback alone does not establish Reviewer utility or scientific effectiveness. Final test tasks and paper protocol are unchanged.
 
 ## Current setup and bounded commands
 
-Tested on Linux,Python3.12,RTX4090; one free24GB card is sufficient for the tested BF16 path. The recommended pure inference environment has no inherited RL/vLLM packages,pip check passes,91 tests pass,and numerical portability matches two actual prompts. The published12-episode run used the earlier overlay environment; that distinction is retained in the report. Old environments are unchanged.
+Tested on Linux,Python3.12,RTX4090; one free24GB card is sufficient for the tested BF16 path. The recommended pure inference environment has no inherited RL/vLLM packages,pip check passes and98 contract/Internal/Gate/tokenizer tests pass. The original1.2.3 cohort used an overlay environment; the new regression uses the pure environment. Old environments are unchanged.
 
 ```bash
 # Fresh environment only; do not overwrite a stable environment.
@@ -24,14 +24,18 @@ python3.12 -m venv .venv-qwen35-clean
 PYTHONNOUSERSITE=1 .venv-qwen35-clean/bin/python scripts/test_replay_integration.py
 PYTHONNOUSERSITE=1 .venv-qwen35-clean/bin/python scripts/test_qwen35_tokenizer.py --model-dir checkpoints/qwen35_9b
 
+# Pin the small official native1.3.0 engine; do not replace the installed SDK.
+.venv-qwen35-clean/bin/python scripts/prepare_scienceworld_replay.py
+
 # Select a free card with nvidia-smi; GPU3 is an example, not a reservation.
 AGENTWM_GPU=3
 CUDA_VISIBLE_DEVICES="$AGENTWM_GPU" PYTHONNOUSERSITE=1 PYTHONDONTWRITEBYTECODE=1 \
  .venv-qwen35-clean/bin/python scripts/run_phase57_replay.py \
- --model-dir checkpoints/qwen35_9b --output outputs/phase57_new_run
+ --model-dir checkpoints/qwen35_9b --profile configs/evaluation/phase57_replay_dev_v2.json \
+ --output outputs/phase57_new_run
 ```
 
-The driver permits only a bounded approved development cohort,seed0,H20. It collects its own6-task pilot calibration before the3-task/four-policy run; every output requires a new Run ID. Original v5 strictly reused v4's frozen40-step collection with `--calibration-source outputs/phase57_replay_9b_v4`. The committed [calibration values](docs/phase57_replay/calibration_values.json) and [pilot Gate config](configs/gates/qwen35_replay_pilot_v1.json) identify that exact result. Different model/config/kernel/dtype paths need validation and calibration. Native cross-JVM physics remains nondeterministic, so exact fresh trajectory reproduction is not guaranteed.
+The driver permits only a bounded approved development cohort,seed0,H20. It collects its own6-task pilot calibration before the3-task/four-policy run; every output requires a new Run ID. Original v5 strictly reused v4's frozen40-step collection with `--calibration-source outputs/phase57_replay_9b_v4`. The committed [calibration values](docs/phase57_replay/calibration_values.json) and [pilot Gate config](configs/gates/qwen35_replay_pilot_v1.json) identify that exact result. Different model/config/kernel/dtype paths need validation and calibration. That1.2.3 thermal nondeterminism is addressed by the official1.3.0 profile. The new driver collects fresh calibration and rejects calibration reuse across engine versions; numerical thresholds may coincide after fresh collection. Finite replay checks still do not prove arbitrary hidden-state equivalence.
 
 Standalone real environment checks use `scripts/validate_reset_replay.py` and `scripts/reproduce_replay_rng.py`; post-run checks use `scripts/audit_phase57_replay.py`. Requirements/complete observed lock are under `environment/`. All commands refer to actual scripts. Large weights,venvs,raw trajectories and caches remain ignored. No model/router/probe training is performed.
 

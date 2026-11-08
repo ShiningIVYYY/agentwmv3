@@ -91,6 +91,8 @@ def main():
                 if sim:
                     budget-=1;require(sim['formal_unchanged'],'Formal environment polluted')
                     require(sim['source']=='ground_truth_environment','Not a real simulator transition')
+                    if 'simulator' in manifest:
+                        require(sim['simulator']==manifest['simulator'],'Worker and run native engine differ')
                     require(sim['available_at_ns']<t['executed_at_ns'] and t['decided_at_ns']<sim['available_at_ns'],'Future feedback leakage')
                     for k,v in sim['simulation_cost'].items():simcost[k]+=v
                     simulation_seconds+=sim['simulation_latency']
@@ -98,6 +100,9 @@ def main():
                         require(sim['worker_pid']!=sim['formal_pid'],'Shared JVM')
                         require(sim['verified_prefix_steps']==step,'Incomplete verified replay')
                         require(sim['simulation_cost']['candidate_step_calls']==1,'Not one-step lookahead')
+                        require(sim['simulation_cost']['replay_step_calls']==step,'Replay query costs differ from committed prefix')
+                        if 'simulator' in manifest:
+                            require(len(sim.get('candidate_state_sha256',''))==64,'Missing checked next-state fingerprint')
                         if review:
                             require(review['generation_record']['messages']==review_messages(t['goal'],t['observation'],past,t['draft_action'],sim),
                                     'Reviewer received private or different evidence')

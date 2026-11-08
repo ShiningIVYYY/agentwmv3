@@ -1,0 +1,383 @@
+{
+  "loading_info": {
+    "missing_keys": [],
+    "unexpected_keys": [],
+    "mismatched_keys": [],
+    "error_msgs": []
+  },
+  "load_seconds": 22.290159478783607,
+  "backend": "hf_qwen35_generation_raw_bf16_v1",
+  "config_sha256": "cad3791bc197e7f95baa16837d072ab26b68b6f76cb12cf164e0ccfcaf71a7a6",
+  "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "non_thinking_template": "<|im_start|>user\nhello<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+  "raw_gpu_nll_max_delta": 0.0,
+  "raw_gpu_nll_tolerance": 1e-05,
+  "cpu_fp32_diagnostic_max_delta": 9.426474571228027e-05,
+  "cpu_path_used_for_thresholds": false,
+  "ordinary_output": "hello",
+  "raw_nll_exact": true,
+  "raw_nll_within_tolerance": true,
+  "checked_tokens": 1,
+  "extra_validation_forward_passes": 1,
+  "generation_vs_teacher_forced_max_delta": 3.203749656677246e-07,
+  "actual_sampling_config": {
+    "max_length": null,
+    "max_new_tokens": null,
+    "min_length": null,
+    "min_new_tokens": null,
+    "early_stopping": null,
+    "max_time": null,
+    "stop_strings": null,
+    "do_sample": true,
+    "num_beams": null,
+    "use_mtp": null,
+    "use_cache": true,
+    "cache_implementation": null,
+    "cache_config": null,
+    "max_cache_len": null,
+    "temperature": 0.4,
+    "top_k": 0,
+    "top_p": 1,
+    "min_p": null,
+    "top_h": null,
+    "typical_p": null,
+    "epsilon_cutoff": null,
+    "eta_cutoff": null,
+    "repetition_penalty": 1,
+    "encoder_repetition_penalty": null,
+    "length_penalty": null,
+    "no_repeat_ngram_size": null,
+    "bad_words_ids": null,
+    "renormalize_logits": null,
+    "forced_bos_token_id": null,
+    "forced_eos_token_id": null,
+    "remove_invalid_values": null,
+    "exponential_decay_length_penalty": null,
+    "suppress_tokens": null,
+    "begin_suppress_tokens": null,
+    "sequence_bias": null,
+    "token_healing": null,
+    "guidance_scale": null,
+    "watermarking_config": null,
+    "num_return_sequences": null,
+    "output_attentions": null,
+    "output_hidden_states": null,
+    "output_scores": null,
+    "output_logits": null,
+    "return_dict_in_generate": null,
+    "pad_token_id": 248046,
+    "bos_token_id": null,
+    "eos_token_id": [
+      248044,
+      248046
+    ],
+    "encoder_no_repeat_ngram_size": null,
+    "decoder_start_token_id": null,
+    "is_assistant": null,
+    "num_assistant_tokens": null,
+    "num_assistant_tokens_schedule": null,
+    "assistant_confidence_threshold": null,
+    "prompt_lookup_num_tokens": null,
+    "max_matching_ngram_size": null,
+    "assistant_early_exit": null,
+    "assistant_lookbehind": null,
+    "target_lookbehind": null,
+    "assistant_ensemble_weight": null,
+    "speculation_type": null,
+    "compile_config": null,
+    "disable_compile": null,
+    "continuous_batching_config": null,
+    "low_memory": null,
+    "penalty_alpha": null,
+    "dola_layers": null,
+    "diversity_penalty": null,
+    "num_beam_groups": null,
+    "constraints": null,
+    "force_words_ids": null,
+    "prefill_chunk_size": null,
+    "_from_model_config": null,
+    "transformers_version": "5.22.2"
+  },
+  "scored_unscored_response_ids_identical": true,
+  "repeated_generation_and_nll_exact": true,
+  "actual_scienceworld_draft": "Premise: The metal fork is located in the bedroom, not the current living room observation.\nExpected Consequence: Looking around will reveal the hallway and potentially the bedroom where the fork is.\nAction: look around",
+  "scienceworld_internal_signals": {
+    "premise_uncertainty": 0.25318450343763743,
+    "consequence_uncertainty": 0.3012466514686821,
+    "local_uncertainty": 0.3012466514686821,
+    "global_uncertainty": 0.19490389793183607,
+    "missing_span": false,
+    "token_count": 44,
+    "extraction_latency": 0.003834059461951256,
+    "backend": "hf_qwen35_generation_raw_bf16_v1",
+    "dtype": "bfloat16",
+    "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "status": "ok",
+    "errors": [],
+    "details": {
+      "schema_version": 1,
+      "method": "fixed_field_mean_token_nll_v1",
+      "unit": "nats_per_token",
+      "score_range": "[0,infinity)",
+      "calibrated_error_probability": false,
+      "local_uncertainty": 0.3012466514686821,
+      "global_uncertainty": 0.19490389793183607,
+      "premise_uncertainty": 0.25318450343763743,
+      "consequence_uncertainty": 0.3012466514686821,
+      "field_spans": [
+        {
+          "field": "premise",
+          "char_start": 9,
+          "char_end": 91,
+          "text": "The metal fork is located in the bedroom, not the current living room observation.",
+          "token_indices": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "token_count": 16,
+          "boundary_overhang_tokens": [
+            3
+          ],
+          "uncertainty": 0.25318450343763743
+        },
+        {
+          "field": "consequence",
+          "char_start": 114,
+          "char_end": 199,
+          "text": "Looking around will reveal the hallway and potentially the bedroom where the fork is.",
+          "token_indices": [
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38
+          ],
+          "token_count": 15,
+          "boundary_overhang_tokens": [
+            24
+          ],
+          "uncertainty": 0.3012466514686821
+        }
+      ],
+      "missing_span": false,
+      "missing_fields": [],
+      "format_valid": true,
+      "missing_reason": null,
+      "boundary_policy": "include_whole_token_if_character_interval_intersects_field_value",
+      "global_token_policy": "all_response_tokens_including_labels_and_action_excluding_eos_prompt_padding",
+      "response_tokens": 44,
+      "offsets": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          8,
+          12
+        ],
+        [
+          12,
+          18
+        ],
+        [
+          18,
+          23
+        ],
+        [
+          23,
+          26
+        ],
+        [
+          26,
+          34
+        ],
+        [
+          34,
+          37
+        ],
+        [
+          37,
+          41
+        ],
+        [
+          41,
+          49
+        ],
+        [
+          49,
+          50
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          54,
+          58
+        ],
+        [
+          58,
+          66
+        ],
+        [
+          66,
+          73
+        ],
+        [
+          73,
+          78
+        ],
+        [
+          78,
+          90
+        ],
+        [
+          90,
+          91
+        ],
+        [
+          91,
+          92
+        ],
+        [
+          92,
+          100
+        ],
+        [
+          100,
+          104
+        ],
+        [
+          104,
+          112
+        ],
+        [
+          112,
+          113
+        ],
+        [
+          113,
+          121
+        ],
+        [
+          121,
+          128
+        ],
+        [
+          128,
+          133
+        ],
+        [
+          133,
+          140
+        ],
+        [
+          140,
+          144
+        ],
+        [
+          144,
+          152
+        ],
+        [
+          152,
+          156
+        ],
+        [
+          156,
+          168
+        ],
+        [
+          168,
+          172
+        ],
+        [
+          172,
+          180
+        ],
+        [
+          180,
+          186
+        ],
+        [
+          186,
+          190
+        ],
+        [
+          190,
+          195
+        ],
+        [
+          195,
+          198
+        ],
+        [
+          198,
+          199
+        ],
+        [
+          199,
+          200
+        ],
+        [
+          200,
+          206
+        ],
+        [
+          206,
+          207
+        ],
+        [
+          207,
+          212
+        ],
+        [
+          212,
+          219
+        ]
+      ],
+      "fallback_policy": "global_only",
+      "fallback_uncertainty": null,
+      "fallback_applied": false,
+      "effective_uncertainty": 0.3012466514686821,
+      "score_unit": "nats_per_token",
+      "prompt_tokens": 410,
+      "generation_tokens_including_eos": 45,
+      "scoring_path": "raw_generation_logits_before_temperature",
+      "additional_backbone_forward_passes": 0,
+      "raw_logit_reduction_seconds": 0.0011289957910776138
+    }
+  }
+}

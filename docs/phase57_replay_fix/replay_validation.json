@@ -1,0 +1,63 @@
+{
+  "controlled": {
+    "summary": {
+      "trials": 48,
+      "verified": 48,
+      "matched": 48,
+      "reconstruction_failures": 0,
+      "verified_but_different": 0,
+      "all_formal_unchanged": true,
+      "full_hidden_state_equivalence_claimed": false,
+      "seconds": 122.02287847176194
+    },
+    "provenance": {
+      "command": [
+        "scripts/validate_reset_replay.py",
+        "--simulator-profile",
+        "scienceworld130",
+        "--output",
+        "outputs/replay_fix_130_controlled_v1"
+      ],
+      "adapter_sha256": "9705ec6fa2c944ec78c5568c8ab852f222e701c4497679ebe8c277e99c4ec869",
+      "validator_sha256": "8210446a3231612ddee1b276c3b20ff8960e5d41a6ca1bcffc3d8af195db8e35",
+      "simulator_profile": "scienceworld130",
+      "protocol": "public_native_step_without_valid_enumeration/post_load_seed/strict_projection"
+    },
+    "trials_sha256": "c4b059a0d66725c59348f8210bf8fc3baf24b9867def7d1fcdc5427a10595a30"
+  },
+  "histories": {
+    "summary": {
+      "trials": 63,
+      "verified": 63,
+      "public_matched": 63,
+      "full_projection_matched": 63,
+      "repeated_worker_checks": 9,
+      "corrupted_journal_checks": 9,
+      "negative_checks_passed": true,
+      "all_formal_unchanged": true,
+      "costs": {
+        "jvm_initializations": 81,
+        "initialization_step_calls": 81,
+        "replay_step_calls": 549,
+        "candidate_step_calls": 72
+      },
+      "simulation_latency": 187.0004008859396,
+      "seconds": 213.81767980754375,
+      "full_hidden_state_equivalence_claimed": false
+    },
+    "provenance": {
+      "reference_sha256": "ba23f7d991667f235171d486541751358350e4fd1bac4c2c79325ed2643a7bb3",
+      "adapter_sha256": "e23e211737650202f34b9daf1e749a13c2671731acc8a70757af6f207f9fe995",
+      "simulator_profile": "scienceworld130",
+      "seeds": [
+        0,
+        1,
+        7
+      ],
+      "source": "previous_real_full_actions_reexecuted_as_fixed_commands_not_new_actor_results",
+      "full_hidden_state_equivalence_claimed": false
+    },
+    "trials_sha256": "c6836329c39bd4a4b0d24eb1b9f75849b4e5ad291c61a87d62feefd8b12daa77",
+    "diagnostics_sha256": "b7a585971aaa56d24873f47be8239e019eed015cacdb7eab1351969e26570499"
+  }
+}

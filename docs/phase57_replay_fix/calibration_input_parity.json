@@ -1,0 +1,6 @@
+{
+  "prompt_ids": true,
+  "response_ids": true,
+  "token_nll": true,
+  "fresh_requests_recorded": true
+}

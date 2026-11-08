@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "baseline": "4f8d9919cbfc3cc08ebafa01c6e1544e7589081f",
+  "protected_paths": [
+    "experience",
+    "internal_signals",
+    "reflection",
+    "gates",
+    "docs/PAPER_ALIGNED_EVAL.md",
+    "docs/phase3",
+    "docs/phase5/memory_snapshot_v2.json",
+    "configs/evaluation/phase57_replay_dev_v1.json",
+    "configs/internal_signals/qwen35_9b_replay_v1.json",
+    "configs/gates/qwen35_replay_pilot_v1.json"
+  ],
+  "changed": [],
+  "agentwmv2_clean": true
+}

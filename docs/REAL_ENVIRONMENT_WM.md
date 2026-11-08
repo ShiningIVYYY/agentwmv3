@@ -1,5 +1,7 @@
 # GroundTruthEnvironmentWM: verified Reset + Replay
 
+> Latest implementation uses the official deterministic1.3.0 native engine under an explicit new profile. See [repair and reproduction](REAL_ENV_WM_REPLAY_FIX.md) and [repair results](REAL_ENV_WM_REPLAY_FIX_REPORT.md). The text/counts below preserve the original1.2.3 Phase5.7 protocol and evidence; remaining thermal nondeterminism statements apply to that historical engine.
+
 The user superseded the initial complete-JVM-clone requirement. The new implementation uses an independent ScienceWorld JVM, reset to the same task/variation/simplifications/transition seed, then replays every committed command. No installed SDK or Java/Scala modification, formal-environment preview/rollback, learned WM, or post-action reflection is used.
 
 Status: bounded adapter/model integration is complete, with12 real9B development episodes and201 formal actions. Dynamic histories are **not universally reproducible**: controlled tests verify27/48 scenarios and reject21/48, with all27 subsequent public transitions matching. In the complete policy run21/75 attempts verify,54 reject;8 retained Draft transitions match formal execution. This is bounded evidence, not complete hidden-state equivalence. See [phase report](PHASE5_7_REPORT.md) and [actual audit](phase57_replay/audit.json).

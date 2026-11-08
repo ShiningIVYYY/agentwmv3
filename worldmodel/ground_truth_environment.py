@@ -6,6 +6,7 @@ fingerprints. It is NOT a claim of complete hidden-state equivalence.
 import copy
 import hashlib
 import json
+import os
 from pathlib import Path
 import time
 
@@ -14,6 +15,29 @@ from worldmodel.backends import RandomIsolation
 from worldmodel.contexts import ScienceActionView
 
 JAR_SHA256 = 'f4e1fdce0cdabe1bab7128a7e78ea820210d9db3c28d7272bcbbc3f3a1c5f0d7'
+# Explicit profiles keep historical 1.2.3 physics reproducible. Do not silently
+# mix engines between the committed environment and the lookahead worker.
+SIMULATOR_PROFILES = {
+    'scienceworld123': dict(version='1.2.3', jar_sha256=JAR_SHA256, upstream_commit=None),
+    'scienceworld130': dict(version='1.3.0',
+        jar_sha256='e77b0fee7d68abe3ca5b12e57d86e2bfe7603f20c5200da0b0f085939faeb465',
+        upstream_commit='e8216d6044e8e39be9fcb185e3b2dfb602584b52'),
+}
+
+
+def simulator_identity(spec):
+    from scienceworld.constants import JAR_PATH
+    name = spec.get('simulator_profile', 'scienceworld123')
+    if name not in SIMULATOR_PROFILES:
+        raise ValueError('Unknown simulator profile: '+str(name))
+    metadata = SIMULATOR_PROFILES[name]
+    jar = Path(JAR_PATH) if name == 'scienceworld123' else Path(os.environ.get(
+        'SCIENCEWORLD_REPLAY_JAR', str(Path(__file__).resolve().parents[1] /
+                                     'external/ScienceWorld-replay-audit/scienceworld/scienceworld.jar')))
+    if not jar.is_file() or hashlib.sha256(jar.read_bytes()).hexdigest() != metadata['jar_sha256']:
+        raise ValueError('Missing or unvalidated ScienceWorld JAR for '+name)
+    return jar, dict(profile=name, **metadata)
+
 
 
 def digest(value):
@@ -43,11 +67,9 @@ class ReplayScienceEnvironment:
     """One owned SDK/JVM and an immutable record of every committed API action."""
     def __init__(self, spec):
         from scienceworld import ScienceWorldEnv
-        from scienceworld.constants import JAR_PATH
-        if hashlib.sha256(Path(JAR_PATH).read_bytes()).hexdigest() != JAR_SHA256:
-            raise ValueError('Unvalidated ScienceWorld JAR')
+        jar, self.simulator = simulator_identity(spec)
         self.spec = copy.deepcopy(spec)
-        self.env = ScienceWorldEnv()
+        self.env = ScienceWorldEnv(serverPath=str(jar))
         self.view = ScienceActionView()
         self.history = []
         self.capture_count = 0
@@ -93,7 +115,7 @@ class ReplayScienceEnvironment:
 
     def capture(self):
         self.capture_count += 1
-        return dict(transition=copy.deepcopy(self.current),
+        return dict(simulator=self.simulator, transition=copy.deepcopy(self.current),
                     room=canonicalize_observation(self.env.look()),
                     inventory=canonicalize_observation(self.env.inventory()),
                     simulator_moves=self.env.get_num_moves(), sdk_last_score=self.env.lastStepScore,
@@ -129,6 +151,12 @@ class ReplayScienceEnvironment:
         self.closed = True
 
 
+def state_fingerprint(state):
+    state = copy.deepcopy(state)
+    state['transition'].pop('raw_observation', None)
+    return digest(state)
+
+
 def differences(expected, actual):
     # Raw row enumeration is retained in logs; only the existing official
     # presentation canonicalization is used for feedback comparison.
@@ -150,7 +178,8 @@ class GroundTruthEnvironmentWM:
                     candidate_seconds=0.0, cleanup_seconds=0.0, audit_capture_bundles=0)
         result = dict(source='ground_truth_environment', backend=self.backend,
                       status='reconstruction_failed', prediction_available=False,
-                      verified_prefix_steps=0, full_hidden_state_equivalence_claimed=False)
+                      verified_prefix_steps=0, simulator=formal.simulator,
+                      full_hidden_state_equivalence_claimed=False)
         try:
             if formal.current['done']:
                 raise RuntimeError('Formal episode already done')
@@ -187,6 +216,7 @@ class GroundTruthEnvironmentWM:
                 cost['candidate_step_calls'] = 1
                 cost['candidate_seconds'] = time.perf_counter() - begin
                 result.update(status='ok', prediction_available=True,
+                              candidate_state_sha256=state_fingerprint(worker.capture()),
                               predicted_observation=transition['observation'], predicted_reward=transition['reward'],
                               predicted_done=transition['done'], predicted_score=transition['score'],
                               predicted_moves=transition['moves'], action_valid=None,
@@ -196,7 +226,7 @@ class GroundTruthEnvironmentWM:
                           error_type=type(error).__name__, error=str(error))
             # No unverified feedback may reach a Reviewer, even on partial failure.
             for key in list(result):
-                if key.startswith('predicted_') or key in ('environment_feedback', 'candidate_transition'):
+                if key.startswith('predicted_') or key in ('environment_feedback', 'candidate_transition', 'candidate_state_sha256'):
                     del result[key]
         finally:
             if worker is not None:
