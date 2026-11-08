@@ -1,0 +1,45 @@
+{
+  "original_job": {
+    "pid": 211077,
+    "started_at_ns": 1794112896892877138,
+    "gpu": 2,
+    "command": [
+      "/home/shn/miniconda3/envs/verl-agent/bin/python3.12",
+      "scripts/run_reviewer_repair.py",
+      "--run",
+      "outputs/phase510_reviewer_repair_v1",
+      "--model-dir",
+      "checkpoints/qwen35_9b"
+    ],
+    "source_commit": "a7736a14ad7774df94149dabaa18019136136589",
+    "run": "outputs/phase510_reviewer_repair_v1",
+    "limits": {
+      "tokens": 650000,
+      "model_calls": 600,
+      "transition_queries": 6500,
+      "seconds": 10800
+    }
+  },
+  "error": "Launcher resolved venv Python symlink to base Conda; Qwen3_5 class import failed before runner main",
+  "original_run_directory_created": false,
+  "original_model_calls": 0,
+  "original_environment_queries": 0,
+  "original_log_sha256": "59201db94c528e754395ecfcb40ba436d0ab798e2a10835da2fee2ac4cbcc5b5",
+  "resolution": "Use absolute venv path without resolving interpreter symlink",
+  "retry_job": {
+    "pid": 211586,
+    "started_at_ns": 1794112945209731655,
+    "gpu": 2,
+    "command": [
+      "/data1/shn/agentwmv3/.venv-qwen35-clean/bin/python",
+      "scripts/run_reviewer_repair.py",
+      "--run",
+      "outputs/phase510_reviewer_repair_v2",
+      "--model-dir",
+      "checkpoints/qwen35_9b"
+    ],
+    "source_commit": "a7736a14ad7774df94149dabaa18019136136589",
+    "launcher_sys_prefix": "/data1/shn/agentwmv3/.venv-qwen35-clean",
+    "run": "outputs/phase510_reviewer_repair_v2"
+  }
+}

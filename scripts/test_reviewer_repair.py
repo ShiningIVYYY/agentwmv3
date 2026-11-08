@@ -51,6 +51,17 @@ class Contracts(unittest.TestCase):
         with patch('gates.generation.unscored_generate',side_effect=generate):ReviewerProtocol(VERSION).generate(actor,[],42)
         self.assertEqual(actor.config,c)
     def test_optional_episode_hook_default_unchanged(self):self.assertIsNone(inspect.signature(run_episode).parameters['reviewer'].default)
+    def test_historical_pre_hash_uses_full_capture(self):
+        from scripts.run_reviewer_repair import historical_pre_hash
+        from worldmodel.ground_truth_environment import digest,state_fingerprint
+        state=dict(transition=dict(observation='canonical',raw_observation='raw order'))
+        self.assertEqual(historical_pre_hash(state),digest(state))
+        self.assertNotEqual(historical_pre_hash(state),state_fingerprint(state))
+    def test_historical_pre_hash_does_not_drop_raw(self):
+        from scripts.run_reviewer_repair import historical_pre_hash
+        a=dict(transition=dict(observation='same',raw_observation='a'))
+        b=dict(transition=dict(observation='same',raw_observation='b'))
+        self.assertNotEqual(historical_pre_hash(a),historical_pre_hash(b))
     def test_frozen_task_isolation_and_caps(self):
         p=json.loads((ROOT/'configs/evaluation/phase510_reviewer_repair_v1.json').read_text());old=json.loads((ROOT/'configs/evaluation/phase59_independent_dev_v1.json').read_text())
         self.assertFalse({r['task_id'] for r in p['tasks']}&{r['task_id'] for r in old['tasks']});self.assertEqual(p['unused_dev_goal_groups'],0)

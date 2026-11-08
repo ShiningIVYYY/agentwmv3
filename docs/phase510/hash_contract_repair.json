@@ -1,0 +1,15 @@
+{
+  "source_run": "outputs/phase510_reviewer_repair_v2",
+  "source_commit": "a7736a14ad7774df94149dabaa18019136136589",
+  "error": "New diagnostic compared state_fingerprint to WM checked_state_sha256, but the latter is digest(full capture including raw_observation)",
+  "proof": "hash_semantics_probe.json proves EXACT legacy digest match; no tolerance or ignored-field change",
+  "repair": "Use the existing exact digest contract for pre-state; keep normalized candidate/formal_after contract for post-state",
+  "original_gate_wm_reviewer_memory_thresholds_changed": false,
+  "offline_real_requests_reused": 80,
+  "fixed_reviews_reused": 76,
+  "known_failed_diagnostic_queries": 13,
+  "additional_real_hash_probe_queries": 13,
+  "pending_receipts": false,
+  "new_contract_tests": 2,
+  "contract_tests_passed": 23
+}

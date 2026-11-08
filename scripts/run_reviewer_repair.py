@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """One persistent9B; bounded offline regression, strict one-step branches,15 dev episodes."""
-import argparse,json,os,signal,subprocess,sys,time
+import argparse,json,os,signal,subprocess,sys,time,shutil
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
 from evaluation.independent_dev import atomic,append,read_rows,Ledger,run_episode,request_seed,verify_model_assets
@@ -11,7 +11,7 @@ from reflection.replay_review_v2 import ReviewerProtocol,VERSION
 from reflection.replay_review import review_messages
 from scripts.prepare_reviewer_repair import source_case
 from scripts.audit_independent_dev import recorded_seed
-from worldmodel.ground_truth_environment import ReplayScienceEnvironment,state_fingerprint
+from worldmodel.ground_truth_environment import ReplayScienceEnvironment,state_fingerprint,digest
 
 
 def freeze_hashes(profile):
@@ -26,6 +26,11 @@ def verify(manifest):
         if file_hash(ROOT/name)!=sha:raise ValueError('Frozen source/config/data changed '+name)
 
 
+def historical_pre_hash(state):
+    """Existing WM checked_state_sha256 retains raw_observation; do not normalize."""
+    return digest(state)
+
+
 def branch(ref,action,ledger,out,branch_name,profile):
     t,past,prefix=source_case(ref);row=next(r for r in profile['_dev_rows'] if r['task_id']==t['task_id'])
     spec=dict(taskName=row['taskName'],variationIdx=row['variationIdx'],simplifications=profile['simplifications'],
@@ -36,7 +41,7 @@ def branch(ref,action,ledger,out,branch_name,profile):
         env=ReplayScienceEnvironment(spec);actual_queries+=1
         if goal_key(env.goal)!=row['goal_group']:raise ValueError('Goal drift')
         for a in prefix:env.step(a);actual_queries+=1
-        before=state_fingerprint(env.capture());expected=t['simulation']['checked_state_sha256']
+        before=historical_pre_hash(env.capture());expected=t['simulation']['checked_state_sha256']
         if before!=expected:raise ValueError('Historical same-state fingerprint mismatch; no utility value')
         actual=env.step(action);actual_queries+=1;after=state_fingerprint(env.capture())
         if branch_name=='draft':
@@ -47,7 +52,9 @@ def branch(ref,action,ledger,out,branch_name,profile):
             assert all(actual[k]==t['actual'][k] for k in ('observation','reward','done','score','moves'))
             assert after==t['formal_after_state_sha256']
         result=dict(branch=branch_name,action=action,before_sha256=before,after_sha256=after,actual=actual,
-            pid=env.pid,transition_queries=actual_queries,capture_bundles=env.capture_count)
+            pid=env.pid,transition_queries=actual_queries,capture_bundles=env.capture_count,
+            before_hash_contract='WM checked_state_sha256 = digest(full capture including raw_observation)',
+            after_hash_contract='candidate/formal_after = state_fingerprint(excludes raw_observation)')
         ledger.finish_transition(actual_queries);ledger.captures(env.capture_count)
     except BaseException as error:
         if ledger.state['pending_transition'] is not None:
@@ -61,7 +68,7 @@ def branch(ref,action,ledger,out,branch_name,profile):
 
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--run',required=True);ap.add_argument('--model-dir',required=True);ap.add_argument('--offline-only',action='store_true');a=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--run',required=True);ap.add_argument('--model-dir',required=True);ap.add_argument('--offline-only',action='store_true');ap.add_argument('--resume-offline-from');a=ap.parse_args()
     run=Path(a.run).resolve()
     if run.exists():raise ValueError('Fresh run directory required; no silent retries of partial runs')
     run.mkdir(parents=True);profile=json.loads((ROOT/'configs/evaluation/phase510_reviewer_repair_v1.json').read_text())
@@ -70,6 +77,25 @@ def main():
     started=time.perf_counter();manifest=dict(source_git_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
         profile=profile,file_hashes=freeze_hashes(profile),started_at_ns=time.time_ns(),deadline_unix=time.time()+profile['max_wall_seconds'],
         pid=os.getpid(),gpu=os.environ.get('CUDA_VISIBLE_DEVICES'),offline_only=a.offline_only)
+    recovery=None
+    if a.resume_offline_from:
+        source=Path(a.resume_offline_from).resolve();prior=json.loads((source/'manifest.json').read_text());error=json.loads((source/'error.json').read_text())
+        if error['message']!='Historical same-state fingerprint mismatch; no utility value' or (source/'episodes').exists() or (source/'controlled_branches.jsonl').exists():raise ValueError('Unsupported resume state')
+        changed=[name for name,sha in prior['file_hashes'].items() if file_hash(ROOT/name)!=sha]
+        if changed!=['scripts/run_reviewer_repair.py']:raise ValueError('Only observer hash-contract/resume code may change: '+str(changed))
+        data={}
+        for name in ['generation_calls.jsonl','offline_reviews.jsonl','length_diagnostics.jsonl','fixed_reviewer_lock.json']:
+            shutil.copyfile(source/name,run/name);data[name]=file_hash(source/name);assert data[name]==file_hash(run/name)
+        oldledger=json.loads((source/'ledger.json').read_text());assert oldledger['pending_model'] is None and oldledger['pending_transition'] is None
+        assert len(read_rows(run/'offline_reviews.jsonl'))==76 and oldledger['model_calls']==80
+        probe=json.loads((ROOT/'docs/phase510/hash_semantics_probe.json').read_text());assert probe['legacy_digest_exact_match'] is True
+        recovery=dict(source_run=str(source),source_manifest_sha256=file_hash(source/'manifest.json'),data_generation_commit=prior['source_git_commit'],
+            data_files_reused_byte_identical=data,changed_files=changed,source_error=error,probe=probe,
+            inherited_failed_diagnostic_transition_queries=oldledger['transition_queries'],inherited_failed_diagnostic_capture_bundles=oldledger['audit_capture_bundles'],
+            additional_probe_transition_queries=probe['transition_queries'],additional_probe_capture_bundles=probe['capture_bundles'],original_model_load=json.loads((source/'model.json').read_text()))
+        oldledger['transition_queries']+=probe['transition_queries'];oldledger['audit_capture_bundles']+=probe['capture_bundles']
+        atomic(run/'ledger.json',oldledger);atomic(run/'reused_data_provenance.json',recovery)
+        manifest['deadline_unix']=prior['deadline_unix'];manifest['recovery']=recovery
     atomic(run/'manifest.json',manifest)
     ledger=Ledger(run/'ledger.json',run/'STOP',manifest['deadline_unix'],profile['limits'],profile['batch_limits'])
     def stop(signum,frame):raise RuntimeError('Owned run stop signal')
@@ -92,28 +118,31 @@ def main():
         def generate(protocol,prompt,seed,identity):
             ledger.begin_model(min(actor.count(prompt),actor.config['max_prompt_tokens'])+protocol.max_new_tokens,identity)
             raw,meta=protocol.generate(actor,prompt,seed);append(run/'generation_calls.jsonl',dict(identity=identity,metadata=meta));ledger.finish_model(meta);return raw,meta
-        # Paired512/768 diagnostics on two old length failures, not an online variant.
-        limits=[r for r in profile['format_regression_panel'] if source_case(r)[0]['review_metadata']['finish_reason']=='length'][:2]
-        for ref in limits:
-            t,past,_=source_case(ref);prompt=review_messages(t['goal'],t['observation'],past,t['draft_action'],t['simulation']);seed=recorded_seed(t['review_metadata'])
-            raw,meta=generate(original,prompt,seed,dict(kind='original_512_parity',case=ref['prompt_id']))
-            assert meta['generation_record']['response_ids']==t['review_metadata']['generation_record']['response_ids'],'Original token parity changed'
-            ext=ReviewerProtocol('original');ext.max_new_tokens=768
-            text,more=generate(ext,prompt,seed,dict(kind='bounded_768_length_diagnostic',case=ref['prompt_id']))
-            assert more['generation_record']['response_ids'][:512]==meta['generation_record']['response_ids']
-            append(run/'length_diagnostics.jsonl',dict(ref=ref,original_metadata=meta,extended_metadata=more,
-                original_parse=original.parse(raw,t['draft_action']),extended_parse=original.parse(text,t['draft_action']),extended_raw=text))
-        ledger.begin_batch()
-        for i,ref in enumerate(cases):
-            if i and i%20==0:ledger.begin_batch()
-            verify(manifest);atomic(run/'progress.json',dict(stage='offline_reviews',completed=i,total=len(cases)))
-            t,past,_=source_case(ref);prompt=fixed.messages(t['goal'],t['observation'],past,t['draft_action'],t['simulation'])
-            raw,meta=generate(fixed,prompt,recorded_seed(t['review_metadata']),dict(kind='fixed_offline_review',case=ref['prompt_id'],panel=ref['panel']))
-            result=dict(ref=ref,raw=raw,parsed=fixed.parse(raw,t['draft_action']),metadata=meta,generated_at_ns=time.time_ns())
-            append(run/'offline_reviews.jsonl',result);generated[ref['prompt_id']]=result
+        if recovery is None:
+            # Paired512/768 diagnostics on two old length failures, not an online variant.
+            limits=[r for r in profile['format_regression_panel'] if source_case(r)[0]['review_metadata']['finish_reason']=='length'][:2]
+            for ref in limits:
+                t,past,_=source_case(ref);prompt=review_messages(t['goal'],t['observation'],past,t['draft_action'],t['simulation']);seed=recorded_seed(t['review_metadata'])
+                raw,meta=generate(original,prompt,seed,dict(kind='original_512_parity',case=ref['prompt_id']))
+                assert meta['generation_record']['response_ids']==t['review_metadata']['generation_record']['response_ids'],'Original token parity changed'
+                ext=ReviewerProtocol('original');ext.max_new_tokens=768
+                text,more=generate(ext,prompt,seed,dict(kind='bounded_768_length_diagnostic',case=ref['prompt_id']))
+                assert more['generation_record']['response_ids'][:512]==meta['generation_record']['response_ids']
+                append(run/'length_diagnostics.jsonl',dict(ref=ref,original_metadata=meta,extended_metadata=more,
+                    original_parse=original.parse(raw,t['draft_action']),extended_parse=original.parse(text,t['draft_action']),extended_raw=text))
+            ledger.begin_batch()
+            for i,ref in enumerate(cases):
+                if i and i%20==0:ledger.begin_batch()
+                verify(manifest);atomic(run/'progress.json',dict(stage='offline_reviews',completed=i,total=len(cases)))
+                t,past,_=source_case(ref);prompt=fixed.messages(t['goal'],t['observation'],past,t['draft_action'],t['simulation'])
+                raw,meta=generate(fixed,prompt,recorded_seed(t['review_metadata']),dict(kind='fixed_offline_review',case=ref['prompt_id'],panel=ref['panel']))
+                result=dict(ref=ref,raw=raw,parsed=fixed.parse(raw,t['draft_action']),metadata=meta,generated_at_ns=time.time_ns())
+                append(run/'offline_reviews.jsonl',result);generated[ref['prompt_id']]=result
+        else:
+            generated={x['ref']['prompt_id']:x for x in read_rows(run/'offline_reviews.jsonl')}
         olddebug=[x for x in read_rows(run/'offline_reviews.jsonl') if x['ref']['panel']=='old_debug']
         if any(x['parsed']['decision']=='INVALID' for x in olddebug):raise ValueError('Fixed Reviewer has old-debug format failures; preserve outputs, no holdout execution')
-        atomic(run/'fixed_reviewer_lock.json',dict(status='format_regression_engineering_pass',reviewer=VERSION,
+        if recovery is None:atomic(run/'fixed_reviewer_lock.json',dict(status='format_regression_engineering_pass',reviewer=VERSION,
             sha256=file_hash(ROOT/'reflection/replay_review_v2.py'),gate_memory_thresholds_changed=False,
             not_a_task_benefit_acceptance=True,offline_requests=len(cases),locked_at_ns=time.time_ns()))
         # Feedback used here is POSTHOC evaluation only; all Reviewer outputs already sealed above.

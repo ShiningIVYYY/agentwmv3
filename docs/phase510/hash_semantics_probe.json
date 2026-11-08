@@ -1,0 +1,24 @@
+{
+  "case": {
+    "source": "outputs/replay_fix_130_e2e_v1/evaluation_steps.jsonl",
+    "line_index": 56,
+    "line_sha256": "271b8d21959a8c7d5f7e04858634ab5d39f072d58ffa59982853711d506acefc",
+    "task_id": "sciworld_128",
+    "policy": "always",
+    "seed": 0,
+    "step": 13,
+    "prompt_id": "9cb9d656531c076835fcb136ae5479e66912a66da24315a06555e7657e1e263a",
+    "panel": "old_debug",
+    "stratum": "format_failure"
+  },
+  "expected_legacy_digest": "daafb3808d9b68dfb0370839a8e9e0726ec1adb2fa4dd973dbcb8fd01f4091cd",
+  "actual_full_digest": "daafb3808d9b68dfb0370839a8e9e0726ec1adb2fa4dd973dbcb8fd01f4091cd",
+  "actual_normalized_fingerprint": "28f2e61c69231da7c4c66ca1d1dfd034dff80e767b980abed2ac1ae645a655ea",
+  "legacy_digest_exact_match": true,
+  "expected_includes_raw_observation": true,
+  "transition_queries": 13,
+  "capture_bundles": 26,
+  "pid": 214513,
+  "public_observation_matches": true,
+  "seconds_including_cleanup": 2.4086742661893368
+}
