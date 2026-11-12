@@ -1,0 +1,25 @@
+{
+  "protected_files_unchanged": 32,
+  "agentwmv2_worktree_clean": true,
+  "owned_trial_processes_absent": [
+    1527348,
+    1528587,
+    1537103,
+    1537412,
+    1537670,
+    1537952,
+    1538113,
+    1538292,
+    1538551,
+    1541447,
+    1541829,
+    1542277,
+    1542723
+  ],
+  "evidence_json_valid": true,
+  "largest_evidence_file_bytes": 82970,
+  "prior_cpu_contracts_passed": 15,
+  "real_strict_load_passed": true,
+  "raw_nll_repeat_delta": 0.0,
+  "no_new_thresholds_or_gate_training": true
+}

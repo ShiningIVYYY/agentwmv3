@@ -1,0 +1,13 @@
+model,mode,task_id,score,partial_native_score,status,complete,success,steps,calls,tokens,queries,seconds
+SR7B,structured,sciworld_2948,,8,parse_failure,False,,0,1,335,1,2.9783064648509026
+SR7B,native_h2,sciworld_2948,83,83,horizon20,True,False,20,20,13694,21,15.882374858483672
+Qwen35_9B,native_h2,sciworld_2948,-100,-100,native_done,True,False,3,3,2618,4,27.895426468923688
+Qwen35_9B,structured,sciworld_2948,-100,-100,historical_phase510_never,True,False,1,1,370,2,4.452573716640472
+SR7B,structured,sciworld_715,,6,parse_failure,False,,4,5,2465,5,4.482103889808059
+SR7B,native_h2,sciworld_715,-100,-100,native_done,True,False,10,10,8700,11,9.556553134694695
+Qwen35_9B,native_h2,sciworld_715,-100,-100,native_done,True,False,10,10,9714,11,56.72112129069865
+Qwen35_9B,structured,sciworld_715,-100,-100,historical_phase510_never,True,False,8,8,3455,9,18.716884011402726
+SR7B,structured,sciworld_1619,,0,parse_failure,False,,0,1,733,1,8.921434871852398
+SR7B,native_h2,sciworld_1619,5,5,horizon20,True,False,20,20,13911,21,7.412268554791808
+Qwen35_9B,native_h2,sciworld_1619,,60,parse_failure,False,,19,20,18861,20,127.86530337668955
+Qwen35_9B,structured,sciworld_1619,0,0,historical_phase510_never,True,False,20,20,9017,21,48.131023559719324

@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "seconds": 246.79706490784883,
+  "ledger": {
+    "tokens": 31193,
+    "model_calls": 33,
+    "transition_queries": 35,
+    "audit_capture_bundles": 67,
+    "pending_model": null,
+    "pending_transition": null
+  }
+}

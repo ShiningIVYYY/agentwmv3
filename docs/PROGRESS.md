@@ -1,5 +1,7 @@
 # Current status
 
+Early Experience SR Actor trial COMPLETE: strict frozen Qwen2.5-7B SR load passes; native-H2 scores83/−100/5, mean−4/SR0 of3. Structured3/3 attempts fail;7/7 generations lack required spans. Matched9B native control has2 completed−100 and1 format failure; no complete-cohort ranking. Public training-corpus Goal overlap prevents clean-generalization claims. No Gate/Reviewer/Memory/threshold/Paper/default change, no Test rollout or Phase6. See [trial report](EE_SR_ACTOR_TRIAL.md).
+
 Phase5.10 COMPLETE: compact-json-conservative-v2 has0/76 offline and0/47 online format errors; Original online4/44. All15 Episodes complete,91/91 lookaheads and29/29 KEEP projections verified. Every condition scores−66.67/SR0%; no task benefit. Always replacement acceptance improves, Full does not. Gate/thresholds/Memory/Actor/WM/Paper protocol unchanged; new-ID variants share known goals. All owned jobs stopped. Await user decision; do not start Phase6. See PHASE5_10_REPORT.md.
 
 Phase5.9 COMPLETE: 12 frozen independent dev instances × seeds0/1 ×4 policies =96 real Episodes; 8 goal clusters. Engineering audit passes (531/531 lookaheads,187/187 KEEP projections). Mean scores Never−0.542/Always3.333/Internal−10.833/Full−19.375; successes0/1/0/0 of24. Full did not reproduce a benefit. Frozen method/Memory/thresholds unchanged. Read [Phase5.9 report](PHASE5_9_REPORT.md) and [independent protocol](INDEPENDENT_DEV_EVAL.md). Await user review; do not start Phase6.

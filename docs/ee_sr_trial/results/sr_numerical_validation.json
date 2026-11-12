@@ -1,0 +1,75 @@
+{
+  "response_token_parity": true,
+  "repeated_raw_nll_max_delta": 0.0,
+  "response_tokens": 4,
+  "signals": {
+    "premise_uncertainty": null,
+    "consequence_uncertainty": null,
+    "local_uncertainty": null,
+    "global_uncertainty": 0.06773191690402314,
+    "missing_span": true,
+    "token_count": 4,
+    "extraction_latency": 0.020077407360076904,
+    "backend": "hf_ee_scienceworld_sr_raw_bf16_v1",
+    "dtype": "bfloat16",
+    "model_revision": "4b8f0835a3f613e40541619462ae906db8dba95c",
+    "status": "partial",
+    "errors": [
+      "invalid_fixed_format_or_empty_unscorable_field"
+    ],
+    "details": {
+      "schema_version": 1,
+      "method": "fixed_field_mean_token_nll_v1",
+      "unit": "nats_per_token",
+      "score_range": "[0,infinity)",
+      "calibrated_error_probability": false,
+      "local_uncertainty": null,
+      "global_uncertainty": 0.06773191690402314,
+      "premise_uncertainty": null,
+      "consequence_uncertainty": null,
+      "field_spans": [],
+      "missing_span": true,
+      "missing_fields": [
+        "premise",
+        "consequence"
+      ],
+      "format_valid": false,
+      "missing_reason": "invalid_fixed_format_or_empty_unscorable_field",
+      "boundary_policy": "include_whole_token_if_character_interval_intersects_field_value",
+      "global_token_policy": "all_response_tokens_including_labels_and_action_excluding_eos_prompt_padding",
+      "response_tokens": 4,
+      "offsets": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          9,
+          12
+        ],
+        [
+          12,
+          20
+        ]
+      ],
+      "fallback_policy": "global_only",
+      "fallback_uncertainty": 0.06773191690402314,
+      "fallback_applied": true,
+      "effective_uncertainty": 0.06773191690402314,
+      "score_unit": "nats_per_token",
+      "prompt_tokens": 330,
+      "generation_tokens_including_eos": 5,
+      "scoring_path": "raw_generation_logits_before_temperature",
+      "additional_backbone_forward_passes": 0,
+      "raw_logit_reduction_seconds": 0.018097471445798874
+    }
+  },
+  "actor_prompt_ids_sha256": "97e26b75f071b567a20b223b06807cbddbd87e4ca7fb1f49c5f693d16617e8e9",
+  "new_actor_thresholds_calibrated": false,
+  "no_extra_forward_pass": true,
+  "additional_generation_calls": 2
+}

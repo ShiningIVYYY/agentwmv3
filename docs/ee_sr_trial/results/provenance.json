@@ -1,0 +1,6 @@
+{
+  "analysis_script_sha256": "360cc3d727b64643ff58c82d36a9538a33d188394377f94af220160575b6e9d8",
+  "sr_manifest_sha256": "ec41521688e057402eb59af219d3ed89c34b06e647957731ac5843d9300ceb15",
+  "control_manifest_sha256": "5338be622b54b78506023b263bb1682b894b0f501f2a9fbe4168d7312c9cc4bd",
+  "primary_scored_model_metadata_and_missing_signals_retained": true
+}

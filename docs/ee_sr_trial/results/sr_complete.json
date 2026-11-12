@@ -1,0 +1,14 @@
+{
+  "status": "complete",
+  "episodes": 6,
+  "seconds": 76.00068843364716,
+  "ledger": {
+    "tokens": 40508,
+    "model_calls": 59,
+    "transition_queries": 60,
+    "audit_capture_bundles": 116,
+    "pending_model": null,
+    "pending_transition": null
+  },
+  "finished_at_ns": 1794518086481231922
+}

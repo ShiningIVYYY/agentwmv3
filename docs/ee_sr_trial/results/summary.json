@@ -1,0 +1,167 @@
+{
+  "groups": [
+    {
+      "model": "Qwen35_9B",
+      "mode": "structured",
+      "attempts": 3,
+      "complete_episodes": 3,
+      "format_failures": 0,
+      "mean_score": -66.66666666666667,
+      "success_rate": 0.0,
+      "all_attempts_comparable_as_complete": true,
+      "total_tokens": 12842,
+      "steps": 29,
+      "queries": 32,
+      "seconds": 71.30048128776252
+    },
+    {
+      "model": "Qwen35_9B",
+      "mode": "native_h2",
+      "attempts": 3,
+      "complete_episodes": 2,
+      "format_failures": 1,
+      "mean_score": -100.0,
+      "success_rate": 0.0,
+      "all_attempts_comparable_as_complete": false,
+      "total_tokens": 31193,
+      "steps": 32,
+      "queries": 35,
+      "seconds": 212.4818511363119
+    },
+    {
+      "model": "SR7B",
+      "mode": "structured",
+      "attempts": 3,
+      "complete_episodes": 0,
+      "format_failures": 3,
+      "mean_score": null,
+      "success_rate": null,
+      "all_attempts_comparable_as_complete": false,
+      "total_tokens": 3533,
+      "steps": 4,
+      "queries": 7,
+      "seconds": 16.38184522651136
+    },
+    {
+      "model": "SR7B",
+      "mode": "native_h2",
+      "attempts": 3,
+      "complete_episodes": 3,
+      "format_failures": 0,
+      "mean_score": -4.0,
+      "success_rate": 0.0,
+      "all_attempts_comparable_as_complete": true,
+      "total_tokens": 36305,
+      "steps": 50,
+      "queries": 53,
+      "seconds": 32.851196547970176
+    }
+  ],
+  "sr_structured_signal_attempts": 7,
+  "sr_structured_missing_span": 7,
+  "sr_executed_structured_signal_steps": 4,
+  "initial_states_match_across_all_conditions": true,
+  "old_baseline_not_regenerated": true,
+  "numerical_validation": {
+    "response_token_parity": true,
+    "repeated_raw_nll_max_delta": 0.0,
+    "response_tokens": 4,
+    "signals": {
+      "premise_uncertainty": null,
+      "consequence_uncertainty": null,
+      "local_uncertainty": null,
+      "global_uncertainty": 0.06773191690402314,
+      "missing_span": true,
+      "token_count": 4,
+      "extraction_latency": 0.020077407360076904,
+      "backend": "hf_ee_scienceworld_sr_raw_bf16_v1",
+      "dtype": "bfloat16",
+      "model_revision": "4b8f0835a3f613e40541619462ae906db8dba95c",
+      "status": "partial",
+      "errors": [
+        "invalid_fixed_format_or_empty_unscorable_field"
+      ],
+      "details": {
+        "schema_version": 1,
+        "method": "fixed_field_mean_token_nll_v1",
+        "unit": "nats_per_token",
+        "score_range": "[0,infinity)",
+        "calibrated_error_probability": false,
+        "local_uncertainty": null,
+        "global_uncertainty": 0.06773191690402314,
+        "premise_uncertainty": null,
+        "consequence_uncertainty": null,
+        "field_spans": [],
+        "missing_span": true,
+        "missing_fields": [
+          "premise",
+          "consequence"
+        ],
+        "format_valid": false,
+        "missing_reason": "invalid_fixed_format_or_empty_unscorable_field",
+        "boundary_policy": "include_whole_token_if_character_interval_intersects_field_value",
+        "global_token_policy": "all_response_tokens_including_labels_and_action_excluding_eos_prompt_padding",
+        "response_tokens": 4,
+        "offsets": [
+          [
+            0,
+            4
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            9,
+            12
+          ],
+          [
+            12,
+            20
+          ]
+        ],
+        "fallback_policy": "global_only",
+        "fallback_uncertainty": 0.06773191690402314,
+        "fallback_applied": true,
+        "effective_uncertainty": 0.06773191690402314,
+        "score_unit": "nats_per_token",
+        "prompt_tokens": 330,
+        "generation_tokens_including_eos": 5,
+        "scoring_path": "raw_generation_logits_before_temperature",
+        "additional_backbone_forward_passes": 0,
+        "raw_logit_reduction_seconds": 0.018097471445798874
+      }
+    },
+    "actor_prompt_ids_sha256": "97e26b75f071b567a20b223b06807cbddbd87e4ca7fb1f49c5f693d16617e8e9",
+    "new_actor_thresholds_calibrated": false,
+    "no_extra_forward_pass": true,
+    "additional_generation_calls": 2
+  },
+  "new_measurement_cost": {
+    "model_calls": 92,
+    "tokens": 71701,
+    "transition_queries": 95,
+    "audit_capture_bundles": 183,
+    "sr_ledger": {
+      "tokens": 40508,
+      "model_calls": 59,
+      "transition_queries": 60,
+      "audit_capture_bundles": 116,
+      "pending_model": null,
+      "pending_transition": null
+    },
+    "prompt_control_ledger": {
+      "tokens": 31193,
+      "model_calls": 33,
+      "transition_queries": 35,
+      "audit_capture_bundles": 67,
+      "pending_model": null,
+      "pending_transition": null
+    },
+    "downloaded_checkpoint_bytes": 15247179567,
+    "additional_experience_training_gate_wm_reviewer_calls": 0
+  },
+  "not_independent_generalization": true,
+  "no_claim_of_exact_checkpoint_training_membership": true,
+  "scientific_gate_effectiveness_not_evaluated": true
+}

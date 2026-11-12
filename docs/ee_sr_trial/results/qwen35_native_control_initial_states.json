@@ -1,0 +1,44 @@
+[
+  {
+    "path": "episodes/sciworld_1619/initial.json",
+    "state_sha256": "a09ec2de70ab84794dd9ee06322f2a0002f7678bc9c0592cc46da982cc5b05be",
+    "spec": {
+      "taskName": "test-conductivity",
+      "variationIdx": 183,
+      "simplifications": "",
+      "seed": 0,
+      "environment_step_limit": 21,
+      "simulator_profile": "scienceworld130"
+    },
+    "pid": 1542723,
+    "goal": "Your task is to determine if book (The Foundations of the Origin of Species) is electrically conductive. The book (The Foundations of the Origin of Species) is located around the kitchen. First, focus on the book (The Foundations of the Origin of Species). If it is electrically conductive, place it in the orange box. If it is electrically nonconductive, place it in the yellow box."
+  },
+  {
+    "path": "episodes/sciworld_2948/initial.json",
+    "state_sha256": "aa9a846793769b472e72ef293f378ecb163db66cb374569a70280937017e1007",
+    "spec": {
+      "taskName": "find-living-thing",
+      "variationIdx": 12,
+      "simplifications": "",
+      "seed": 0,
+      "environment_step_limit": 21,
+      "simulator_profile": "scienceworld130"
+    },
+    "pid": 1541829,
+    "goal": "Your task is to find a(n) living thing. First, focus on the thing. Then, move it to the red box in the living room."
+  },
+  {
+    "path": "episodes/sciworld_715/initial.json",
+    "state_sha256": "4be9cedc02f3018755f3faf36ab0aa3833d57d57c3640b497b5bc387d798b03e",
+    "spec": {
+      "taskName": "measure-melting-point-known-substance",
+      "variationIdx": 55,
+      "simplifications": "",
+      "seed": 0,
+      "environment_step_limit": 21,
+      "simulator_profile": "scienceworld130"
+    },
+    "pid": 1542277,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen."
+  }
+]

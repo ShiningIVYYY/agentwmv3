@@ -1,0 +1,70 @@
+[
+  {
+    "path": "complete.json",
+    "sha256": "97d07f6338a27dfa5e2d78ecb8d61065fe4cbe434af76ddfe4e8daad4ec5c17b"
+  },
+  {
+    "path": "episodes/sciworld_1619/complete.json",
+    "sha256": "528283309ae43a9d96ba33fb19479f2d05f98e5bcbe8829a1a31990db6e5c78e"
+  },
+  {
+    "path": "episodes/sciworld_1619/initial.json",
+    "sha256": "c2234617611cd571ebb4f6251e640e96acb2bb37a38a90f925030739f43544bb"
+  },
+  {
+    "path": "episodes/sciworld_1619/parse_failures.jsonl",
+    "sha256": "092a76e9be1a5aa4c3d33af9c8e118597c02e4fa1692e43f0812daecf469ef11"
+  },
+  {
+    "path": "episodes/sciworld_1619/steps.jsonl",
+    "sha256": "bb068b70f4832cf6fa89d2bfcd48bebda074fa99c38a0007bad92007888ae7fa"
+  },
+  {
+    "path": "episodes/sciworld_2948/complete.json",
+    "sha256": "e6151d5b3ef7e547afcc143b02d10dd5f4142d5eb1a174efd4ef8d0530ff2185"
+  },
+  {
+    "path": "episodes/sciworld_2948/initial.json",
+    "sha256": "90ec72912c04e2f71c6fdad5c296247bbaae7d989bc92721663a442af8bbc678"
+  },
+  {
+    "path": "episodes/sciworld_2948/steps.jsonl",
+    "sha256": "4dc62b5f5df260664127322a0d552e5e55d16c5e09889c23a35a232504315426"
+  },
+  {
+    "path": "episodes/sciworld_715/complete.json",
+    "sha256": "5a195f9416219b25ace341fa02c844a79c39cfafe8ded7d81cc9f5f2c0fff796"
+  },
+  {
+    "path": "episodes/sciworld_715/initial.json",
+    "sha256": "3932f305987e157c1d68b25d407f807f933d6ad9636e85000aef4681c6f16bbb"
+  },
+  {
+    "path": "episodes/sciworld_715/steps.jsonl",
+    "sha256": "4d63e0cb5347323bc4192b9170e68f4e62bcc51a26420fbe25148c2063f514f6"
+  },
+  {
+    "path": "episodes.jsonl",
+    "sha256": "8519c8436b0c087791a4cb79759c95276cb54aa2bd014f0bff3767d6f7c0ca60"
+  },
+  {
+    "path": "generation_calls.jsonl",
+    "sha256": "613895ba6f71cbbda1aff4e5ff022cc1316931360de482eafe260b4f7f8de2bf"
+  },
+  {
+    "path": "ledger.json",
+    "sha256": "686a2c8efa2b13025504247043e96b87e4d42846714b10c47ce24af45beb6f06"
+  },
+  {
+    "path": "manifest.json",
+    "sha256": "5338be622b54b78506023b263bb1682b894b0f501f2a9fbe4168d7312c9cc4bd"
+  },
+  {
+    "path": "model.json",
+    "sha256": "144b402cb3dc06f8f8eb7b2761483ade14ca6e863dba90711bec52c45f24891e"
+  },
+  {
+    "path": "progress.json",
+    "sha256": "ac0797c3ae00213252c3a7c84a4e88ab3412558e9f7bd2b0d18a2b708218ee1e"
+  }
+]

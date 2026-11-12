@@ -1,0 +1,6 @@
+{
+  "script_sha256": "223e55b59dd2bfe95ee5bfc7b85c60839c043bf9ea4cf061ebe127b435ae2768",
+  "analysis_script_sha256": "360cc3d727b64643ff58c82d36a9538a33d188394377f94af220160575b6e9d8",
+  "structured_unexecuted_outputs_are_not_environment_feedback": true,
+  "no_clean_independent_generalization_claim": true
+}

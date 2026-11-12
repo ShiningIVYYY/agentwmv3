@@ -1,0 +1,46 @@
+{
+  "git_commit": "7551bd7def5dbe82081f0a5b5d4070745f026077",
+  "pid": 1541447,
+  "gpu": "1",
+  "started_at_ns": 1794518426563860370,
+  "source_sr_manifest_sha256": "ec41521688e057402eb59af219d3ed89c34b06e647957731ac5843d9300ceb15",
+  "hashes": {
+    "scripts/run_ee_native_control.py": "5f84bc8a22de3119acbd2d45ff897556fbb62e709490c325e29fb26d1ca92492",
+    "internal_signals/ee_sr_prompt.py": "7b0943f94b6bf0e9b4959870b1571b593d931d21563e732b5f98381b030db8ab",
+    "configs/internal_signals/qwen35_9b_replay_v1.json": "456b47809dd2be5d218a5df2775e04617d612efa489fcbfebf7d18f3e6d6542c",
+    "docs/ee_sr_trial/source_prompt.json": "f9d1df6842863df7a5a7c91be84786317a9398a2429eecd67660fc788f29b7f3"
+  },
+  "matched_tasks": [
+    {
+      "task_id": "sciworld_2948",
+      "index": 2948,
+      "taskName": "find-living-thing",
+      "variationIdx": 12,
+      "category": "find",
+      "goal_sha256": "b0f89dda7cc737cd05c18f205e8c88730bbfc31afb76fab1d20df5dda4c43ad6",
+      "goal_group": "34bb3e2f866e017313b6255c40a14903924ec0f4a418d035316d996d5c334d4d",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_715",
+      "index": 715,
+      "taskName": "measure-melting-point-known-substance",
+      "variationIdx": 55,
+      "category": "measure",
+      "goal_sha256": "9a253e3ac0562d142ac7ea610e8daa07f79b7c27c55795cb3a6172d8f03782c5",
+      "goal_group": "c6371393d7be24a68a736d45e36af77fd89a9891af7cff96ffcc3d16f605ff21",
+      "split": "development"
+    },
+    {
+      "task_id": "sciworld_1619",
+      "index": 1619,
+      "taskName": "test-conductivity",
+      "variationIdx": 183,
+      "category": "test_conductivity",
+      "goal_sha256": "5b5cef9a75b912a97aee7a67df7a98899fba971061371ca887f7c73835770b3b",
+      "goal_group": "0a8ce975287f31d689a035ec5b98070708b4a025c0b4b8270b6fa3dd0c786b23",
+      "split": "development"
+    }
+  ],
+  "purpose": "post-SR prompt-confounding control; no policy tuning"
+}

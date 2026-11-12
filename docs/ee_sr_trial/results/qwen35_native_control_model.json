@@ -1,0 +1,11 @@
+{
+  "load_seconds": 34.30796923674643,
+  "loading_info": {
+    "missing_keys": [],
+    "unexpected_keys": [],
+    "mismatched_keys": [],
+    "error_msgs": []
+  },
+  "config_sha256": "cad3791bc197e7f95baa16837d072ab26b68b6f76cb12cf164e0ccfcaf71a7a6",
+  "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a"
+}
