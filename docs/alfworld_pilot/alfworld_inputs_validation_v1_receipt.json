@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "native_goal_initializations": 13,
+  "invalid_history_comparisons": 6,
+  "base_replay_comparisons": 18,
+  "base_validation_sha256": "a3f5fa790c9eb240ad891ef65ef6b55c45d34cd2fa4fa11c489b32f2e197d222",
+  "controlled_transition_queries": 60,
+  "passive_inspection_queries": 24,
+  "total_state_queries_including_identity": 97,
+  "seconds": 76.04256690107286
+}

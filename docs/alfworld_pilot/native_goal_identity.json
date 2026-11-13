@@ -1,0 +1,80 @@
+[
+  {
+    "task_id": "alf-63cb1456a4ba9bc3",
+    "goal": "examine the mug with the desklamp.",
+    "initial_sha256": "db6c170ca39b543d0d057969fe725e8f99bf29af425aae1f03f2adf328e738f1",
+    "formal_pid": 2760945
+  },
+  {
+    "task_id": "alf-e4ca0e5dbee7009c",
+    "goal": "put some lettuce on countertop.",
+    "initial_sha256": "2809e9ea64c32c0cfc83aa2d2bcbaa5cfa26e2f9d4e67ba2d204eceafbfb0d5e",
+    "formal_pid": 2761025
+  },
+  {
+    "task_id": "alf-efb6789e059fb920",
+    "goal": "put two pot in shelf.",
+    "initial_sha256": "432186ae16061b647f584190df61065d3a03e17e79aeb7d68a55c2f651a2560f",
+    "formal_pid": 2761128
+  },
+  {
+    "task_id": "alf-a87714efc5363012",
+    "goal": "examine the tissuebox with the desklamp.",
+    "initial_sha256": "fa96ee1c82bc0b0053e811a2252f775fefe61a3ef89af1211ae5d0962e5bec1c",
+    "formal_pid": 2761208
+  },
+  {
+    "task_id": "alf-ada6d7ca044c0754",
+    "goal": "clean some potato and put it in garbagecan.",
+    "initial_sha256": "3283d70a8a4d2c55c9474f6aba00d90eaa5a13421048cdb9f9e10aa53ea2a091",
+    "formal_pid": 2761280
+  },
+  {
+    "task_id": "alf-c8c4289f3cc8f7b5",
+    "goal": "cool some mug and put it in shelf.",
+    "initial_sha256": "773d16dccd59404587b6910e4727ef56dac75fe4ea57fc257a156e0733c2f509",
+    "formal_pid": 2761373
+  },
+  {
+    "task_id": "alf-3568d74deb80749c",
+    "goal": "heat some apple and put it in sidetable.",
+    "initial_sha256": "7b185950632f4db60595ededb9ada2269bf88bad0a570a4f98318dfe1aaba2af",
+    "formal_pid": 2761476
+  },
+  {
+    "task_id": "alf-60cd578e526b3b37",
+    "goal": "put two soapbottle in countertop.",
+    "initial_sha256": "73670cf0e35f020ec0a368ffdd40e3ba0966a97dc9ff4d0793a54f08677f26cf",
+    "formal_pid": 2761555
+  },
+  {
+    "task_id": "alf-ecb5acf215c67333",
+    "goal": "look at book under the desklamp.",
+    "initial_sha256": "e8816034c777554d1836aad3e5b270dde2f7ad9d0efac190e956a42b81b3521e",
+    "formal_pid": 2761645
+  },
+  {
+    "task_id": "alf-188290a9ce08e1df",
+    "goal": "put a laptop in armchair.",
+    "initial_sha256": "ca3c758ba5c860458ebd8bdc181bf01ee5fce156df7a284a06f5badaf4db3920",
+    "formal_pid": 2761724
+  },
+  {
+    "task_id": "alf-bc4a562ca75cc95a",
+    "goal": "clean some egg and put it in microwave.",
+    "initial_sha256": "fd297fff29b09840d358523ec359fcd638af4de74fde2376f37a5ef91bb6e233",
+    "formal_pid": 2761811
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "goal": "cool some winebottle and put it in countertop.",
+    "initial_sha256": "946c160bc3b27caa114a1ca4799af92d6a6cd847326f6d087a474493c229d253",
+    "formal_pid": 2761926
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "goal": "put a hot apple in countertop.",
+    "initial_sha256": "6a190aeca0703d960fe707a60375862f3f092a2aaa42eec82c296a69b2b2f405",
+    "formal_pid": 2762030
+  }
+]

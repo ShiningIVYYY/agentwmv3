@@ -1,0 +1,28 @@
+{
+  "status": "pass",
+  "cases": [
+    {
+      "task_id": "alf-ada6d7ca044c0754",
+      "comparisons": 50,
+      "all_equal": true,
+      "horizon50_checked": true,
+      "expert_disabled": true
+    },
+    {
+      "task_id": "alf-c8c4289f3cc8f7b5",
+      "comparisons": 50,
+      "all_equal": true,
+      "horizon50_checked": true,
+      "expert_disabled": true
+    },
+    {
+      "task_id": "alf-3568d74deb80749c",
+      "comparisons": 50,
+      "all_equal": true,
+      "horizon50_checked": true,
+      "expert_disabled": true
+    }
+  ],
+  "matched_transitions": 150,
+  "seconds": 46.78173322789371
+}

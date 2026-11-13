@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "comparisons": 18,
+  "tasks": 3,
+  "seeds_per_task": 2,
+  "prefix_lengths": [
+    0,
+    3,
+    6
+  ],
+  "independent_pids": true,
+  "public_transition_and_private_fact_digest_equal": true,
+  "full_rng_serialization_claim": false,
+  "candidate_actions_executed_in_formal_for_controlled_validation_only": true,
+  "seconds": 122.39293185435236
+}

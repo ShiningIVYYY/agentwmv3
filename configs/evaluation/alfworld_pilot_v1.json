@@ -1,0 +1,60 @@
+{
+  "schema": "alfworld-five-gate-development-v1",
+  "actor_config": "configs/internal_signals/qwen35_9b_alfworld_v1.json",
+  "model_id": "Qwen/Qwen3.5-9B",
+  "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "actor_reviewer_shared": true,
+  "benchmark": "alfworld",
+  "maximum_interaction_turns": 50,
+  "history_length": 2,
+  "prompt_limit": 2048,
+  "response_limit": 512,
+  "temperature": 0.4,
+  "top_p": 1.0,
+  "top_k": 0,
+  "rollout_seeds": [
+    0
+  ],
+  "policies": [
+    "never",
+    "always",
+    "internal",
+    "experience",
+    "full"
+  ],
+  "wm_invocation_budgets": {
+    "never": 0,
+    "always": 50,
+    "internal": 5,
+    "experience": 5,
+    "full": 5
+  },
+  "simulation_depth": 1,
+  "review_rounds": 1,
+  "reviewer_protocol": "original-three-line-public-evidence-alfworld-v1",
+  "reviewer_max_new_tokens": 512,
+  "calibration_quantile": 0.75,
+  "calibration_max_steps": 8,
+  "memory_task_action_cap": 30,
+  "memory_correction": false,
+  "allow_confirmed_action_skip": false,
+  "final_metric": "native_won_success_rate",
+  "score_display": "100*won auxiliary only; not ScienceWorld partial score",
+  "split_manifest": "docs/alfworld_pilot/split_manifest.json",
+  "split_sha256": "13e74e5ed4cc7249bfbb05f6f2e9f34ba2a5c0ba296d5c54bc1979d00b258190",
+  "cpu_versions": {
+    "alfworld": "0.4.2",
+    "textworld": "1.7.0"
+  },
+  "limits": {
+    "tokens": 2000000,
+    "model_calls": 1100,
+    "transition_queries": 7000,
+    "audit_capture_bundles": 20000,
+    "wall_seconds": 7200
+  },
+  "inherited_science_configs_preserved": true,
+  "no_training": true,
+  "no_learned_wm": true,
+  "native_equivalence": "Exact public transitions/admissible commands and private fact digest; not full hidden RNG serialization"
+}
