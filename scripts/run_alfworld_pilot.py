@@ -1,5 +1,5 @@
 """Frozen9B five-policy ALFWorld pilot; no training or final140-game evaluation."""
-import argparse,json,os,subprocess,sys,time
+import argparse,json,os,subprocess,sys,time,signal
 from dataclasses import asdict
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
@@ -19,12 +19,14 @@ def main():
     out=Path(a.run)
     if out.exists():raise ValueError('Fresh Run ID required; keep all partial attempts')
     out.mkdir(parents=True);p=json.loads((ROOT/'configs/evaluation/alfworld_pilot_v1.json').read_text())
+    def stop(*_):raise InterruptedError('Owned supervisor stop; retain partial receipts')
+    signal.signal(signal.SIGTERM,stop)
     if file_hash(ROOT/p['split_manifest'])!=p['split_sha256']:raise ValueError('Data split identity changed')
     split=json.loads((ROOT/p['split_manifest']).read_text());snapshot=json.loads(Path(a.memory).read_text());memory=AlfExperienceMemory(snapshot,split)
     validation=Path(a.native_validation)
     if json.loads((validation/'complete.json').read_text())['status']!='pass':raise ValueError('Real replay validation not passed')
     native_goals={r['task_id']:r for r in json.loads((validation/'goal_identity.json').read_text())}
-    names=['scripts/run_alfworld_pilot.py','scripts/alfworld_worker.py','worldmodel/alfworld_environment.py','experience/alfworld_memory.py',
+    names=['scripts/run_alfworld_pilot.py','scripts/launch_alfworld_pilot.py','scripts/alfworld_worker.py','worldmodel/alfworld_environment.py','experience/alfworld_memory.py',
         'internal_signals/alfworld_prompts.py','internal_signals/qwen35_actor.py','internal_signals/hf_actor.py','internal_signals/provider.py',
         'gates/core.py','scripts/run_phase57_replay.py','configs/evaluation/alfworld_pilot_v1.json',p['actor_config']]
     manifest=dict(profile=p,split=split,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
