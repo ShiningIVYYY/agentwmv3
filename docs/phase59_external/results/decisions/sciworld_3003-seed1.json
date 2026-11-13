@@ -1,0 +1,144 @@
+[
+  {
+    "policy": "experience",
+    "task_id": "sciworld_3003",
+    "rollout_seed": 1,
+    "step": 0,
+    "goal": "Your task is to find a(n) living thing. First, focus on the thing. Then, move it to the green box in the bathroom.",
+    "observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\n\ta substance called air\nYou also see:\n\tA door to the hallway (that is closed)",
+    "draft_output": "Premise: The current room is the living room and contains a chair with nothing on it.\nExpected Consequence: The agent will focus on the chair.\nAction: focus on chair",
+    "draft_action": "focus on chair",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00032032839953899384,
+      "judge_latency": 2.905726432800293e-05,
+      "retrieval_cpu_seconds": 0.0003192390000208434,
+      "judge_cpu_seconds": 2.9416000018045452e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "570d60d31f18839e3782c976b4dc14de561abb0fdb0f7d6ed7b9782c501c51de",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 3.244413705632457,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 3.008423215464523,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 2.3621454282655976,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794581217668310040,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_3003/seed1/experience/0",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 5,
+      "forecast_budget_remaining": 5,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 8.346512913703918e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "focus on chair",
+    "actual": {
+      "observation": "You focus on the chair.",
+      "raw_observation": "You focus on the chair.",
+      "reward": -100,
+      "done": true,
+      "score": -100,
+      "moves": 1,
+      "native_action": "focus on chair",
+      "action": "focus on chair",
+      "step_seconds": 0.04610169865190983
+    },
+    "kept_draft_transition_match": null
+  }
+]

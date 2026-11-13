@@ -1,0 +1,2917 @@
+[
+  {
+    "policy": "experience",
+    "task_id": "sciworld_746",
+    "rollout_seed": 0,
+    "step": 0,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+    "observation": "This room is called the art studio. In it, you see: \n\tthe agent\n\ta large cupboard. The large cupboard door is closed. \n\ta substance called air\n\ta table. On the table is: a bowl (containing nothing).\n\ta wood cup (containing blue paint)\n\ta wood cup (containing red paint)\n\ta wood cup (containing yellow paint)\nYou also see:\n\tA door to the hallway (that is closed)",
+    "draft_output": "Premise: The chocolate is not in the current room (art studio) but is located around the kitchen.\nExpected Consequence: Moving to the kitchen will reveal the chocolate and other necessary items.\nAction: go kitchen",
+    "draft_action": "go kitchen",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00036748871207237244,
+      "judge_latency": 3.0856579542160034e-05,
+      "retrieval_cpu_seconds": 0.0003642329999991034,
+      "judge_cpu_seconds": 3.120900001363225e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "73ebf88d71cd112c53ff8387c3655eff1c10e75ed6ef448f283fc138febf0045",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 4.878981238541024,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 4.348092439090296,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 3.244413705632457,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580917838484766,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_746/seed0/experience/0",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 5,
+      "forecast_budget_remaining": 5,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 7.513910531997681e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "go kitchen",
+    "actual": {
+      "observation": "No known action matches that input.",
+      "raw_observation": "No known action matches that input.",
+      "reward": 0,
+      "done": false,
+      "score": 0,
+      "moves": 0,
+      "native_action": "go kitchen",
+      "action": "go kitchen",
+      "step_seconds": 0.024098165333271027
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_746",
+    "rollout_seed": 0,
+    "step": 1,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+    "observation": "No known action matches that input.",
+    "draft_output": "Premise: The agent is currently in the art studio and needs to move to the kitchen to find the chocolate and thermometer.\nExpected Consequence: The agent will successfully travel to the kitchen room.\nAction: go kitchen",
+    "draft_action": "go kitchen",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00031361356377601624,
+      "judge_latency": 1.4439225196838379e-05,
+      "retrieval_cpu_seconds": 0.0003102819999867279,
+      "judge_cpu_seconds": 1.4808000003085908e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "ff40d9e854c8ee9a19910c274417fb8a66549f6e1a001170a8c9f4fa9b6682dd",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 2.659541115370336,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 2.4587889393423614,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.1827916087178758,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580920067820936,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_746/seed0/experience/1",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 5,
+      "forecast_budget_remaining": 5,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 1.0298565030097961e-05,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "go kitchen",
+    "actual": {
+      "observation": "No known action matches that input.",
+      "raw_observation": "No known action matches that input.",
+      "reward": 0,
+      "done": false,
+      "score": 0,
+      "moves": 0,
+      "native_action": "go kitchen",
+      "action": "go kitchen",
+      "step_seconds": 0.014203676953911781
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_746",
+    "rollout_seed": 0,
+    "step": 2,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+    "observation": "No known action matches that input.",
+    "draft_output": "Premise: The agent is currently in the art studio and attempting to go to the kitchen but receiving an error.\nExpected Consequence: The agent will remain in the art studio or the command will fail again.\nAction: look around",
+    "draft_action": "look around",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00026041455566883087,
+      "judge_latency": 1.4569610357284546e-05,
+      "retrieval_cpu_seconds": 0.00025734200002602847,
+      "judge_cpu_seconds": 1.4878000001772307e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "cb79d68f36d1c312a8bf61032d88660e99b2ea6f84585ebc8b0a9b16e67e4725",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 4.4965457363956425,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.1827916087178758,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.119119715716589,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580922414534621,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_746/seed0/experience/2",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 5,
+      "forecast_budget_remaining": 5,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 6.573274731636047e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look around",
+    "actual": {
+      "observation": "This room is called the art studio. In it, you see: \n\tthe agent\n\ta large cupboard. The large cupboard door is closed. \n\ta substance called air\n\ta table. On the table is: a bowl (containing nothing).\n\ta wood cup (containing blue paint)\n\ta wood cup (containing red paint)\n\ta wood cup (containing yellow paint)\nYou also see:\n\tA door to the hallway (that is closed)",
+      "raw_observation": "This room is called the art studio. In it, you see: \n\tthe agent\n\ta substance called air\n\ta large cupboard. The large cupboard door is closed. \n\ta table. On the table is: a bowl (containing nothing).\n\ta wood cup (containing red paint)\n\ta wood cup (containing blue paint)\n\ta wood cup (containing yellow paint)\nYou also see:\n\tA door to the hallway (that is closed)",
+      "reward": 0,
+      "done": false,
+      "score": 0,
+      "moves": 0,
+      "native_action": "look around",
+      "action": "look around",
+      "step_seconds": 0.011847473680973053
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_746",
+    "rollout_seed": 0,
+    "step": 3,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+    "observation": "This room is called the art studio. In it, you see: \n\tthe agent\n\ta large cupboard. The large cupboard door is closed. \n\ta substance called air\n\ta table. On the table is: a bowl (containing nothing).\n\ta wood cup (containing blue paint)\n\ta wood cup (containing red paint)\n\ta wood cup (containing yellow paint)\nYou also see:\n\tA door to the hallway (that is closed)",
+    "draft_output": "Premise: The agent is currently in the art studio, not the kitchen where the chocolate and thermometer are located.\nExpected Consequence: Moving to the kitchen will allow access to the chocolate and thermometer required for the task.\nAction: go kitchen",
+    "draft_action": "go kitchen",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.000306691974401474,
+      "judge_latency": 2.6671215891838074e-05,
+      "retrieval_cpu_seconds": 0.0003033490000063921,
+      "judge_cpu_seconds": 2.7011000014454112e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "b9716d98a71b71b114b3a063d952351f5141486fa22cbbede4b51983226ad195",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 4.878981238541024,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 4.348092439090296,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 3.244413705632457,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580924838834701,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_746/seed0/experience/3",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 5,
+      "forecast_budget_remaining": 5,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 6.882473826408386e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "go kitchen",
+    "actual": {
+      "observation": "No known action matches that input.",
+      "raw_observation": "No known action matches that input.",
+      "reward": 0,
+      "done": false,
+      "score": 0,
+      "moves": 0,
+      "native_action": "go kitchen",
+      "action": "go kitchen",
+      "step_seconds": 0.01507536694407463
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_746",
+    "rollout_seed": 0,
+    "step": 4,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+    "observation": "No known action matches that input.",
+    "draft_output": "Premise: The agent is currently in the art studio and needs to move to the kitchen to find the chocolate.\nExpected Consequence: The agent will successfully enter the kitchen room.\nAction: go kitchen",
+    "draft_action": "go kitchen",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00032093748450279236,
+      "judge_latency": 2.341531217098236e-05,
+      "retrieval_cpu_seconds": 0.0003176259999975173,
+      "judge_cpu_seconds": 2.4104999994278842e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "e6274e78cbd6b0d17406bea9da96f77b565e7d02b9040ad4161211253b3e74bc",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 2.659541115370336,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 2.4587889393423614,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.1827916087178758,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580926918402806,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_746/seed0/experience/4",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 5,
+      "forecast_budget_remaining": 5,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 1.1218711733818054e-05,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "go kitchen",
+    "actual": {
+      "observation": "No known action matches that input.",
+      "raw_observation": "No known action matches that input.",
+      "reward": 0,
+      "done": false,
+      "score": 0,
+      "moves": 0,
+      "native_action": "go kitchen",
+      "action": "go kitchen",
+      "step_seconds": 0.012479932978749275
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_746",
+    "rollout_seed": 0,
+    "step": 5,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+    "observation": "No known action matches that input.",
+    "draft_output": "Premise: The agent is currently in the art studio and cannot move to the kitchen directly.\nExpected Consequence: The agent will remain in the art studio and can inspect available objects.\nAction: look around",
+    "draft_action": "look around",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0003104992210865021,
+      "judge_latency": 2.703070640563965e-05,
+      "retrieval_cpu_seconds": 0.0003067650000048161,
+      "judge_cpu_seconds": 2.7642000020478008e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "4735bb8202f10743e87275b0636ddc4ba6893e612fb8578f8e8301d08968479c",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 4.4965457363956425,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.1827916087178758,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.119119715716589,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580929055156789,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_746/seed0/experience/5",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 5,
+      "forecast_budget_remaining": 5,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 1.1069700121879578e-05,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look around",
+    "actual": {
+      "observation": "This room is called the art studio. In it, you see: \n\tthe agent\n\ta large cupboard. The large cupboard door is closed. \n\ta substance called air\n\ta table. On the table is: a bowl (containing nothing).\n\ta wood cup (containing blue paint)\n\ta wood cup (containing red paint)\n\ta wood cup (containing yellow paint)\nYou also see:\n\tA door to the hallway (that is closed)",
+      "raw_observation": "This room is called the art studio. In it, you see: \n\tthe agent\n\ta substance called air\n\ta large cupboard. The large cupboard door is closed. \n\ta table. On the table is: a bowl (containing nothing).\n\ta wood cup (containing red paint)\n\ta wood cup (containing blue paint)\n\ta wood cup (containing yellow paint)\nYou also see:\n\tA door to the hallway (that is closed)",
+      "reward": 0,
+      "done": false,
+      "score": 0,
+      "moves": 0,
+      "native_action": "look around",
+      "action": "look around",
+      "step_seconds": 0.010543512180447578
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_746",
+    "rollout_seed": 0,
+    "step": 6,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+    "observation": "This room is called the art studio. In it, you see: \n\tthe agent\n\ta large cupboard. The large cupboard door is closed. \n\ta substance called air\n\ta table. On the table is: a bowl (containing nothing).\n\ta wood cup (containing blue paint)\n\ta wood cup (containing red paint)\n\ta wood cup (containing yellow paint)\nYou also see:\n\tA door to the hallway (that is closed)",
+    "draft_output": "Premise: The current location is the art studio and the task requires focusing on the thermometer first.\nExpected Consequence: The agent will attempt to focus on the thermometer but may fail if it is not in the current room.\nAction: focus on thermometer",
+    "draft_action": "focus on thermometer",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00030062906444072723,
+      "judge_latency": 2.5780871510505676e-05,
+      "retrieval_cpu_seconds": 0.00029746800001362317,
+      "judge_cpu_seconds": 2.6128999991215096e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "f9456b9a09784fd25c69706fbea048097c87444167b6aa8b0907595aede86a09",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 4.878981238541024,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 3.244413705632457,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 3.008423215464523,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580931572174829,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_746/seed0/experience/6",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 5,
+      "forecast_budget_remaining": 5,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 5.3998082876205444e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "focus on thermometer",
+    "actual": {
+      "observation": "No known action matches that input.",
+      "raw_observation": "No known action matches that input.",
+      "reward": 0,
+      "done": false,
+      "score": 0,
+      "moves": 0,
+      "native_action": "focus on thermometer",
+      "action": "focus on thermometer",
+      "step_seconds": 0.01672881469130516
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_746",
+    "rollout_seed": 0,
+    "step": 7,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+    "observation": "No known action matches that input.",
+    "draft_output": "Premise: The agent is currently in the art studio and the thermometer is not visible in this room.\nExpected Consequence: The agent will see the hallway and potentially locate the thermometer there.\nAction: go hallway",
+    "draft_action": "go hallway",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00026324018836021423,
+      "judge_latency": 1.4657154679298401e-05,
+      "retrieval_cpu_seconds": 0.0002594970000018293,
+      "judge_cpu_seconds": 1.4998000011701151e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "8246f8db1143cc51b7a0e4de3fdb9734bf681648ac7453e2095c6f0dfd45bb5a",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 2.659541115370336,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 2.4587889393423614,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.1827916087178758,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580933776461948,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_746/seed0/experience/7",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 5,
+      "forecast_budget_remaining": 5,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 7.543712854385376e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "go hallway",
+    "actual": {
+      "observation": "The door is not open.",
+      "raw_observation": "The door is not open.",
+      "reward": 0,
+      "done": false,
+      "score": 0,
+      "moves": 1,
+      "native_action": "go hallway",
+      "action": "go hallway",
+      "step_seconds": 0.036629918962717056
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_746",
+    "rollout_seed": 0,
+    "step": 8,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+    "observation": "The door is not open.",
+    "draft_output": "Premise: The door to the hallway is currently closed.\nExpected Consequence: The door will open, allowing entry to the hallway.\nAction: open door",
+    "draft_action": "open door",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0002572685480117798,
+      "judge_latency": 1.51805579662323e-05,
+      "retrieval_cpu_seconds": 0.00025365600001237,
+      "judge_cpu_seconds": 1.572899998336652e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "e95677de0ce395fff7a3f838bf5f118097c9cdff40e843b9e1e7d4397d187bf4",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 3.2386460762783367,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 2.906138249285573,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 2.659541115370336,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580935488717776,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_746/seed0/experience/8",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 5,
+      "forecast_budget_remaining": 5,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 8.966773748397827e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "open door",
+    "actual": {
+      "observation": "The door is now open.",
+      "raw_observation": "The door is now open.",
+      "reward": 0,
+      "done": false,
+      "score": 0,
+      "moves": 2,
+      "native_action": "open door",
+      "action": "open door",
+      "step_seconds": 0.02133641391992569
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_746",
+    "rollout_seed": 0,
+    "step": 9,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+    "observation": "The door is now open.",
+    "draft_output": "Premise: The door to the kitchen is now open.\nExpected Consequence: I will be able to enter the kitchen and access the chocolate and thermometer.\nAction: go kitchen",
+    "draft_action": "go kitchen",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0002761147916316986,
+      "judge_latency": 1.3696029782295227e-05,
+      "retrieval_cpu_seconds": 0.0002730420000034428,
+      "judge_cpu_seconds": 1.398599999902217e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "cb861e08712da3d80774bcb0c588c9b9c22a160f1f32ce5cf90d2286909f8f11",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 3.886967502297299,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 3.6567307668729567,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 2.659541115370336,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580937351039220,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_746/seed0/experience/9",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 5,
+      "forecast_budget_remaining": 5,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 5.953013896942139e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "go kitchen",
+    "actual": {
+      "observation": "No known action matches that input.",
+      "raw_observation": "No known action matches that input.",
+      "reward": 0,
+      "done": false,
+      "score": 0,
+      "moves": 2,
+      "native_action": "go kitchen",
+      "action": "go kitchen",
+      "step_seconds": 0.008896168321371078
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_746",
+    "rollout_seed": 0,
+    "step": 10,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+    "observation": "No known action matches that input.",
+    "draft_output": "Premise: The user is currently in the kitchen and needs to locate the thermometer to begin the task.\nExpected Consequence: The agent will see the thermometer and be able to focus on it.\nAction: look around",
+    "draft_action": "look around",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00028360821306705475,
+      "judge_latency": 1.829676330089569e-05,
+      "retrieval_cpu_seconds": 0.00028036599999836653,
+      "judge_cpu_seconds": 1.852399998369947e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "d453df442ccc5e9b56e01cf1759c3446a2a19fddbd4b4f9e054988dd82e0ed73",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 4.4965457363956425,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.1827916087178758,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.119119715716589,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580939571555931,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_746/seed0/experience/10",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 5,
+      "forecast_budget_remaining": 5,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 8.21426510810852e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look around",
+    "actual": {
+      "observation": "This room is called the art studio. In it, you see: \n\tthe agent\n\ta large cupboard. The large cupboard door is closed. \n\ta substance called air\n\ta table. On the table is: a bowl (containing nothing).\n\ta wood cup (containing blue paint)\n\ta wood cup (containing red paint)\n\ta wood cup (containing yellow paint)\nYou also see:\n\tA door to the hallway (that is open)",
+      "raw_observation": "This room is called the art studio. In it, you see: \n\tthe agent\n\ta substance called air\n\ta large cupboard. The large cupboard door is closed. \n\ta table. On the table is: a bowl (containing nothing).\n\ta wood cup (containing red paint)\n\ta wood cup (containing blue paint)\n\ta wood cup (containing yellow paint)\nYou also see:\n\tA door to the hallway (that is open)",
+      "reward": 0,
+      "done": false,
+      "score": 0,
+      "moves": 2,
+      "native_action": "look around",
+      "action": "look around",
+      "step_seconds": 0.006746489554643631
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_746",
+    "rollout_seed": 0,
+    "step": 11,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+    "observation": "This room is called the art studio. In it, you see: \n\tthe agent\n\ta large cupboard. The large cupboard door is closed. \n\ta substance called air\n\ta table. On the table is: a bowl (containing nothing).\n\ta wood cup (containing blue paint)\n\ta wood cup (containing red paint)\n\ta wood cup (containing yellow paint)\nYou also see:\n\tA door to the hallway (that is open)",
+    "draft_output": "Premise: The agent is currently in the art studio and needs to locate the kitchen to find the chocolate and thermometer.\nExpected Consequence: Moving to the hallway will allow access to the kitchen where the task objects are located.\nAction: go hallway",
+    "draft_action": "go hallway",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00032310374081134796,
+      "judge_latency": 2.5179237127304077e-05,
+      "retrieval_cpu_seconds": 0.00031982999999513595,
+      "judge_cpu_seconds": 2.5628000003052875e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "09720c13d5d3797ad74579dddec198b8eeeb4cbd9549290956d66ad6f134db69",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 4.878981238541024,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 4.78970658737488,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 4.027753087708683,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580942018819852,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_746/seed0/experience/11",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 5,
+      "forecast_budget_remaining": 5,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 6.724148988723755e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "go hallway",
+    "actual": {
+      "observation": "You move to the hallway.",
+      "raw_observation": "You move to the hallway.",
+      "reward": 1,
+      "done": false,
+      "score": 1,
+      "moves": 3,
+      "native_action": "go hallway",
+      "action": "go hallway",
+      "step_seconds": 0.014872962608933449
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_746",
+    "rollout_seed": 0,
+    "step": 12,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+    "observation": "You move to the hallway.",
+    "draft_output": "Premise: The agent has just moved to the hallway and needs to locate the kitchen to find the chocolate.\nExpected Consequence: The agent will see the kitchen door or other rooms connected to the hallway.\nAction: look around",
+    "draft_action": "look around",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00025830045342445374,
+      "judge_latency": 2.481788396835327e-05,
+      "retrieval_cpu_seconds": 0.00025494799999137285,
+      "judge_cpu_seconds": 2.5117000006957824e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "9dc7fd265beb711a5f90fef1153425777cd6263b7ef4edbe5aeb19c9a54933d2",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 4.4965457363956425,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.1827916087178758,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.119119715716589,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580944294633122,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_746/seed0/experience/12",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 5,
+      "forecast_budget_remaining": 5,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 6.735324859619141e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look around",
+    "actual": {
+      "observation": "This room is called the hallway. In it, you see: \n\tthe agent\n\ta picture\n\ta substance called air\nYou also see:\n\tA door to the art studio (that is open)\n\tA door to the bedroom (that is closed)\n\tA door to the greenhouse (that is closed)\n\tA door to the kitchen (that is closed)\n\tA door to the living room (that is closed)\n\tA door to the workshop (that is closed)",
+      "raw_observation": "This room is called the hallway. In it, you see: \n\tthe agent\n\ta substance called air\n\ta picture\nYou also see:\n\tA door to the art studio (that is open)\n\tA door to the bedroom (that is closed)\n\tA door to the greenhouse (that is closed)\n\tA door to the kitchen (that is closed)\n\tA door to the living room (that is closed)\n\tA door to the workshop (that is closed)",
+      "reward": 0,
+      "done": false,
+      "score": 1,
+      "moves": 3,
+      "native_action": "look around",
+      "action": "look around",
+      "step_seconds": 0.005282733589410782
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_746",
+    "rollout_seed": 0,
+    "step": 13,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+    "observation": "This room is called the hallway. In it, you see: \n\tthe agent\n\ta picture\n\ta substance called air\nYou also see:\n\tA door to the art studio (that is open)\n\tA door to the bedroom (that is closed)\n\tA door to the greenhouse (that is closed)\n\tA door to the kitchen (that is closed)\n\tA door to the living room (that is closed)\n\tA door to the workshop (that is closed)",
+    "draft_output": "Premise: The kitchen door is currently closed.\nExpected Consequence: The agent will enter the kitchen room.\nAction: go kitchen",
+    "draft_action": "go kitchen",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "true",
+      "conflict": "true",
+      "sufficiency": "false",
+      "reliability": "supported",
+      "matched_experience_ids": [
+        "exp_b5e8e19f18820e2efed9"
+      ],
+      "supporting_evidence_ids": [
+        "phase3_rule_probes_v1/sciworld_1545/step-1",
+        "phase3_rule_probes_v1/sciworld_1667/step-1",
+        "phase3_train_v2/sciworld_3044/step-3",
+        "phase3_train_v2/sciworld_325/step-4"
+      ],
+      "reason": "Draft movement contradicts supported closed-route precondition; action remains unchanged and unresolved.",
+      "retrieval_latency": 0.00032146088778972626,
+      "judge_latency": 4.7359615564346313e-05,
+      "retrieval_cpu_seconds": 0.0003180460000180574,
+      "judge_cpu_seconds": 4.754900001557871e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "46af41361f75b9c18a8d4009dea1d9b327afa5eea266568f57f1da7e91058b63",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 4.878981238541024,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 4.78970658737488,
+          "applicable": true,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 4.027753087708683,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580945726892137,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "true",
+      "conflict": "true",
+      "sufficiency": "false",
+      "reliability": "supported",
+      "evidence_ids": [
+        "phase3_rule_probes_v1/sciworld_1545/step-1",
+        "phase3_rule_probes_v1/sciworld_1667/step-1",
+        "phase3_train_v2/sciworld_3044/step-3",
+        "phase3_train_v2/sciworld_325/step-4"
+      ],
+      "matched_experience_ids": [
+        "exp_b5e8e19f18820e2efed9"
+      ],
+      "evidence_verified": true,
+      "action_status": "unresolved_conflict",
+      "diagnostics": []
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_746/seed0/experience/13",
+      "policy": "experience",
+      "call_wm": true,
+      "verification_requested": true,
+      "verification_unavailable": false,
+      "reason": "reliable_action_conflict_requires_verification_correction_off",
+      "triggered_signals": [
+        "reliable_unresolved_conflict"
+      ],
+      "diagnostics": [],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "true",
+      "experience_conflict": "true",
+      "experience_sufficiency": "false",
+      "experience_action_status": "unresolved_conflict",
+      "experience_evidence_ids": [
+        "phase3_rule_probes_v1/sciworld_1545/step-1",
+        "phase3_rule_probes_v1/sciworld_1667/step-1",
+        "phase3_train_v2/sciworld_3044/step-3",
+        "phase3_train_v2/sciworld_325/step-4"
+      ],
+      "evidence_verified": true,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 5,
+      "forecast_budget_remaining": 5,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 7.895752787590027e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": {
+      "source": "ground_truth_environment",
+      "backend": "ground_truth_environment_replay",
+      "status": "ok",
+      "prediction_available": true,
+      "verified_prefix_steps": 13,
+      "simulator": {
+        "profile": "scienceworld130",
+        "version": "1.3.0",
+        "jar_sha256": "e77b0fee7d68abe3ca5b12e57d86e2bfe7603f20c5200da0b0f085939faeb465",
+        "upstream_commit": "e8216d6044e8e39be9fcb185e3b2dfb602584b52"
+      },
+      "full_hidden_state_equivalence_claimed": false,
+      "worker_pid": 2607818,
+      "formal_pid": 2606852,
+      "candidate_state_sha256": "df55220f3d099810c68bbf659cb116c48b6e2ff1e59fc0e785789e4c53d8a722",
+      "predicted_observation": "The door is not open.",
+      "predicted_reward": 0,
+      "predicted_done": false,
+      "predicted_score": 1,
+      "predicted_moves": 4,
+      "action_valid": null,
+      "environment_feedback": "The door is not open.",
+      "candidate_transition": {
+        "observation": "The door is not open.",
+        "raw_observation": "The door is not open.",
+        "reward": 0,
+        "done": false,
+        "score": 1,
+        "moves": 4,
+        "native_action": "go kitchen",
+        "action": "go kitchen",
+        "step_seconds": 0.006557580083608627
+      },
+      "formal_unchanged": true,
+      "checked_state_sha256": "fcefb61c605daeb45b89c593e7b65f576b5054c65fe9b7fee219020e6695e800",
+      "simulation_cost": {
+        "jvm_initializations": 1,
+        "initialization_step_calls": 1,
+        "replay_step_calls": 13,
+        "candidate_step_calls": 1,
+        "initialization_seconds": 1.429698621854186,
+        "replay_seconds": 0.8969158716499805,
+        "candidate_seconds": 0.048580227419734,
+        "cleanup_seconds": 0.11398114822804928,
+        "audit_capture_bundles": 44
+      },
+      "simulation_latency": 2.9256053008139133,
+      "available_at_ns": 1794580948653198515
+    },
+    "review": {
+      "raw": "Decision: REPLACE\nReason: The draft action \"go kitchen\" failed because the observation explicitly states the door to the kitchen is closed, and the feedback confirms \"The door is not open.\" The agent must first open the door before entering.\nFinal Action: open door to the kitchen",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The draft action \"go kitchen\" failed because the observation explicitly states the door to the kitchen is closed, and the feedback confirms \"The door is not open.\" The agent must first open the door before entering.",
+        "final_action": "open door to the kitchen",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final_action": "open door to the kitchen",
+    "actual": {
+      "observation": "The door is now open.",
+      "raw_observation": "The door is now open.",
+      "reward": 0,
+      "done": false,
+      "score": 1,
+      "moves": 4,
+      "native_action": "open door to the kitchen",
+      "action": "open door to the kitchen",
+      "step_seconds": 0.010125035420060158
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_746",
+    "rollout_seed": 0,
+    "step": 14,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+    "observation": "The door is now open.",
+    "draft_output": "Premise: The door to the kitchen is now open.\nExpected Consequence: The agent can enter the kitchen to locate the thermometer and chocolate.\nAction: go kitchen",
+    "draft_action": "go kitchen",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00034018605947494507,
+      "judge_latency": 2.1150335669517517e-05,
+      "retrieval_cpu_seconds": 0.0003369720000137022,
+      "judge_cpu_seconds": 2.1760999999287378e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "9d1c9dcb0e7d71eb6a60240c8d63488d4f9d85a72b3b60f29296c0636357a959",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 3.886967502297299,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 3.6567307668729567,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 2.659541115370336,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580953142927413,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_746/seed0/experience/14",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 1.4899298548698425e-05,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "go kitchen",
+    "actual": {
+      "observation": "You move to the kitchen.",
+      "raw_observation": "You move to the kitchen.",
+      "reward": 4,
+      "done": false,
+      "score": 5,
+      "moves": 5,
+      "native_action": "go kitchen",
+      "action": "go kitchen",
+      "step_seconds": 0.011821513995528221
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_746",
+    "rollout_seed": 0,
+    "step": 15,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+    "observation": "You move to the kitchen.",
+    "draft_output": "Premise: The agent has successfully entered the kitchen where the chocolate and thermometer are located.\nExpected Consequence: The agent will be able to see and interact with the thermometer and chocolate in the kitchen.\nAction: focus on the thermometer",
+    "draft_action": "focus on the thermometer",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00028354860842227936,
+      "judge_latency": 2.512894570827484e-05,
+      "retrieval_cpu_seconds": 0.0002730009999822869,
+      "judge_cpu_seconds": 2.5357999987818403e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "47fb47c618a9af655fc8bfc11974f99978e06888f575d2776bc07699fa094b6d",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 2.659541115370336,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.1827916087178758,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.119119715716589,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580955541791045,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_746/seed0/experience/15",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 7.010996341705322e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "focus on the thermometer",
+    "actual": {
+      "observation": "You focus on the thermometer.",
+      "raw_observation": "You focus on the thermometer.",
+      "reward": 33,
+      "done": false,
+      "score": 38,
+      "moves": 6,
+      "native_action": "focus on the thermometer",
+      "action": "focus on the thermometer",
+      "step_seconds": 0.02348366752266884
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_746",
+    "rollout_seed": 0,
+    "step": 16,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+    "observation": "You focus on the thermometer.",
+    "draft_output": "Premise: The user has focused on the thermometer but has not yet read its value.\nExpected Consequence: The current observation will display the temperature reading on the thermometer.\nAction: read thermometer",
+    "draft_action": "read thermometer",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.000271085649728775,
+      "judge_latency": 1.5027821063995361e-05,
+      "retrieval_cpu_seconds": 0.0002654879999965942,
+      "judge_cpu_seconds": 1.538899999786736e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "3225daaea6d8bb122889414435e2da96049e1df4754bd200ef9150c0f7526f8f",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 2.659541115370336,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.1827916087178758,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.119119715716589,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580957606561140,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_746/seed0/experience/16",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 6.532296538352966e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "read thermometer",
+    "actual": {
+      "observation": "It's not clear how to read that.",
+      "raw_observation": "It's not clear how to read that.",
+      "reward": 0,
+      "done": false,
+      "score": 38,
+      "moves": 7,
+      "native_action": "read thermometer",
+      "action": "read thermometer",
+      "step_seconds": 0.016066215932369232
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_746",
+    "rollout_seed": 0,
+    "step": 17,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+    "observation": "It's not clear how to read that.",
+    "draft_output": "Premise: The thermometer cannot be read directly.\nExpected Consequence: The chocolate will be located in the kitchen.\nAction: focus on the chocolate",
+    "draft_action": "focus on the chocolate",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00027567148208618164,
+      "judge_latency": 1.4295801520347595e-05,
+      "retrieval_cpu_seconds": 0.0003092200000196499,
+      "judge_cpu_seconds": 1.4678000013645942e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "2ae877892c935224f4a293f7f29370144a2c7efe1b8179d919628f89d50f5dd4",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 2.659541115370336,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 2.0407042487477414,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.1827916087178758,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580959226334971,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_746/seed0/experience/17",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 6.591901183128357e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "focus on the chocolate",
+    "actual": {
+      "observation": "No known action matches that input.",
+      "raw_observation": "No known action matches that input.",
+      "reward": 0,
+      "done": false,
+      "score": 38,
+      "moves": 7,
+      "native_action": "focus on the chocolate",
+      "action": "focus on the chocolate",
+      "step_seconds": 0.019130120053887367
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_746",
+    "rollout_seed": 0,
+    "step": 18,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+    "observation": "No known action matches that input.",
+    "draft_output": "Premise: The user attempted to focus on the chocolate but received an error indicating no known action matches.\nExpected Consequence: The system will reject the action and require a valid command from the available list.\nAction: focus on the chocolate",
+    "draft_action": "focus on the chocolate",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00027239881455898285,
+      "judge_latency": 1.4565885066986084e-05,
+      "retrieval_cpu_seconds": 0.00026908499998512525,
+      "judge_cpu_seconds": 1.4927999984593043e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "3b3b5ae6de47e82fbe5c4e308ea30050864fea5c75990d45b8f82a8fd6f7f7cb",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 2.659541115370336,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.1827916087178758,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.119119715716589,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580961608099515,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_746/seed0/experience/18",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 6.1318278312683105e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "focus on the chocolate",
+    "actual": {
+      "observation": "No known action matches that input.",
+      "raw_observation": "No known action matches that input.",
+      "reward": 0,
+      "done": false,
+      "score": 38,
+      "moves": 7,
+      "native_action": "focus on the chocolate",
+      "action": "focus on the chocolate",
+      "step_seconds": 0.014631232246756554
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_746",
+    "rollout_seed": 0,
+    "step": 19,
+    "goal": "Your task is to measure the melting point of chocolate, which is located around the kitchen. First, focus on the thermometer. Next, focus on the chocolate. If the melting point of chocolate is above 200.0 degrees celsius, focus on the blue box. If the melting point of chocolate is below 200.0 degrees celsius, focus on the orange box. The boxes are located around the kitchen.",
+    "observation": "No known action matches that input.",
+    "draft_output": "Premise: The command 'focus on the chocolate' is not recognized by the system.\nExpected Consequence: The system will reject the action again if the same command is used.\nAction: look at the chocolate",
+    "draft_action": "look at the chocolate",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0002754703164100647,
+      "judge_latency": 1.6612932085990906e-05,
+      "retrieval_cpu_seconds": 0.0002723610000145982,
+      "judge_cpu_seconds": 1.6932000022507054e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "de984ef87309ae7e48177a8769da9eefd37df169f8f8e87d5bc7c7d510ec6bf9",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 4.4965457363956425,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.1827916087178758,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.119119715716589,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580963744017620,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_746/seed0/experience/19",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 6.614252924919128e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look at the chocolate",
+    "actual": {
+      "observation": "No known action matches that input.",
+      "raw_observation": "No known action matches that input.",
+      "reward": 0,
+      "done": false,
+      "score": 38,
+      "moves": 7,
+      "native_action": "look at the chocolate",
+      "action": "look at the chocolate",
+      "step_seconds": 0.008670667186379433
+    },
+    "kept_draft_transition_match": null
+  }
+]

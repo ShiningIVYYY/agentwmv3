@@ -1,0 +1,2939 @@
+[
+  {
+    "policy": "experience",
+    "task_id": "sciworld_2438",
+    "rollout_seed": 0,
+    "step": 0,
+    "goal": "Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta substance called air\n\ta substance called soap\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)",
+    "draft_output": "Premise: The unknown substance F is not visible in the current kitchen observation.\nExpected Consequence: Looking around will reveal the rest of the room or adjacent areas where substance F might be located.\nAction: look around",
+    "draft_action": "look around",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "true",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "supported",
+      "matched_experience_ids": [
+        "exp_7124e4e628e26cb3a034"
+      ],
+      "supporting_evidence_ids": [
+        "phase3_train_v2/sciworld_3044/step-1",
+        "phase3_train_v2/sciworld_3044/step-2",
+        "phase3_train_v2/sciworld_326/step-3",
+        "phase3_train_v2/sciworld_326/step-4"
+      ],
+      "reason": "Room-inspection evidence applies to this action/state, but the Agent premise/effect is not fully confirmed.",
+      "retrieval_latency": 0.0004640016704797745,
+      "judge_latency": 8.495151996612549e-05,
+      "retrieval_cpu_seconds": 0.00046016299999962484,
+      "judge_cpu_seconds": 7.708500000092045e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "ec451ded50bd82f4e952e701138e71e44e27c76c477d82367f13cd8978eea88d",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 7.764200328433825,
+          "applicable": true,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 3.244413705632457,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 3.008423215464523,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580843393518840,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "true",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "supported",
+      "evidence_ids": [
+        "phase3_train_v2/sciworld_3044/step-1",
+        "phase3_train_v2/sciworld_3044/step-2",
+        "phase3_train_v2/sciworld_326/step-3",
+        "phase3_train_v2/sciworld_326/step-4"
+      ],
+      "matched_experience_ids": [
+        "exp_7124e4e628e26cb3a034"
+      ],
+      "evidence_verified": true,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_2438/seed0/experience/0",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "true",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [
+        "phase3_train_v2/sciworld_3044/step-1",
+        "phase3_train_v2/sciworld_3044/step-2",
+        "phase3_train_v2/sciworld_326/step-3",
+        "phase3_train_v2/sciworld_326/step-4"
+      ],
+      "evidence_verified": true,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 5,
+      "forecast_budget_remaining": 5,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 8.167698979377747e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look around",
+    "actual": {
+      "observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta substance called air\n\ta substance called soap\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)",
+      "raw_observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta substance called air\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called soap\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)",
+      "reward": 0,
+      "done": false,
+      "score": 0,
+      "moves": 0,
+      "native_action": "look around",
+      "action": "look around",
+      "step_seconds": 0.011830640956759453
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_2438",
+    "rollout_seed": 0,
+    "step": 1,
+    "goal": "Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta substance called air\n\ta substance called soap\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is closed)\n\tA door to the outside (that is closed)",
+    "draft_output": "Premise: The unknown substance F is not visible in the current kitchen observation.\nExpected Consequence: Moving to the hallway may reveal the workshop where the unknown substance F is located.\nAction: go hallway",
+    "draft_action": "go hallway",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "true",
+      "conflict": "true",
+      "sufficiency": "false",
+      "reliability": "supported",
+      "matched_experience_ids": [
+        "exp_b5e8e19f18820e2efed9"
+      ],
+      "supporting_evidence_ids": [
+        "phase3_rule_probes_v1/sciworld_1545/step-1",
+        "phase3_rule_probes_v1/sciworld_1667/step-1",
+        "phase3_train_v2/sciworld_3044/step-3",
+        "phase3_train_v2/sciworld_325/step-4"
+      ],
+      "reason": "Draft movement contradicts supported closed-route precondition; action remains unchanged and unresolved.",
+      "retrieval_latency": 0.00038339756429195404,
+      "judge_latency": 5.751848220825195e-05,
+      "retrieval_cpu_seconds": 0.00038014300000099865,
+      "judge_cpu_seconds": 5.7849000000942397e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "93b825b6b55139722f54c7b8ea1f524fa957af1ba59f67df4a1699d366c12332",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 5.927195707408518,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 4.348092439090295,
+          "applicable": true,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 3.244413705632457,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580845490075525,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "true",
+      "conflict": "true",
+      "sufficiency": "false",
+      "reliability": "supported",
+      "evidence_ids": [
+        "phase3_rule_probes_v1/sciworld_1545/step-1",
+        "phase3_rule_probes_v1/sciworld_1667/step-1",
+        "phase3_train_v2/sciworld_3044/step-3",
+        "phase3_train_v2/sciworld_325/step-4"
+      ],
+      "matched_experience_ids": [
+        "exp_b5e8e19f18820e2efed9"
+      ],
+      "evidence_verified": true,
+      "action_status": "unresolved_conflict",
+      "diagnostics": []
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_2438/seed0/experience/1",
+      "policy": "experience",
+      "call_wm": true,
+      "verification_requested": true,
+      "verification_unavailable": false,
+      "reason": "reliable_action_conflict_requires_verification_correction_off",
+      "triggered_signals": [
+        "reliable_unresolved_conflict"
+      ],
+      "diagnostics": [],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "true",
+      "experience_conflict": "true",
+      "experience_sufficiency": "false",
+      "experience_action_status": "unresolved_conflict",
+      "experience_evidence_ids": [
+        "phase3_rule_probes_v1/sciworld_1545/step-1",
+        "phase3_rule_probes_v1/sciworld_1667/step-1",
+        "phase3_train_v2/sciworld_3044/step-3",
+        "phase3_train_v2/sciworld_325/step-4"
+      ],
+      "evidence_verified": true,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 5,
+      "forecast_budget_remaining": 5,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 7.5642019510269165e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": {
+      "source": "ground_truth_environment",
+      "backend": "ground_truth_environment_replay",
+      "status": "ok",
+      "prediction_available": true,
+      "verified_prefix_steps": 1,
+      "simulator": {
+        "profile": "scienceworld130",
+        "version": "1.3.0",
+        "jar_sha256": "e77b0fee7d68abe3ca5b12e57d86e2bfe7603f20c5200da0b0f085939faeb465",
+        "upstream_commit": "e8216d6044e8e39be9fcb185e3b2dfb602584b52"
+      },
+      "full_hidden_state_equivalence_claimed": false,
+      "worker_pid": 2604346,
+      "formal_pid": 2604104,
+      "candidate_state_sha256": "5f12340a405b17cebe7f1a3c5572c96397401df9428b227f77e81b3c1f2fed8f",
+      "predicted_observation": "The door is not open.",
+      "predicted_reward": 0,
+      "predicted_done": false,
+      "predicted_score": 0,
+      "predicted_moves": 1,
+      "action_valid": null,
+      "environment_feedback": "The door is not open.",
+      "candidate_transition": {
+        "observation": "The door is not open.",
+        "raw_observation": "The door is not open.",
+        "reward": 0,
+        "done": false,
+        "score": 0,
+        "moves": 1,
+        "native_action": "go hallway",
+        "action": "go hallway",
+        "step_seconds": 0.04883572831749916
+      },
+      "formal_unchanged": true,
+      "checked_state_sha256": "e3937465a71eb5c05428943c2cbe42ebd17e8a4772190a9588a1bb56f0031f0e",
+      "simulation_cost": {
+        "jvm_initializations": 1,
+        "initialization_step_calls": 1,
+        "replay_step_calls": 1,
+        "candidate_step_calls": 1,
+        "initialization_seconds": 1.3884837999939919,
+        "replay_seconds": 0.0834367610514164,
+        "candidate_seconds": 0.1084924079477787,
+        "cleanup_seconds": 0.06435553543269634,
+        "audit_capture_bundles": 8
+      },
+      "simulation_latency": 1.8154904525727034,
+      "available_at_ns": 1794580847306357517
+    },
+    "review": {
+      "raw": "Decision: REPLACE\nReason: The draft action \"go hallway\" failed because the observation states \"A door to the hallway (that is closed)\". To enter the hallway, the agent must first open the door. Additionally, the unknown substance F is not currently visible in the kitchen; it is located \"around the workshop\", implying it is in another room (likely the hallway or beyond). The immediate necessary step is to open the door to proceed.\nFinal Action: open door to the hallway",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The draft action \"go hallway\" failed because the observation states \"A door to the hallway (that is closed)\". To enter the hallway, the agent must first open the door. Additionally, the unknown substance F is not currently visible in the kitchen; it is located \"around the workshop\", implying it is in another room (likely the hallway or beyond). The immediate necessary step is to open the door to proceed.",
+        "final_action": "open door to the hallway",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final_action": "open door to the hallway",
+    "actual": {
+      "observation": "The door is now open.",
+      "raw_observation": "The door is now open.",
+      "reward": 0,
+      "done": false,
+      "score": 0,
+      "moves": 1,
+      "native_action": "open door to the hallway",
+      "action": "open door to the hallway",
+      "step_seconds": 0.05487806349992752
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_2438",
+    "rollout_seed": 0,
+    "step": 2,
+    "goal": "Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "The door is now open.",
+    "draft_output": "Premise: The agent has opened the door to the hallway to search for the unknown substance F.\nExpected Consequence: The agent will see the contents of the hallway, potentially revealing the unknown substance F.\nAction: look around",
+    "draft_action": "look around",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0003233831375837326,
+      "judge_latency": 1.784414052963257e-05,
+      "retrieval_cpu_seconds": 0.00032146200000227054,
+      "judge_cpu_seconds": 1.8203999999855114e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "ac3b4a6d9109ab88e0af072a749bc3309281dad2060c2b979e1a31533e9c0407",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 4.020498894921822,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 3.5910365726230586,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 2.442527281283649,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580854144783446,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_2438/seed0/experience/2",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 9.367242455482483e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look around",
+    "actual": {
+      "observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta substance called air\n\ta substance called soap\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is open)\n\tA door to the outside (that is closed)",
+      "raw_observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta substance called air\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta substance called soap\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is open)\n\tA door to the outside (that is closed)",
+      "reward": 0,
+      "done": false,
+      "score": 0,
+      "moves": 1,
+      "native_action": "look around",
+      "action": "look around",
+      "step_seconds": 0.013673102483153343
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_2438",
+    "rollout_seed": 0,
+    "step": 3,
+    "goal": "Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "This room is called the kitchen. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta counter. On the counter is: a bowl (containing a red apple, a banana, an orange, a potato), a drawer.\n\ta cupboard. The cupboard door is closed. \n\ta freezer. The freezer door is closed. \n\ta fridge. The fridge door is closed. \n\ta glass jar (containing a substance called sodium chloride)\n\ta lighter\n\ta oven, which is turned off. The oven door is closed. \n\ta painting\n\ta sink, which is turned off. In the sink is: nothing.\n\ta stopwatch, which is deactivated. \n\ta stove, which is turned off. On the stove is: nothing.\n\ta substance called air\n\ta substance called soap\n\ta table. On the table is: a glass cup (containing nothing).\n\ta thermometer, currently reading a temperature of 10 degrees celsius\nYou also see:\n\tA door to the bathroom (that is closed)\n\tA door to the hallway (that is open)\n\tA door to the outside (that is closed)",
+    "draft_output": "Premise: The unknown substance F is not visible in the current kitchen observation.\nExpected Consequence: Moving to the hallway may reveal the location of the unknown substance F.\nAction: go hallway",
+    "draft_action": "go hallway",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0005711633712053299,
+      "judge_latency": 4.624761641025543e-05,
+      "retrieval_cpu_seconds": 0.000569167999998399,
+      "judge_cpu_seconds": 4.646700000421333e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "18381a501721b0ac7c19e8e6549722a64600a2afc48ba118a82324dcc4ab4dd4",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 5.927195707408518,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 4.78970658737488,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 4.027753087708684,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580856155496380,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_2438/seed0/experience/3",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 6.67572021484375e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "go hallway",
+    "actual": {
+      "observation": "You move to the hallway.",
+      "raw_observation": "You move to the hallway.",
+      "reward": 5,
+      "done": false,
+      "score": 5,
+      "moves": 2,
+      "native_action": "go hallway",
+      "action": "go hallway",
+      "step_seconds": 0.023863084614276886
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_2438",
+    "rollout_seed": 0,
+    "step": 4,
+    "goal": "Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "You move to the hallway.",
+    "draft_output": "Premise: The agent has moved from the kitchen to the hallway.\nExpected Consequence: The agent will see the contents of the hallway, potentially revealing the location of unknown substance F.\nAction: look around",
+    "draft_action": "look around",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0002571474760770798,
+      "judge_latency": 1.5117228031158447e-05,
+      "retrieval_cpu_seconds": 0.0002540960000061432,
+      "judge_cpu_seconds": 1.5429000001176973e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "302694b4b41f103ff06c7a8a6e8c547d7ef798cac0b47632009471218d06c9c7",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 3.5910365726230586,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.3163230013423983,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.2445854537530534,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580858296609729,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_2438/seed0/experience/4",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 6.6105276346206665e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look around",
+    "actual": {
+      "observation": "This room is called the hallway. In it, you see: \n\tthe agent\n\ta painting\n\ta substance called air\nYou also see:\n\tA door to the art studio (that is closed)\n\tA door to the bedroom (that is closed)\n\tA door to the greenhouse (that is closed)\n\tA door to the kitchen (that is open)\n\tA door to the living room (that is closed)\n\tA door to the workshop (that is closed)",
+      "raw_observation": "This room is called the hallway. In it, you see: \n\tthe agent\n\ta substance called air\n\ta painting\nYou also see:\n\tA door to the art studio (that is closed)\n\tA door to the bedroom (that is closed)\n\tA door to the greenhouse (that is closed)\n\tA door to the kitchen (that is open)\n\tA door to the living room (that is closed)\n\tA door to the workshop (that is closed)",
+      "reward": 0,
+      "done": false,
+      "score": 5,
+      "moves": 2,
+      "native_action": "look around",
+      "action": "look around",
+      "step_seconds": 0.00559302419424057
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_2438",
+    "rollout_seed": 0,
+    "step": 5,
+    "goal": "Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "This room is called the hallway. In it, you see: \n\tthe agent\n\ta painting\n\ta substance called air\nYou also see:\n\tA door to the art studio (that is closed)\n\tA door to the bedroom (that is closed)\n\tA door to the greenhouse (that is closed)\n\tA door to the kitchen (that is open)\n\tA door to the living room (that is closed)\n\tA door to the workshop (that is closed)",
+    "draft_output": "Premise: The workshop door is currently closed and needs to be opened to access the unknown substance F.\nExpected Consequence: Opening the workshop door will allow the agent to enter the workshop room.\nAction: open door to the workshop",
+    "draft_action": "open door to the workshop",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "true",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "supported",
+      "matched_experience_ids": [
+        "exp_8db1a36db0a95a649654"
+      ],
+      "supporting_evidence_ids": [
+        "phase3_rule_probes_v1/sciworld_1545/step-3",
+        "phase3_rule_probes_v1/sciworld_1667/step-3"
+      ],
+      "reason": "Observed action has support, but the Agent consequence is outside the verified claim scope.",
+      "retrieval_latency": 0.0003858320415019989,
+      "judge_latency": 7.199496030807495e-05,
+      "retrieval_cpu_seconds": 0.0003826380000049312,
+      "judge_cpu_seconds": 7.254599999839684e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "d9921b1302be214eb00927bd620b7f21f083e2171df1742c5827b4866d3d939a",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 4.027753087708684,
+          "applicable": true,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 3.83076676967353,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 3.4500373637491073,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580860618753971,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "true",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "supported",
+      "evidence_ids": [
+        "phase3_rule_probes_v1/sciworld_1545/step-3",
+        "phase3_rule_probes_v1/sciworld_1667/step-3"
+      ],
+      "matched_experience_ids": [
+        "exp_8db1a36db0a95a649654"
+      ],
+      "evidence_verified": true,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_2438/seed0/experience/5",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "true",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [
+        "phase3_rule_probes_v1/sciworld_1545/step-3",
+        "phase3_rule_probes_v1/sciworld_1667/step-3"
+      ],
+      "evidence_verified": true,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 9.307637810707092e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "open door to the workshop",
+    "actual": {
+      "observation": "The door is now open.",
+      "raw_observation": "The door is now open.",
+      "reward": 0,
+      "done": false,
+      "score": 5,
+      "moves": 3,
+      "native_action": "open door to the workshop",
+      "action": "open door to the workshop",
+      "step_seconds": 0.010002696886658669
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_2438",
+    "rollout_seed": 0,
+    "step": 6,
+    "goal": "Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "The door is now open.",
+    "draft_output": "Premise: The door to the workshop is now open.\nExpected Consequence: The agent can enter the workshop room.\nAction: go workshop",
+    "draft_action": "go workshop",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00026120617985725403,
+      "judge_latency": 1.4727935194969177e-05,
+      "retrieval_cpu_seconds": 0.00025749300000654785,
+      "judge_cpu_seconds": 1.5008999994847727e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "a1bb56edf299cbe172765fb91afd68017490278d9652e28f3bb9d527005a6be6",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 4.020498894921822,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 3.7821965049094213,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 1.7540319515977518,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580862237645256,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_2438/seed0/experience/6",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 6.712973117828369e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "go workshop",
+    "actual": {
+      "observation": "You move to the workshop.",
+      "raw_observation": "You move to the workshop.",
+      "reward": 5,
+      "done": false,
+      "score": 10,
+      "moves": 4,
+      "native_action": "go workshop",
+      "action": "go workshop",
+      "step_seconds": 0.016816897317767143
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_2438",
+    "rollout_seed": 0,
+    "step": 7,
+    "goal": "Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "You move to the workshop.",
+    "draft_output": "Premise: The agent has entered the workshop where the unknown substance F is located.\nExpected Consequence: The agent will see the unknown substance F and other objects in the workshop.\nAction: look around",
+    "draft_action": "look around",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0002470109611749649,
+      "judge_latency": 1.3746321201324463e-05,
+      "retrieval_cpu_seconds": 0.00024408800000230713,
+      "judge_cpu_seconds": 1.4055999997708568e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "80d088b4ae8e1b898de21c990b1da8729dee405dac789deda15f509351219270",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 3.5910365726230586,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.3163230013423983,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.2445854537530534,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580864298177274,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_2438/seed0/experience/7",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 5.690380930900574e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look around",
+    "actual": {
+      "observation": "This room is called the workshop. In it, you see: \n\tthe agent\n\ta blue box (containing nothing)\n\ta orange box (containing nothing)\n\ta red light bulb, which is off\n\ta substance called air\n\ta table. On the table is: a battery, a black wire, a blue light bulb, which is off, a green light bulb, which is off, a orange light bulb, which is off, a orange wire, a red wire, a switch, which is off.\n\ta ultra low temperature freezer. The ultra low temperature freezer door is closed. \n\tunknown substance F\nYou also see:\n\tA door to the hallway (that is open)",
+      "raw_observation": "This room is called the workshop. In it, you see: \n\tthe agent\n\ta substance called air\n\ta blue box (containing nothing)\n\ta orange box (containing nothing)\n\ta red light bulb, which is off\n\ta table. On the table is: a battery, a black wire, a blue light bulb, which is off, a green light bulb, which is off, a orange light bulb, which is off, a orange wire, a red wire, a switch, which is off.\n\ta ultra low temperature freezer. The ultra low temperature freezer door is closed. \n\tunknown substance F\nYou also see:\n\tA door to the hallway (that is open)",
+      "reward": 0,
+      "done": false,
+      "score": 10,
+      "moves": 4,
+      "native_action": "look around",
+      "action": "look around",
+      "step_seconds": 0.010122755542397499
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_2438",
+    "rollout_seed": 0,
+    "step": 8,
+    "goal": "Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "This room is called the workshop. In it, you see: \n\tthe agent\n\ta blue box (containing nothing)\n\ta orange box (containing nothing)\n\ta red light bulb, which is off\n\ta substance called air\n\ta table. On the table is: a battery, a black wire, a blue light bulb, which is off, a green light bulb, which is off, a orange light bulb, which is off, a orange wire, a red wire, a switch, which is off.\n\ta ultra low temperature freezer. The ultra low temperature freezer door is closed. \n\tunknown substance F\nYou also see:\n\tA door to the hallway (that is open)",
+    "draft_output": "Premise: The unknown substance F is located in the workshop.\nExpected Consequence: The agent will focus on the unknown substance F.\nAction: focus on unknown substance F",
+    "draft_action": "focus on unknown substance F",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0003394242376089096,
+      "judge_latency": 3.594718873500824e-05,
+      "retrieval_cpu_seconds": 0.00033641099999215385,
+      "judge_cpu_seconds": 3.629800001192507e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "fc0771c850551ecf9ce49ab92e12a7d47325949b092a7214886824074922d743",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 4.027753087708684,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 3.83076676967353,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 3.4500373637491073,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580866088393608,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_2438/seed0/experience/8",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 6.601214408874512e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "focus on unknown substance F",
+    "actual": {
+      "observation": "You focus on the unknown substance F.",
+      "raw_observation": "You focus on the unknown substance F.",
+      "reward": 50,
+      "done": false,
+      "score": 60,
+      "moves": 5,
+      "native_action": "focus on unknown substance F",
+      "action": "focus on unknown substance F",
+      "step_seconds": 0.02796020731329918
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_2438",
+    "rollout_seed": 0,
+    "step": 9,
+    "goal": "Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "You focus on the unknown substance F.",
+    "draft_output": "Premise: The unknown substance F has been focused on but its conductivity is unknown.\nExpected Consequence: The game will provide information about whether the substance is conductive or nonconductive.\nAction: read unknown substance F",
+    "draft_action": "read unknown substance F",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00028813816606998444,
+      "judge_latency": 2.1910294890403748e-05,
+      "retrieval_cpu_seconds": 0.0002848740000018779,
+      "judge_cpu_seconds": 2.2202000010906886e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "5aa3e8fe906c63a6f05087019012574af3f552faeac5f2bb8d0a2b03fa054a95",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 1.7540319515977518,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.3163230013423983,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.2445854537530534,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580868315227723,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_2438/seed0/experience/9",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 7.292255759239197e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "read unknown substance F",
+    "actual": {
+      "observation": "It's not clear how to read that.",
+      "raw_observation": "It's not clear how to read that.",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 6,
+      "native_action": "read unknown substance F",
+      "action": "read unknown substance F",
+      "step_seconds": 0.015057917684316635
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_2438",
+    "rollout_seed": 0,
+    "step": 10,
+    "goal": "Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "It's not clear how to read that.",
+    "draft_output": "Premise: Reading the unknown substance F directly failed to provide information about its conductivity.\nExpected Consequence: Testing the substance by connecting it to a circuit will reveal if it conducts electricity.\nAction: connect unknown substance F to switch",
+    "draft_action": "connect unknown substance F to switch",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00039922818541526794,
+      "judge_latency": 3.406591713428497e-05,
+      "retrieval_cpu_seconds": 0.0003961930000002667,
+      "judge_cpu_seconds": 3.4353999993186335e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "72cb1e2de4f63316d50770de08dfcd6e99456afb510e42c64cc70ec5ee1786c1",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 2.166169986784206,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 1.7540319515977518,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.3163230013423983,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580870618712626,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_2438/seed0/experience/10",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 1.5469267964363098e-05,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "connect unknown substance F to switch",
+    "actual": {
+      "observation": "Connections must specify specific points of contact on polarized electrical components (e.g. anode, cathode)",
+      "raw_observation": "Connections must specify specific points of contact on polarized electrical components (e.g. anode, cathode)",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 7,
+      "native_action": "connect unknown substance F to switch",
+      "action": "connect unknown substance F to switch",
+      "step_seconds": 0.01904093660414219
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_2438",
+    "rollout_seed": 0,
+    "step": 11,
+    "goal": "Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "Connections must specify specific points of contact on polarized electrical components (e.g. anode, cathode)",
+    "draft_output": "Premise: The connection attempt failed due to unspecified contact points on polarized components.\nExpected Consequence: The system will require specific terminal names for a valid connection.\nAction: look at switch",
+    "draft_action": "look at switch",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00037452951073646545,
+      "judge_latency": 3.677047789096832e-05,
+      "retrieval_cpu_seconds": 0.00037189800001158346,
+      "judge_cpu_seconds": 3.693900001167094e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "1e71b384f4c23a2db552e6d34292dd88d62fc2f566ec656c544d05e1a6059470",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 4.639251041490552,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.3163230013423983,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.2445854537530534,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580872608724047,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_2438/seed0/experience/11",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 1.5521422028541565e-05,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look at switch",
+    "actual": {
+      "observation": "a switch, which is off. its anode is connected to: nothing. its cathode is connected to: nothing.",
+      "raw_observation": "a switch, which is off. its anode is connected to: nothing. its cathode is connected to: nothing.",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 8,
+      "native_action": "look at switch",
+      "action": "look at switch",
+      "step_seconds": 0.014776987954974174
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_2438",
+    "rollout_seed": 0,
+    "step": 12,
+    "goal": "Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "a switch, which is off. its anode is connected to: nothing. its cathode is connected to: nothing.",
+    "draft_output": "Premise: The switch is currently off with no connections to its anode or cathode.\nExpected Consequence: Connecting the unknown substance F to the switch's anode will establish an electrical path to test conductivity.\nAction: connect unknown substance F to switch anode",
+    "draft_action": "connect unknown substance F to switch anode",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0005538724362850189,
+      "judge_latency": 1.6391277313232422e-05,
+      "retrieval_cpu_seconds": 0.0005502819999918529,
+      "judge_cpu_seconds": 1.671100000066872e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "d569ab5256a5d750fc609ac4cb6b6696be36322dd9cdc6f04f1294f2bd3c25dc",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 1.8967372566926615,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.4498543939669208,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.3700511917895175,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580875217545109,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_2438/seed0/experience/12",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 1.3496726751327515e-05,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "connect unknown substance F to switch anode",
+    "actual": {
+      "observation": "terminal 1 on unknown substance F is now connected to anode on switch",
+      "raw_observation": "terminal 1 on unknown substance F is now connected to anode on switch",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 9,
+      "native_action": "connect unknown substance F to switch anode",
+      "action": "connect unknown substance F to switch anode",
+      "step_seconds": 0.020422957837581635
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_2438",
+    "rollout_seed": 0,
+    "step": 13,
+    "goal": "Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "terminal 1 on unknown substance F is now connected to anode on switch",
+    "draft_output": "Premise: The unknown substance F is now connected to the anode of the switch.\nExpected Consequence: Activating the switch will complete the circuit if the substance is conductive, causing the connected light to turn on.\nAction: activate switch",
+    "draft_action": "activate switch",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0003748498857021332,
+      "judge_latency": 3.398396074771881e-05,
+      "retrieval_cpu_seconds": 0.00037160600000163413,
+      "judge_cpu_seconds": 3.426399999284513e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "3bef22378a4fbb59ebc67513b55c806682cea0111a74e5cc49a91333d50c8d66",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 2.297152254354125,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 1.7540319515977518,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.2445854537530534,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580877644045237,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_2438/seed0/experience/13",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 1.3725832104682922e-05,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "activate switch",
+    "actual": {
+      "observation": "The switch is now activated.",
+      "raw_observation": "The switch is now activated.",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 10,
+      "native_action": "activate switch",
+      "action": "activate switch",
+      "step_seconds": 0.01442594826221466
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_2438",
+    "rollout_seed": 0,
+    "step": 14,
+    "goal": "Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "The switch is now activated.",
+    "draft_output": "Premise: The switch is activated, completing the circuit for unknown substance F.\nExpected Consequence: The switch will light up if the substance is conductive, or remain dark if nonconductive.\nAction: look at switch",
+    "draft_action": "look at switch",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0002920236438512802,
+      "judge_latency": 2.1420419216156006e-05,
+      "retrieval_cpu_seconds": 0.0002891720000093301,
+      "judge_cpu_seconds": 2.1751000005565402e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "14037eefedf802e74810faaee06a7e946e5e71dd45ab2b4ad72c72407b2c7bd0",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 3.5910365726230586,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 2.297152254354125,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.2445854537530534,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580880144936880,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_2438/seed0/experience/14",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 7.154420018196106e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look at switch",
+    "actual": {
+      "observation": "a switch, which is on. its anode is connected to: a terminal 1 on unknown substance F. its cathode is connected to: nothing.",
+      "raw_observation": "a switch, which is on. its anode is connected to: a terminal 1 on unknown substance F. its cathode is connected to: nothing.",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 11,
+      "native_action": "look at switch",
+      "action": "look at switch",
+      "step_seconds": 0.01632680743932724
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_2438",
+    "rollout_seed": 0,
+    "step": 15,
+    "goal": "Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "a switch, which is on. its anode is connected to: a terminal 1 on unknown substance F. its cathode is connected to: nothing.",
+    "draft_output": "Premise: The switch is currently on but its cathode is connected to nothing, preventing a complete circuit.\nExpected Consequence: Closing the switch's connection to the ground or a return path will complete the circuit to test conductivity.\nAction: connect cathode on switch to ground",
+    "draft_action": "connect cathode on switch to ground",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0003870241343975067,
+      "judge_latency": 3.4576281905174255e-05,
+      "retrieval_cpu_seconds": 0.0003840000000110422,
+      "judge_cpu_seconds": 3.482600000381808e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "569fe732d28a21c9253177b33f33627bf20188d42ba44edfeb3ad1f973c7d4ea",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 1.8967372566926615,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.4498543939669208,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.3700511917895175,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580882845000610,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_2438/seed0/experience/15",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 1.360476016998291e-05,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "connect cathode on switch to ground",
+    "actual": {
+      "observation": "No known action matches that input.",
+      "raw_observation": "No known action matches that input.",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 11,
+      "native_action": "connect cathode on switch to ground",
+      "action": "connect cathode on switch to ground",
+      "step_seconds": 0.03193976730108261
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_2438",
+    "rollout_seed": 0,
+    "step": 16,
+    "goal": "Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "No known action matches that input.",
+    "draft_output": "Premise: The switch is currently activated and its anode is connected to terminal 1 on unknown substance F.\nExpected Consequence: Connecting the cathode of the switch to ground will complete the circuit, allowing current to flow if the substance is conductive.\nAction: connect cathode on switch to ground",
+    "draft_action": "connect cathode on switch to ground",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00027319788932800293,
+      "judge_latency": 1.5228986740112305e-05,
+      "retrieval_cpu_seconds": 0.00027006700000242745,
+      "judge_cpu_seconds": 1.57190000038554e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "03bf21322837813371bbbe36fd2483709b74540af401f50c98a16541e7751eb2",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 1.7540319515977518,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.3163230013423983,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.2445854537530534,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580885802802544,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_2438/seed0/experience/16",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 6.778165698051453e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "connect cathode on switch to ground",
+    "actual": {
+      "observation": "No known action matches that input.",
+      "raw_observation": "No known action matches that input.",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 11,
+      "native_action": "connect cathode on switch to ground",
+      "action": "connect cathode on switch to ground",
+      "step_seconds": 0.011430976912379265
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_2438",
+    "rollout_seed": 0,
+    "step": 17,
+    "goal": "Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "No known action matches that input.",
+    "draft_output": "Premise: The previous attempt to connect the switch cathode to ground failed, and the switch's cathode is currently disconnected.\nExpected Consequence: Connecting the switch cathode to ground will complete the circuit, allowing current to flow if substance F is conductive.\nAction: connect cathode on switch to ground",
+    "draft_action": "connect cathode on switch to ground",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00030237436294555664,
+      "judge_latency": 1.6784295439720154e-05,
+      "retrieval_cpu_seconds": 0.00029971199998612974,
+      "judge_cpu_seconds": 1.714300000799085e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "a628d58f1165ea8e22688e59d00cd024f17c31b4ab7f3d96d1955f3edb5f1617",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 1.7540319515977518,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.3163230013423983,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.2445854537530534,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580888813591600,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_2438/seed0/experience/17",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 1.183338463306427e-05,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "connect cathode on switch to ground",
+    "actual": {
+      "observation": "No known action matches that input.",
+      "raw_observation": "No known action matches that input.",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 11,
+      "native_action": "connect cathode on switch to ground",
+      "action": "connect cathode on switch to ground",
+      "step_seconds": 0.011124176904559135
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_2438",
+    "rollout_seed": 0,
+    "step": 18,
+    "goal": "Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "No known action matches that input.",
+    "draft_output": "Premise: The previous attempts to connect the cathode on the switch to ground failed, and the current input is also unrecognized.\nExpected Consequence: Issuing a standard look command will reveal the available objects and their locations in the workshop.\nAction: look around",
+    "draft_action": "look around",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0003054104745388031,
+      "judge_latency": 2.6240944862365723e-05,
+      "retrieval_cpu_seconds": 0.000301955999987058,
+      "judge_cpu_seconds": 2.6530000013735844e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "bfe54f03b33bcf0dd873497530c34c310efe40149f21ef4d85d3bd388e7b669b",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 3.5910365726230586,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.3163230013423983,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.2445854537530534,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580891344885599,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_2438/seed0/experience/18",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 6.77257776260376e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look around",
+    "actual": {
+      "observation": "This room is called the workshop. In it, you see: \n\tthe agent\n\ta blue box (containing nothing)\n\ta orange box (containing nothing)\n\ta red light bulb, which is off\n\ta substance called air\n\ta table. On the table is: a battery, a black wire, a blue light bulb, which is off, a green light bulb, which is off, a orange light bulb, which is off, a orange wire, a red wire, a switch, which is on.\n\ta ultra low temperature freezer. The ultra low temperature freezer door is closed. \n\tunknown substance F\nYou also see:\n\tA door to the hallway (that is open)",
+      "raw_observation": "This room is called the workshop. In it, you see: \n\tthe agent\n\ta substance called air\n\ta blue box (containing nothing)\n\ta orange box (containing nothing)\n\ta red light bulb, which is off\n\ta table. On the table is: a battery, a black wire, a blue light bulb, which is off, a green light bulb, which is off, a orange light bulb, which is off, a orange wire, a red wire, a switch, which is on.\n\ta ultra low temperature freezer. The ultra low temperature freezer door is closed. \n\tunknown substance F\nYou also see:\n\tA door to the hallway (that is open)",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 11,
+      "native_action": "look around",
+      "action": "look around",
+      "step_seconds": 0.008533589541912079
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_2438",
+    "rollout_seed": 0,
+    "step": 19,
+    "goal": "Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "This room is called the workshop. In it, you see: \n\tthe agent\n\ta blue box (containing nothing)\n\ta orange box (containing nothing)\n\ta red light bulb, which is off\n\ta substance called air\n\ta table. On the table is: a battery, a black wire, a blue light bulb, which is off, a green light bulb, which is off, a orange light bulb, which is off, a orange wire, a red wire, a switch, which is on.\n\ta ultra low temperature freezer. The ultra low temperature freezer door is closed. \n\tunknown substance F\nYou also see:\n\tA door to the hallway (that is open)",
+    "draft_output": "Premise: The task requires focusing on unknown substance F to begin the conductivity test.\nExpected Consequence: The agent's focus will shift to unknown substance F, allowing subsequent interaction.\nAction: focus on unknown substance F",
+    "draft_action": "focus on unknown substance F",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00035131536424160004,
+      "judge_latency": 3.740191459655762e-05,
+      "retrieval_cpu_seconds": 0.00034930499998608866,
+      "judge_cpu_seconds": 3.781099999855542e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "732eb58928e08d53f2d2c04d433cf175474f5d5004c5e73a689d31976ece5ff5",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 4.027753087708684,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 3.83076676967353,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 3.4500373637491073,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794580893503423108,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_2438/seed0/experience/19",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 9.4585120677948e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "focus on unknown substance F",
+    "actual": {
+      "observation": "You focus on the unknown substance F.",
+      "raw_observation": "You focus on the unknown substance F.",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 12,
+      "native_action": "focus on unknown substance F",
+      "action": "focus on unknown substance F",
+      "step_seconds": 0.015057036653161049
+    },
+    "kept_draft_transition_match": null
+  }
+]

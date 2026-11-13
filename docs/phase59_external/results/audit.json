@@ -1,0 +1,186 @@
+{
+  "status": "pass",
+  "episodes": 24,
+  "ledger": {
+    "tokens": 173623,
+    "model_calls": 377,
+    "transition_queries": 461,
+    "audit_capture_bundles": 1349
+  },
+  "initial_and_shared_never_prefix_checks": [
+    {
+      "task_id": "sciworld_859",
+      "seed": 0,
+      "matched_actor_decisions_before_first_changed_action": 1,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    },
+    {
+      "task_id": "sciworld_378",
+      "seed": 0,
+      "matched_actor_decisions_before_first_changed_action": 20,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    },
+    {
+      "task_id": "sciworld_1508",
+      "seed": 0,
+      "matched_actor_decisions_before_first_changed_action": 1,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    },
+    {
+      "task_id": "sciworld_2438",
+      "seed": 0,
+      "matched_actor_decisions_before_first_changed_action": 2,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    },
+    {
+      "task_id": "sciworld_3038",
+      "seed": 0,
+      "matched_actor_decisions_before_first_changed_action": 1,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    },
+    {
+      "task_id": "sciworld_1624",
+      "seed": 0,
+      "matched_actor_decisions_before_first_changed_action": 20,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    },
+    {
+      "task_id": "sciworld_2519",
+      "seed": 0,
+      "matched_actor_decisions_before_first_changed_action": 2,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    },
+    {
+      "task_id": "sciworld_3003",
+      "seed": 0,
+      "matched_actor_decisions_before_first_changed_action": 20,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    },
+    {
+      "task_id": "sciworld_746",
+      "seed": 0,
+      "matched_actor_decisions_before_first_changed_action": 14,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    },
+    {
+      "task_id": "sciworld_1503",
+      "seed": 0,
+      "matched_actor_decisions_before_first_changed_action": 20,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    },
+    {
+      "task_id": "sciworld_2458",
+      "seed": 0,
+      "matched_actor_decisions_before_first_changed_action": 2,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    },
+    {
+      "task_id": "sciworld_3068",
+      "seed": 0,
+      "matched_actor_decisions_before_first_changed_action": 20,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    },
+    {
+      "task_id": "sciworld_859",
+      "seed": 1,
+      "matched_actor_decisions_before_first_changed_action": 2,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    },
+    {
+      "task_id": "sciworld_378",
+      "seed": 1,
+      "matched_actor_decisions_before_first_changed_action": 2,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    },
+    {
+      "task_id": "sciworld_1508",
+      "seed": 1,
+      "matched_actor_decisions_before_first_changed_action": 20,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    },
+    {
+      "task_id": "sciworld_2438",
+      "seed": 1,
+      "matched_actor_decisions_before_first_changed_action": 2,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    },
+    {
+      "task_id": "sciworld_3038",
+      "seed": 1,
+      "matched_actor_decisions_before_first_changed_action": 1,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    },
+    {
+      "task_id": "sciworld_1624",
+      "seed": 1,
+      "matched_actor_decisions_before_first_changed_action": 20,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    },
+    {
+      "task_id": "sciworld_2519",
+      "seed": 1,
+      "matched_actor_decisions_before_first_changed_action": 2,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    },
+    {
+      "task_id": "sciworld_3003",
+      "seed": 1,
+      "matched_actor_decisions_before_first_changed_action": 1,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    },
+    {
+      "task_id": "sciworld_746",
+      "seed": 1,
+      "matched_actor_decisions_before_first_changed_action": 20,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    },
+    {
+      "task_id": "sciworld_1503",
+      "seed": 1,
+      "matched_actor_decisions_before_first_changed_action": 6,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    },
+    {
+      "task_id": "sciworld_2458",
+      "seed": 1,
+      "matched_actor_decisions_before_first_changed_action": 2,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    },
+    {
+      "task_id": "sciworld_3068",
+      "seed": 1,
+      "matched_actor_decisions_before_first_changed_action": 9,
+      "initial_state_equal": true,
+      "never_prefix_exact": true
+    }
+  ],
+  "verified_KEEP_matches": 1,
+  "no_internal_computation": true,
+  "original_reviewer_verified": true,
+  "old_method_hashes_verified": true,
+  "no_test_rollouts": true,
+  "no_downstream_causal_utility_claim": true
+}

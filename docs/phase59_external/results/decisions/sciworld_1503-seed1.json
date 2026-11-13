@@ -1,0 +1,2945 @@
+[
+  {
+    "policy": "experience",
+    "task_id": "sciworld_1503",
+    "rollout_seed": 1,
+    "step": 0,
+    "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "This room is called the living room. In it, you see: \n\tthe agent\n\tA aluminum foil\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\n\ta substance called air\nYou also see:\n\tA door to the hallway (that is closed)",
+    "draft_output": "Premise: The aluminum foil is located in the living room and needs to be tested for conductivity.\nExpected Consequence: Focusing on the aluminum foil will select it as the current object of attention.\nAction: focus on A aluminum foil",
+    "draft_action": "focus on A aluminum foil",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00044094398617744446,
+      "judge_latency": 4.1056424379348755e-05,
+      "retrieval_cpu_seconds": 0.00043883299997560243,
+      "judge_cpu_seconds": 4.1436999993038626e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "d2059554413cb9843ffd473c3f38ac4cba9bfde926144d9b784872f4a94b4254",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 3.83076676967353,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 3.244413705632457,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 3.008423215464523,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794581221743690575,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_1503/seed1/experience/0",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 5,
+      "forecast_budget_remaining": 5,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 9.20705497264862e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "focus on A aluminum foil",
+    "actual": {
+      "observation": "You focus on the aluminum foil.",
+      "raw_observation": "You focus on the aluminum foil.",
+      "reward": 50,
+      "done": false,
+      "score": 55,
+      "moves": 1,
+      "native_action": "focus on A aluminum foil",
+      "action": "focus on A aluminum foil",
+      "step_seconds": 0.05285981483757496
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_1503",
+    "rollout_seed": 1,
+    "step": 1,
+    "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "You focus on the aluminum foil.",
+    "draft_output": "Premise: The aluminum foil has been focused on but its conductivity is unknown.\nExpected Consequence: The agent will inspect the foil to determine if it conducts electricity.\nAction: look at A aluminum foil",
+    "draft_action": "look at A aluminum foil",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00024187006056308746,
+      "judge_latency": 1.463480293750763e-05,
+      "retrieval_cpu_seconds": 0.00023938900000075591,
+      "judge_cpu_seconds": 1.4968000016324368e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "f9a1dffcc76978b2d816fec9913ab281d9a8658ee4e76763658bc165cd16e501",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 5.667771390698837,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.4498543939669208,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.3700511917895175,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794581223975738329,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_1503/seed1/experience/1",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 5,
+      "forecast_budget_remaining": 5,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 5.392357707023621e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look at A aluminum foil",
+    "actual": {
+      "observation": "A aluminum foil",
+      "raw_observation": "A aluminum foil",
+      "reward": 0,
+      "done": false,
+      "score": 55,
+      "moves": 2,
+      "native_action": "look at A aluminum foil",
+      "action": "look at A aluminum foil",
+      "step_seconds": 0.0170272346585989
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_1503",
+    "rollout_seed": 1,
+    "step": 2,
+    "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "A aluminum foil",
+    "draft_output": "Premise: The aluminum foil is currently being observed but its electrical conductivity is unknown.\nExpected Consequence: The agent will need to test the foil's conductivity using available tools or methods in the room.\nAction: look around",
+    "draft_action": "look around",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0002657957375049591,
+      "judge_latency": 2.166256308555603e-05,
+      "retrieval_cpu_seconds": 0.00026345399999172514,
+      "judge_cpu_seconds": 2.195100000790262e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "afda223933bb5c9796645199e6da2d10bfb4021684d47f645748bfff9c57dfa3",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 5.667771390698837,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.4498543939669208,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.3700511917895175,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794581226316942527,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_1503/seed1/experience/2",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 5,
+      "forecast_budget_remaining": 5,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 7.163733243942261e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look around",
+    "actual": {
+      "observation": "This room is called the living room. In it, you see: \n\tthe agent\n\tA aluminum foil\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\n\ta substance called air\nYou also see:\n\tA door to the hallway (that is closed)",
+      "raw_observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta substance called air\n\tA aluminum foil\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\nYou also see:\n\tA door to the hallway (that is closed)",
+      "reward": 0,
+      "done": false,
+      "score": 55,
+      "moves": 2,
+      "native_action": "look around",
+      "action": "look around",
+      "step_seconds": 0.00639713928103447
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_1503",
+    "rollout_seed": 1,
+    "step": 3,
+    "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "This room is called the living room. In it, you see: \n\tthe agent\n\tA aluminum foil\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\n\ta substance called air\nYou also see:\n\tA door to the hallway (that is closed)",
+    "draft_output": "Premise: The aluminum foil is currently in the living room and needs to be tested for conductivity.\nExpected Consequence: The agent will retrieve the necessary tools to test the foil's conductivity.\nAction: pick up A aluminum foil",
+    "draft_action": "pick up A aluminum foil",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0002729687839746475,
+      "judge_latency": 2.5197863578796387e-05,
+      "retrieval_cpu_seconds": 0.00027090800000451054,
+      "judge_cpu_seconds": 2.5617999995120044e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "4034d7c6340137ee793e83f464840c451e309b85205b43d767750c83d60b87ba",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 3.83076676967353,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 3.244413705632457,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 3.008423215464523,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794581228670728933,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_1503/seed1/experience/3",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 5,
+      "forecast_budget_remaining": 5,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 5.288049578666687e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "pick up A aluminum foil",
+    "actual": {
+      "observation": "You move the aluminum foil to the inventory.",
+      "raw_observation": "You move the aluminum foil to the inventory.",
+      "reward": 0,
+      "done": false,
+      "score": 55,
+      "moves": 3,
+      "native_action": "pick up A aluminum foil",
+      "action": "pick up A aluminum foil",
+      "step_seconds": 0.016799814999103546
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_1503",
+    "rollout_seed": 1,
+    "step": 4,
+    "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "You move the aluminum foil to the inventory.",
+    "draft_output": "Premise: The aluminum foil is currently in the agent's inventory.\nExpected Consequence: The agent will be holding the aluminum foil ready for testing or placement.\nAction: look around",
+    "draft_action": "look around",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0002513360232114792,
+      "judge_latency": 1.6462057828903198e-05,
+      "retrieval_cpu_seconds": 0.0002486960000283034,
+      "judge_cpu_seconds": 1.6771999980846886e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "227d04488dd2dbb40879a171e2af960c767fc09a6f4850fae710810697d9b8ad",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 5.525066085603927,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.3163230013423983,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.2445854537530534,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794581230694598806,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_1503/seed1/experience/4",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 5,
+      "forecast_budget_remaining": 5,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 6.614252924919128e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look around",
+    "actual": {
+      "observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\n\ta substance called air\nYou also see:\n\tA door to the hallway (that is closed)",
+      "raw_observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta substance called air\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\nYou also see:\n\tA door to the hallway (that is closed)",
+      "reward": 0,
+      "done": false,
+      "score": 55,
+      "moves": 3,
+      "native_action": "look around",
+      "action": "look around",
+      "step_seconds": 0.0072974469512701035
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_1503",
+    "rollout_seed": 1,
+    "step": 5,
+    "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\n\ta substance called air\nYou also see:\n\tA door to the hallway (that is closed)",
+    "draft_output": "Premise: The aluminum foil is currently in the agent's inventory and needs to be tested for conductivity.\nExpected Consequence: The agent will move to the hallway to find the testing equipment or boxes.\nAction: go HALLWAY",
+    "draft_action": "go HALLWAY",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "true",
+      "conflict": "true",
+      "sufficiency": "false",
+      "reliability": "supported",
+      "matched_experience_ids": [
+        "exp_b5e8e19f18820e2efed9"
+      ],
+      "supporting_evidence_ids": [
+        "phase3_rule_probes_v1/sciworld_1545/step-1",
+        "phase3_rule_probes_v1/sciworld_1667/step-1",
+        "phase3_train_v2/sciworld_3044/step-3",
+        "phase3_train_v2/sciworld_325/step-4"
+      ],
+      "reason": "Draft movement contradicts supported closed-route precondition; action remains unchanged and unresolved.",
+      "retrieval_latency": 0.00032486580312252045,
+      "judge_latency": 3.2631680369377136e-05,
+      "retrieval_cpu_seconds": 0.00032222400000136986,
+      "judge_cpu_seconds": 3.2992000001286215e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "3a17e1f3da0431784c48646fe968f2c55e9bec165d87c18f9fd1f4107a52fefd",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 4.348092439090295,
+          "applicable": true,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 3.83076676967353,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 3.244413705632457,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794581233361205492,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "true",
+      "conflict": "true",
+      "sufficiency": "false",
+      "reliability": "supported",
+      "evidence_ids": [
+        "phase3_rule_probes_v1/sciworld_1545/step-1",
+        "phase3_rule_probes_v1/sciworld_1667/step-1",
+        "phase3_train_v2/sciworld_3044/step-3",
+        "phase3_train_v2/sciworld_325/step-4"
+      ],
+      "matched_experience_ids": [
+        "exp_b5e8e19f18820e2efed9"
+      ],
+      "evidence_verified": true,
+      "action_status": "unresolved_conflict",
+      "diagnostics": []
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_1503/seed1/experience/5",
+      "policy": "experience",
+      "call_wm": true,
+      "verification_requested": true,
+      "verification_unavailable": false,
+      "reason": "reliable_action_conflict_requires_verification_correction_off",
+      "triggered_signals": [
+        "reliable_unresolved_conflict"
+      ],
+      "diagnostics": [],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "true",
+      "experience_conflict": "true",
+      "experience_sufficiency": "false",
+      "experience_action_status": "unresolved_conflict",
+      "experience_evidence_ids": [
+        "phase3_rule_probes_v1/sciworld_1545/step-1",
+        "phase3_rule_probes_v1/sciworld_1667/step-1",
+        "phase3_train_v2/sciworld_3044/step-3",
+        "phase3_train_v2/sciworld_325/step-4"
+      ],
+      "evidence_verified": true,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 5,
+      "forecast_budget_remaining": 5,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 9.499490261077881e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": {
+      "source": "ground_truth_environment",
+      "backend": "ground_truth_environment_replay",
+      "status": "ok",
+      "prediction_available": true,
+      "verified_prefix_steps": 5,
+      "simulator": {
+        "profile": "scienceworld130",
+        "version": "1.3.0",
+        "jar_sha256": "e77b0fee7d68abe3ca5b12e57d86e2bfe7603f20c5200da0b0f085939faeb465",
+        "upstream_commit": "e8216d6044e8e39be9fcb185e3b2dfb602584b52"
+      },
+      "full_hidden_state_equivalence_claimed": false,
+      "worker_pid": 2618284,
+      "formal_pid": 2617316,
+      "candidate_state_sha256": "ec383cfea6e2a18ec7f336d6288b858ce6528aef92bf731ee48be9633ebf46cf",
+      "predicted_observation": "The door is not open.",
+      "predicted_reward": 0,
+      "predicted_done": false,
+      "predicted_score": 55,
+      "predicted_moves": 4,
+      "action_valid": null,
+      "environment_feedback": "The door is not open.",
+      "candidate_transition": {
+        "observation": "The door is not open.",
+        "raw_observation": "The door is not open.",
+        "reward": 0,
+        "done": false,
+        "score": 55,
+        "moves": 4,
+        "native_action": "go HALLWAY",
+        "action": "go HALLWAY",
+        "step_seconds": 0.017552152276039124
+      },
+      "formal_unchanged": true,
+      "checked_state_sha256": "9708008c03cac52aff9770c4cc7ac16133b41f60d0a08990157ed72392804080",
+      "simulation_cost": {
+        "jvm_initializations": 1,
+        "initialization_step_calls": 1,
+        "replay_step_calls": 5,
+        "candidate_step_calls": 1,
+        "initialization_seconds": 1.4122851397842169,
+        "replay_seconds": 0.43133337423205376,
+        "candidate_seconds": 0.10315234772861004,
+        "cleanup_seconds": 0.11394997127354145,
+        "audit_capture_bundles": 20
+      },
+      "simulation_latency": 2.3785715010017157,
+      "available_at_ns": 1794581235740498249
+    },
+    "review": {
+      "raw": "Decision: REPLACE\nReason: The draft action \"go HALLWAY\" fails because the observation explicitly states \"A door to the hallway (that is closed)\". To enter the hallway, the door must first be opened. The goal requires testing the aluminum foil, which is currently in the agent's inventory; moving to the hallway without opening the door is impossible and does not advance the task.\nFinal Action: open A door to the hallway",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The draft action \"go HALLWAY\" fails because the observation explicitly states \"A door to the hallway (that is closed)\". To enter the hallway, the door must first be opened. The goal requires testing the aluminum foil, which is currently in the agent's inventory; moving to the hallway without opening the door is impossible and does not advance the task.",
+        "final_action": "open A door to the hallway",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final_action": "open A door to the hallway",
+    "actual": {
+      "observation": "The door is now open.",
+      "raw_observation": "The door is now open.",
+      "reward": 0,
+      "done": false,
+      "score": 55,
+      "moves": 4,
+      "native_action": "open A door to the hallway",
+      "action": "open A door to the hallway",
+      "step_seconds": 0.014197921380400658
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_1503",
+    "rollout_seed": 1,
+    "step": 6,
+    "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "The door is now open.",
+    "draft_output": "Premise: The door to the hallway is now open.\nExpected Consequence: The agent can enter the hallway to find the aluminum foil.\nAction: go hallway",
+    "draft_action": "go hallway",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0003827288746833801,
+      "judge_latency": 2.2483989596366882e-05,
+      "retrieval_cpu_seconds": 0.000380714000016269,
+      "judge_cpu_seconds": 2.259199999343764e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "6760f5be0601f743242ce780fb0e5834353ee9deda12d3d159a722a361d82dbe",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 4.020498894921822,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 3.7821965049094213,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 3.6880614645786203,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794581241733814761,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_1503/seed1/experience/6",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 9.158626198768616e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "go hallway",
+    "actual": {
+      "observation": "You move to the hallway.",
+      "raw_observation": "You move to the hallway.",
+      "reward": 5,
+      "done": false,
+      "score": 60,
+      "moves": 5,
+      "native_action": "go hallway",
+      "action": "go hallway",
+      "step_seconds": 0.017312338575720787
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_1503",
+    "rollout_seed": 1,
+    "step": 7,
+    "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "You move to the hallway.",
+    "draft_output": "Premise: The agent is currently in the hallway and needs to find the aluminum foil.\nExpected Consequence: Looking around the hallway will reveal objects present in this room, potentially including the aluminum foil or a path to find it.\nAction: look around",
+    "draft_action": "look around",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00023098662495613098,
+      "judge_latency": 1.3746321201324463e-05,
+      "retrieval_cpu_seconds": 0.00022824799998488743,
+      "judge_cpu_seconds": 1.40660000056414e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "17521302573f1797e8dc230d0ae598a02cd61f2d17172db0e8ce6a8b7bd033de",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 5.525066085603927,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.3163230013423983,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.2445854537530534,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794581244314970077,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_1503/seed1/experience/7",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 4.937872290611267e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look around",
+    "actual": {
+      "observation": "This room is called the hallway. In it, you see: \n\tthe agent\n\ta finger painting\n\ta substance called air\nYou also see:\n\tA door to the art studio (that is closed)\n\tA door to the bedroom (that is closed)\n\tA door to the greenhouse (that is closed)\n\tA door to the kitchen (that is closed)\n\tA door to the living room (that is open)\n\tA door to the workshop (that is closed)",
+      "raw_observation": "This room is called the hallway. In it, you see: \n\tthe agent\n\ta substance called air\n\ta finger painting\nYou also see:\n\tA door to the art studio (that is closed)\n\tA door to the bedroom (that is closed)\n\tA door to the greenhouse (that is closed)\n\tA door to the kitchen (that is closed)\n\tA door to the living room (that is open)\n\tA door to the workshop (that is closed)",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 5,
+      "native_action": "look around",
+      "action": "look around",
+      "step_seconds": 0.0050616804510355
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_1503",
+    "rollout_seed": 1,
+    "step": 8,
+    "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "This room is called the hallway. In it, you see: \n\tthe agent\n\ta finger painting\n\ta substance called air\nYou also see:\n\tA door to the art studio (that is closed)\n\tA door to the bedroom (that is closed)\n\tA door to the greenhouse (that is closed)\n\tA door to the kitchen (that is closed)\n\tA door to the living room (that is open)\n\tA door to the workshop (that is closed)",
+    "draft_output": "Premise: The living room door is open and the aluminum foil is located there.\nExpected Consequence: The agent will enter the living room and find the aluminum foil.\nAction: go living room",
+    "draft_action": "go living room",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0003054589033126831,
+      "judge_latency": 3.561563789844513e-05,
+      "retrieval_cpu_seconds": 0.0003032490000123289,
+      "judge_cpu_seconds": 3.593700000692479e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "b2f2939acc758c239db8f3a196e31670cde72acdf994a3c6a30458b31263e5d7",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 4.789706587374879,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 4.027753087708684,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 3.83076676967353,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794581246390182030,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_1503/seed1/experience/8",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 5.8729201555252075e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "go living room",
+    "actual": {
+      "observation": "You move to the living room.",
+      "raw_observation": "You move to the living room.",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 6,
+      "native_action": "go living room",
+      "action": "go living room",
+      "step_seconds": 0.009151099249720573
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_1503",
+    "rollout_seed": 1,
+    "step": 9,
+    "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "You move to the living room.",
+    "draft_output": "Premise: The agent has arrived in the living room where the aluminum foil is located.\nExpected Consequence: The agent will see the aluminum foil and other objects in the living room.\nAction: look around",
+    "draft_action": "look around",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0002544522285461426,
+      "judge_latency": 1.4835968613624573e-05,
+      "retrieval_cpu_seconds": 0.0002519829999982903,
+      "judge_cpu_seconds": 1.514799998858507e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "737eecdc04986b72746f971670a7363253e8c837a81398d2f1568f8786a588c6",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 5.525066085603927,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 1.3163230013423983,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.2445854537530534,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794581248559547618,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_1503/seed1/experience/9",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 5.520880222320557e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look around",
+    "actual": {
+      "observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\n\ta substance called air\nYou also see:\n\tA door to the hallway (that is open)",
+      "raw_observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta substance called air\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\nYou also see:\n\tA door to the hallway (that is open)",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 6,
+      "native_action": "look around",
+      "action": "look around",
+      "step_seconds": 0.005698515102267265
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_1503",
+    "rollout_seed": 1,
+    "step": 10,
+    "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\n\ta substance called air\nYou also see:\n\tA door to the hallway (that is open)",
+    "draft_output": "Premise: The aluminum foil is not visible in the current living room observation.\nExpected Consequence: Looking at the desk may reveal the aluminum foil if it is located there.\nAction: look at desk",
+    "draft_action": "look at desk",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00029416754841804504,
+      "judge_latency": 2.417527139186859e-05,
+      "retrieval_cpu_seconds": 0.00029193799997528913,
+      "judge_cpu_seconds": 2.4526000004243542e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "3cb30ddef1ebe8fdfc2274ff383489201245ceaebcc9445d511676cfed2031e2",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 5.667771390698837,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 3.1732010345346184,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 2.567993019320113,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794581250660107138,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_1503/seed1/experience/10",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 9.015202522277832e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look at desk",
+    "actual": {
+      "observation": "a desk. On the desk is: \n\ta drawer",
+      "raw_observation": "a desk. On the desk is: \n\ta drawer",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 7,
+      "native_action": "look at desk",
+      "action": "look at desk",
+      "step_seconds": 0.009771987795829773
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_1503",
+    "rollout_seed": 1,
+    "step": 11,
+    "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "a desk. On the desk is: \n\ta drawer",
+    "draft_output": "Premise: The desk contains a drawer that may hold the aluminum foil.\nExpected Consequence: Opening the drawer will reveal its contents, potentially showing the aluminum foil.\nAction: open drawer",
+    "draft_action": "open drawer",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0002997592091560364,
+      "judge_latency": 2.6250258088111877e-05,
+      "retrieval_cpu_seconds": 0.00029724800003805285,
+      "judge_cpu_seconds": 2.6509000008445582e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "99bb5c29a64e702ff9195cf4a5702daddc54bfc5a57be0d8106a95177c67b781",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 3.83076676967353,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 2.233193776043147,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.8116653400741012,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794581252612419067,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_1503/seed1/experience/11",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 6.7427754402160645e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "open drawer",
+    "actual": {
+      "observation": "The drawer is now open.",
+      "raw_observation": "The drawer is now open.",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 8,
+      "native_action": "open drawer",
+      "action": "open drawer",
+      "step_seconds": 0.010143633931875229
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_1503",
+    "rollout_seed": 1,
+    "step": 12,
+    "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "The drawer is now open.",
+    "draft_output": "Premise: The drawer is open but no aluminum foil is visible on the desk.\nExpected Consequence: Looking around the room will reveal the location of the aluminum foil.\nAction: look around",
+    "draft_action": "look around",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00027915090322494507,
+      "judge_latency": 1.633167266845703e-05,
+      "retrieval_cpu_seconds": 0.0002763780000236693,
+      "judge_cpu_seconds": 1.6612000024451845e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "d28686822716dcf1dacc274a1d6172701b8f233b095a77764a4d4f6d6880fb68",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 5.525066085603927,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 3.080491636430351,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.686199602037637,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794581254625794787,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_1503/seed1/experience/12",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 6.292015314102173e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look around",
+    "actual": {
+      "observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\n\ta substance called air\nYou also see:\n\tA door to the hallway (that is open)",
+      "raw_observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta substance called air\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\nYou also see:\n\tA door to the hallway (that is open)",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 8,
+      "native_action": "look around",
+      "action": "look around",
+      "step_seconds": 0.004509590566158295
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_1503",
+    "rollout_seed": 1,
+    "step": 13,
+    "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\n\ta substance called air\nYou also see:\n\tA door to the hallway (that is open)",
+    "draft_output": "Premise: The aluminum foil is located in the living room but is not visible in the current observation list.\nExpected Consequence: Looking around will reveal the location of the aluminum foil among the visible objects.\nAction: look around",
+    "draft_action": "look around",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "true",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "supported",
+      "matched_experience_ids": [
+        "exp_7124e4e628e26cb3a034"
+      ],
+      "supporting_evidence_ids": [
+        "phase3_train_v2/sciworld_3044/step-1",
+        "phase3_train_v2/sciworld_3044/step-2",
+        "phase3_train_v2/sciworld_326/step-3",
+        "phase3_train_v2/sciworld_326/step-4"
+      ],
+      "reason": "Room-inspection evidence applies to this action/state, but the Agent premise/effect is not fully confirmed.",
+      "retrieval_latency": 0.00030171871185302734,
+      "judge_latency": 6.214715540409088e-05,
+      "retrieval_cpu_seconds": 0.0002995219999775145,
+      "judge_cpu_seconds": 6.250699999554854e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "6ce6e6204e38c878bae3fe595ab851f4e96685ebde57d6c622b77a3d2741cf6c",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 5.667771390698837,
+          "applicable": true,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 3.1732010345346184,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 2.567993019320113,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794581256967636491,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "true",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "supported",
+      "evidence_ids": [
+        "phase3_train_v2/sciworld_3044/step-1",
+        "phase3_train_v2/sciworld_3044/step-2",
+        "phase3_train_v2/sciworld_326/step-3",
+        "phase3_train_v2/sciworld_326/step-4"
+      ],
+      "matched_experience_ids": [
+        "exp_7124e4e628e26cb3a034"
+      ],
+      "evidence_verified": true,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_1503/seed1/experience/13",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "true",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [
+        "phase3_train_v2/sciworld_3044/step-1",
+        "phase3_train_v2/sciworld_3044/step-2",
+        "phase3_train_v2/sciworld_326/step-3",
+        "phase3_train_v2/sciworld_326/step-4"
+      ],
+      "evidence_verified": true,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 6.7930668592453e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look around",
+    "actual": {
+      "observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\n\ta substance called air\nYou also see:\n\tA door to the hallway (that is open)",
+      "raw_observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta substance called air\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\nYou also see:\n\tA door to the hallway (that is open)",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 8,
+      "native_action": "look around",
+      "action": "look around",
+      "step_seconds": 0.005039788782596588
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_1503",
+    "rollout_seed": 1,
+    "step": 14,
+    "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\n\ta substance called air\nYou also see:\n\tA door to the hallway (that is open)",
+    "draft_output": "Premise: The aluminum foil is not visible in the current living room observation.\nExpected Consequence: Looking at the door may reveal the hallway where the aluminum foil is located.\nAction: look at door to the hallway",
+    "draft_action": "look at door to the hallway",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0002798996865749359,
+      "judge_latency": 2.3674219846725464e-05,
+      "retrieval_cpu_seconds": 0.0002771499999880689,
+      "judge_cpu_seconds": 2.399499999228283e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "cdecca6125c85611940147c4d812835424957cd4dda8e29306511fd549063736",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 5.667771390698837,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 3.1732010345346184,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 2.567993019320113,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794581259209915047,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_1503/seed1/experience/14",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 5.580484867095947e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look at door to the hallway",
+    "actual": {
+      "observation": "A door to the hallway (that is open)",
+      "raw_observation": "A door to the hallway (that is open)",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 9,
+      "native_action": "look at door to the hallway",
+      "action": "look at door to the hallway",
+      "step_seconds": 0.010036410763859749
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_1503",
+    "rollout_seed": 1,
+    "step": 15,
+    "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "A door to the hallway (that is open)",
+    "draft_output": "Premise: The agent is currently facing the open door to the hallway and has not yet located the aluminum foil in the living room.\nExpected Consequence: Looking at the door will not reveal the aluminum foil, so the agent must look around the room to find it.\nAction: look around",
+    "draft_action": "look around",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0002504754811525345,
+      "judge_latency": 1.6339123249053955e-05,
+      "retrieval_cpu_seconds": 0.0002465930000425942,
+      "judge_cpu_seconds": 1.6680999976870226e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "35b78d6a6cad1187ee6944c3666649bcfce1954ca6435a423468c46ef9f047df",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 5.667771390698837,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 3.1732010345346184,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 2.567993019320113,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794581262129340565,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_1503/seed1/experience/15",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 5.479902029037476e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look around",
+    "actual": {
+      "observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\n\ta substance called air\nYou also see:\n\tA door to the hallway (that is open)",
+      "raw_observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta substance called air\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\nYou also see:\n\tA door to the hallway (that is open)",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 9,
+      "native_action": "look around",
+      "action": "look around",
+      "step_seconds": 0.004143968224525452
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_1503",
+    "rollout_seed": 1,
+    "step": 16,
+    "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\n\ta substance called air\nYou also see:\n\tA door to the hallway (that is open)",
+    "draft_output": "Premise: The aluminum foil is not visible in the current living room observation.\nExpected Consequence: Looking around will reveal the location of the aluminum foil.\nAction: look around",
+    "draft_action": "look around",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "true",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "supported",
+      "matched_experience_ids": [
+        "exp_7124e4e628e26cb3a034"
+      ],
+      "supporting_evidence_ids": [
+        "phase3_train_v2/sciworld_3044/step-1",
+        "phase3_train_v2/sciworld_3044/step-2",
+        "phase3_train_v2/sciworld_326/step-3",
+        "phase3_train_v2/sciworld_326/step-4"
+      ],
+      "reason": "Room-inspection evidence applies to this action/state, but the Agent premise/effect is not fully confirmed.",
+      "retrieval_latency": 0.000270795077085495,
+      "judge_latency": 3.094039857387543e-05,
+      "retrieval_cpu_seconds": 0.00026845299998967675,
+      "judge_cpu_seconds": 3.1258999968031276e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "338b93d8bea1e9b671c44edd175fae5bd246bec3783ac4d00ec7b1598248c721",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 5.667771390698837,
+          "applicable": true,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 3.1732010345346184,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 2.567993019320113,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794581264050122717,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "true",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "supported",
+      "evidence_ids": [
+        "phase3_train_v2/sciworld_3044/step-1",
+        "phase3_train_v2/sciworld_3044/step-2",
+        "phase3_train_v2/sciworld_326/step-3",
+        "phase3_train_v2/sciworld_326/step-4"
+      ],
+      "matched_experience_ids": [
+        "exp_7124e4e628e26cb3a034"
+      ],
+      "evidence_verified": true,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_1503/seed1/experience/16",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "true",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [
+        "phase3_train_v2/sciworld_3044/step-1",
+        "phase3_train_v2/sciworld_3044/step-2",
+        "phase3_train_v2/sciworld_326/step-3",
+        "phase3_train_v2/sciworld_326/step-4"
+      ],
+      "evidence_verified": true,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 5.7406723499298096e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look around",
+    "actual": {
+      "observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\n\ta substance called air\nYou also see:\n\tA door to the hallway (that is open)",
+      "raw_observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta substance called air\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\nYou also see:\n\tA door to the hallway (that is open)",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 9,
+      "native_action": "look around",
+      "action": "look around",
+      "step_seconds": 0.0033655837178230286
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_1503",
+    "rollout_seed": 1,
+    "step": 17,
+    "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\n\ta substance called air\nYou also see:\n\tA door to the hallway (that is open)",
+    "draft_output": "Premise: The aluminum foil is not visible in the current list of objects in the living room.\nExpected Consequence: Looking at the desk may reveal the aluminum foil if it is located there.\nAction: look at desk",
+    "draft_action": "look at desk",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.0002826675772666931,
+      "judge_latency": 2.3344531655311584e-05,
+      "retrieval_cpu_seconds": 0.00028012499996066254,
+      "judge_cpu_seconds": 2.3623999993560574e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "5ab29e97c735a70ee6b7215db7a6ba69feda5e2e80f7a7fcf04af4f123177f55",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 5.667771390698837,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 3.1732010345346184,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 2.567993019320113,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794581266354192357,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_1503/seed1/experience/17",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 6.102025508880615e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look at desk",
+    "actual": {
+      "observation": "a desk. On the desk is: \n\ta drawer",
+      "raw_observation": "a desk. On the desk is: \n\ta drawer",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 10,
+      "native_action": "look at desk",
+      "action": "look at desk",
+      "step_seconds": 0.009553637355566025
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_1503",
+    "rollout_seed": 1,
+    "step": 18,
+    "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "a desk. On the desk is: \n\ta drawer",
+    "draft_output": "Premise: The desk contains a drawer that may hold the aluminum foil.\nExpected Consequence: Opening the drawer will reveal its contents, potentially showing the aluminum foil.\nAction: open drawer",
+    "draft_action": "open drawer",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00025508366525173187,
+      "judge_latency": 2.1051615476608276e-05,
+      "retrieval_cpu_seconds": 0.00025308499999709966,
+      "judge_cpu_seconds": 2.1248999985346018e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "890b3ee468190289bb989f1eb06ea0f2ca0916f6c8c042aa11f93e16340672c7",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 3.83076676967353,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 2.233193776043147,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.8116653400741012,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794581268296925936,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_1503/seed1/experience/18",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 5.869194865226746e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "open drawer",
+    "actual": {
+      "observation": "The drawer is already open.",
+      "raw_observation": "The drawer is already open.",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 11,
+      "native_action": "open drawer",
+      "action": "open drawer",
+      "step_seconds": 0.009329419583082199
+    },
+    "kept_draft_transition_match": null
+  },
+  {
+    "policy": "experience",
+    "task_id": "sciworld_1503",
+    "rollout_seed": 1,
+    "step": 19,
+    "goal": "Your task is to determine if aluminum foil is electrically conductive. The aluminum foil is located around the living room. First, focus on the aluminum foil. If it is electrically conductive, place it in the blue box. If it is electrically nonconductive, place it in the orange box.",
+    "observation": "The drawer is already open.",
+    "draft_output": "Premise: The drawer is already open and contains no visible aluminum foil.\nExpected Consequence: Looking around the room will reveal the location of the aluminum foil.\nAction: look around",
+    "draft_action": "look around",
+    "external": {
+      "schema": "external-signals-v1",
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "matched_experience_ids": [],
+      "supporting_evidence_ids": [],
+      "reason": "No reliable applicable evidence; absence is Unknown, not no-conflict.",
+      "retrieval_latency": 0.00023573823273181915,
+      "judge_latency": 1.8306076526641846e-05,
+      "retrieval_cpu_seconds": 0.00023374800002784468,
+      "judge_cpu_seconds": 1.8505000014101824e-05,
+      "additional_tokens": 0,
+      "retrieval_calls": 1,
+      "judge_model_calls": 0,
+      "extra_forward_passes": 0,
+      "retrieval_method": "bm25-k1=1.5-b=0.75-v1",
+      "judge_method": "conservative-observed-door-v1",
+      "snapshot_id": "memory_8937df630b4511ca9e1415ff",
+      "query_input_sha256": "56c264234c03779a5c72088959e6c0f9017833ebdb103c599ce7453f4cfea55e",
+      "retrieved_cards": [
+        {
+          "experience_id": "exp_7124e4e628e26cb3a034",
+          "bm25_score": 5.525066085603927,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_train_v2/sciworld_3044/step-1",
+            "phase3_train_v2/sciworld_3044/step-2",
+            "phase3_train_v2/sciworld_326/step-3",
+            "phase3_train_v2/sciworld_326/step-4"
+          ]
+        },
+        {
+          "experience_id": "exp_8db1a36db0a95a649654",
+          "bm25_score": 2.0996623834186243,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-3",
+            "phase3_rule_probes_v1/sciworld_1667/step-3"
+          ]
+        },
+        {
+          "experience_id": "exp_b5e8e19f18820e2efed9",
+          "bm25_score": 1.686199602037637,
+          "applicable": false,
+          "reliability": "supported",
+          "source_ids": [
+            "phase3_rule_probes_v1/sciworld_1545/step-1",
+            "phase3_rule_probes_v1/sciworld_1667/step-1",
+            "phase3_train_v2/sciworld_3044/step-3",
+            "phase3_train_v2/sciworld_325/step-4"
+          ]
+        }
+      ],
+      "memory_serialized_bytes": 102538,
+      "query_at_ns": 1794581270187378957,
+      "source_scope": "training_only_frozen_snapshot",
+      "wm_utility": "unknown",
+      "action_modified": false,
+      "sufficiency_scope": "explicitly_supported_immediate_transition_only"
+    },
+    "resolved_external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence"
+      ]
+    },
+    "gate": {
+      "schema": "gate-decision-v1",
+      "decision_id": "/data1/shn/agentwmv3/outputs/phase59_external_only_v1/episodes/sciworld_1503/seed1/experience/19",
+      "policy": "experience",
+      "call_wm": false,
+      "verification_requested": false,
+      "verification_unavailable": false,
+      "reason": "no_active_trigger",
+      "triggered_signals": [],
+      "diagnostics": [
+        "unverified_or_inapplicable_external_evidence",
+        "external_unknown_abstention"
+      ],
+      "local_uncertainty": null,
+      "global_uncertainty": null,
+      "missing_span": false,
+      "signal_validity": "not_requested",
+      "experience_coverage": "unknown",
+      "experience_conflict": "unknown",
+      "experience_sufficiency": "unknown",
+      "experience_action_status": "unknown",
+      "experience_evidence_ids": [],
+      "evidence_verified": false,
+      "confirmed_action": false,
+      "memory_correction_enabled": false,
+      "budget_remaining": 4,
+      "forecast_budget_remaining": 4,
+      "tau_local": 0.5749072272810143,
+      "tau_global": 0.3332634086050418,
+      "gate_latency": 5.772337317466736e-06,
+      "additional_cost": {
+        "model_calls": 0,
+        "tokens": 0,
+        "forward_passes": 0
+      },
+      "signal_requirements": {
+        "internal": false,
+        "external": true
+      }
+    },
+    "simulation": null,
+    "review": null,
+    "final_action": "look around",
+    "actual": {
+      "observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\n\ta substance called air\nYou also see:\n\tA door to the hallway (that is open)",
+      "raw_observation": "This room is called the living room. In it, you see: \n\tthe agent\n\ta substance called air\n\ta chair. On the chair is: nothing.\n\ta couch. On the couch is: a white pillow.\n\ta desk. On the desk is: a drawer.\n\ta painting\nYou also see:\n\tA door to the hallway (that is open)",
+      "reward": 0,
+      "done": false,
+      "score": 60,
+      "moves": 11,
+      "native_action": "look around",
+      "action": "look around",
+      "step_seconds": 0.004903459921479225
+    },
+    "kept_draft_transition_match": null
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "status": "complete",
+  "ledger": {
+    "tokens": 94654,
+    "model_calls": 205,
+    "transition_queries": 235,
+    "audit_capture_bundles": 687,
+    "pending_model": null,
+    "pending_transition": null
+  }
+}

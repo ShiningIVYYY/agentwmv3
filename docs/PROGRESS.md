@@ -1,5 +1,7 @@
 # Current status
 
+Phase5.9 Experience-Only supplement COMPLETE: same12tasks×seeds0/1,original9B/Reviewer/Memory/Replay. Mean−2.7917/SR0%,173623Tokens/14verified lookaheads; Never−.5417/Always3.3333/Internal−10.8333/Full−19.375 retained. No Internal computation. Source/cost/initial-state/causal/prefix audit passes. See [report](PHASE5_9_EXTERNAL_ONLY.md). SR integration is separate and still in progress; no Phase6.
+
 Early Experience SR Actor trial COMPLETE: strict frozen Qwen2.5-7B SR load passes; native-H2 scores83/−100/5, mean−4/SR0 of3. Structured3/3 attempts fail;7/7 generations lack required spans. Matched9B native control has2 completed−100 and1 format failure; no complete-cohort ranking. Public training-corpus Goal overlap prevents clean-generalization claims. No Gate/Reviewer/Memory/threshold/Paper/default change, no Test rollout or Phase6. See [trial report](EE_SR_ACTOR_TRIAL.md).
 
 Phase5.10 COMPLETE: compact-json-conservative-v2 has0/76 offline and0/47 online format errors; Original online4/44. All15 Episodes complete,91/91 lookaheads and29/29 KEEP projections verified. Every condition scores−66.67/SR0%; no task benefit. Always replacement acceptance improves, Full does not. Gate/thresholds/Memory/Actor/WM/Paper protocol unchanged; new-ID variants share known goals. All owned jobs stopped. Await user decision; do not start Phase6. See PHASE5_10_REPORT.md.

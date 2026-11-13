@@ -1,0 +1,9 @@
+{
+  "worker_pids": [
+    2599861,
+    2599862
+  ],
+  "all_workers_exited": true,
+  "agentwmv2_clean": true,
+  "largest_evidence_bytes": 129463
+}

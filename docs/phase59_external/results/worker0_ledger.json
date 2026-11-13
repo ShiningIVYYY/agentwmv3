@@ -1,0 +1,8 @@
+{
+  "tokens": 78969,
+  "model_calls": 172,
+  "transition_queries": 226,
+  "audit_capture_bundles": 662,
+  "pending_model": null,
+  "pending_transition": null
+}
