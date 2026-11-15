@@ -1,0 +1,83 @@
+{
+  "status": "startup_verified_background_running",
+  "checked_at_unix": 1794776435.3145432,
+  "scope": "Initial engineering check only; not final250-Episode results",
+  "source_commit": "9aa4be626de37c6bbed0bd2fd859717191bec9fc",
+  "run": "outputs/alfworld_dev50_v1",
+  "gpus": [
+    0,
+    2,
+    3,
+    4
+  ],
+  "tasks_per_policy": 50,
+  "total_episodes": 250,
+  "startup_trace_counts": {
+    "steps": 294,
+    "skip": 227,
+    "call": 67,
+    "verified_lookahead": 67
+  },
+  "completed_and_audited": 5,
+  "models": [
+    {
+      "gpu": "0",
+      "pid": 3122075,
+      "model_id": "Qwen/Qwen3.5-9B",
+      "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+      "config_sha256": "bf3def840173250bb46cf3004391ac73ca696ef007762c4184018f77dcdd2cac",
+      "loading_info": {
+        "missing_keys": [],
+        "unexpected_keys": [],
+        "mismatched_keys": [],
+        "error_msgs": []
+      },
+      "actor_reviewer_shared": true
+    },
+    {
+      "gpu": "2",
+      "pid": 3122076,
+      "model_id": "Qwen/Qwen3.5-9B",
+      "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+      "config_sha256": "bf3def840173250bb46cf3004391ac73ca696ef007762c4184018f77dcdd2cac",
+      "loading_info": {
+        "missing_keys": [],
+        "unexpected_keys": [],
+        "mismatched_keys": [],
+        "error_msgs": []
+      },
+      "actor_reviewer_shared": true
+    },
+    {
+      "gpu": "3",
+      "pid": 3122077,
+      "model_id": "Qwen/Qwen3.5-9B",
+      "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+      "config_sha256": "bf3def840173250bb46cf3004391ac73ca696ef007762c4184018f77dcdd2cac",
+      "loading_info": {
+        "missing_keys": [],
+        "unexpected_keys": [],
+        "mismatched_keys": [],
+        "error_msgs": []
+      },
+      "actor_reviewer_shared": true
+    },
+    {
+      "gpu": "4",
+      "pid": 3122078,
+      "model_id": "Qwen/Qwen3.5-9B",
+      "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+      "config_sha256": "bf3def840173250bb46cf3004391ac73ca696ef007762c4184018f77dcdd2cac",
+      "loading_info": {
+        "missing_keys": [],
+        "unexpected_keys": [],
+        "mismatched_keys": [],
+        "error_msgs": []
+      },
+      "actor_reviewer_shared": true
+    }
+  ],
+  "unit_contracts_passed": 29,
+  "real_preflight": "56 identities and6 disjoint replay controls passed",
+  "continuous_assistant_monitoring": false
+}
