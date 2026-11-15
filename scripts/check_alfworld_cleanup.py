@@ -19,6 +19,8 @@ def main():
     run = Path(args.run).absolute()
     manifest = json.loads((run / 'manifest.json').read_text())
     scopes = [run, Path(manifest['source_run'])] + [Path(f['run']) for f in manifest.get('failed_prior_runs', [])]
+    scopes.extend(ROOT / 'outputs' / name for name in ['alfworld_native_canary_v1', 'alfworld_memory_v1', 'alfworld_memory_v2',
+        'alfworld_replay_validation_v1', 'alfworld_inputs_validation_v1', 'alfworld_batch_parity_v1'])
     scripts = ['scripts/alfworld_worker.py', 'scripts/run_alfworld_parallel.py', 'scripts/run_alfworld_pilot.py', 'scripts/launch_alfworld_pilot.py']
     ps = subprocess.check_output(['ps', '-eo', 'pid=,args='], text=True)
     active = []
