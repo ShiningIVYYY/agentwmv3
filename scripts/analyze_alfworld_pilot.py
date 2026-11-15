@@ -5,6 +5,8 @@ import io
 import json
 import math
 import statistics
+import hashlib
+import subprocess
 import sys
 from collections import Counter, defaultdict
 from dataclasses import asdict
@@ -178,11 +180,14 @@ def audit_episode(ep, entry, profile, config, memory, goals):
                 require(parsed == t['review']['parsed'], 'Reviewer parser differs')
                 require(parsed['final_action'] == t['final_action'], 'Final action differs from parsed review')
                 counts['reviewer_calls'] += 1
+                counts['review_decision_' + parsed['decision'].lower()] += 1
                 counts['review_format_invalid'] += parsed['decision'] == 'INVALID'
                 counts['review_length_limit'] += t['review_metadata']['finish_reason'] == 'length'
                 counts['revisions'] += t['final_action'] != t['draft_action']
                 counts['revision_admissible'] += t['final_action'] != t['draft_action'] and t['final_admissible']
                 counts['revision_nonadmissible'] += t['final_action'] != t['draft_action'] and not t['final_admissible']
+                counts['revision_nothing_happens'] += t['final_action'] != t['draft_action'] and t['actual']['observation'].strip() == 'Nothing happens.'
+                counts['replace_label_unchanged_action'] += parsed['decision'] == 'REPLACE' and t['final_action'] == t['draft_action']
                 if t['final_action'] == t['draft_action']:
                     require(t['kept_draft_transition_match'] is True and t['actual'] == simulation['candidate_transition'], 'KEEP/normal transition mismatch')
                     counts['keep_transition_matches'] += 1
@@ -252,6 +257,14 @@ def analyze(run, output, partial=False):
     manifest = read(run / 'manifest.json')
     source = Path(manifest['source_run'])
     original = verify(source)
+    transitive = {}
+    for name in ['evaluation/independent_dev.py', 'experience/collection.py', 'experience/splits.py', 'experience/memory.py',
+                 'gates/generation.py', 'reflection/replay_review.py', 'worldmodel/resources.py',
+                 'internal_signals/decision.py', 'internal_signals/token_nll.py', 'internal_signals/spanuq_adapter.py']:
+        old_bytes = subprocess.check_output(['git', 'show', original['source_commit'] + ':' + name], cwd=ROOT)
+        digest = hashlib.sha256(old_bytes).hexdigest()
+        require(file_hash(ROOT / name) == digest, 'Shared transitive method source changed: ' + name)
+        transitive[name] = digest
     for name, digest in manifest['new_source_hashes'].items():
         require(file_hash(ROOT / name) == digest, 'Continuation scheduling source changed: ' + name)
     p = manifest['profile']
@@ -359,6 +372,8 @@ def analyze(run, output, partial=False):
             group = generation_costs[category]
             group['model_calls'] += 1
             group[call['role'] + '_calls'] += 1
+            group['generation_seconds'] += call['metadata']['internal_cost']['generation_seconds']
+            group['internal_extraction_seconds'] += call['metadata']['internal_cost']['extraction_seconds']
             for key in ['prompt_tokens', 'completion_tokens', 'total_tokens']:
                 group[key] += call['metadata']['usage'][key]
     if not pending:
@@ -376,12 +391,14 @@ def analyze(run, output, partial=False):
         all_attempt_generation_costs={k: dict(v) for k, v in generation_costs.items()}, model_setup_attempts=model_loads,
         failed_attempt_receipt_limitations=read(ROOT / 'docs/alfworld_pilot/parallel_engineering_repair.json'),
         real_calibration_numeric_checks=len(calibration_records),
+        unchanged_shared_transitive_source_hashes=transitive,
         limits=['Three development games, one rollout seed, no significance/generalization claim',
                 'Public admissible commands provided equally to all five policies; not exact paper actor prompt',
                 'Shared legacy STRUCTURE includes ScienceWorld word in Action placeholder despite ALF-native guidance; retained/frozen across all policies, a prompt limitation',
                 'Native inspect returns cached last state receipt; independent processes/fact replay tested, not full process/RNG serialization',
                 'Immediate action/feedback changes are not long-horizon causal utility; no controlled continuation experiment',
                 'Always50 vs selective5 maximum calls, not matched-budget comparison',
+                'Extra Reviewer computation and feedback information are not separated by a no-feedback Reviewer control',
                 'Failed scheduler has bounded native receipt uncertainty; raw failed attempt is not assigned task score'])
     output.mkdir(parents=True, exist_ok=True)
     atomic(output / 'summary.json', artifact)
