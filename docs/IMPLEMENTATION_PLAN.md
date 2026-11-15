@@ -184,3 +184,11 @@ Authorized Phase 1B is complete. Conclusion B: official SpanUQ remains incompati
 ## Phase 2 handoff
 
 Token NLL Internal Signals are implemented and real-development diagnosed. New source/data/cost provenance is under docs/phase2. Existing paper-aligned evaluation settings are not changed; this is a separate15-step diagnostic. Phase3 can build true training/development experience only after confirmation, reserving sciworld_349/1709/2997 from any untouched validation partition. Do not infer error calibration or WM utility from these NLL values.
+
+<!-- ALFWORLD_PILOT_HANDOFF -->
+## ALFWorld five-policy development pilot
+
+User-authorized scope: frozen Qwen3.5-9B, Never/Always/Internal/External/Full, three TRAIN-derived development games/seed0, H50/history2/input2048/output512. No final140×8 or Phase6. Native isolation/official-wrapper equivalence checks passed;21 CPU contracts pass.48 valid development-calibration decisions frozen before evaluation. Preserve ScienceWorld/SR configurations and agentwmv2.
+
+ACTIVE: `outputs/alfworld_parallel_v2`, one available GPU0 under maximum4 authorization; parent PID2941653. Reuses one checked complete Never Episode and the original frozen calibration. An earlier scheduler missing-global error is documented in `docs/alfworld_pilot/parallel_engineering_repair.json`; failed/interrupted attempts stay in cost accounting, not zero-score outcomes. Cumulative ACTIVE runtime and token/model/native-query caps remain enforced. Inspect progress before launching anything; do not duplicate. Pending all15 Episode results, strict audit, compact results/report, cleanup and final Git push. See ALFWORLD_PILOT.md for protocol; final valid_seen games are not rolled out.
+<!-- /ALFWORLD_PILOT_HANDOFF -->
