@@ -1,0 +1,75 @@
+{
+  "schema": "alfworld-frozen-five-policy-independent-dev50-v1",
+  "actor_config": "configs/internal_signals/qwen35_9b_alfworld_v1.json",
+  "model_id": "Qwen/Qwen3.5-9B",
+  "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "actor_reviewer_shared": true,
+  "benchmark": "alfworld",
+  "maximum_interaction_turns": 50,
+  "history_length": 2,
+  "prompt_limit": 2048,
+  "response_limit": 512,
+  "temperature": 0.4,
+  "top_p": 1.0,
+  "top_k": 0,
+  "rollout_seeds": [
+    0
+  ],
+  "policies": [
+    "never",
+    "always",
+    "internal",
+    "experience",
+    "full"
+  ],
+  "wm_invocation_budgets": {
+    "never": 0,
+    "always": 50,
+    "internal": 5,
+    "experience": 5,
+    "full": 5
+  },
+  "simulation_depth": 1,
+  "review_rounds": 1,
+  "reviewer_protocol": "original-three-line-public-evidence-alfworld-v1",
+  "reviewer_max_new_tokens": 512,
+  "calibration_quantile": 0.75,
+  "calibration_max_steps": 8,
+  "memory_task_action_cap": 30,
+  "memory_correction": false,
+  "allow_confirmed_action_skip": false,
+  "final_metric": "native_won_success_rate",
+  "score_display": "100*won auxiliary only; not ScienceWorld partial score",
+  "split_manifest": "docs/alfworld_dev50_v1/split_manifest.json",
+  "split_sha256": "4699e97f4c0834ba7977a77293ee2eca6f0a8c77fbaf0a59dd9c815aef41a9c0",
+  "cpu_versions": {
+    "alfworld": "0.4.2",
+    "textworld": "1.7.0"
+  },
+  "limits": {
+    "tokens": 32000000,
+    "model_calls": 16000,
+    "transition_queries": 120000,
+    "audit_capture_bundles": 140000,
+    "wall_seconds": 129600
+  },
+  "inherited_science_configs_preserved": true,
+  "no_training": true,
+  "no_learned_wm": true,
+  "native_equivalence": "Exact public transitions/admissible commands and private fact digest; not full hidden RNG serialization",
+  "tasks_per_policy": 50,
+  "total_episodes": 250,
+  "recalibration": false,
+  "maximum_gpus": 4,
+  "tasks_per_worker_batch": 5,
+  "batch_limits": {
+    "tokens": 4100000,
+    "model_calls": 1600,
+    "transition_queries": 12000,
+    "audit_capture_bundles": 14000
+  },
+  "gate_config": "docs/alfworld_pilot/results/gate_config.json",
+  "memory_snapshot": "docs/alfworld_pilot/memory_snapshot.json",
+  "frozen_calibration": "docs/alfworld_pilot/results/calibration.json",
+  "seed_scope": "one fixed rollout seed0 per independent task; not8-seed final benchmark"
+}

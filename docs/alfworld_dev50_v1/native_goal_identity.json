@@ -1,0 +1,450 @@
+[
+  {
+    "task_id": "alf-1d7633ed3b084b9c",
+    "goal": "look at pen under the desklamp.",
+    "initial_sha256": "c36aad9db0ee0990db2dedd0eb8c09380030f4e55aa634417e93fad519fac8bd",
+    "formal_pid": 3105488,
+    "initial_prompt_tokens": 438,
+    "reserved_role": "environment_validation"
+  },
+  {
+    "task_id": "alf-c95cd47dc6523845",
+    "goal": "put some remotecontrol on dresser.",
+    "initial_sha256": "ec54e6c0f95e72c831023c4adc58b94bda6df490666e6bf99e946153164cbde5",
+    "formal_pid": 3105779,
+    "initial_prompt_tokens": 382,
+    "reserved_role": "environment_validation"
+  },
+  {
+    "task_id": "alf-a3182c7846f1665d",
+    "goal": "put a clean dishsponge in shelf.",
+    "initial_sha256": "fe46c51ace5370defbceceafa8a6d32552f396f790b1154767489642836b7556",
+    "formal_pid": 3105855,
+    "initial_prompt_tokens": 437,
+    "reserved_role": "environment_validation"
+  },
+  {
+    "task_id": "alf-3674743b67190f48",
+    "goal": "put a cool bowl in countertop.",
+    "initial_sha256": "55bce769c87c47cca6e5bf91608138db1cb29a770af94c8b7770e299d0566929",
+    "formal_pid": 3105929,
+    "initial_prompt_tokens": 743,
+    "reserved_role": "environment_validation"
+  },
+  {
+    "task_id": "alf-26438590bc8666f5",
+    "goal": "heat some cup and put it in countertop.",
+    "initial_sha256": "c5cb22e047022b255c258d2618f59f8b7c3bcce7e42403de710980119fa8174b",
+    "formal_pid": 3106032,
+    "initial_prompt_tokens": 701,
+    "reserved_role": "environment_validation"
+  },
+  {
+    "task_id": "alf-292a7f3b66aba8b5",
+    "goal": "put two kettle in cabinet.",
+    "initial_sha256": "831103c7f16246c7d7b6a8bebefb99dd54d84f577de62b3db232888cd6ed1511",
+    "formal_pid": 3106202,
+    "initial_prompt_tokens": 537,
+    "reserved_role": "environment_validation"
+  },
+  {
+    "task_id": "alf-2cfe0072aedbf5a2",
+    "goal": "look at pencil under the desklamp.",
+    "initial_sha256": "5d7ccb7d2db172ae83d6511e77790e71460f928b271af4eccd47de352c27744f",
+    "formal_pid": 3106295,
+    "initial_prompt_tokens": 350,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-a9e7ea47ac5c7004",
+    "goal": "put some remotecontrol on ottoman.",
+    "initial_sha256": "9573d9d70e84a931c247fb21f2ac7e8450c64234fc933b6313812e6a164752ad",
+    "formal_pid": 3106367,
+    "initial_prompt_tokens": 435,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-f330adcf68ccd8b2",
+    "goal": "clean some ladle and put it in cabinet.",
+    "initial_sha256": "35a88ce2b025c54a48171a118d851af9f9298f7f7b3bdec5b3525c18811d6dbb",
+    "formal_pid": 3106440,
+    "initial_prompt_tokens": 897,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-64393932d0864940",
+    "goal": "put a cool pot in cabinet.",
+    "initial_sha256": "bbddeb8b757830b61bb6c5b5d226e97a85ef26028e5f12ddf002abff20e7c346",
+    "formal_pid": 3106556,
+    "initial_prompt_tokens": 651,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-2cdd8d22ca168939",
+    "goal": "put a hot mug in shelf.",
+    "initial_sha256": "158f238db0780943ad98c6f85774027638d000d99efb5cd814c2aa7473f556f8",
+    "formal_pid": 3106722,
+    "initial_prompt_tokens": 648,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-93568a3dcb535c24",
+    "goal": "put two pencil in shelf.",
+    "initial_sha256": "e908815b3273c43f98b23682d9bf3b4347df8cbc829c6cf7472df8510b5ed19d",
+    "formal_pid": 3106799,
+    "initial_prompt_tokens": 558,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-95fe2d6b2881a6c6",
+    "goal": "look at cellphone under the desklamp.",
+    "initial_sha256": "ae48a48f8044e91fbfa3db3c935383a7e136ed2fbca51955dcf7cb07d1786c4b",
+    "formal_pid": 3106876,
+    "initial_prompt_tokens": 503,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-9cf908990a48cdfb",
+    "goal": "put a soapbottle in drawer.",
+    "initial_sha256": "2535041794321459a9b4845b5b9d9ce8cdb538693201e4f47c21adb69e80f05c",
+    "formal_pid": 3106987,
+    "initial_prompt_tokens": 530,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-b0e44246739eef62",
+    "goal": "put a clean spoon in diningtable.",
+    "initial_sha256": "fd1e3273c6d1f9175a32c30d52a3d5866c37b2e8331c0d48fe51ffa535192468",
+    "formal_pid": 3107105,
+    "initial_prompt_tokens": 503,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-67d31b241966fe08",
+    "goal": "cool some plate and put it in shelf.",
+    "initial_sha256": "d44afc6ae5621d887cf2015cb74b7f80080b0c83c16d09d18584864e4429fd27",
+    "formal_pid": 3107207,
+    "initial_prompt_tokens": 652,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-d93bf6b6f670d908",
+    "goal": "put a hot plate in sidetable.",
+    "initial_sha256": "12ce211c73e6447def50147666be94cb4dfb97d860abebd5eb9bcfd2c3e19146",
+    "formal_pid": 3107297,
+    "initial_prompt_tokens": 606,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-3411fbd6ca68129f",
+    "goal": "find two dishsponge and put them in garbagecan.",
+    "initial_sha256": "b3723c2d69f7a7ba9074c615b2af7b9ca29734beafcb2ca99863e97a2cf59c28",
+    "formal_pid": 3107405,
+    "initial_prompt_tokens": 459,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-29655788d1bd71c1",
+    "goal": "examine the watch with the desklamp.",
+    "initial_sha256": "ff964e22c820c1c5be60a5fbb6557cbcfc3a92e5961d559bef4fddf6521789c5",
+    "formal_pid": 3107498,
+    "initial_prompt_tokens": 419,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-6f5d4f9e7f165927",
+    "goal": "put a spraybottle in countertop.",
+    "initial_sha256": "20f2adb614554642d06ae4e8bfd9569bea38bbf30f38e3f417cf2c3779c89fc3",
+    "formal_pid": 3107634,
+    "initial_prompt_tokens": 470,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-5b19696dfde6c3e5",
+    "goal": "put a clean pot in stoveburner.",
+    "initial_sha256": "376841ff263ad8ebc306ff15be6a26a61a4e5f4695347a8988f8a86cd15f9d5d",
+    "formal_pid": 3107709,
+    "initial_prompt_tokens": 582,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-77d7ab27b999f488",
+    "goal": "cool some egg and put it in garbagecan.",
+    "initial_sha256": "e46ae889cd8ae93f9bf8bff64a0fba80d9622ee14da5458628197794ff75f28d",
+    "formal_pid": 3107836,
+    "initial_prompt_tokens": 884,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-540d68a5f9d2fd68",
+    "goal": "heat some bread and put it in fridge.",
+    "initial_sha256": "ccb84f97ae79e64611e6fb0a87a824cb0af526d90df780a05b8de8dfd69e4318",
+    "formal_pid": 3107950,
+    "initial_prompt_tokens": 582,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-de4ccc35c8140794",
+    "goal": "find two pen and put them in garbagecan.",
+    "initial_sha256": "02228e4052a05089dddae112dc313be81aa0df5d6a93de7cbc0e240fe6b719e3",
+    "formal_pid": 3108287,
+    "initial_prompt_tokens": 349,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-fcdd0de207afaf5b",
+    "goal": "look at creditcard under the desklamp.",
+    "initial_sha256": "0f9c8236d72fec7a22f2cf569e9e92280f930cd95fcd57c36c6b84a1e08e875f",
+    "formal_pid": 3108361,
+    "initial_prompt_tokens": 352,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-15ad1f8529de4cd4",
+    "goal": "put a peppershaker in sidetable.",
+    "initial_sha256": "03c687498cddf8647c79bf046c6cee0b029a623a25363b77e6951fc900a15f85",
+    "formal_pid": 3108427,
+    "initial_prompt_tokens": 505,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-90461dca68962551",
+    "goal": "put a clean knife in diningtable.",
+    "initial_sha256": "2cab9a590837f8ed73f77373c4d6fa62b067b7a387ab0290ef46dec12bf058ba",
+    "formal_pid": 3108503,
+    "initial_prompt_tokens": 580,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-844e007d34cdbf20",
+    "goal": "put a cool pot in countertop.",
+    "initial_sha256": "ea11def6f2730cd9c8dff69322642e4ab978e83bb244d14b86f87dfd7bff1c79",
+    "formal_pid": 3108592,
+    "initial_prompt_tokens": 760,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-19cbf89f0696f384",
+    "goal": "heat some plate and put it in countertop.",
+    "initial_sha256": "afb9e7a4bb2367212a4855bef9d92dacb4f42f590c124769891b1dbca44eb98c",
+    "formal_pid": 3108740,
+    "initial_prompt_tokens": 654,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-8392fa71684d192c",
+    "goal": "put two pencil in desk.",
+    "initial_sha256": "9c77c9e9406397dde645c263307e6afec9b9326327f29311fbaa4200bca082f7",
+    "formal_pid": 3108825,
+    "initial_prompt_tokens": 432,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-2f2db0ac4e34b31c",
+    "goal": "look at plate under the desklamp.",
+    "initial_sha256": "1ca84716624a70a6af1f5a009ceca504cb982907b067f4d0d57360d777438ae8",
+    "formal_pid": 3108910,
+    "initial_prompt_tokens": 382,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-b62b2b3f5102a484",
+    "goal": "put some tissuebox on garbagecan.",
+    "initial_sha256": "c49ab1faa54ba83b8db6e2d5b2f17f0c3fc4301b206134706b79aad3fb2804f0",
+    "formal_pid": 3108983,
+    "initial_prompt_tokens": 468,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-cfba7603b7b86bb7",
+    "goal": "put a clean knife in sidetable.",
+    "initial_sha256": "a617aa968d605bc31a7a5ac2307cd2ca1bd7cbdec16645f64c1c31a6415059ec",
+    "formal_pid": 3109060,
+    "initial_prompt_tokens": 503,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-48abc9ef7a960530",
+    "goal": "put a cool potato in sidetable.",
+    "initial_sha256": "87da9ce2a43783b22f44c603228e083df190af4a0ce25f0d1a21eff559de7c03",
+    "formal_pid": 3109145,
+    "initial_prompt_tokens": 503,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-cffcb3e0a9e707e7",
+    "goal": "heat some bread and put it in diningtable.",
+    "initial_sha256": "2d1123227d3fd9ead77fd22e93a31f96db8831a5cc6bf000253dc0013bf3f1af",
+    "formal_pid": 3109290,
+    "initial_prompt_tokens": 584,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-192b63aec2c94d81",
+    "goal": "find two tissuebox and put them in shelf.",
+    "initial_sha256": "a605f3690c4218b349b743c364f92a4fdd5198f8e470480bc39d41e76b843181",
+    "formal_pid": 3109370,
+    "initial_prompt_tokens": 387,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-4b685cb546e4f4e2",
+    "goal": "examine the newspaper with the desklamp.",
+    "initial_sha256": "dfdb8014a81b669ff1a897b2d1768392a2e16db7f9bbeeb212822c2a77cd90ed",
+    "formal_pid": 3109461,
+    "initial_prompt_tokens": 393,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-0c68db10bcc314fe",
+    "goal": "put a glassbottle in countertop.",
+    "initial_sha256": "343f4fc30b58604e6b9f5864667e7dce6dc6d601ec1d976722d0e1dfe4894c4c",
+    "formal_pid": 3109533,
+    "initial_prompt_tokens": 545,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-3bf6f4b61cd0eccf",
+    "goal": "put a clean dishsponge in cabinet.",
+    "initial_sha256": "1936c0ad0daee672d264c29393a54bc4f9425faf00945aefe09998c80a8d7c43",
+    "formal_pid": 3109619,
+    "initial_prompt_tokens": 488,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-ea5213fcfa7ee1b0",
+    "goal": "cool some bowl and put it in microwave.",
+    "initial_sha256": "8c128ae65f30697282ef64a44477b465d59a2db84235b89a3c25f62ca8a30a33",
+    "formal_pid": 3109762,
+    "initial_prompt_tokens": 652,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-cbca1237088cbd17",
+    "goal": "heat some egg and put it in diningtable.",
+    "initial_sha256": "cf00eefe59a4c35993f2b4183156aa041f84fd459902626e2d65efa26dc03cf9",
+    "formal_pid": 3109837,
+    "initial_prompt_tokens": 584,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-73a934fae01591f2",
+    "goal": "put two bowl in desk.",
+    "initial_sha256": "cb6fbc6155d4939f38e885e81cb2045129dcf25d323a3d71f11086a332c13eb2",
+    "formal_pid": 3109932,
+    "initial_prompt_tokens": 432,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-7b7bfd1f1a920a3e",
+    "goal": "put some book on cabinet.",
+    "initial_sha256": "e9a3e9ac3dc056dc0da62df08057aa4dbbfaec081c6a5d81639ab5bd78a34cfe",
+    "formal_pid": 3110003,
+    "initial_prompt_tokens": 368,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-e86abf138d2e2175",
+    "goal": "put a clean cup in shelf.",
+    "initial_sha256": "1f096b512f98ea6c0128d697eef2ed0c31f8e903b1fdd4484f841ce0755eb622",
+    "formal_pid": 3110081,
+    "initial_prompt_tokens": 651,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-ba77c8443a7c2cf1",
+    "goal": "put a cool pot in shelf.",
+    "initial_sha256": "1be12bc7f5b3b13f37e6864177f2a1702b7445c52d40e88a12b2a9b20e366bd7",
+    "formal_pid": 3110242,
+    "initial_prompt_tokens": 651,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-8d1a9ff52968fbb6",
+    "goal": "put a hot apple in garbagecan.",
+    "initial_sha256": "6b600343b5890111a97e74470c9fa747f9e59a4d4c1ec9af88c143ebba7d1d5a",
+    "formal_pid": 3110341,
+    "initial_prompt_tokens": 689,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-b6e4ff3171778f7c",
+    "goal": "put two soapbottle in cart.",
+    "initial_sha256": "d185373084f63290dc473fe4f9b353a6520feb4666d0b49ee352d05954e8681a",
+    "formal_pid": 3110427,
+    "initial_prompt_tokens": 429,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-20862156ac480de3",
+    "goal": "put some soapbottle on cart.",
+    "initial_sha256": "16d0943fe423b0656514452941c3da20c280d5169055e924980710f4331ce581",
+    "formal_pid": 3110557,
+    "initial_prompt_tokens": 429,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-7ea9c953092c3187",
+    "goal": "clean some cloth and put it in shelf.",
+    "initial_sha256": "421ecd1063a45390c1a04087be0a6f11a908990741fd29cd80b3470149f8ffaa",
+    "formal_pid": 3110645,
+    "initial_prompt_tokens": 459,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-07f68717c3aa9db2",
+    "goal": "cool some pan and put it in cabinet.",
+    "initial_sha256": "c2ab35f1bf8d6cf37a5431ee3ce9651dd4534d46bbd270119821bda34b5c2f0e",
+    "formal_pid": 3110729,
+    "initial_prompt_tokens": 680,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-876775d24d5d6908",
+    "goal": "heat some egg and put it in sidetable.",
+    "initial_sha256": "28debb74934701411deb46e931c4f6a13377092a38fb4d2845e85fca40418a4c",
+    "formal_pid": 3110833,
+    "initial_prompt_tokens": 507,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-e46e7b40cb4d04f0",
+    "goal": "put two kettle in diningtable.",
+    "initial_sha256": "3db1425a93a6cbc9a1b22fd2a383c532c24b152536057397bd4d207a40f5648f",
+    "formal_pid": 3110913,
+    "initial_prompt_tokens": 676,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-04f6c88d74036da6",
+    "goal": "put a egg in fridge.",
+    "initial_sha256": "d26e48fc9ea824564da174a8e9d4de31a5853219a6d9b1755f35f5d6b8f1054b",
+    "formal_pid": 3111057,
+    "initial_prompt_tokens": 646,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-100d1994bd4c2437",
+    "goal": "clean some spatula and put it in countertop.",
+    "initial_sha256": "2223a195502cb87223cb57978d1e70a48065c6c739cd65929415d24fd58b32c2",
+    "formal_pid": 3111215,
+    "initial_prompt_tokens": 925,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-54e65619afcc0470",
+    "goal": "cool some potato and put it in countertop.",
+    "initial_sha256": "3d09c4b604aa8820f67c5c814b914248b7cf24dcdba48d079e07df8ced39b3b7",
+    "formal_pid": 3111309,
+    "initial_prompt_tokens": 501,
+    "reserved_role": "independent_development_evaluation"
+  },
+  {
+    "task_id": "alf-7b933599942a0e6c",
+    "goal": "heat some cup and put it in shelf.",
+    "initial_sha256": "7f69b437ef6bb0734779b37762a2b7e1b10d1718f9f3c8ae84320671fede06f3",
+    "formal_pid": 3111460,
+    "initial_prompt_tokens": 655,
+    "reserved_role": "independent_development_evaluation"
+  }
+]

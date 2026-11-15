@@ -802,3 +802,9 @@ ScienceWorld uses critique followed by a separate guarded replan. See
 
 Three goal-disjoint TRAIN-pool development games×seed0×Never/Always/Internal/External/Full; no final140-game evaluation. Never 0/3 / Always 2/3 / Internal 2/3 / External 0/3 / Full 2/3. All policies share the frozen9B Actor/Reviewer, native independent-process Reset/Replay, structured prompts and H50/history2/input2048/output512. This is a small diagnostic, not paper-score reproduction or proof of general scientific effectiveness. See [protocol](docs/ALFWORLD_PILOT.md), [results and cost audit](docs/ALFWORLD_PILOT_REPORT.md), and [per-instance results](docs/alfworld_pilot/results/episodes.csv).21 CPU contracts,24 real replay controls and150 official-wrapper transition comparisons pass. Old ScienceWorld/SR settings remain preserved; no automatic Phase6.
 <!-- /ALFWORLD_PILOT_RESULT -->
+
+<!-- ALFWORLD_DEV50_PROTOCOL -->
+## ALFWorld50-task frozen development evaluation
+
+User-authorized50 new development games×seed0×Never/Always/Internal/External/Full=250 Episodes, reusing all pilot method settings, thresholds and Memory. See [protocol, limits and commands](docs/ALFWORLD_DEV50.md). Run lifecycle/progress and errors are saved under outputs/alfworld_dev50_v1; final audited report is docs/ALFWORLD_DEV50_REPORT.md. This is not the official140-game Test evaluation or Phase6.
+<!-- /ALFWORLD_DEV50_PROTOCOL -->

@@ -1,0 +1,15 @@
+{
+  "status": "pass",
+  "native_identities": 56,
+  "evaluation_identities": 50,
+  "disjoint_validation_comparisons": 6,
+  "transition_queries": 104,
+  "audit_capture_bundles": 116,
+  "passive_inspection_queries": 12,
+  "model_calls": 0,
+  "tokens": 0,
+  "no_test_resets": true,
+  "goals_sha256": "92c3ed8fde2b3f9e0ea42004c82a24fe64295b8e2628bd3afcd32d6f75f8c27e",
+  "freeze_sha256": "bc0d65e537cecac211a6e03a4a33d0cc96ba4cdf77ab9109ce9ca6e168d4d466",
+  "seconds": 163.03152626007795
+}

@@ -43,3 +43,11 @@ Completed15 Episodes/3 TRAIN-derived goal-disjoint development games/seed0, Qwen
 
 See [ALFWORLD_PILOT_REPORT.md](ALFWORLD_PILOT_REPORT.md) and docs/alfworld_pilot/results for complete outcomes/costs/examples/hashes, including original/failed attempts. Original source/calibration and completed Episode preserved, scheduling-only repair documented, all owned processes released. No model training, Test rollout, SR promotion, Qwen2.5 online WM or Phase6. Preserve all prior ScienceWorld profiles and agentwmv2. Stop for user review.
 <!-- /ALFWORLD_PILOT_HANDOFF -->
+
+<!-- ALFWORLD_DEV50_HANDOFF -->
+## ALFWorld frozen50-task expansion
+
+User authorized50 Episodes per policy,250 total, seed0. Fifty NEW TRAIN-derived goal groups exclude old3 pilot/memory/calibration/preliminary goals and final140 canonical goals. Six separate validation goals reserved;56 real native identities and6 replay controls pass before model generation.29 CPU contracts/regressions pass. Same Qwen3.5-9B, original Reviewer, TokenNLL path, q.75 thresholds,31-case/two-card Memory and policy budgets; no tuning or training.
+
+Protocol: docs/ALFWORLD_DEV50.md; frozen profile configs/evaluation/alfworld_dev50_v1.json; split/method hashes/native proof under docs/alfworld_dev50_v1. Authoritative lifecycle: outputs/alfworld_dev50_v1-supervisor.json and outputs/alfworld_dev50_v1/progress.json. Detached four-GPU scheduling on0/2/3/4, maximum4; five-task worker batches, durable per-step/per-Episode receipts, explicit hash-checked resume,36h/32Mtoken/global native-query caps. No duplicate launches, no final140×8 or Phase6. At250 complete, CPU audit and own report/results auto-publication; failures preserve raw artifacts and publication status. Final report destination docs/ALFWORLD_DEV50_REPORT.md. No continuous assistant monitoring requested.
+<!-- /ALFWORLD_DEV50_HANDOFF -->
