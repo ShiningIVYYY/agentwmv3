@@ -1,5 +1,6 @@
 """Generated verbatim episode logic; scheduling only. Do not edit by hand."""
 import time
+from dataclasses import asdict
 from scripts.run_alfworld_pilot import (atomic,append,AlfEnvironment,AlfGroundTruthWM,RuleGate,GateInput,ExternalInput,
     draft_messages,review_messages,parse_review,request_seed,fields,file_hash,fingerprint)
 

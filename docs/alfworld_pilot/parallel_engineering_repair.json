@@ -1,0 +1,49 @@
+{
+  "failed_run": "outputs/alfworld_parallel_v1",
+  "failed_manifest_sha256": "45b5a4c5b35255990f679be3cd4aadf257a6d771ac361312403c653a693c9dc1",
+  "root_cause": "Generated scheduler module omitted dataclasses.asdict import; original episode AST was unchanged but a global binding was missing",
+  "errors": [
+    {
+      "worker": 0,
+      "type": "ResourceLimit",
+      "message": "Supervisor stop requested"
+    },
+    {
+      "worker": 1,
+      "type": "NameError",
+      "message": "name 'asdict' is not defined"
+    },
+    {
+      "worker": 2,
+      "type": "NameError",
+      "message": "name 'asdict' is not defined"
+    },
+    {
+      "worker": 3,
+      "type": "NameError",
+      "message": "name 'asdict' is not defined"
+    }
+  ],
+  "raw_recorded_cost": {
+    "tokens": 3856,
+    "model_calls": 4,
+    "transition_queries": 8,
+    "audit_capture_bundles": 7
+  },
+  "completed_new_episodes": 0,
+  "old_completed_episode_preserved": true,
+  "fixed": "Import asdict, statically verify all referenced globals, test full trace serialization, persist actual state receipts even after STOP",
+  "conservative_transition_budget_charge": 1,
+  "conservative_capture_budget_charge": 4,
+  "state_receipt_limitations": "Worker0 was stopped during native lookahead. Two passive state replies are inferred from the capture-accounting stack; native branch initialization/candidate receipt contents were not persisted. Failed attempt has 10..11 API query attempts and9..11 state replies, not a falsely exact count. Budget reserves the upper bound.",
+  "known_failed_api_query_attempts_lower": 10,
+  "failed_api_query_attempts_upper": 11,
+  "failed_state_replies_lower": 9,
+  "failed_state_replies_upper": 11,
+  "no_actor_gate_threshold_memory_or_benchmark_change": true,
+  "no_failed_attempt_scored_as_task_failure": true,
+  "wall_budget": "2h cumulative ACTIVE server-run time; network downtime with all owned models exited is excluded; original415.225s and failed40.738s are charged",
+  "same_frozen_calibration": true,
+  "old_runtime_source_commit": "9b06876",
+  "failed_scheduler_source_commit": "ea6ad64084f8bf60d01bf851a623e7bee90331e1"
+}

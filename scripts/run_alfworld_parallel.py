@@ -3,9 +3,18 @@ import argparse,json,math,os,signal,subprocess,sys,time
 from pathlib import Path
 from types import SimpleNamespace
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
-from evaluation.independent_dev import atomic,Ledger
+from evaluation.independent_dev import atomic,Ledger,ResourceLimit
 from experience.splits import file_hash
-from scripts.build_alfworld_episode import validate
+from scripts.build_alfworld_episode import validate,check_globals
+
+
+class ReceiptLedger(Ledger):
+    def captures(self,actual):
+        # A received native state must be charged even after STOP is requested.
+        if isinstance(actual,bool) or not isinstance(actual,int) or actual<0:raise ValueError('Invalid receipt count')
+        self.state['audit_capture_bundles']+=actual;self.save()
+        if self.state['audit_capture_bundles']>self.limits['audit_capture_bundles']:
+            raise ResourceLimit('Actual state receipt cap exceeded; receipt retained')
 
 
 def verify(source):
@@ -18,6 +27,8 @@ def verify(source):
     if file_hash(ROOT/'outputs/alfworld_memory_v2/snapshot.json')!=m['memory_sha256']:raise ValueError('Experience changed')
     identity=json.loads((ROOT/'docs/alfworld_pilot/parallel_episode_identity.json').read_text())
     digest=validate((ROOT/'scripts/run_alfworld_pilot.py').read_text(),(ROOT/'evaluation/alfworld_episode.py').read_text())
+    import evaluation.alfworld_episode as episode_module
+    check_globals((ROOT/'evaluation/alfworld_episode.py').read_text(),vars(episode_module))
     if identity['episode_ast_sha256']!=digest:raise ValueError('Episode AST changed')
     return m
 
@@ -32,7 +43,7 @@ def worker(run,index):
     out=run/f'worker{index}';out.mkdir(exist_ok=True)
     def stop(*_):raise InterruptedError('Owned parallel supervisor stop')
     signal.signal(signal.SIGTERM,stop)
-    caps=m['worker_caps'][index];ledger=Ledger(out/'ledger.json',run/'STOP',m['deadline_unix'],caps,caps)
+    caps=m['worker_caps'][index];ledger=ReceiptLedger(out/'ledger.json',run/'STOP',m['deadline_unix'],caps,caps)
     started=time.perf_counter();actor=Qwen35Actor(ROOT/p['actor_config'],ROOT/'checkpoints/qwen35_9b');actor.evaluation_left_truncation=False
     old_model=json.loads((source/'model.json').read_text())
     if actor.fingerprint!=old_model['config_sha256']:raise ValueError('Model configuration differs')
@@ -60,11 +71,30 @@ def weights(entry,p):
 
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--run',required=True);ap.add_argument('--source',default='outputs/alfworld_five_policy_v1');ap.add_argument('--gpus',default='4,5,6,7');ap.add_argument('--worker',type=int);a=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--run',required=True);ap.add_argument('--source',default='outputs/alfworld_five_policy_v1');ap.add_argument('--gpus',default='4,5,6,7');ap.add_argument('--worker',type=int);ap.add_argument('--failed-prior',nargs='*',default=[]);a=ap.parse_args()
     run=Path(a.run).absolute()
     if a.worker is not None:worker(run,a.worker);return
     source=Path(a.source).absolute();old=verify(source);p=old['profile'];prior=json.loads((source/'ledger.json').read_text())
     if prior['pending_model'] or prior['pending_transition']:raise ValueError('Unknown original receipt; do not resume')
+    prior=dict(prior);failures=[]
+    for name in a.failed_prior:
+        failed=Path(name).absolute();fm=json.loads((failed/'manifest.json').read_text())
+        if fm['source_run']!=str(source) or fm['profile']!=p:raise ValueError('Failed run uses a different method')
+        if list(failed.glob('worker*/episodes/*/*/complete.json')):raise ValueError('Audit completed prior Episodes explicitly before scheduling')
+        raw={k:0 for k in ['tokens','model_calls','transition_queries','audit_capture_bundles']}
+        for wp in sorted(failed.glob('worker*/ledger.json')):
+            value=json.loads(wp.read_text())
+            if value['pending_model'] or value['pending_transition']:raise ValueError('Unknown failed receipt')
+            for k in raw:raw[k]+=value[k]
+        repair=json.loads((ROOT/'docs/alfworld_pilot/parallel_engineering_repair.json').read_text())
+        if repair['failed_manifest_sha256']!=file_hash(failed/'manifest.json'):raise ValueError('Failure-cost scope differs')
+        extra=repair['conservative_capture_budget_charge']
+        for k in raw:prior[k]+=raw[k]
+        prior['audit_capture_bundles']+=extra
+        prior['transition_queries']+=repair['conservative_transition_budget_charge']
+        active=max(0.,(failed/'supervisor_complete.json').stat().st_mtime-fm['started_ns']/1e9)
+        failures.append(dict(run=str(failed),raw_ledger=raw,capture_budget_charge=extra,transition_budget_charge=repair['conservative_transition_budget_charge'],active_seconds=active,
+            state_receipt_limitations=repair['state_receipt_limitations']))
     old_super=json.loads(Path(str(source)+'-supervisor.json').read_text())
     if not old_super['model_exited']:raise ValueError('Old model must exit before parallel expansion')
     gpus=a.gpus.split(',')
@@ -97,10 +127,13 @@ def main():
         for i in range(len(gpus)):
             amount=remaining[key]-used if i==len(gpus)-1 else int(remaining[key]*raw[i][wk]/total)
             caps[i][key]=amount;used+=amount
-    base_start=json.loads((ROOT/'outputs/alfworld_five_policy_job_v1.json').read_text())['started_ns']/1e9
-    names=['scripts/run_alfworld_parallel.py','scripts/build_alfworld_episode.py','evaluation/alfworld_episode.py']
+    # Network downtime with all owned models stopped is not compute runtime.
+    active_used=float(old_super['seconds'])+sum(f['active_seconds'] for f in failures)
+    active_remaining=p['limits']['wall_seconds']-active_used
+    if active_remaining<=0:raise ValueError('Whole active-runtime budget exhausted')
+    names=['scripts/run_alfworld_parallel.py','scripts/build_alfworld_episode.py','evaluation/alfworld_episode.py','docs/alfworld_pilot/parallel_engineering_repair.json']
     manifest=dict(source_run=str(source),source_manifest_sha256=file_hash(source/'manifest.json'),original_spent=prior,profile=p,schedule=schedule,
-        worker_caps=caps,gpus=gpus,deadline_unix=base_start+p['limits']['wall_seconds'],
+        worker_caps=caps,gpus=gpus,deadline_unix=time.time()+active_remaining,active_runtime_already_spent=active_used,failed_prior_runs=failures,
         new_source_hashes={n:file_hash(ROOT/n) for n in names},source_git_commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
         same_frozen_gate_memory_prompts_seeds=True,recalibration=False,user_authorized_max_gpus=4,resource_change_only=True,started_ns=time.time_ns())
     atomic(run/'manifest.json',manifest);children=[];logs=[];error=None;started=time.perf_counter()
@@ -122,7 +155,8 @@ def main():
         if count!=15:raise ValueError('Missing/duplicate final Episode')
         spent={k:prior[k]+sum(json.loads((run/f'worker{i}'/'ledger.json').read_text())[k] for i in range(len(gpus))) for k in cap_keys}
         if any(spent[k]>p['limits'][k] for k in cap_keys):raise ValueError('Whole-run cap exceeded')
-        atomic(run/'complete.json',dict(status='complete',episodes=15,seconds=time.perf_counter()-started,total_resource_spent_including_initial_partial=spent))
+        atomic(run/'complete.json',dict(status='complete',episodes=15,seconds=time.perf_counter()-started,total_resource_spent_including_initial_partial=spent,
+            environmental_failure_counts_include_explicit_conservative_budget_charges=bool(failures)))
         atomic(run/'progress.json',dict(stage='complete',completed=15,total=15,max_gpus=len(gpus)))
     except BaseException as e:error=str(e);atomic(run/'error.json',dict(type=type(e).__name__,message=error));atomic(run/'STOP',dict(reason=error));raise
     finally:
