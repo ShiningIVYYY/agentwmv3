@@ -1,0 +1,2574 @@
+[
+  {
+    "task_id": "alf-bc4a562ca75cc95a",
+    "policy": "never",
+    "step": 0,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 4, a countertop 3, a countertop 2, a countertop 1, a drawer 27, a drawer 26, a drawer 25, a drawer 24, a drawer 23, a drawer 22, a drawer 21, a drawer 20, a drawer 19, a drawer 18, a drawer 17, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\n\nYour task is to: clean some egg and put it in microwave.",
+    "draft": "inventory",
+    "local": null,
+    "global_nll": null,
+    "gate": "never_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "inventory",
+    "feedback": "You are not carrying anything.",
+    "success": false
+  },
+  {
+    "task_id": "alf-bc4a562ca75cc95a",
+    "policy": "never",
+    "step": 1,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "You are not carrying anything.",
+    "draft": "inventory",
+    "local": null,
+    "global_nll": null,
+    "gate": "never_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "inventory",
+    "feedback": "You are not carrying anything.",
+    "success": false
+  },
+  {
+    "task_id": "alf-bc4a562ca75cc95a",
+    "policy": "never",
+    "step": 16,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "You open the microwave 1. The microwave 1 is open. In it, you see a cup 2, and a egg 2.",
+    "draft": "heat egg 2 with microwave 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "never_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "heat egg 2 with microwave 1",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-bc4a562ca75cc95a",
+    "policy": "never",
+    "step": 19,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "You open the microwave 1. The microwave 1 is open. In it, you see a cup 2, and a egg 2.",
+    "draft": "take egg 2 from microwave 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "never_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "take egg 2 from microwave 1",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-bc4a562ca75cc95a",
+    "policy": "always",
+    "step": 0,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 4, a countertop 3, a countertop 2, a countertop 1, a drawer 27, a drawer 26, a drawer 25, a drawer 24, a drawer 23, a drawer 22, a drawer 21, a drawer 20, a drawer 19, a drawer 18, a drawer 17, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\n\nYour task is to: clean some egg and put it in microwave.",
+    "draft": "inventory",
+    "local": null,
+    "global_nll": null,
+    "gate": "always_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You are not carrying anything.",
+    "reviewer": {
+      "raw": "Decision: KEEP\nReason: The draft action 'inventory' was syntactically valid and returned useful information (\"You are not carrying anything\") without causing harm or failing. It confirms the agent is empty-handed, which is a necessary state before finding and cleaning an egg. No better alternative exists in the current observation to advance the goal immediately.\nFinal Action: inventory",
+      "parsed": {
+        "decision": "KEEP",
+        "reason": "The draft action 'inventory' was syntactically valid and returned useful information (\"You are not carrying anything\") without causing harm or failing. It confirms the agent is empty-handed, which is a necessary state before finding and cleaning an egg. No better alternative exists in the current observation to advance the goal immediately.",
+        "final_action": "inventory",
+        "changed": false,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "inventory",
+    "feedback": "You are not carrying anything.",
+    "success": false
+  },
+  {
+    "task_id": "alf-bc4a562ca75cc95a",
+    "policy": "always",
+    "step": 1,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "You are not carrying anything.",
+    "draft": "inventory",
+    "local": null,
+    "global_nll": null,
+    "gate": "always_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You are not carrying anything.",
+    "reviewer": {
+      "raw": "Decision: KEEP\nReason: The draft action 'inventory' was successfully executed, confirming the agent is not carrying anything and the environment state remains unchanged. This is a necessary step to proceed with finding the egg.\nFinal Action: inventory",
+      "parsed": {
+        "decision": "KEEP",
+        "reason": "The draft action 'inventory' was successfully executed, confirming the agent is not carrying anything and the environment state remains unchanged. This is a necessary step to proceed with finding the egg.",
+        "final_action": "inventory",
+        "changed": false,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "inventory",
+    "feedback": "You are not carrying anything.",
+    "success": false
+  },
+  {
+    "task_id": "alf-bc4a562ca75cc95a",
+    "policy": "always",
+    "step": 2,
+    "categories": [
+      "reviewer_replacement"
+    ],
+    "observation": "You are not carrying anything.",
+    "draft": "look",
+    "local": null,
+    "global_nll": null,
+    "gate": "always_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The draft action \"look\" yields no useful information regarding the location of the egg or the microwave, and the goal requires specific navigation and object interaction. The current observation already lists available objects including \"microwave 1\", so a targeted move is more efficient.\nFinal Action: go to microwave 1",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The draft action \"look\" yields no useful information regarding the location of the egg or the microwave, and the goal requires specific navigation and object interaction. The current observation already lists available objects including \"microwave 1\", so a targeted move is more efficient.",
+        "final_action": "go to microwave 1",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "go to microwave 1",
+    "feedback": "You arrive at microwave 1. The microwave 1 is closed.",
+    "success": false
+  },
+  {
+    "task_id": "alf-bc4a562ca75cc95a",
+    "policy": "always",
+    "step": 5,
+    "categories": [
+      "reviewer_replacement",
+      "nonadmissible_final_action"
+    ],
+    "observation": "You pick up the egg 2 from the microwave 1.",
+    "draft": "go to sinkbasin 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "always_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You arrive at sinkbasin 1. On the sinkbasin 1, you see a fork 1, a potato 1, and a spoon 1.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The draft action \"go to sinkbasin 1\" moves the agent away from the microwave where the egg is currently held. The goal requires cleaning the egg (using the sink) and then heating it. While going to the sink is the first step of cleaning, the agent must first place the egg on the sink basin to clean it. The current observation confirms the agent is holding the egg. The correct immediate action is to put the egg on the sink basin.\nFinal Action: put egg 2 in sinkbasin 1",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The draft action \"go to sinkbasin 1\" moves the agent away from the microwave where the egg is currently held. The goal requires cleaning the egg (using the sink) and then heating it. While going to the sink is the first step of cleaning, the agent must first place the egg on the sink basin to clean it. The current observation confirms the agent is holding the egg. The correct immediate action is to put the egg on the sink basin.",
+        "final_action": "put egg 2 in sinkbasin 1",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "put egg 2 in sinkbasin 1",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-bc4a562ca75cc95a",
+    "policy": "always",
+    "step": 7,
+    "categories": [
+      "review_format_failure"
+    ],
+    "observation": "You move the egg 2 to the microwave 1.",
+    "draft": "take egg 2 from microwave 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "always_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You pick up the egg 2 from the microwave 1.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The draft action \"take egg 2 from microwave 1\" is invalid because the egg is currently inside the microwave (as confirmed by the observation \"You move the egg 2 to the microwave 1\"), not on top of it. The correct command to retrieve an object from inside a container is \"take OBJECT from CONTAINER\", but the object must be accessible. However, looking at the admissible commands, \"take egg 2 from microwave 1\" is listed, which implies the agent is currently *at* the microwave and the egg is *in* it. Wait, the observation says \"You move the egg 2 to the microwave 1.\" This usually means the egg is now *inside*. The command \"take egg 2 from microwave 1\" is in the admissible list. Let's re-evaluate the state.\nHistory:\n1. Pick up egg 2 from microwave 1 (This implies egg was in microwave, now in hand).\n2. Put egg 2 in sinkbasin 1 (Egg is in sink).\n3. Move egg 2 to microwave 1 (Egg is now in microwave).\nCurrent Observation: \"You move the egg 2 to the microwave 1.\" -> Egg is IN the microwave.\nGoal: Clean egg and put in microwave.\nStep 1: Clean egg. (Need to go to sink, pick up egg, clean).\nStep 2: Put in microwave.\nThe draft action is \"take egg 2 from microwave 1\". If the egg is inside the microwave, this command should work if the agent is at the microwave. The admissible commands include \"take egg 2 from microwave 1\".\nHowever, the previous history shows \"put egg 2 in sinkbasin 1\". Then \"move egg 2 to microwave 1\".\nIf the egg is *in* the microwave, the command \"take egg 2 from microwave 1\" is the correct way to get it out.\nWhy would I replace it?\nLet's check the admissible commands again. \"take egg 2 from microwave 1\" is there.\nIs there a problem? The observation says \"You move the egg 2 to the microwave 1.\" This is the result of the last action. The agent is likely standing at the microwave.\nIf I execute \"take egg 2 from microwave 1\", I will get the egg. Then I need",
+      "parsed": {
+        "decision": "INVALID",
+        "final_action": "take egg 2 from microwave 1",
+        "error": "review_format_error",
+        "fallback": "keep_draft"
+      }
+    },
+    "final": "take egg 2 from microwave 1",
+    "feedback": "You pick up the egg 2 from the microwave 1.",
+    "success": false
+  },
+  {
+    "task_id": "alf-bc4a562ca75cc95a",
+    "policy": "always",
+    "step": 8,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "You pick up the egg 2 from the microwave 1.",
+    "draft": "heat egg 2 with microwave 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "always_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You heat the egg 2 using the microwave 1.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The draft action \"heat egg 2 with microwave 1\" is invalid because the egg is currently inside the microwave (confirmed by the observation \"You pick up the egg 2 from the microwave 1\" and history showing it was moved there). You cannot heat an object that is already inside the container it is meant to be heated in; the egg must be removed first. The goal requires cleaning the egg, which implies using the sink, then heating it. The immediate logical step is to take the egg out of the microwave to access it for cleaning.\nFinal Action: take egg 2 from microwave 1",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The draft action \"heat egg 2 with microwave 1\" is invalid because the egg is currently inside the microwave (confirmed by the observation \"You pick up the egg 2 from the microwave 1\" and history showing it was moved there). You cannot heat an object that is already inside the container it is meant to be heated in; the egg must be removed first. The goal requires cleaning the egg, which implies using the sink, then heating it. The immediate logical step is to take the egg out of the microwave to access it for cleaning.",
+        "final_action": "take egg 2 from microwave 1",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "take egg 2 from microwave 1",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-bc4a562ca75cc95a",
+    "policy": "always",
+    "step": 27,
+    "categories": [
+      "review_format_failure"
+    ],
+    "observation": "You arrive at sinkbasin 1. On the sinkbasin 1, you see a fork 1, a potato 1, and a spoon 1.",
+    "draft": "clean egg 2 with sinkbasin 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "always_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You clean the egg 2 using the sinkbasin 1.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The draft action \"clean egg 2 with sinkbasin 1\" is syntactically valid but semantically incorrect because the standard command requires the object \"sink\" (e.g., \"clean egg 2 with sink\"), not \"sinkbasin 1\". The predicted feedback showing 0.0 reward suggests the action failed to achieve the cleaning goal, likely due to this mismatch. The correct action should use the specific object name \"sink\" if available in the environment's command set, or re-evaluate the available commands for the correct phrasing. However, looking at the provided admissible commands, \"clean egg 2 with sinkbasin 1\" is listed as an admissible command, which implies the environment might accept it, but the feedback says \"Nothing happens\" in the history for similar attempts or 0 reward here. Wait, the history shows \"clean egg 2 with sink 1\" resulted in \"Nothing happens\". The current admissible list includes \"clean egg 2 with sinkbasin 1\". If the history says \"clean egg 2 with sink 1\" failed, and the current location is sinkbasin 1, maybe the command needs to be \"clean egg 2 with sink\" but \"sink\" isn't in the admissible list? Let's re-read the admissible list. It has \"clean egg 2 with sinkbasin 1\". The history has \"clean egg 2 with sink 1\". The feedback for the draft is 0.0 reward. This suggests the action didn't work. Is there a better command? The goal is to clean the egg. The only clean command available is \"clean egg 2 with sinkbasin 1\". If the draft is the only option and it failed, maybe the issue is the egg isn't dirty or the command format is wrong despite being admissible. But the instruction says \"Decide whether the draft executed successfully...\". The feedback says 0.0 reward, which usually means failure in this context. However, I cannot invent a new command. If the only clean command is this one and it failed, I might be stuck. But wait, the history says \"clean egg 2 with sink 1\" -> \"Nothing happens\". The draft is \"clean egg 2 with sinkbasin 1\". Maybe the correct command is \"clean egg 2 with sink\" but it's not in the admissible list? No, I must choose from admissible",
+      "parsed": {
+        "decision": "INVALID",
+        "final_action": "clean egg 2 with sinkbasin 1",
+        "error": "review_format_error",
+        "fallback": "keep_draft"
+      }
+    },
+    "final": "clean egg 2 with sinkbasin 1",
+    "feedback": "You clean the egg 2 using the sinkbasin 1.",
+    "success": false
+  },
+  {
+    "task_id": "alf-bc4a562ca75cc95a",
+    "policy": "internal",
+    "step": 0,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 4, a countertop 3, a countertop 2, a countertop 1, a drawer 27, a drawer 26, a drawer 25, a drawer 24, a drawer 23, a drawer 22, a drawer 21, a drawer 20, a drawer 19, a drawer 18, a drawer 17, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\n\nYour task is to: clean some egg and put it in microwave.",
+    "draft": "inventory",
+    "local": 0.39245814765627074,
+    "global_nll": 0.21499666560681535,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "inventory",
+    "feedback": "You are not carrying anything.",
+    "success": false
+  },
+  {
+    "task_id": "alf-bc4a562ca75cc95a",
+    "policy": "internal",
+    "step": 1,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "You are not carrying anything.",
+    "draft": "inventory",
+    "local": 0.3254723134225262,
+    "global_nll": 0.1930619826968971,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "inventory",
+    "feedback": "You are not carrying anything.",
+    "success": false
+  },
+  {
+    "task_id": "alf-bc4a562ca75cc95a",
+    "policy": "internal",
+    "step": 2,
+    "categories": [
+      "reviewer_replacement"
+    ],
+    "observation": "You are not carrying anything.",
+    "draft": "look",
+    "local": 0.6569795767024446,
+    "global_nll": 0.28724167836965836,
+    "gate": "internal_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The draft action \"look\" yields no useful information regarding the location of the egg or the microwave, and the goal requires specific navigation and object interaction. The current observation already lists available objects including \"microwave 1\", so a targeted move is more efficient.\nFinal Action: go to microwave 1",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The draft action \"look\" yields no useful information regarding the location of the egg or the microwave, and the goal requires specific navigation and object interaction. The current observation already lists available objects including \"microwave 1\", so a targeted move is more efficient.",
+        "final_action": "go to microwave 1",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "go to microwave 1",
+    "feedback": "You arrive at microwave 1. The microwave 1 is closed.",
+    "success": false
+  },
+  {
+    "task_id": "alf-bc4a562ca75cc95a",
+    "policy": "experience",
+    "step": 0,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 4, a countertop 3, a countertop 2, a countertop 1, a drawer 27, a drawer 26, a drawer 25, a drawer 24, a drawer 23, a drawer 22, a drawer 21, a drawer 20, a drawer 19, a drawer 18, a drawer 17, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\n\nYour task is to: clean some egg and put it in microwave.",
+    "draft": "inventory",
+    "local": null,
+    "global_nll": null,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "inventory",
+    "feedback": "You are not carrying anything.",
+    "success": false
+  },
+  {
+    "task_id": "alf-bc4a562ca75cc95a",
+    "policy": "experience",
+    "step": 1,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "You are not carrying anything.",
+    "draft": "inventory",
+    "local": null,
+    "global_nll": null,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "inventory",
+    "feedback": "You are not carrying anything.",
+    "success": false
+  },
+  {
+    "task_id": "alf-bc4a562ca75cc95a",
+    "policy": "experience",
+    "step": 16,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "You open the microwave 1. The microwave 1 is open. In it, you see a cup 2, and a egg 2.",
+    "draft": "heat egg 2 with microwave 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "heat egg 2 with microwave 1",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-bc4a562ca75cc95a",
+    "policy": "experience",
+    "step": 19,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "You open the microwave 1. The microwave 1 is open. In it, you see a cup 2, and a egg 2.",
+    "draft": "take egg 2 from microwave 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "take egg 2 from microwave 1",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-bc4a562ca75cc95a",
+    "policy": "full",
+    "step": 0,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 4, a countertop 3, a countertop 2, a countertop 1, a drawer 27, a drawer 26, a drawer 25, a drawer 24, a drawer 23, a drawer 22, a drawer 21, a drawer 20, a drawer 19, a drawer 18, a drawer 17, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\n\nYour task is to: clean some egg and put it in microwave.",
+    "draft": "inventory",
+    "local": 0.39245814765627074,
+    "global_nll": 0.21499666560681535,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "inventory",
+    "feedback": "You are not carrying anything.",
+    "success": false
+  },
+  {
+    "task_id": "alf-bc4a562ca75cc95a",
+    "policy": "full",
+    "step": 1,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "You are not carrying anything.",
+    "draft": "inventory",
+    "local": 0.3254723134225262,
+    "global_nll": 0.1930619826968971,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "inventory",
+    "feedback": "You are not carrying anything.",
+    "success": false
+  },
+  {
+    "task_id": "alf-bc4a562ca75cc95a",
+    "policy": "full",
+    "step": 2,
+    "categories": [
+      "reviewer_replacement"
+    ],
+    "observation": "You are not carrying anything.",
+    "draft": "look",
+    "local": 0.6569795767024446,
+    "global_nll": 0.28724167836965836,
+    "gate": "internal_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The draft action \"look\" yields no useful information regarding the location of the egg or the microwave, and the goal requires specific navigation and object interaction. The current observation already lists available objects including \"microwave 1\", so a targeted move is more efficient.\nFinal Action: go to microwave 1",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The draft action \"look\" yields no useful information regarding the location of the egg or the microwave, and the goal requires specific navigation and object interaction. The current observation already lists available objects including \"microwave 1\", so a targeted move is more efficient.",
+        "final_action": "go to microwave 1",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "go to microwave 1",
+    "feedback": "You arrive at microwave 1. The microwave 1 is closed.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "never",
+    "step": 0,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 27, a cabinet 26, a cabinet 25, a cabinet 24, a cabinet 23, a cabinet 22, a cabinet 21, a cabinet 20, a cabinet 19, a cabinet 18, a cabinet 17, a cabinet 16, a cabinet 15, a cabinet 14, a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 2, a countertop 1, a diningtable 1, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\n\nYour task is to: cool some winebottle and put it in countertop.",
+    "draft": "go to fridge 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "never_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "go to fridge 1",
+    "feedback": "You arrive at fridge 1. The fridge 1 is closed.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "never",
+    "step": 1,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "You arrive at fridge 1. The fridge 1 is closed.",
+    "draft": "open fridge 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "never_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "open fridge 1",
+    "feedback": "You open the fridge 1. The fridge 1 is open. In it, you see a apple 2, a cup 3, a egg 1, a lettuce 2, a mug 1, and a tomato 3.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "never",
+    "step": 11,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "You pick up the apple 1 from the microwave 1.",
+    "draft": "move apple 1 to countertop 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "never_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "move apple 1 to countertop 1",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "never",
+    "step": 12,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "Nothing happens.",
+    "draft": "move apple 1 to fridge 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "never_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "move apple 1 to fridge 1",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "always",
+    "step": 0,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 27, a cabinet 26, a cabinet 25, a cabinet 24, a cabinet 23, a cabinet 22, a cabinet 21, a cabinet 20, a cabinet 19, a cabinet 18, a cabinet 17, a cabinet 16, a cabinet 15, a cabinet 14, a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 2, a countertop 1, a diningtable 1, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\n\nYour task is to: cool some winebottle and put it in countertop.",
+    "draft": "go to fridge 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "always_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You arrive at fridge 1. The fridge 1 is closed.",
+    "reviewer": {
+      "raw": "Decision: KEEP\nReason: The draft action moves the agent to the fridge, which is necessary to access and cool the winebottle as per the task goal. The feedback confirms the agent arrived at the correct location.\nFinal Action: go to fridge 1",
+      "parsed": {
+        "decision": "KEEP",
+        "reason": "The draft action moves the agent to the fridge, which is necessary to access and cool the winebottle as per the task goal. The feedback confirms the agent arrived at the correct location.",
+        "final_action": "go to fridge 1",
+        "changed": false,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "go to fridge 1",
+    "feedback": "You arrive at fridge 1. The fridge 1 is closed.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "always",
+    "step": 1,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "You arrive at fridge 1. The fridge 1 is closed.",
+    "draft": "open fridge 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "always_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You open the fridge 1. The fridge 1 is open. In it, you see a apple 2, a cup 3, a egg 1, a lettuce 2, a mug 1, and a tomato 3.",
+    "reviewer": {
+      "raw": "Decision: KEEP\nReason: The draft action successfully opens fridge 1, revealing its contents. Although the winebottle is not listed in the immediate view, opening the container is the necessary first step to locate or retrieve the target object before cooling it.\nFinal Action: open fridge 1",
+      "parsed": {
+        "decision": "KEEP",
+        "reason": "The draft action successfully opens fridge 1, revealing its contents. Although the winebottle is not listed in the immediate view, opening the container is the necessary first step to locate or retrieve the target object before cooling it.",
+        "final_action": "open fridge 1",
+        "changed": false,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "open fridge 1",
+    "feedback": "You open the fridge 1. The fridge 1 is open. In it, you see a apple 2, a cup 3, a egg 1, a lettuce 2, a mug 1, and a tomato 3.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "always",
+    "step": 2,
+    "categories": [
+      "reviewer_replacement"
+    ],
+    "observation": "You open the fridge 1. The fridge 1 is open. In it, you see a apple 2, a cup 3, a egg 1, a lettuce 2, a mug 1, and a tomato 3.",
+    "draft": "go to microwave 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "always_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You arrive at microwave 1. The microwave 1 is closed.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The draft action moves the agent to the microwave, but the winebottle is not currently in the microwave or fridge; it is not listed in the current observation. The goal requires cooling the bottle, which implies it must first be located and taken. Since the bottle is not visible in the fridge or elsewhere in the current observation, the agent must search the environment (cabinets, drawers, etc.) to find it before attempting to cool it.\nFinal Action: go to cabinet 1",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The draft action moves the agent to the microwave, but the winebottle is not currently in the microwave or fridge; it is not listed in the current observation. The goal requires cooling the bottle, which implies it must first be located and taken. Since the bottle is not visible in the fridge or elsewhere in the current observation, the agent must search the environment (cabinets, drawers, etc.) to find it before attempting to cool it.",
+        "final_action": "go to cabinet 1",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "go to cabinet 1",
+    "feedback": "You arrive at cabinet 1. The cabinet 1 is closed.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "always",
+    "step": 3,
+    "categories": [
+      "review_format_failure"
+    ],
+    "observation": "You arrive at cabinet 1. The cabinet 1 is closed.",
+    "draft": "open cabinet 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "always_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You open the cabinet 1. The cabinet 1 is open. In it, you see nothing.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The draft action opens cabinet 1, but the observation shows it is empty (\"see nothing\"). The goal requires cooling a winebottle and placing it on the countertop. Since the bottle is not in cabinet 1, opening it yields no progress. The fridge 1 was previously opened and contained items, but the winebottle is not listed there either in the history; however, the immediate need is to locate the winebottle. Given the current state (cabinet 1 empty) and the goal, the agent must search other locations. The most logical next step based on standard ALFWorld layouts where winebottles are often stored in cabinets or fridges, and since cabinet 1 failed, checking another cabinet or the fridge again is necessary. However, looking at the available commands, \"go to cabinet 2\" is a valid move to search. But wait, the prompt says \"Review ONE draft action... Decide whether the draft executed successfully...\". The draft \"open cabinet 1\" executed successfully (cabinet is now open) but failed to contribute to the goal because the object is missing. A better action would be to go to a location where the winebottle might be. In many ALFWorld instances, winebottles are in specific cabinets. If cabinet 1 is empty, going to another cabinet is a valid alternative. Let's choose \"go to cabinet 2\" as a search action, assuming the winebottle might be there. Alternatively, re-checking the fridge? The history says \"In it, you see a apple 2, a cup 3, a egg 1, a lettuce 2, a mug 1, and a tomato 3.\" No winebottle. So the winebottle must be in a cabinet. Since cabinet 1 is empty, going to cabinet 2 is the correct next step to find the winebottle.\n\nFinal Action: go to cabinet 2",
+      "parsed": {
+        "decision": "INVALID",
+        "final_action": "open cabinet 1",
+        "error": "review_format_error",
+        "fallback": "keep_draft"
+      }
+    },
+    "final": "open cabinet 1",
+    "feedback": "You open the cabinet 1. The cabinet 1 is open. In it, you see nothing.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "always",
+    "step": 5,
+    "categories": [
+      "reviewer_replacement"
+    ],
+    "observation": "You arrive at fridge 1. The fridge 1 is open. In it, you see a apple 2, a cup 3, a egg 1, a lettuce 2, a mug 1, and a tomato 3.",
+    "draft": "go to microwave 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "always_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You arrive at microwave 1. The microwave 1 is closed.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The goal requires cooling a winebottle, but the fridge 1 currently contains no winebottle (only apple, cup, egg, lettuce, mug, tomato). The draft action moves to the microwave, which is irrelevant for cooling and does not address the missing object or the target location (countertop).\nFinal Action: go to countertop 1",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The goal requires cooling a winebottle, but the fridge 1 currently contains no winebottle (only apple, cup, egg, lettuce, mug, tomato). The draft action moves to the microwave, which is irrelevant for cooling and does not address the missing object or the target location (countertop).",
+        "final_action": "go to countertop 1",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "go to countertop 1",
+    "feedback": "You arrive at countertop 1. On the countertop 1, you see a butterknife 2, a butterknife 1, a fork 1, a houseplant 2, a houseplant 1, a pan 1, a plate 1, a spoon 1, a tomato 2, and a winebottle 1.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "always",
+    "step": 7,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "You pick up the winebottle 1 from the countertop 1.",
+    "draft": "go to fridge 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "always_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You arrive at fridge 1. The fridge 1 is open. In it, you see a apple 2, a cup 3, a egg 1, a lettuce 2, a mug 1, and a tomato 3.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The draft action moves the agent to the fridge, but the goal requires cooling the winebottle and placing it on the countertop. Since the agent is already holding the winebottle (from the last action \"take winebottle 1 from countertop 1\"), the correct next step is to use the cooling appliance (fridge) on the object, not just travel to the location. The available command \"cool winebottle 1 with FRIDGE\" directly addresses the \"cool some winebottle\" part of the goal.\nFinal Action: cool winebottle 1 with FRIDGE",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The draft action moves the agent to the fridge, but the goal requires cooling the winebottle and placing it on the countertop. Since the agent is already holding the winebottle (from the last action \"take winebottle 1 from countertop 1\"), the correct next step is to use the cooling appliance (fridge) on the object, not just travel to the location. The available command \"cool winebottle 1 with FRIDGE\" directly addresses the \"cool some winebottle\" part of the goal.",
+        "final_action": "cool winebottle 1 with FRIDGE",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "cool winebottle 1 with FRIDGE",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "always",
+    "step": 9,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "You move the winebottle 1 to the countertop 1.",
+    "draft": "take winebottle 1 from countertop 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "always_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You pick up the winebottle 1 from the countertop 1.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The goal requires the winebottle to be cooled and then placed on the countertop. The draft action \"take winebottle 1 from countertop 1\" removes the bottle, which is the opposite of the final required state (\"put it in countertop\"). Since the bottle is currently on the countertop (per observation), taking it is unnecessary and counter-productive to the immediate goal of placing it there. The correct action is to place the bottle on the countertop.\nFinal Action: put winebottle 1 in/on countertop 1",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The goal requires the winebottle to be cooled and then placed on the countertop. The draft action \"take winebottle 1 from countertop 1\" removes the bottle, which is the opposite of the final required state (\"put it in countertop\"). Since the bottle is currently on the countertop (per observation), taking it is unnecessary and counter-productive to the immediate goal of placing it there. The correct action is to place the bottle on the countertop.",
+        "final_action": "put winebottle 1 in/on countertop 1",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "put winebottle 1 in/on countertop 1",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "always",
+    "step": 13,
+    "categories": [
+      "review_format_failure"
+    ],
+    "observation": "You move the winebottle 1 to the countertop 1.",
+    "draft": "go to fridge 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "always_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You arrive at fridge 1. The fridge 1 is open. In it, you see a apple 2, a cup 3, a egg 1, a lettuce 2, a mug 1, and a tomato 3.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The draft action \"go to fridge 1\" moves the agent away from the winebottle, which is currently on the countertop. The goal requires cooling the winebottle and then placing it on the countertop. Since the agent is already at the countertop with the bottle, the correct next step is to cool the bottle using the available cooling appliance (fridge) while remaining in position or moving to the fridge to perform the cooling action. However, the current observation states the agent is *at* the countertop. To cool the bottle, the agent must interact with the fridge. The draft \"go to fridge 1\" is a valid movement towards the cooling appliance. Wait, re-evaluating: The goal is \"cool some winebottle and put it in countertop\". The agent has the bottle (implied by \"take\" history and current location). The agent needs to cool it. The only way to cool is \"cool OBJECT with FRIDGE\". This requires the agent to be at the fridge. The draft \"go to fridge 1\" is the necessary first step to access the fridge. Why would I replace? Ah, the draft says \"go to fridge 1\". The feedback says \"You arrive at fridge 1...\". This seems correct. Is there a better action? The command list includes \"cool winebottle 1 with fridge 1\" is NOT in the list. The list has \"go to fridge 1\", \"open/close CONTAINER\" (fridge is a container), \"take OBJECT from RECEPTACLE\". Wait, the command list provided in the prompt does NOT include \"cool winebottle 1 with fridge 1\". It lists: \"go to fridge 1\", \"open fridge 1\" (implied via open/close CONTAINER? No, \"open CONTAINER\" is generic). Let's check the admissible commands again. \"open/close CONTAINER\" is not explicitly listed as a command string like \"open fridge 1\". The list has \"go to fridge 1\". It does NOT have \"cool winebottle 1 with fridge 1\". The prompt says \"Commands include... cool OBJECT with FRIDGE\". But the *CURRENT admissible commands* list does NOT contain \"cool winebottle 1 with fridge 1\". It only contains \"go to fridge 1\". This is a contradiction in the prompt setup or my interpretation.\nLet's re-read carefully: \"Choose one exact native command",
+      "parsed": {
+        "decision": "INVALID",
+        "final_action": "go to fridge 1",
+        "error": "review_format_error",
+        "fallback": "keep_draft"
+      }
+    },
+    "final": "go to fridge 1",
+    "feedback": "You arrive at fridge 1. The fridge 1 is open. In it, you see a apple 2, a cup 3, a egg 1, a lettuce 2, a mug 1, and a tomato 3.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "internal",
+    "step": 0,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 27, a cabinet 26, a cabinet 25, a cabinet 24, a cabinet 23, a cabinet 22, a cabinet 21, a cabinet 20, a cabinet 19, a cabinet 18, a cabinet 17, a cabinet 16, a cabinet 15, a cabinet 14, a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 2, a countertop 1, a diningtable 1, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\n\nYour task is to: cool some winebottle and put it in countertop.",
+    "draft": "go to fridge 1",
+    "local": 0.24289523117677164,
+    "global_nll": 0.13219190140285755,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "go to fridge 1",
+    "feedback": "You arrive at fridge 1. The fridge 1 is closed.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "internal",
+    "step": 1,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "You arrive at fridge 1. The fridge 1 is closed.",
+    "draft": "open fridge 1",
+    "local": 0.25579888569221415,
+    "global_nll": 0.15290318504437897,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "open fridge 1",
+    "feedback": "You open the fridge 1. The fridge 1 is open. In it, you see a apple 2, a cup 3, a egg 1, a lettuce 2, a mug 1, and a tomato 3.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "internal",
+    "step": 2,
+    "categories": [
+      "reviewer_replacement"
+    ],
+    "observation": "You open the fridge 1. The fridge 1 is open. In it, you see a apple 2, a cup 3, a egg 1, a lettuce 2, a mug 1, and a tomato 3.",
+    "draft": "go to microwave 1",
+    "local": 0.6284312691247491,
+    "global_nll": 0.327298878788789,
+    "gate": "internal_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You arrive at microwave 1. The microwave 1 is closed.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The draft action moves the agent to the microwave, but the winebottle is not currently in the microwave or fridge; it is not listed in the current observation. The goal requires cooling the bottle, which implies it must first be located and taken. Since the bottle is not visible in the fridge or elsewhere in the current observation, the agent must search the environment (cabinets, drawers, etc.) to find it before attempting to cool it.\nFinal Action: go to cabinet 1",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The draft action moves the agent to the microwave, but the winebottle is not currently in the microwave or fridge; it is not listed in the current observation. The goal requires cooling the bottle, which implies it must first be located and taken. Since the bottle is not visible in the fridge or elsewhere in the current observation, the agent must search the environment (cabinets, drawers, etc.) to find it before attempting to cool it.",
+        "final_action": "go to cabinet 1",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "go to cabinet 1",
+    "feedback": "You arrive at cabinet 1. The cabinet 1 is closed.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "internal",
+    "step": 8,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "You pick up the apple 1 from the microwave 1.",
+    "draft": "move apple 1 to countertop 1",
+    "local": 0.45081133424959874,
+    "global_nll": 0.2775419090734112,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "move apple 1 to countertop 1",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "internal",
+    "step": 13,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "You pick up the apple 1 from the microwave 1.",
+    "draft": "move apple 1 to countertop 1",
+    "local": 0.2004906675151471,
+    "global_nll": 0.09510808333268414,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "move apple 1 to countertop 1",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "internal",
+    "step": 17,
+    "categories": [
+      "reviewer_replacement"
+    ],
+    "observation": "You move the apple 1 to the microwave 1.",
+    "draft": "take apple 1 from microwave 1",
+    "local": 0.5836236579027834,
+    "global_nll": 0.20560311805989995,
+    "gate": "internal_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You pick up the apple 1 from the microwave 1.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The draft action retrieves the apple, but the goal requires cooling a winebottle and placing it on the countertop. The current observation indicates the agent is at the microwave with the apple, not the winebottle. The agent must first locate the winebottle (likely in the fridge) before it can be cooled.\nFinal Action: go to fridge 1",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The draft action retrieves the apple, but the goal requires cooling a winebottle and placing it on the countertop. The current observation indicates the agent is at the microwave with the apple, not the winebottle. The agent must first locate the winebottle (likely in the fridge) before it can be cooled.",
+        "final_action": "go to fridge 1",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "go to fridge 1",
+    "feedback": "You arrive at fridge 1. The fridge 1 is open. In it, you see a apple 2, a cup 3, a egg 1, a lettuce 2, a mug 1, and a tomato 3.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "experience",
+    "step": 0,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 27, a cabinet 26, a cabinet 25, a cabinet 24, a cabinet 23, a cabinet 22, a cabinet 21, a cabinet 20, a cabinet 19, a cabinet 18, a cabinet 17, a cabinet 16, a cabinet 15, a cabinet 14, a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 2, a countertop 1, a diningtable 1, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\n\nYour task is to: cool some winebottle and put it in countertop.",
+    "draft": "go to fridge 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "go to fridge 1",
+    "feedback": "You arrive at fridge 1. The fridge 1 is closed.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "experience",
+    "step": 1,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "You arrive at fridge 1. The fridge 1 is closed.",
+    "draft": "open fridge 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "open fridge 1",
+    "feedback": "You open the fridge 1. The fridge 1 is open. In it, you see a apple 2, a cup 3, a egg 1, a lettuce 2, a mug 1, and a tomato 3.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "experience",
+    "step": 11,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "You pick up the apple 1 from the microwave 1.",
+    "draft": "move apple 1 to countertop 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "move apple 1 to countertop 1",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "experience",
+    "step": 12,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "Nothing happens.",
+    "draft": "move apple 1 to fridge 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "move apple 1 to fridge 1",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "full",
+    "step": 0,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 27, a cabinet 26, a cabinet 25, a cabinet 24, a cabinet 23, a cabinet 22, a cabinet 21, a cabinet 20, a cabinet 19, a cabinet 18, a cabinet 17, a cabinet 16, a cabinet 15, a cabinet 14, a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 2, a countertop 1, a diningtable 1, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\n\nYour task is to: cool some winebottle and put it in countertop.",
+    "draft": "go to fridge 1",
+    "local": 0.24289523117677164,
+    "global_nll": 0.13219190140285755,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "go to fridge 1",
+    "feedback": "You arrive at fridge 1. The fridge 1 is closed.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "full",
+    "step": 1,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "You arrive at fridge 1. The fridge 1 is closed.",
+    "draft": "open fridge 1",
+    "local": 0.25579888569221415,
+    "global_nll": 0.15290318504437897,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "open fridge 1",
+    "feedback": "You open the fridge 1. The fridge 1 is open. In it, you see a apple 2, a cup 3, a egg 1, a lettuce 2, a mug 1, and a tomato 3.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "full",
+    "step": 2,
+    "categories": [
+      "reviewer_replacement"
+    ],
+    "observation": "You open the fridge 1. The fridge 1 is open. In it, you see a apple 2, a cup 3, a egg 1, a lettuce 2, a mug 1, and a tomato 3.",
+    "draft": "go to microwave 1",
+    "local": 0.6284312691247491,
+    "global_nll": 0.327298878788789,
+    "gate": "internal_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You arrive at microwave 1. The microwave 1 is closed.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The draft action moves the agent to the microwave, but the winebottle is not currently in the microwave or fridge; it is not listed in the current observation. The goal requires cooling the bottle, which implies it must first be located and taken. Since the bottle is not visible in the fridge or elsewhere in the current observation, the agent must search the environment (cabinets, drawers, etc.) to find it before attempting to cool it.\nFinal Action: go to cabinet 1",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The draft action moves the agent to the microwave, but the winebottle is not currently in the microwave or fridge; it is not listed in the current observation. The goal requires cooling the bottle, which implies it must first be located and taken. Since the bottle is not visible in the fridge or elsewhere in the current observation, the agent must search the environment (cabinets, drawers, etc.) to find it before attempting to cool it.",
+        "final_action": "go to cabinet 1",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "go to cabinet 1",
+    "feedback": "You arrive at cabinet 1. The cabinet 1 is closed.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "full",
+    "step": 8,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "You pick up the apple 1 from the microwave 1.",
+    "draft": "move apple 1 to countertop 1",
+    "local": 0.45081133424959874,
+    "global_nll": 0.2775419090734112,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "move apple 1 to countertop 1",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "full",
+    "step": 13,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "You pick up the apple 1 from the microwave 1.",
+    "draft": "move apple 1 to countertop 1",
+    "local": 0.2004906675151471,
+    "global_nll": 0.09510808333268414,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "move apple 1 to countertop 1",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-30fc098bac52af9a",
+    "policy": "full",
+    "step": 17,
+    "categories": [
+      "reviewer_replacement"
+    ],
+    "observation": "You move the apple 1 to the microwave 1.",
+    "draft": "take apple 1 from microwave 1",
+    "local": 0.5836236579027834,
+    "global_nll": 0.20560311805989995,
+    "gate": "internal_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You pick up the apple 1 from the microwave 1.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The draft action retrieves the apple, but the goal requires cooling a winebottle and placing it on the countertop. The current observation indicates the agent is at the microwave with the apple, not the winebottle. The agent must first locate the winebottle (likely in the fridge) before it can be cooled.\nFinal Action: go to fridge 1",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The draft action retrieves the apple, but the goal requires cooling a winebottle and placing it on the countertop. The current observation indicates the agent is at the microwave with the apple, not the winebottle. The agent must first locate the winebottle (likely in the fridge) before it can be cooled.",
+        "final_action": "go to fridge 1",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "go to fridge 1",
+    "feedback": "You arrive at fridge 1. The fridge 1 is open. In it, you see a apple 2, a cup 3, a egg 1, a lettuce 2, a mug 1, and a tomato 3.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "never",
+    "step": 0,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 4, a countertop 3, a countertop 2, a countertop 1, a drawer 27, a drawer 26, a drawer 25, a drawer 24, a drawer 23, a drawer 22, a drawer 21, a drawer 20, a drawer 19, a drawer 18, a drawer 17, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\n\nYour task is to: put a hot apple in countertop.",
+    "draft": "inventory",
+    "local": null,
+    "global_nll": null,
+    "gate": "never_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "inventory",
+    "feedback": "You are not carrying anything.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "never",
+    "step": 1,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "You are not carrying anything.",
+    "draft": "inventory",
+    "local": null,
+    "global_nll": null,
+    "gate": "never_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "inventory",
+    "feedback": "You are not carrying anything.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "never",
+    "step": 24,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "You move the tomato 1 to the countertop 1.",
+    "draft": "move tomato 1 to countertop 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "never_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "move tomato 1 to countertop 1",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "never",
+    "step": 29,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "You are not carrying anything.",
+    "draft": "take apple 1 from microwave 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "never_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "take apple 1 from microwave 1",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "always",
+    "step": 0,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 4, a countertop 3, a countertop 2, a countertop 1, a drawer 27, a drawer 26, a drawer 25, a drawer 24, a drawer 23, a drawer 22, a drawer 21, a drawer 20, a drawer 19, a drawer 18, a drawer 17, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\n\nYour task is to: put a hot apple in countertop.",
+    "draft": "inventory",
+    "local": null,
+    "global_nll": null,
+    "gate": "always_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You are not carrying anything.",
+    "reviewer": {
+      "raw": "Decision: KEEP\nReason: The draft action 'inventory' successfully confirms the agent is not carrying anything, which is the necessary pre-condition to pick up the apple before placing it on the countertop. No better immediate action exists without first locating the apple.\nFinal Action: inventory",
+      "parsed": {
+        "decision": "KEEP",
+        "reason": "The draft action 'inventory' successfully confirms the agent is not carrying anything, which is the necessary pre-condition to pick up the apple before placing it on the countertop. No better immediate action exists without first locating the apple.",
+        "final_action": "inventory",
+        "changed": false,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "inventory",
+    "feedback": "You are not carrying anything.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "always",
+    "step": 1,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "You are not carrying anything.",
+    "draft": "inventory",
+    "local": null,
+    "global_nll": null,
+    "gate": "always_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You are not carrying anything.",
+    "reviewer": {
+      "raw": "Decision: KEEP\nReason: The draft action 'inventory' was syntactically valid and confirmed the current state (not carrying anything) without causing harm or failing. Since the goal requires finding and heating an apple first, and no specific apple location is known yet, repeating the inventory or looking around is a safe, grounded step to gather information. No better alternative is immediately available from the current observation.\nFinal Action: inventory",
+      "parsed": {
+        "decision": "KEEP",
+        "reason": "The draft action 'inventory' was syntactically valid and confirmed the current state (not carrying anything) without causing harm or failing. Since the goal requires finding and heating an apple first, and no specific apple location is known yet, repeating the inventory or looking around is a safe, grounded step to gather information. No better alternative is immediately available from the current observation.",
+        "final_action": "inventory",
+        "changed": false,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "inventory",
+    "feedback": "You are not carrying anything.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "always",
+    "step": 2,
+    "categories": [
+      "reviewer_replacement"
+    ],
+    "observation": "You are not carrying anything.",
+    "draft": "look",
+    "local": null,
+    "global_nll": null,
+    "gate": "always_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The draft action \"look\" provides no new information about the location of the apple or the target countertop, and the environment description already lists available receptacles. To progress towards the goal of putting a hot apple on a countertop, the agent must first navigate to a specific location where the apple can be found or where the action can be performed.\nFinal Action: go to countertop 4",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The draft action \"look\" provides no new information about the location of the apple or the target countertop, and the environment description already lists available receptacles. To progress towards the goal of putting a hot apple on a countertop, the agent must first navigate to a specific location where the apple can be found or where the action can be performed.",
+        "final_action": "go to countertop 4",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "go to countertop 4",
+    "feedback": "You arrive at countertop 4. On the countertop 4, you see a bread 2, a peppershaker 1, a plate 1, a potato 1, a spoon 1, and a tomato 3.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "always",
+    "step": 3,
+    "categories": [
+      "reviewer_replacement"
+    ],
+    "observation": "You arrive at countertop 4. On the countertop 4, you see a bread 2, a peppershaker 1, a plate 1, a potato 1, a spoon 1, and a tomato 3.",
+    "draft": "go to cabinet 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "always_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You arrive at cabinet 1. The cabinet 1 is closed.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The draft action moves the agent to cabinet 1, which is irrelevant to the goal of putting a hot apple on countertop 4. The current observation confirms an apple is not present on countertop 4, so the agent must first locate it. Cabinet 1 is not a logical place to start searching for an apple compared to other locations or the current countertop.\nFinal Action: go to cabinet 11",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The draft action moves the agent to cabinet 1, which is irrelevant to the goal of putting a hot apple on countertop 4. The current observation confirms an apple is not present on countertop 4, so the agent must first locate it. Cabinet 1 is not a logical place to start searching for an apple compared to other locations or the current countertop.",
+        "final_action": "go to cabinet 11",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "go to cabinet 11",
+    "feedback": "You arrive at cabinet 11. The cabinet 11 is closed.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "always",
+    "step": 12,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "You arrive at countertop 4. On the countertop 4, you see a bread 2, a peppershaker 1, a plate 1, a potato 1, a spoon 1, and a tomato 3.",
+    "draft": "take potato 1 from countertop 4",
+    "local": null,
+    "global_nll": null,
+    "gate": "always_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You pick up the potato 1 from the countertop 4.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The goal requires a \"hot apple\", but the draft action picks up a \"potato 1\" from the countertop, which is the wrong object entirely.\nFinal Action: take apple 1 from countertop 4",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The goal requires a \"hot apple\", but the draft action picks up a \"potato 1\" from the countertop, which is the wrong object entirely.",
+        "final_action": "take apple 1 from countertop 4",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "take apple 1 from countertop 4",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "always",
+    "step": 13,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "Nothing happens.",
+    "draft": "examine countertop 4",
+    "local": null,
+    "global_nll": null,
+    "gate": "always_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "On the countertop 4, you see a bread 2, a peppershaker 1, a plate 1, a potato 1, a spoon 1, and a tomato 3.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The goal requires putting a hot apple on the countertop. The apple is currently in inventory (taken in history), but the action \"examine countertop 4\" does not place the apple there and provides no progress toward the goal. The correct action is to put the apple on the countertop.\nFinal Action: put apple 1 on countertop 4",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The goal requires putting a hot apple on the countertop. The apple is currently in inventory (taken in history), but the action \"examine countertop 4\" does not place the apple there and provides no progress toward the goal. The correct action is to put the apple on the countertop.",
+        "final_action": "put apple 1 on countertop 4",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "put apple 1 on countertop 4",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "always",
+    "step": 14,
+    "categories": [
+      "review_format_failure"
+    ],
+    "observation": "Nothing happens.",
+    "draft": "heat apple 1 with microwave 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "always_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "Nothing happens.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The draft action \"heat apple 1 with microwave 1\" failed (\"Nothing happens\") because the agent is not currently at the microwave location, and the microwave is not in the agent's inventory. Additionally, the goal is to put a hot apple on the countertop, but the apple was already successfully placed on countertop 4 in the past history; heating it now is unnecessary and the action failed anyway. The agent should simply confirm the apple is on the countertop or move on, but since the goal \"put a hot apple in countertop\" implies the state of being there, and the previous action succeeded in placing it, the task context suggests the placement was the primary obstacle. However, strictly following the \"hot\" requirement, the agent needs to heat it. Since heating failed due to location, the agent must go to the microwave first. But the instruction says \"Choose one exact native command... No further simulation...\". The draft is invalid. A valid alternative grounded in current observation (agent is at countertop 4, has apple 1) is to go to the microwave to heat it, then return. However, I can only choose one action. The most logical next step to achieve \"hot apple\" is to go to the microwave. But wait, the goal is \"put a hot apple in countertop\". The apple is already on the countertop. It just needs to be hot. The draft tried to heat it but failed. The correct sequence is: go to microwave -> open microwave -> take apple (if not holding) -> heat -> put back. Currently, agent holds apple 1 (from history \"take apple 1\"). So: go to microwave 1 -> open microwave 1 -> put apple 1 in microwave 1 -> heat apple 1 with microwave 1 -> take apple 1 from microwave 1 -> go to countertop 4 (already there) -> done.\nWait, the history says: \"take apple 1 from countertop 4\", then \"put apple 1 on countertop 4\". So the agent is holding apple 1? No, \"put apple 1 on countertop 4\" implies the action was executed, but observation says \"Nothing happens\". This means the apple is NOT on the countertop, and the agent is likely still holding it or the action failed.\nLet's re-read history:\n1. take apple 1 from countertop 4 -> Success (implied by next step).\n",
+      "parsed": {
+        "decision": "INVALID",
+        "final_action": "heat apple 1 with microwave 1",
+        "error": "review_format_error",
+        "fallback": "keep_draft"
+      }
+    },
+    "final": "heat apple 1 with microwave 1",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "always",
+    "step": 37,
+    "categories": [
+      "review_format_failure"
+    ],
+    "observation": "You arrive at countertop 4. On the countertop 4, you see a bread 2, a peppershaker 1, a plate 1, a potato 1, a spoon 1, and a tomato 3.",
+    "draft": "go to cabinet 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "always_policy",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You arrive at cabinet 1. The cabinet 1 is open. In it, you see nothing.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The draft action \"go to cabinet 1\" moves the agent away from countertop 4 where the apple (implied to be the target object based on the goal) is located or needs to be retrieved, but the current observation does not show an apple on countertop 4. However, the goal is to put a hot apple on the countertop. The current observation lists bread, peppershaker, plate, potato, spoon, and tomato. There is no apple visible. The draft action is a navigation step that does not directly address the task and might be irrelevant if the apple is not in cabinet 1. More critically, the available commands do not include \"go to fridge\" or \"go to microwave\" which are needed to get a hot apple if it's not currently on the counter. Wait, re-reading the goal: \"put a hot apple in countertop\". The current observation does not list an apple. The draft action goes to cabinet 1. This is likely a wrong direction or a non-productive step if the apple isn't there. But looking at the admissible commands, there is no \"go to fridge\" or \"go to microwave\" in the list? Let me check the list again. \"go to fridge 1\" and \"go to microwave 1\" are in the list. The draft action is \"go to cabinet 1\". This is a valid command but does it help? The goal requires a hot apple. If the apple is not on the counter, I need to find it. The current observation says \"On the countertop 4, you see...\". No apple. Maybe the apple is in a cabinet? Or maybe I need to heat an apple? But I don't have an apple. This is confusing. Let's re-evaluate the draft. The draft is \"go to cabinet 1\". The feedback says \"You arrive at cabinet 1...\". This is a successful execution of the command. But does it support the goal? The goal is \"put a hot apple in countertop\". If there is no apple, I cannot complete the goal. Perhaps the apple is in one of the cabinets. Going to cabinet 1 is a step to search. However, is there a better action? The current observation is at countertop 4. The admissible commands include \"take [object] from countertop 4\". None of them are apple. So I must go somewhere else. The draft goes to cabinet 1",
+      "parsed": {
+        "decision": "INVALID",
+        "final_action": "go to cabinet 1",
+        "error": "review_format_error",
+        "fallback": "keep_draft"
+      }
+    },
+    "final": "go to cabinet 1",
+    "feedback": "You arrive at cabinet 1. The cabinet 1 is open. In it, you see nothing.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "internal",
+    "step": 0,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 4, a countertop 3, a countertop 2, a countertop 1, a drawer 27, a drawer 26, a drawer 25, a drawer 24, a drawer 23, a drawer 22, a drawer 21, a drawer 20, a drawer 19, a drawer 18, a drawer 17, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\n\nYour task is to: put a hot apple in countertop.",
+    "draft": "inventory",
+    "local": 0.4227052448620441,
+    "global_nll": 0.29932104647781693,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "inventory",
+    "feedback": "You are not carrying anything.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "internal",
+    "step": 1,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "You are not carrying anything.",
+    "draft": "inventory",
+    "local": 0.5399282801663503,
+    "global_nll": 0.37093393657826,
+    "gate": "internal_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You are not carrying anything.",
+    "reviewer": {
+      "raw": "Decision: KEEP\nReason: The draft action 'inventory' was syntactically valid and confirmed the current state (not carrying anything) without causing harm or failing. Since the goal requires finding and heating an apple first, and no specific apple location is known yet, repeating the inventory or looking around is a safe, grounded step to gather information. No better alternative is immediately available from the current observation.\nFinal Action: inventory",
+      "parsed": {
+        "decision": "KEEP",
+        "reason": "The draft action 'inventory' was syntactically valid and confirmed the current state (not carrying anything) without causing harm or failing. Since the goal requires finding and heating an apple first, and no specific apple location is known yet, repeating the inventory or looking around is a safe, grounded step to gather information. No better alternative is immediately available from the current observation.",
+        "final_action": "inventory",
+        "changed": false,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "inventory",
+    "feedback": "You are not carrying anything.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "internal",
+    "step": 2,
+    "categories": [
+      "reviewer_replacement"
+    ],
+    "observation": "You are not carrying anything.",
+    "draft": "look",
+    "local": 0.5577926717232913,
+    "global_nll": 0.35333571278763104,
+    "gate": "internal_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The draft action \"look\" provides no new information about the location of the apple or the target countertop, and the environment description already lists available receptacles. To progress towards the goal of putting a hot apple on a countertop, the agent must first navigate to a specific location where the apple can be found or where the action can be performed.\nFinal Action: go to countertop 4",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The draft action \"look\" provides no new information about the location of the apple or the target countertop, and the environment description already lists available receptacles. To progress towards the goal of putting a hot apple on a countertop, the agent must first navigate to a specific location where the apple can be found or where the action can be performed.",
+        "final_action": "go to countertop 4",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "go to countertop 4",
+    "feedback": "You arrive at countertop 4. On the countertop 4, you see a bread 2, a peppershaker 1, a plate 1, a potato 1, a spoon 1, and a tomato 3.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "internal",
+    "step": 5,
+    "categories": [
+      "reviewer_replacement"
+    ],
+    "observation": "You open the cabinet 1. The cabinet 1 is open. In it, you see nothing.",
+    "draft": "go to stoveburner 1",
+    "local": 0.4832590123318369,
+    "global_nll": 0.3375868736042586,
+    "gate": "internal_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You arrive at stoveburner 1. On the stoveburner 1, you see nothing.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The draft action moves to stoveburner 1, but the goal requires placing a hot apple on the countertop. The current location is cabinet 1 (open and empty), and the agent needs to return to countertop 4 where the apple was originally seen to complete the task.\nFinal Action: go to countertop 4",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The draft action moves to stoveburner 1, but the goal requires placing a hot apple on the countertop. The current location is cabinet 1 (open and empty), and the agent needs to return to countertop 4 where the apple was originally seen to complete the task.",
+        "final_action": "go to countertop 4",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "go to countertop 4",
+    "feedback": "You arrive at countertop 4. On the countertop 4, you see a bread 2, a peppershaker 1, a plate 1, a potato 1, a spoon 1, and a tomato 3.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "internal",
+    "step": 33,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "You move the tomato 1 to the countertop 1.",
+    "draft": "move tomato 1 to countertop 2",
+    "local": 0.41899137715101004,
+    "global_nll": 0.2602965590113134,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "move tomato 1 to countertop 2",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "internal",
+    "step": 35,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "You are not carrying anything.",
+    "draft": "take apple 1 from microwave 1",
+    "local": 0.3911463481150924,
+    "global_nll": 0.22110792121841144,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "take apple 1 from microwave 1",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "experience",
+    "step": 0,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 4, a countertop 3, a countertop 2, a countertop 1, a drawer 27, a drawer 26, a drawer 25, a drawer 24, a drawer 23, a drawer 22, a drawer 21, a drawer 20, a drawer 19, a drawer 18, a drawer 17, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\n\nYour task is to: put a hot apple in countertop.",
+    "draft": "inventory",
+    "local": null,
+    "global_nll": null,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "inventory",
+    "feedback": "You are not carrying anything.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "experience",
+    "step": 1,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "You are not carrying anything.",
+    "draft": "inventory",
+    "local": null,
+    "global_nll": null,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "inventory",
+    "feedback": "You are not carrying anything.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "experience",
+    "step": 24,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "You move the tomato 1 to the countertop 1.",
+    "draft": "move tomato 1 to countertop 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "move tomato 1 to countertop 1",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "experience",
+    "step": 29,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "You are not carrying anything.",
+    "draft": "take apple 1 from microwave 1",
+    "local": null,
+    "global_nll": null,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "take apple 1 from microwave 1",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "full",
+    "step": 0,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 4, a countertop 3, a countertop 2, a countertop 1, a drawer 27, a drawer 26, a drawer 25, a drawer 24, a drawer 23, a drawer 22, a drawer 21, a drawer 20, a drawer 19, a drawer 18, a drawer 17, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\n\nYour task is to: put a hot apple in countertop.",
+    "draft": "inventory",
+    "local": 0.4227052448620441,
+    "global_nll": 0.29932104647781693,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "inventory",
+    "feedback": "You are not carrying anything.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "full",
+    "step": 1,
+    "categories": [
+      "initial_step"
+    ],
+    "observation": "You are not carrying anything.",
+    "draft": "inventory",
+    "local": 0.5399282801663503,
+    "global_nll": 0.37093393657826,
+    "gate": "internal_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You are not carrying anything.",
+    "reviewer": {
+      "raw": "Decision: KEEP\nReason: The draft action 'inventory' was syntactically valid and confirmed the current state (not carrying anything) without causing harm or failing. Since the goal requires finding and heating an apple first, and no specific apple location is known yet, repeating the inventory or looking around is a safe, grounded step to gather information. No better alternative is immediately available from the current observation.\nFinal Action: inventory",
+      "parsed": {
+        "decision": "KEEP",
+        "reason": "The draft action 'inventory' was syntactically valid and confirmed the current state (not carrying anything) without causing harm or failing. Since the goal requires finding and heating an apple first, and no specific apple location is known yet, repeating the inventory or looking around is a safe, grounded step to gather information. No better alternative is immediately available from the current observation.",
+        "final_action": "inventory",
+        "changed": false,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "inventory",
+    "feedback": "You are not carrying anything.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "full",
+    "step": 2,
+    "categories": [
+      "reviewer_replacement"
+    ],
+    "observation": "You are not carrying anything.",
+    "draft": "look",
+    "local": 0.5577926717232913,
+    "global_nll": 0.35333571278763104,
+    "gate": "internal_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The draft action \"look\" provides no new information about the location of the apple or the target countertop, and the environment description already lists available receptacles. To progress towards the goal of putting a hot apple on a countertop, the agent must first navigate to a specific location where the apple can be found or where the action can be performed.\nFinal Action: go to countertop 4",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The draft action \"look\" provides no new information about the location of the apple or the target countertop, and the environment description already lists available receptacles. To progress towards the goal of putting a hot apple on a countertop, the agent must first navigate to a specific location where the apple can be found or where the action can be performed.",
+        "final_action": "go to countertop 4",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "go to countertop 4",
+    "feedback": "You arrive at countertop 4. On the countertop 4, you see a bread 2, a peppershaker 1, a plate 1, a potato 1, a spoon 1, and a tomato 3.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "full",
+    "step": 5,
+    "categories": [
+      "reviewer_replacement"
+    ],
+    "observation": "You open the cabinet 1. The cabinet 1 is open. In it, you see nothing.",
+    "draft": "go to stoveburner 1",
+    "local": 0.4832590123318369,
+    "global_nll": 0.3375868736042586,
+    "gate": "internal_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": "You arrive at stoveburner 1. On the stoveburner 1, you see nothing.",
+    "reviewer": {
+      "raw": "Decision: REPLACE\nReason: The draft action moves to stoveburner 1, but the goal requires placing a hot apple on the countertop. The current location is cabinet 1 (open and empty), and the agent needs to return to countertop 4 where the apple was originally seen to complete the task.\nFinal Action: go to countertop 4",
+      "parsed": {
+        "decision": "REPLACE",
+        "reason": "The draft action moves to stoveburner 1, but the goal requires placing a hot apple on the countertop. The current location is cabinet 1 (open and empty), and the agent needs to return to countertop 4 where the apple was originally seen to complete the task.",
+        "final_action": "go to countertop 4",
+        "changed": true,
+        "action_validity": "unknown",
+        "semantic_utility": "unknown"
+      }
+    },
+    "final": "go to countertop 4",
+    "feedback": "You arrive at countertop 4. On the countertop 4, you see a bread 2, a peppershaker 1, a plate 1, a potato 1, a spoon 1, and a tomato 3.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "full",
+    "step": 33,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "You move the tomato 1 to the countertop 1.",
+    "draft": "move tomato 1 to countertop 2",
+    "local": 0.41899137715101004,
+    "global_nll": 0.2602965590113134,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "move tomato 1 to countertop 2",
+    "feedback": "Nothing happens.",
+    "success": false
+  },
+  {
+    "task_id": "alf-e15a00b84f261aa6",
+    "policy": "full",
+    "step": 35,
+    "categories": [
+      "nonadmissible_final_action"
+    ],
+    "observation": "You are not carrying anything.",
+    "draft": "take apple 1 from microwave 1",
+    "local": 0.3911463481150924,
+    "global_nll": 0.22110792121841144,
+    "gate": "no_active_trigger",
+    "external": {
+      "coverage": "unknown",
+      "conflict": "unknown",
+      "sufficiency": "unknown",
+      "reliability": "unknown",
+      "evidence_ids": [],
+      "matched_experience_ids": [],
+      "evidence_verified": false,
+      "action_status": "unknown",
+      "diagnostics": []
+    },
+    "trial_observation": null,
+    "reviewer": null,
+    "final": "take apple 1 from microwave 1",
+    "feedback": "Nothing happens.",
+    "success": false
+  }
+]

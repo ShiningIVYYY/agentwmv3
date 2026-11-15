@@ -1,0 +1,12 @@
+{
+  "run": "outputs/alfworld_parallel_v2",
+  "checked_at_unix": 1794772357.600238,
+  "active_owned_processes": [],
+  "supervisor_workers_exited": [
+    true
+  ],
+  "historical_repo_check_exit": 0,
+  "historical_repo_status": "",
+  "scope": "Owned ALFWorld native/model/supervisor processes only; no other job stopped",
+  "process_kills_performed": 0
+}

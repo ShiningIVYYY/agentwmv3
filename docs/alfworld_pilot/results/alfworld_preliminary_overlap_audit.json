@@ -1,0 +1,20 @@
+[
+  {
+    "task_id": "alf-ecb5acf215c67333",
+    "goal_group": "7766c31c0b5a1399757eed34de4c1093efd8bc0b59fd66d135bf5cfc1dd47197",
+    "source_split": "train",
+    "in_final_memory": false,
+    "in_final_calibration": true,
+    "same_goal_as_final_evaluation": false,
+    "same_goal_as_final_valid_seen": false
+  },
+  {
+    "task_id": "alf-935a90de720af425",
+    "goal_group": "43028e4460a1e7468b64dfda9559c4d7a3e28356cd9f6251e87f10219fc52865",
+    "source_split": "train",
+    "in_final_memory": false,
+    "in_final_calibration": false,
+    "same_goal_as_final_evaluation": false,
+    "same_goal_as_final_valid_seen": false
+  }
+]

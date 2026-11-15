@@ -795,3 +795,10 @@ The new `agentwm-copied-v1` suite copies all templates into this repository.
 ALFWorld uses AgentWM's JSON review, WebShop uses its conservative review, and
 ScienceWorld uses critique followed by a separate guarded replan. See
 [the v9 protocol and launch command](docs/ee_agentwm_prompts_v9.md).
+
+
+<!-- ALFWORLD_PILOT_RESULT -->
+## Qwen3.5-9B ALFWorld development pilot
+
+Three goal-disjoint TRAIN-pool development games×seed0×Never/Always/Internal/External/Full; no final140-game evaluation. Never 0/3 / Always 2/3 / Internal 2/3 / External 0/3 / Full 2/3. All policies share the frozen9B Actor/Reviewer, native independent-process Reset/Replay, structured prompts and H50/history2/input2048/output512. This is a small diagnostic, not paper-score reproduction or proof of general scientific effectiveness. See [protocol](docs/ALFWORLD_PILOT.md), [results and cost audit](docs/ALFWORLD_PILOT_REPORT.md), and [per-instance results](docs/alfworld_pilot/results/episodes.csv).21 CPU contracts,24 real replay controls and150 official-wrapper transition comparisons pass. Old ScienceWorld/SR settings remain preserved; no automatic Phase6.
+<!-- /ALFWORLD_PILOT_RESULT -->

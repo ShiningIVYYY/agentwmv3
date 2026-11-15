@@ -1,6 +1,6 @@
 # Qwen3.5-9B ALFWorld five-policy pilot
 
-Status: PREREGISTERED after real environment validation; model results pending. User authorized a small comparison of Never/Always/Internal/External/Full. This is not the140-game final evaluation or an automatic Phase6 sweep. ScienceWorld and SR profiles/results remain unchanged.
+Status: COMPLETE for the fixed tiny development pilot; see [ALFWORLD_PILOT_REPORT.md](ALFWORLD_PILOT_REPORT.md) for audited results and limitations. User authorized a small comparison of Never/Always/Internal/External/Full. This is not the140-game final evaluation or an automatic Phase6 sweep. ScienceWorld and SR profiles/results remain unchanged.
 
 ## Configuration and comparison scope
 

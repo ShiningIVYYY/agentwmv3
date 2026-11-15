@@ -406,7 +406,7 @@ def analyze(run, output, partial=False):
     flat = [without(v, {'audit_counts', 'costs', 'timings', 'top_actions'}) for v in episodes]
     if flat:
         buffer = io.StringIO()
-        writer = csv.DictWriter(buffer, fieldnames=list(flat[0]))
+        writer = csv.DictWriter(buffer, fieldnames=list(flat[0]), lineterminator='\n')
         writer.writeheader()
         writer.writerows(flat)
         (output / 'episodes.csv').write_text(buffer.getvalue())

@@ -1,0 +1,88 @@
+{
+  "alfworld_memory_v1": {
+    "cases": 7,
+    "cards": 0,
+    "cost": [
+      {
+        "task_id": "alf-ecb5acf215c67333",
+        "episode_id": "alfworld_memory_v1/alf-ecb5acf215c67333",
+        "steps": 5,
+        "reset_queries": 1,
+        "step_queries": 5,
+        "state_captures": 6,
+        "repeat_open_case": true,
+        "closed_take_case": true,
+        "native_pid": 2731523
+      },
+      {
+        "task_id": "alf-935a90de720af425",
+        "episode_id": "alfworld_memory_v1/alf-935a90de720af425",
+        "steps": 2,
+        "reset_queries": 1,
+        "step_queries": 2,
+        "state_captures": 3,
+        "repeat_open_case": false,
+        "closed_take_case": false,
+        "native_pid": 2731677
+      }
+    ],
+    "total_seconds": 3.1243143305182457,
+    "model_calls": 0,
+    "tokens": 0,
+    "api_queries": 9
+  },
+  "alfworld_memory_v2": {
+    "cases": 31,
+    "cards": 2,
+    "cost": [
+      {
+        "task_id": "alf-63cb1456a4ba9bc3",
+        "episode_id": "alfworld_memory_v2/alf-63cb1456a4ba9bc3",
+        "steps": 10,
+        "reset_queries": 1,
+        "step_queries": 10,
+        "state_captures": 11,
+        "repeat_open_case": true,
+        "closed_take_case": false,
+        "native_pid": 2750613
+      },
+      {
+        "task_id": "alf-e4ca0e5dbee7009c",
+        "episode_id": "alfworld_memory_v2/alf-e4ca0e5dbee7009c",
+        "steps": 11,
+        "reset_queries": 1,
+        "step_queries": 11,
+        "state_captures": 12,
+        "repeat_open_case": true,
+        "closed_take_case": true,
+        "native_pid": 2750716
+      },
+      {
+        "task_id": "alf-efb6789e059fb920",
+        "episode_id": "alfworld_memory_v2/alf-efb6789e059fb920",
+        "steps": 5,
+        "reset_queries": 1,
+        "step_queries": 5,
+        "state_captures": 6,
+        "repeat_open_case": true,
+        "closed_take_case": true,
+        "native_pid": 2750832
+      },
+      {
+        "task_id": "alf-a87714efc5363012",
+        "episode_id": "alfworld_memory_v2/alf-a87714efc5363012",
+        "steps": 5,
+        "reset_queries": 1,
+        "step_queries": 5,
+        "state_captures": 6,
+        "repeat_open_case": true,
+        "closed_take_case": true,
+        "native_pid": 2750960
+      }
+    ],
+    "total_seconds": 11.806036088615656,
+    "model_calls": 0,
+    "tokens": 0,
+    "api_queries": 35
+  }
+}

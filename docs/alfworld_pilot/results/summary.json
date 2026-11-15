@@ -1,0 +1,2115 @@
+{
+  "status": "complete",
+  "episodes": [
+    {
+      "task_id": "alf-bc4a562ca75cc95a",
+      "policy": "never",
+      "rollout_seed": 0,
+      "family": "pick_clean_then_place_in_recep",
+      "goal_group": "bcbfac750455b5996fadf3992c86a4d823c90620973958c6cf57bed50a075650",
+      "success": false,
+      "score_100_won": 0.0,
+      "done": true,
+      "horizon_truncated": true,
+      "formal_steps": 50,
+      "wm_calls": 0,
+      "verified_lookaheads": 0,
+      "reviewer_calls": 0,
+      "internal_extractions": 0,
+      "retrieval_calls": 0,
+      "tokens": 35890,
+      "input_tokens": 33488,
+      "output_tokens": 2402,
+      "passive_state_queries": 0,
+      "total_seconds": 119.24217117577791,
+      "steps_sha256": "6a9200c570216a84319df8937aa4c5905a8dfccd2ced19b7593ea34743594019",
+      "audit_counts": {
+        "budget_exhausted": 0,
+        "draft_format_invalid": 0,
+        "draft_nonadmissible": 18,
+        "final_nonadmissible": 18,
+        "nothing_happens": 18,
+        "internal_missing": 0,
+        "consecutive_same_action_and_feedback": 9
+      },
+      "costs": {
+        "initializations": 1,
+        "formal_steps": 50,
+        "actor_calls": 50,
+        "prompt_tokens": 33488,
+        "actor_prompt_tokens": 33488,
+        "completion_tokens": 2402,
+        "actor_completion_tokens": 2402,
+        "total_tokens": 35890,
+        "actor_total_tokens": 35890,
+        "peak_allocated_bytes": 19173231104,
+        "transition_queries": 51,
+        "api_queries": 51
+      },
+      "timings": {
+        "gate": 0.000395825132727623,
+        "actor_generation": 110.61729994416237,
+        "internal_extraction": 0
+      },
+      "top_actions": [
+        [
+          "clean egg 2 with sinkbasin 1",
+          6
+        ],
+        [
+          "look",
+          4
+        ],
+        [
+          "take potato 1 from microwave 1",
+          4
+        ],
+        [
+          "clean potato 1 with sinkbasin 1",
+          3
+        ],
+        [
+          "open microwave 1",
+          3
+        ]
+      ],
+      "raw_episode_path": "outputs/alfworld_five_policy_v1/episodes/alf-bc4a562ca75cc95a/never"
+    },
+    {
+      "task_id": "alf-bc4a562ca75cc95a",
+      "policy": "always",
+      "rollout_seed": 0,
+      "family": "pick_clean_then_place_in_recep",
+      "goal_group": "bcbfac750455b5996fadf3992c86a4d823c90620973958c6cf57bed50a075650",
+      "success": true,
+      "score_100_won": 100.0,
+      "done": true,
+      "horizon_truncated": false,
+      "formal_steps": 40,
+      "wm_calls": 40,
+      "verified_lookaheads": 40,
+      "reviewer_calls": 40,
+      "internal_extractions": 0,
+      "retrieval_calls": 0,
+      "tokens": 71127,
+      "input_tokens": 64591,
+      "output_tokens": 6536,
+      "passive_state_queries": 80,
+      "total_seconds": 642.3907558266073,
+      "steps_sha256": "343bdc62aed54b56df4d4af00e6015bdc6edfc4f0c70b25f3f7b7979e547132f",
+      "audit_counts": {
+        "budget_exhausted": 0,
+        "draft_format_invalid": 0,
+        "draft_nonadmissible": 9,
+        "final_nonadmissible": 4,
+        "nothing_happens": 4,
+        "internal_missing": 0,
+        "lookahead_calls": 40,
+        "verified_lookaheads": 40,
+        "reviewer_calls": 40,
+        "review_decision_keep": 16,
+        "review_format_invalid": 2,
+        "review_length_limit": 2,
+        "revisions": 22,
+        "revision_admissible": 18,
+        "revision_nonadmissible": 4,
+        "revision_nothing_happens": 4,
+        "replace_label_unchanged_action": 0,
+        "keep_transition_matches": 18,
+        "consecutive_same_action_and_feedback": 6,
+        "review_decision_replace": 22,
+        "immediate_success_gain": 1,
+        "immediate_success_loss": 0,
+        "review_decision_invalid": 2
+      },
+      "costs": {
+        "initializations": 41,
+        "formal_steps": 40,
+        "replay_steps": 780,
+        "candidate_steps": 40,
+        "formal_inspections": 80,
+        "actor_calls": 40,
+        "prompt_tokens": 64591,
+        "actor_prompt_tokens": 27244,
+        "completion_tokens": 6536,
+        "actor_completion_tokens": 1921,
+        "total_tokens": 71127,
+        "actor_total_tokens": 29165,
+        "peak_allocated_bytes": 19243452416,
+        "reviewer_calls": 40,
+        "reviewer_prompt_tokens": 37347,
+        "reviewer_completion_tokens": 4615,
+        "reviewer_total_tokens": 41962,
+        "transition_queries": 901,
+        "api_queries": 981
+      },
+      "timings": {
+        "gate": 0.0008999425917863846,
+        "lookahead": 329.63059384934604,
+        "initialization_seconds": 191.3866534344852,
+        "replay_seconds": 124.59353277087212,
+        "candidate_seconds": 6.463715597987175,
+        "cleanup_seconds": 7.148396033793688,
+        "actor_generation": 90.672084774822,
+        "internal_extraction": 0,
+        "reviewer_generation": 214.2597345057875
+      },
+      "top_actions": [
+        [
+          "heat egg 2 with microwave 1",
+          8
+        ],
+        [
+          "open microwave 1",
+          5
+        ],
+        [
+          "go to microwave 1",
+          3
+        ],
+        [
+          "take egg 2 from microwave 1",
+          3
+        ],
+        [
+          "close microwave 1",
+          3
+        ]
+      ],
+      "raw_episode_path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-bc4a562ca75cc95a/always"
+    },
+    {
+      "task_id": "alf-bc4a562ca75cc95a",
+      "policy": "internal",
+      "rollout_seed": 0,
+      "family": "pick_clean_then_place_in_recep",
+      "goal_group": "bcbfac750455b5996fadf3992c86a4d823c90620973958c6cf57bed50a075650",
+      "success": true,
+      "score_100_won": 100.0,
+      "done": true,
+      "horizon_truncated": false,
+      "formal_steps": 9,
+      "wm_calls": 1,
+      "verified_lookaheads": 1,
+      "reviewer_calls": 1,
+      "internal_extractions": 9,
+      "retrieval_calls": 0,
+      "tokens": 8482,
+      "input_tokens": 8017,
+      "output_tokens": 465,
+      "passive_state_queries": 2,
+      "total_seconds": 29.886685263365507,
+      "steps_sha256": "bbc481b2f9a60a8418d887bf1aa5fe6faaecfd35ce11ddcfe9590c4d110c165d",
+      "audit_counts": {
+        "budget_exhausted": 0,
+        "draft_format_invalid": 0,
+        "draft_nonadmissible": 0,
+        "final_nonadmissible": 0,
+        "nothing_happens": 0,
+        "internal_missing": 0,
+        "consecutive_same_action_and_feedback": 1,
+        "lookahead_calls": 1,
+        "verified_lookaheads": 1,
+        "reviewer_calls": 1,
+        "review_decision_replace": 1,
+        "review_format_invalid": 0,
+        "review_length_limit": 0,
+        "revisions": 1,
+        "revision_admissible": 1,
+        "revision_nonadmissible": 0,
+        "revision_nothing_happens": 0,
+        "replace_label_unchanged_action": 0,
+        "immediate_success_gain": 0,
+        "immediate_success_loss": 0
+      },
+      "costs": {
+        "initializations": 2,
+        "formal_steps": 9,
+        "actor_calls": 9,
+        "prompt_tokens": 8017,
+        "actor_prompt_tokens": 6821,
+        "completion_tokens": 465,
+        "actor_completion_tokens": 397,
+        "total_tokens": 8482,
+        "actor_total_tokens": 7218,
+        "peak_allocated_bytes": 19243452416,
+        "replay_steps": 2,
+        "candidate_steps": 1,
+        "formal_inspections": 2,
+        "reviewer_calls": 1,
+        "reviewer_prompt_tokens": 1196,
+        "reviewer_completion_tokens": 68,
+        "reviewer_total_tokens": 1264,
+        "transition_queries": 14,
+        "api_queries": 16
+      },
+      "timings": {
+        "gate": 0.00023391097784042358,
+        "actor_generation": 18.949559051543474,
+        "internal_extraction": 0.04932083748281002,
+        "lookahead": 5.957032695412636,
+        "initialization_seconds": 5.200346253812313,
+        "replay_seconds": 0.393544876947999,
+        "candidate_seconds": 0.198190713301301,
+        "cleanup_seconds": 0.16430699080228806,
+        "reviewer_generation": 3.326546983793378
+      },
+      "top_actions": [
+        [
+          "inventory",
+          2
+        ],
+        [
+          "go to microwave 1",
+          2
+        ],
+        [
+          "open microwave 1",
+          1
+        ],
+        [
+          "take egg 2 from microwave 1",
+          1
+        ],
+        [
+          "go to sinkbasin 1",
+          1
+        ]
+      ],
+      "raw_episode_path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-bc4a562ca75cc95a/internal"
+    },
+    {
+      "task_id": "alf-bc4a562ca75cc95a",
+      "policy": "experience",
+      "rollout_seed": 0,
+      "family": "pick_clean_then_place_in_recep",
+      "goal_group": "bcbfac750455b5996fadf3992c86a4d823c90620973958c6cf57bed50a075650",
+      "success": false,
+      "score_100_won": 0.0,
+      "done": true,
+      "horizon_truncated": true,
+      "formal_steps": 50,
+      "wm_calls": 0,
+      "verified_lookaheads": 0,
+      "reviewer_calls": 0,
+      "internal_extractions": 0,
+      "retrieval_calls": 50,
+      "tokens": 35890,
+      "input_tokens": 33488,
+      "output_tokens": 2402,
+      "passive_state_queries": 0,
+      "total_seconds": 119.65246716886759,
+      "steps_sha256": "07f38991b3c53c7ca3874cee27d5b036d7d74ff446a24511601885b82a3dca04",
+      "audit_counts": {
+        "coverage": 0,
+        "conflict": 0,
+        "sufficiency": 0,
+        "budget_exhausted": 0,
+        "draft_format_invalid": 0,
+        "draft_nonadmissible": 18,
+        "final_nonadmissible": 18,
+        "nothing_happens": 18,
+        "internal_missing": 0,
+        "consecutive_same_action_and_feedback": 9
+      },
+      "costs": {
+        "initializations": 1,
+        "formal_steps": 50,
+        "actor_calls": 50,
+        "prompt_tokens": 33488,
+        "actor_prompt_tokens": 33488,
+        "completion_tokens": 2402,
+        "actor_completion_tokens": 2402,
+        "total_tokens": 35890,
+        "actor_total_tokens": 35890,
+        "peak_allocated_bytes": 19178791424,
+        "transition_queries": 51,
+        "api_queries": 51
+      },
+      "timings": {
+        "retrieval": 0.004563990980386734,
+        "external_rule_judge": 0.0016303975135087967,
+        "gate": 0.000397341325879097,
+        "actor_generation": 111.04953290894628,
+        "internal_extraction": 0
+      },
+      "top_actions": [
+        [
+          "clean egg 2 with sinkbasin 1",
+          6
+        ],
+        [
+          "look",
+          4
+        ],
+        [
+          "take potato 1 from microwave 1",
+          4
+        ],
+        [
+          "clean potato 1 with sinkbasin 1",
+          3
+        ],
+        [
+          "open microwave 1",
+          3
+        ]
+      ],
+      "raw_episode_path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-bc4a562ca75cc95a/experience"
+    },
+    {
+      "task_id": "alf-bc4a562ca75cc95a",
+      "policy": "full",
+      "rollout_seed": 0,
+      "family": "pick_clean_then_place_in_recep",
+      "goal_group": "bcbfac750455b5996fadf3992c86a4d823c90620973958c6cf57bed50a075650",
+      "success": true,
+      "score_100_won": 100.0,
+      "done": true,
+      "horizon_truncated": false,
+      "formal_steps": 9,
+      "wm_calls": 1,
+      "verified_lookaheads": 1,
+      "reviewer_calls": 1,
+      "internal_extractions": 9,
+      "retrieval_calls": 9,
+      "tokens": 8482,
+      "input_tokens": 8017,
+      "output_tokens": 465,
+      "passive_state_queries": 2,
+      "total_seconds": 28.3896699603647,
+      "steps_sha256": "80ea44e31f970f3a6454378155217586ca4e7a39aad9cfe05d99d7671e79c08c",
+      "audit_counts": {
+        "coverage": 0,
+        "conflict": 0,
+        "sufficiency": 0,
+        "budget_exhausted": 0,
+        "draft_format_invalid": 0,
+        "draft_nonadmissible": 0,
+        "final_nonadmissible": 0,
+        "nothing_happens": 0,
+        "internal_missing": 0,
+        "consecutive_same_action_and_feedback": 1,
+        "lookahead_calls": 1,
+        "verified_lookaheads": 1,
+        "reviewer_calls": 1,
+        "review_decision_replace": 1,
+        "review_format_invalid": 0,
+        "review_length_limit": 0,
+        "revisions": 1,
+        "revision_admissible": 1,
+        "revision_nonadmissible": 0,
+        "revision_nothing_happens": 0,
+        "replace_label_unchanged_action": 0,
+        "immediate_success_gain": 0,
+        "immediate_success_loss": 0
+      },
+      "costs": {
+        "initializations": 2,
+        "formal_steps": 9,
+        "actor_calls": 9,
+        "prompt_tokens": 8017,
+        "actor_prompt_tokens": 6821,
+        "completion_tokens": 465,
+        "actor_completion_tokens": 397,
+        "total_tokens": 8482,
+        "actor_total_tokens": 7218,
+        "peak_allocated_bytes": 19243452416,
+        "replay_steps": 2,
+        "candidate_steps": 1,
+        "formal_inspections": 2,
+        "reviewer_calls": 1,
+        "reviewer_prompt_tokens": 1196,
+        "reviewer_completion_tokens": 68,
+        "reviewer_total_tokens": 1264,
+        "transition_queries": 14,
+        "api_queries": 16
+      },
+      "timings": {
+        "retrieval": 0.0007821060717105865,
+        "external_rule_judge": 5.742162466049194e-05,
+        "gate": 0.00016669556498527527,
+        "actor_generation": 18.4905522223562,
+        "internal_extraction": 0.03447301499545574,
+        "lookahead": 5.149134125560522,
+        "initialization_seconds": 4.51930514164269,
+        "replay_seconds": 0.31380237080156803,
+        "candidate_seconds": 0.15052306838333607,
+        "cleanup_seconds": 0.16466829925775528,
+        "reviewer_generation": 3.143694147467613
+      },
+      "top_actions": [
+        [
+          "inventory",
+          2
+        ],
+        [
+          "go to microwave 1",
+          2
+        ],
+        [
+          "open microwave 1",
+          1
+        ],
+        [
+          "take egg 2 from microwave 1",
+          1
+        ],
+        [
+          "go to sinkbasin 1",
+          1
+        ]
+      ],
+      "raw_episode_path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-bc4a562ca75cc95a/full"
+    },
+    {
+      "task_id": "alf-30fc098bac52af9a",
+      "policy": "never",
+      "rollout_seed": 0,
+      "family": "pick_cool_then_place_in_recep",
+      "goal_group": "71513a6fa4a10c34e231569fe48e2807dab9a21fca147fe4b79878a680839f28",
+      "success": false,
+      "score_100_won": 0.0,
+      "done": true,
+      "horizon_truncated": true,
+      "formal_steps": 50,
+      "wm_calls": 0,
+      "verified_lookaheads": 0,
+      "reviewer_calls": 0,
+      "internal_extractions": 0,
+      "retrieval_calls": 0,
+      "tokens": 36660,
+      "input_tokens": 33834,
+      "output_tokens": 2826,
+      "passive_state_queries": 0,
+      "total_seconds": 137.76982096396387,
+      "steps_sha256": "d1bb9cfd445590afd7bd7bafe3f806a7c620cd73d53611f11a2a3afc41e9c6bd",
+      "audit_counts": {
+        "budget_exhausted": 0,
+        "draft_format_invalid": 0,
+        "draft_nonadmissible": 21,
+        "final_nonadmissible": 21,
+        "nothing_happens": 21,
+        "internal_missing": 0,
+        "consecutive_same_action_and_feedback": 9
+      },
+      "costs": {
+        "initializations": 1,
+        "formal_steps": 50,
+        "actor_calls": 50,
+        "prompt_tokens": 33834,
+        "actor_prompt_tokens": 33834,
+        "completion_tokens": 2826,
+        "actor_completion_tokens": 2826,
+        "total_tokens": 36660,
+        "actor_total_tokens": 36660,
+        "peak_allocated_bytes": 19202397184,
+        "transition_queries": 51,
+        "api_queries": 51
+      },
+      "timings": {
+        "gate": 0.00042533688247203827,
+        "actor_generation": 129.30189229734242,
+        "internal_extraction": 0
+      },
+      "top_actions": [
+        [
+          "move winebottle 1 to countertop 1",
+          12
+        ],
+        [
+          "move winebottle 1 to fridge 1",
+          6
+        ],
+        [
+          "cool winebottle 1 with fridge 1",
+          5
+        ],
+        [
+          "take winebottle 1 from fridge 1",
+          4
+        ],
+        [
+          "go to fridge 1",
+          3
+        ]
+      ],
+      "raw_episode_path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-30fc098bac52af9a/never"
+    },
+    {
+      "task_id": "alf-30fc098bac52af9a",
+      "policy": "always",
+      "rollout_seed": 0,
+      "family": "pick_cool_then_place_in_recep",
+      "goal_group": "71513a6fa4a10c34e231569fe48e2807dab9a21fca147fe4b79878a680839f28",
+      "success": true,
+      "score_100_won": 100.0,
+      "done": true,
+      "horizon_truncated": false,
+      "formal_steps": 23,
+      "wm_calls": 23,
+      "verified_lookaheads": 23,
+      "reviewer_calls": 23,
+      "internal_extractions": 0,
+      "retrieval_calls": 0,
+      "tokens": 43817,
+      "input_tokens": 39936,
+      "output_tokens": 3881,
+      "passive_state_queries": 46,
+      "total_seconds": 333.41427302360535,
+      "steps_sha256": "d6a90aae99842c0308856a386b82bc9359bd31a133e655b740e4d8f0050d7390",
+      "audit_counts": {
+        "budget_exhausted": 0,
+        "draft_format_invalid": 0,
+        "draft_nonadmissible": 5,
+        "final_nonadmissible": 5,
+        "nothing_happens": 5,
+        "internal_missing": 0,
+        "lookahead_calls": 23,
+        "verified_lookaheads": 23,
+        "reviewer_calls": 23,
+        "review_decision_keep": 13,
+        "review_format_invalid": 2,
+        "review_length_limit": 1,
+        "revisions": 8,
+        "revision_admissible": 4,
+        "revision_nonadmissible": 4,
+        "revision_nothing_happens": 4,
+        "replace_label_unchanged_action": 0,
+        "keep_transition_matches": 15,
+        "consecutive_same_action_and_feedback": 1,
+        "review_decision_replace": 8,
+        "immediate_success_gain": 0,
+        "immediate_success_loss": 0,
+        "review_decision_invalid": 2
+      },
+      "costs": {
+        "initializations": 24,
+        "formal_steps": 23,
+        "replay_steps": 253,
+        "candidate_steps": 23,
+        "formal_inspections": 46,
+        "actor_calls": 23,
+        "prompt_tokens": 39936,
+        "actor_prompt_tokens": 16951,
+        "completion_tokens": 3881,
+        "actor_completion_tokens": 1254,
+        "total_tokens": 43817,
+        "actor_total_tokens": 18205,
+        "peak_allocated_bytes": 19278740992,
+        "reviewer_calls": 23,
+        "reviewer_prompt_tokens": 22985,
+        "reviewer_completion_tokens": 2627,
+        "reviewer_total_tokens": 25612,
+        "transition_queries": 323,
+        "api_queries": 369
+      },
+      "timings": {
+        "gate": 0.00038557685911655426,
+        "lookahead": 150.55743963085115,
+        "initialization_seconds": 102.49664738588035,
+        "replay_seconds": 40.292455583810806,
+        "candidate_seconds": 3.7068917267024517,
+        "cleanup_seconds": 4.0398831050843,
+        "actor_generation": 57.59043839946389,
+        "internal_extraction": 0,
+        "reviewer_generation": 120.92253052443266
+      },
+      "top_actions": [
+        [
+          "take winebottle 1 from countertop 1",
+          5
+        ],
+        [
+          "go to fridge 1",
+          4
+        ],
+        [
+          "go to countertop 1",
+          3
+        ],
+        [
+          "move winebottle 1 to countertop 1",
+          3
+        ],
+        [
+          "cool winebottle 1 with fridge 1",
+          2
+        ]
+      ],
+      "raw_episode_path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-30fc098bac52af9a/always"
+    },
+    {
+      "task_id": "alf-30fc098bac52af9a",
+      "policy": "internal",
+      "rollout_seed": 0,
+      "family": "pick_cool_then_place_in_recep",
+      "goal_group": "71513a6fa4a10c34e231569fe48e2807dab9a21fca147fe4b79878a680839f28",
+      "success": true,
+      "score_100_won": 100.0,
+      "done": true,
+      "horizon_truncated": false,
+      "formal_steps": 37,
+      "wm_calls": 2,
+      "verified_lookaheads": 2,
+      "reviewer_calls": 2,
+      "internal_extractions": 37,
+      "retrieval_calls": 0,
+      "tokens": 30304,
+      "input_tokens": 28081,
+      "output_tokens": 2223,
+      "passive_state_queries": 4,
+      "total_seconds": 121.57677185721695,
+      "steps_sha256": "ac684858622e98c45e9eb2e6000d9013b4654b9a58483ffd79a4207b740ba6ac",
+      "audit_counts": {
+        "budget_exhausted": 0,
+        "draft_format_invalid": 0,
+        "draft_nonadmissible": 8,
+        "final_nonadmissible": 8,
+        "nothing_happens": 8,
+        "internal_missing": 0,
+        "consecutive_same_action_and_feedback": 1,
+        "lookahead_calls": 2,
+        "verified_lookaheads": 2,
+        "reviewer_calls": 2,
+        "review_decision_replace": 2,
+        "review_format_invalid": 0,
+        "review_length_limit": 0,
+        "revisions": 2,
+        "revision_admissible": 2,
+        "revision_nonadmissible": 0,
+        "revision_nothing_happens": 0,
+        "replace_label_unchanged_action": 0,
+        "immediate_success_gain": 0,
+        "immediate_success_loss": 0
+      },
+      "costs": {
+        "initializations": 3,
+        "formal_steps": 37,
+        "actor_calls": 37,
+        "prompt_tokens": 28081,
+        "actor_prompt_tokens": 25897,
+        "completion_tokens": 2223,
+        "actor_completion_tokens": 2036,
+        "total_tokens": 30304,
+        "actor_total_tokens": 27933,
+        "peak_allocated_bytes": 19278740992,
+        "replay_steps": 19,
+        "candidate_steps": 2,
+        "formal_inspections": 4,
+        "reviewer_calls": 2,
+        "reviewer_prompt_tokens": 2184,
+        "reviewer_completion_tokens": 187,
+        "reviewer_total_tokens": 2371,
+        "transition_queries": 61,
+        "api_queries": 65
+      },
+      "timings": {
+        "gate": 0.0006674882024526596,
+        "actor_generation": 93.64160825498402,
+        "internal_extraction": 0.17376555502414703,
+        "lookahead": 12.595744725316763,
+        "initialization_seconds": 8.795848742127419,
+        "replay_seconds": 3.1213394962251186,
+        "candidate_seconds": 0.2972714211791754,
+        "cleanup_seconds": 0.3795773833990097,
+        "reviewer_generation": 8.761177700012922
+      },
+      "top_actions": [
+        [
+          "go to fridge 1",
+          5
+        ],
+        [
+          "move winebottle 1 to countertop 1",
+          5
+        ],
+        [
+          "cool winebottle 1 with fridge 1",
+          4
+        ],
+        [
+          "take apple 1 from microwave 1",
+          3
+        ],
+        [
+          "move apple 1 to countertop 1",
+          3
+        ]
+      ],
+      "raw_episode_path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-30fc098bac52af9a/internal"
+    },
+    {
+      "task_id": "alf-30fc098bac52af9a",
+      "policy": "experience",
+      "rollout_seed": 0,
+      "family": "pick_cool_then_place_in_recep",
+      "goal_group": "71513a6fa4a10c34e231569fe48e2807dab9a21fca147fe4b79878a680839f28",
+      "success": false,
+      "score_100_won": 0.0,
+      "done": true,
+      "horizon_truncated": true,
+      "formal_steps": 50,
+      "wm_calls": 0,
+      "verified_lookaheads": 0,
+      "reviewer_calls": 0,
+      "internal_extractions": 0,
+      "retrieval_calls": 50,
+      "tokens": 36660,
+      "input_tokens": 33834,
+      "output_tokens": 2826,
+      "passive_state_queries": 0,
+      "total_seconds": 137.24662932753563,
+      "steps_sha256": "c89f50d23fed89c23bb5c005df653fa6ce49aba00dd3b90999f92e3d649e13ec",
+      "audit_counts": {
+        "coverage": 0,
+        "conflict": 0,
+        "sufficiency": 0,
+        "budget_exhausted": 0,
+        "draft_format_invalid": 0,
+        "draft_nonadmissible": 21,
+        "final_nonadmissible": 21,
+        "nothing_happens": 21,
+        "internal_missing": 0,
+        "consecutive_same_action_and_feedback": 9
+      },
+      "costs": {
+        "initializations": 1,
+        "formal_steps": 50,
+        "actor_calls": 50,
+        "prompt_tokens": 33834,
+        "actor_prompt_tokens": 33834,
+        "completion_tokens": 2826,
+        "actor_completion_tokens": 2826,
+        "total_tokens": 36660,
+        "actor_total_tokens": 36660,
+        "peak_allocated_bytes": 19202397184,
+        "transition_queries": 51,
+        "api_queries": 51
+      },
+      "timings": {
+        "retrieval": 0.004056304693222046,
+        "external_rule_judge": 0.0007434561848640442,
+        "gate": 0.00034487247467041016,
+        "actor_generation": 128.83323397487402,
+        "internal_extraction": 0
+      },
+      "top_actions": [
+        [
+          "move winebottle 1 to countertop 1",
+          12
+        ],
+        [
+          "move winebottle 1 to fridge 1",
+          6
+        ],
+        [
+          "cool winebottle 1 with fridge 1",
+          5
+        ],
+        [
+          "take winebottle 1 from fridge 1",
+          4
+        ],
+        [
+          "go to fridge 1",
+          3
+        ]
+      ],
+      "raw_episode_path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-30fc098bac52af9a/experience"
+    },
+    {
+      "task_id": "alf-30fc098bac52af9a",
+      "policy": "full",
+      "rollout_seed": 0,
+      "family": "pick_cool_then_place_in_recep",
+      "goal_group": "71513a6fa4a10c34e231569fe48e2807dab9a21fca147fe4b79878a680839f28",
+      "success": true,
+      "score_100_won": 100.0,
+      "done": true,
+      "horizon_truncated": false,
+      "formal_steps": 37,
+      "wm_calls": 2,
+      "verified_lookaheads": 2,
+      "reviewer_calls": 2,
+      "internal_extractions": 37,
+      "retrieval_calls": 37,
+      "tokens": 30304,
+      "input_tokens": 28081,
+      "output_tokens": 2223,
+      "passive_state_queries": 4,
+      "total_seconds": 122.07966407388449,
+      "steps_sha256": "3a98e83bb18f93302eeb3746ccb1cb3af10404e2fade9873706feaa6ab004d8d",
+      "audit_counts": {
+        "coverage": 0,
+        "conflict": 0,
+        "sufficiency": 0,
+        "budget_exhausted": 0,
+        "draft_format_invalid": 0,
+        "draft_nonadmissible": 8,
+        "final_nonadmissible": 8,
+        "nothing_happens": 8,
+        "internal_missing": 0,
+        "consecutive_same_action_and_feedback": 1,
+        "lookahead_calls": 2,
+        "verified_lookaheads": 2,
+        "reviewer_calls": 2,
+        "review_decision_replace": 2,
+        "review_format_invalid": 0,
+        "review_length_limit": 0,
+        "revisions": 2,
+        "revision_admissible": 2,
+        "revision_nonadmissible": 0,
+        "revision_nothing_happens": 0,
+        "replace_label_unchanged_action": 0,
+        "immediate_success_gain": 0,
+        "immediate_success_loss": 0
+      },
+      "costs": {
+        "initializations": 3,
+        "formal_steps": 37,
+        "actor_calls": 37,
+        "prompt_tokens": 28081,
+        "actor_prompt_tokens": 25897,
+        "completion_tokens": 2223,
+        "actor_completion_tokens": 2036,
+        "total_tokens": 30304,
+        "actor_total_tokens": 27933,
+        "peak_allocated_bytes": 19278740992,
+        "replay_steps": 19,
+        "candidate_steps": 2,
+        "formal_inspections": 4,
+        "reviewer_calls": 2,
+        "reviewer_prompt_tokens": 2184,
+        "reviewer_completion_tokens": 187,
+        "reviewer_total_tokens": 2371,
+        "transition_queries": 61,
+        "api_queries": 65
+      },
+      "timings": {
+        "retrieval": 0.0035592392086982727,
+        "external_rule_judge": 0.0003550983965396881,
+        "gate": 0.0007877722382545471,
+        "actor_generation": 94.10364539921284,
+        "internal_extraction": 0.1667847726494074,
+        "lookahead": 12.425170643255115,
+        "initialization_seconds": 8.912801563739777,
+        "replay_seconds": 2.8784998767077923,
+        "candidate_seconds": 0.30347959138453007,
+        "cleanup_seconds": 0.3287698272615671,
+        "reviewer_generation": 8.74718889221549
+      },
+      "top_actions": [
+        [
+          "go to fridge 1",
+          5
+        ],
+        [
+          "move winebottle 1 to countertop 1",
+          5
+        ],
+        [
+          "cool winebottle 1 with fridge 1",
+          4
+        ],
+        [
+          "take apple 1 from microwave 1",
+          3
+        ],
+        [
+          "move apple 1 to countertop 1",
+          3
+        ]
+      ],
+      "raw_episode_path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-30fc098bac52af9a/full"
+    },
+    {
+      "task_id": "alf-e15a00b84f261aa6",
+      "policy": "never",
+      "rollout_seed": 0,
+      "family": "pick_heat_then_place_in_recep",
+      "goal_group": "7a37e1144bdae78c8485105f0418cb021132499e803644baeb1aa02bdc9ffa25",
+      "success": false,
+      "score_100_won": 0.0,
+      "done": true,
+      "horizon_truncated": true,
+      "formal_steps": 50,
+      "wm_calls": 0,
+      "verified_lookaheads": 0,
+      "reviewer_calls": 0,
+      "internal_extractions": 0,
+      "retrieval_calls": 0,
+      "tokens": 36806,
+      "input_tokens": 34143,
+      "output_tokens": 2663,
+      "passive_state_queries": 0,
+      "total_seconds": 132.17114442400634,
+      "steps_sha256": "c6eb0cb3e938cf880b3e669a7547ae24fdf4a9cfe8e5bf0bfeaf4a5f301729c2",
+      "audit_counts": {
+        "budget_exhausted": 0,
+        "draft_format_invalid": 0,
+        "draft_nonadmissible": 22,
+        "final_nonadmissible": 22,
+        "nothing_happens": 22,
+        "internal_missing": 0,
+        "consecutive_same_action_and_feedback": 10
+      },
+      "costs": {
+        "initializations": 1,
+        "formal_steps": 50,
+        "actor_calls": 50,
+        "prompt_tokens": 34143,
+        "actor_prompt_tokens": 34143,
+        "completion_tokens": 2663,
+        "actor_completion_tokens": 2663,
+        "total_tokens": 36806,
+        "actor_total_tokens": 36806,
+        "peak_allocated_bytes": 19178738688,
+        "transition_queries": 51,
+        "api_queries": 51
+      },
+      "timings": {
+        "gate": 0.0004817880690097809,
+        "actor_generation": 123.22332964651287,
+        "internal_extraction": 0
+      },
+      "top_actions": [
+        [
+          "put apple 1 on countertop 1",
+          8
+        ],
+        [
+          "move tomato 1 to countertop 1",
+          7
+        ],
+        [
+          "cool apple 1 with fridge 1",
+          7
+        ],
+        [
+          "take tomato 1 from countertop 1",
+          6
+        ],
+        [
+          "inventory",
+          5
+        ]
+      ],
+      "raw_episode_path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-e15a00b84f261aa6/never"
+    },
+    {
+      "task_id": "alf-e15a00b84f261aa6",
+      "policy": "always",
+      "rollout_seed": 0,
+      "family": "pick_heat_then_place_in_recep",
+      "goal_group": "7a37e1144bdae78c8485105f0418cb021132499e803644baeb1aa02bdc9ffa25",
+      "success": false,
+      "score_100_won": 0.0,
+      "done": true,
+      "horizon_truncated": true,
+      "formal_steps": 50,
+      "wm_calls": 50,
+      "verified_lookaheads": 50,
+      "reviewer_calls": 50,
+      "internal_extractions": 0,
+      "retrieval_calls": 0,
+      "tokens": 93295,
+      "input_tokens": 84990,
+      "output_tokens": 8305,
+      "passive_state_queries": 100,
+      "total_seconds": 864.5336956046522,
+      "steps_sha256": "8f151ba538a42c9904a4e4b6283bfc5939a30671a8506853efdf031bd3d1d1c3",
+      "audit_counts": {
+        "budget_exhausted": 0,
+        "draft_format_invalid": 0,
+        "draft_nonadmissible": 9,
+        "final_nonadmissible": 10,
+        "nothing_happens": 10,
+        "internal_missing": 0,
+        "lookahead_calls": 50,
+        "verified_lookaheads": 50,
+        "reviewer_calls": 50,
+        "review_decision_keep": 22,
+        "review_format_invalid": 3,
+        "review_length_limit": 3,
+        "revisions": 22,
+        "revision_admissible": 13,
+        "revision_nonadmissible": 9,
+        "revision_nothing_happens": 9,
+        "replace_label_unchanged_action": 3,
+        "keep_transition_matches": 28,
+        "consecutive_same_action_and_feedback": 5,
+        "review_decision_replace": 25,
+        "immediate_success_gain": 0,
+        "immediate_success_loss": 0,
+        "review_decision_invalid": 3
+      },
+      "costs": {
+        "initializations": 51,
+        "formal_steps": 50,
+        "replay_steps": 1225,
+        "candidate_steps": 50,
+        "formal_inspections": 100,
+        "actor_calls": 50,
+        "prompt_tokens": 84990,
+        "actor_prompt_tokens": 35977,
+        "completion_tokens": 8305,
+        "actor_completion_tokens": 2579,
+        "total_tokens": 93295,
+        "actor_total_tokens": 38556,
+        "peak_allocated_bytes": 19242670080,
+        "reviewer_calls": 50,
+        "reviewer_prompt_tokens": 49013,
+        "reviewer_completion_tokens": 5726,
+        "reviewer_total_tokens": 54739,
+        "transition_queries": 1376,
+        "api_queries": 1476
+      },
+      "timings": {
+        "gate": 0.0010524820536375046,
+        "lookahead": 465.3931418489665,
+        "initialization_seconds": 244.9091251604259,
+        "replay_seconds": 203.24208871647716,
+        "candidate_seconds": 8.290971470996737,
+        "cleanup_seconds": 8.890702195465565,
+        "actor_generation": 122.31993652507663,
+        "internal_extraction": 0,
+        "reviewer_generation": 266.5599025376141
+      },
+      "top_actions": [
+        [
+          "go to countertop 4",
+          16
+        ],
+        [
+          "examine countertop 4",
+          8
+        ],
+        [
+          "go to cabinet 1",
+          7
+        ],
+        [
+          "inventory",
+          6
+        ],
+        [
+          "go to cabinet 11",
+          2
+        ]
+      ],
+      "raw_episode_path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-e15a00b84f261aa6/always"
+    },
+    {
+      "task_id": "alf-e15a00b84f261aa6",
+      "policy": "internal",
+      "rollout_seed": 0,
+      "family": "pick_heat_then_place_in_recep",
+      "goal_group": "7a37e1144bdae78c8485105f0418cb021132499e803644baeb1aa02bdc9ffa25",
+      "success": false,
+      "score_100_won": 0.0,
+      "done": true,
+      "horizon_truncated": true,
+      "formal_steps": 50,
+      "wm_calls": 5,
+      "verified_lookaheads": 5,
+      "reviewer_calls": 5,
+      "internal_extractions": 50,
+      "retrieval_calls": 0,
+      "tokens": 43994,
+      "input_tokens": 40957,
+      "output_tokens": 3037,
+      "passive_state_queries": 10,
+      "total_seconds": 178.4458823222667,
+      "steps_sha256": "6fb588a6886b5949d02ff65d0ecd3603b656d39a9fdeb000faea525e3995a4d2",
+      "audit_counts": {
+        "budget_exhausted": 8,
+        "draft_format_invalid": 0,
+        "draft_nonadmissible": 4,
+        "final_nonadmissible": 4,
+        "nothing_happens": 4,
+        "internal_missing": 0,
+        "consecutive_same_action_and_feedback": 2,
+        "lookahead_calls": 5,
+        "verified_lookaheads": 5,
+        "reviewer_calls": 5,
+        "review_decision_keep": 3,
+        "review_format_invalid": 0,
+        "review_length_limit": 0,
+        "revisions": 2,
+        "revision_admissible": 2,
+        "revision_nonadmissible": 0,
+        "revision_nothing_happens": 0,
+        "replace_label_unchanged_action": 0,
+        "keep_transition_matches": 3,
+        "review_decision_replace": 2,
+        "immediate_success_gain": 0,
+        "immediate_success_loss": 0
+      },
+      "costs": {
+        "initializations": 6,
+        "formal_steps": 50,
+        "actor_calls": 50,
+        "prompt_tokens": 40957,
+        "actor_prompt_tokens": 35682,
+        "completion_tokens": 3037,
+        "actor_completion_tokens": 2646,
+        "total_tokens": 43994,
+        "actor_total_tokens": 38328,
+        "peak_allocated_bytes": 19242670080,
+        "replay_steps": 21,
+        "candidate_steps": 5,
+        "formal_inspections": 10,
+        "reviewer_calls": 5,
+        "reviewer_prompt_tokens": 5275,
+        "reviewer_completion_tokens": 391,
+        "reviewer_total_tokens": 5666,
+        "transition_queries": 82,
+        "api_queries": 92
+      },
+      "timings": {
+        "gate": 0.0009709317237138748,
+        "actor_generation": 122.2755758240819,
+        "internal_extraction": 0.20736666023731232,
+        "lookahead": 28.524213144555688,
+        "initialization_seconds": 23.635233614593744,
+        "replay_seconds": 3.25415375828743,
+        "candidate_seconds": 0.8076119273900986,
+        "cleanup_seconds": 0.8228502608835697,
+        "reviewer_generation": 18.320379434153438
+      },
+      "top_actions": [
+        [
+          "go to countertop 1",
+          6
+        ],
+        [
+          "inventory",
+          5
+        ],
+        [
+          "go to microwave 1",
+          5
+        ],
+        [
+          "examine countertop 1",
+          5
+        ],
+        [
+          "go to countertop 4",
+          3
+        ]
+      ],
+      "raw_episode_path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-e15a00b84f261aa6/internal"
+    },
+    {
+      "task_id": "alf-e15a00b84f261aa6",
+      "policy": "experience",
+      "rollout_seed": 0,
+      "family": "pick_heat_then_place_in_recep",
+      "goal_group": "7a37e1144bdae78c8485105f0418cb021132499e803644baeb1aa02bdc9ffa25",
+      "success": false,
+      "score_100_won": 0.0,
+      "done": true,
+      "horizon_truncated": true,
+      "formal_steps": 50,
+      "wm_calls": 0,
+      "verified_lookaheads": 0,
+      "reviewer_calls": 0,
+      "internal_extractions": 0,
+      "retrieval_calls": 50,
+      "tokens": 36806,
+      "input_tokens": 34143,
+      "output_tokens": 2663,
+      "passive_state_queries": 0,
+      "total_seconds": 131.62374536134303,
+      "steps_sha256": "800d80a59a4517b650f1d20b89f12463127073521270cf3fcb3f96bc705b289b",
+      "audit_counts": {
+        "coverage": 0,
+        "conflict": 0,
+        "sufficiency": 0,
+        "budget_exhausted": 0,
+        "draft_format_invalid": 0,
+        "draft_nonadmissible": 22,
+        "final_nonadmissible": 22,
+        "nothing_happens": 22,
+        "internal_missing": 0,
+        "consecutive_same_action_and_feedback": 10
+      },
+      "costs": {
+        "initializations": 1,
+        "formal_steps": 50,
+        "actor_calls": 50,
+        "prompt_tokens": 34143,
+        "actor_prompt_tokens": 34143,
+        "completion_tokens": 2663,
+        "actor_completion_tokens": 2663,
+        "total_tokens": 36806,
+        "actor_total_tokens": 36806,
+        "peak_allocated_bytes": 19178738688,
+        "transition_queries": 51,
+        "api_queries": 51
+      },
+      "timings": {
+        "retrieval": 0.004229310899972916,
+        "external_rule_judge": 0.0006596911698579788,
+        "gate": 0.0003570225089788437,
+        "actor_generation": 122.89219973050058,
+        "internal_extraction": 0
+      },
+      "top_actions": [
+        [
+          "put apple 1 on countertop 1",
+          8
+        ],
+        [
+          "move tomato 1 to countertop 1",
+          7
+        ],
+        [
+          "cool apple 1 with fridge 1",
+          7
+        ],
+        [
+          "take tomato 1 from countertop 1",
+          6
+        ],
+        [
+          "inventory",
+          5
+        ]
+      ],
+      "raw_episode_path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-e15a00b84f261aa6/experience"
+    },
+    {
+      "task_id": "alf-e15a00b84f261aa6",
+      "policy": "full",
+      "rollout_seed": 0,
+      "family": "pick_heat_then_place_in_recep",
+      "goal_group": "7a37e1144bdae78c8485105f0418cb021132499e803644baeb1aa02bdc9ffa25",
+      "success": false,
+      "score_100_won": 0.0,
+      "done": true,
+      "horizon_truncated": true,
+      "formal_steps": 50,
+      "wm_calls": 5,
+      "verified_lookaheads": 5,
+      "reviewer_calls": 5,
+      "internal_extractions": 50,
+      "retrieval_calls": 50,
+      "tokens": 43994,
+      "input_tokens": 40957,
+      "output_tokens": 3037,
+      "passive_state_queries": 10,
+      "total_seconds": 176.99143449403346,
+      "steps_sha256": "e1633f62b9a594f4b7dd683460f6075e1a396130d9d3b5f50125180f5e627727",
+      "audit_counts": {
+        "coverage": 0,
+        "conflict": 0,
+        "sufficiency": 0,
+        "budget_exhausted": 8,
+        "draft_format_invalid": 0,
+        "draft_nonadmissible": 4,
+        "final_nonadmissible": 4,
+        "nothing_happens": 4,
+        "internal_missing": 0,
+        "consecutive_same_action_and_feedback": 2,
+        "lookahead_calls": 5,
+        "verified_lookaheads": 5,
+        "reviewer_calls": 5,
+        "review_decision_keep": 3,
+        "review_format_invalid": 0,
+        "review_length_limit": 0,
+        "revisions": 2,
+        "revision_admissible": 2,
+        "revision_nonadmissible": 0,
+        "revision_nothing_happens": 0,
+        "replace_label_unchanged_action": 0,
+        "keep_transition_matches": 3,
+        "review_decision_replace": 2,
+        "immediate_success_gain": 0,
+        "immediate_success_loss": 0
+      },
+      "costs": {
+        "initializations": 6,
+        "formal_steps": 50,
+        "actor_calls": 50,
+        "prompt_tokens": 40957,
+        "actor_prompt_tokens": 35682,
+        "completion_tokens": 3037,
+        "actor_completion_tokens": 2646,
+        "total_tokens": 43994,
+        "actor_total_tokens": 38328,
+        "peak_allocated_bytes": 19242670080,
+        "replay_steps": 21,
+        "candidate_steps": 5,
+        "formal_inspections": 10,
+        "reviewer_calls": 5,
+        "reviewer_prompt_tokens": 5275,
+        "reviewer_completion_tokens": 391,
+        "reviewer_total_tokens": 5666,
+        "transition_queries": 82,
+        "api_queries": 92
+      },
+      "timings": {
+        "retrieval": 0.004120701923966408,
+        "external_rule_judge": 0.00040869228541851044,
+        "gate": 0.0009412597864866257,
+        "actor_generation": 121.55671512894332,
+        "internal_extraction": 0.2031848356127739,
+        "lookahead": 28.17662680335343,
+        "initialization_seconds": 23.19102656841278,
+        "replay_seconds": 3.3295012153685093,
+        "candidate_seconds": 0.8284366317093372,
+        "cleanup_seconds": 0.8231091555207968,
+        "reviewer_generation": 17.972983425483108
+      },
+      "top_actions": [
+        [
+          "go to countertop 1",
+          6
+        ],
+        [
+          "inventory",
+          5
+        ],
+        [
+          "go to microwave 1",
+          5
+        ],
+        [
+          "examine countertop 1",
+          5
+        ],
+        [
+          "go to countertop 4",
+          3
+        ]
+      ],
+      "raw_episode_path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-e15a00b84f261aa6/full"
+    }
+  ],
+  "policies": [
+    {
+      "policy": "never",
+      "episodes": 3,
+      "successes": 0,
+      "success_rate": 0,
+      "formal_steps": 150,
+      "total_tokens": 109356,
+      "wm_calls": 0,
+      "seconds": 389.1831365637481,
+      "audit_counts": {
+        "draft_nonadmissible": 61,
+        "final_nonadmissible": 61,
+        "nothing_happens": 61,
+        "consecutive_same_action_and_feedback": 28
+      },
+      "costs": {
+        "initializations": 3,
+        "formal_steps": 150,
+        "actor_calls": 150,
+        "prompt_tokens": 101465,
+        "actor_prompt_tokens": 101465,
+        "completion_tokens": 7891,
+        "actor_completion_tokens": 7891,
+        "total_tokens": 109356,
+        "actor_total_tokens": 109356,
+        "transition_queries": 153,
+        "api_queries": 153
+      },
+      "peak_allocated_bytes": 19202397184,
+      "timings": {
+        "gate": 0.0013029500842094421,
+        "actor_generation": 363.14252188801765
+      }
+    },
+    {
+      "policy": "always",
+      "episodes": 3,
+      "successes": 2,
+      "success_rate": 0.6666666666666666,
+      "formal_steps": 113,
+      "total_tokens": 208239,
+      "wm_calls": 113,
+      "seconds": 1840.3387244548649,
+      "audit_counts": {
+        "draft_nonadmissible": 23,
+        "final_nonadmissible": 19,
+        "nothing_happens": 19,
+        "lookahead_calls": 113,
+        "verified_lookaheads": 113,
+        "reviewer_calls": 113,
+        "review_decision_keep": 51,
+        "review_format_invalid": 7,
+        "review_length_limit": 6,
+        "revisions": 52,
+        "revision_admissible": 35,
+        "revision_nonadmissible": 17,
+        "revision_nothing_happens": 17,
+        "keep_transition_matches": 61,
+        "consecutive_same_action_and_feedback": 12,
+        "review_decision_replace": 55,
+        "immediate_success_gain": 1,
+        "review_decision_invalid": 7,
+        "replace_label_unchanged_action": 3
+      },
+      "costs": {
+        "initializations": 116,
+        "formal_steps": 113,
+        "replay_steps": 2258,
+        "candidate_steps": 113,
+        "formal_inspections": 226,
+        "actor_calls": 113,
+        "prompt_tokens": 189517,
+        "actor_prompt_tokens": 80172,
+        "completion_tokens": 18722,
+        "actor_completion_tokens": 5754,
+        "total_tokens": 208239,
+        "actor_total_tokens": 85926,
+        "reviewer_calls": 113,
+        "reviewer_prompt_tokens": 109345,
+        "reviewer_completion_tokens": 12968,
+        "reviewer_total_tokens": 122313,
+        "transition_queries": 2600,
+        "api_queries": 2826
+      },
+      "peak_allocated_bytes": 19278740992,
+      "timings": {
+        "gate": 0.0023380015045404434,
+        "lookahead": 945.5811753291637,
+        "initialization_seconds": 538.7924259807914,
+        "replay_seconds": 368.1280770711601,
+        "candidate_seconds": 18.461578795686364,
+        "cleanup_seconds": 20.078981334343553,
+        "actor_generation": 270.5824596993625,
+        "reviewer_generation": 601.7421675678343
+      }
+    },
+    {
+      "policy": "internal",
+      "episodes": 3,
+      "successes": 2,
+      "success_rate": 0.6666666666666666,
+      "formal_steps": 96,
+      "total_tokens": 82780,
+      "wm_calls": 8,
+      "seconds": 329.90933944284916,
+      "audit_counts": {
+        "consecutive_same_action_and_feedback": 4,
+        "lookahead_calls": 8,
+        "verified_lookaheads": 8,
+        "reviewer_calls": 8,
+        "review_decision_replace": 5,
+        "revisions": 5,
+        "revision_admissible": 5,
+        "draft_nonadmissible": 12,
+        "final_nonadmissible": 12,
+        "nothing_happens": 12,
+        "budget_exhausted": 8,
+        "review_decision_keep": 3,
+        "keep_transition_matches": 3
+      },
+      "costs": {
+        "initializations": 11,
+        "formal_steps": 96,
+        "actor_calls": 96,
+        "prompt_tokens": 77055,
+        "actor_prompt_tokens": 68400,
+        "completion_tokens": 5725,
+        "actor_completion_tokens": 5079,
+        "total_tokens": 82780,
+        "actor_total_tokens": 73479,
+        "replay_steps": 42,
+        "candidate_steps": 8,
+        "formal_inspections": 16,
+        "reviewer_calls": 8,
+        "reviewer_prompt_tokens": 8655,
+        "reviewer_completion_tokens": 646,
+        "reviewer_total_tokens": 9301,
+        "transition_queries": 157,
+        "api_queries": 173
+      },
+      "peak_allocated_bytes": 19278740992,
+      "timings": {
+        "gate": 0.001872330904006958,
+        "actor_generation": 234.8667431306094,
+        "internal_extraction": 0.43045305274426937,
+        "lookahead": 47.07699056528509,
+        "initialization_seconds": 37.631428610533476,
+        "replay_seconds": 6.7690381314605474,
+        "candidate_seconds": 1.303074061870575,
+        "cleanup_seconds": 1.3667346350848675,
+        "reviewer_generation": 30.408104117959738
+      }
+    },
+    {
+      "policy": "experience",
+      "episodes": 3,
+      "successes": 0,
+      "success_rate": 0,
+      "formal_steps": 150,
+      "total_tokens": 109356,
+      "wm_calls": 0,
+      "seconds": 388.52284185774624,
+      "audit_counts": {
+        "draft_nonadmissible": 61,
+        "final_nonadmissible": 61,
+        "nothing_happens": 61,
+        "consecutive_same_action_and_feedback": 28
+      },
+      "costs": {
+        "initializations": 3,
+        "formal_steps": 150,
+        "actor_calls": 150,
+        "prompt_tokens": 101465,
+        "actor_prompt_tokens": 101465,
+        "completion_tokens": 7891,
+        "actor_completion_tokens": 7891,
+        "total_tokens": 109356,
+        "actor_total_tokens": 109356,
+        "transition_queries": 153,
+        "api_queries": 153
+      },
+      "peak_allocated_bytes": 19202397184,
+      "timings": {
+        "retrieval": 0.012849606573581696,
+        "external_rule_judge": 0.0030335448682308197,
+        "gate": 0.0010992363095283508,
+        "actor_generation": 362.7749666143209
+      }
+    },
+    {
+      "policy": "full",
+      "episodes": 3,
+      "successes": 2,
+      "success_rate": 0.6666666666666666,
+      "formal_steps": 96,
+      "total_tokens": 82780,
+      "wm_calls": 8,
+      "seconds": 327.46076852828264,
+      "audit_counts": {
+        "consecutive_same_action_and_feedback": 4,
+        "lookahead_calls": 8,
+        "verified_lookaheads": 8,
+        "reviewer_calls": 8,
+        "review_decision_replace": 5,
+        "revisions": 5,
+        "revision_admissible": 5,
+        "draft_nonadmissible": 12,
+        "final_nonadmissible": 12,
+        "nothing_happens": 12,
+        "budget_exhausted": 8,
+        "review_decision_keep": 3,
+        "keep_transition_matches": 3
+      },
+      "costs": {
+        "initializations": 11,
+        "formal_steps": 96,
+        "actor_calls": 96,
+        "prompt_tokens": 77055,
+        "actor_prompt_tokens": 68400,
+        "completion_tokens": 5725,
+        "actor_completion_tokens": 5079,
+        "total_tokens": 82780,
+        "actor_total_tokens": 73479,
+        "replay_steps": 42,
+        "candidate_steps": 8,
+        "formal_inspections": 16,
+        "reviewer_calls": 8,
+        "reviewer_prompt_tokens": 8655,
+        "reviewer_completion_tokens": 646,
+        "reviewer_total_tokens": 9301,
+        "transition_queries": 157,
+        "api_queries": 173
+      },
+      "peak_allocated_bytes": 19278740992,
+      "timings": {
+        "retrieval": 0.008462047204375267,
+        "external_rule_judge": 0.0008212123066186905,
+        "gate": 0.001895727589726448,
+        "actor_generation": 234.15091275051236,
+        "internal_extraction": 0.404442623257637,
+        "lookahead": 45.750931572169065,
+        "initialization_seconds": 36.62313327379525,
+        "replay_seconds": 6.52180346287787,
+        "candidate_seconds": 1.2824392914772034,
+        "cleanup_seconds": 1.3165472820401192,
+        "reviewer_generation": 29.86386646516621
+      }
+    }
+  ],
+  "pending": [],
+  "external_changes_on_same_full_states": [],
+  "paired_against_never": [
+    {
+      "task_id": "alf-bc4a562ca75cc95a",
+      "seed": 0,
+      "policy": "always",
+      "reference": "never",
+      "delta_success": 1,
+      "delta_tokens": 35237,
+      "delta_formal_steps": -10,
+      "note": "Whole-policy paired task comparison; not same-state causal per-call utility"
+    },
+    {
+      "task_id": "alf-bc4a562ca75cc95a",
+      "seed": 0,
+      "policy": "internal",
+      "reference": "never",
+      "delta_success": 1,
+      "delta_tokens": -27408,
+      "delta_formal_steps": -41,
+      "note": "Whole-policy paired task comparison; not same-state causal per-call utility"
+    },
+    {
+      "task_id": "alf-bc4a562ca75cc95a",
+      "seed": 0,
+      "policy": "experience",
+      "reference": "never",
+      "delta_success": 0,
+      "delta_tokens": 0,
+      "delta_formal_steps": 0,
+      "note": "Whole-policy paired task comparison; not same-state causal per-call utility"
+    },
+    {
+      "task_id": "alf-bc4a562ca75cc95a",
+      "seed": 0,
+      "policy": "full",
+      "reference": "never",
+      "delta_success": 1,
+      "delta_tokens": -27408,
+      "delta_formal_steps": -41,
+      "note": "Whole-policy paired task comparison; not same-state causal per-call utility"
+    },
+    {
+      "task_id": "alf-30fc098bac52af9a",
+      "seed": 0,
+      "policy": "always",
+      "reference": "never",
+      "delta_success": 1,
+      "delta_tokens": 7157,
+      "delta_formal_steps": -27,
+      "note": "Whole-policy paired task comparison; not same-state causal per-call utility"
+    },
+    {
+      "task_id": "alf-30fc098bac52af9a",
+      "seed": 0,
+      "policy": "internal",
+      "reference": "never",
+      "delta_success": 1,
+      "delta_tokens": -6356,
+      "delta_formal_steps": -13,
+      "note": "Whole-policy paired task comparison; not same-state causal per-call utility"
+    },
+    {
+      "task_id": "alf-30fc098bac52af9a",
+      "seed": 0,
+      "policy": "experience",
+      "reference": "never",
+      "delta_success": 0,
+      "delta_tokens": 0,
+      "delta_formal_steps": 0,
+      "note": "Whole-policy paired task comparison; not same-state causal per-call utility"
+    },
+    {
+      "task_id": "alf-30fc098bac52af9a",
+      "seed": 0,
+      "policy": "full",
+      "reference": "never",
+      "delta_success": 1,
+      "delta_tokens": -6356,
+      "delta_formal_steps": -13,
+      "note": "Whole-policy paired task comparison; not same-state causal per-call utility"
+    },
+    {
+      "task_id": "alf-e15a00b84f261aa6",
+      "seed": 0,
+      "policy": "always",
+      "reference": "never",
+      "delta_success": 0,
+      "delta_tokens": 56489,
+      "delta_formal_steps": 0,
+      "note": "Whole-policy paired task comparison; not same-state causal per-call utility"
+    },
+    {
+      "task_id": "alf-e15a00b84f261aa6",
+      "seed": 0,
+      "policy": "internal",
+      "reference": "never",
+      "delta_success": 0,
+      "delta_tokens": 7188,
+      "delta_formal_steps": 0,
+      "note": "Whole-policy paired task comparison; not same-state causal per-call utility"
+    },
+    {
+      "task_id": "alf-e15a00b84f261aa6",
+      "seed": 0,
+      "policy": "experience",
+      "reference": "never",
+      "delta_success": 0,
+      "delta_tokens": 0,
+      "delta_formal_steps": 0,
+      "note": "Whole-policy paired task comparison; not same-state causal per-call utility"
+    },
+    {
+      "task_id": "alf-e15a00b84f261aa6",
+      "seed": 0,
+      "policy": "full",
+      "reference": "never",
+      "delta_success": 0,
+      "delta_tokens": 7188,
+      "delta_formal_steps": 0,
+      "note": "Whole-policy paired task comparison; not same-state causal per-call utility"
+    }
+  ],
+  "calibration": {
+    "valid_steps": 48,
+    "total_steps": 48,
+    "missing_steps": 0,
+    "independent_tasks": 6,
+    "pearson": 0.8968665877195029,
+    "spearman": 0.8979591836734694,
+    "quantiles": [
+      {
+        "quantile": 0.5,
+        "tau_local": 0.4464577363278771,
+        "tau_global": 0.26154774548499504,
+        "expected_uncapped_call_rate": 0.5625
+      },
+      {
+        "quantile": 0.75,
+        "tau_local": 0.5448528666853629,
+        "tau_global": 0.32670785406992164,
+        "expected_uncapped_call_rate": 0.3333333333333333
+      },
+      {
+        "quantile": 0.9,
+        "tau_local": 0.6063046865940682,
+        "tau_global": 0.36866878042139356,
+        "expected_uncapped_call_rate": 0.16666666666666666
+      }
+    ],
+    "local": {
+      "min": 0.15069352480384168,
+      "max": 0.715628259726509,
+      "mean": 0.442752504453932
+    },
+    "global_nll": {
+      "min": 0.08173214130907525,
+      "max": 0.3972906372064141,
+      "mean": 0.2631750414052981
+    },
+    "selected_quantile": 0.75,
+    "selected_without_outcomes": true,
+    "thresholds_fully_validated": false,
+    "budgets_selected_independently": {
+      "never": 0,
+      "always": 50,
+      "internal": 5,
+      "experience": 5,
+      "full": 5
+    }
+  },
+  "matched_task_trajectory_comparisons": [
+    {
+      "task_id": "alf-bc4a562ca75cc95a",
+      "policy": "full",
+      "reference": "internal",
+      "equal_length": true,
+      "same_formal_actions": true,
+      "same_public_and_fact_transitions": true,
+      "same_draft_token_ids": true,
+      "same_call_sequence": true
+    },
+    {
+      "task_id": "alf-30fc098bac52af9a",
+      "policy": "full",
+      "reference": "internal",
+      "equal_length": true,
+      "same_formal_actions": true,
+      "same_public_and_fact_transitions": true,
+      "same_draft_token_ids": true,
+      "same_call_sequence": true
+    },
+    {
+      "task_id": "alf-e15a00b84f261aa6",
+      "policy": "full",
+      "reference": "internal",
+      "equal_length": true,
+      "same_formal_actions": true,
+      "same_public_and_fact_transitions": true,
+      "same_draft_token_ids": true,
+      "same_call_sequence": true
+    },
+    {
+      "task_id": "alf-bc4a562ca75cc95a",
+      "policy": "experience",
+      "reference": "never",
+      "equal_length": true,
+      "same_formal_actions": true,
+      "same_public_and_fact_transitions": true,
+      "same_draft_token_ids": true,
+      "same_call_sequence": true
+    },
+    {
+      "task_id": "alf-30fc098bac52af9a",
+      "policy": "experience",
+      "reference": "never",
+      "equal_length": true,
+      "same_formal_actions": true,
+      "same_public_and_fact_transitions": true,
+      "same_draft_token_ids": true,
+      "same_call_sequence": true
+    },
+    {
+      "task_id": "alf-e15a00b84f261aa6",
+      "policy": "experience",
+      "reference": "never",
+      "equal_length": true,
+      "same_formal_actions": true,
+      "same_public_and_fact_transitions": true,
+      "same_draft_token_ids": true,
+      "same_call_sequence": true
+    }
+  ],
+  "numerical_validation": {
+    "token_parity": true,
+    "raw_nll_repeat_exact": true,
+    "extra_generation_calls": 2,
+    "extra_forward_passes": 0,
+    "first_real_draft": "Premise: I need to find the potato to clean it, but it is not visible in the current room.\nExpected Consequence: Checking my inventory will reveal if I am already holding the potato.\nAction: inventory"
+  },
+  "freeze": {
+    "frozen_ns": 1794590734559915368,
+    "gate_sha256": "8168fb2f87dab294e4b6d0c4fd6b1d840fea34ee58d661c625e44aa018d2418b",
+    "calibration_sha256": "1485d468a19025698093b7b97c5672e907ff2170f113a54cbaf79b8e403d0919"
+  },
+  "config": {
+    "schema": "alfworld-five-gate-development-v1",
+    "actor_config": "configs/internal_signals/qwen35_9b_alfworld_v1.json",
+    "model_id": "Qwen/Qwen3.5-9B",
+    "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "actor_reviewer_shared": true,
+    "benchmark": "alfworld",
+    "maximum_interaction_turns": 50,
+    "history_length": 2,
+    "prompt_limit": 2048,
+    "response_limit": 512,
+    "temperature": 0.4,
+    "top_p": 1.0,
+    "top_k": 0,
+    "rollout_seeds": [
+      0
+    ],
+    "policies": [
+      "never",
+      "always",
+      "internal",
+      "experience",
+      "full"
+    ],
+    "wm_invocation_budgets": {
+      "never": 0,
+      "always": 50,
+      "internal": 5,
+      "experience": 5,
+      "full": 5
+    },
+    "simulation_depth": 1,
+    "review_rounds": 1,
+    "reviewer_protocol": "original-three-line-public-evidence-alfworld-v1",
+    "reviewer_max_new_tokens": 512,
+    "calibration_quantile": 0.75,
+    "calibration_max_steps": 8,
+    "memory_task_action_cap": 30,
+    "memory_correction": false,
+    "allow_confirmed_action_skip": false,
+    "final_metric": "native_won_success_rate",
+    "score_display": "100*won auxiliary only; not ScienceWorld partial score",
+    "split_manifest": "docs/alfworld_pilot/split_manifest.json",
+    "split_sha256": "13e74e5ed4cc7249bfbb05f6f2e9f34ba2a5c0ba296d5c54bc1979d00b258190",
+    "cpu_versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    },
+    "limits": {
+      "tokens": 2000000,
+      "model_calls": 1100,
+      "transition_queries": 7000,
+      "audit_capture_bundles": 20000,
+      "wall_seconds": 7200
+    },
+    "inherited_science_configs_preserved": true,
+    "no_training": true,
+    "no_learned_wm": true,
+    "native_equivalence": "Exact public transitions/admissible commands and private fact digest; not full hidden RNG serialization"
+  },
+  "source_commit": "9b06876c673f5c9a69808f679e8840aa92b02d47",
+  "continuation_commit": "4029c6472723bdeb26a87b702fe128444d8ea5ab",
+  "whole_run_resource_receipt": {
+    "status": "complete",
+    "episodes": 15,
+    "seconds": 3266.4819149933755,
+    "total_resource_spent_including_initial_partial": {
+      "tokens": 641331,
+      "model_calls": 806,
+      "transition_queries": 3346,
+      "audit_capture_bundles": 3624
+    },
+    "environmental_failure_counts_include_explicit_conservative_budget_charges": true
+  },
+  "all_attempt_generation_costs": {
+    "calibration": {
+      "model_calls": 48,
+      "draft_calls": 48,
+      "generation_seconds": 107.03586847148836,
+      "internal_extraction_seconds": 0.17154175974428654,
+      "prompt_tokens": 23833,
+      "completion_tokens": 2311,
+      "total_tokens": 26144
+    },
+    "numerical_validation": {
+      "model_calls": 2,
+      "draft_calls": 2,
+      "generation_seconds": 4.2795839216560125,
+      "internal_extraction_seconds": 0.003666447475552559,
+      "prompt_tokens": 1472,
+      "completion_tokens": 92,
+      "total_tokens": 1564
+    },
+    "completed_evaluation": {
+      "model_calls": 734,
+      "draft_calls": 605,
+      "generation_seconds": 2127.531742233783,
+      "internal_extraction_seconds": 0.8348956760019064,
+      "prompt_tokens": 546557,
+      "completion_tokens": 45954,
+      "total_tokens": 592511,
+      "review_calls": 129
+    },
+    "interrupted_partial_episode": {
+      "model_calls": 18,
+      "draft_calls": 9,
+      "generation_seconds": 72.0652547609061,
+      "internal_extraction_seconds": 0,
+      "prompt_tokens": 15689,
+      "completion_tokens": 1567,
+      "total_tokens": 17256,
+      "review_calls": 9
+    },
+    "failed_scheduler_overhead": {
+      "model_calls": 4,
+      "draft_calls": 4,
+      "generation_seconds": 10.4789710175246,
+      "internal_extraction_seconds": 0.03022315911948681,
+      "prompt_tokens": 3684,
+      "completion_tokens": 172,
+      "total_tokens": 3856
+    }
+  },
+  "model_setup_attempts": [
+    {
+      "attempt": "original",
+      "path": "outputs/alfworld_five_policy_v1/model.json",
+      "seconds": 25.18342136591673
+    },
+    {
+      "attempt": "continuation",
+      "path": "outputs/alfworld_parallel_v2/worker0/model.json",
+      "seconds": 35.12051516585052
+    },
+    {
+      "attempt": "failed_scheduler",
+      "path": "outputs/alfworld_parallel_v1/worker0/model.json",
+      "seconds": 22.5044723469764
+    },
+    {
+      "attempt": "failed_scheduler",
+      "path": "outputs/alfworld_parallel_v1/worker1/model.json",
+      "seconds": 22.157650338485837
+    },
+    {
+      "attempt": "failed_scheduler",
+      "path": "outputs/alfworld_parallel_v1/worker2/model.json",
+      "seconds": 21.063689962029457
+    },
+    {
+      "attempt": "failed_scheduler",
+      "path": "outputs/alfworld_parallel_v1/worker3/model.json",
+      "seconds": 22.16806253232062
+    }
+  ],
+  "failed_attempt_receipt_limitations": {
+    "failed_run": "outputs/alfworld_parallel_v1",
+    "failed_manifest_sha256": "45b5a4c5b35255990f679be3cd4aadf257a6d771ac361312403c653a693c9dc1",
+    "root_cause": "Generated scheduler module omitted dataclasses.asdict import; original episode AST was unchanged but a global binding was missing",
+    "errors": [
+      {
+        "worker": 0,
+        "type": "ResourceLimit",
+        "message": "Supervisor stop requested"
+      },
+      {
+        "worker": 1,
+        "type": "NameError",
+        "message": "name 'asdict' is not defined"
+      },
+      {
+        "worker": 2,
+        "type": "NameError",
+        "message": "name 'asdict' is not defined"
+      },
+      {
+        "worker": 3,
+        "type": "NameError",
+        "message": "name 'asdict' is not defined"
+      }
+    ],
+    "raw_recorded_cost": {
+      "tokens": 3856,
+      "model_calls": 4,
+      "transition_queries": 8,
+      "audit_capture_bundles": 7
+    },
+    "completed_new_episodes": 0,
+    "old_completed_episode_preserved": true,
+    "fixed": "Import asdict, statically verify all referenced globals, test full trace serialization, persist actual state receipts even after STOP",
+    "conservative_transition_budget_charge": 1,
+    "conservative_capture_budget_charge": 4,
+    "state_receipt_limitations": "Worker0 was stopped during native lookahead. Two passive state replies are inferred from the capture-accounting stack; native branch initialization/candidate receipt contents were not persisted. Failed attempt has 10..11 API query attempts and9..11 state replies, not a falsely exact count. Budget reserves the upper bound.",
+    "known_failed_api_query_attempts_lower": 10,
+    "failed_api_query_attempts_upper": 11,
+    "failed_state_replies_lower": 9,
+    "failed_state_replies_upper": 11,
+    "no_actor_gate_threshold_memory_or_benchmark_change": true,
+    "no_failed_attempt_scored_as_task_failure": true,
+    "wall_budget": "2h cumulative ACTIVE server-run time; network downtime with all owned models exited is excluded; original415.225s and failed40.738s are charged",
+    "same_frozen_calibration": true,
+    "old_runtime_source_commit": "9b06876",
+    "failed_scheduler_source_commit": "ea6ad64084f8bf60d01bf851a623e7bee90331e1"
+  },
+  "real_calibration_numeric_checks": 48,
+  "unchanged_shared_transitive_source_hashes": {
+    "evaluation/independent_dev.py": "befb741ba241f3bf752331066d70a61124730e6923f443b003f0aa8380dc0035",
+    "experience/collection.py": "d0658bf06b10baf08ea5d712bdc05598e5016c8e0c5645c2b67ae682a8af7cdc",
+    "experience/splits.py": "eeadfbbccd1c9c6f54ebcc3983120c06ca473d880062173f5183642c72cec65e",
+    "experience/memory.py": "ab72a1ce1390bef7d364f8cac6f3131770ad20d672f53e6ffec00f7d4b9eca63",
+    "gates/generation.py": "7b94cffc1c75aa87ed184b3391159dd35c9542fd8753b78d9d613923351be4b4",
+    "reflection/replay_review.py": "0953d5df6de4e5ba097e5883836cbee1c2917bddce6bee34af23160f8a3bfe80",
+    "worldmodel/resources.py": "57c50d0b1416333435a2ed1548308199d918e5f8c8b4aa7f41324b876f65c504",
+    "internal_signals/decision.py": "c6e1d0e7d95d9b8e21e38cc80eb8a2b8423e50b7d20c62bb84f80e92f083f6eb",
+    "internal_signals/token_nll.py": "69711504b838f2fcf4cb4bdb6ac49cb19c8a9424a509b5210a25826153ca01dd",
+    "internal_signals/spanuq_adapter.py": "0346dc8f95c629cbc05d201cae1646533847e53957261e91956529ba6659eb25"
+  },
+  "limits": [
+    "Three development games, one rollout seed, no significance/generalization claim",
+    "Public admissible commands provided equally to all five policies; not exact paper actor prompt",
+    "Shared legacy STRUCTURE includes ScienceWorld word in Action placeholder despite ALF-native guidance; retained/frozen across all policies, a prompt limitation",
+    "Native inspect returns cached last state receipt; independent processes/fact replay tested, not full process/RNG serialization",
+    "Immediate action/feedback changes are not long-horizon causal utility; no controlled continuation experiment",
+    "Always50 vs selective5 maximum calls, not matched-budget comparison",
+    "Extra Reviewer computation and feedback information are not separated by a no-feedback Reviewer control",
+    "Failed scheduler has bounded native receipt uncertainty; raw failed attempt is not assigned task score"
+  ]
+}

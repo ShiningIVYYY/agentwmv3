@@ -129,6 +129,8 @@ The initial source run was safely interrupted for scheduling; one completed Neve
 
 During that failed run, recorded model cost is exact (4 calls/3856 tokens); one interrupted native branch has bounded receipt uncertainty:10–11 API query attempts and9–11 state replies, not falsely exact counts. Explicit conservative charges are included in the resource cap, not relabelled as measured queries. See [engineering repair](alfworld_pilot/parallel_engineering_repair.json). On reconnection only GPU0 was sufficiently free; repaired continuation used one GPU under the user-authorized maximum4. The cumulative2h ACTIVE server-runtime cap includes prior415.225s and failed40.738s, excluding network downtime after all owned model processes exited. No other job was stopped.
 
+Final result export initially used the CSV module's default CRLF line endings, which Git's whitespace check rejected. Export now uses explicit LF and the full strict audit is rerun; no trajectory or numeric result changes. The original finalizer error log remains under outputs/alfworld_finalizer.log.
+
 ## Reproduction and remaining scope
 
 Run the native validation/collection commands in [ALFWORLD_PILOT.md](ALFWORLD_PILOT.md) with isolated `$MODEL_PYTHON` and `$ALFWORLD_PYTHON`; preserve pinned data/assets and independent split. Exact continuation performed:

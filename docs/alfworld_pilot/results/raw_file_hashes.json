@@ -1,0 +1,352 @@
+[
+  {
+    "path": "outputs/alfworld_five_policy_v1/episodes/alf-bc4a562ca75cc95a/never/complete.json",
+    "bytes": 668,
+    "sha256": "294c60d6ebfb1efb2f2ac45474a9a07b24515df0692dc28e8a975123fe1702a3"
+  },
+  {
+    "path": "outputs/alfworld_five_policy_v1/episodes/alf-bc4a562ca75cc95a/never/initial.json",
+    "bytes": 3542,
+    "sha256": "e39192d90adbcf88a46607291146441712839ec06fbb1b1d7bcd2b1d9a57ff65"
+  },
+  {
+    "path": "outputs/alfworld_five_policy_v1/episodes/alf-bc4a562ca75cc95a/never/steps.jsonl",
+    "bytes": 720220,
+    "sha256": "6a9200c570216a84319df8937aa4c5905a8dfccd2ced19b7593ea34743594019"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-bc4a562ca75cc95a/always/complete.json",
+    "bytes": 674,
+    "sha256": "86248c06e683520352d41a625276529bf94c944ab9ee60e671c4bb7245c3d31c"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-bc4a562ca75cc95a/always/initial.json",
+    "bytes": 3542,
+    "sha256": "a927d4d20cc3ef7ceff5057b03768a0bf89064695498df1be0c543071e76ed32"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-bc4a562ca75cc95a/always/steps.jsonl",
+    "bytes": 1286151,
+    "sha256": "343bdc62aed54b56df4d4af00e6015bdc6edfc4f0c70b25f3f7b7979e547132f"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-bc4a562ca75cc95a/internal/complete.json",
+    "bytes": 669,
+    "sha256": "5b5bbf22c470e0c5f16088c387aa052fc81382af9c5ddd933b783ca10dc62d73"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-bc4a562ca75cc95a/internal/initial.json",
+    "bytes": 3542,
+    "sha256": "3dc600e02b20d3d7b2828e0d8614fc0ef5a35181d5df5db16d7419ff404db8e0"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-bc4a562ca75cc95a/internal/steps.jsonl",
+    "bytes": 203090,
+    "sha256": "bbc481b2f9a60a8418d887bf1aa5fe6faaecfd35ce11ddcfe9590c4d110c165d"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-bc4a562ca75cc95a/experience/complete.json",
+    "bytes": 674,
+    "sha256": "7dda7641a3f970aeba8d06f39388e0367b1fe532f71870574c7e8e0f134ea330"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-bc4a562ca75cc95a/experience/initial.json",
+    "bytes": 3542,
+    "sha256": "749ad3d935d1182e2addacd6e75820592614cb99bd237d330d1743fdfb2709ee"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-bc4a562ca75cc95a/experience/steps.jsonl",
+    "bytes": 758678,
+    "sha256": "07f38991b3c53c7ca3874cee27d5b036d7d74ff446a24511601885b82a3dca04"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-bc4a562ca75cc95a/full/complete.json",
+    "bytes": 663,
+    "sha256": "6ae9c685bf98f82739697dd1579894505d297ec0bbdb3d03617a9daf12cab8e9"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-bc4a562ca75cc95a/full/initial.json",
+    "bytes": 3542,
+    "sha256": "24aafbb0ef125bfe99ff5a97b0cea42d02b74e85c95e624e248d2858b1b53b83"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-bc4a562ca75cc95a/full/steps.jsonl",
+    "bytes": 209740,
+    "sha256": "80ea44e31f970f3a6454378155217586ca4e7a39aad9cfe05d99d7671e79c08c"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-30fc098bac52af9a/never/complete.json",
+    "bytes": 667,
+    "sha256": "c9d6c305934f47ff3efb27150acb185305b6f98d85a495d8869676c07585dfec"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-30fc098bac52af9a/never/initial.json",
+    "bytes": 3518,
+    "sha256": "e3b5e94dfdd72d2e510995c414dace9229af3b41870ca7ea06fbdc23b07e5f49"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-30fc098bac52af9a/never/steps.jsonl",
+    "bytes": 730280,
+    "sha256": "d1bb9cfd445590afd7bd7bafe3f806a7c620cd73d53611f11a2a3afc41e9c6bd"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-30fc098bac52af9a/always/complete.json",
+    "bytes": 674,
+    "sha256": "6fe8a0783063d89e7e8e0d32e0939cf6e3144c04264d2d26a1d7e641525a0214"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-30fc098bac52af9a/always/initial.json",
+    "bytes": 3518,
+    "sha256": "86b17778039435d3b8de00beca18973806dc3297d974525031646735ee50c69a"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-30fc098bac52af9a/always/steps.jsonl",
+    "bytes": 775098,
+    "sha256": "d6a90aae99842c0308856a386b82bc9359bd31a133e655b740e4d8f0050d7390"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-30fc098bac52af9a/internal/complete.json",
+    "bytes": 673,
+    "sha256": "91509b166ee081f5076f7505661a03b5528e80f178b19edfef9b456aecad5813"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-30fc098bac52af9a/internal/initial.json",
+    "bytes": 3518,
+    "sha256": "4d7956be40e08e546697446dba466bfbed832103e1c5fbce562b1fc6350448ac"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-30fc098bac52af9a/internal/steps.jsonl",
+    "bytes": 796244,
+    "sha256": "ac684858622e98c45e9eb2e6000d9013b4654b9a58483ffd79a4207b740ba6ac"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-30fc098bac52af9a/experience/complete.json",
+    "bytes": 673,
+    "sha256": "e040153e37af6a3889cf189eaf650010e434d01eab3e2e55dcc812032bf2b623"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-30fc098bac52af9a/experience/initial.json",
+    "bytes": 3518,
+    "sha256": "e5415e7e562d633f56447e620acd9549768512c07abdd64fae30f2a6ea7f52a2"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-30fc098bac52af9a/experience/steps.jsonl",
+    "bytes": 768516,
+    "sha256": "c89f50d23fed89c23bb5c005df653fa6ce49aba00dd3b90999f92e3d649e13ec"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-30fc098bac52af9a/full/complete.json",
+    "bytes": 670,
+    "sha256": "2e959e0c146d13734a0f9088dc71729eee81b559ce77f36deaac652ffb9d06a5"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-30fc098bac52af9a/full/initial.json",
+    "bytes": 3518,
+    "sha256": "d24270d3e94d0027d87831a08b2bf70cc283768faf35fd3e7fa101950c6f2697"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-30fc098bac52af9a/full/steps.jsonl",
+    "bytes": 823597,
+    "sha256": "3a98e83bb18f93302eeb3746ccb1cb3af10404e2fade9873706feaa6ab004d8d"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-e15a00b84f261aa6/never/complete.json",
+    "bytes": 667,
+    "sha256": "bf49d18a93598c34c97fef1a8219327f425f17d85269edbd0ca8ce7fe91796da"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-e15a00b84f261aa6/never/initial.json",
+    "bytes": 3528,
+    "sha256": "34d3b504736c2b6949f4954c3e6e7b91eec8a236d59723d8a7384e6f124d08f7"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-e15a00b84f261aa6/never/steps.jsonl",
+    "bytes": 737023,
+    "sha256": "c6eb0cb3e938cf880b3e669a7547ae24fdf4a9cfe8e5bf0bfeaf4a5f301729c2"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-e15a00b84f261aa6/always/complete.json",
+    "bytes": 672,
+    "sha256": "3e221526752fb9edfd23ae1b6135d39a673c252116b6c645bda799ebef147d48"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-e15a00b84f261aa6/always/initial.json",
+    "bytes": 3528,
+    "sha256": "cde07c54e7373a3dcd3f6284c9a66155268690ab0b159f1762dcc69b7e2d8d46"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-e15a00b84f261aa6/always/steps.jsonl",
+    "bytes": 1669062,
+    "sha256": "8f151ba538a42c9904a4e4b6283bfc5939a30671a8506853efdf031bd3d1d1c3"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-e15a00b84f261aa6/internal/complete.json",
+    "bytes": 671,
+    "sha256": "c9ad68a962d113f6bc7434d23b8d15508363c4bcd232416287d9284b314359b4"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-e15a00b84f261aa6/internal/initial.json",
+    "bytes": 3528,
+    "sha256": "2b8174ff1131337fef3de97c2dae666c7b3918aef452dbf20de3f908f8022383"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-e15a00b84f261aa6/internal/steps.jsonl",
+    "bytes": 1122533,
+    "sha256": "6fb588a6886b5949d02ff65d0ecd3603b656d39a9fdeb000faea525e3995a4d2"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-e15a00b84f261aa6/experience/complete.json",
+    "bytes": 673,
+    "sha256": "fc524bd4f21048fe3a9f2c3cf0b8077329bbe2c13673f9929b237fb0c2125f8f"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-e15a00b84f261aa6/experience/initial.json",
+    "bytes": 3528,
+    "sha256": "40f523586c98aee04618d75d940f7826524ee2c18f858ce3a8b44a3dc4339032"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-e15a00b84f261aa6/experience/steps.jsonl",
+    "bytes": 775244,
+    "sha256": "800d80a59a4517b650f1d20b89f12463127073521270cf3fcb3f96bc705b289b"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-e15a00b84f261aa6/full/complete.json",
+    "bytes": 669,
+    "sha256": "d1d8e0ea9095b94568cce769f35e956109c73fd1d962a0bf48aa65c12fa8b118"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-e15a00b84f261aa6/full/initial.json",
+    "bytes": 3528,
+    "sha256": "5f9ee7e0f6658dbaf4ba53941ab0cf2863baa1c4869c5d679dd28dd5a6cec9c0"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/episodes/alf-e15a00b84f261aa6/full/steps.jsonl",
+    "bytes": 1159499,
+    "sha256": "e1633f62b9a594f4b7dd683460f6075e1a396130d9d3b5f50125180f5e627727"
+  },
+  {
+    "path": "outputs/alfworld_five_policy_v1/manifest.json",
+    "bytes": 124813,
+    "sha256": "a2f3c51b771a17935d92a73d0d4174ef0c39fc24b30cf1c3d6aa0054d23e5ae9"
+  },
+  {
+    "path": "outputs/alfworld_five_policy_v1/model.json",
+    "bytes": 1343,
+    "sha256": "a46918c071d25ffb8672d1a73ad10f6f4ec31e99e496a2c231c44ae0a400d673"
+  },
+  {
+    "path": "outputs/alfworld_five_policy_v1/ledger.json",
+    "bytes": 160,
+    "sha256": "d184260817f9aa72228bfeea16910ddea4ad10da519625665466c8bf4b2e6f87"
+  },
+  {
+    "path": "outputs/alfworld_five_policy_v1/generation_calls.jsonl",
+    "bytes": 1375445,
+    "sha256": "f633fdd14c6b6cc6b1fdad016bd9abaa1e9fe40877bbd4a1381ccab2d6a09e78"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/manifest.json",
+    "bytes": 5907,
+    "sha256": "77f7af65c1898c5057c5e5668ee1778d5916b31c37382674db0262ff5e3b997b"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/complete.json",
+    "bytes": 334,
+    "sha256": "c581dd9812f07732f640fd9f2033a3a4ff4bfd3e2423e37f4a3b36d277210e41"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/supervisor_complete.json",
+    "bytes": 91,
+    "sha256": "1d732610fcc8559a192735bcd7e31bdfa44dd79027bc3764f3db7a22583cc58a"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/model.json",
+    "bytes": 407,
+    "sha256": "25380705faed3f1db24c2b0f146e43bcc5c7f03500da10abaa2bacca1c3744e8"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/ledger.json",
+    "bytes": 163,
+    "sha256": "b8d2f182d6af251ba9d2a0e94b1e29505b6dae4615be4fd35bfb01568163f3e8"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/generation_calls.jsonl",
+    "bytes": 8527664,
+    "sha256": "8880950079fe6960abff149bc99957f683458c0b0b70d4cc47eb9e69aecc79cd"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v2/worker0/complete.json",
+    "bytes": 267,
+    "sha256": "b769c5872233eba1c3af177d5fa29963fe1c202cd4094c43d400cd19bdbd0a0a"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v1/manifest.json",
+    "bytes": 5418,
+    "sha256": "45b5a4c5b35255990f679be3cd4aadf257a6d771ac361312403c653a693c9dc1"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v1/supervisor_complete.json",
+    "bytes": 160,
+    "sha256": "190deb231216d39882ca7135c57e5f9faf06cf8232bb4c6515810363c37da7e8"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v1/worker1/model.json",
+    "bytes": 408,
+    "sha256": "131077a8f807f44668088c2780761e5523cafb003deb604107ec5c8d75653658"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v1/worker1/ledger.json",
+    "bytes": 152,
+    "sha256": "c469f91723ffa4622daba3bad9e64d3d996ad43c72d8519be4847936887c82b4"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v1/worker1/generation_calls.jsonl",
+    "bytes": 17149,
+    "sha256": "a1157acbbbd83c9c9354ac5b8b83660ed67eb68d738f5166badf160b714e4aa5"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v1/worker3/model.json",
+    "bytes": 407,
+    "sha256": "7f54ba366db65d3ed20a98d9251bd4f104e6e0856ec31e020c2acb3c415405fb"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v1/worker3/ledger.json",
+    "bytes": 152,
+    "sha256": "c469f91723ffa4622daba3bad9e64d3d996ad43c72d8519be4847936887c82b4"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v1/worker3/generation_calls.jsonl",
+    "bytes": 17145,
+    "sha256": "f2a0b48309a584754dc95808df6b435b89b0681576f638d8ab7f2e80aa772e50"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v1/worker0/model.json",
+    "bytes": 406,
+    "sha256": "a47be3aec4252ae1ff8734775930d700b726f8e1100447ea832a9a87c150be02"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v1/worker0/ledger.json",
+    "bytes": 152,
+    "sha256": "eb7bdcd3c23d0a4e44a53fce76f2c387939ef4eb940f18fc698d9a17c364eaf0"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v1/worker0/generation_calls.jsonl",
+    "bytes": 12048,
+    "sha256": "5e809f7cdc9a1b54eaa8cdbc16a7ff015ec2f1c6313d0a70c285757c75cf2973"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v1/worker2/model.json",
+    "bytes": 408,
+    "sha256": "3e24775d1c1bf9d444946d1ed96ec7e3de8a61575fda369a4e56a752b7ed9159"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v1/worker2/ledger.json",
+    "bytes": 152,
+    "sha256": "c469f91723ffa4622daba3bad9e64d3d996ad43c72d8519be4847936887c82b4"
+  },
+  {
+    "path": "outputs/alfworld_parallel_v1/worker2/generation_calls.jsonl",
+    "bytes": 12053,
+    "sha256": "2f58cce878099d769e7aa4599d0aa913a8d84830cfc825071818b99033843ca7"
+  }
+]

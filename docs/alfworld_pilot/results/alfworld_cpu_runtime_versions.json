@@ -1,0 +1,20 @@
+{
+  "python": "3.12.0 | packaged by Anaconda, Inc. | (main, Oct  2 2023, 17:29:18) [GCC 11.2.0]",
+  "packages": {
+    "alfworld": "0.4.2",
+    "textworld": "1.7.0",
+    "numpy": "2.2.6",
+    "gym": "not installed",
+    "gymnasium": "0.29.1"
+  },
+  "core_files": [
+    {
+      "module": "alfworld.agents.environment.alfred_tw_env",
+      "sha256": "4d9166363e32f0fa70c63530a900785ddb45c79387a02ebcb9a21252869a8924"
+    },
+    {
+      "module": "textworld.envs.pddl.pddl",
+      "sha256": "3795f5fb7471c7a4551e137267785ffb3e21e49653d17491d6be963b41f454b4"
+    }
+  ]
+}

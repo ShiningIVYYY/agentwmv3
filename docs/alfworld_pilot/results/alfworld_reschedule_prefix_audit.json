@@ -1,0 +1,9 @@
+{
+  "old_partial_steps": 8,
+  "old_partial_generations": 18,
+  "same_formal_actions": true,
+  "same_formal_transitions": true,
+  "same_prompt_token_ids": true,
+  "same_response_token_ids": true,
+  "old_partial_excluded_from_outcomes": true
+}
