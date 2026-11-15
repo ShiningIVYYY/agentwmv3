@@ -95,6 +95,7 @@ def audit_episode(ep, entry, profile, config, memory, goals):
     counts = Counter()
     seconds = Counter()
     examples = []
+    example_tags_seen = Counter()
     complement = []
     patterns = Counter()
     for step, t in enumerate(traces):
@@ -116,7 +117,15 @@ def audit_episode(ep, entry, profile, config, memory, goals):
                          commands=t['admissible_commands'], available_at_ns=t['external']['query_at_ns'])
             external, rederived = memory.evaluate(query)
             require(canonical(asdict(rederived)) == canonical(asdict(resolved)), 'External evidence/source/tri-state mismatch')
-            require(without(external, {'retrieval_latency', 'judge_latency'}) == without(t['external'], {'retrieval_latency', 'judge_latency'}), 'External applicability changed')
+            # Legacy BM25 sums a Python set: cross-process term order can change
+            # the final float by a few ulps. IDs/order/applicability remain exact.
+            old_ranked = t['external']['retrieved_cards']
+            require(len(external['retrieved_cards']) == len(old_ranked), 'Retrieved card count changed')
+            for aa, bb in zip(external['retrieved_cards'], old_ranked):
+                require(without(aa, {'score'}) == without(bb, {'score'}), 'Retrieved identity/order/applicability changed')
+                require(math.isclose(aa['score'], bb['score'], rel_tol=1e-12, abs_tol=1e-12), 'BM25 numeric difference exceeds float-summation tolerance')
+            omitted = {'retrieval_latency', 'judge_latency', 'retrieved_cards'}
+            require(without(external, omitted) == without(t['external'], omitted), 'External applicability/evidence changed')
             require(query['available_at_ns'] < t['decided_at_ns'], 'External signal from after decision')
             seconds['retrieval'] += t['external']['retrieval_latency']
             seconds['external_rule_judge'] += t['external']['judge_latency']
@@ -206,8 +215,21 @@ def audit_episode(ep, entry, profile, config, memory, goals):
                 seconds[role + '_generation'] += ic['generation_seconds']
                 seconds['internal_extraction'] += ic['extraction_seconds']
                 cost['peak_allocated_bytes'] = max(cost['peak_allocated_bytes'], ic['peak_allocated_bytes'])
-        if step < 2 or (simulation and len(examples) < 4) or t['external'] and t['external']['coverage'] == 'true':
-            examples.append(dict(task_id=task, policy=policy, step=step, observation=t['observation'], draft=t['draft_action'],
+        tags = []
+        if step < 2:
+            tags.append('initial_step')
+        if t['final_action'] != t['draft_action']:
+            tags.append('reviewer_replacement')
+        if t['review'] and t['review']['parsed']['decision'] == 'INVALID':
+            tags.append('review_format_failure')
+        if not t['final_admissible']:
+            tags.append('nonadmissible_final_action')
+        if t['external'] and t['external']['coverage'] == 'true':
+            tags.append('external_evidence')
+        selected_tags = [tag for tag in tags if example_tags_seen[tag] < 2]
+        if selected_tags:
+            example_tags_seen.update(selected_tags)
+            examples.append(dict(task_id=task, policy=policy, step=step, categories=selected_tags, observation=t['observation'], draft=t['draft_action'],
                 local=t['gate']['local_uncertainty'], global_nll=t['gate']['global_uncertainty'], gate=t['gate']['reason'],
                 external=t['resolved_external'], trial_observation=simulation.get('predicted_observation') if simulation else None,
                 reviewer=t['review'], final=t['final_action'], feedback=t['actual']['observation'], success=t['actual']['success']))
@@ -230,6 +252,8 @@ def analyze(run, output, partial=False):
     manifest = read(run / 'manifest.json')
     source = Path(manifest['source_run'])
     original = verify(source)
+    for name, digest in manifest['new_source_hashes'].items():
+        require(file_hash(ROOT / name) == digest, 'Continuation scheduling source changed: ' + name)
     p = manifest['profile']
     require(p == original['profile'], 'Parallel profile differs')
     split = original['split']
@@ -237,6 +261,11 @@ def analyze(run, output, partial=False):
     require(all(not (groups[i] & groups[j]) for i in range(4) for j in range(i)), 'Goal split leakage')
     require(len(manifest['schedule']) == 15 and len({(e['task_id'], e['policy'], e['seed']) for e in manifest['schedule']}) == 15, 'Schedule duplicates')
     config = read(source / 'gate_config.json')
+    calibration_records = rows(source / 'calibration_steps.jsonl')
+    for r in calibration_records:
+        meta = r['metadata']
+        audit_generation(meta, meta['generation_record']['messages'], 'draft', request_seed(r['task_id'], r['step'], 'draft', 0), p, True)
+    require(len(calibration_records) == 48, 'Calibration cohort changed')
     memory = AlfExperienceMemory(read(ROOT / 'outputs/alfworld_memory_v2/snapshot.json'), split)
     memory.model_fingerprint = read(source / 'model.json')['config_sha256']
     goals = {r['task_id']: r for r in read(ROOT / 'docs/alfworld_pilot/native_goal_identity.json')}
@@ -277,6 +306,21 @@ def analyze(run, output, partial=False):
                 delta_success=int(v['success']) - int(reference['success']),
                 delta_tokens=v['tokens'] - reference['tokens'], delta_formal_steps=v['formal_steps'] - reference['formal_steps'],
                 note='Whole-policy paired task comparison; not same-state causal per-call utility'))
+    trajectory_comparisons = []
+    for policy, reference_policy in [('full', 'internal'), ('experience', 'never')]:
+        for v in by_policy[policy]:
+            ref = indexed.get((v['task_id'], v['rollout_seed'], reference_policy))
+            if not ref:
+                continue
+            aa = rows(ROOT / v['raw_episode_path'] / 'steps.jsonl')
+            bb = rows(ROOT / ref['raw_episode_path'] / 'steps.jsonl')
+            comparable = len(aa) == len(bb)
+            trajectory_comparisons.append(dict(task_id=v['task_id'], policy=policy, reference=reference_policy,
+                equal_length=comparable,
+                same_formal_actions=comparable and all(a['final_action'] == b['final_action'] for a, b in zip(aa, bb)),
+                same_public_and_fact_transitions=comparable and all(a['actual'] == b['actual'] for a, b in zip(aa, bb)),
+                same_draft_token_ids=comparable and all(a['metadata']['generation_record']['response_ids'] == b['metadata']['generation_record']['response_ids'] for a, b in zip(aa, bb)),
+                same_call_sequence=comparable and all(a['gate']['call_wm'] == b['gate']['call_wm'] for a, b in zip(aa, bb))))
     for base in [source] + sorted(run.glob('worker*')):
         if not base.is_dir() or not (base / 'ledger.json').exists():
             continue
@@ -295,7 +339,10 @@ def analyze(run, output, partial=False):
         bases.extend(('failed_scheduler', b) for b in sorted(Path(failure['run']).glob('worker*')) if b.is_dir())
     for attempt, base in bases:
         if (base / 'model.json').exists():
-            model_loads.append(dict(attempt=attempt, path=str((base / 'model.json').relative_to(ROOT)), seconds=read(base / 'model.json')['load_seconds']))
+            receipt = read(base / 'model.json')
+            require(receipt['loading_info'] == dict(missing_keys=[], unexpected_keys=[], mismatched_keys=[], error_msgs=[]), 'Strict model loading had discrepancies')
+            require(receipt['config_sha256'] == memory.model_fingerprint, 'Worker model config differs')
+            model_loads.append(dict(attempt=attempt, path=str((base / 'model.json').relative_to(ROOT)), seconds=receipt['load_seconds']))
         journal = rows(base / 'generation_calls.jsonl') if (base / 'generation_calls.jsonl').exists() else []
         for call in journal:
             where = call['where']
@@ -317,13 +364,18 @@ def analyze(run, output, partial=False):
     if not pending:
         require(generation_costs['completed_evaluation']['total_tokens'] == sum(v['tokens'] for v in episodes), 'Completed evaluation cost scope mismatch')
         require(generation_costs['completed_evaluation']['model_calls'] == sum(v['formal_steps'] + v['reviewer_calls'] for v in episodes), 'Completed evaluation call scope mismatch')
+        complete = read(run / 'complete.json')
+        for final_key, call_key in [('tokens', 'total_tokens'), ('model_calls', 'model_calls')]:
+            require(complete['total_resource_spent_including_initial_partial'][final_key] == sum(c[call_key] for c in generation_costs.values()), 'All-attempt model accounting mismatch')
     artifact = dict(status='partial' if pending else 'complete', episodes=episodes, policies=table, pending=pending,
         external_changes_on_same_full_states=complement, paired_against_never=paired, calibration=read(source / 'calibration.json'),
+        matched_task_trajectory_comparisons=trajectory_comparisons,
         numerical_validation=without(read(source / 'numerical_validation.json'), {'internal_signals'}),
         freeze=read(source / 'threshold_freeze.json'), config=p, source_commit=original['source_commit'],
         continuation_commit=manifest['source_git_commit'], whole_run_resource_receipt=read(run / 'complete.json') if (run / 'complete.json').exists() else None,
         all_attempt_generation_costs={k: dict(v) for k, v in generation_costs.items()}, model_setup_attempts=model_loads,
         failed_attempt_receipt_limitations=read(ROOT / 'docs/alfworld_pilot/parallel_engineering_repair.json'),
+        real_calibration_numeric_checks=len(calibration_records),
         limits=['Three development games, one rollout seed, no significance/generalization claim',
                 'Public admissible commands provided equally to all five policies; not exact paper actor prompt',
                 'Shared legacy STRUCTURE includes ScienceWorld word in Action placeholder despite ALF-native guidance; retained/frozen across all policies, a prompt limitation',
