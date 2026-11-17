@@ -1,0 +1,127 @@
+{
+  "status": "pass",
+  "scope": "startup only, not final effectiveness",
+  "checked_unix": 1794953243.0939438,
+  "source_commit": "c21aeb4b2fc19f0241e736dde810c1859524ce51",
+  "gpus": [
+    0,
+    6,
+    7
+  ],
+  "workers": [
+    {
+      "worker": "worker0",
+      "cases": 12,
+      "strict_loading": true,
+      "frozen_actor": true,
+      "ledger": {
+        "tokens": 19426,
+        "model_calls": 40,
+        "transition_queries": 45,
+        "audit_capture_bundles": 45,
+        "pending_model": {
+          "max_tokens": 976,
+          "identity": {
+            "role": "draft",
+            "task": "alf-9d48ad5e9821a631",
+            "step": 31,
+            "seed": 0
+          },
+          "started_ns": 1794953242073620322
+        },
+        "pending_transition": null
+      }
+    },
+    {
+      "worker": "worker1",
+      "cases": 21,
+      "strict_loading": true,
+      "frozen_actor": true,
+      "ledger": {
+        "tokens": 19654,
+        "model_calls": 36,
+        "transition_queries": 49,
+        "audit_capture_bundles": 51,
+        "pending_model": {
+          "max_tokens": 980,
+          "identity": {
+            "role": "draft",
+            "task": "alf-2f40dfe1137620c2",
+            "step": 11,
+            "seed": 0
+          },
+          "started_ns": 1794953242128453809
+        },
+        "pending_transition": null
+      }
+    },
+    {
+      "worker": "worker2",
+      "cases": 12,
+      "strict_loading": true,
+      "frozen_actor": true,
+      "ledger": {
+        "tokens": 24560,
+        "model_calls": 40,
+        "transition_queries": 52,
+        "audit_capture_bundles": 54,
+        "pending_model": {
+          "max_tokens": 1040,
+          "identity": {
+            "role": "draft",
+            "task": "alf-366bf47794720c5b",
+            "step": 7,
+            "seed": 0
+          },
+          "started_ns": 1794953242662380170
+        },
+        "pending_transition": null
+      }
+    }
+  ],
+  "cached_real_cases_audited": 45,
+  "feature_before_label": true,
+  "contracts_equal": true,
+  "masks_valid": true,
+  "features_finite_bf16": true,
+  "model_cost_prefix_audit": true,
+  "source_hashes_unchanged": true,
+  "errors": 0,
+  "latest_controller_progress": {
+    "stage": "collect",
+    "cost": {
+      "tokens": 55054,
+      "model_calls": 101,
+      "transition_queries": 127,
+      "audit_capture_bundles": 129
+    },
+    "cases": 40,
+    "utility_labels": 1,
+    "episodes": 0
+  },
+  "paired_real_utility_labels_at_startup": [
+    {
+      "case_id": "alf-3ca16e89aa2f5d34/2",
+      "role": "probe_train",
+      "valid": true,
+      "label": "neutral",
+      "delta_return": 0,
+      "skip_success": true,
+      "call_success": true,
+      "actual_call_source": "ground_truth_environment",
+      "consistency_error": null
+    },
+    {
+      "case_id": "alf-366bf47794720c5b/2",
+      "role": "probe_train",
+      "valid": true,
+      "label": "neutral",
+      "delta_return": 0,
+      "skip_success": true,
+      "call_success": true,
+      "actual_call_source": "ground_truth_environment",
+      "consistency_error": null
+    }
+  ],
+  "startup_verified_leave_background": true
+}

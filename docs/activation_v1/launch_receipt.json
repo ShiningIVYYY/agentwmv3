@@ -1,0 +1,14 @@
+{
+  "status": "launched",
+  "pid": 1506811,
+  "run": "/data1/shn/agentwmv3/outputs/activation_experiment_v1",
+  "time_unix": 1794953122.7550886,
+  "source_commit": "c21aeb4b2fc19f0241e736dde810c1859524ce51",
+  "gpus": [
+    0,
+    6,
+    7
+  ],
+  "max_authorized_gpus": 4,
+  "wall_seconds": 129600
+}

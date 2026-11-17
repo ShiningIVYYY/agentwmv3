@@ -217,3 +217,5 @@ The user approved implementation of the desktop activation-probe proposal and ex
 - [ ] Fixed12 untouched development tasks, common new protocol and bounded controls; summarize costs and per-instance outcomes.
 
 Three available GPUs0/6/7, max4 authorized, whole-run36h/24Mtoken caps. Detailed scope/commands/limits: [ACTIVATION_PROBE_IMPLEMENTATION.md](ACTIVATION_PROBE_IMPLEMENTATION.md). Background startup will be checked and recorded; completed raw results remain in outputs with compact audited reports in docs. No ScienceWorld experiment or final Test is started, and no next phase is automatically approved.
+
+Activation startup verified: three strict frozen9B loads on0/6/7,45 real cached decision features audited with source/field/timestamp/ledger checks, initial actual paired label(s) recorded. Detached controller PID1506811 continues under frozen source commit c21aeb4; no continuous assistant monitoring. Final Probe/classifier and12-task policy results remain pending. Startup receipt: docs/activation_v1/startup_audit.json.
