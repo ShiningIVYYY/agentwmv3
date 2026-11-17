@@ -1,0 +1,19 @@
+test_future_fields_rejected (__main__.Contracts.test_future_fields_rejected) ... ok
+test_metric_perfect (__main__.Contracts.test_metric_perfect) ... ok
+test_metric_ties (__main__.Contracts.test_metric_ties) ... ok
+test_no_action_invented (__main__.Contracts.test_no_action_invented) ... ok
+test_nonadmissible_replacement_guard (__main__.Contracts.test_nonadmissible_replacement_guard) ... ok
+test_padding_invariance (__main__.Contracts.test_padding_invariance) ... ok
+test_single_class_not_fake_auc (__main__.Contracts.test_single_class_not_fake_auc) ... ok
+test_sparse_labels_never_create_fake_head (__main__.Contracts.test_sparse_labels_never_create_fake_head) ... ok
+test_stream_batch_equivalence (__main__.Contracts.test_stream_batch_equivalence) ... ok
+test_stream_training_rejected (__main__.Contracts.test_stream_training_rejected) ... ok
+test_strict_checkpoint_and_contract (__main__.Contracts.test_strict_checkpoint_and_contract) ... ok
+test_training_updates_only_probe (__main__.Contracts.test_training_updates_only_probe) ... ok
+test_truncated_rejected (__main__.Contracts.test_truncated_rejected) ... ok
+test_valid_three_fields (__main__.Contracts.test_valid_three_fields) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 1.057s
+
+OK

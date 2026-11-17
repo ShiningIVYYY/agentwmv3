@@ -1,0 +1,1003 @@
+[
+  {
+    "task_id": "alf-9d48ad5e9821a631",
+    "role": "probe_train",
+    "goal": "put a book in coffeetable.",
+    "goal_group": "cebda5562d2bf2a448f89713edd6719bc78046b6eaef0077bf17c4279e6c06a7",
+    "seed": 1348,
+    "initial_sha256": "4d40152f413a4c89fd4f30d3ba25b95757208653f5b661d18a89174da9695114",
+    "initial_prompt_tokens": 406,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-3ca16e89aa2f5d34",
+    "role": "probe_train",
+    "goal": "clean some egg and put it in garbagecan.",
+    "goal_group": "4f49be909b1f204ffceae4a0fda1fae70226110eec31966ba4d96e5689732366",
+    "seed": 2277,
+    "initial_sha256": "c35b739503a12c558058ffe68e230d6f64bc23cd17bd96803a98e36f3daa885c",
+    "initial_prompt_tokens": 630,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-366bf47794720c5b",
+    "role": "probe_train",
+    "goal": "put a cool lettuce in diningtable.",
+    "goal_group": "9ec2503c5d941e786dc097e8297e4cecb0d4e04eab3be4e38dd98aeb27a6476a",
+    "seed": 2970,
+    "initial_sha256": "62147e0dc943d69fbf34767bbf43c572d2cde436b61a0bed33941e10f1e4aadf",
+    "initial_prompt_tokens": 606,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-a540b236db5bb40e",
+    "role": "probe_train",
+    "goal": "put a hot potato in sidetable.",
+    "goal_group": "51fde9a95fa8f7db906e84dd679d91cff2f62fe7f9690885faf16f87285dc95b",
+    "seed": 3683,
+    "initial_sha256": "af90ffc9815b78e36d411c60a280bb33cc0b487be432dd85aa85c319ef14acb9",
+    "initial_prompt_tokens": 619,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-2f40dfe1137620c2",
+    "role": "probe_train",
+    "goal": "find two tissuebox and put them in coffeetable.",
+    "goal_group": "c12efde8ce938c64c66279b13000c291e1f335d1e3d616210d8840a821c31b15",
+    "seed": 4450,
+    "initial_sha256": "1d8fa1073325d489b205244d932d69f4715dbb0c8d54caf041b05387939199cd",
+    "initial_prompt_tokens": 387,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-787eb2262dda3ee9",
+    "role": "probe_train",
+    "goal": "put a pencil in shelf.",
+    "goal_group": "507122e3c7105f502bf10436ad864da18a6cb444157eae6153df6538522c32ff",
+    "seed": 1781,
+    "initial_sha256": "a09241b662ba09388ecd382656d7c432fb102107d167d57c1c27e86ae03578e2",
+    "initial_prompt_tokens": 392,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-e352fcd3dbd61c47",
+    "role": "probe_train",
+    "goal": "put a clean tomato in garbagecan.",
+    "goal_group": "409565e40ae825b06511635be3b748b0ff85bf36052881655d1861fb22f0e2db",
+    "seed": 2736,
+    "initial_sha256": "ed5971c6cc2a02a7ead756098c34b3debdd64197c6fb564b243a34ded674841b",
+    "initial_prompt_tokens": 593,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-350aec079e422de5",
+    "role": "probe_train",
+    "goal": "put a cool egg in sidetable.",
+    "goal_group": "5e94164fd80e2375a4acdccc01cfc911ac6ee5ab5ef95d22c614cd56a701669c",
+    "seed": 2945,
+    "initial_sha256": "259c9a78510bed81c4fffe75d403e0133e1e0dd9222976dd6d3147bd33bda698",
+    "initial_prompt_tokens": 516,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-93e2028a0aa64315",
+    "role": "probe_train",
+    "goal": "put a hot tomato in garbagecan.",
+    "goal_group": "b7efcb9ab5f71ce9e1aca9ba4dc6261c009ab6623ce98d5a7b8e45c79f22c035",
+    "seed": 3728,
+    "initial_sha256": "79dfcb7fe4211585695000dd73406de8279ba786a27820af38c775aa849e33c7",
+    "initial_prompt_tokens": 702,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-ea1b2f59291050ca",
+    "role": "probe_train",
+    "goal": "put two toiletpaper in sidetable.",
+    "goal_group": "edfda3ee9d3036b540c8c260a80b22c86aea6f314a062dc958e6ab8b823864e1",
+    "seed": 4503,
+    "initial_sha256": "500d6e696fbc3924183143e41c0f9bb3d41cdd11bc94abe5a8f2ad5275acd1e1",
+    "initial_prompt_tokens": 402,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-549d1bf90bcae3a3",
+    "role": "probe_train",
+    "goal": "put a alarmclock in sidetable.",
+    "goal_group": "0d06d55bfe510b3e0b5c7fea0b71f296338f0b38c4032fdb1012f97208bf2b86",
+    "seed": 1329,
+    "initial_sha256": "1060f642c8c68c241724f1e67c3763f0a52c05efc2734959592de1a18b1e444d",
+    "initial_prompt_tokens": 367,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-cbcb89ab2f38505b",
+    "role": "probe_train",
+    "goal": "clean some bowl and put it in diningtable.",
+    "goal_group": "4a40bd4f5466450910917312f673ab96919668dbc5951e88039895d1ece53c0c",
+    "seed": 2128,
+    "initial_sha256": "aa1c1bc2c39fe1d8f02b7b21a85c2638cc75807508c60a8ee6bbe3d233df1e59",
+    "initial_prompt_tokens": 560,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-7bbe82cc37129b65",
+    "role": "probe_train",
+    "goal": "put a cool winebottle in cabinet.",
+    "goal_group": "71fbeaad4e5e686165ad53d275ce9167f5a7c6cc8ff2afc93f1ffa5a2fff2df4",
+    "seed": 3267,
+    "initial_sha256": "ca0172ba2b5970b7bb7de663a0080600134ed76b3bef8d8e503a2348d631fa89",
+    "initial_prompt_tokens": 758,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-57990c00d1c51226",
+    "role": "probe_train",
+    "goal": "put a hot plate in fridge.",
+    "goal_group": "f8e58f9f78a102a049cd225a7e754955fc619b08fa2d5cd01e563aa262654e98",
+    "seed": 3614,
+    "initial_sha256": "5f2f0427ffd98709e3fa038b7b18dbf3f3c52a5a79182ee82e90d3091a5995ec",
+    "initial_prompt_tokens": 664,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-eb3daaa09b937481",
+    "role": "probe_train",
+    "goal": "find two candle and put them in shelf.",
+    "goal_group": "536df5c46ef9de5f296c50330832bd5688be1e32a3a0427c999d07797b131d44",
+    "seed": 3870,
+    "initial_sha256": "da94cbe4e619083b119306f5a9a1debd7f7b5dcbc9a1690e56c7a771d21d0514",
+    "initial_prompt_tokens": 398,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-8e1edcf3cfb92812",
+    "role": "probe_train",
+    "goal": "put a toiletpaper in garbagecan.",
+    "goal_group": "388437a9f48cd6c41df6ae1fdb7e946a79f801a3563e81857555b6fa9131e5db",
+    "seed": 2009,
+    "initial_sha256": "55067ac08d4ccef1dd449bcdfdc93fe0294109de893b5121d90cfe1310fd2b62",
+    "initial_prompt_tokens": 461,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-2cced43623b3f8e3",
+    "role": "probe_train",
+    "goal": "put a clean spatula in drawer.",
+    "goal_group": "7ca767d9cc2688f3912f07f5e2b37b469aa1824bb7a617b262405a6be21837e4",
+    "seed": 2688,
+    "initial_sha256": "046ce591f53befb9aeedcc410fbda91b82ff6e55654c2a496885f94d20887b51",
+    "initial_prompt_tokens": 710,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-fa0f5571d2feadea",
+    "role": "probe_train",
+    "goal": "cool some plate and put it in microwave.",
+    "goal_group": "d4dec63038bcca95d21f7871f26f6c8a3e1d5d5f20196f0f503dcab91c809145",
+    "seed": 3119,
+    "initial_sha256": "8e07f885449ab7f754b83b2289ffef6f9ccc686aace50712cbc431cb91e8ab40",
+    "initial_prompt_tokens": 665,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-7c2bc322b90e7e94",
+    "role": "probe_train",
+    "goal": "heat some tomato and put it in sidetable.",
+    "goal_group": "6b9371b165daa9b3caa99aa04ff95c3ddfbac4c9bc5685964c0ada327e5a12d8",
+    "seed": 3734,
+    "initial_sha256": "55e3048603222ec8cae691e9befc0a19193d67446a826d8c05c3c9626ec35127",
+    "initial_prompt_tokens": 623,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-5559b45941594400",
+    "role": "probe_train",
+    "goal": "find two creditcard and put them in drawer.",
+    "goal_group": "89bee99956942a4b3ef7264b72869422a1c5d510a759917c61f8b16398d7baa4",
+    "seed": 3971,
+    "initial_sha256": "c91d60bec8e371abe3580b0a213ee66003a7171a42934d8df72e5cf5502625e9",
+    "initial_prompt_tokens": 530,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-bbffe1cb5e537f90",
+    "role": "probe_train",
+    "goal": "put a cloth in countertop.",
+    "goal_group": "06c2a560a47bd3451bda3489284b3cc0f2a0ea0cf9616cd97eb6c46702de68ce",
+    "seed": 1544,
+    "initial_sha256": "77cd2fb69c13f9fbfe69e6f5bebffaf3c6cdc2f0426ab8f460f84e9cf2cf2dea",
+    "initial_prompt_tokens": 497,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-1ec29123268eb2df",
+    "role": "probe_train",
+    "goal": "clean some tomato and put it in diningtable.",
+    "goal_group": "8468a8386a106fbb40a37d81fe166ce145057f42e278d55c87eea40bb416ac97",
+    "seed": 2728,
+    "initial_sha256": "5b13f1ad867806807d01598c6a9ce171c9d22f0cdadcf5b7ef56a1a48a61a16d",
+    "initial_prompt_tokens": 560,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-7c41532ff9aa310c",
+    "role": "probe_train",
+    "goal": "cool some bowl and put it in shelf.",
+    "goal_group": "7a5dc8a05da4a05e7d67801665cbbfe1f3c1d5b28b1a66011a0c221f958cdb2f",
+    "seed": 2835,
+    "initial_sha256": "7afa1e1e6d28f721026da12ae51db77937ebbc01d89cc37d222062b41130f683",
+    "initial_prompt_tokens": 745,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-1c1dc93025333ed0",
+    "role": "probe_train",
+    "goal": "heat some potato and put it in countertop.",
+    "goal_group": "49b25fdf45babf42813b414140349543b86d39abcda0d7aed97ad24d14b35f71",
+    "seed": 3632,
+    "initial_sha256": "18eb02fe4078222c93e05a0812512cb67a7d6ad00d70df96b9d80c2f98f2daa7",
+    "initial_prompt_tokens": 749,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-fa9aa7627a58861f",
+    "role": "probe_train",
+    "goal": "find two statue and put them in diningtable.",
+    "goal_group": "c131399e2ac6c9155a71da592aa7d658b6b9aeb1bf6d4b18e6b5b8cfc37a31d8",
+    "seed": 4438,
+    "initial_sha256": "cb993a31ea1172dfdfac57851b8a598418f2ebf78d1150ef6f8a0905aa25e31d",
+    "initial_prompt_tokens": 364,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-1bcfe5e78f1e41f7",
+    "role": "probe_train",
+    "goal": "put some handtowel on countertop.",
+    "goal_group": "434a9e5986adc00bf05b7b7a976eb569154040d8915224eb3b6ddcb818afe0f4",
+    "seed": 1613,
+    "initial_sha256": "fd1684450152c64a68ca3ec378108f761a98012620c1549db0286bc80098c909",
+    "initial_prompt_tokens": 417,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-7375d9c8cd6a907d",
+    "role": "probe_train",
+    "goal": "put a clean egg in sidetable.",
+    "goal_group": "8e9efeb49fc8d7cd07940d5428098b6b5a72db5d9bb547b2342ac67b001b1062",
+    "seed": 2287,
+    "initial_sha256": "0e8454002abeab043f2cd9c7ac4d70f08edebc1072ea0f8be3f3c225acc0eb9c",
+    "initial_prompt_tokens": 516,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-978eaf884bf706f9",
+    "role": "probe_train",
+    "goal": "put a cool cup in diningtable.",
+    "goal_group": "b63f576eb790fa947354a299c758e98fb2ba8b2a86cb41185eeae8401a82370f",
+    "seed": 2894,
+    "initial_sha256": "bfaf4edf28443953e5c366c8567f7e01065d3e7d9e10b25728e2b7f2698f9e29",
+    "initial_prompt_tokens": 773,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-56abb7babcd2d7c0",
+    "role": "probe_train",
+    "goal": "heat some cup and put it in fridge.",
+    "goal_group": "519a157070a284bf92480c3415f38953d9253df3e6881a6402dba5f35c5f1614",
+    "seed": 3405,
+    "initial_sha256": "4f4f522641b2c9883e58aa4517e8da46b3eb576024f427096d02fe4a627b29d9",
+    "initial_prompt_tokens": 558,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-4248c41618793bc1",
+    "role": "probe_train",
+    "goal": "find two cup and put them in countertop.",
+    "goal_group": "d800ce3815d99ae69697642e9530118e137f65767f9e2fab74389b310b8875cf",
+    "seed": 3990,
+    "initial_sha256": "865c2c376b60a28e2237f3e14c3815819db5d5f6b0b23fec594a282eff595d23",
+    "initial_prompt_tokens": 540,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-34ad34d9d3ee9baa",
+    "role": "probe_train",
+    "goal": "put a glassbottle in diningtable.",
+    "goal_group": "db1c3224e68113239ebf1c564c3a3a4b5ca0763404280d8bbcf62f2a11683a2c",
+    "seed": 1602,
+    "initial_sha256": "a9b1cef660534b8c25fa51ead4753daed029a5e8e08f763ddbce10cfc80a747c",
+    "initial_prompt_tokens": 558,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-b1e98c0897ff7e6e",
+    "role": "probe_train",
+    "goal": "put a clean apple in diningtable.",
+    "goal_group": "3dd309e20b0fe0bc55a7422d381840f9b0d3c64ae71c1aff715c1c6b394f24e1",
+    "seed": 2102,
+    "initial_sha256": "a1e4430279b4457947a726c637c5a43d21a119c45052c0891859d22bed6c1003",
+    "initial_prompt_tokens": 516,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-24bb6c646b2a68ca",
+    "role": "probe_train",
+    "goal": "put a cool cup in cabinet.",
+    "goal_group": "a7bb6e24a1c652d6bade1874549190ae9593c98c2ac84d9c668ee32dd809ef1e",
+    "seed": 2890,
+    "initial_sha256": "49c2c9083dc7788ab1fb906c3025867b5209c1d195a1936b809b79d423f42426",
+    "initial_prompt_tokens": 534,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-6a0cea4d0e62182c",
+    "role": "probe_train",
+    "goal": "heat some potato and put it in diningtable.",
+    "goal_group": "c2d20586dd53d95cb39cf2af8ba1d2ba8abc92b37082a736d9fa7d7f749c4bf6",
+    "seed": 3643,
+    "initial_sha256": "2e7a6cfc88b573d269fa4655fcd68bc7df0918cc3958cbbeb423ffd472dcf6b6",
+    "initial_prompt_tokens": 667,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-771637e179884ee1",
+    "role": "probe_train",
+    "goal": "put two toiletpaper in countertop.",
+    "goal_group": "44575167d0205a4e8e7de201ecb7e232fb4ea80b62a88ba981123e138932ff29",
+    "seed": 4484,
+    "initial_sha256": "f7e778d67280e226127562b24767ade17b1b0f6201ffee946475523651ef24cf",
+    "initial_prompt_tokens": 478,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-87a3949feb9ad795",
+    "role": "probe_train",
+    "goal": "put a dishsponge in toilet.",
+    "goal_group": "0152aedf564990cea3d25d5e59f0e312eb00756a22b09e935932d70b98439ba8",
+    "seed": 1589,
+    "initial_sha256": "e449935b9552da8684c44b1581f758bf160112c6bda133983da2d283c569b924",
+    "initial_prompt_tokens": 459,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-090e1bb9d0821524",
+    "role": "probe_validation",
+    "goal": "put a clean plate in microwave.",
+    "goal_group": "a6ab785195f531e141071be98b522b703fd8b6a3b1204253a97c8d4ac14fdaa6",
+    "seed": 2533,
+    "initial_sha256": "d1c3f83dcaaaa416395df6a8502ee904e03a88a34b96a8539dacec6a51507d23",
+    "initial_prompt_tokens": 661,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-a6d1cb7786a4c8f8",
+    "role": "probe_validation",
+    "goal": "put a cool tomato in diningtable.",
+    "goal_group": "a20be3bd312ce9465d36b08ed553c8df0ed5ee36cd5e0401a6eaf39a9e4c40b1",
+    "seed": 3233,
+    "initial_sha256": "85e8d7adad5138327ccad8554efcc74fda1448510664d203bd0e874f56abaf6e",
+    "initial_prompt_tokens": 626,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-2b34f75a87ab8204",
+    "role": "probe_validation",
+    "goal": "heat some tomato and put it in countertop.",
+    "goal_group": "e9d59383986c336291df76ecc45accce5df6bf82515e55c7821b7d5687990f35",
+    "seed": 3689,
+    "initial_sha256": "d7c9aa89b1ee1b80c77fac65e32576f88be3259d02d943e604fa53b254a8fdfc",
+    "initial_prompt_tokens": 706,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-3dcabc55ddbbb461",
+    "role": "probe_validation",
+    "goal": "find two egg and put them in microwave.",
+    "goal_group": "2c506a89f5c86fc00796f4fcad2753032b48c18b1ef0c0488dfc1727b1c16ad8",
+    "seed": 4007,
+    "initial_sha256": "6348bce5acad0680fee09f2dcd1767e619f124a08c886c1327e25914cbc47d10",
+    "initial_prompt_tokens": 558,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-d0a233c6b4723b73",
+    "role": "probe_validation",
+    "goal": "put a cellphone in dresser.",
+    "goal_group": "9021a26863d6fd1f102a8955045ff9013a98b5622c6241f1a2e33dc1d027f3e9",
+    "seed": 1521,
+    "initial_sha256": "b6136f804e6275fb2ce03c29a5d46bce32aa0e424743c2233d63d7eaeacc7ad1",
+    "initial_prompt_tokens": 455,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-b2a9f798bde9ef5d",
+    "role": "probe_validation",
+    "goal": "clean some lettuce and put it in sidetable.",
+    "goal_group": "d234d0b28cc585adc58b39bd0c92763fd9a74eb5ba1da23f0a1439b019ea6445",
+    "seed": 2458,
+    "initial_sha256": "06bb069905df79ff21abbda029c3056f9e2b53bb3b9633e17b6546dc79cd35c1",
+    "initial_prompt_tokens": 520,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-f00f2e2cda7a4e6b",
+    "role": "probe_validation",
+    "goal": "put a cool egg in countertop.",
+    "goal_group": "3ae1b7e61d8b16676b0145f5dd5d8da7507d51dce121bd060cf053bfa6b0445a",
+    "seed": 2924,
+    "initial_sha256": "e4633b08a9149a57e34644fb256c2f76e45e28df40eb79551063fe8bc7700c22",
+    "initial_prompt_tokens": 510,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-6afa6d6afd3e7bb0",
+    "role": "probe_validation",
+    "goal": "heat some cup and put it in diningtable.",
+    "goal_group": "5c0eb5b8f1bc207a523d0c38f699ecec51717cf694890c24f80a29a8f2cf840e",
+    "seed": 3391,
+    "initial_sha256": "63f385ca848f88e3e492d23b8113168eb5fde26a6a2951a7b621d8d1b1637952",
+    "initial_prompt_tokens": 560,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-9126f34c880ba7e1",
+    "role": "probe_validation",
+    "goal": "find two wateringcan and put them in shelf.",
+    "goal_group": "3189c49e6f3355f13767c6ee59937a212a889c7f8d6a02f46d302f3e22e8482e",
+    "seed": 4545,
+    "initial_sha256": "589daa7a4f6a00cf829878ff634ae5c1339a9b429aec01ad01b1b263f893de38",
+    "initial_prompt_tokens": 362,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-a95bd12271c69b7a",
+    "role": "probe_validation",
+    "goal": "put some pencil on garbagecan.",
+    "goal_group": "7237f1c0340dd7d403b572f61ed356330442d61f48c7a4815d69609bf865fbc6",
+    "seed": 1778,
+    "initial_sha256": "1e3ed083f30ef94e600ccebad1b1d5431e842a624e2b9b47b662499e6fef36e4",
+    "initial_prompt_tokens": 339,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-7481b6de122b9dc2",
+    "role": "probe_validation",
+    "goal": "put a clean cup in sidetable.",
+    "goal_group": "0606993de88160f4801a3513d0d76654c93c4bcaa23772c2944b012536500bcf",
+    "seed": 2241,
+    "initial_sha256": "6dc6cd6f4734c72a30f6d9c3a6b7d4e11fe590d928e5bd1f4d62325b05799392",
+    "initial_prompt_tokens": 554,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-40dc2b687735c03f",
+    "role": "probe_validation",
+    "goal": "put a cool potato in microwave.",
+    "goal_group": "1f8cd88190bf3f96e054381dd92b9390fd818a25361e498408ff8d3a70a584da",
+    "seed": 3211,
+    "initial_sha256": "963c3b9148c307d6d2c828bd31a522265e1fd1b0e561b873fc1f4d621e12438c",
+    "initial_prompt_tokens": 891,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-1f1edb1fc7d718c0",
+    "role": "gate_calibration",
+    "goal": "heat some bread and put it in countertop.",
+    "goal_group": "0574a2b9309d6764d814b1d9264b93286cf54cd4d93f8cc6070cdefa37187f41",
+    "seed": 3334,
+    "initial_sha256": "a5ac1ad6552a503c8b539c5bea88541a297826d360399eedc0ae8b041e9ad9e5",
+    "initial_prompt_tokens": 597,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-3ce1e49a0b01295f",
+    "role": "gate_calibration",
+    "goal": "find two watch and put them in coffeetable.",
+    "goal_group": "2a054148514486bb03e0c63cf49b10d32663d81f568e2bb0ee7abf8b82217fe8",
+    "seed": 4532,
+    "initial_sha256": "fff085b8dd7637fbdebb6b73b022ea649a032a2ba54a19669bcedb36ac45378a",
+    "initial_prompt_tokens": 443,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-dc573e3c2a460dfd",
+    "role": "gate_calibration",
+    "goal": "put a tissuebox in sidetable.",
+    "goal_group": "72c8de69d7bc57ef20d841f3e2d94b30860b98303e69ecbe0a4db13fc2a967d1",
+    "seed": 2001,
+    "initial_sha256": "e9c5d05a34a1eeccd4be44d5770cefb5c28d75f2ad37004c6542cff8a81fc306",
+    "initial_prompt_tokens": 406,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-3f6da58959311220",
+    "role": "gate_calibration",
+    "goal": "put a clean pot in shelf.",
+    "goal_group": "071c4ce353f4a99b1ee55647f4cc38a9f8ad782122397fdd65b7f897225a1d78",
+    "seed": 2547,
+    "initial_sha256": "5e5f07349882d0d919445ab88d3e1d11525af27a41b19ddeeebc284770371b74",
+    "initial_prompt_tokens": 664,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-25d265373e557e96",
+    "role": "gate_calibration",
+    "goal": "put a cool mug in cabinet.",
+    "goal_group": "62c66c1feb17847ffd4ee6c6e3d2c29b59cf6cac389a76b29eef239b0dcfafc7",
+    "seed": 2987,
+    "initial_sha256": "87038ae0d795d2a856a191c9c360b15599bd0fe703d312e9d434951aac8d840e",
+    "initial_prompt_tokens": 708,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-7b249a3f9f890ac2",
+    "role": "gate_calibration",
+    "goal": "put a hot egg in garbagecan.",
+    "goal_group": "49156d79492a240fabc85571d494452abf70a1d88d6a880d8d0c9c984ff99ab6",
+    "seed": 3466,
+    "initial_sha256": "e954a96323bae6225b4e40280787adfbb8abf7f7409dbf77f805a626ae7e14af",
+    "initial_prompt_tokens": 702,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-3a5cce86b5f21826",
+    "role": "gate_calibration",
+    "goal": "put two soapbar in drawer.",
+    "goal_group": "008d0c68b9a139d2980a225118dda8d7455be2b52162984f30c6ccef73a2a6cc",
+    "seed": 4311,
+    "initial_sha256": "5e45a0db4df4e44db9f9f45a51ff4bca8c5a19e3594ce78efbb6b8117c58e225",
+    "initial_prompt_tokens": 398,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-8c97515e4a3bf9d3",
+    "role": "gate_calibration",
+    "goal": "put some cd on diningtable.",
+    "goal_group": "cf7256abbdc4508c8b35f553b1e32b6d8d1e83cd75e874e750a836eced307041",
+    "seed": 1410,
+    "initial_sha256": "e81e87b99c49844dc5bc02b42f9079dd0b3dd8f5232ad1ed3da40f2fa203b746",
+    "initial_prompt_tokens": 395,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-a05d88991405899f",
+    "role": "gate_calibration",
+    "goal": "clean some cloth and put it in cart.",
+    "goal_group": "0168d4170f1ebd8e80f452cc352cafb3526ba7a9970d8fb1f42e3653ad9dadb0",
+    "seed": 2177,
+    "initial_sha256": "b832526d825a654de7c1600d25ff37c6e4830671aa063785b1ddbe1d9510bd61",
+    "initial_prompt_tokens": 450,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-ae7f7d7e6093f16d",
+    "role": "gate_calibration",
+    "goal": "put a cool mug in microwave.",
+    "goal_group": "3375be3c16f316ab913b1df2999cb349d741cf7736c8c776fb2fb2b1aaf6d5f2",
+    "seed": 3039,
+    "initial_sha256": "5bc129befddf41f0bafd8b7165362ae0e53edf21d93cec2ffd6ac259b60d0dd1",
+    "initial_prompt_tokens": 615,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-e35a7ab664a30526",
+    "role": "gate_calibration",
+    "goal": "put a hot plate in shelf.",
+    "goal_group": "7c196bfc4558491db4645734e24928ba69efb2b726467f24acdb41d04b1e03a7",
+    "seed": 3622,
+    "initial_sha256": "a3cace3d252f5cded85e09ea36474ca2880a28272a9a1ae19310818ce4d468fd",
+    "initial_prompt_tokens": 661,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-2e4daaa3af6457b0",
+    "role": "gate_calibration",
+    "goal": "find two creditcard and put them in armchair.",
+    "goal_group": "e98c69f0fbcced6ed4cf2e0a8af8e49f2d2d9099a806b1aaf24fc125f887c472",
+    "seed": 3948,
+    "initial_sha256": "2d1916f4a3558def98eae78221b1f10306c8eb28768446d505fa13a335f60114",
+    "initial_prompt_tokens": 458,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-6eef30f29105e95f",
+    "role": "independent_dev",
+    "goal": "put some laptop on ottoman.",
+    "goal_group": "ad55fcc5cafb9d4785c232e53b6f4bd0482500177ca4728cb74a7dbba373c712",
+    "seed": 1710,
+    "initial_sha256": "4c6cf1558392288b7233ea83ea5e0342f11fbc815cefec765fb1c88af79bab83",
+    "initial_prompt_tokens": 448,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-2d84e52a001d34c1",
+    "role": "independent_dev",
+    "goal": "clean some kettle and put it in cabinet.",
+    "goal_group": "6a97e4597015e9174be1d1b8314cfbd79c226ed506814a2683e0379df249748f",
+    "seed": 2320,
+    "initial_sha256": "2aa5b08fd059c36cf26d7d855585b43e98418fc4e4064dc4dee91cb9f3f0ec8e",
+    "initial_prompt_tokens": 556,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-a950f6352b0a4ad9",
+    "role": "independent_dev",
+    "goal": "put a cool lettuce in garbagecan.",
+    "goal_group": "7eeafa39c8eaa402060e07eeafbcee9f1514046ab8c16675a0ffed07e24d0aca",
+    "seed": 2979,
+    "initial_sha256": "c89a34acce82c4780b1c28111a25d2a13c50bbac443bd03c1d0ac33190797153",
+    "initial_prompt_tokens": 617,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-3282b836b8e26309",
+    "role": "independent_dev",
+    "goal": "heat some potato and put it in garbagecan.",
+    "goal_group": "0ea9f07bbf635ce8953641fed14dd90e341155344b0d34c833f2763e48fb1365",
+    "seed": 3678,
+    "initial_sha256": "0a44be6dbccab8e2adc195ed79d4288611d9aa1f32b46fb93807a2521e0f96a1",
+    "initial_prompt_tokens": 673,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-bcd0647f6922d3c9",
+    "role": "independent_dev",
+    "goal": "find two mug and put them in cabinet.",
+    "goal_group": "4c7d3ff4fffaa503d65b74ddf5f8b9e78e0c37b9f31f6bde12d7342c745155c5",
+    "seed": 4098,
+    "initial_sha256": "960a38fd881efdec1a285ac0632d4fc5184d7073c328cea336cdf8b2efd35a39",
+    "initial_prompt_tokens": 516,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-143b76827ddde85a",
+    "role": "independent_dev",
+    "goal": "put a laptop in sidetable.",
+    "goal_group": "89ec787bd8b9cd8b57810ac655c052e82c96fc52e9943b1ac127d4bc73e31919",
+    "seed": 1715,
+    "initial_sha256": "1121a1c7ff69abca6c5ab3b291e7536054bbebbcfbfdc9ca28bbbb404b375424",
+    "initial_prompt_tokens": 362,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-34589df1b49a4c71",
+    "role": "independent_dev",
+    "goal": "put a clean apple in microwave.",
+    "goal_group": "6d7294b5dfacd868a80559a2a9a9190520b0cdc2998d3ffd393c0a2d06fa1148",
+    "seed": 2111,
+    "initial_sha256": "9fbe43bbf23c927c00a8c07e348088dd8991cb50b35ad0e8c82071121def0be8",
+    "initial_prompt_tokens": 508,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-671364ab003147bf",
+    "role": "independent_dev",
+    "goal": "put a cool cup in shelf.",
+    "goal_group": "cc554ccadd2cb1613f002a876cf1edb6803cc64f431e7e52967771aee8ed80ce",
+    "seed": 2911,
+    "initial_sha256": "39b3ec5dc0bd3f203557eb366031e1200204e611dcb7fc8faf2ce21aa75b7bf8",
+    "initial_prompt_tokens": 664,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-6b73bf8b5d66da7c",
+    "role": "independent_dev",
+    "goal": "put a hot apple in fridge.",
+    "goal_group": "5358489ebd038273e6134d558da41b96d57e4de3804fa3a330a0f29286b7047d",
+    "seed": 3298,
+    "initial_sha256": "8f4b6f1d38e57da3fa6213e9a8c75a65904e02c104cf1b11bb0cd330858ea841",
+    "initial_prompt_tokens": 706,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-99f78ae020266d07",
+    "role": "independent_dev",
+    "goal": "find two handtowel and put them in countertop.",
+    "goal_group": "2e906b815e52a2c91af318138cd99f1e23c2323ef9a77cfc4cc117d76590153a",
+    "seed": 4017,
+    "initial_sha256": "d654213f0f4fec6758989f9b36367add5a4edd4846ab05fe1b30a9c3624897f1",
+    "initial_prompt_tokens": 419,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-82cc5af520f659fc",
+    "role": "independent_dev",
+    "goal": "put a candle in countertop.",
+    "goal_group": "5d7a1db03f6b517530245ad3d2325581fa1263dc4bcab3b8b5b22ef0e90fecfb",
+    "seed": 1452,
+    "initial_sha256": "07540fa15159b8d4e3aba732e138382a4a1e3d6454add0e46775879519364d83",
+    "initial_prompt_tokens": 444,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-fab1a66289281d99",
+    "role": "independent_dev",
+    "goal": "put a clean bowl in microwave.",
+    "goal_group": "9a3311e0ecefb35dab506004ae790e4807cb1fb28068b4603d431714a6cc00f4",
+    "seed": 2142,
+    "initial_sha256": "371b035c0976592e121152bc1a5ec40861700c6611a5635600be6b31a253e5ea",
+    "initial_prompt_tokens": 930,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-8c66abd6e58bc618",
+    "role": "environment_validation",
+    "goal": "cool some pot and put it in stoveburner.",
+    "goal_group": "6edfe0c6c7d7e5b38138b8a5859b7a383577142e2314317a2a061c8c477b2d56",
+    "seed": 3173,
+    "initial_sha256": "15b4c2708c46cd9c991226e471b99308c6e46fce12ef14cae0d41f4781795b64",
+    "initial_prompt_tokens": 562,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-46d299cad63c5852",
+    "role": "environment_validation",
+    "goal": "put a hot bread in garbagecan.",
+    "goal_group": "7b2d65e6e5c6a4dacf7b98966f2d9e93739b16f635ece69b75104c3d9d8ea982",
+    "seed": 3343,
+    "initial_sha256": "007b7314f68abdd67c4ea2add2511e377f3c2aea075681f5d8ffe5302742f84d",
+    "initial_prompt_tokens": 593,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-da648efaa6db78e5",
+    "role": "environment_validation",
+    "goal": "find two cloth and put them in toilet.",
+    "goal_group": "879a9e89e7c7e8c68735fb8d7213777c7a2eda30404f2662050f3a27991d0a00",
+    "seed": 3932,
+    "initial_sha256": "d664833d5f5ab959fb2ce7fba4b662df2525cb6d219c63d261cb2d1c5289c66e",
+    "initial_prompt_tokens": 422,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-bb1d8c818449137f",
+    "role": "environment_validation",
+    "goal": "put some soapbottle on toilet.",
+    "goal_group": "123d2180d355a66c3fc455df0ff7c4172c16acf4034ffc3588f2be31e4882301",
+    "seed": 1909,
+    "initial_sha256": "a4ee5f95d6105f4530c00a1d5b5d9c065d4427dd40f2947e05c8e5a198552a5a",
+    "initial_prompt_tokens": 437,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  },
+  {
+    "task_id": "alf-3fddd54627cffd1f",
+    "role": "environment_validation",
+    "goal": "clean some soapbar and put it in shelf.",
+    "goal_group": "07a16efd454da35829bb183e6a1ca6ea34d9efbf053c0937ee47c1701c08d439",
+    "seed": 2651,
+    "initial_sha256": "c5a5f9f5dc8bb8102159bfe2c78fb8aff008d9f63092cb239d0580da83351295",
+    "initial_prompt_tokens": 400,
+    "versions": {
+      "alfworld": "0.4.2",
+      "textworld": "1.7.0"
+    }
+  }
+]

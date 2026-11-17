@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "identities": 77,
+  "roles": {
+    "probe_train": 36,
+    "probe_validation": 12,
+    "gate_calibration": 12,
+    "independent_dev": 12,
+    "environment_validation": 5
+  },
+  "replay_controls": 5,
+  "transition_queries": 117,
+  "audit_capture_bundles": 127,
+  "tokens": 0,
+  "model_calls": 0,
+  "no_test_resets": true,
+  "no_prior_native_goal_overlap": true,
+  "split_sha256": "dfc7dad44f64adf8f511236a9143e9467ef0a978fb93817178ebbcaef1b5e83a",
+  "seconds": 201.2818233910948,
+  "scope": "Exact public transitions and private fact digest, not full hidden RNG serialization"
+}

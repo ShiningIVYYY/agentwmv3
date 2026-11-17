@@ -808,3 +808,8 @@ Three goal-disjoint TRAIN-pool development games×seed0×Never/Always/Internal/E
 
 User-authorized50 new development games×seed0×Never/Always/Internal/External/Full=250 Episodes, reusing all pilot method settings, thresholds and Memory. See [protocol, limits and commands](docs/ALFWORLD_DEV50.md). Run lifecycle/progress and errors are saved under outputs/alfworld_dev50_v1; final audited report is docs/ALFWORLD_DEV50_REPORT.md. This is not the official140-game Test evaluation or Phase6.
 <!-- /ALFWORLD_DEV50_PROTOCOL -->
+
+
+## Supervised activation-monitor pilot (new research version)
+
+User-approved extension: frozen Qwen3.5-9B Actor/Reviewer plus trainable small activation probes, with native ALFWorld one-step Reset/Replay. This version is supervised and is not called training-free. Old configurations and results remain separate. See [implementation/data isolation/commands/budgets](docs/ACTIVATION_PROBE_IMPLEMENTATION.md), [approved proposal](docs/ACTIVATION_PROBE_PLAN.md) and [current status/results](docs/ACTIVATION_V1_REPORT.md). Real engineering checks passed; task performance remains pending until independently evaluated. No final140-game Test or Phase6 is launched.

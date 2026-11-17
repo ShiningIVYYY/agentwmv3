@@ -1,0 +1,184 @@
+{
+  "status": "pass",
+  "scope": "real engineering smoke, not benchmark effectiveness",
+  "contract": {
+    "actor_config_sha256": "dc66647980efb047e1322f8793f2ae5d1a39f882ee2223e119ee5431f3976540",
+    "actor_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "protocol_sha256": "9cf746832903ad652eafd9a24c41d0059f407009e073daf6e227d6c4199a2396",
+    "capture": {
+      "schema": "post-token-full-forward-v1",
+      "hidden_dim": 4096,
+      "num_layers": 32,
+      "layers": [
+        10,
+        15,
+        21
+      ],
+      "capture_point": "decoder_block_output_before_final_norm",
+      "module_path": "model.language_model.layers",
+      "layer_types": {
+        "10": "linear_attention",
+        "15": "full_attention",
+        "21": "linear_attention"
+      },
+      "dtype": "bfloat16",
+      "response_only": true
+    },
+    "tokenizer_sha256": "15a214a57ad598a3d436f8ff2288186aa5cdaaf5c2308732a8b16d15d94e1162"
+  },
+  "shapes": {
+    "10": [
+      35,
+      4096
+    ],
+    "15": [
+      35,
+      4096
+    ],
+    "21": [
+      35,
+      4096
+    ]
+  },
+  "repeat_max_abs": 0.0,
+  "prefix_future_relative_rms": {
+    "10": 0.0,
+    "15": 0.0,
+    "21": 0.0
+  },
+  "actor_raw": "Premise: I am in the room but have no pot in inventory.\nExpected Consequence: The command will list available items to find a pot.\nAction: inventory",
+  "actor_repeat_token_ids_equal": true,
+  "nll_repeat_exact": true,
+  "wm": {
+    "status": "ok",
+    "prediction_available": true,
+    "source": "ground_truth_environment",
+    "benchmark": "alfworld",
+    "predicted_observation": "You are not carrying anything.",
+    "predicted_reward": 0.0,
+    "predicted_done": false,
+    "predicted_score": 0.0,
+    "predicted_success": false,
+    "candidate_transition": {
+      "observation": "You are not carrying anything.",
+      "admissible_commands": [
+        "go to cabinet 1",
+        "go to cabinet 10",
+        "go to cabinet 2",
+        "go to cabinet 3",
+        "go to cabinet 4",
+        "go to cabinet 5",
+        "go to cabinet 6",
+        "go to cabinet 7",
+        "go to cabinet 8",
+        "go to cabinet 9",
+        "go to coffeemachine 1",
+        "go to countertop 1",
+        "go to diningtable 1",
+        "go to drawer 1",
+        "go to drawer 2",
+        "go to fridge 1",
+        "go to garbagecan 1",
+        "go to microwave 1",
+        "go to sinkbasin 1",
+        "go to stoveburner 1",
+        "go to stoveburner 2",
+        "go to stoveburner 3",
+        "go to stoveburner 4",
+        "go to toaster 1",
+        "help",
+        "inventory",
+        "look"
+      ],
+      "reward": 0.0,
+      "done": false,
+      "native_done": false,
+      "success": false,
+      "score": 0.0,
+      "moves": 1,
+      "formal_steps": 1,
+      "truncated": false,
+      "action": "inventory",
+      "private_state_sha256": "2057c9c60944e68a5433668525921f3c5a16699c4c8354241de1cd002c84d3a1"
+    },
+    "candidate_state_sha256": "6d7289850568cfd0c34c809314c3bdbc9077c7fbe2fff892786612ed4136157c",
+    "verified_prefix_steps": 0,
+    "formal_pid": 1485077,
+    "worker_pid": 1485372,
+    "formal_unchanged": true,
+    "available_at_ns": 1794951875415179577,
+    "simulation_latency": 3.2840851545333862,
+    "simulation_cost": {
+      "initializations": 1,
+      "replay_steps": 0,
+      "candidate_steps": 1,
+      "state_capture_bundles": 2,
+      "formal_inspections": 2,
+      "initialization_seconds": 2.838754117488861,
+      "initialization_receipt_known": true,
+      "replay_seconds": 3.917142748832703e-06,
+      "candidate_seconds": 0.1291538905352354,
+      "cleanup_seconds": 0.31499461084604263
+    }
+  },
+  "review": {
+    "raw": "Decision: KEEP\nReason: Inventory confirms no pot is carried, so the draft is valid and necessary.\nFinal Action: inventory",
+    "decision": "KEEP",
+    "reason": "Inventory confirms no pot is carried, so the draft is valid and necessary.",
+    "final_action": "inventory",
+    "changed": false,
+    "action_validity": "unknown",
+    "semantic_utility": "unknown"
+  },
+  "actual": {
+    "observation": "You are not carrying anything.",
+    "admissible_commands": [
+      "go to cabinet 1",
+      "go to cabinet 10",
+      "go to cabinet 2",
+      "go to cabinet 3",
+      "go to cabinet 4",
+      "go to cabinet 5",
+      "go to cabinet 6",
+      "go to cabinet 7",
+      "go to cabinet 8",
+      "go to cabinet 9",
+      "go to coffeemachine 1",
+      "go to countertop 1",
+      "go to diningtable 1",
+      "go to drawer 1",
+      "go to drawer 2",
+      "go to fridge 1",
+      "go to garbagecan 1",
+      "go to microwave 1",
+      "go to sinkbasin 1",
+      "go to stoveburner 1",
+      "go to stoveburner 2",
+      "go to stoveburner 3",
+      "go to stoveburner 4",
+      "go to toaster 1",
+      "help",
+      "inventory",
+      "look"
+    ],
+    "reward": 0.0,
+    "done": false,
+    "native_done": false,
+    "success": false,
+    "score": 0.0,
+    "moves": 1,
+    "formal_steps": 1,
+    "truncated": false,
+    "action": "inventory",
+    "private_state_sha256": "2057c9c60944e68a5433668525921f3c5a16699c4c8354241de1cd002c84d3a1"
+  },
+  "actor_trainable_parameters": 0,
+  "ledger": {
+    "tokens": 2024,
+    "model_calls": 3,
+    "transition_queries": 4,
+    "audit_capture_bundles": 6,
+    "pending_model": null,
+    "pending_transition": null
+  }
+}

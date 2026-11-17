@@ -1,0 +1,44 @@
+{
+  "schema": "activation-experiment-v1",
+  "actor_config": "configs/internal_signals/qwen35_9b_activation_v1.json",
+  "split": "docs/activation_v1/split_manifest.json",
+  "split_sha256": "dfc7dad44f64adf8f511236a9143e9467ef0a978fb93817178ebbcaef1b5e83a",
+  "data_root": "${ALFWORLD_DATA}",
+  "env_python": "${ALFWORLD_PYTHON}",
+  "collection_steps": 12,
+  "utility_step": 2,
+  "train_seeds": [
+    0,
+    1,
+    2
+  ],
+  "evaluation_seed": 0,
+  "budget": 5,
+  "horizon": 50,
+  "utility_labels": "one_predeclared_step2_per_task; single paired continuation seed0",
+  "gpus": [
+    0,
+    6,
+    7
+  ],
+  "stage_limits": {
+    "tokens": 4000000,
+    "model_calls": 4000,
+    "transition_queries": 30000,
+    "audit_capture_bundles": 40000
+  },
+  "global_limits": {
+    "tokens": 24000000,
+    "model_calls": 24000,
+    "transition_queries": 180000,
+    "audit_capture_bundles": 240000,
+    "wall_seconds": 129600
+  },
+  "memory_snapshot": "docs/alfworld_pilot/memory_snapshot.json",
+  "memory_sha256": "85c87dc752498490ac2263acbd702f8ccbf271af628039afd860f3d00d28ba40",
+  "no_actor_or_reviewer_training": true,
+  "format_failure": "agent_abort_preserve_last_native_score_no_invented_action",
+  "reviewer_guard": "reject_nonadmissible_replacement_keep_original",
+  "teacher_forced_activation_forward": true,
+  "utility_deployment_requirement": "Both help and harm heads must have sufficient independent training/validation labels; otherwise no fake utility policy"
+}

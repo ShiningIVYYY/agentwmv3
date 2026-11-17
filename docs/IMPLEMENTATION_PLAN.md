@@ -202,3 +202,18 @@ Protocol: docs/ALFWORLD_DEV50.md; frozen profile configs/evaluation/alfworld_dev
 <!-- /ALFWORLD_DEV50_HANDOFF -->
 
 Dev50 status update: STOPPED at236/250 complete due Actor512-token draft truncation without Action; all owned workers exited, no unknown pending receipts.47 common tasks yield Never7/47,Always18/47,Internal12/47,External7/47,Full11/47. These are partial complete-case figures, NOT final50-task results. See [ALFWORLD_DEV50_PARTIAL_REPORT.md](ALFWORLD_DEV50_PARTIAL_REPORT.md). Frozen method unchanged; no automatic restart or new fallback;14 Episodes remain.
+
+
+## Activation Probe v1: authorized supervised extension
+
+The user approved implementation of the desktop activation-probe proposal and explicitly relaxed the training-free restriction. Only small probes may be trained; Actor/Reviewer Qwen3.5-9B remain frozen. Old methods/configuration/results and agentwmv2 are preserved.
+
+- [x] Independent v2 decision/reviewer/format-abort protocol, fresh goal-group split36/12/12/12 plus5 separate native controls; final140/exposed50 and prior Memory/calibration goals excluded.
+- [x] Real model capture discovery:32 layers/4096 dim, blocks10/15/21, response post-token hooks; repeat/causality/generation-NLL checks pass.
+- [x] 14 CPU contracts and77 native identities/5 real replay controls pass.
+- [x] Cached-feature risk/paired-utility collection, strict supervised provider, Linear/MLP/EMA alternatives and3-seed validation selection implemented.
+- [ ] Collect real Train/Validation/Calibration activations and same-state Call/Skip labels; report sparse labels honestly.
+- [ ] Train eligible heads only; new NLL/head calibration on separate goals; no fake Utility deployment if Help/Harm labels are insufficient.
+- [ ] Fixed12 untouched development tasks, common new protocol and bounded controls; summarize costs and per-instance outcomes.
+
+Three available GPUs0/6/7, max4 authorized, whole-run36h/24Mtoken caps. Detailed scope/commands/limits: [ACTIVATION_PROBE_IMPLEMENTATION.md](ACTIVATION_PROBE_IMPLEMENTATION.md). Background startup will be checked and recorded; completed raw results remain in outputs with compact audited reports in docs. No ScienceWorld experiment or final Test is started, and no next phase is automatically approved.
