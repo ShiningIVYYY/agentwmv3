@@ -1,14 +1,22 @@
-# Activation Probe v1: engineering validation and experiment status
+# Activation Probe v1 pilot results
 
-Implementation and engineering smoke passed. The supervised data collection, classifier metrics and independent Episode comparison are not yet complete.
+This new protocol trains only small probes; Actor/Reviewer remain frozen. Historical47-task outcomes are not merged.
 
-- 14 CPU tests pass.
-- 77 native task identities and 5 separate real replay controls pass; no final Test reset.
-- Real Qwen3.5-9B: selected post-token tensors [35,4096], repeat difference0, future-suffix prefix difference0, frozen Actor parameters0.
-- Full experiment results are pending; no accuracy, utility or success-rate improvement is claimed.
+| Policy | Success | SR | Tokens | WM calls | Format aborts |
+|---|---:|---:|---:|---:|---:|
+| admissible | 3/12 | 25.0% | 283458 | 10 | 0 |
+| always | 5/12 | 41.7% | 664080 | 488 | 0 |
+| never | 3/12 | 25.0% | 258299 | 0 | 0 |
+| nll | 3/12 | 25.0% | 306399 | 54 | 0 |
+| nll_external | 3/12 | 25.0% | 306399 | 54 | 0 |
+| periodic | 3/12 | 25.0% | 316678 | 54 | 0 |
+| random | 2/12 | 16.7% | 333654 | 49 | 0 |
+| review_only | 4/12 | 33.3% | 299164 | 0 | 0 |
 
-See [implementation, commands, data roles and budgets](ACTIVATION_PROBE_IMPLEMENTATION.md) and [real receipts](activation_v1/real_model_smoke.json).
+Utility label counts: {"neutral": 58, "harm": 2}
 
-Startup confirmed: detached supervisor PID1506811, GPUs0/6/7, source commit c21aeb4b2fc19f0241e736dde810c1859524ce51. All three models strictly load with empty missing/unexpected/mismatched/error lists and remain frozen. The startup audit checked45 real cached decisions, field masks, BF16 finite tensors, pre-outcome timestamps, unchanged source contracts and token-ledger prefixes. The controller remains in real-data collection; supervised training and independent Episode results are pending. See [startup audit](activation_v1/startup_audit.json).
+Utility deployment: False. Insufficient heads are omitted, not fabricated.
 
-First completed paired labels are training-data diagnostics only, not independent task performance. The bounded controller may deploy only heads with sufficient real labels, and will generate the final results here after evaluation. It is left running in the background after startup verification, as requested.
+Full train/validation/calibration metrics, all3 seeds, selected layer/architecture, costs and limitations: [JSON](activation_v1/results/summary.json).
+
+No significance or causal generalization claim. Native rejection direct-rule baseline is essential; Risk classification alone is not WM Utility. No original benchmark results were overwritten.
