@@ -1,0 +1,12 @@
+{
+  "pid": 1735961,
+  "run": "/data1/shn/agentwmv3/outputs/utility_sampling_v2",
+  "started_unix": 1794968227.8464386,
+  "source_commit": "77e87ce0da953bb836e6f217ee9a410e546b23a0",
+  "gpus": [
+    0,
+    3,
+    5
+  ],
+  "status": "launched_startup_pending"
+}

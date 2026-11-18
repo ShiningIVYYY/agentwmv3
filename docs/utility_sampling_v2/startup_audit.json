@@ -1,0 +1,155 @@
+{
+  "status": "pass",
+  "scope": "startup, not final utility effectiveness",
+  "at_unix": 1794968604.3207452,
+  "source_commit": "77e87ce0da953bb836e6f217ee9a410e546b23a0",
+  "gpus": [
+    0,
+    3,
+    5
+  ],
+  "workers": [
+    {
+      "worker": "worker0",
+      "real_cases": 89,
+      "source_episodes": 1,
+      "task_pairs": 0,
+      "state_labels": 0,
+      "strict_loading": true,
+      "frozen_actor": true
+    },
+    {
+      "worker": "worker1",
+      "real_cases": 62,
+      "source_episodes": 2,
+      "task_pairs": 1,
+      "state_labels": 4,
+      "strict_loading": true,
+      "frozen_actor": true
+    },
+    {
+      "worker": "worker2",
+      "real_cases": 34,
+      "source_episodes": 2,
+      "task_pairs": 1,
+      "state_labels": 4,
+      "strict_loading": true,
+      "frozen_actor": true
+    }
+  ],
+  "cached_features_audited": 30,
+  "all_case_timestamps_checked": true,
+  "cost_prefixes_match": true,
+  "no_unchanged_action_correctness_inference": true,
+  "first_paired_task": {
+    "task_id": "alf-3ca16e89aa2f5d34",
+    "never_success": true,
+    "always_success": true,
+    "never_steps": 13,
+    "always_steps": 10,
+    "first_divergence": {
+      "step": 6,
+      "never_case_id": "utility-v2/alf-3ca16e89aa2f5d34/never/seed1/6",
+      "always_case_id": "utility-v2/alf-3ca16e89aa2f5d34/always/seed1/6",
+      "exact_common_state": true,
+      "same_draft": true
+    }
+  },
+  "initial_labels": [
+    {
+      "case_id": "utility-v2/alf-3ca16e89aa2f5d34/never/seed1/9",
+      "label": "neutral",
+      "changed": false,
+      "deltas": [
+        0
+      ],
+      "reliability": "verified_equal_action_state_and_seed1_continuation",
+      "action_correctness": "unknown"
+    },
+    {
+      "case_id": "utility-v2/alf-3ca16e89aa2f5d34/never/seed1/6",
+      "label": "neutral",
+      "changed": true,
+      "deltas": [
+        0,
+        0,
+        0
+      ],
+      "reliability": "3_paired_continuation_seeds",
+      "action_correctness": "unknown"
+    },
+    {
+      "case_id": "utility-v2/alf-3ca16e89aa2f5d34/never/seed1/12",
+      "label": "neutral",
+      "changed": false,
+      "deltas": [
+        0
+      ],
+      "reliability": "verified_equal_action_state_and_seed1_continuation",
+      "action_correctness": "unknown"
+    },
+    {
+      "case_id": "utility-v2/alf-3ca16e89aa2f5d34/never/seed1/11",
+      "label": "neutral",
+      "changed": false,
+      "deltas": [
+        0
+      ],
+      "reliability": "verified_equal_action_state_and_seed1_continuation",
+      "action_correctness": "unknown"
+    },
+    {
+      "case_id": "utility-v2/alf-366bf47794720c5b/never/seed1/5",
+      "label": "neutral",
+      "changed": false,
+      "deltas": [
+        0
+      ],
+      "reliability": "verified_equal_action_state_and_seed1_continuation",
+      "action_correctness": "unknown"
+    },
+    {
+      "case_id": "utility-v2/alf-366bf47794720c5b/never/seed1/8",
+      "label": "neutral",
+      "changed": false,
+      "deltas": [
+        0
+      ],
+      "reliability": "verified_equal_action_state_and_seed1_continuation",
+      "action_correctness": "unknown"
+    },
+    {
+      "case_id": "utility-v2/alf-366bf47794720c5b/never/seed1/11",
+      "label": "neutral",
+      "changed": false,
+      "deltas": [
+        0
+      ],
+      "reliability": "verified_equal_action_state_and_seed1_continuation",
+      "action_correctness": "unknown"
+    },
+    {
+      "case_id": "utility-v2/alf-366bf47794720c5b/never/seed1/10",
+      "label": "neutral",
+      "changed": false,
+      "deltas": [
+        0
+      ],
+      "reliability": "verified_equal_action_state_and_seed1_continuation",
+      "action_correctness": "unknown"
+    }
+  ],
+  "latest_progress": {
+    "stage": "train_pool",
+    "cost": {
+      "tokens": 211807,
+      "model_calls": 352,
+      "transition_queries": 1637,
+      "audit_capture_bundles": 1791
+    },
+    "completed_tasks": 1,
+    "completed_state_labels": 8,
+    "completed_seed_pairs": 10
+  },
+  "error_count": 0
+}
