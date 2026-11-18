@@ -813,3 +813,8 @@ User-authorized50 new development games×seed0×Never/Always/Internal/External/F
 ## Supervised activation-monitor pilot (new research version)
 
 User-approved extension: frozen Qwen3.5-9B Actor/Reviewer plus trainable small activation probes, with native ALFWorld one-step Reset/Replay. This version is supervised and is not called training-free. Old configurations and results remain separate. See [implementation/data isolation/commands/budgets](docs/ACTIVATION_PROBE_IMPLEMENTATION.md), [approved proposal](docs/ACTIVATION_PROBE_PLAN.md) and [current status/results](docs/ACTIVATION_V1_REPORT.md). Real engineering checks passed; task performance remains pending until independently evaluated. No final140-game Test or Phase6 is launched.
+
+
+## WM utility-label sampling v2
+
+Paired TRAIN-task Never/Always source trajectories locate candidate calls; exact-state Call/Skip continuations establish labels. Temporal/public-risk sampling replaces fixed step-index2, with repeated seeds and explicit Unknown/Neutral semantics. Actor/Reviewer/Memory/Gate remain frozen. See [protocol and bounded launch commands](docs/UTILITY_SAMPLING_V2.md). No Test/independent-Dev reassignment or automatic Gate deployment; v1 results remain separate.

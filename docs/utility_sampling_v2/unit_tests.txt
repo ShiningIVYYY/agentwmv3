@@ -1,0 +1,39 @@
+test_conflicting_not_positive (__main__.Sampling.test_conflicting_not_positive) ... ok
+test_duplicate_contexts (__main__.Sampling.test_duplicate_contexts) ... ok
+test_external_unknown_not_conflict (__main__.Sampling.test_external_unknown_not_conflict) ... ok
+test_goal_roles_preserved (__main__.Sampling.test_goal_roles_preserved) ... ok
+test_harm (__main__.Sampling.test_harm) ... ok
+test_heldout_has_no_outcome_mining (__main__.Sampling.test_heldout_has_no_outcome_mining) ... ok
+test_inclusion_probability_sums_two (__main__.Sampling.test_inclusion_probability_sums_two) ... ok
+test_no_fake_unrun_seeds (__main__.Sampling.test_no_fake_unrun_seeds) ... ok
+test_one_case (__main__.Sampling.test_one_case) ... ok
+test_seed_sensitive_not_positive (__main__.Sampling.test_seed_sensitive_not_positive) ... ok
+test_selection_does_not_use_future (__main__.Sampling.test_selection_does_not_use_future) ... ok
+test_shared_prefix_difference_is_candidate_not_help (__main__.Sampling.test_shared_prefix_difference_is_candidate_not_help) ... ok
+test_stable_help (__main__.Sampling.test_stable_help) ... ok
+test_temporal_coverage (__main__.Sampling.test_temporal_coverage) ... ok
+test_verified_unchanged_is_not_action_correct (__main__.Sampling.test_verified_unchanged_is_not_action_correct) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.006s
+
+OK
+test_future_fields_rejected (__main__.Contracts.test_future_fields_rejected) ... ok
+test_metric_perfect (__main__.Contracts.test_metric_perfect) ... ok
+test_metric_ties (__main__.Contracts.test_metric_ties) ... ok
+test_no_action_invented (__main__.Contracts.test_no_action_invented) ... ok
+test_nonadmissible_replacement_guard (__main__.Contracts.test_nonadmissible_replacement_guard) ... ok
+test_padding_invariance (__main__.Contracts.test_padding_invariance) ... ok
+test_single_class_not_fake_auc (__main__.Contracts.test_single_class_not_fake_auc) ... ok
+test_sparse_labels_never_create_fake_head (__main__.Contracts.test_sparse_labels_never_create_fake_head) ... ok
+test_stream_batch_equivalence (__main__.Contracts.test_stream_batch_equivalence) ... ok
+test_stream_training_rejected (__main__.Contracts.test_stream_training_rejected) ... ok
+test_strict_checkpoint_and_contract (__main__.Contracts.test_strict_checkpoint_and_contract) ... ok
+test_training_updates_only_probe (__main__.Contracts.test_training_updates_only_probe) ... ok
+test_truncated_rejected (__main__.Contracts.test_truncated_rejected) ... ok
+test_valid_three_fields (__main__.Contracts.test_valid_three_fields) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.976s
+
+OK

@@ -219,3 +219,12 @@ The user approved implementation of the desktop activation-probe proposal and ex
 Three available GPUs0/6/7, max4 authorized, whole-run36h/24Mtoken caps. Detailed scope/commands/limits: [ACTIVATION_PROBE_IMPLEMENTATION.md](ACTIVATION_PROBE_IMPLEMENTATION.md). Background startup will be checked and recorded; completed raw results remain in outputs with compact audited reports in docs. No ScienceWorld experiment or final Test is started, and no next phase is automatically approved.
 
 Activation startup verified: three strict frozen9B loads on0/6/7,45 real cached decision features audited with source/field/timestamp/ledger checks, initial actual paired label(s) recorded. Detached controller PID1506811 continues under frozen source commit c21aeb4; no continuous assistant monitoring. Final Probe/classifier and12-task policy results remain pending. Startup receipt: docs/activation_v1/startup_audit.json.
+
+
+## Utility sampling v2: paired tasks and repeated state interventions
+
+The user authorized fixing positive-utility sample scarcity and suggested comparing same-task Always success against Never failure. Preserve all old results, Actor/Reviewer/Memory/Gate/thresholds, and source role assignments. No final Test or previously evaluated independent Dev task enters training.
+
+Implemented: identical task/seed Never/Always source pairs, first exact common-state action divergence, Train-only outcome-mined candidates, early/middle/late random+public-risk sampling, actual one-step trial, fixed seed0 Reviewer and3 continuation seeds with5-seed confirmation of any nonzero difference. Unchanged intervention is NOT labelled action-correct.15 new CPU contracts plus14 prior contracts pass; original frozen method hashes unchanged.
+
+First collect36 legal TRAIN task pairs; only>=5 five-seed repeated Help candidates across>=3 TRAIN tasks permits the fixed Val/Calibration expansion. No automatic learned-Gate deployment; insufficient evidence stops with real results. Resource bounds:3 available GPUs0/3/5,max4 authorized,36h/36Mtokens/global native-query caps. Protocol/commands: [UTILITY_SAMPLING_V2.md](UTILITY_SAMPLING_V2.md). Authoritative run state: outputs/utility_sampling_v2/progress.json; report destination docs/UTILITY_SAMPLING_V2_REPORT.md.
