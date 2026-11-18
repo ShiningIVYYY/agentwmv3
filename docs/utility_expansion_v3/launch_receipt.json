@@ -1,0 +1,14 @@
+{
+  "pid": 3004493,
+  "status": "launched_startup_pending",
+  "started_unix": 1795037649.1228013,
+  "run": "/data1/shn/agentwmv3/outputs/utility_expansion_v3",
+  "source_commit": "5a36ca9805dcec0d00ef333f515de43ade102682",
+  "gpus": [
+    5,
+    6,
+    7
+  ],
+  "new_training_goals": 24,
+  "inherited_training_goals": 36
+}
