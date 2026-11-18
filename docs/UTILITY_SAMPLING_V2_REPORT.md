@@ -1,12 +1,15 @@
-# Utility sampling v2: startup status
+# Utility sampling v2 results
 
-The bounded experiment is running in the background after real startup validation. No final positive-sample or Probe-effectiveness claim is made.
+Paired TRAIN-pool Never/Always source trajectories, temporal/public-risk sampling and repeated same-state interventions.
 
-- Same frozen Qwen3.5-9B Actor/Reviewer, original prompt/dtype/Memory/Gate hashes unchanged.
-- 15 new plus14 prior CPU tests pass.
-- Three strict model loads on GPU0/3/5; no missing/unexpected/mismatched weights.
-- Startup checked185 real source decisions and30 cached feature records: BF16 finite tensors, valid field masks and pre-outcome timestamps.
-- Two same-task Never/Always source pairs completed; exact common-state divergence observed.
-- Eight initial state labels are Neutral under the final-success definition; one changed-action state has three observed deltas[0,0,0]. These are TRAIN diagnostics, not independent performance.
+Real decision cases: 2651; selected state labels: 229.
 
-See [protocol, sampling and hard budgets](UTILITY_SAMPLING_V2.md), [startup audit](utility_sampling_v2/startup_audit.json). Final results will replace this status after collection/audit. No final Test or prior independent-Dev task is used.
+State labels: {"neutral": 214, "uncertain": 11, "help": 4}
+
+Paired task outcomes: {"always_success_never_success": 12, "always_failure_never_failure": 19, "always_success_never_failure": 5}
+
+Validation/Calibration expanded: False. No final Test or independent Dev task was rolled out.
+
+No Actor/Reviewer/Memory/Gate changes. No automatic learned Gate deployment. Full actual examples, seed differences, cost and heads: [results](utility_sampling_v2/results/summary.json).
+
+Insufficient positive labels remain a feasibility limitation; no success or future feedback was invented.
