@@ -818,3 +818,8 @@ User-approved extension: frozen Qwen3.5-9B Actor/Reviewer plus trainable small a
 ## WM utility-label sampling v2
 
 Paired TRAIN-task Never/Always source trajectories locate candidate calls; exact-state Call/Skip continuations establish labels. Temporal/public-risk sampling replaces fixed step-index2, with repeated seeds and explicit Unknown/Neutral semantics. Actor/Reviewer/Memory/Gate remain frozen. See [protocol and bounded launch commands](docs/UTILITY_SAMPLING_V2.md). No Test/independent-Dev reassignment or automatic Gate deployment; v1 results remain separate.
+
+
+## Legal utility training expansion v3
+
+Add24 untouched TRAIN goal groups, reuse immutable original36-goal data, retain all heldout roles. A versioned correction moves5 legacy mixed-seed Neutral records to Uncertain without changing the4 Help candidates or original positive rule. See [scope, preflight, labels, budgets and commands](docs/UTILITY_EXPANSION_V3.md).44 CPU contracts and29 new native identities/5 replay controls pass. No Actor/Reviewer/Memory/Gate changes, Test rollout or automatic learned-Gate deployment.

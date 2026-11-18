@@ -230,3 +230,12 @@ Implemented: identical task/seed Never/Always source pairs, first exact common-s
 First collect36 legal TRAIN task pairs; only>=5 five-seed repeated Help candidates across>=3 TRAIN tasks permits the fixed Val/Calibration expansion. No automatic learned-Gate deployment; insufficient evidence stops with real results. Resource bounds:3 available GPUs0/3/5,max4 authorized,36h/36Mtokens/global native-query caps. Protocol/commands: [UTILITY_SAMPLING_V2.md](UTILITY_SAMPLING_V2.md). Authoritative run state: outputs/utility_sampling_v2/progress.json; report destination docs/UTILITY_SAMPLING_V2_REPORT.md.
 
 Utility-v2 startup verified: detached controller PID1735961, GPU0/3/5 workers1736077/1736078/1736079. Three strict frozen model loads;185 actual source decisions and30 cached features checked, first two paired tasks and eight state labels recorded with exact-state/seed checks. Initial labels are neutral, not evidence of correctness or new efficacy. Leave bounded collection running after startup verification; no continuous monitoring, duplicate launch or Phase6. Source commit77e87ce, startup receipts under docs/utility_sampling_v2.
+
+
+## Utility training expansion v3 (authorized)
+
+Reuse the original36 TRAIN goals/2651 cached decisions/229 labels, add24 new goal-disjoint TRAIN tasks. Preserve original12 Val/12 Cal/12 exposed Dev/final140 roles.29 new native identities and5 separate replay controls pass with zero model generation. No old tasks are rerun. New family counts6 placement/6 cleaning/6 cooling/1 heating/5 two-object; scarcity is not addressed by relaxing goal exclusion.
+
+Audit found5 mixed five-seed outcomes miscounted Neutral by V2. Correct derived labels to Uncertain, preserve raw files and all4 Help candidates; no Actor/Reviewer/Memory/Gate changes or lowered positive criterion. Fifteen new regression contracts plus29 original contracts pass (44 total). Counterfactual execution body remains identical, only the versioned aggregator import changes.
+
+Collect all24 new tasks before testing the original>=5 Help/across>=3 TRAIN task rule on the combined corpus. Only then collect fixed Val/Cal and train eligible small heads; deployment_allowed=false and no independent Dev/Test/Phase6 execution. Three free GPUs5/6/7; bounded36h/36Mtoken run, fixed per-stage caps, old sunk cost recorded separately. See [UTILITY_EXPANSION_V3.md](UTILITY_EXPANSION_V3.md); authoritative state will be outputs/utility_expansion_v3/progress.json.

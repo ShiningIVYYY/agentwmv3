@@ -1,0 +1,75 @@
+{
+  "schema": "utility-label-v3-all-zero-neutral",
+  "changes": [
+    {
+      "case_id": "utility-v2/alf-e352fcd3dbd61c47/always/seed1/37",
+      "deltas": [
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "old_label": "neutral",
+      "corrected_label": "uncertain"
+    },
+    {
+      "case_id": "utility-v2/alf-7bbe82cc37129b65/never/seed1/2",
+      "deltas": [
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "old_label": "neutral",
+      "corrected_label": "uncertain"
+    },
+    {
+      "case_id": "utility-v2/alf-6a0cea4d0e62182c/always/seed1/6",
+      "deltas": [
+        1,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "old_label": "neutral",
+      "corrected_label": "uncertain"
+    },
+    {
+      "case_id": "utility-v2/alf-cbcb89ab2f38505b/never/seed1/4",
+      "deltas": [
+        0,
+        1,
+        -1,
+        0,
+        0
+      ],
+      "old_label": "neutral",
+      "corrected_label": "uncertain"
+    },
+    {
+      "case_id": "utility-v2/alf-fa0f5571d2feadea/always/seed1/3",
+      "deltas": [
+        0,
+        0,
+        -1,
+        0,
+        -1
+      ],
+      "old_label": "neutral",
+      "corrected_label": "uncertain"
+    }
+  ],
+  "original_counts": {
+    "uncertain": 11,
+    "neutral": 214,
+    "help": 4
+  },
+  "corrected_counts": {
+    "uncertain": 16,
+    "neutral": 209,
+    "help": 4
+  }
+}
