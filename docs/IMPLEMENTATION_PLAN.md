@@ -275,3 +275,11 @@ Commands (native ALFWorld environment variables must be set):
 Four GPUs at most; preserve original13-task deadline,48h extension bound and
 cumulative72M-token cap including failed-run conservative charges. No Actor or
 Reviewer training, Memory/Gate changes, final Test access, or automatic Phase6.
+
+Recovery v4 startup verified: source commit d37e9fe, four strict
+frozen Actor/Reviewer loads on GPUs0/1/6/7, 187 fresh actual TRAIN decisions
+at snapshot,20 cached-feature actual-token/NLL/contract/temporal-isolation checks
+passed, zero worker errors at audit. No Probe has trained yet. Detached controller
+PID328140 runs outputs/recovery_v4 under original/cumulative budgets. Startup
+proof: docs/recovery_v4/startup_audit.json. Leave bounded background execution;
+no continuous assistant monitoring. Completion/error receipts remain authoritative.
