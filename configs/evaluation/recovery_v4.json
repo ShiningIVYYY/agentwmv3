@@ -1,0 +1,144 @@
+{
+  "schema": "utility-recovery-v4",
+  "actor_config": "configs/internal_signals/qwen35_9b_activation_v1.json",
+  "split": "docs/recovery_v4/split_manifest.json",
+  "split_sha256": "60d89cb5bd20e569d73cda1dbe6985525797eeb78e31410c5d5cc8fbd609a446",
+  "data_root": "${ALFWORLD_DATA}",
+  "env_python": "${ALFWORLD_PYTHON}",
+  "train_seeds": [
+    0,
+    1,
+    2
+  ],
+  "evaluation_seed": 0,
+  "budget": 5,
+  "horizon": 50,
+  "gpus": [
+    0,
+    1,
+    6,
+    7
+  ],
+  "stage_limits": {
+    "tokens": 6000000,
+    "model_calls": 10000,
+    "transition_queries": 50000,
+    "audit_capture_bundles": 60000
+  },
+  "global_limits": {
+    "tokens": 67492984,
+    "model_calls": 112097,
+    "transition_queries": 576002,
+    "audit_capture_bundles": 695002,
+    "wall_seconds": 172800
+  },
+  "memory_snapshot": "docs/alfworld_pilot/memory_snapshot.json",
+  "memory_sha256": "85c87dc752498490ac2263acbd702f8ccbf271af628039afd860f3d00d28ba40",
+  "no_actor_or_reviewer_training": true,
+  "format_failure": "agent_abort_preserve_last_native_score_no_invented_action",
+  "reviewer_guard": "reject_nonadmissible_replacement_keep_original",
+  "teacher_forced_activation_forward": true,
+  "utility_deployment_requirement": "Both help and harm heads must have sufficient independent training/validation labels; otherwise no fake utility policy",
+  "source_rollout_seed": 1,
+  "reviewer_seed": 0,
+  "continuation_seeds": [
+    1,
+    2,
+    3
+  ],
+  "confirmation_seeds": [
+    4,
+    5
+  ],
+  "temporal_windows": [
+    [
+      0,
+      9
+    ],
+    [
+      10,
+      29
+    ],
+    [
+      30,
+      49
+    ]
+  ],
+  "states_per_window": {
+    "uniform": 1,
+    "public_difficulty_weighted": 1
+  },
+  "train_pool_budget_fraction": 0.5,
+  "train_outcome_mining": "Add first exact common-state action divergence for all TRAIN pairs; additionally up to2 actual Always revisions when Always succeeds and Never fails; these are candidates, not positive labels",
+  "heldout_outcome_mining": false,
+  "source_policies": [
+    "never",
+    "always"
+  ],
+  "source_tasks": {
+    "probe_train": 100,
+    "retained_training": 47,
+    "recover_original": 13,
+    "additional_training": 40,
+    "probe_validation": 12,
+    "gate_calibration": 12
+  },
+  "sampling_nll_thresholds": {
+    "tau_local": 0.6605888448393671,
+    "tau_global": 0.31148647510687916,
+    "n": 144,
+    "used_task_outcomes": false,
+    "pearson": 0.8521808836370637,
+    "spearman": 0.8713487661763525,
+    "quantile_call_rates": {
+      "0.5": 0.5833333333333334,
+      "0.75": 0.3194444444444444,
+      "0.9": 0.1597222222222222
+    }
+  },
+  "expansion_rule": {
+    "min_repeated_help_states": 5,
+    "min_train_tasks": 3,
+    "use_combined_old_new_training": true
+  },
+  "no_independent_dev_or_final_test_rollout": true,
+  "automatic_gate_deployment": false,
+  "prior_run": "outputs/utility_sampling_v2",
+  "old_training_task_count": 47,
+  "new_training_task_count": 53,
+  "total_training_task_count": 100,
+  "label_schema": "utility-label-v3-all-zero-neutral",
+  "previous_result_reuse": "Reuse original real features and corrected derived labels without rerunning old36; preserve original raw outputs",
+  "failed_run": "outputs/utility_expansion_v3",
+  "total_training_goals": 100,
+  "additional_training_goals": 40,
+  "alignment_version": "actual-generated-id-alignment-v1",
+  "wall_seconds": 172800,
+  "recovery_limits": {
+    "tokens": 13492984,
+    "model_calls": 22097,
+    "transition_queries": 126087,
+    "audit_capture_bundles": 155097
+  },
+  "expansion_limits": {
+    "tokens": 24000000,
+    "model_calls": 40000,
+    "transition_queries": 200000,
+    "audit_capture_bundles": 240000
+  },
+  "original_recovery_deadline": 1795167257.622964,
+  "budget_semantics": "V3+recovery+extra expansion bounded by72M tokens, including conservative charge for2 missing outputs; V2 sunk corpus separate",
+  "no_automatic_gate_deployment": true,
+  "auxiliary_cost": {
+    "tokens": 1655,
+    "model_calls": 3,
+    "transition_queries": 151,
+    "audit_capture_bundles": 163
+  },
+  "auxiliary_scope": "Real failed-state GPU smoke plus45-identity/5-control CPU preflight; charged once",
+  "probe_training_profile": "configs/evaluation/linear_utility_v1.json",
+  "probe_targets": [
+    "utility_help"
+  ],
+  "training_semantics": "Regularized linear only; predeclared500Train/50Help10positive-goals,200Validation/20Help; do not use5-positive legacy floor"
+}

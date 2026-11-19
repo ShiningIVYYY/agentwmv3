@@ -241,3 +241,37 @@ Audit found5 mixed five-seed outcomes miscounted Neutral by V2. Correct derived 
 Collect all24 new tasks before testing the original>=5 Help/across>=3 TRAIN task rule on the combined corpus. Only then collect fixed Val/Cal and train eligible small heads; deployment_allowed=false and no independent Dev/Test/Phase6 execution. Three free GPUs5/6/7; bounded36h/36Mtoken run, fixed per-stage caps, old sunk cost recorded separately. See [UTILITY_EXPANSION_V3.md](UTILITY_EXPANSION_V3.md); authoritative state will be outputs/utility_expansion_v3/progress.json.
 
 V3 background startup verified: controller3004493; GPU5/6/7 workers3004664/3004665/3004666.117 actual new decisions and30 feature caches audited;2 paired tasks/8 state labels recorded with the corrected schema, no errors. Old4 Help preserved and old raw files remain hash-identical. Source commit5a36ca9. Leave the bounded process in background; no continuous monitoring or duplicate launch. Final additional-label counts/training remain pending. Startup evidence: docs/utility_expansion_v3/startup_audit.json.
+
+## 2026-11-19 approved end-to-end Probe plan execution
+
+The user approved the complete simple training plan, now versioned as
+[PROBE_TRAINING_PLAN_SIMPLE.md](PROBE_TRAINING_PLAN_SIMPLE.md).
+Current ALFWorld recovery preserves 47 completed TRAIN goals, restarts all13
+incomplete original goals at unchanged seeds, then samples40 fixed new goals.
+No new main collection was active before this registration.
+
+The first trained target is utility_help, using a mean-pooled regularized linear
+classifier, layers10/15/21, all3 seeds, Train-only normalization/class weighting,
+and task-group learning curves. Original MLP/EMA trainer and experiments remain
+unchanged. Versioned profile: configs/evaluation/linear_utility_v1.json.
+Before fitting require at least500 eligible Train states,50 Help over10 TRAIN
+goal groups, and200 Validation states including20 Help; separate Calibration
+requires50 states. These are starting safeguards, not statistical sufficiency.
+A missing target stops training with explicit unmet counts, not synthetic labels
+or a fallback to the old5-positive engineering floor.
+
+The100-goal collection is a bounded first batch, not a guarantee of50 Help.
+The earlier12/12 heldout roles stay fixed. Revisit data yield after completion;
+new samples must come from separately preregistered legal TRAIN batches.
+This controller does not automatically deploy a head or evaluate final Test.
+Independent development evaluation is authorized by the plan but depends on
+passing data/model/calibration audits; it is not evidence until actually run.
+
+Commands (native ALFWorld environment variables must be set):
+- .venv-qwen35-clean/bin/python scripts/test_recovery_v4.py
+- .venv-qwen35-clean/bin/python scripts/test_linear_utility_plan.py
+- .venv-qwen35-clean/bin/python scripts/run_recovery_v4.py --run outputs/recovery_v4 --auto-publish
+
+Four GPUs at most; preserve original13-task deadline,48h extension bound and
+cumulative72M-token cap including failed-run conservative charges. No Actor or
+Reviewer training, Memory/Gate changes, final Test access, or automatic Phase6.

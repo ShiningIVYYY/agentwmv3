@@ -1,0 +1,42 @@
+{
+  "schema": "linear-utility-study-v1",
+  "target": "utility_help",
+  "architecture": "linear",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "layers": [
+    10,
+    15,
+    21
+  ],
+  "epochs": 3,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.01,
+  "learning_curve_fractions": [
+    0.25,
+    0.5
+  ],
+  "minimum_counts": {
+    "probe_train": {
+      "states": 500,
+      "positive": 50,
+      "negative": 50,
+      "positive_tasks": 10
+    },
+    "probe_validation": {
+      "states": 200,
+      "positive": 20,
+      "negative": 20
+    },
+    "gate_calibration": {
+      "states": 50
+    }
+  },
+  "selection": "Mean validation average precision across all3 seeds; no best-seed picking",
+  "purpose": "Starting data targets, not a statistical guarantee; no automatic online deployment",
+  "frozen_actor": true,
+  "no_final_test": true
+}

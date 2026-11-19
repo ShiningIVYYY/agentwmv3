@@ -823,3 +823,13 @@ Paired TRAIN-task Never/Always source trajectories locate candidate calls; exact
 ## Legal utility training expansion v3
 
 Add24 untouched TRAIN goal groups, reuse immutable original36-goal data, retain all heldout roles. A versioned correction moves5 legacy mixed-seed Neutral records to Uncertain without changing the4 Help candidates or original positive rule. See [scope, preflight, labels, budgets and commands](docs/UTILITY_EXPANSION_V3.md).44 CPU contracts and29 new native identities/5 replay controls pass. No Actor/Reviewer/Memory/Gate changes, Test rollout or automatic learned-Gate deployment.
+
+## Approved linear utility-Probe training workflow
+
+See [simple training plan](docs/PROBE_TRAINING_PLAN_SIMPLE.md) and
+[actual-token recovery/data isolation/cost audit](docs/RECOVERY_V4.md).
+Frozen Qwen3.5-9B supplies decision activations; only a small linear Help Probe
+may train after predeclared data/heldout checks. The new100-goal batch is bounded,
+and insufficient positive labels remain an explicit result. Separate checkpoints,
+all3 seeds and learning curves are retained; old experiments are unchanged.
+No final Test or automatic Phase6 run is started.

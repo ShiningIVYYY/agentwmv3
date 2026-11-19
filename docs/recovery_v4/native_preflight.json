@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "new_train_identities": 40,
+  "new_control_identities": 5,
+  "identities": 45,
+  "replay_controls": 5,
+  "split_sha256": "60d89cb5bd20e569d73cda1dbe6985525797eeb78e31410c5d5cc8fbd609a446",
+  "transition_queries": 85,
+  "audit_capture_bundles": 95,
+  "tokens": 0,
+  "model_calls": 0,
+  "no_test_or_independent_dev_resets": true,
+  "no_prior_native_goal_overlap": true,
+  "seconds": 121.92326452583075,
+  "scope": "Exact public transitions/private fact digest, not full hidden RNG serialization"
+}

@@ -1,0 +1,10 @@
+{
+  "recovery_tests": 14,
+  "linear_plan_guard_tests": 7,
+  "status": "pass",
+  "commands": [
+    ".venv-qwen35-clean/bin/python scripts/test_recovery_v4.py",
+    ".venv-qwen35-clean/bin/python scripts/test_linear_utility_plan.py"
+  ],
+  "scope": "Alignment real-record regression and synthetic guard inputs; not trained model scientific metrics"
+}
