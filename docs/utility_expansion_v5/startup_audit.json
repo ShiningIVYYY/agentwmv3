@@ -1,0 +1,65 @@
+{
+  "status": "pass",
+  "scope": "Engineering startup, not new Probe effectiveness or population utility",
+  "at_unix": 1795547197.0095859,
+  "source_commit": "da183df080515bbe064ce2053e19c54d47dd690d",
+  "run": "outputs/utility_expansion_v5",
+  "gpus": [
+    4,
+    6
+  ],
+  "workers": [
+    {
+      "worker": "worker0",
+      "strict": true,
+      "frozen": true,
+      "shared_actor_reviewer": true,
+      "cached_contract_matches": true,
+      "first_case": "utility-v2/alf-9d48ad5e9821a631/always/seed1/28",
+      "actual_response_tokens": 45,
+      "pairs": 1,
+      "complete_labels": 0
+    },
+    {
+      "worker": "worker1",
+      "strict": true,
+      "frozen": true,
+      "shared_actor_reviewer": true,
+      "cached_contract_matches": true,
+      "first_case": "utility-v2/alf-a540b236db5bb40e/always/seed1/7",
+      "actual_response_tokens": 37,
+      "pairs": 1,
+      "complete_labels": 0
+    }
+  ],
+  "verified_labels": [],
+  "verified_pairs": [
+    {
+      "case_id": "utility-v2/alf-9d48ad5e9821a631/always/seed1/28",
+      "seed": 1,
+      "delta": 0,
+      "actual_skip_action": "move box 1 to coffeetable 1",
+      "actual_call_action": "look"
+    },
+    {
+      "case_id": "utility-v2/alf-a540b236db5bb40e/always/seed1/7",
+      "seed": 1,
+      "delta": 0,
+      "actual_skip_action": "go to stoveburner 1",
+      "actual_call_action": "go to microwave 1"
+    }
+  ],
+  "known_new_cost_snapshot": {
+    "tokens": 92119,
+    "model_calls": 177,
+    "transition_queries": 398,
+    "audit_capture_bundles": 402
+  },
+  "worker_errors": 0,
+  "unit_tests": 15,
+  "native_identity_checks": 125,
+  "native_replay_controls": 5,
+  "no_final_test_or_fresh_dev_used": true,
+  "no_probe_training_started": true,
+  "cost_scope": "Active worker snapshot; native preflight165transitions/175receipts recorded separately and included by final accounting"
+}

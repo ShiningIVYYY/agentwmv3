@@ -315,3 +315,13 @@ See [UTILITY_EXPANSION_V5.md](UTILITY_EXPANSION_V5.md), frozen configuration
 configs/evaluation/utility_expansion_v5.json and docs/utility_expansion_v5.
 Real native preflight/startup receipts are separate; do not claim launch until
 strict model loading and actual labels are checked.
+
+Utility-v5 startup verified: source da183df, controller2473052, workers2473294
+and2473295 on GPUs4/6, two strict frozen shared Actor/Reviewer loads and matching
+prior feature contracts. Startup checks include2 actual complete Call/Skip
+paired continuations;0 complete repeated-state labels at snapshot. A
+single pair is not a reliable Help label. Zero worker errors observed. See
+docs/utility_expansion_v5/startup_audit.json. Owned bounded background run:
+outputs/utility_expansion_v5. Do not continuously monitor or duplicate-launch.
+Final progress/error/summary/publication receipts remain authoritative; no
+Probe has trained yet and no final Test/fresh-Dev/Phase6 evaluation is running.
