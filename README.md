@@ -833,3 +833,13 @@ may train after predeclared data/heldout checks. The new100-goal batch is bounde
 and insufficient positive labels remain an explicit result. Separate checkpoints,
 all3 seeds and learning curves are retained; old experiments are unchanged.
 No final Test or automatic Phase6 run is started.
+
+## Larger lawful utility-label and Validation batch v5
+
+See [protocol, isolation, budgets and commands](docs/UTILITY_EXPANSION_V5.md).
+Reuse existing100 Train-goal source trajectories, add80 new Train/40 Validation
+goals, and reserve12 new independent-Dev goals without evaluating them. Frozen
+Actor/Reviewer/Memory/Gate, same actual-token BF16 scoring and same-state repeated
+utility labels. Train enrichment does not label revisions as positive; Validation
+selection is outcome-blind. Sparse labels remain explicit; no final Test,
+automatic online deployment or Phase6. Old experiments/data stay unchanged.

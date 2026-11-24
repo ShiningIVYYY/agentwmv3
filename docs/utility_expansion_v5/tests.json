@@ -1,0 +1,6 @@
+{
+  "status": "pass",
+  "tests": 15,
+  "command": ".venv-qwen35-clean/bin/python scripts/test_utility_v5.py",
+  "scope": "Synthetic selection guards plus all9628 real prior cases/782labels, exact goal-role/source/cache provenance and conservative cost audit; not new utility outcomes"
+}

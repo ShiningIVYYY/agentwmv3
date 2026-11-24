@@ -283,3 +283,35 @@ passed, zero worker errors at audit. No Probe has trained yet. Detached controll
 PID328140 runs outputs/recovery_v4 under original/cumulative budgets. Startup
 proof: docs/recovery_v4/startup_audit.json. Leave bounded background execution;
 no continuous assistant monitoring. Completion/error receipts remain authoritative.
+
+## Utility expansion v5: user-approved larger TRAIN and independent Validation
+
+Recovery v4 completed100 TRAIN/12 Validation/12 Calibration goals with10 Train
+Help across8 goals,2 Validation Help; linear fitting correctly remained blocked
+by predeclared data readiness. User authorized expansion. Preserve all9628 prior
+cases/782 labels, source hashes, caches, task roles and historical costs.
+
+Preregister80 new Train/40 Validation/5 native controls and reserve12 fresh Dev
+within137 fixed untouched canonical goals. Preserve the initial metadata draft
+and its pre-outcome role-allocation amendment: same identities, proportional
+family quotas remove a cycle-aliasing defect. Three available task families
+limit generalization. No final Test or fresh-Dev reset.
+
+Reuse100 old paired source episodes, label at most4 previously unlabelled real
+accepted-revision contexts per old goal. New Train adds this enrichment to its
+base temporal sampling. New Val samples at most4 uniform unique contexts per
+window, no future-outcome input, no repeated later-window contexts. Accepted
+changes are candidates only; unchanged3/5-seed genuine interventions determine
+Help/Harm/Neutral/Uncertain.15 CPU guards/provenance tests pass.
+
+Current plan uses2 free GPUs4/6, maximum4 authorized. NEW explicit64Mtoken/
+120kcall/600ktransition/660kreceipt/72h bound,50GiB free-disk safety floor and
+90GiB new-run cap. Prior48,699,305 confirmed tokens plus1,890 unknown upper
+charge remain cumulative. No automatic retries, old-budget resets, classifier
+deployment or Phase6. Conditional linear training uses original50Help/20ValHelp
+readiness and three-seed grouped validation, never the old5-positive floor.
+
+See [UTILITY_EXPANSION_V5.md](UTILITY_EXPANSION_V5.md), frozen configuration
+configs/evaluation/utility_expansion_v5.json and docs/utility_expansion_v5.
+Real native preflight/startup receipts are separate; do not claim launch until
+strict model loading and actual labels are checked.

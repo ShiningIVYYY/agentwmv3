@@ -1,0 +1,49 @@
+{
+  "reason": "Three-family cycle and2Train/1Val cycle aliased, concentrating Validation in one family. Proportional within-family quotas remove this metadata design defect.",
+  "same137goal_identities": true,
+  "no_native_or_model_data_before_amendment": true,
+  "old_sha256": "bd581b4b376a9c081f931c5a229d59b3ed78914e979acf4b9f3bf97a041acb02",
+  "new_sha256": "a108c2feebe2ca20fbf193c94571b8d9740a205d32e51853d3e8f978598fc0d2",
+  "before": {
+    "probe_train": {
+      "pick_and_place_simple": 40,
+      "pick_clean_then_place_in_recep": 31,
+      "pick_two_obj_and_place": 9
+    },
+    "probe_validation": {
+      "pick_two_obj_and_place": 35,
+      "pick_and_place_simple": 5
+    },
+    "environment_validation": {
+      "pick_two_obj_and_place": 3,
+      "pick_and_place_simple": 2
+    },
+    "reserved_independent_dev_v5": {
+      "pick_and_place_simple": 6,
+      "pick_two_obj_and_place": 6
+    }
+  },
+  "after": {
+    "environment_validation": {
+      "pick_and_place_simple": 2,
+      "pick_clean_then_place_in_recep": 1,
+      "pick_two_obj_and_place": 2
+    },
+    "reserved_independent_dev_v5": {
+      "pick_and_place_simple": 4,
+      "pick_clean_then_place_in_recep": 3,
+      "pick_two_obj_and_place": 5
+    },
+    "probe_train": {
+      "pick_and_place_simple": 31,
+      "pick_clean_then_place_in_recep": 18,
+      "pick_two_obj_and_place": 31
+    },
+    "probe_validation": {
+      "pick_and_place_simple": 16,
+      "pick_clean_then_place_in_recep": 9,
+      "pick_two_obj_and_place": 15
+    }
+  },
+  "registered_unix": 1795546303.9750125
+}
