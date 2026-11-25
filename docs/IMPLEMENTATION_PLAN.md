@@ -349,3 +349,14 @@ budget/time reset or Unknown-to-negative conversion. Combined old+recovery
 directory cap90GiB/free-disk50GiB. See UTILITY_EXPANSION_V5_RECOVERY.md, recovery
 receipt/config and scripts/recover_utility_v5.py. Actual startup is recorded
 separately. No Test/freshDev/automatic Gate deployment or Phase6.
+
+Recovery startup verified: controller1277118, actual GPUs[0, 6],
+107 fresh Validation decisions at snapshot,
+10 actual-token feature/NLL/time checks and16 isolated
+trial checks pass; new labels at snapshot{'neutral': 4}. No new Help
+claim, no Probe trained. Source c8d9f83. Proof:
+docs/utility_expansion_v5/recovery_startup_audit.json. Active run is
+outputs/utility_expansion_v5_recovery, not the stopped original V5. Leave
+bounded background execution; no continuous monitoring or duplicate startup.
+Completion/error/publication receipts remain authoritative under original
+absolute deadline/caps. No Test/freshDev/Phase6.

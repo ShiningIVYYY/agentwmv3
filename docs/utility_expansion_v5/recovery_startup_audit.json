@@ -1,0 +1,97 @@
+{
+  "status": "pass",
+  "scope": "Real recovered startup correctness only, no effectiveness claim",
+  "at_unix": 1795648963.3972573,
+  "source_commit": "c8d9f8300a582722d9290c8cc15a58b951d629a2",
+  "actual_gpus": [
+    0,
+    6
+  ],
+  "models": [
+    {
+      "worker": "worker0",
+      "strict_load": true,
+      "frozen": true,
+      "shared": true,
+      "source_cases": 59
+    },
+    {
+      "worker": "worker1",
+      "strict_load": true,
+      "frozen": true,
+      "shared": true,
+      "source_cases": 48
+    }
+  ],
+  "real_new_decisions_at_snapshot": 107,
+  "verified_cached_features": [
+    {
+      "case_id": "utility-v2/alf-d62faba6ea669baf/never/seed1/0",
+      "actual_response_tokens": 36,
+      "shape_and_nll_match": true,
+      "no_future_features": true
+    },
+    {
+      "case_id": "utility-v2/alf-d62faba6ea669baf/never/seed1/1",
+      "actual_response_tokens": 26,
+      "shape_and_nll_match": true,
+      "no_future_features": true
+    },
+    {
+      "case_id": "utility-v2/alf-d62faba6ea669baf/never/seed1/2",
+      "actual_response_tokens": 29,
+      "shape_and_nll_match": true,
+      "no_future_features": true
+    },
+    {
+      "case_id": "utility-v2/alf-d62faba6ea669baf/never/seed1/3",
+      "actual_response_tokens": 36,
+      "shape_and_nll_match": true,
+      "no_future_features": true
+    },
+    {
+      "case_id": "utility-v2/alf-d62faba6ea669baf/never/seed1/4",
+      "actual_response_tokens": 37,
+      "shape_and_nll_match": true,
+      "no_future_features": true
+    },
+    {
+      "case_id": "utility-v2/alf-0d0d8c09b3082295/never/seed1/0",
+      "actual_response_tokens": 33,
+      "shape_and_nll_match": true,
+      "no_future_features": true
+    },
+    {
+      "case_id": "utility-v2/alf-0d0d8c09b3082295/never/seed1/1",
+      "actual_response_tokens": 35,
+      "shape_and_nll_match": true,
+      "no_future_features": true
+    },
+    {
+      "case_id": "utility-v2/alf-0d0d8c09b3082295/never/seed1/2",
+      "actual_response_tokens": 29,
+      "shape_and_nll_match": true,
+      "no_future_features": true
+    },
+    {
+      "case_id": "utility-v2/alf-0d0d8c09b3082295/never/seed1/3",
+      "actual_response_tokens": 46,
+      "shape_and_nll_match": true,
+      "no_future_features": true
+    },
+    {
+      "case_id": "utility-v2/alf-0d0d8c09b3082295/never/seed1/4",
+      "actual_response_tokens": 36,
+      "shape_and_nll_match": true,
+      "no_future_features": true
+    }
+  ],
+  "isolated_trial_checks": 16,
+  "new_label_counts": {
+    "neutral": 4
+  },
+  "model_and_scoring_unchanged": true,
+  "unit_tests": 9,
+  "no_test_or_fresh_dev": true,
+  "no_probe_training_started": true
+}
