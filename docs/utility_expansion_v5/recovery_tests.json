@@ -1,0 +1,8 @@
+{
+  "status": "pass",
+  "tests": 9,
+  "original_tests": 7,
+  "command": ".venv-qwen35-clean/bin/python scripts/test_utility_v5_recovery.py",
+  "log": "outputs/utility_v5_recovery_tests_v2.log",
+  "scope": "Real1076-label/9628-case retention,NoFutureFeatures,Unknown140,16TrainHelp,oldcost/deadline;synthetic resource-boundary unit inputs only"
+}

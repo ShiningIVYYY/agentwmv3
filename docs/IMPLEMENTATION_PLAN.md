@@ -325,3 +325,27 @@ docs/utility_expansion_v5/startup_audit.json. Owned bounded background run:
 outputs/utility_expansion_v5. Do not continuously monitor or duplicate-launch.
 Final progress/error/summary/publication receipts remain authoritative; no
 Probe has trained yet and no final Test/fresh-Dev/Phase6 evaluation is running.
+
+## Utility-v5 resource recovery, 2026-11-25
+
+V5 finished100 densification task scans:294 records,125 Neutral/22 Uncertain/
+6 Help/1 Harm/140 budget-Unknown. Combined Train16Help over13 goals,Val2Help;
+no Probe trained. NewTrain failed during model reload because another process
+occupied physicalGPU6. No new source generation/native queries occurred. Both
+owned workers exited. Original raw data, failed logs and294 labels are sealed.
+
+The isolated-environment7-test receipt was recovered after network downtime;
+the updated9-test adaptive-resource/retention suite passes. New recovery reuses
+all100 completed scans,1076 labels/9628 source cases and same80Train/40Val goals.
+It collects Validation first under scarcity, then Train. This changes only
+scheduling, not model/prompts/sampling/thresholds/Memory/label standards or roles.
+Each phase chooses1-4 empty cards, takes advisory leases and rechecks before
+spawn. Runtime configuration is hash-checked and may differ ONLY in GPU IDs.
+External users need not respect leases; no external job is stopped.
+
+Remaining52,496,083tokens/98,444calls/543,943transitions/603,625receipts are exact
+original residuals, and original absolute72h deadline remains binding. No old
+budget/time reset or Unknown-to-negative conversion. Combined old+recovery
+directory cap90GiB/free-disk50GiB. See UTILITY_EXPANSION_V5_RECOVERY.md, recovery
+receipt/config and scripts/recover_utility_v5.py. Actual startup is recorded
+separately. No Test/freshDev/automatic Gate deployment or Phase6.

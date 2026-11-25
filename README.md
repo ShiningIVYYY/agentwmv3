@@ -843,3 +843,12 @@ Actor/Reviewer/Memory/Gate, same actual-token BF16 scoring and same-state repeat
 utility labels. Train enrichment does not label revisions as positive; Validation
 selection is outcome-blind. Sparse labels remain explicit; no final Test,
 automatic online deployment or Phase6. Old experiments/data stay unchanged.
+
+## Utility-v5 resource recovery
+
+See [recovery provenance, budgets and commands](docs/UTILITY_EXPANSION_V5_RECOVERY.md).
+Retain completed old-task data after a phase-switch CUDA OOM; resume only the
+same40 Validation/80 Train goals using actual empty cards per phase, at most4.
+Original absolute deadline/cost caps and frozen method remain unchanged.
+Unknown labels are excluded from hard supervision. No model training or online
+utility claim is inferred from startup checks.

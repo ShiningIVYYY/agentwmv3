@@ -1,0 +1,91 @@
+{
+  "actor_config": "configs/internal_signals/qwen35_9b_activation_v1.json",
+  "data_root": "${ALFWORLD_DATA}",
+  "env_python": "${ALFWORLD_PYTHON}",
+  "memory_snapshot": "docs/alfworld_pilot/memory_snapshot.json",
+  "memory_sha256": "85c87dc752498490ac2263acbd702f8ccbf271af628039afd860f3d00d28ba40",
+  "sampling_nll_thresholds": {
+    "tau_local": 0.6605888448393671,
+    "tau_global": 0.31148647510687916,
+    "n": 144,
+    "used_task_outcomes": false,
+    "pearson": 0.8521808836370637,
+    "spearman": 0.8713487661763525,
+    "quantile_call_rates": {
+      "0.5": 0.5833333333333334,
+      "0.75": 0.3194444444444444,
+      "0.9": 0.1597222222222222
+    }
+  },
+  "probe_training_profile": "configs/evaluation/linear_utility_v1.json",
+  "schema": "utility-v5-resource-recovery",
+  "split": "docs/utility_expansion_v5/split_manifest.json",
+  "split_sha256": "a108c2feebe2ca20fbf193c94571b8d9740a205d32e51853d3e8f978598fc0d2",
+  "gpus": [
+    0,
+    1,
+    3,
+    4
+  ],
+  "wall_seconds": 213434.7490696907,
+  "minimum_free_disk_bytes": 53687091200,
+  "maximum_run_bytes": 96636764160,
+  "extra_train_states_per_task": 4,
+  "validation_states_per_window": 4,
+  "global_limits": {
+    "tokens": 52496083,
+    "model_calls": 98444,
+    "transition_queries": 543943,
+    "audit_capture_bundles": 603625
+  },
+  "phase_limits": {
+    "densify_train": {
+      "tokens": 12000000,
+      "model_calls": 24000,
+      "transition_queries": 150000,
+      "audit_capture_bundles": 165000
+    },
+    "new_train": {
+      "tokens": 32000000,
+      "model_calls": 60000,
+      "transition_queries": 300000,
+      "audit_capture_bundles": 330000
+    },
+    "new_validation": {
+      "tokens": 20000000,
+      "model_calls": 36000,
+      "transition_queries": 150000,
+      "audit_capture_bundles": 165000
+    }
+  },
+  "old_train_goals": 100,
+  "new_train_goals": 80,
+  "new_validation_goals": 40,
+  "source_rollout_seed": 1,
+  "reviewer_seed": 0,
+  "continuation_seeds": [
+    1,
+    2,
+    3
+  ],
+  "confirmation_seeds": [
+    4,
+    5
+  ],
+  "outcome_filter": "None for new revision enrichment; accepted change is a candidate only, never a Help label",
+  "no_actor_or_reviewer_training": true,
+  "no_memory_or_gate_changes": true,
+  "no_final_test_rollouts": true,
+  "no_fresh_independent_dev_rollouts": true,
+  "no_automatic_gate_deployment": true,
+  "budget_semantics": "NEW64M-token/72h batch; old48.7M known costs and1890-token unknown upper charge remain separately included in cumulative reporting",
+  "original_deadline_unix": 1795806044.208601,
+  "recovery_receipt": "docs/utility_expansion_v5/recovery_receipt.json",
+  "original_run": "outputs/utility_expansion_v5",
+  "gpu_wait_seconds": 7200,
+  "minimum_gpus": 1,
+  "phase_order": [
+    "new_validation",
+    "new_train"
+  ]
+}
