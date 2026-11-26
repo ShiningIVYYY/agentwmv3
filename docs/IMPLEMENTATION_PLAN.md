@@ -376,3 +376,14 @@ deadline remain binding.6 retention/scheduling tests pass.
 See UTILITY_V5_TWO_PASS_RESUME.md; active continuation uses
 outputs/utility_expansion_v5_remaining. Actual startup is recorded separately.
 No final Test/freshDev/deployment/Phase6.
+
+Two-pass continuation startup verified: controller3206447,
+actual Validation GPU[3], strict shared frozen Actor/Reviewer,
+18 fresh Always decisions and
+18 isolated-trial checks passed. First complete Never
+source reused with explicit source receipt. No new label at startup; Train16
+andVal8 Help remain the last reliable totals.6 new tests and startup proof pass.
+Active run outputs/utility_expansion_v5_remaining; stopped recoveries remain
+immutable. Original budget/deadline unchanged. Leave bounded background
+execution without continuous monitoring. No Probe trained or Test/freshDev/
+Phase6. Proof: docs/utility_expansion_v5/budget_resume_startup_audit.json.

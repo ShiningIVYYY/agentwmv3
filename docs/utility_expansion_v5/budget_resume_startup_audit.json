@@ -1,0 +1,57 @@
+{
+  "status": "pass",
+  "scope": "Real recovered startup correctness only, no effectiveness claim",
+  "at_unix": 1795728234.7628927,
+  "source_commit": "03ba2487b2cff4f7b1ebf7a2d934532953b92e11",
+  "actual_gpus": [
+    3
+  ],
+  "models": [
+    {
+      "worker": "worker0",
+      "strict_load": true,
+      "frozen": true,
+      "shared": true,
+      "source_cases": 18
+    }
+  ],
+  "real_new_decisions_at_snapshot": 18,
+  "verified_cached_features": [
+    {
+      "case_id": "utility-v2/alf-6ccd7a5147da3712/always/seed1/0",
+      "actual_response_tokens": 27,
+      "shape_and_nll_match": true,
+      "no_future_features": true
+    },
+    {
+      "case_id": "utility-v2/alf-6ccd7a5147da3712/always/seed1/1",
+      "actual_response_tokens": 32,
+      "shape_and_nll_match": true,
+      "no_future_features": true
+    },
+    {
+      "case_id": "utility-v2/alf-6ccd7a5147da3712/always/seed1/2",
+      "actual_response_tokens": 34,
+      "shape_and_nll_match": true,
+      "no_future_features": true
+    },
+    {
+      "case_id": "utility-v2/alf-6ccd7a5147da3712/always/seed1/3",
+      "actual_response_tokens": 28,
+      "shape_and_nll_match": true,
+      "no_future_features": true
+    },
+    {
+      "case_id": "utility-v2/alf-6ccd7a5147da3712/always/seed1/4",
+      "actual_response_tokens": 33,
+      "shape_and_nll_match": true,
+      "no_future_features": true
+    }
+  ],
+  "isolated_trial_checks": 18,
+  "new_label_counts": {},
+  "model_and_scoring_unchanged": true,
+  "unit_tests": 9,
+  "no_test_or_fresh_dev": true,
+  "no_probe_training_started": true
+}
