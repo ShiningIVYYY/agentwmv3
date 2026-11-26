@@ -852,3 +852,11 @@ same40 Validation/80 Train goals using actual empty cards per phase, at most4.
 Original absolute deadline/cost caps and frozen method remain unchanged.
 Unknown labels are excluded from hard supervision. No model training or online
 utility claim is inferred from startup checks.
+
+## V5 source-first budget continuation
+
+[Protocol and original residual limits](docs/UTILITY_V5_TWO_PASS_RESUME.md):
+retain38 complete Validation tasks and both complete Never sources, finish
+only2 fixed Val/80 Train goals. Source collection precedes utility labels to
+avoid a local call cap interrupting the next source episode. No method or
+original total-budget/deadline change; sparse labels remain explicit.

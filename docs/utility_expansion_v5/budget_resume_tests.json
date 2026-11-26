@@ -1,0 +1,7 @@
+{
+  "status": "pass",
+  "tests": 6,
+  "command": ".venv-qwen35-clean/bin/python scripts/test_v5_remaining.py",
+  "log": "outputs/v5_remaining_tests.log",
+  "scope": "Actual prior corpus/split/cost audits plus synthetic source-before-label scheduling regression; no mock research outcomes"
+}

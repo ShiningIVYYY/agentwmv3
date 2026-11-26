@@ -360,3 +360,19 @@ outputs/utility_expansion_v5_recovery, not the stopped original V5. Leave
 bounded background execution; no continuous monitoring or duplicate startup.
 Completion/error/publication receipts remain authoritative under original
 absolute deadline/caps. No Test/freshDev/Phase6.
+
+## 2026-11-26 V5 source-first continuation
+
+Recovery1 stopped at38/40 Validation tasks due local model-call cap; no pending
+receipts. Cumulative Train16Help/13 goals,Validation8Help/7 goals; no training.
+Seal and retain38 complete tasks plus2 complete Never episodes, exclude both
+unfinished Always prefixes while preserving their costs. Finish only remaining
+2 Val+80 Train. Collect full sources BEFORE label rollouts, using original
+samplers/seeds/label definitions. No model/threshold/Memory/role changes.
+Shared Val residual485 calls can cover worst-case200 Always-source calls;
+Train source funding is verified for1-4 workers before labels spend balances.
+Remaining original total33471715tokens/62929calls and original absolute
+deadline remain binding.6 retention/scheduling tests pass.
+See UTILITY_V5_TWO_PASS_RESUME.md; active continuation uses
+outputs/utility_expansion_v5_remaining. Actual startup is recorded separately.
+No final Test/freshDev/deployment/Phase6.
